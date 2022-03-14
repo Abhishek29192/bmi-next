@@ -6,19 +6,20 @@ import {
   Phone,
   Public
 } from "@material-ui/icons";
-import React from "react";
 import classnames from "classnames";
-import AnchorLink from "../anchor-link/AnchorLink";
-import Button from "../button/Button";
-import { ClickableAction } from "../clickable/Clickable";
-import Icon from "../icon/Icon";
+import React from "react";
+import AnchorLink from "../anchor-link";
+import Button from "../button";
+import { ClickableAction } from "../clickable";
+import Icon from "../icon";
 import Logo, {
   RoofProElite,
   RoofProExpert,
   RoofProPartnerSmall
 } from "../logo";
-import Typography from "../typography/Typography";
-import styles from "./CompanyDetails.module.scss";
+import { colours } from "../theme-provider";
+import Typography from "../typography";
+import { useStyles } from "./styles";
 
 export type RoofProLevel = "expert" | "partner" | "elite" | string;
 
@@ -70,16 +71,14 @@ const typeToIconMap = (type: DetailProps["type"]): SVGImport | undefined => {
 };
 
 const DetailsItem = (props: DetailProps) => {
+  const classes = useStyles();
+
   if (props.type === "cta") {
     const { action, label } = props;
 
     return (
-      <div className={[styles["row"], styles["row--cta"]].join(", ")}>
-        <Button
-          className={styles["cta-button"]}
-          variant="contained"
-          action={action}
-        >
+      <div className={[classes.row, classes.cta].join(", ")}>
+        <Button className={classes.button} variant="contained" action={action}>
           {label}
         </Button>
       </div>
@@ -96,19 +95,19 @@ const DetailsItem = (props: DetailProps) => {
     const iconSource = iconSourceMap[level as RoofProLevel];
 
     return (
-      <div className={styles["row"]}>
-        <dt className={styles["term"]}>
-          <span className={styles["label"]}>{label}</span>
+      <div className={classes.row}>
+        <dt className={classes.term}>
+          <span className={classes.label}>{label}</span>
         </dt>
-        <dd className={styles["description"]}>
+        <dd className={classes.description}>
           {iconSource ? (
-            <Logo source={iconSource} className={styles[`roofProLevelIcon`]} />
+            <Logo source={iconSource} className={classes.roofProLevelIcon} />
           ) : (
-            <pre style={{ color: "#d6001c" }}>
+            <pre style={{ color: colours.error }}>
               Error: Level &quot;{level}&quot; does not exist
             </pre>
           )}
-          <span className={styles["accessibility-label"]}>{level}</span>
+          <span className={classes.accessibilityLabel}>{level}</span>
         </dd>
       </div>
     );
@@ -127,26 +126,31 @@ const DetailsItem = (props: DetailProps) => {
   const styledText = textStyle === "bold" ? <b>{text}</b> : text;
 
   return (
-    <WrapperElement className={styles["row"]}>
-      <dt className={styles["term"]}>
+    <WrapperElement
+      className={classnames([
+        classes.row,
+        type === "address" && classes.address
+      ])}
+    >
+      <dt className={classes.term}>
         {icon && display === "icon" ? (
-          <Icon source={icon} className={styles["icon"]} />
+          <Icon source={icon} className={classes.icon} />
         ) : null}
         {display !== "contentOnly" ? (
           <Typography
             component="span"
             className={classnames(
-              styles["label"],
-              display === "icon" && styles["accessibility-label"]
+              classes.label,
+              display === "icon" && classes.accessibilityLabel
             )}
           >
             {label}
           </Typography>
         ) : undefined}
       </dt>
-      <dd className={styles["description"]}>
+      <dd className={classes.description}>
         {action ? (
-          <AnchorLink action={action} className={styles["link"]}>
+          <AnchorLink action={action} className={classes.link}>
             {text}
           </AnchorLink>
         ) : (
@@ -158,16 +162,18 @@ const DetailsItem = (props: DetailProps) => {
 };
 
 const CompanyDetails = ({ name, details, children }: Props) => {
+  const classes = useStyles();
+
   return (
-    <div className={styles["CompanyDetails"]}>
+    <div className={classes.root}>
       {name && (
-        <Typography variant="h5" className={styles["title"]}>
+        <Typography variant="h5" className={classes.title}>
           {name}
         </Typography>
       )}
-      <div className={styles["scrollbar"]}>
+      <div>
         {details?.length ? (
-          <dl className={styles["list"]}>
+          <dl className={classes.list}>
             {details.map((detail, index) => (
               <DetailsItem key={index} {...detail} />
             ))}

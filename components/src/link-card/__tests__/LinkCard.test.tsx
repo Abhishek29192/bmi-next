@@ -1,6 +1,6 @@
-import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import { useState } from "react";
+import { fireEvent, waitFor } from "@testing-library/react";
+import React, { useState } from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import LinkCard from "../LinkCard";
 
 const LinkCardWithTransition = ({
@@ -29,12 +29,14 @@ const LinkCardWithTransition = ({
 
 describe("LinkCard component", () => {
   it("renders correctly closed variant", () => {
-    const { container } = render(<LinkCard title="test">test</LinkCard>);
+    const { container } = renderWithThemeProvider(
+      <LinkCard title="test">test</LinkCard>
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders on open variant", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LinkCard isOpen title="test">
         test
       </LinkCard>
@@ -43,12 +45,12 @@ describe("LinkCard component", () => {
   });
   it("onCloseClick for item", () => {
     const onCloseClick = jest.fn();
-    const { container } = render(
+    const { container, getAllByTestId } = renderWithThemeProvider(
       <LinkCard isOpen title="test" onCloseClick={onCloseClick}>
         content
       </LinkCard>
     );
-    const item = container.getElementsByClassName("item")[0];
+    const item = getAllByTestId("linkCard-item")[0];
     fireEvent.click(item);
     expect(onCloseClick).toHaveBeenCalledTimes(1);
     expect(container).toMatchSnapshot();
@@ -56,7 +58,7 @@ describe("LinkCard component", () => {
 
   it("renders onEnterd transition onClick ", async () => {
     const onExpandCompleted = jest.fn();
-    const { container, getAllByText } = render(
+    const { container, getAllByText } = renderWithThemeProvider(
       <LinkCardWithTransition onExpandCompleted={onExpandCompleted} />
     );
     expect(container).toMatchSnapshot();

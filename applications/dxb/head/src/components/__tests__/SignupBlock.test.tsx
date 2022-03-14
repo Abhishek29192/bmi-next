@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
@@ -78,34 +79,54 @@ jest.mock("../FormSection", () => {
 
 describe("SignupBlock component", () => {
   it("renders correctly", () => {
-    const { container, queryAllByRole } = render(<SignupBlock data={data} />);
+    const { container, queryAllByRole } = render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
     expect(container.firstChild).toHaveClass("SignupBlock");
     expect(queryAllByRole("button", { name: "sign up" }).length).toBe(1);
   });
 
   it("renders correctly when no data is given", () => {
-    const { container } = render(<SignupBlock />);
+    const { container } = render(
+      <ThemeProvider>
+        <SignupBlock />
+      </ThemeProvider>
+    );
     expect(container.children.length).toBe(0);
   });
 
   it("renders dialog correctly when clicked on sign up button", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
 
-    expect(document.querySelectorAll(".Dialog").length).toBe(1);
+    expect(document.querySelectorAll("[class*='Dialog-root']").length).toBe(1);
   });
   it("closes dialog correctly when clicked on close button", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
     const closeButton = screen.getByRole("button", { name: "Close" });
     fireEvent.click(closeButton);
-    expect(document.querySelector(".Dialog")).toBeFalsy();
+    expect(document.querySelector("[class*='Dialog-root']")).toBeFalsy();
   });
 
   it("renders correctly when clicked on cancel button", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
     const cancelButton = screen.getByRole("button", {
@@ -117,7 +138,11 @@ describe("SignupBlock component", () => {
     ).toBeFalsy();
   });
   it("disables sign up button on load", () => {
-    const { getByRole } = render(<SignupBlock data={data} />);
+    const { getByRole } = render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
 
     const signupButton = getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
@@ -126,7 +151,11 @@ describe("SignupBlock component", () => {
   });
 
   it("enables sign up button on valid email and both legal check boxes checked ", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
 
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
@@ -145,11 +174,17 @@ describe("SignupBlock component", () => {
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
 
-    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    const dialogSignupBtn = document.querySelectorAll(
+      "[class*='actions'] button"
+    )[1];
     expect(dialogSignupBtn).toBeEnabled();
   });
   it("disables sign up button on invalid email but both legal check boxes checked ", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
 
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
@@ -168,12 +203,18 @@ describe("SignupBlock component", () => {
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
 
-    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    const dialogSignupBtn = document.querySelectorAll(
+      "[class*='actions'] button"
+    )[1];
     expect(dialogSignupBtn).toBeDisabled();
   });
 
   it("disables sign up button on valid email but legal check boxes not checked ", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
 
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
@@ -183,12 +224,18 @@ describe("SignupBlock component", () => {
 
     fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
 
-    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    const dialogSignupBtn = document.querySelectorAll(
+      "[class*='actions'] button"
+    )[1];
     expect(dialogSignupBtn).toBeDisabled();
   });
 
   it("renders correctly when clicked on close button once the form is submitted", () => {
-    render(<SignupBlock data={data} />);
+    render(
+      <ThemeProvider>
+        <SignupBlock data={data} />
+      </ThemeProvider>
+    );
 
     const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
@@ -207,15 +254,19 @@ describe("SignupBlock component", () => {
     fireEvent.click(legalConsentSubscription);
     fireEvent.click(legalConsentProcessing);
 
-    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    const dialogSignupBtn = document.querySelectorAll(
+      "[class*='actions'] button"
+    )[1];
 
     fireEvent.click(dialogSignupBtn);
 
-    expect(document.querySelectorAll(".actions button").length).toBe(1);
+    expect(document.querySelectorAll("[class*='actions'] button").length).toBe(
+      1
+    );
     const cancelButton = screen.getByRole("button", {
       name: `MC: ${microCopy.DIALOG_CLOSE}`
     });
     fireEvent.click(cancelButton);
-    expect(document.querySelector(".Dialog")).toBeFalsy();
+    expect(document.querySelector("[class*='Dialog']")).toBeFalsy();
   });
 });

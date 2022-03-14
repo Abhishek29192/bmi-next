@@ -1,8 +1,7 @@
+import "@testing-library/jest-dom/extend-expect";
 import React from "react";
 import { Notification } from "..";
-import "@testing-library/jest-dom/extend-expect";
-import { renderWithI18NProvider } from "../../../lib/tests/utils";
-import { screen } from "../../../lib/tests/utils";
+import { renderWithI18NProvider, screen } from "../../../lib/tests/utils";
 
 const i18nMock = jest.fn().mockReturnValue({ language: "en_EN" });
 

@@ -5,11 +5,13 @@ import {
   IconList,
   LeadBlock,
   Section,
+  ThemeOptions,
   Typography
 } from "@bmi/components";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import CheckIcon from "@material-ui/icons/Check";
+import { makeStyles } from "@material-ui/styles";
 import { useLocation } from "@reach/router";
 import React, { useEffect, useState } from "react";
 import Link, { Data as LinkData } from "../../components/Link";
@@ -21,12 +23,21 @@ import {
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
 import withGTM from "../../utils/google-tag-manager";
-
 import styles from "./styles/leadBlockSection.module.scss";
 
-const BlueCheckIcon = (
-  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
+export const useStyles = makeStyles(
+  (theme: ThemeOptions) => ({
+    root: {
+      color: theme.colours.inter
+    }
+  }),
+  { name: "BlueCheckIcon" }
 );
+
+const BlueCheckIcon = () => {
+  const classes = useStyles();
+  return <CheckIcon className={classes.root} />;
+};
 
 type Props = {
   name: string;
@@ -146,7 +157,7 @@ const LeadBlockSection = ({
                   {uniqueSellingPropositions.map((value, id) => (
                     <IconList.Item
                       isCompact
-                      icon={BlueCheckIcon}
+                      icon={BlueCheckIcon()}
                       title={value}
                       key={`unique-selling-proposition-${id}`}
                     />

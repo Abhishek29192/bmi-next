@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Delete } from "@material-ui/icons";
-import { PictureAsPdf } from "@material-ui/icons";
-import { FileCopy } from "@material-ui/icons";
 import { LinearProgress } from "@material-ui/core";
+import { Delete, FileCopy, PictureAsPdf } from "@material-ui/icons";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Button from "../button/Button";
 import Icon from "../icon";
 import Typography from "../typography/Typography";
-import styles from "./Upload.module.scss";
+import { useStyles } from "./styles";
 
 export type UploadFile = {
   file: File;
@@ -52,6 +50,8 @@ const File = ({
 }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const classes = useStyles();
 
   const previewImage = file.type.includes("image")
     ? URL.createObjectURL(file)
@@ -110,44 +110,44 @@ const File = ({
   const getIcon = (type: string) => {
     const Source = type.includes("pdf") ? PictureAsPdf : FileCopy;
 
-    return <Icon source={Source} className={styles["file-display"]} />;
+    return <Icon source={Source} className={classes.fileDisplay} />;
   };
 
   const renderContent = (size: number) => {
     if (loading) {
       return (
-        <div className={styles["progress"]}>
+        <div className={classes.progress}>
           <LinearProgress />
         </div>
       );
     }
     if (error) {
-      return <Typography className={styles["error"]}>{error}</Typography>;
+      return <Typography className={classes.error}>{error}</Typography>;
     }
     return (
-      <Typography className={styles["file-size"]}>
+      <Typography className={classes.fileSize}>
         {getFileSizeString(size)}
       </Typography>
     );
   };
 
   return (
-    <div data-testid="test-file" className={styles["file"]}>
+    <div data-testid="test-file" className={classes.file}>
       {previewImage ? (
         <img
-          className={styles["file-display"]}
+          className={classes.fileDisplay}
           src={previewImage}
           alt={file.name}
         />
       ) : (
         getIcon(file.type)
       )}
-      <div className={styles["file-info-wrapper"]}>
-        <Typography className={styles["filename"]}>{file.name}</Typography>
+      <div className={classes.fileInfoWrapper}>
+        <Typography className={classes.filename}>{file.name}</Typography>
         {renderContent(file.size)}
       </div>
       <Button
-        className={styles["delete-icon"]}
+        className={classes.deleteIcon}
         data-testid="file-delete"
         variant="text"
         isIconButton

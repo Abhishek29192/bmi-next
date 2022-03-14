@@ -1,15 +1,18 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import ArrowControl from "../ArrowControl";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ArrowControl component", () => {
   it("renders correctly", () => {
-    const { container } = render(<ArrowControl direction="left" />);
+    const { container } = renderWithThemeProvider(
+      <ArrowControl direction="left" />
+    );
     expect(container).toMatchSnapshot();
   });
   it("triggers an onClick event", () => {
     const onClick = jest.fn();
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <ArrowControl direction="left" onClick={onClick} />
     );
 

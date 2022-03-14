@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
@@ -31,16 +32,18 @@ const renderWithGoogleProvider = ({
   zoom = 2
 }: Partial<MapProps>) => {
   return render(
-    <ServiceLocatorMap
-      selectedRoofer={selectedRoofer}
-      getCompanyDetails={getCompanyDetails}
-      initialMapCentre={initialMapCentre}
-      centre={centre}
-      clearRooferAndResetMap={clearRooferAndResetMap}
-      handleMarkerClick={handleMarkerClick}
-      markers={markers}
-      zoom={zoom}
-    />
+    <ThemeProvider>
+      <ServiceLocatorMap
+        selectedRoofer={selectedRoofer}
+        getCompanyDetails={getCompanyDetails}
+        initialMapCentre={initialMapCentre}
+        centre={centre}
+        clearRooferAndResetMap={clearRooferAndResetMap}
+        handleMarkerClick={handleMarkerClick}
+        markers={markers}
+        zoom={zoom}
+      />
+    </ThemeProvider>
   );
 };
 

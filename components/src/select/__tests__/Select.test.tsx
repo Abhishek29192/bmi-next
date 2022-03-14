@@ -1,10 +1,11 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import Select, { MenuItem } from "../Select";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Select component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select name="Country" label="Country" labelId="outlined-country-simple">
         <MenuItem aria-label="None" defaultValue="">
           None
@@ -17,7 +18,7 @@ describe("Select component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly as variant hybrid", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select
         name="Country"
         variant="hybrid"
@@ -36,7 +37,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly if label is undefined", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select
         name="Country"
         variant="outlined"
@@ -54,7 +55,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly if labelId is undefined", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select name="Country" variant="outlined" label="label">
         <MenuItem aria-label="None" defaultValue="">
           None
@@ -68,7 +69,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly as variant outlined", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select
         name="Country"
         variant="outlined"
@@ -87,7 +88,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly as variant undefined", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select name="Country" label="Country" labelId="outlined-country-simple">
         <MenuItem aria-label="None" defaultValue="">
           None
@@ -102,7 +103,7 @@ describe("Select component", () => {
 
   it("displays errorText instead of helperText if error is provided", () => {
     const label = "Country";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <Select
         name="Country"
         label={label}
@@ -126,7 +127,7 @@ describe("Select component", () => {
   });
 
   it("displays helperText instead of errorText if errorText provided but error is undefined", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select
         name="Country"
         label="Country"
@@ -147,7 +148,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly if disabled", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select name="Country" disabled>
         <MenuItem aria-label="None" defaultValue="">
           None
@@ -162,7 +163,7 @@ describe("Select component", () => {
   });
 
   it("renders correctly with className", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Select name="Country" className="class">
         <MenuItem aria-label="None" defaultValue="">
           None
@@ -178,7 +179,7 @@ describe("Select component", () => {
 
   it("calls onChange handler", () => {
     const onChange = jest.fn();
-    const { getByDisplayValue } = render(
+    const { getByDisplayValue } = renderWithThemeProvider(
       <Select
         name="Country"
         variant="hybrid"

@@ -1,5 +1,6 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render, waitForElementToBeRemoved } from "@testing-library/react";
+import React from "react";
 import WelcomeDialog, { Data } from "../WelcomeDialog";
 
 describe("WelcomeDialog component", () => {
@@ -14,7 +15,11 @@ describe("WelcomeDialog component", () => {
         welcomeDialogBrands: []
       };
 
-      const wrapper = render(<WelcomeDialog data={data} />);
+      const wrapper = render(
+        <ThemeProvider>
+          <WelcomeDialog data={data} />
+        </ThemeProvider>
+      );
       expect(wrapper.queryByText("test rich text")).toBeNull();
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -25,7 +30,11 @@ describe("WelcomeDialog component", () => {
         welcomeDialogBrands: []
       };
 
-      const wrapper = render(<WelcomeDialog data={data} />);
+      const wrapper = render(
+        <ThemeProvider>
+          <WelcomeDialog data={data} />
+        </ThemeProvider>
+      );
       expect(wrapper.queryByText("title")).toBeNull();
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -42,7 +51,11 @@ describe("WelcomeDialog component", () => {
         welcomeDialogBrands: []
       };
 
-      const wrapper = render(<WelcomeDialog data={data} />);
+      const wrapper = render(
+        <ThemeProvider>
+          <WelcomeDialog data={data} />
+        </ThemeProvider>
+      );
       const titleElement = wrapper.getByText(data.welcomeDialogTitle);
       expect(titleElement).not.toBeNull();
 
@@ -64,7 +77,11 @@ describe("WelcomeDialog component", () => {
         welcomeDialogBrands: ["Icopal", "Monier", "Monarplan"]
       };
 
-      const wrapper = render(<WelcomeDialog data={data} />);
+      const wrapper = render(
+        <ThemeProvider>
+          <WelcomeDialog data={data} />
+        </ThemeProvider>
+      );
       const titleElement = wrapper.getByText(data.welcomeDialogTitle);
       expect(titleElement).not.toBeNull();
 
@@ -91,7 +108,9 @@ describe("WelcomeDialog component", () => {
       };
 
       const { getByLabelText, getByText, baseElement } = render(
-        <WelcomeDialog data={data} />
+        <ThemeProvider>
+          <WelcomeDialog data={data} />
+        </ThemeProvider>
       );
 
       const closeButton = getByLabelText("Close");

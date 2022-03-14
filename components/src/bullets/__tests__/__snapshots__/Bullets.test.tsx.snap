@@ -3,15 +3,17 @@
 exports[`Bullets component renders correctly 1`] = `
 <div>
   <ul
-    class="Bullets"
+    class="Bullets-root-1"
   >
     <li
-      class="MuiTypography-root li Typography MuiTypography-body1"
+      class="MuiTypography-root Bullets-li-2 Typography-root-3 MuiTypography-body1"
+      data-testid="typography"
     >
       First Item.
     </li>
     <li
-      class="MuiTypography-root li Typography MuiTypography-body1"
+      class="MuiTypography-root Bullets-li-2 Typography-root-3 MuiTypography-body1"
+      data-testid="typography"
     >
       Second Item.
     </li>

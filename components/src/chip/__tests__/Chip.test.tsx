@@ -1,15 +1,15 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import Chip from "../Chip";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Chip component", () => {
   it("renders correctly default chip", () => {
-    const { container } = render(<Chip>test content</Chip>);
+    const { container } = renderWithThemeProvider(<Chip>test content</Chip>);
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly selected chip", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Chip type="selectable" isSelected={true}>
         selected chip
       </Chip>
@@ -18,7 +18,7 @@ describe("Chip component", () => {
   });
 
   it("renders correctly removable chip", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Chip type="removable" onClick={() => {}}>
         removable chip
       </Chip>

@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import React, { FormEvent, useState } from "react";
-import styles from "./Form.module.scss";
+import { useStyles } from "./styles";
 import { InputValue } from "./withFormControl";
 import Button from "./_Button";
 import SubmitButton from "./_SubmitButton";
@@ -42,6 +42,7 @@ const Form = ({
   className,
   ...formProps
 }: Props) => {
+  const classes = useStyles();
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Errors>({});
   const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
@@ -70,9 +71,11 @@ const Form = ({
     >
       <form
         onSubmit={handleSubmit}
-        className={classnames(styles["Form"], className, {
-          [styles["Form--rightAlignButton"]!]: rightAlignButton
-        })}
+        className={classnames(
+          classes.root,
+          className,
+          rightAlignButton && classes.rightAlignButton
+        )}
         {...formProps}
       >
         {children}
@@ -82,11 +85,13 @@ const Form = ({
 };
 
 const FormRow = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["Row"]}>{children}</div>;
+  const classes = useStyles();
+  return <div className={classes.row}>{children}</div>;
 };
 
 const ButtonWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["ButtonWrapper"]}>{children}</div>;
+  const classes = useStyles();
+  return <div className={classes.buttonWrapper}>{children}</div>;
 };
 
 Form.Row = FormRow;

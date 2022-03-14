@@ -13,7 +13,7 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-2 TextField-leftAdornment-3 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -50,10 +50,10 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3"
+                  class="PrivateNotchedOutline-legendLabelled-7"
                 >
                   <span>
                     search.inputLabel
@@ -74,7 +74,7 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -92,7 +92,7 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 Chip-default-10 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -123,13 +123,15 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-12 MuiTypography-h6"
+                data-testid="typography"
               >
                 A company
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
                   style="display: flex;"
                 >
                   <svg
@@ -178,13 +180,15 @@ exports[`CompaniesSidePanel component renders correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-12 MuiTypography-h6"
+                data-testid="typography"
               >
                 Z company
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
                   style="display: flex;"
                 >
                   search.profileIncomplete

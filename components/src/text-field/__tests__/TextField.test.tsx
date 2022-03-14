@@ -1,11 +1,12 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import ControlledTextField, { TextField } from "../TextField";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ControlledTextField component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         id="email"
         name="Email"
@@ -16,7 +17,7 @@ describe("ControlledTextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders a hybrid variant", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         id="email"
         name="Email"
@@ -27,7 +28,7 @@ describe("ControlledTextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with an extra class", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         id="email"
         name="Email"
@@ -38,7 +39,7 @@ describe("ControlledTextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders as textarea", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         id="email"
         name="Email"
@@ -49,7 +50,7 @@ describe("ControlledTextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with left adornment", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         name="Nickname"
         label="nickname"
@@ -61,7 +62,7 @@ describe("ControlledTextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with right adornment", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         name="Nickname"
         label="nickname"
@@ -74,7 +75,7 @@ describe("ControlledTextField component", () => {
   });
   it("renders with onChange", () => {
     const onChange = jest.fn();
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         name="Nickname"
         label="nickname"
@@ -97,7 +98,7 @@ describe("ControlledTextField component", () => {
 
 describe("TextField component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ControlledTextField
         id="email"
         name="Email"
@@ -108,7 +109,7 @@ describe("TextField component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with error", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <TextField
         name="Nickname"
         label="nickname"

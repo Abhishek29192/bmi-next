@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import React, {
   ConsumerProps,
   RefObject,
@@ -6,8 +7,7 @@ import React, {
   useRef,
   useState
 } from "react";
-import classnames from "classnames";
-import styles from "./EqualHeights.module.scss";
+import { useStyles } from "./styles";
 
 type Context = {
   addRef: (id: string | number) => RefObject<any>;
@@ -29,7 +29,6 @@ const EqualHeights = ({ children }: { children: React.ReactNode }) => {
   const [equalHeight, setEqualHeight] = useState<number | "auto">("auto");
   // TODO: This should be HTMLElement but for some reason it complains.
   const refs = useRef<Record<string | number, RefObject<any>>>({});
-
   const setHeights = useCallback(() => {
     const offsetHeights = Object.values(refs.current)
       .map((ref) => {
@@ -69,7 +68,7 @@ const EqualHeights = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div className={styles["EqualHeights"]}>
+    <div>
       <EqualHeightsContext.Provider
         value={{ addRef, updateRef: setHeights, equalHeight }}
       >
@@ -87,11 +86,11 @@ const EqualHeightsConsumer = ({
   shouldDisableBoxSizing?: boolean;
   component?: React.ElementType;
 }) => {
+  const classes = useStyles();
+
   return (
     <Component
-      className={classnames({
-        [styles["content-box"]!]: shouldDisableBoxSizing
-      })}
+      className={classnames(shouldDisableBoxSizing && classes.contentBox)}
     >
       <EqualHeightsContext.Consumer>{children}</EqualHeightsContext.Consumer>
     </Component>

@@ -1,12 +1,11 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import type { ThemeOptions } from "@material-ui/core/styles";
 import { TypographyOptions } from "@material-ui/core/styles/createTypography";
-import ThemeProvider, { getTheme } from "../ThemeProvider";
+import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
+import ThemeProvider, { getTheme, ThemeOptions } from "../ThemeProvider";
 
 describe("ThemeProvider component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ThemeProvider>
         <span>Test</span>
       </ThemeProvider>

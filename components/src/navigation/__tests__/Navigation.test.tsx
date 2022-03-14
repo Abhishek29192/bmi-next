@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { Arrow } from "../../icon";
 import Clickable from "../../clickable/Clickable";
+import { Arrow } from "../../icon";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Navigation from "../Navigation";
 
 const utilities = [
@@ -74,18 +74,17 @@ const navigation = [
 
 describe("Navigation component", () => {
   it("renders correctly", () => {
-    const { container } = render(
-      <Navigation menu={navigation} utilities={utilities} sizes={["small"]} />
+    const { container } = renderWithThemeProvider(
+      <Navigation menu={navigation} utilities={utilities} />
     );
     expect(container).toMatchSnapshot();
   });
 
   it("expands submenu", () => {
-    const { container, getByText } = render(
+    const { container, getByText } = renderWithThemeProvider(
       <Navigation
         menu={navigation}
         utilities={utilities}
-        sizes={["small"]}
         initialValue={2}
         setRootValue={jest.fn}
       />

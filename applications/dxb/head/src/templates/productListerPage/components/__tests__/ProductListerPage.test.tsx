@@ -1,5 +1,5 @@
 import * as all from "@bmi-digital/use-dimensions";
-import { Filter } from "@bmi/components";
+import { Filter, ThemeProvider } from "@bmi/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
@@ -212,15 +212,17 @@ const renderWithStylesAndLocationProvider = (
   } as Partial<EnvConfig["config"]>;
 
   return render(
-    <ConfigProvider
-      configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
-    >
-      <ProvideStyles>
-        <LocationProvider history={history}>
-          <ProductListerPage data={pageData} pageContext={pageContext} />
-        </LocationProvider>
-      </ProvideStyles>
-    </ConfigProvider>
+    <ThemeProvider>
+      <ConfigProvider
+        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+      >
+        <ProvideStyles>
+          <LocationProvider history={history}>
+            <ProductListerPage data={pageData} pageContext={pageContext} />
+          </LocationProvider>
+        </ProvideStyles>
+      </ConfigProvider>
+    </ThemeProvider>
   );
 };
 

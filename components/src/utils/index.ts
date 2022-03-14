@@ -1,4 +1,4 @@
 // istanbul ignore file: doesn't hold any logic
-import { transformHyphens } from "./commonUtils";
+import { transformHyphens } from "./hyphenUtils";
 
-export default transformHyphens;
+export { transformHyphens };

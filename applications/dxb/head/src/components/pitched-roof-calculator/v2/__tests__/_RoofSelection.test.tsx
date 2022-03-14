@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import {
   fireEvent,
   render as rtlRender,
@@ -33,7 +34,9 @@ const render = (props: Partial<RoofSelectionProps> = {}) => {
   const finalProps = { ...defaultProps, ...props };
 
   const Wrapper: React.FC = (props) => (
-    <MicroCopy.Provider values={en}>{props.children}</MicroCopy.Provider>
+    <ThemeProvider>
+      <MicroCopy.Provider values={en}>{props.children}</MicroCopy.Provider>
+    </ThemeProvider>
   );
 
   rtlRender(<RoofSelection {...finalProps} />, { wrapper: Wrapper });

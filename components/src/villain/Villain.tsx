@@ -1,14 +1,13 @@
-import React, { useContext, useMemo } from "react";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 import classnames from "classnames";
+import React, { useContext, useMemo } from "react";
 import ColorPair, { Colors, darkThemes } from "../color-pair/ColorPair";
 import Container from "../container/Container";
 import Grid from "../grid/Grid";
 import Media, { AcceptedNode } from "../media/Media";
 import { SectionContext } from "../section/Section";
 import Typography from "../typography/Typography";
-import styles from "./Villain.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = {
   children: React.ReactNode;
@@ -33,6 +32,7 @@ const FullSizeVillain = ({
 }: Omit<Props, "isFullWidth">) => {
   const isNestedSection = useContext(SectionContext);
   const hasDarkBg = useIsDarkBg(theme);
+  const classes = useStyles();
 
   /* istanbul ignore next */
   if (isNestedSection && process.env.NODE_ENV === "development") {
@@ -46,30 +46,30 @@ const FullSizeVillain = ({
     <ColorPair
       theme={theme}
       className={classnames(
-        styles["Villain"],
-        styles["Villain--full-size"],
-        isReversed && styles["Villain--reversed"]
+        classes.root,
+        classes.fullSize,
+        isReversed && classes.reversed
       )}
     >
-      <Container className={styles["container"]}>
-        <div className={styles["content"]}>
+      <Container className={classes.container}>
+        <div className={classes.content}>
           <Typography
             variant="h2"
             hasUnderline
             hasDarkBackground={hasDarkBg}
-            className={styles["title"]}
+            className={classes.title}
           >
             {title}
           </Typography>
-          <div className={styles["text"]}>{children}</div>
+          <div className={classes.text}>{children}</div>
           {React.isValidElement(cta) &&
             React.cloneElement(cta, {
-              className: classnames(styles["cta"], cta.props.className),
+              className: classnames(classes.cta, cta.props.className),
               hasDarkBackground: hasDarkBg
             })}
         </div>
       </Container>
-      <Media className={styles["image"]}>{media}</Media>
+      <Media className={classes.image}>{media}</Media>
     </ColorPair>
   );
 };
@@ -87,38 +87,38 @@ const ContainedVillain = ({
 
   const matches: boolean = useMediaQuery(defaultTheme.breakpoints.up("sm"));
   const direction = matches ? "row-reverse" : "column-reverse";
-
+  const classes = useStyles();
   return (
     <div
       className={classnames(
-        styles["Villain"],
-        styles["Villain--contained"],
-        isReversed && styles["Villain--reversed"]
+        classes.root,
+        classes.contained,
+        isReversed && classes.reversed
       )}
     >
       <Grid
         container
         spacing={3}
         direction={isReversed ? direction : undefined}
-        className={styles["grid"]}
+        className={classes.grid}
       >
         <Grid item xs={12} sm={4}>
-          <ColorPair theme={theme} className={styles["content"]}>
-            <Typography variant="h4" component="h3" className={styles["title"]}>
+          <ColorPair theme={theme} className={classes.content}>
+            <Typography variant="h4" component="h3" className={classes.title}>
               {title}
             </Typography>
-            <div className={styles["text"]}>{children}</div>
+            <div className={classes.text}>{children}</div>
             {React.isValidElement(cta) &&
               React.cloneElement(cta, {
-                className: classnames(styles["cta"], cta.props.className),
+                className: classnames(classes.cta, cta.props.className),
                 hasDarkBackground: hasDarkBg
               })}
           </ColorPair>
         </Grid>
         <Grid item xs={12} sm={8}>
           {media ? (
-            <div className={styles["image"]}>
-              <Media className={styles["media"]}>{media}</Media>
+            <div className={classes.image}>
+              <Media className={classes.media}>{media}</Media>
             </div>
           ) : null}
         </Grid>
@@ -127,7 +127,7 @@ const ContainedVillain = ({
   );
 };
 
-const Villain = ({ isFullWidth, theme = "blue-800", ...rest }: Props) => {
+const Villain = ({ isFullWidth, theme = "blue800", ...rest }: Props) => {
   if (isFullWidth) {
     return <FullSizeVillain theme={theme} {...rest} />;
   }

@@ -1,11 +1,12 @@
+import { fireEvent } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import Button from "../../button/Button";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import ExpandableLinksTextCard from "../ExpandableLinksTextCard";
 
 describe("ExpandableLinksTextCard component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExpandableLinksTextCard
         title="Heading One"
         links={[
@@ -20,7 +21,7 @@ describe("ExpandableLinksTextCard component", () => {
   });
 
   it("renders correctly with more than 3 links", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExpandableLinksTextCard
         title="Heading One"
         links={[
@@ -39,7 +40,7 @@ describe("ExpandableLinksTextCard component", () => {
   });
 
   it("renders correctly with download action model", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExpandableLinksTextCard
         title="Heading One"
         links={[
@@ -54,7 +55,7 @@ describe("ExpandableLinksTextCard component", () => {
   });
 
   it("renders correctly with closeButton", () => {
-    const { container, getByText } = render(
+    const { container, getByText } = renderWithThemeProvider(
       <ExpandableLinksTextCard
         title="Heading One"
         links={[

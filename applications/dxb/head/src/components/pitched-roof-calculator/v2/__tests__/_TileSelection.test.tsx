@@ -1,4 +1,4 @@
-import { FormContext } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
@@ -57,18 +57,20 @@ afterEach(() => {
 describe("PitchedRoofCalculator TileSelection component", () => {
   it("calls analytics event", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileSelection {...defaultProps} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <TileSelection {...defaultProps} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -79,18 +81,20 @@ describe("PitchedRoofCalculator TileSelection component", () => {
 
   it("renders with no tiles", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileSelection {...defaultProps} tiles={{}} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <TileSelection {...defaultProps} tiles={{}} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(screen.getByText("MC: tileSelection.empty")).toBeInTheDocument();
@@ -111,18 +115,20 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     };
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileSelection {...defaultProps} tiles={tiles} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <TileSelection {...defaultProps} tiles={tiles} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(screen.getByText("2 MC: tileSelection.colors")).toBeInTheDocument();
@@ -134,18 +140,20 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     };
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileSelection {...defaultProps} tiles={tiles} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <TileSelection {...defaultProps} tiles={tiles} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(screen.getByText("1 MC: tileSelection.color")).toBeInTheDocument();
@@ -162,18 +170,20 @@ describe("PitchedRoofCalculator TileSelection component", () => {
     };
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileSelection {...defaultProps} tiles={tiles} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <TileSelection {...defaultProps} tiles={tiles} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(screen.getByText(firstTile.name)).toBeInTheDocument();

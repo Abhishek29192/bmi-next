@@ -6,11 +6,13 @@ import {
   Icon,
   IconList,
   LeadBlock,
+  ThemeOptions,
   transformHyphens,
   Typography
 } from "@bmi/components";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
+import { makeStyles } from "@material-ui/styles";
 import React from "react";
 import {
   getClickableActionFromUrl,
@@ -22,7 +24,7 @@ import { Data as ContentfulTitleWithContent } from "../../components/TitleWithCo
 import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
 import withGTM from "../../utils/google-tag-manager";
-import styles from "./styles/aboutLeadBlock.module.scss";
+import { useStyles as useStylesAboutLeadBlock } from "./styles/aboutLeadBlockStyles";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 
@@ -31,9 +33,22 @@ type Props = {
   sidebarItem?: ContentfulTitleWithContent;
 };
 
-const BlueCheckIcon = (
-  <Icon source={CheckIcon} className={styles["blueCheckIcon"]} />
+export const useStyles = makeStyles(
+  (theme: ThemeOptions) => ({
+    root: {
+      color: theme.colours.inter
+    },
+    dark: {
+      color: theme.colours.interDark
+    }
+  }),
+  { name: "BlueCheckIcon" }
 );
+
+const BlueCheckIcon = () => {
+  const classes = useStyles();
+  return <Icon source={CheckIcon} className={classes.root} />;
+};
 
 const LeadBlockCardContent = ({
   title,
@@ -49,7 +64,7 @@ const LeadBlockCardContent = ({
         {contents.map((value, index) => (
           <IconList.Item
             key={index}
-            icon={BlueCheckIcon}
+            icon={BlueCheckIcon()}
             title={value}
             isCompact
           />
@@ -76,15 +91,15 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const guaranteesImages = system.guaranteesAndWarrantiesImages?.filter(
     (item) => isImageAsset(item)
   );
-
+  const classes = useStylesAboutLeadBlock();
   return (
-    <LeadBlock className={styles["aboutLeadBlock"]}>
+    <LeadBlock className={classes.root}>
       <LeadBlock.Content>
         <LeadBlock.Content.Section>
           <Typography
             component="div"
             dangerouslySetInnerHTML={{
-              __html: transformHyphens(system.description)
+              __html: transformHyphens(system.description) as string
             }}
           />
         </LeadBlock.Content.Section>
@@ -93,7 +108,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
           (system.guaranteesAndWarrantiesLinks &&
             system.guaranteesAndWarrantiesLinks.length > 0)) && (
           <LeadBlock.Content.Section
-            className={styles["guaranteesAndAwardsAsset"]}
+            className={classes.guaranteesAndAwardsAsset}
           >
             <LeadBlock.Content.Heading variant="h6">
               {getMicroCopy(microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES)}
@@ -103,7 +118,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                 key={`guarentee-img-${i}`}
                 src={item.url}
                 alt={item.name}
-                className={styles["image"]}
+                className="image"
               />
             ))}
             {guaranteesAndWarrantiesLinks?.map((item, i) => (
@@ -123,7 +138,7 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
                   }}
                   iconEnd
                   {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
-                  className={styles["inline-link"]}
+                  className="inline-link"
                 >
                   {item.name}
                 </GTMAnchorLink>
@@ -134,18 +149,13 @@ const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
         {system.awardsAndCertificateImages &&
           system.awardsAndCertificateImages.length > 0 && (
             <LeadBlock.Content.Section
-              className={styles["guaranteesAndAwardsAsset"]}
+              className={classes.guaranteesAndAwardsAsset}
             >
               <LeadBlock.Content.Heading variant="h6">
                 {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
               </LeadBlock.Content.Heading>
               {system.awardsAndCertificateImages.map((item, i) => (
-                <img
-                  key={i}
-                  src={item.url}
-                  alt={item.name}
-                  className={styles["image"]}
-                />
+                <img key={i} src={item.url} alt={item.name} className="image" />
               ))}
             </LeadBlock.Content.Section>
           )}

@@ -1,10 +1,12 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
+import { fireEvent } from "@testing-library/react";
 import Tabs from "../Tabs";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Tabs component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Tabs>
         <Tabs.TabPanel heading="Tab 1" index={0}>
           Content One
@@ -17,7 +19,7 @@ describe("Tabs component", () => {
     expect(container).toMatchSnapshot();
   });
   it("replaces spaces in tab and tab panel id attributes with hyphen", () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Tabs>
         <Tabs.TabPanel
           heading="Tab 1"
@@ -45,7 +47,7 @@ describe("Tabs component", () => {
     expect(tab2.id).toEqual("tab-some-index-2");
   });
   it("renders secondary theme correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Tabs theme="secondary">
         <Tabs.TabPanel heading="Tab 1" index={0}>
           Content One
@@ -59,7 +61,7 @@ describe("Tabs component", () => {
   });
   it("triggers onChange", () => {
     const onChange = jest.fn();
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <Tabs initialValue="tabOne" theme="secondary" onChange={onChange}>
         <Tabs.TabPanel heading="Tab 1" index={"tabOne"}>
           Content One
@@ -75,7 +77,7 @@ describe("Tabs component", () => {
     expect(onChange.mock.calls).toMatchSnapshot();
   });
   it("renders correctly when one tab is false", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Tabs>
         <Tabs.TabPanel heading="Tab 1" index={0}>
           Content One
@@ -86,7 +88,7 @@ describe("Tabs component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly when visibleUntil is set to md ", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Tabs visibleUntil={"md"}>
         <Tabs.TabPanel heading="Tab 1" index={0}>
           Content One
@@ -99,7 +101,7 @@ describe("Tabs component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly when visibleUntil is set to sm ", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Tabs visibleUntil={"sm"}>
         <Tabs.TabPanel heading="Tab 1" index={0}>
           Content One

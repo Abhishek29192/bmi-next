@@ -1,12 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import mockProduct from "mock-image.jpg";
 import mockLogo from "mock-icon.svg";
 import ProductDetailsCard from "../ProductDetailsCard";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ProductDetailsCard component", () => {
   it("renders correctly with optional prop", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductDetailsCard
         media={<img src={mockProduct} alt="Lorem ipsum" />}
         brandLogo={mockLogo}
@@ -20,7 +20,7 @@ describe("ProductDetailsCard component", () => {
   });
 
   it("renders deprecated imageSource", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductDetailsCard
         brandLogo={mockLogo}
         title="Sed ut perspiciatis"
@@ -33,7 +33,7 @@ describe("ProductDetailsCard component", () => {
   });
 
   it("renders correctly without optional prop", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductDetailsCard
         media={<img src={mockProduct} alt="Lorem ipsum" />}
         brandLogo={mockLogo}

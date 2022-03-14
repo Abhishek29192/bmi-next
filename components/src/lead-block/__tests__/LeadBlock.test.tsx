@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import LeadBlock from "../LeadBlock";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("LeadBlock component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>
@@ -43,7 +43,7 @@ describe("LeadBlock component", () => {
   });
 
   it("renders width card theme", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LeadBlock>
         <LeadBlock.Content>
           <LeadBlock.Content.Section>
@@ -62,7 +62,7 @@ describe("LeadBlock component", () => {
             Content section 3 - body
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        <LeadBlock.Card theme="blue-900">
+        <LeadBlock.Card theme="blue900">
           <LeadBlock.Card.Section>
             <LeadBlock.Card.Heading>Card heading 1</LeadBlock.Card.Heading>
             <LeadBlock.Card.Content>Card content 1</LeadBlock.Card.Content>

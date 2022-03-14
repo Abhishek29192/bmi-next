@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import {
   createSystem as createEsSystem,
   System as EsSystem
@@ -14,7 +15,9 @@ describe("RelatedSystems component", () => {
     const systems: System[] = [];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -23,7 +26,9 @@ describe("RelatedSystems component", () => {
     const systems: System[] = [createSystem()];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -32,7 +37,9 @@ describe("RelatedSystems component", () => {
     const systems: System[] = [createSystem({ categories: null })];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -41,7 +48,9 @@ describe("RelatedSystems component", () => {
     const systems: System[] = [createSystem({ classifications: null })];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -52,7 +61,9 @@ describe("RelatedSystems component", () => {
     ];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -64,7 +75,9 @@ describe("RelatedSystems component", () => {
     ];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -76,7 +89,9 @@ describe("RelatedSystems component", () => {
     ];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -88,7 +103,9 @@ describe("RelatedSystems component", () => {
     ];
 
     const { container } = render(
-      <RelatedSystems countryCode="en" systems={systems} />
+      <ThemeProvider>
+        <RelatedSystems countryCode="en" systems={systems} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -100,12 +117,14 @@ describe("SystemCard", () => {
     const gtm = { id: "gtm-id" };
 
     const { container } = render(
-      <SystemCard
-        system={system}
-        countryCode="en"
-        path={system.path}
-        gtm={gtm}
-      />
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -115,12 +134,14 @@ describe("SystemCard", () => {
     const gtm = { id: "gtm-id" };
 
     const { container } = render(
-      <SystemCard
-        system={system}
-        countryCode="en"
-        path={system.path}
-        gtm={gtm}
-      />
+      <ThemeProvider>
+        <SystemCard
+          system={system}
+          countryCode="en"
+          path={system.path}
+          gtm={gtm}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

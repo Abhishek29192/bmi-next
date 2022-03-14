@@ -133,7 +133,6 @@ import Icon, {
 import IconList from "./icon-list";
 import InputGroup from "./input-group";
 import LanguageSelection, {
-  languages,
   LanguageSelectionItem,
   LanguageSelectionList
 } from "./language-selection";
@@ -234,7 +233,7 @@ import TextField, {
   TextField as RawTextField,
   TextFieldProps
 } from "./text-field";
-import ThemeProvider, { getTheme } from "./theme-provider";
+import ThemeProvider, { getTheme, ThemeOptions } from "./theme-provider";
 import ThumbScrollerButton from "./thumb-scroller-button";
 import Thumbnail, { ThumbnailProps } from "./thumbnail";
 import TileList from "./tile-list";
@@ -246,7 +245,7 @@ import TwoPaneCarousel, {
 } from "./two-pane-carousel";
 import Typography, { TypographyProps } from "./typography";
 import Upload, { getFileSizeString, UploadFile, UploadProps } from "./upload";
-import { transformHyphens } from "./utils/commonUtils";
+import { transformHyphens } from "./utils/hyphenUtils";
 import VerticalRoller, {
   Slide as VerticalRollerSlide
 } from "./vertical-roller";
@@ -326,6 +325,7 @@ export type {
   SlideControlsProps,
   TabProps,
   TextFieldProps,
+  ThemeOptions,
   ThumbnailProps,
   ToggleCardProps,
   TooltipProps,
@@ -437,7 +437,6 @@ export {
   SignupBlock,
   InputGroup,
   LanguageSelection,
-  languages,
   LeadBlock,
   LinkCard,
   LocationCard,

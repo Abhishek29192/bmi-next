@@ -1,13 +1,14 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import Tooltip from "../Tooltip";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Tooltip component", () => {
   it("renders correctly", async () => {
     const title = "test title";
     const childrenText = "test children context";
     const className = "test className";
-    const { container, findByText, queryByText } = render(
+    const { container, findByText, queryByText } = renderWithThemeProvider(
       <Tooltip title={title} className={className}>
         <div>{childrenText}</div>
       </Tooltip>

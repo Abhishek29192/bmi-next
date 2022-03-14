@@ -3,17 +3,17 @@
 exports[`RadioButton component render with prefix 1`] = `
 <div>
   <div
-    class="RadioButton"
+    class="RadioButton-root-6"
   >
     <input
-      class="input"
+      class="RadioButton-input-8"
       id="radio-color-Grey"
       name="color"
       type="radio"
       value="Grey"
     />
     <label
-      class="label"
+      class="RadioButton-label-9"
       for="radio-color-Grey"
     >
       <div
@@ -21,7 +21,7 @@ exports[`RadioButton component render with prefix 1`] = `
       />
       <div
         aria-disabled="false"
-        class="MuiButtonBase-root text"
+        class="MuiButtonBase-root RadioButton-text-10"
         role="button"
         tabindex="-1"
       >
@@ -38,22 +38,22 @@ exports[`RadioButton component render with prefix 1`] = `
 exports[`RadioButton component renders correctly 1`] = `
 <div>
   <div
-    class="RadioButton"
+    class="RadioButton-root-1"
   >
     <input
-      class="input"
+      class="RadioButton-input-3"
       id="radio-deckType-Combustible (timber/plywood)"
       name="deckType"
       type="radio"
       value="Combustible (timber/plywood)"
     />
     <label
-      class="label"
+      class="RadioButton-label-4"
       for="radio-deckType-Combustible (timber/plywood)"
     >
       <div
         aria-disabled="false"
-        class="MuiButtonBase-root text"
+        class="MuiButtonBase-root RadioButton-text-5"
         role="button"
         tabindex="-1"
       >

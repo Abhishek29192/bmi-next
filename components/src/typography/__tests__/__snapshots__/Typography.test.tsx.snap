@@ -3,7 +3,8 @@
 exports[`Typography component renders body2 correctly 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body2"
+    class="MuiTypography-root Typography-root-9 MuiTypography-body2"
+    data-testid="typography"
   >
     Hello World
   </p>
@@ -13,7 +14,8 @@ exports[`Typography component renders body2 correctly 1`] = `
 exports[`Typography component renders body3 correctly 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography body3 MuiTypography-body2"
+    class="MuiTypography-root Typography-root-17 Typography-body3-18 MuiTypography-body2"
+    data-testid="typography"
   >
     Hello World
   </p>
@@ -23,7 +25,8 @@ exports[`Typography component renders body3 correctly 1`] = `
 exports[`Typography component renders button correctly 1`] = `
 <div>
   <span
-    class="MuiTypography-root Typography MuiTypography-button"
+    class="MuiTypography-root Typography-root-97 MuiTypography-button"
+    data-testid="typography"
   >
     Button
   </span>
@@ -33,7 +36,8 @@ exports[`Typography component renders button correctly 1`] = `
 exports[`Typography component renders caption correctly 1`] = `
 <div>
   <span
-    class="MuiTypography-root Typography MuiTypography-caption"
+    class="MuiTypography-root Typography-root-105 MuiTypography-caption"
+    data-testid="typography"
   >
     Caption
   </span>
@@ -43,7 +47,8 @@ exports[`Typography component renders caption correctly 1`] = `
 exports[`Typography component renders correctly 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body1"
+    class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+    data-testid="typography"
   >
     Hello World
   </p>
@@ -53,7 +58,8 @@ exports[`Typography component renders correctly 1`] = `
 exports[`Typography component renders h1 correctly 1`] = `
 <div>
   <h1
-    class="MuiTypography-root Typography MuiTypography-h1"
+    class="MuiTypography-root Typography-root-25 MuiTypography-h1"
+    data-testid="typography"
   >
     Heading
   </h1>
@@ -63,7 +69,8 @@ exports[`Typography component renders h1 correctly 1`] = `
 exports[`Typography component renders h1 with underline 1`] = `
 <div>
   <h1
-    class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+    class="MuiTypography-root Typography-root-33 Typography-underline-35 MuiTypography-h1"
+    data-testid="typography"
   >
     Heading
   </h1>
@@ -73,7 +80,8 @@ exports[`Typography component renders h1 with underline 1`] = `
 exports[`Typography component renders h2 correctly 1`] = `
 <div>
   <h2
-    class="MuiTypography-root Typography MuiTypography-h2"
+    class="MuiTypography-root Typography-root-41 MuiTypography-h2"
+    data-testid="typography"
   >
     Heading
   </h2>
@@ -83,7 +91,8 @@ exports[`Typography component renders h2 correctly 1`] = `
 exports[`Typography component renders h3 correctly 1`] = `
 <div>
   <h3
-    class="MuiTypography-root Typography MuiTypography-h3"
+    class="MuiTypography-root Typography-root-49 MuiTypography-h3"
+    data-testid="typography"
   >
     Heading
   </h3>
@@ -93,7 +102,8 @@ exports[`Typography component renders h3 correctly 1`] = `
 exports[`Typography component renders h4 correctly 1`] = `
 <div>
   <h4
-    class="MuiTypography-root Typography MuiTypography-h4"
+    class="MuiTypography-root Typography-root-57 MuiTypography-h4"
+    data-testid="typography"
   >
     Heading
   </h4>
@@ -103,7 +113,8 @@ exports[`Typography component renders h4 correctly 1`] = `
 exports[`Typography component renders h5 correctly 1`] = `
 <div>
   <h5
-    class="MuiTypography-root Typography MuiTypography-h5"
+    class="MuiTypography-root Typography-root-65 MuiTypography-h5"
+    data-testid="typography"
   >
     Heading
   </h5>
@@ -113,7 +124,8 @@ exports[`Typography component renders h5 correctly 1`] = `
 exports[`Typography component renders h6 correctly 1`] = `
 <div>
   <h6
-    class="MuiTypography-root Typography MuiTypography-h6"
+    class="MuiTypography-root Typography-root-73 MuiTypography-h6"
+    data-testid="typography"
   >
     Heading
   </h6>
@@ -123,7 +135,8 @@ exports[`Typography component renders h6 correctly 1`] = `
 exports[`Typography component renders overline correctly 1`] = `
 <div>
   <span
-    class="MuiTypography-root Typography MuiTypography-overline"
+    class="MuiTypography-root Typography-root-113 MuiTypography-overline"
+    data-testid="typography"
   >
     Overline
   </span>
@@ -133,7 +146,8 @@ exports[`Typography component renders overline correctly 1`] = `
 exports[`Typography component renders subtitle1 correctly 1`] = `
 <div>
   <h6
-    class="MuiTypography-root Typography MuiTypography-subtitle1"
+    class="MuiTypography-root Typography-root-81 MuiTypography-subtitle1"
+    data-testid="typography"
   >
     Hello World
   </h6>
@@ -143,7 +157,8 @@ exports[`Typography component renders subtitle1 correctly 1`] = `
 exports[`Typography component renders subtitle2 correctly 1`] = `
 <div>
   <h6
-    class="MuiTypography-root Typography MuiTypography-subtitle2"
+    class="MuiTypography-root Typography-root-89 MuiTypography-subtitle2"
+    data-testid="typography"
   >
     Hello World
   </h6>
@@ -153,7 +168,8 @@ exports[`Typography component renders subtitle2 correctly 1`] = `
 exports[`Typography component renders typography variant correctly if variant === default 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body1"
+    class="MuiTypography-root Typography-root-185 MuiTypography-body1"
+    data-testid="typography"
   >
     Caption
   </p>
@@ -163,7 +179,8 @@ exports[`Typography component renders typography variant correctly if variant ==
 exports[`Typography component renders typography variant correctly if variant === hero 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body2"
+    class="MuiTypography-root Typography-root-201 MuiTypography-body2"
+    data-testid="typography"
   >
     Caption
   </p>
@@ -173,7 +190,8 @@ exports[`Typography component renders typography variant correctly if variant ==
 exports[`Typography component renders typography variant correctly if variant === lead 1`] = `
 <div>
   <p
-    class="MuiTypography-root Typography MuiTypography-body2"
+    class="MuiTypography-root Typography-root-193 MuiTypography-body2"
+    data-testid="typography"
   >
     Caption
   </p>

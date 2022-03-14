@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { ProductCategory, ResultsRow } from "../../../../types";
@@ -56,16 +57,18 @@ describe("QuantityTable component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { container } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -81,11 +84,13 @@ describe("BuildSmallViewRows component", () => {
 
   it("onDelete execute correctly", () => {
     render(
-      <BuildSmallViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildSmallViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -96,11 +101,13 @@ describe("BuildSmallViewRows component", () => {
 
   it("onChangeQuantity execute correctly", () => {
     render(
-      <BuildSmallViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildSmallViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getAllByLabelText("Up")[0]);
@@ -122,11 +129,13 @@ describe("BuildLargeViewRows component", () => {
 
   it("onDelete execute correctly", () => {
     render(
-      <BuildLargeViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildLargeViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -137,11 +146,13 @@ describe("BuildLargeViewRows component", () => {
 
   it("onChangeQuantity execute correctly", () => {
     render(
-      <BuildLargeViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildLargeViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getAllByLabelText("Up")[0]);
@@ -163,11 +174,13 @@ describe("BuildMediumViewRows component", () => {
 
   it("calls onDelete function", () => {
     render(
-      <BuildMediumViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildMediumViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -178,11 +191,13 @@ describe("BuildMediumViewRows component", () => {
 
   it("calls onChangeQuantity function", () => {
     render(
-      <BuildMediumViewRows
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-      />
+      <ThemeProvider>
+        <BuildMediumViewRows
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getAllByLabelText("Up")[0]);

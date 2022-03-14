@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import LocationCard from "../LocationCard";
 
 describe("LocationCard component", () => {
   it("renders correctly with props", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LocationCard
         title="Area 51"
         details={[
@@ -33,7 +33,7 @@ describe("LocationCard component", () => {
   });
 
   it("renders correctly if isFlat === true", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LocationCard
         isFlat
         title="Area 51"

@@ -1,14 +1,12 @@
-import React from "react";
 import {
   Button as MaterialButton,
-  ButtonProps as MuiButtonProps
-} from "@material-ui/core";
-import {
+  ButtonProps as MuiButtonProps,
   IconButton,
   IconButtonProps as MuiIconButtonProps
 } from "@material-ui/core";
 import classnames from "classnames";
-import { withClickable } from "../clickable/Clickable";
+import React from "react";
+import { withClickable } from "../clickable";
 import { useButtonStyles, useIconButtonStyles } from "./styles";
 
 type Variant = "text" | "outlined" | "contained" | "opaqueOutlined";
@@ -54,6 +52,7 @@ const Button = ({
       classes={{
         root: classnames(
           iconButtonClasses.root,
+          "iconButton",
           iconButtonClasses[size || "medium"],
           {
             [iconButtonClasses[`${buttonVariant}`]!]: variant !== "outlined",

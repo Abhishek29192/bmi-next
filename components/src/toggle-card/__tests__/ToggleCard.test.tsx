@@ -1,12 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import ToggleCard from "../ToggleCard";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 import svgImage from "./images/demo-roof-shape.svg";
 
 describe("ToggleCard component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ToggleCard
         id="A Unique ID"
         title="Curabitur posuere varius erat"
@@ -23,7 +23,7 @@ describe("ToggleCard component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with no title", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ToggleCard id="A Unique ID" imageSource={demoFormattedImage}>
         <ToggleCard.Paragraph>
           Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
@@ -37,7 +37,7 @@ describe("ToggleCard component", () => {
   });
 
   it("renders a disabled card", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ToggleCard
         id="Another Unique ID"
         disabled
@@ -56,13 +56,13 @@ describe("ToggleCard component", () => {
   });
 
   it("renders a card containing title only", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ToggleCard id="A Unique ID" title="Title only" />
     );
     expect(container).toMatchSnapshot();
   });
   it("renders card with illustrated image", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ToggleCard
         id="A Unique ID"
         title="Title only"

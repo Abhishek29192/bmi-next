@@ -12,28 +12,27 @@ Array [
 
 exports[`Filters component renders correct summaryLabel if filter.label is an empty string 1`] = `
 <div>
-  <div
-    class="Filters"
-  >
+  <div>
     <div
-      class="accordionStyles-root-72 accordionStyles-no-inner-padding-75"
+      class="Accordion-root-118 Accordion-noInnerPadding-121"
     >
       <div
-        class="MuiPaper-root MuiAccordion-root accordionStyles-item-73 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiAccordion-root Accordion-item-119 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           aria-disabled="false"
           aria-expanded="false"
           aria-label="group-label"
-          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-76"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-122"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiAccordionSummary-content accordionStyles-summaryContent-78"
+            class="MuiAccordionSummary-content Accordion-summaryContent-124"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-128 MuiTypography-h6"
+              data-testid="typography"
             >
               group-label
             </h6>
@@ -76,27 +75,28 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-74 accordionStyles-details-82"
+                  class="MuiAccordionDetails-root Accordion-details-120 Accordion-details-136"
                 >
                   <div
-                    class="list"
+                    class="Filters-list-117"
                   >
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-137"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-83 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-139 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-86"
+                                class="PrivateSwitchBase-input-142"
                                 data-indeterminate="false"
                                 name="option-1"
                                 type="checkbox"
@@ -127,14 +127,15 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
                     </div>
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-137"
                       >
                         <label
                           class="MuiFormControlLabel-root Mui-disabled"
                         >
                           <span
                             aria-disabled="true"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-83 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-84 Mui-checked PrivateSwitchBase-disabled-85 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-139 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-140 Mui-checked PrivateSwitchBase-disabled-141 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            data-testid="filter-checkbox"
                             tabindex="-1"
                           >
                             <span
@@ -142,7 +143,7 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
                             >
                               <input
                                 checked=""
-                                class="PrivateSwitchBase-input-86"
+                                class="PrivateSwitchBase-input-142"
                                 data-indeterminate="false"
                                 disabled=""
                                 name="option-2"
@@ -183,11 +184,9 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
 
 exports[`Filters component renders correctly 1`] = `
 <div>
-  <div
-    class="Filters"
-  >
+  <div>
     <div
-      class="accordionStyles-root-1 accordionStyles-no-inner-padding-4"
+      class="Accordion-root-2 Accordion-noInnerPadding-5"
     />
   </div>
 </div>
@@ -195,28 +194,27 @@ exports[`Filters component renders correctly 1`] = `
 
 exports[`Filters component renders disabled filters 1`] = `
 <div>
-  <div
-    class="Filters"
-  >
+  <div>
     <div
-      class="accordionStyles-root-42 accordionStyles-no-inner-padding-45"
+      class="Accordion-root-66 Accordion-noInnerPadding-69"
     >
       <div
-        class="MuiPaper-root MuiAccordion-root accordionStyles-item-43 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiAccordion-root Accordion-item-67 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           aria-disabled="false"
           aria-expanded="false"
           aria-label="group-label"
-          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-46"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-70"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiAccordionSummary-content accordionStyles-summaryContent-48"
+            class="MuiAccordionSummary-content Accordion-summaryContent-72"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-76 MuiTypography-h6"
+              data-testid="typography"
             >
               group-label
             </h6>
@@ -259,27 +257,28 @@ exports[`Filters component renders disabled filters 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-44 accordionStyles-details-52"
+                  class="MuiAccordionDetails-root Accordion-details-68 Accordion-details-84"
                 >
                   <div
-                    class="list"
+                    class="Filters-list-65"
                   >
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-85"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-53 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-87 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-56"
+                                class="PrivateSwitchBase-input-90"
                                 data-indeterminate="false"
                                 name="option-1"
                                 type="checkbox"
@@ -310,14 +309,15 @@ exports[`Filters component renders disabled filters 1`] = `
                     </div>
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-85"
                       >
                         <label
                           class="MuiFormControlLabel-root Mui-disabled"
                         >
                           <span
                             aria-disabled="true"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-53 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-54 Mui-checked PrivateSwitchBase-disabled-55 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-87 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-88 Mui-checked PrivateSwitchBase-disabled-89 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+                            data-testid="filter-checkbox"
                             tabindex="-1"
                           >
                             <span
@@ -325,7 +325,7 @@ exports[`Filters component renders disabled filters 1`] = `
                             >
                               <input
                                 checked=""
-                                class="PrivateSwitchBase-input-56"
+                                class="PrivateSwitchBase-input-90"
                                 data-indeterminate="false"
                                 disabled=""
                                 name="option-2"
@@ -366,28 +366,27 @@ exports[`Filters component renders disabled filters 1`] = `
 
 exports[`Filters component renders multiple filters 1`] = `
 <div>
-  <div
-    class="Filters"
-  >
+  <div>
     <div
-      class="accordionStyles-root-9 accordionStyles-no-inner-padding-12"
+      class="Accordion-root-11 Accordion-noInnerPadding-14"
     >
       <div
-        class="MuiPaper-root MuiAccordion-root accordionStyles-item-10 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiAccordion-root Accordion-item-12 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           aria-disabled="false"
           aria-expanded="false"
           aria-label="group-label"
-          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-15"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiAccordionSummary-content accordionStyles-summaryContent-15"
+            class="MuiAccordionSummary-content Accordion-summaryContent-17"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+              data-testid="typography"
             >
               group-label
             </h6>
@@ -430,27 +429,28 @@ exports[`Filters component renders multiple filters 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-11 accordionStyles-details-19"
+                  class="MuiAccordionDetails-root Accordion-details-13 Accordion-details-29"
                 >
                   <div
-                    class="list"
+                    class="Filters-list-10"
                   >
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-30"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-23"
+                                class="PrivateSwitchBase-input-35"
                                 data-indeterminate="false"
                                 name="option-1"
                                 type="checkbox"
@@ -481,20 +481,21 @@ exports[`Filters component renders multiple filters 1`] = `
                     </div>
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-30"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-23"
+                                class="PrivateSwitchBase-input-35"
                                 data-indeterminate="false"
                                 name="option-2"
                                 type="checkbox"
@@ -531,21 +532,22 @@ exports[`Filters component renders multiple filters 1`] = `
         </div>
       </div>
       <div
-        class="MuiPaper-root MuiAccordion-root accordionStyles-item-10 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiAccordion-root Accordion-item-12 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           aria-disabled="false"
           aria-expanded="false"
           aria-label="group-label-2"
-          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-15"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiAccordionSummary-content accordionStyles-summaryContent-15"
+            class="MuiAccordionSummary-content Accordion-summaryContent-17"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+              data-testid="typography"
             >
               group-label-2
             </h6>
@@ -588,27 +590,28 @@ exports[`Filters component renders multiple filters 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-11 accordionStyles-details-26"
+                  class="MuiAccordionDetails-root Accordion-details-13 Accordion-details-38"
                 >
                   <div
-                    class="list"
+                    class="Filters-list-10"
                   >
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-30"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-23"
+                                class="PrivateSwitchBase-input-35"
                                 data-indeterminate="false"
                                 name="option-1"
                                 type="checkbox"
@@ -639,20 +642,21 @@ exports[`Filters component renders multiple filters 1`] = `
                     </div>
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-30"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-20 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-32 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-23"
+                                class="PrivateSwitchBase-input-35"
                                 data-indeterminate="false"
                                 name="option-2"
                                 type="checkbox"
@@ -695,28 +699,27 @@ exports[`Filters component renders multiple filters 1`] = `
 
 exports[`Filters component renders selected filters 1`] = `
 <div>
-  <div
-    class="Filters"
-  >
+  <div>
     <div
-      class="accordionStyles-root-27 accordionStyles-no-inner-padding-30"
+      class="Accordion-root-40 Accordion-noInnerPadding-43"
     >
       <div
-        class="MuiPaper-root MuiAccordion-root accordionStyles-item-28 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiAccordion-root Accordion-item-41 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
       >
         <div
           aria-disabled="false"
           aria-expanded="false"
           aria-label="group-label"
-          class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-31"
+          class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-44"
           role="button"
           tabindex="0"
         >
           <div
-            class="MuiAccordionSummary-content accordionStyles-summaryContent-33"
+            class="MuiAccordionSummary-content Accordion-summaryContent-46"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-50 MuiTypography-h6"
+              data-testid="typography"
             >
               group-label
             </h6>
@@ -759,27 +762,28 @@ exports[`Filters component renders selected filters 1`] = `
                 role="region"
               >
                 <div
-                  class="MuiAccordionDetails-root accordionStyles-details-29 accordionStyles-details-37"
+                  class="MuiAccordionDetails-root Accordion-details-42 Accordion-details-58"
                 >
                   <div
-                    class="list"
+                    class="Filters-list-39"
                   >
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-59"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
-                                class="PrivateSwitchBase-input-41"
+                                class="PrivateSwitchBase-input-64"
                                 data-indeterminate="false"
                                 name="option-1"
                                 type="checkbox"
@@ -810,21 +814,22 @@ exports[`Filters component renders selected filters 1`] = `
                     </div>
                     <div>
                       <div
-                        class="MuiFormControl-root Checkbox"
+                        class="MuiFormControl-root Checkbox-root-59"
                       >
                         <label
                           class="MuiFormControlLabel-root"
                         >
                           <span
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-38 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-39 Mui-checked MuiIconButton-colorPrimary"
+                            class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-checked-62 Mui-checked MuiIconButton-colorPrimary"
+                            data-testid="filter-checkbox"
                           >
                             <span
                               class="MuiIconButton-label"
                             >
                               <input
                                 checked=""
-                                class="PrivateSwitchBase-input-41"
+                                class="PrivateSwitchBase-input-64"
                                 data-indeterminate="false"
                                 name="option-2"
                                 type="checkbox"

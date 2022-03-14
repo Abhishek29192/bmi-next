@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import { render } from "@testing-library/react";
@@ -14,7 +15,9 @@ describe("ProductsGridView component", () => {
       variantCodeToPathMap: {}
     };
     const { container } = render(
-      <ProductsGridView products={products} pageContext={pageContext} />
+      <ThemeProvider>
+        <ProductsGridView products={products} pageContext={pageContext} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -24,7 +27,9 @@ describe("ProductsGridView component", () => {
       variantCodeToPathMap: { [products[0].variantCode]: products[0].path }
     };
     const { container } = render(
-      <ProductsGridView products={products} pageContext={pageContext} />
+      <ThemeProvider>
+        <ProductsGridView products={products} pageContext={pageContext} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -44,7 +49,9 @@ describe("ProductsGridView component", () => {
       variantCodeToPathMap: { [products[0].variantCode]: products[0].path }
     };
     const { container } = render(
-      <ProductsGridView products={products} pageContext={pageContext} />
+      <ThemeProvider>
+        <ProductsGridView products={products} pageContext={pageContext} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
 

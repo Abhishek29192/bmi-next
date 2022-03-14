@@ -3,22 +3,23 @@
 exports[`LocationCard component renders correctly if isFlat === true 1`] = `
 <div>
   <address
-    class="LocationCard LocationCard--flat"
+    class="LocationCard-root-24 LocationCard-flat-25"
   >
     <h5
-      class="MuiTypography-root Typography MuiTypography-h5"
+      class="MuiTypography-root Typography-root-33 MuiTypography-h5"
+      data-testid="typography"
     >
       Area 51
     </h5>
     <dl
-      class="list"
+      class="LocationCard-list-26"
     >
       <dt
-        class="term"
+        class="LocationCard-term-28"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-29"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -27,22 +28,23 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-30 Typography-root-33 MuiTypography-body1"
+          data-testid="typography"
         >
           Address
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-31"
       >
         37°14′0″N 115°48′30″W
       </dd>
       <dt
-        class="term"
+        class="LocationCard-term-28"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-29"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -51,16 +53,17 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-30 Typography-root-33 MuiTypography-body1"
+          data-testid="typography"
         >
           Telephone
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-31"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover LocationCard-link-32 AnchorLink-root-41 Anchorlink MuiTypography-colorPrimary"
           href="tel:000000000000"
         >
           <span>
@@ -69,11 +72,11 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
         </a>
       </dd>
       <dt
-        class="term"
+        class="LocationCard-term-28"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-29"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -82,16 +85,17 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-30 Typography-root-33 MuiTypography-body1"
+          data-testid="typography"
         >
           Email
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-31"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover LocationCard-link-32 AnchorLink-root-41 Anchorlink MuiTypography-colorPrimary"
           href="email:area@51.space"
         >
           <span>
@@ -101,7 +105,7 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
       </dd>
     </dl>
     <div
-      class="foot-note"
+      class="LocationCard-footNote-27"
     >
       Monday - Friday, 9:00 - 17:00
     </div>
@@ -112,22 +116,23 @@ exports[`LocationCard component renders correctly if isFlat === true 1`] = `
 exports[`LocationCard component renders correctly with props 1`] = `
 <div>
   <address
-    class="LocationCard"
+    class="LocationCard-root-1"
   >
     <h5
-      class="MuiTypography-root Typography MuiTypography-h5"
+      class="MuiTypography-root Typography-root-10 MuiTypography-h5"
+      data-testid="typography"
     >
       Area 51
     </h5>
     <dl
-      class="list"
+      class="LocationCard-list-3"
     >
       <dt
-        class="term"
+        class="LocationCard-term-5"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-6"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -136,22 +141,23 @@ exports[`LocationCard component renders correctly with props 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-7 Typography-root-10 MuiTypography-body1"
+          data-testid="typography"
         >
           Address
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-8"
       >
         37°14′0″N 115°48′30″W
       </dd>
       <dt
-        class="term"
+        class="LocationCard-term-5"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-6"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -160,16 +166,17 @@ exports[`LocationCard component renders correctly with props 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-7 Typography-root-10 MuiTypography-body1"
+          data-testid="typography"
         >
           Telephone
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-8"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover LocationCard-link-9 AnchorLink-root-18 Anchorlink MuiTypography-colorPrimary"
           href="tel:000000000000"
         >
           <span>
@@ -178,11 +185,11 @@ exports[`LocationCard component renders correctly with props 1`] = `
         </a>
       </dd>
       <dt
-        class="term"
+        class="LocationCard-term-5"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root LocationCard-icon-6"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -191,16 +198,17 @@ exports[`LocationCard component renders correctly with props 1`] = `
           />
         </svg>
         <p
-          class="MuiTypography-root label Typography MuiTypography-body1"
+          class="MuiTypography-root LocationCard-label-7 Typography-root-10 MuiTypography-body1"
+          data-testid="typography"
         >
           Email
         </p>
       </dt>
       <dd
-        class="description"
+        class="LocationCard-description-8"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover LocationCard-link-9 AnchorLink-root-18 Anchorlink MuiTypography-colorPrimary"
           href="email:area@51.space"
         >
           <span>
@@ -210,7 +218,7 @@ exports[`LocationCard component renders correctly with props 1`] = `
       </dd>
     </dl>
     <div
-      class="foot-note"
+      class="LocationCard-footNote-4"
     >
       Monday - Friday, 9:00 - 17:00
     </div>

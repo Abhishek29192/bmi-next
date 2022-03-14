@@ -23,7 +23,7 @@ import ArrowControl from "../arrow-control/ArrowControl";
 import SlideControls, {
   Props as SlideControlsProps
 } from "../slide-controls/SlideControls";
-import styles from "./Carousel.module.scss";
+import { useStyles } from "./styles";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const InfiniteSwipeableViewsComponent = virtualize(autoPlay(SwipeableViews));
@@ -197,6 +197,7 @@ export const getPageFromAbsoluteIndex = (
 const CarouselSlide = ({ children, className }: SlideProps) => {
   const { slidesPerPage, totalSlides, currentBreakpoint } =
     useContext(CarouselContext);
+  const classes = useStyles();
 
   const breakpointToSlidesMap = {
     xl: 3,
@@ -208,7 +209,8 @@ const CarouselSlide = ({ children, className }: SlideProps) => {
 
   return (
     <div
-      className={classnames(styles["slide"], className)}
+      data-test-class-name="slide"
+      className={classnames(classes.slide, className)}
       style={{
         width: `${
           100 /
@@ -288,10 +290,13 @@ const checkArrowControls = (arrayChildren: ArrayChildren) =>
       child.props.type === "arrows"
   );
 
-const mapPagesToSlides = (pageSlides: ArrayChildren) =>
+const mapPagesToSlides = (
+  pageSlides: ArrayChildren,
+  classes: ReturnType<typeof useStyles>
+) =>
   pageSlides.map((pageSlide, key) => {
     return (
-      <div className={styles["page"]} key={key}>
+      <div className={classes.page} key={key}>
         {pageSlide}
       </div>
     );
@@ -315,6 +320,8 @@ const Carousel = ({
   const [activePage, setActivePage] = useState<number>(initialPage);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const classes = useStyles();
+
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
   const isArrowCarousel = checkArrowControls(arrayChildren);
@@ -369,7 +376,7 @@ const Carousel = ({
 
   const slideRenderer = ({ index, key }: { index: number; key: any }) => {
     return (
-      <div className={styles["page"]} key={key}>
+      <div className={classes.page} key={key}>
         {pageSlides[mod(index, totalPages)]}
       </div>
     );
@@ -378,7 +385,7 @@ const Carousel = ({
   const extraProps =
     scroll === "finite"
       ? {
-          children: mapPagesToSlides(pageSlides)
+          children: mapPagesToSlides(pageSlides, classes)
         }
       : { slideRenderer };
 
@@ -428,23 +435,24 @@ const Carousel = ({
             setHasUserInteracted(false);
           }
         }}
-        className={classnames(styles["wrapper"], {
-          [styles["wrapper--show-off-screen"]!]:
-            isArrowCarousel && totalPages > 1,
-          [styles["wrapper--with-gutter"]!]: hasGutter
-        })}
+        className={classnames(
+          classes.wrapper,
+          isArrowCarousel && totalPages > 1 && classes.wrapperShowOffScreen,
+          hasGutter && classes.wrapperGutter
+        )}
       >
         {arrayChildren.slice(0, firstSlideIndex)}
         <div
           data-testid={hasUserInteracted ? "carousel-interacted" : "carousel"}
-          className={classnames(styles["Carousel"], {
-            [styles["Carousel--opacity"]!]: hasOpacityAnimation,
-            [styles["Carousel--swipable"]!]:
-              !isSwipeDisabled && !isArrowCarousel,
-            [styles["Carousel--with-gutter"]!]: hasGutter,
-            [styles["Carousel--slide-constant-height"]!]:
-              !enableAnimateHeightMobile && isMobile
-          })}
+          className={classnames(
+            classes.root,
+            hasOpacityAnimation && classes.opacity,
+            !isSwipeDisabled && !isArrowCarousel && classes.swipable,
+            hasGutter && classes.carouselGutter,
+            !enableAnimateHeightMobile &&
+              isMobile &&
+              classes.slideConstantHeight
+          )}
           ref={wrapper}
         >
           <CarouselComponent

@@ -20,7 +20,7 @@ exports[`SelectGuaranteesTemplate should render correct 1`] = `
         </span>
       </label>
       <div
-        class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+        class="MuiInputBase-root MuiOutlinedInput-root Select-root-1 MuiInputBase-formControl"
         data-testid="templates-select"
         style="margin: 10px;"
       >
@@ -56,10 +56,10 @@ exports[`SelectGuaranteesTemplate should render correct 1`] = `
         </svg>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-4"
           >
             <span>
               guarantee_tab.apply_guarantee.wizard.step2.inputLabel

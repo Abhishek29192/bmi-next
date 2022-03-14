@@ -1,9 +1,9 @@
-import React from "react";
-import classnames from "classnames";
 import { Chip as MaterialChip } from "@material-ui/core";
 import { Clear } from "@material-ui/icons";
-import { Colors } from "../color-pair/ColorPair";
-import styles from "./Chip.module.scss";
+import classnames from "classnames";
+import React from "react";
+import { Colors } from "../color-pair";
+import { useStyles } from "./styles";
 
 export type Props = {
   children: React.ReactNode;
@@ -19,6 +19,7 @@ export type Props = {
       type: "removable";
     }
 );
+
 const Chip = ({
   children,
   theme = "pearl",
@@ -26,6 +27,8 @@ const Chip = ({
   className,
   ...rest
 }: Props) => {
+  const classes = useStyles();
+
   if (rest.type == "removable") {
     const { type, ...chipProps } = rest;
 
@@ -33,10 +36,9 @@ const Chip = ({
       <MaterialChip
         className={classnames(
           className,
-          styles["Chip"],
-          styles["Chip--removable"],
-          styles["Chip--default"],
-          styles[`Chip--theme-${theme}`] && styles[`Chip--theme-${theme}`]
+          classes.root,
+          classes.default,
+          theme === "white" && classes.themeWhite
         )}
         label={children}
         onClick={onClick}
@@ -52,13 +54,9 @@ const Chip = ({
   return (
     <MaterialChip
       className={classnames(
-        styles["Chip"],
-        {
-          [styles["Chip--default"]!]: !(
-            rest.type === "selectable" && rest.isSelected
-          )
-        },
-        styles[`Chip--theme-${theme}`] && [styles[`Chip--theme-${theme}`]]
+        classes.root,
+        theme === "white" && classes.themeWhite,
+        !(type === "selectable" && isSelected) && classes.default
       )}
       label={children}
       onClick={onClick}

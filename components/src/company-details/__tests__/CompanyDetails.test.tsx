@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import CompanyDetails from "../CompanyDetails";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("CompanyDetails component", () => {
   it("renders with no details", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CompanyDetails name="Name of the company" details={[]}>
         <p>Summary</p>
       </CompanyDetails>
@@ -13,7 +13,7 @@ describe("CompanyDetails component", () => {
   });
 
   it("renders with no details and no name", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CompanyDetails details={[]}>
         <p>Summary</p>
       </CompanyDetails>
@@ -22,7 +22,7 @@ describe("CompanyDetails component", () => {
   });
 
   it("renders all types of details", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CompanyDetails
         name="Name of the company"
         details={[

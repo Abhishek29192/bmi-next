@@ -3,25 +3,27 @@
 exports[`AboutLeadBlock tests should not render if no awardsAndCertificate images and document assets are provided 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-149 LeadBlock-root-152 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-154"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-157 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-150 LeadBlock-leadBlockContentSection-154"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-153 Typography-root-157 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -32,16 +34,17 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-154"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-153 Typography-root-157 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-165 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -49,7 +52,7 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-44"
+            class="MuiButton-label Button-label-168"
           >
             asset-name
             <span
@@ -74,44 +77,46 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-155 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-189 ColorPair-pearl-191"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-185"
         >
           <div
-            class="section"
+            class="PostItCard-section-186"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-157 Typography-underline-159 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-187"
             >
               <ul
-                class="IconList"
+                class="IconList-root-215"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-186"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-157 Typography-underline-159 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-187"
             >
               <div
-                class="RichText"
+                class="RichText-root-221"
               />
             </div>
           </div>
@@ -125,25 +130,27 @@ exports[`AboutLeadBlock tests should not render if no awardsAndCertificate image
 exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-75 LeadBlock-root-78 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-80"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-83 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-76 LeadBlock-leadBlockContentSection-80"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-79 Typography-root-83 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -154,16 +161,17 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-80"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-79 Typography-root-83 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-91 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -171,7 +179,7 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label Button-label-94"
           >
             asset-name
             <span
@@ -196,44 +204,46 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-81 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-115 ColorPair-pearl-117"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-111"
         >
           <div
-            class="section"
+            class="PostItCard-section-112"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-83 Typography-underline-85 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-113"
             >
               <ul
-                class="IconList"
+                class="IconList-root-141"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-112"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-83 Typography-underline-85 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-113"
             >
               <div
-                class="RichText"
+                class="RichText-root-147"
               />
             </div>
           </div>
@@ -247,25 +257,27 @@ exports[`AboutLeadBlock tests should not render if no guaranteesAndWarranties as
 exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-223 LeadBlock-root-226 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-228"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-231 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-224 LeadBlock-leadBlockContentSection-228"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-227 Typography-root-231 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -276,10 +288,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-224 LeadBlock-leadBlockContentSection-228"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-227 Typography-root-231 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -295,16 +308,17 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-228"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-227 Typography-root-231 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-239 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -312,7 +326,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-64"
+            class="MuiButton-label Button-label-242"
           >
             asset-name
             <span
@@ -337,44 +351,46 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-229 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-263 ColorPair-pearl-265"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-259"
         >
           <div
-            class="section"
+            class="PostItCard-section-260"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-231 Typography-underline-233 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-261"
             >
               <ul
-                class="IconList"
+                class="IconList-root-289"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-260"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-231 Typography-underline-233 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-261"
             >
               <div
-                class="RichText"
+                class="RichText-root-295"
               />
             </div>
           </div>
@@ -388,25 +404,27 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures 1`] = `
 exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-365 LeadBlock-root-368 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-370"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-373 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-366 LeadBlock-leadBlockContentSection-370"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-369 Typography-root-373 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -417,10 +435,11 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-366 LeadBlock-leadBlockContentSection-370"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-369 Typography-root-373 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -436,16 +455,17 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-370"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-369 Typography-root-373 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-381 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -453,7 +473,7 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-104"
+            class="MuiButton-label Button-label-384"
           >
             asset-name
             <span
@@ -478,28 +498,29 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-371 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-405 ColorPair-pearl-407"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-401"
         >
           <div
-            class="section"
+            class="PostItCard-section-402"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-373 Typography-underline-375 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-403"
             >
               <div
-                class="RichText"
+                class="RichText-root-431"
               />
             </div>
           </div>
@@ -513,25 +534,27 @@ exports[`AboutLeadBlock tests should not render if no keyFeatures and systemBene
 exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-433 LeadBlock-root-436 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-438"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-441 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-434 LeadBlock-leadBlockContentSection-438"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-437 Typography-root-441 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -542,10 +565,11 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-434 LeadBlock-leadBlockContentSection-438"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-437 Typography-root-441 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -561,16 +585,17 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-438"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-437 Typography-root-441 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-449 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -578,7 +603,7 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-124"
+            class="MuiButton-label Button-label-452"
           >
             asset-name
             <span
@@ -609,25 +634,27 @@ exports[`AboutLeadBlock tests should not render if no siderbar, keyFeatures and 
 exports[`AboutLeadBlock tests should not render if no specification asset 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-469 LeadBlock-root-472 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-474"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-477 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-470 LeadBlock-leadBlockContentSection-474"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-473 Typography-root-477 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -638,10 +665,11 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-470 LeadBlock-leadBlockContentSection-474"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-473 Typography-root-477 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -658,44 +686,46 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-475 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-489 ColorPair-pearl-491"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-485"
         >
           <div
-            class="section"
+            class="PostItCard-section-486"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-477 Typography-underline-479 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-487"
             >
               <ul
-                class="IconList"
+                class="IconList-root-515"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-486"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-477 Typography-underline-479 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-487"
             >
               <div
-                class="RichText"
+                class="RichText-root-521"
               />
             </div>
           </div>
@@ -709,25 +739,27 @@ exports[`AboutLeadBlock tests should not render if no specification asset 1`] = 
 exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-297 LeadBlock-root-300 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-302"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-305 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-298 LeadBlock-leadBlockContentSection-302"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-301 Typography-root-305 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -738,10 +770,11 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-298 LeadBlock-leadBlockContentSection-302"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-301 Typography-root-305 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -757,16 +790,17 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-302"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-301 Typography-root-305 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-313 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -774,7 +808,7 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-84"
+            class="MuiButton-label Button-label-316"
           >
             asset-name
             <span
@@ -799,28 +833,29 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-303 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-337 ColorPair-pearl-339"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-333"
         >
           <div
-            class="section"
+            class="PostItCard-section-334"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-305 Typography-underline-307 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-335"
             >
               <div
-                class="RichText"
+                class="RichText-root-363"
               />
             </div>
           </div>
@@ -834,25 +869,27 @@ exports[`AboutLeadBlock tests should not render if no systemBenefits 1`] = `
 exports[`AboutLeadBlock tests should render 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-1 LeadBlock-root-4 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-6"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-9 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-2 LeadBlock-leadBlockContentSection-6"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-5 Typography-root-9 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.guaranteesWarranties
         </h6>
@@ -863,10 +900,11 @@ exports[`AboutLeadBlock tests should render 1`] = `
         />
       </div>
       <div
-        class="guaranteesAndAwardsAsset LeadBlockContentSection"
+        class="aboutLeadBlock-guaranteesAndAwardsAsset-2 LeadBlock-leadBlockContentSection-6"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-5 Typography-root-9 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: pdp.leadBlock.awardsCertificates
         </h6>
@@ -882,16 +920,17 @@ exports[`AboutLeadBlock tests should render 1`] = `
         />
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-6"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-5 Typography-root-9 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-17 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -899,7 +938,7 @@ exports[`AboutLeadBlock tests should render 1`] = `
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-4"
+            class="MuiButton-label Button-label-20"
           >
             asset-name
             <span
@@ -924,44 +963,46 @@ exports[`AboutLeadBlock tests should render 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-7 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-41 ColorPair-pearl-43"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-37"
         >
           <div
-            class="section"
+            class="PostItCard-section-38"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-9 Typography-underline-11 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-39"
             >
               <ul
-                class="IconList"
+                class="IconList-root-67"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-38"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-9 Typography-underline-11 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-39"
             >
               <div
-                class="RichText"
+                class="RichText-root-73"
               />
             </div>
           </div>
@@ -975,31 +1016,33 @@ exports[`AboutLeadBlock tests should render 1`] = `
 exports[`AboutLeadBlock tests specification section move up if no guaranteesAndWarranties assets and awardsAndCertificates assets 1`] = `
 <div>
   <div
-    class="MuiGrid-root aboutLeadBlock LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root aboutLeadBlock-root-597 LeadBlock-root-600 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+      class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
     >
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-602"
       >
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-605 MuiTypography-body1"
+          data-testid="typography"
         >
           system-desc
         </div>
       </div>
       <div
-        class="LeadBlockContentSection"
+        class="LeadBlock-leadBlockContentSection-602"
       >
         <h6
-          class="MuiTypography-root LeadBlockContentHeading Typography MuiTypography-h6"
+          class="MuiTypography-root LeadBlock-leadBlockContentHeading-601 Typography-root-605 MuiTypography-h6"
+          data-testid="typography"
         >
           MC: sdp.leadBlock.specification
         </h6>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-613 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"asset-name\\",\\"action\\":\\"http://localhost:8000/asset-real-file-name.pdf\\"}"
           href="http://localhost:8000/asset-real-file-name.pdf"
           rel="noopener noreferrer"
@@ -1007,7 +1050,7 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
           target="_blank"
         >
           <span
-            class="MuiButton-label buttonStyles-label-164"
+            class="MuiButton-label Button-label-616"
           >
             asset-name
             <span
@@ -1032,44 +1075,46 @@ exports[`AboutLeadBlock tests specification section move up if no guaranteesAndW
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      class="MuiGrid-root Grid-item-603 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
       data-testid="sidebar"
     >
       <div
-        class="ColorPair ColorPair--pearl"
+        class="ColorPair-root-637 ColorPair-pearl-639"
       >
         <div
-          class="PostItCard"
+          class="PostItCard-root-633"
         >
           <div
-            class="section"
+            class="PostItCard-section-634"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-605 Typography-underline-607 MuiTypography-h4"
+              data-testid="typography"
             >
               MC: sdp.leadBlock.systemBenefits
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-635"
             >
               <ul
-                class="IconList"
+                class="IconList-root-663"
               />
             </div>
           </div>
           <div
-            class="section"
+            class="PostItCard-section-634"
           >
             <h4
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+              class="MuiTypography-root Typography-root-605 Typography-underline-607 MuiTypography-h4"
+              data-testid="typography"
             >
               siderBarItem
             </h4>
             <div
-              class="content"
+              class="PostItCard-content-635"
             >
               <div
-                class="RichText"
+                class="RichText-root-669"
               />
             </div>
           </div>

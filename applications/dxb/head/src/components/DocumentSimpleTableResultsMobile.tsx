@@ -20,8 +20,8 @@ import {
   MultipleAssetToFileDownload
 } from "./DocumentSimpleTableResults";
 import fileIconsMap from "./FileIconsMap";
-import styles from "./styles/DocumentSimpleTableResults.module.scss";
-import stylesMobile from "./styles/DocumentSimpleTableResultsMobile.module.scss";
+import { useStyles as useStylesMobile } from "./styles/DocumentSimpleTableResultsMobileStyles";
+import { useStyles } from "./styles/DocumentSimpleTableResultsStyles";
 
 type ListProps = {
   documents: readonly Document[];
@@ -38,22 +38,24 @@ const MultipleDocumentsToZipFile = ({
 }: {
   document: PseudoZipPIMDocument;
 }) => {
+  const classesMobile = useStylesMobile();
+  const classes = useStyles();
   return (
-    <div className={stylesMobile["list-item"]}>
-      <div className={stylesMobile["list-title-row"]}>
-        <div className={stylesMobile["list-icon"]}>
+    <div className={classesMobile.listItem}>
+      <div className={classesMobile.listTitleRow}>
+        <div className={classesMobile.listIcon}>
           <Icon
             // eslint-disable-next-line security/detect-object-injection
             source={iconMap.FileZIP}
-            className={styles["download-icon"]}
+            className={classnames(classes.downloadIcon, "download-icon")}
           />
         </div>
-        <Typography className={stylesMobile["document-title"]}>
+        <Typography className={classesMobile.documentTitle}>
           {document.assetType.name}
         </Typography>
       </div>
-      <div className={stylesMobile["list-download-row"]}>
-        <Typography className={stylesMobile["document-type"]}>
+      <div className={classesMobile.listDownloadRow}>
+        <Typography className={classesMobile.documentType}>
           {document.assetType.name}
         </Typography>
         <MultipleAssetToFileDownload document={document} isMobile />
@@ -63,23 +65,25 @@ const MultipleDocumentsToZipFile = ({
 };
 
 const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
+  const classesMobile = useStylesMobile();
+  const classes = useStyles();
   return (
-    <div className={stylesMobile["list-item"]}>
-      <div className={stylesMobile["list-title-row"]}>
+    <div className={classesMobile.listItem}>
+      <div className={classesMobile.listTitleRow}>
         {!asset.isLinkDocument && (
-          <div className={stylesMobile["list-icon"]}>
+          <div className={classesMobile.listIcon}>
             <Icon
               source={fileIconsMap[asset.format] || iconMap.External}
-              className={styles["download-icon"]}
+              className={classnames(classes.downloadIcon, "download-icon")}
             />
           </div>
         )}
-        <Typography className={stylesMobile["document-title"]}>
+        <Typography className={classesMobile.documentTitle}>
           {asset.title}
         </Typography>
       </div>
-      <div className={stylesMobile["list-download-row"]}>
-        <Typography className={stylesMobile["document-type"]}>
+      <div className={classesMobile.listDownloadRow}>
+        <Typography className={classesMobile.documentType}>
           {asset.assetTypeName}
         </Typography>
         {!asset.isLinkDocument ? (
@@ -112,7 +116,7 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
           >
             <Icon
               source={iconMap.ExternalMobile}
-              className={stylesMobile["external-link-icon"]}
+              className={classesMobile.externalLinkIcon}
             />
           </Button>
         )}
@@ -124,6 +128,8 @@ const ListItem = ({ asset }: { asset: FileDownloadButtonProps }) => {
 export const DocumentSimpleTableResultsMobile = ({
   documents
 }: ListProps): React.ReactElement => {
+  const classesMobile = useStylesMobile();
+  const classes = useStyles();
   const list = documents.map((document, index) => {
     if (document.__typename === "PIMDocumentWithPseudoZip") {
       const key = `${document.__typename}-${index}`;
@@ -135,13 +141,6 @@ export const DocumentSimpleTableResultsMobile = ({
   });
 
   return (
-    <div
-      className={classnames(
-        stylesMobile["DocumentSimpleTableResultsMobile"],
-        styles["DocumentSimpleTableResults"]
-      )}
-    >
-      {list}
-    </div>
+    <div className={classnames(classesMobile.root, classes.root)}>{list}</div>
   );
 };

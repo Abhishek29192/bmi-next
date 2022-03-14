@@ -7,10 +7,12 @@ import {
   LeadBlock,
   PLPFilterResponse,
   Section,
+  ThemeOptions,
   Typography
 } from "@bmi/components";
 import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import CheckIcon from "@material-ui/icons/Check";
+import { makeStyles } from "@material-ui/styles";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
 import queryString from "query-string";
@@ -105,9 +107,19 @@ export type Props = {
   };
 };
 
-const BlueCheckIcon = (
-  <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
+export const useStyles = makeStyles(
+  (theme: ThemeOptions) => ({
+    root: {
+      color: theme.colours.inter
+    }
+  }),
+  { name: "BlueCheckIcon" }
 );
+
+const BlueCheckIcon = () => {
+  const classes = useStyles();
+  return <CheckIcon className={classes.root} />;
+};
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
@@ -402,7 +414,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                           {features.map((feature, index) => (
                             <IconList.Item
                               key={index}
-                              icon={BlueCheckIcon}
+                              icon={BlueCheckIcon()}
                               title={feature}
                               isCompact
                             />

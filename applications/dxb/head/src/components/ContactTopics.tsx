@@ -1,25 +1,40 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { ExpandableCard } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Grid, GridProps } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Card, CardProps } from "@bmi/components";
-import BuildIcon from "@material-ui/icons/Build";
+import {
+  Card,
+  CardProps,
+  ExpandableCard,
+  Grid,
+  GridProps,
+  IconList,
+  ThemeOptions,
+  Typography
+} from "@bmi/components";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import BuildIcon from "@material-ui/icons/Build";
+import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
+import FindReplaceIcon from "@material-ui/icons/FindReplace";
+import HelpIcon from "@material-ui/icons/Help";
+import InfoIcon from "@material-ui/icons/Info";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
 import ReportProblemIcon from "@material-ui/icons/ReportProblem";
-import InfoIcon from "@material-ui/icons/Info";
-import FindReplaceIcon from "@material-ui/icons/FindReplace";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import HelpIcon from "@material-ui/icons/Help";
-import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
+import { makeStyles } from "@material-ui/styles";
+import { graphql } from "gatsby";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { Data as TitleWithContentData } from "./TitleWithContent";
-import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
+import RichText from "./RichText";
 import borderedItemStyles from "./styles/BorderedItem.module.scss";
 import styles from "./styles/ContactTopics.module.scss";
+import { Data as TitleWithContentData } from "./TitleWithContent";
+
+export const useStyles = makeStyles(
+  (theme: ThemeOptions) => ({
+    root: {
+      color: theme.colours.accent
+    }
+  }),
+  { name: "BlueCheckIcon" }
+);
 
 export const iconMap = {
   build: BuildIcon,
@@ -54,6 +69,7 @@ export type Data = {
 const GTMCard = withGTM<CardProps>(Card);
 
 const Body = ({ bodyTitle, bodyList }: BodyProps) => {
+  const classes = useStyles();
   return (
     <>
       {bodyTitle && (
@@ -66,11 +82,7 @@ const Body = ({ bodyTitle, bodyList }: BodyProps) => {
           {bodyList.map(({ title, content }, index) => (
             <IconList.Item
               key={index}
-              icon={
-                <EmojiObjectsOutlinedIcon
-                  style={{ color: "var(--color-theme-accent)" }}
-                />
-              }
+              icon={<EmojiObjectsOutlinedIcon className={classes.root} />}
               title={title}
               component="h5"
             >

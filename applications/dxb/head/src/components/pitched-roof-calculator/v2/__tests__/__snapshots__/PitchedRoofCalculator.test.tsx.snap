@@ -34,12 +34,12 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl PitchedRoofCalculator"
+      class="ContainerDialog-root-33 ContainerDialog-bg-pearl-39 ContainerDialog-width-xl-44 PitchedRoofCalculator"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header ModalHeader"
+        class="ContainerDialog-header-34 ModalHeader"
       >
         <svg
           class="logo"
@@ -58,7 +58,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         </div>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-56 iconButton IconButton-medium-62 IconButton-text-58 ContainerDialog-iconButton-35"
           tabindex="0"
           type="button"
         >
@@ -82,7 +82,7 @@ exports[`PitchedRoofCalculator component renders closed 1`] = `
         </button>
       </div>
       <div
-        class="dialogContent content"
+        class="dialogContent ContainerDialog-content-36"
       >
         <div
           class="dialogBody"
@@ -121,12 +121,12 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-xl PitchedRoofCalculator"
+      class="ContainerDialog-root-1 ContainerDialog-bg-pearl-7 ContainerDialog-width-xl-12 PitchedRoofCalculator"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header ModalHeader"
+        class="ContainerDialog-header-2 ModalHeader"
       >
         <svg
           class="logo"
@@ -145,7 +145,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         </div>
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-24 iconButton IconButton-medium-30 IconButton-text-26 ContainerDialog-iconButton-3"
           tabindex="0"
           type="button"
         >
@@ -169,7 +169,7 @@ exports[`PitchedRoofCalculator component renders correctly 1`] = `
         </button>
       </div>
       <div
-        class="dialogContent content"
+        class="dialogContent ContainerDialog-content-4"
       >
         <div
           class="dialogBody"

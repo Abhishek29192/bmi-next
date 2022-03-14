@@ -1,10 +1,14 @@
+import {
+  Checkbox as MuiCheckbox,
+  CheckboxProps,
+  FormControl,
+  FormControlLabel,
+  FormHelperText
+} from "@material-ui/core";
+import classnames from "classnames";
 import React from "react";
-import { Checkbox as MuiCheckbox, CheckboxProps } from "@material-ui/core";
-import { FormControlLabel } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
-import { FormHelperText } from "@material-ui/core";
 import withFormControl from "../form/withFormControl";
-import styles from "./Checkbox.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = CheckboxProps & {
   label?: React.ReactNode;
@@ -16,12 +20,11 @@ export type Props = CheckboxProps & {
 
 const decorateWithAsterisk = (
   component: JSX.Element,
-  isRequired: boolean | undefined
+  classes: ReturnType<typeof useStyles>,
+  isRequired?: boolean
 ) => {
   if (isRequired) {
-    return (
-      <div className={styles["Checkbox--asterisks_decorator"]}>{component}</div>
-    );
+    return <div className={classes.asterisksDecorator}>{component}</div>;
   }
   return component;
 };
@@ -35,6 +38,8 @@ export const Checkbox = ({
   isRequired,
   ...props
 }: Props) => {
+  const classes = useStyles();
+
   const handleChange = (event: React.ChangeEvent<Record<string, unknown>>) => {
     const target = event.target;
     !disabled && "checked" in target && onChange(target.checked as boolean);
@@ -44,7 +49,7 @@ export const Checkbox = ({
     <FormControl
       error={!!error}
       disabled={disabled}
-      className={styles["Checkbox"]}
+      className={classnames(classes.root)}
     >
       <FormControlLabel
         control={<MuiCheckbox color="primary" {...props} />}
@@ -54,7 +59,7 @@ export const Checkbox = ({
       {error ? <FormHelperText>{errorText}</FormHelperText> : null}
     </FormControl>
   );
-  return decorateWithAsterisk(checkbox, isRequired);
+  return decorateWithAsterisk(checkbox, classes, isRequired);
 };
 
 export default withFormControl<Props, boolean>(Checkbox);

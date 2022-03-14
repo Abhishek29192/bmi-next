@@ -10,7 +10,8 @@ exports[`IEDialog component renders correctly 1`] = `
         class="IEDialog"
       >
         <h3
-          class="MuiTypography-root title IEDialog-title Typography Typography--underline MuiTypography-h3"
+          class="MuiTypography-root Dialog-title-3 IEDialog-title Typography-root-15 Typography-underline-17 MuiTypography-h3"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
@@ -25,18 +26,20 @@ exports[`IEDialog component renders correctly 1`] = `
           IE Dialog Title
         </h3>
         <div
-          class="content IEDialog-body"
+          class="Dialog-content-5 IEDialog-body"
         >
           <div
-            class="RichText"
+            class="RichText-root-23"
           >
             <h3
-              class="MuiTypography-root title Typography MuiTypography-h3"
+              class="MuiTypography-root RichText-title-24 Typography-root-15 MuiTypography-h3"
+              data-testid="typography"
             >
               Rich Text heading 3
             </h3>
             <p
-              class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              class="MuiTypography-root Typography-root-15 MuiTypography-body1 MuiTypography-gutterBottom"
+              data-testid="typography"
             >
               Rich Text paragraph text
             </p>
@@ -47,14 +50,14 @@ exports[`IEDialog component renders correctly 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-25 MuiButton-contained Button-contained-27 MuiButton-containedPrimary"
             href="http://localhost"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-28"
             >
               Label
               <span

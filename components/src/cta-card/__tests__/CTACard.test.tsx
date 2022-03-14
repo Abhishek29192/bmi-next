@@ -1,12 +1,13 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import { ButtonBaseProps } from "@material-ui/core";
 import CTACard from "../CTACard";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import demoHouseImage from "./images/demo-tiles.jpg";
 
 describe("CtaCard component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CTACard
         title="Call to Action Card"
         media={<img src={demoHouseImage} alt="Lorem ipsum" />}
@@ -18,7 +19,7 @@ describe("CtaCard component", () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it("renders with custom button", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CTACard
         title="Call to Action Card"
         buttonComponent={(props: ButtonBaseProps) => (
@@ -29,7 +30,7 @@ describe("CtaCard component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with the clickable area around the heading", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CTACard
         title="Call to Action Card"
         clickableArea="heading"
@@ -41,7 +42,7 @@ describe("CtaCard component", () => {
   });
   it("should handle library props from ButtonBaseProps", () => {
     const onClick = jest.fn();
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <CTACard title="Call to Action Card" onClick={onClick} />
     );
     fireEvent.click(getByText("Call to Action Card"));

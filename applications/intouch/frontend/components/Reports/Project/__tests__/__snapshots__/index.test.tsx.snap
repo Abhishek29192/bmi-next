@@ -3,13 +3,13 @@
 exports[`ProjectReport Component renders correctly 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary MuiButton-fullWidth"
+    class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-contained Button-contained-3 MuiButton-containedPrimary MuiButton-fullWidth"
     data-testid="export-project-report-button"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-4"
+      class="MuiButton-label Button-label-4"
     >
       report.project
       <span

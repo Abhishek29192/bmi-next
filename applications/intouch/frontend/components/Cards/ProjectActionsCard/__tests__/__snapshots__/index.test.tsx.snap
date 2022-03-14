@@ -9,7 +9,8 @@ exports[`ProjectActionsCard render correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+        class="MuiTypography-root heading Typography-root-1 MuiTypography-h5"
+        data-testid="typography"
       >
         projectActions.heading
       </h5>
@@ -18,13 +19,13 @@ exports[`ProjectActionsCard render correctly 1`] = `
       class="MuiCardActions-root MuiCardActions-spacing"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-9 MuiButton-outlined MuiButton-outlinedPrimary"
         data-testid="archive-project-button"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-12"
         >
           projectActions.cta.archive
         </span>

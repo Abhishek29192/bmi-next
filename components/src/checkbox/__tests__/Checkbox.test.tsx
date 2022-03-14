@@ -1,14 +1,17 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import Checkbox, { Checkbox as ActualCheckbox } from "../Checkbox";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Checkbox component", () => {
   it("renders correctly", () => {
-    const { container } = render(<Checkbox name="Test checkbox" />);
+    const { container } = renderWithThemeProvider(
+      <Checkbox name="Test checkbox" />
+    );
     expect(container).toMatchSnapshot();
   });
   it("renders with additional props", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Checkbox
         name="Test checkbox"
         className="test-classname"
@@ -18,7 +21,7 @@ describe("Checkbox component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with label", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Checkbox
         name="Test checkbox"
         label="Send a copy of this message to my email address"
@@ -27,7 +30,7 @@ describe("Checkbox component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with disabled state", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Checkbox
         name="Test checkbox"
         disabled
@@ -39,7 +42,7 @@ describe("Checkbox component", () => {
   it("calls onChange handler", async () => {
     const label = "test-label";
     const onChange = jest.fn();
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <Checkbox onChange={onChange} name="Test checkbox" label={label} />
     );
     fireEvent.click(getByLabelText(label));
@@ -48,7 +51,7 @@ describe("Checkbox component", () => {
   it("does not call onChange handler when disabled", async () => {
     const label = "test-label";
     const onChange = jest.fn();
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <Checkbox
         onChange={onChange}
         name="Test checkbox"
@@ -61,7 +64,7 @@ describe("Checkbox component", () => {
   });
   it("renders error", async () => {
     const label = "test-label-2";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <Checkbox
         isRequired
         name="Test checkbox"
@@ -74,7 +77,7 @@ describe("Checkbox component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders custom error", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ActualCheckbox
         onChange={jest.fn()}
         error

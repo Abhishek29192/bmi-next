@@ -1,14 +1,17 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Section, transformHyphens } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { NBACard } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
-import { Colors } from "@bmi/components";
-import { withClickable } from "@bmi/components";
+import {
+  AnchorLink,
+  Colors,
+  Grid,
+  NBACard,
+  Section,
+  transformHyphens,
+  withClickable
+} from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
-import { Data as PromoData } from "../components/Promo";
+import { graphql } from "gatsby";
+import React from "react";
 import { Data as PageInfoData } from "../components/PageInfo";
+import { Data as PromoData } from "../components/Promo";
 import { microCopy } from "../constants/microCopies";
 import { getCTA } from "./Link";
 import { useSiteContext } from "./Site";
@@ -16,10 +19,10 @@ import { useSiteContext } from "./Site";
 export type Data = (PromoData | PageInfoData)[];
 
 const indexToBackgroundMap: Colors[] = [
-  "color-theme-secondary-1",
-  "color-theme-secondary-2",
-  "color-theme-secondary-3",
-  "color-theme-secondary-4"
+  "secondary1",
+  "secondary2",
+  "secondary3",
+  "secondary4"
 ];
 
 const NextBestActions = ({ data }: { data: Data }) => {

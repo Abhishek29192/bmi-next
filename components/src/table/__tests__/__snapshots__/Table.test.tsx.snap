@@ -4,10 +4,10 @@ exports[`Table component renders correctly 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-1 Table-evenColor-3"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+        class="MuiTableHead-root ColorPair-root-13 ColorPair-pearl-15"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"
@@ -67,10 +67,10 @@ exports[`Table component renders correctly without width 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-39 Table-evenColor-41"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+        class="MuiTableHead-root ColorPair-root-51 ColorPair-pearl-53"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"
@@ -130,7 +130,7 @@ exports[`Table component renders medium table with no border 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--no-border"
+      class="MuiTable-root Table-root-153 Table-noBorder-154"
     >
       <tbody
         class="MuiTableBody-root"
@@ -139,7 +139,7 @@ exports[`Table component renders medium table with no border 1`] = `
           class="MuiTableRow-root"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-165 ColorPair-pearl-167"
           >
             Head Row - Cell 1
           </td>
@@ -150,10 +150,10 @@ exports[`Table component renders medium table with no border 1`] = `
           </td>
         </tr>
         <tr
-          class="MuiTableRow-root separator"
+          class="MuiTableRow-root Table-separator-158"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-165 ColorPair-pearl-167"
           >
             Head Row - Cell 2
           </td>
@@ -167,7 +167,7 @@ exports[`Table component renders medium table with no border 1`] = `
           class="MuiTableRow-root"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-165 ColorPair-pearl-167"
           >
             Head Row - Cell 1
           </td>
@@ -178,10 +178,10 @@ exports[`Table component renders medium table with no border 1`] = `
           </td>
         </tr>
         <tr
-          class="MuiTableRow-root separator"
+          class="MuiTableRow-root Table-separator-158"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-165 ColorPair-pearl-167"
           >
             Head Row - Cell 2
           </td>
@@ -201,52 +201,52 @@ exports[`Table component renders small table with no border 1`] = `
 <div>
   <div>
     <div
-      class="SmallTable SmallTable--item-even-color SmallTable--no-border"
+      class="Table-smallTable-197 Table-itemevenColor-201 Table-noBorder-192"
     >
       <dl
-        class="item"
+        class="Table-item-198"
       >
         <dt
-          class="title"
+          class="Table-title-199"
         >
           Head Row - Cell 1
         </dt>
         <dd
-          class="description"
+          class="Table-description-200"
         >
           Row 1 - Cell 1
         </dd>
         <dt
-          class="title"
+          class="Table-title-199"
         >
           Head Row - Cell 2
         </dt>
         <dd
-          class="description"
+          class="Table-description-200"
         >
           Row 1 - Cell 2
         </dd>
       </dl>
       <dl
-        class="item"
+        class="Table-item-198"
       >
         <dt
-          class="title"
+          class="Table-title-199"
         >
           Head Row - Cell 1
         </dt>
         <dd
-          class="description"
+          class="Table-description-200"
         >
           Row 2 - Cell 1
         </dd>
         <dt
-          class="title"
+          class="Table-title-199"
         >
           Head Row - Cell 2
         </dt>
         <dd
-          class="description"
+          class="Table-description-200"
         >
           Row 2 - Cell 2
         </dd>
@@ -260,10 +260,10 @@ exports[`Table component renders table head with different ColorPair 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-77 Table-evenColor-79"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--blue-900"
+        class="MuiTableHead-root ColorPair-root-89 ColorPair-blue900-103"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"
@@ -323,7 +323,7 @@ exports[`Table component renders with reduced size - fixed two columns if normal
 <div>
   <div>
     <table
-      class="MuiTable-root Table"
+      class="MuiTable-root Table-root-115"
     >
       <tbody
         class="MuiTableBody-root"
@@ -332,7 +332,7 @@ exports[`Table component renders with reduced size - fixed two columns if normal
           class="MuiTableRow-root"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-127 ColorPair-pearl-129"
           >
             Head Row - Cell 1
           </td>
@@ -343,10 +343,10 @@ exports[`Table component renders with reduced size - fixed two columns if normal
           </td>
         </tr>
         <tr
-          class="MuiTableRow-root separator"
+          class="MuiTableRow-root Table-separator-120"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-127 ColorPair-pearl-129"
           >
             Head Row - Cell 2
           </td>
@@ -360,7 +360,7 @@ exports[`Table component renders with reduced size - fixed two columns if normal
           class="MuiTableRow-root"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-127 ColorPair-pearl-129"
           >
             Head Row - Cell 1
           </td>
@@ -371,10 +371,10 @@ exports[`Table component renders with reduced size - fixed two columns if normal
           </td>
         </tr>
         <tr
-          class="MuiTableRow-root separator"
+          class="MuiTableRow-root Table-separator-120"
         >
           <td
-            class="MuiTableCell-root MuiTableCell-body ColorPair ColorPair--pearl"
+            class="MuiTableCell-root MuiTableCell-body ColorPair-root-127 ColorPair-pearl-129"
           >
             Head Row - Cell 2
           </td>
@@ -394,52 +394,52 @@ exports[`Table component renders with reduced size - list view if both normal an
 <div>
   <div>
     <div
-      class="SmallTable SmallTable--item-even-color"
+      class="Table-smallTable-247 Table-itemevenColor-251"
     >
       <dl
-        class="item"
+        class="Table-item-248"
       >
         <dt
-          class="title"
+          class="Table-title-249"
         >
           Head Row - Cell 1
         </dt>
         <dd
-          class="description"
+          class="Table-description-250"
         >
           Row 1 - Cell 1
         </dd>
         <dt
-          class="title"
+          class="Table-title-249"
         >
           Head Row - Cell 2
         </dt>
         <dd
-          class="description"
+          class="Table-description-250"
         >
           Row 1 - Cell 2
         </dd>
       </dl>
       <dl
-        class="item"
+        class="Table-item-248"
       >
         <dt
-          class="title"
+          class="Table-title-249"
         >
           Head Row - Cell 1
         </dt>
         <dd
-          class="description"
+          class="Table-description-250"
         >
           Row 2 - Cell 1
         </dd>
         <dt
-          class="title"
+          class="Table-title-249"
         >
           Head Row - Cell 2
         </dt>
         <dd
-          class="description"
+          class="Table-description-250"
         >
           Row 2 - Cell 2
         </dd>
@@ -453,7 +453,7 @@ exports[`Table component renders without TableBody 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table"
+      class="MuiTable-root Table-root-291"
     >
       <tbody
         class="MuiTableBody-root"
@@ -467,32 +467,32 @@ exports[`Table component renders without striped rows 1`] = `
 <div>
   <div>
     <div
-      class="SmallTable SmallTable--item-none-color"
+      class="Table-smallTable-285"
     >
       <ul
-        class="item"
+        class="Table-item-286"
       >
         <li
-          class="description"
+          class="Table-description-288"
         >
           Row 1 - Cell 1
         </li>
         <li
-          class="description"
+          class="Table-description-288"
         >
           Row 1 - Cell 2
         </li>
       </ul>
       <ul
-        class="item"
+        class="Table-item-286"
       >
         <li
-          class="description"
+          class="Table-description-288"
         >
           Row 2 - Cell 1
         </li>
         <li
-          class="description"
+          class="Table-description-288"
         >
           Row 2 - Cell 2
         </li>
@@ -506,32 +506,32 @@ exports[`Table component without header renders with reduced size - list view ev
 <div>
   <div>
     <div
-      class="SmallTable SmallTable--item-odd-color"
+      class="Table-smallTable-235 Table-itemoddColor-240"
     >
       <ul
-        class="item"
+        class="Table-item-236"
       >
         <li
-          class="description"
+          class="Table-description-238"
         >
           Row 1 - Cell 1
         </li>
         <li
-          class="description"
+          class="Table-description-238"
         >
           Row 1 - Cell 2
         </li>
       </ul>
       <ul
-        class="item"
+        class="Table-item-236"
       >
         <li
-          class="description"
+          class="Table-description-238"
         >
           Row 2 - Cell 1
         </li>
         <li
-          class="description"
+          class="Table-description-238"
         >
           Row 2 - Cell 2
         </li>

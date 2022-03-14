@@ -3,34 +3,35 @@
 exports[`Villain component renders correctly 1`] = `
 <div>
   <div
-    class="Villain Villain--contained"
+    class="Villain-root-1 Villain-contained-10"
   >
     <div
-      class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root Villain-grid-3 MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
       >
         <div
-          class="content ColorPair ColorPair--blue-800"
+          class="Villain-content-6 ColorPair-root-15 ColorPair-blue800-28"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h4"
+            class="MuiTypography-root Villain-title-4 Typography-root-41 MuiTypography-h4"
+            data-testid="typography"
           >
             H2 Heading
           </h3>
           <div
-            class="text"
+            class="Villain-text-8"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-10 cta MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-49 MuiButton-contained Button-contained-51 Button-containedDarkBg-58 Villain-cta-9 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-52"
             >
               Call to action
             </span>
@@ -41,14 +42,14 @@ exports[`Villain component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
       >
         <div
-          class="image"
+          class="Villain-image-7"
         >
           <img
             alt="Lorem ipsum"
-            class="media Media"
+            class="Villain-media-12 Media-root-69"
             src="path-to-image"
           />
         </div>
@@ -61,34 +62,35 @@ exports[`Villain component renders correctly 1`] = `
 exports[`Villain component renders correctly on reversed when screen size is larger than sm  1`] = `
 <div>
   <div
-    class="Villain Villain--contained Villain--reversed"
+    class="Villain-root-261 Villain-contained-270 Villain-reversed-262"
   >
     <div
-      class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-direction-xs-row-reverse"
+      class="MuiGrid-root Villain-grid-263 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-direction-xs-row-reverse"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+        class="MuiGrid-root Grid-item-273 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
       >
         <div
-          class="content ColorPair ColorPair--blue-800"
+          class="Villain-content-266 ColorPair-root-275 ColorPair-blue800-288"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h4"
+            class="MuiTypography-root Villain-title-264 Typography-root-301 MuiTypography-h4"
+            data-testid="typography"
           >
             H2 Heading
           </h3>
           <div
-            class="text"
+            class="Villain-text-268"
           >
             Lorem ipsum dolor sit amet.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 buttonStyles-containedDarkBg-70 cta MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-309 MuiButton-contained Button-contained-311 Button-containedDarkBg-318 Villain-cta-269 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-64"
+              class="MuiButton-label Button-label-312"
             >
               Call to action
             </span>
@@ -99,7 +101,7 @@ exports[`Villain component renders correctly on reversed when screen size is lar
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+        class="MuiGrid-root Grid-item-273 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
       />
     </div>
   </div>
@@ -109,34 +111,35 @@ exports[`Villain component renders correctly on reversed when screen size is lar
 exports[`Villain component renders full size 1`] = `
 <div>
   <div
-    class="Villain Villain--full-size ColorPair ColorPair--blue-800"
+    class="Villain-root-121 Villain-fullSize-131 ColorPair-root-133 ColorPair-blue800-146"
   >
     <div
-      class="Container"
+      class="Container-root-159"
     >
       <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
+        class="MuiContainer-root Villain-container-125 MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="Villain-content-126"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+            class="MuiTypography-root Villain-title-124 Typography-root-161 Typography-underline-163 Typography-darkBg-164 MuiTypography-h2"
+            data-testid="typography"
           >
             H2 Heading
           </h2>
           <div
-            class="text"
+            class="Villain-text-128"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 buttonStyles-containedDarkBg-30 cta MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-169 MuiButton-contained Button-contained-171 Button-containedDarkBg-178 Villain-cta-129 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-172"
             >
               Call to action
             </span>
@@ -149,7 +152,7 @@ exports[`Villain component renders full size 1`] = `
     </div>
     <img
       alt="Lorem ipsum"
-      class="image Media"
+      class="Villain-image-127 Media-root-189"
       src="path-to-image"
     />
   </div>
@@ -159,34 +162,35 @@ exports[`Villain component renders full size 1`] = `
 exports[`Villain component renders full size and reversed 1`] = `
 <div>
   <div
-    class="Villain Villain--full-size Villain--reversed ColorPair ColorPair--blue-800"
+    class="Villain-root-191 Villain-fullSize-201 Villain-reversed-192 ColorPair-root-203 ColorPair-blue800-216"
   >
     <div
-      class="Container"
+      class="Container-root-229"
     >
       <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
+        class="MuiContainer-root Villain-container-195 MuiContainer-maxWidthXl"
       >
         <div
-          class="content"
+          class="Villain-content-196"
         >
           <h2
-            class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h2"
+            class="MuiTypography-root Villain-title-194 Typography-root-231 Typography-underline-233 Typography-darkBg-234 MuiTypography-h2"
+            data-testid="typography"
           >
             H2 Heading
           </h2>
           <div
-            class="text"
+            class="Villain-text-198"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 buttonStyles-containedDarkBg-50 cta MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-239 MuiButton-contained Button-contained-241 Button-containedDarkBg-248 Villain-cta-199 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-44"
+              class="MuiButton-label Button-label-242"
             >
               Call to action
             </span>
@@ -199,7 +203,7 @@ exports[`Villain component renders full size and reversed 1`] = `
     </div>
     <img
       alt="Lorem ipsum"
-      class="image Media"
+      class="Villain-image-197 Media-root-259"
       src="path-to-image"
     />
   </div>
@@ -209,38 +213,39 @@ exports[`Villain component renders full size and reversed 1`] = `
 exports[`Villain component renders reversed 1`] = `
 <div>
   <div
-    class="Villain Villain--contained Villain--reversed"
+    class="Villain-root-71 Villain-contained-80 Villain-reversed-72"
   >
     <div
-      class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-direction-xs-column-reverse"
+      class="MuiGrid-root Villain-grid-73 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-direction-xs-column-reverse"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+        class="MuiGrid-root Grid-item-83 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
       >
         <div
-          class="content ColorPair ColorPair--blue-800"
+          class="Villain-content-76 ColorPair-root-85 ColorPair-blue800-98"
         >
           <h3
-            class="MuiTypography-root title Typography MuiTypography-h4"
+            class="MuiTypography-root Villain-title-74 Typography-root-111 MuiTypography-h4"
+            data-testid="typography"
           >
             H2 Heading
           </h3>
           <div
-            class="text"
+            class="Villain-text-78"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit, finibus augue et, ultricies felis. In id nunc nunc. Nullam ac nulla justo. Sed sollicitudin volutpat arcu at laoreet. Ut vel augue nisi. Pellentesque egestas sapien et mauris rutrum laoreet. Integer tellus enim, posuere vel nibh suscipit, rhoncus ornare lectus. Mauris ac interdum nibh, quis dictum nulla.
           </div>
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+        class="MuiGrid-root Grid-item-83 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
       >
         <div
-          class="image"
+          class="Villain-image-77"
         >
           <img
             alt="Lorem ipsum"
-            class="media Media"
+            class="Villain-media-82 Media-root-119"
             src="path-to-image"
           />
         </div>

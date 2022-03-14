@@ -1,12 +1,13 @@
 import React from "react";
-import styles from "./AlternativeContent.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const AlternativeContent = ({ children }: Props) => {
-  return <span className={styles["AlternativeContent"]}>{children}</span>;
+  const classes = useStyles();
+  return <span className={classes.root}>{children}</span>;
 };
 
 export default AlternativeContent;

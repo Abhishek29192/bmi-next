@@ -1,10 +1,10 @@
-import React from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import classnames from "classnames";
+import React from "react";
 import Card from "../card/Card";
 import Typography from "../typography/Typography";
-import styles from "./ToggleCard.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = {
   title?: React.ReactNode;
@@ -27,24 +27,22 @@ const ToggleCard = ({
 }: Props) => {
   const Illustration = illustratedImage;
   const titleOnly = title && !imageSource && !illustratedImage;
-
+  const classes = useStyles();
   return (
     <ButtonBase
       component={component}
       disabled={disabled}
       className={classnames(
-        styles["ToggleCard"],
-        {
-          [styles["ToggleCard--disabled"]!]: disabled
-        },
+        classes.root,
+        disabled && classes.disabled,
         className
       )}
       {...rest}
     >
-      <Card className={styles["body"]}>
+      <Card className={classes.body}>
         {imageSource ? (
           <div
-            className={classnames(styles["image"])}
+            className={classnames(classes.image)}
             style={{ backgroundImage: `url(${imageSource})` }}
           />
         ) : null}
@@ -52,9 +50,7 @@ const ToggleCard = ({
         {title ? (
           <Typography
             variant="h6"
-            className={classnames(styles["title"], {
-              [styles["title--only"]!]: titleOnly
-            })}
+            className={classnames(classes.title, titleOnly && classes.only)}
           >
             {title}
           </Typography>
@@ -70,11 +66,14 @@ type ParagraphProps = {
   children: React.ReactNode;
 };
 
-const Paragraph = ({ className, children }: ParagraphProps) => (
-  <Typography className={classnames(styles["paragraph"], className)}>
-    {children}
-  </Typography>
-);
+const Paragraph = ({ className, children }: ParagraphProps) => {
+  const classes = useStyles();
+  return (
+    <Typography className={classnames(classes.paragraph, className)}>
+      {children}
+    </Typography>
+  );
+};
 
 ToggleCard.Paragraph = Paragraph;
 

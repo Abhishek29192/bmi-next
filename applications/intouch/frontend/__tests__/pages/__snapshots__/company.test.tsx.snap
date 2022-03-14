@@ -26,7 +26,7 @@ exports[`Company Page check onclick behavior 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Company Page check onclick behavior 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Company Page check onclick behavior 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-240 MuiIconButton-root-232 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-239"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224 MuiSvgIcon-fontSizeLarge-231"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Company Page check onclick behavior 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-435"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Company Page check onclick behavior 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-240"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224 MuiSvgIcon-fontSizeLarge-231"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Company Page check onclick behavior 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-435"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Company Page check onclick behavior 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-240"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224 MuiSvgIcon-fontSizeLarge-231"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Company Page check onclick behavior 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-435"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Company Page check onclick behavior 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-249 Typography-root-241 MuiTypography-h3-256"
+                  data-testid="typography"
                 >
                   titleAdmin
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-279 lowerHeaderDivider MuiDivider-flexItem-285 MuiDivider-vertical-284"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-249 lowerHeaderUserLevel Typography-root-241 MuiTypography-h3-256"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-240 MuiIconButton-root-232 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-239"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-223 MuiSvgIcon-colorPrimary-224"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Company Page check onclick behavior 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-435"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-7"
+                  class="makeStyles-root-286"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-240 MuiButton-root-288 MuiButton-text-290"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-289"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Company Page check onclick behavior 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-223"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Company Page check onclick behavior 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-223 MuiSvgIcon-colorAction-226"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Company Page check onclick behavior 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-435"
                       />
                     </button>
                   </div>
@@ -300,10 +302,10 @@ exports[`Company Page check onclick behavior 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-332 MuiTextField-root-331 TextField-root-328 TextField-leftAdornment-329 MuiFormControl-fullWidth-335"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-344 MuiInputLabel-root-336 MuiInputLabel-formControl-338 MuiInputLabel-animated-341 MuiInputLabel-outlined-343"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -311,22 +313,22 @@ exports[`Company Page check onclick behavior 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-360 MuiOutlinedInput-root-348 MuiInputBase-fullWidth-367 MuiInputBase-formControl-361 MuiInputBase-adornedEnd-363 MuiOutlinedInput-adornedEnd-351"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-368 MuiOutlinedInput-input-355 MuiInputBase-inputAdornedEnd-373 MuiOutlinedInput-inputAdornedEnd-359"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-375 MuiInputAdornment-positionEnd-378"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-223"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -337,10 +339,10 @@ exports[`Company Page check onclick behavior 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-382 MuiOutlinedInput-notchedOutline-354"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-11"
+                            class="PrivateNotchedOutline-legendLabelled-384"
                           >
                             <span>
                               search.inputLabel
@@ -361,17 +363,17 @@ exports[`Company Page check onclick behavior 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-240 MuiChip-root-389 Chip-root-386 MuiChip-colorPrimary-391 MuiChip-clickableColorPrimary-394 MuiChip-clickable-393"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-410"
                         >
                           order.labels.ALPHABETICAL
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-435"
                         />
                       </div>
                     </div>
@@ -379,17 +381,17 @@ exports[`Company Page check onclick behavior 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-240 MuiChip-root-389 Chip-root-386 Chip-default-387 MuiChip-clickable-393"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-410"
                         >
                           order.labels.UPDATED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-435"
                         />
                       </div>
                     </div>
@@ -402,26 +404,28 @@ exports[`Company Page check onclick behavior 1`] = `
                     data-testid="companyCard"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root cardActionArea__isActive"
+                      class="MuiButtonBase-root-240 MuiCardActionArea-root-418 cardActionArea__isActive"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-420 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-249 title Typography-root-241 MuiTypography-h6-259"
+                          data-testid="typography"
                         >
                           Company 1
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-249 Typography-root-241 MuiTypography-body1-251"
+                            data-testid="typography"
                             style="display: flex;"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-223 MuiSvgIcon-root-223"
                               focusable="false"
                               style="color: rgb(0, 154, 68);"
                               viewBox="0 0 24 24"
@@ -435,7 +439,7 @@ exports[`Company Page check onclick behavior 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-223 chevron MuiSvgIcon-colorDisabled-228"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -446,10 +450,10 @@ exports[`Company Page check onclick behavior 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-419"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-435"
                       />
                     </button>
                   </div>
@@ -515,7 +519,7 @@ exports[`Company Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -532,7 +536,7 @@ exports[`Company Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -595,17 +599,17 @@ exports[`Company Page render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -615,7 +619,7 @@ exports[`Company Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-213"
                   />
                 </button>
                 <div
@@ -623,14 +627,14 @@ exports[`Company Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -639,7 +643,7 @@ exports[`Company Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-213"
                     />
                   </button>
                 </div>
@@ -648,14 +652,14 @@ exports[`Company Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -664,7 +668,7 @@ exports[`Company Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-213"
                     />
                   </button>
                 </div>
@@ -677,31 +681,33 @@ exports[`Company Page render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   titleAdmin
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -711,21 +717,21 @@ exports[`Company Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-213"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -735,7 +741,7 @@ exports[`Company Page render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -752,7 +758,7 @@ exports[`Company Page render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -763,7 +769,7 @@ exports[`Company Page render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-213"
                       />
                     </button>
                   </div>
@@ -789,10 +795,10 @@ exports[`Company Page render correctly 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-110 MuiTextField-root-109 TextField-root-106 TextField-leftAdornment-107 MuiFormControl-fullWidth-113"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-122 MuiInputLabel-root-114 MuiInputLabel-formControl-116 MuiInputLabel-animated-119 MuiInputLabel-outlined-121"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -800,22 +806,22 @@ exports[`Company Page render correctly 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-138 MuiOutlinedInput-root-126 MuiInputBase-fullWidth-145 MuiInputBase-formControl-139 MuiInputBase-adornedEnd-141 MuiOutlinedInput-adornedEnd-129"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-146 MuiOutlinedInput-input-133 MuiInputBase-inputAdornedEnd-151 MuiOutlinedInput-inputAdornedEnd-137"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-153 MuiInputAdornment-positionEnd-156"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -826,10 +832,10 @@ exports[`Company Page render correctly 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-3 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-160 MuiOutlinedInput-notchedOutline-132"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-5"
+                            class="PrivateNotchedOutline-legendLabelled-162"
                           >
                             <span>
                               search.inputLabel
@@ -850,17 +856,17 @@ exports[`Company Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 MuiChip-colorPrimary-169 MuiChip-clickableColorPrimary-172 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           order.labels.ALPHABETICAL
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-213"
                         />
                       </div>
                     </div>
@@ -868,17 +874,17 @@ exports[`Company Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           order.labels.UPDATED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-213"
                         />
                       </div>
                     </div>
@@ -891,26 +897,28 @@ exports[`Company Page render correctly 1`] = `
                     data-testid="companyCard"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root cardActionArea__isActive"
+                      class="MuiButtonBase-root-18 MuiCardActionArea-root-196 cardActionArea__isActive"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-198 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-27 title Typography-root-19 MuiTypography-h6-37"
+                          data-testid="typography"
                         >
                           Company 1
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                             style="display: flex;"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1 MuiSvgIcon-root-1"
                               focusable="false"
                               style="color: rgb(0, 154, 68);"
                               viewBox="0 0 24 24"
@@ -924,7 +932,7 @@ exports[`Company Page render correctly 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1 chevron MuiSvgIcon-colorDisabled-6"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -935,10 +943,10 @@ exports[`Company Page render correctly 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-197"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-213"
                       />
                     </button>
                   </div>
@@ -1004,7 +1012,7 @@ exports[`Company Page render correctly for installer 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1021,7 +1029,7 @@ exports[`Company Page render correctly for installer 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1084,17 +1092,17 @@ exports[`Company Page render correctly for installer 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-462 MuiIconButton-root-454 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-461"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446 MuiSvgIcon-fontSizeLarge-453"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1104,7 +1112,7 @@ exports[`Company Page render correctly for installer 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-563"
                   />
                 </button>
                 <div
@@ -1112,14 +1120,14 @@ exports[`Company Page render correctly for installer 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-462"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446 MuiSvgIcon-fontSizeLarge-453"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1128,7 +1136,7 @@ exports[`Company Page render correctly for installer 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-563"
                     />
                   </button>
                 </div>
@@ -1137,14 +1145,14 @@ exports[`Company Page render correctly for installer 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-462"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446 MuiSvgIcon-fontSizeLarge-453"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1153,7 +1161,7 @@ exports[`Company Page render correctly for installer 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-563"
                     />
                   </button>
                 </div>
@@ -1166,31 +1174,33 @@ exports[`Company Page render correctly for installer 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-471 Typography-root-463 MuiTypography-h3-478"
+                  data-testid="typography"
                 >
                   titleMember
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-501 lowerHeaderDivider MuiDivider-flexItem-507 MuiDivider-vertical-506"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-471 lowerHeaderUserLevel Typography-root-463 MuiTypography-h3-478"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-462 MuiIconButton-root-454 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-461"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-445 MuiSvgIcon-colorPrimary-446"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1200,21 +1210,21 @@ exports[`Company Page render correctly for installer 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-563"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-13"
+                  class="makeStyles-root-508"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-462 MuiButton-root-510 MuiButton-text-512"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-511"
                       >
                         <div
                           class="userMenu"
@@ -1224,7 +1234,7 @@ exports[`Company Page render correctly for installer 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-445"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -1241,7 +1251,7 @@ exports[`Company Page render correctly for installer 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-445 MuiSvgIcon-colorAction-448"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1252,7 +1262,7 @@ exports[`Company Page render correctly for installer 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-563"
                       />
                     </button>
                   </div>

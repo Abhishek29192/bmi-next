@@ -1,12 +1,12 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import imageSource from "mock-image.jpg";
+import React from "react";
 import Button from "../../button/Button";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Hero from "../Hero";
 
 describe("Hero component", () => {
   it("renders level 1", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Hero
         media={<img src={imageSource} alt="Lorem ipsum" />}
         title="H1 Heading"
@@ -21,7 +21,7 @@ describe("Hero component", () => {
   });
 
   it("renders level 1 with CTA", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Hero
         media={<img src={imageSource} alt="Lorem ipsum" />}
         title="H1 Heading"
@@ -37,24 +37,28 @@ describe("Hero component", () => {
   });
 
   it("renders level 2", () => {
-    const { container } = render(<Hero title="H1 Heading" level={2} />);
+    const { container } = renderWithThemeProvider(
+      <Hero title="H1 Heading" level={2} />
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders level 3", () => {
-    const { container } = render(<Hero title="H1 Heading" level={3} />);
+    const { container } = renderWithThemeProvider(
+      <Hero title="H1 Heading" level={3} />
+    );
     expect(container).toMatchSnapshot();
   });
   describe("Hero component with keyline", () => {
     it("renders level 1 with keyline ", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <Hero title="H1 Heading" level={3} isHeroKeyLine={true} />
       );
       expect(container).toMatchSnapshot();
     });
 
     it("renders level 0 with keyline", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <Hero
           heroes={[
             {
@@ -71,7 +75,7 @@ describe("Hero component", () => {
     });
 
     it("renders with no underline", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <Hero
           heroes={[
             {
@@ -90,7 +94,7 @@ describe("Hero component", () => {
   });
 
   it("can switch to next hero", () => {
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <Hero
         heroes={[
           { title: "Title 1", children: "Children 1" },
@@ -101,13 +105,17 @@ describe("Hero component", () => {
       />
     );
 
-    expect(container.querySelector(".number--active")).toHaveTextContent("01");
+    expect(
+      container.querySelector("[class*=SlideControls-active-]")
+    ).toHaveTextContent("01");
     getByLabelText("next").click();
-    expect(container.querySelector(".number--active")).toHaveTextContent("02");
+    expect(
+      container.querySelector("[class*=SlideControls-active-]")
+    ).toHaveTextContent("02");
   });
 
   it("can switch to previous hero", () => {
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <Hero
         heroes={[
           { title: "Title 1", children: "Children 1" },
@@ -118,8 +126,12 @@ describe("Hero component", () => {
       />
     );
 
-    expect(container.querySelector(".number--active")).toHaveTextContent("01");
+    expect(
+      container.querySelector("[class*=SlideControls-active-]")
+    ).toHaveTextContent("01");
     getByLabelText("previous").click();
-    expect(container.querySelector(".number--active")).toHaveTextContent("03");
+    expect(
+      container.querySelector("[class*=SlideControls-active-]")
+    ).toHaveTextContent("03");
   });
 });

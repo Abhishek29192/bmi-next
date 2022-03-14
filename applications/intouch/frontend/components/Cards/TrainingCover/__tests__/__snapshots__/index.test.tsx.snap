@@ -3,32 +3,33 @@
 exports[`TrainingCover component render correctly 1`] = `
 <div>
   <div
-    class="Hero Hero--lvl-1"
+    class="Hero-root-1 Hero-lvl1-17 Hero--lvl-1"
   >
     <div
-      class="Container"
+      class="Container-root-20"
     >
       <div
-        class="MuiContainer-root container MuiContainer-maxWidthXl"
+        class="MuiContainer-root Hero-container-6 MuiContainer-maxWidthXl"
       >
         <div
-          class="wrapper"
+          class="Hero-wrapper-7"
         >
           <div
-            class="content"
+            class="Hero-content-8"
           >
             <h1
-              class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+              class="MuiTypography-root Hero-title-9 Typography-root-22 Typography-underline-24 Typography-darkBg-25 MuiTypography-h1"
+              data-testid="typography"
             >
               BMI Academy
             </h1>
             <div
-              class="text"
+              class="Hero-text-10"
             >
               BMI Academy provides you with the skills you need to fit BMI products.
             </div>
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 cta MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-30 MuiButton-outlined Button-outlinedDarkBg-36 Hero-cta-11 MuiButton-outlinedPrimary"
               label="Your training plan"
               rel="noopener noreferrer"
               tabindex="0"
@@ -36,7 +37,7 @@ exports[`TrainingCover component render correctly 1`] = `
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-4"
+                class="MuiButton-label Button-label-33"
               >
                 Your training plan
               </span>
@@ -49,7 +50,7 @@ exports[`TrainingCover component render correctly 1`] = `
       </div>
     </div>
     <img
-      class="image Media"
+      class="Hero-image-15 Media-root-50"
       src=""
     />
   </div>
@@ -61,7 +62,8 @@ exports[`TrainingCover component render correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-22 Typography-underline-24 MuiTypography-h4"
+        data-testid="typography"
       >
         The training process
       </h4>
@@ -85,7 +87,8 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h5"
+              data-testid="typography"
             >
               Step 1
             </h5>
@@ -94,12 +97,14 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h6"
+              data-testid="typography"
             >
               Find the right training
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-root-22 MuiTypography-body1"
+              data-testid="typography"
             >
               Browse our extensive list of online and on-site training options from the BMI Academy training catalogue to find out which course will take your skills to the next level.
             </div>
@@ -122,7 +127,8 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h5"
+              data-testid="typography"
             >
               Step 2
             </h5>
@@ -131,12 +137,14 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h6"
+              data-testid="typography"
             >
               Improve your skills
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-root-22 MuiTypography-body1"
+              data-testid="typography"
             >
               Continuous personal development will keep your skills sharp and make you a valuable asset to the projects you work on.
             </div>
@@ -159,7 +167,8 @@ exports[`TrainingCover component render correctly 1`] = `
               />
             </svg>
             <h5
-              class="MuiTypography-root Typography MuiTypography-h5"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h5"
+              data-testid="typography"
             >
               Step 3
             </h5>
@@ -168,12 +177,14 @@ exports[`TrainingCover component render correctly 1`] = `
             style="margin-bottom: 1.5rem;"
           >
             <h6
-              class="MuiTypography-root Typography MuiTypography-h6"
+              class="MuiTypography-root Typography-root-22 MuiTypography-h6"
+              data-testid="typography"
             >
               Get certified
             </h6>
             <div
-              class="MuiTypography-root Typography MuiTypography-body1"
+              class="MuiTypography-root Typography-root-22 MuiTypography-body1"
+              data-testid="typography"
             >
               Taking courses that carry certifications will let others know that you have the skills needed to carry out certain work.
             </div>

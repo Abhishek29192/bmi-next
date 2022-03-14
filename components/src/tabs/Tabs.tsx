@@ -2,61 +2,17 @@ import type { GridProps } from "@material-ui/core";
 import {
   AppBarProps,
   Box,
-  makeStyles,
   Tab as MaterialTab,
   TabProps as MaterialTabProps,
   Tabs as MaterialTabs,
-  TabsProps as MaterialTabsProps,
-  Theme
+  TabsProps as MaterialTabsProps
 } from "@material-ui/core";
 import classnames from "classnames";
 import React from "react";
 import Container, { Props as ContainerProps } from "../container/Container";
 import Grid from "../grid/Grid";
-import { transformHyphens } from "../utils/commonUtils";
-import styles from "./Tabs.module.scss";
-
-export const useGlobalTabStyles = makeStyles(
-  (theme: Theme) => ({
-    ContainerRoot: {
-      fontSize: "1rem",
-      paddingLeft: "0px",
-      paddingRight: "0px"
-    },
-    TabsRoot: {
-      fontSize: "1rem",
-      marginBottom: "2px",
-      "& .tabsScrollBtn": {
-        position: "absolute",
-        height: "100%",
-        zIndex: 2,
-        background: theme.palette.common.white,
-        transition: "all 0.2s ease-out",
-        "&:first-child": {
-          left: 0,
-          opacity: 1
-        },
-        "&:last-child": {
-          right: 0,
-          opacity: 1
-        },
-        "&.Mui-disabled": {
-          opacity: 0,
-          transition: "all 0.2s ease-out"
-        }
-      }
-    },
-    TabRoot: {
-      fontSize: "1rem",
-      minWidth: "initial",
-      padding: "6px 15px",
-      "& .Mui-selected": {
-        fontFamily: "Effra Medium"
-      }
-    }
-  }),
-  { classNamePrefix: "tabStyles" }
-);
+import { transformHyphens } from "../utils/hyphenUtils";
+import { useGlobalTabStyles } from "./styles";
 
 type TabPanelProps = GridProps & {
   className?: string;
@@ -73,6 +29,7 @@ const TabPanel = ({
   index,
   ...other
 }: TabPanelProps) => {
+  const globalClasses = useGlobalTabStyles();
   const formattedIndex =
     typeof index === "string" ? index.replace(/ /g, "-") : index;
   const formattedvalue =
@@ -80,7 +37,7 @@ const TabPanel = ({
   return (
     <Grid
       item
-      className={classnames(styles["TabPanel"], className)}
+      className={classnames(globalClasses.TabPanel, className)}
       aria-labelledby={`tab-${formattedIndex}`}
       hidden={formattedvalue !== formattedIndex}
       id={`tabpanel-${formattedIndex}`}
@@ -89,7 +46,7 @@ const TabPanel = ({
       data-testid={`tabpanel-${formattedIndex}`}
       {...other}
     >
-      <Box className={styles["TabPanelBox"]} p={3}>
+      <Box className={globalClasses.TabPanelBox} p={3}>
         {children}
       </Box>
     </Grid>
@@ -158,13 +115,13 @@ const Tabs = ({
   return (
     <div
       className={classnames(
-        styles["Tabs"],
-        styles[`Tabs--${theme}`],
-        visibleUntil && styles[`Tabs--visible-until-${visibleUntil}`],
+        globalClasses.root,
+        theme === "secondary" && globalClasses.secondary,
+        visibleUntil && globalClasses[`visibleUntil${visibleUntil}`],
         className
       )}
     >
-      <div className={classnames(styles["TabsBar"])}>
+      <div className={globalClasses.TabsBar}>
         <Container maxWidth={maxWidth} className={globalClasses.ContainerRoot}>
           <MaterialTabs
             aria-label="tabs"

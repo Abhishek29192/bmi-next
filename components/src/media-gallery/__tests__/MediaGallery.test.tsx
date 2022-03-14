@@ -1,7 +1,8 @@
+import { fireEvent, waitFor } from "@testing-library/react";
 import React from "react";
-import { fireEvent, render, waitFor } from "@testing-library/react";
-import MediaGallery from "../MediaGallery";
 import YoutubeVideo from "../../youtube-video/YoutubeVideo";
+import { renderWithThemeProvider } from "../../__tests__/helper";
+import MediaGallery from "../MediaGallery";
 
 beforeAll(() => {
   Element.prototype.scrollTo = jest.fn();
@@ -35,32 +36,29 @@ const mockMedia = [
 ];
 describe("MediaGallery component", () => {
   it("renders correctly with full data", () => {
-    const { container } = render(<MediaGallery media={mockMedia} />);
+    const { container } = renderWithThemeProvider(
+      <MediaGallery media={mockMedia} />
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with no data", () => {
-    const { container } = render(<MediaGallery media={[]} />);
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly with no media", () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const { container } = render(<MediaGallery media={undefined} />);
+    const { container } = renderWithThemeProvider(<MediaGallery media={[]} />);
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with no media data", () => {
     const mockMedia = [
       {
-        media: null,
+        media: undefined,
         isVideo: false
       }
     ];
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { container } = render(<MediaGallery media={mockMedia} />);
+    const { container } = renderWithThemeProvider(
+      <MediaGallery media={mockMedia} />
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -98,47 +96,62 @@ describe("MediaGallery component", () => {
         isVideo: true
       }
     ];
-    const wrapper = render(<MediaGallery media={data} />);
-    const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
-    const previewImage = wrapper.container.querySelector(".preview-image");
+    const { container, getAllByTestId, getByTestId } = renderWithThemeProvider(
+      <MediaGallery media={data} />
+    );
+    const thumbnails = getAllByTestId("default-thumbnail");
+    const previewImage = getByTestId("youtube-preview-image");
     expect(previewImage).toHaveAttribute("alt", "test video 1");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[0].classList.toString()).toContain("Thumbnail-selected");
     fireEvent.click(thumbnails[1]);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
-    expect(thumbnails[1]).toHaveClass("Thumbnail--large");
+    expect(thumbnails[1].classList.toString()).toContain("Thumbnail-selected");
+    expect(thumbnails[1].classList.toString()).toContain("Thumbnail-large");
     expect(previewImage).toHaveAttribute("alt", "test video 2");
-    expect(wrapper.container).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it("test click on play icon", async () => {
-    const wrapper = render(<MediaGallery media={mockMedia} />);
-    const playIcon = wrapper.container.querySelector(".play-icon");
-    const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
+    const { container, getAllByTestId, getByTestId } = renderWithThemeProvider(
+      <MediaGallery media={mockMedia} />
+    );
+    const playIcon = getByTestId("thumbnail-play-icon");
+    const thumbnails = getAllByTestId("default-thumbnail");
+    expect(thumbnails[0].classList.toString()).toContain("Thumbnail-selected");
     fireEvent.click(thumbnails[1]);
     fireEvent.click(playIcon as Element);
+    expect(container).toMatchSnapshot();
     expect(
-      await waitFor(() => document.querySelector(".ContainerDialog"))
+      await waitFor(() =>
+        document.querySelector("[class*='ContainerDialog-root-']")
+      )
     ).toBeInTheDocument();
   });
 
   it("test first element of media array is selected by default", () => {
-    const wrapper = render(<MediaGallery media={mockMedia} />);
-    const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
+    const { getAllByTestId } = renderWithThemeProvider(
+      <MediaGallery media={mockMedia} />
+    );
+    const thumbnails = getAllByTestId("default-thumbnail");
+    expect(thumbnails[0].classList.toString()).toContain("Thumbnail-selected");
   });
 
   it("renders MobileThumbnails if isTouchDevice is true", () => {
     Object.defineProperty(document.documentElement, "ontouchstart", jest.fn());
-    const { container } = render(<MediaGallery media={mockMedia} />);
-    expect(container.querySelector(".thumbnails--touch")).toBeTruthy();
+    const { container } = renderWithThemeProvider(
+      <MediaGallery media={mockMedia} />
+    );
+    expect(
+      container.querySelector("[class*='Thumbnails-touch-']")
+    ).toBeTruthy();
   });
 
-  it("renders with main-image-wrapper--cover style if imageSize is not contain", () => {
-    const { container } = render(
+  it("renders with mainImageWrappercover style if mediaSize is not contain", () => {
+    const { container } = renderWithThemeProvider(
       <MediaGallery media={mockMedia} mediaSize="cover" />
     );
 
-    expect(container.querySelector(".main-image-wrapper--cover")).toBeTruthy();
+    expect(
+      container.querySelector("[class*=MediaGallery-mainImageWrapperCover-]")
+    ).toBeTruthy();
   });
 });

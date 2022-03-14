@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import FilterSection, { Props as FilterSectionProps } from "../FilterSection";
@@ -28,15 +29,23 @@ describe("FilterSection", () => {
   };
 
   it("render correctly", () => {
-    const { container, getByText } = render(<FilterSection {...props} />);
+    const { container, getByText } = render(
+      <ThemeProvider>
+        <FilterSection {...props} />
+      </ThemeProvider>
+    );
 
     expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
-    expect(container.querySelector(".Filters")).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 
   it("run clearFilters after clicking clearFiltersButton", () => {
-    const { getByText } = render(<FilterSection {...props} />);
+    const { getByText } = render(
+      <ThemeProvider>
+        <FilterSection {...props} />
+      </ThemeProvider>
+    );
 
     const clearFilterButton = getByText("MC: documentLibrary.filters.clearAll");
     fireEvent.click(clearFilterButton);
@@ -44,9 +53,13 @@ describe("FilterSection", () => {
   });
 
   it("run handleFiltersChange after applied filter", () => {
-    const { container } = render(<FilterSection {...props} />);
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <FilterSection {...props} />
+      </ThemeProvider>
+    );
 
-    const filterbutton = container.querySelector(".Filters .list input");
+    const filterbutton = getByTestId("filter-checkbox");
     fireEvent.click(filterbutton);
     expect(handleFiltersChange).toHaveBeenCalled();
   });

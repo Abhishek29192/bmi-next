@@ -3,17 +3,17 @@
 exports[`CompanyIncompleteProfile should match snapshot 1`] = `
 <div>
   <div
-    class="Alert ColorPair ColorPair--alert"
+    class="AlertBanner-root-127 ColorPair-root-134 ColorPair-alert-142"
   >
     <div
-      class="actions"
+      class="AlertBanner-actions-131"
     >
       <div
         class="closeButtonContainer"
       >
         <button
           aria-label="incompleteProfile.closeAlertAccessibilityLabel"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-171 iconButton IconButton-medium-177 IconButton-text-173"
           data-testid="CloseButton"
           tabindex="0"
           type="button"
@@ -32,17 +32,18 @@ exports[`CompanyIncompleteProfile should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="Container"
+      class="Container-root-180"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+          class="MuiTypography-root AlertBanner-title-132 Typography-root-182 MuiTypography-h5"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root AlertBanner-icon-133"
             focusable="false"
             viewBox="0 0 24 24"
           >

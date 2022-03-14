@@ -2,10 +2,10 @@
 
 exports[`GoogleMap component invokes APIs and renders correctly 1`] = `
 <div
-  class="GoogleMap"
+  class="GoogleMap-root-5"
 >
   <div
-    class="map"
+    class="GoogleMap-map-6"
   >
     <div
       class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -33,10 +33,10 @@ exports[`GoogleMap component invokes APIs and renders correctly 1`] = `
 exports[`GoogleMap component loader renders correctly 1`] = `
 <div>
   <div
-    class="GoogleMap"
+    class="GoogleMap-root-1"
   >
     <div
-      class="map"
+      class="GoogleMap-map-2"
     >
       <div
         class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -65,10 +65,10 @@ exports[`GoogleMap component loader renders correctly 1`] = `
 exports[`GoogleMap component multiple GoogleMap components instantiates multiple Map objects 1`] = `
 <div>
   <div
-    class="GoogleMap"
+    class="GoogleMap-root-9"
   >
     <div
-      class="map"
+      class="GoogleMap-map-10"
     >
       <div
         class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -92,10 +92,10 @@ exports[`GoogleMap component multiple GoogleMap components instantiates multiple
     </div>
   </div>
   <div
-    class="GoogleMap"
+    class="GoogleMap-root-9"
   >
     <div
-      class="map"
+      class="GoogleMap-map-10"
     >
       <div
         class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"

@@ -3,59 +3,59 @@
 exports[`SignupBlock component renders correctly 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--blue-800"
+    class="ColorPair-root-5 ColorPair-blue800-18"
   >
-    <div
-      class="SignupBlock"
-    >
+    <div>
       <div
-        class="Container"
+        class="Container-root-31"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root-33 MuiContainer-maxWidthXl-40"
         >
           <div
-            class="wrapper"
+            class="SignupBlock-wrapper-1"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-43 MuiGrid-container-44 MuiGrid-spacing-xs-3-68"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root-43 Grid-item-41 MuiGrid-item-45 MuiGrid-grid-xs-12-89"
               >
                 <h3
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                  class="MuiTypography-root-154 Typography-root-146 Typography-underline-148 Typography-darkBg-149 MuiTypography-h3-161"
+                  data-testid="typography"
                 >
                   Lorem ipsum
                 </h3>
               </div>
               <div
-                class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                class="MuiGrid-root-43 Grid-item-41 MuiGrid-item-45 MuiGrid-grid-xs-12-89 MuiGrid-grid-sm-6-97 MuiGrid-grid-md-8-113"
               >
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body2"
+                  class="MuiTypography-root-154 Typography-root-146 MuiTypography-body2-155"
+                  data-testid="typography"
                 >
                   Lorem ipsum sit dolor amet
                 </p>
               </div>
               <div
-                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                class="MuiGrid-root-43 SignupBlock-buttonContainer-3 MuiGrid-item-45 MuiGrid-grid-xs-12-89 MuiGrid-grid-sm-6-97 MuiGrid-grid-md-4-109"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-10 signupLabel MuiButton-containedPrimary"
+                  class="MuiButtonBase-root-231 MuiButton-root-204 Button-root-184 MuiButton-contained-212 Button-contained-186 Button-containedDarkBg-193 SignupBlock-signupLabel-4 MuiButton-containedPrimary-213"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label-205 Button-label-187"
                   >
                     CTA
                     <span
-                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                      class="MuiButton-endIcon-227 MuiButton-iconSizeMedium-229"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root"
+                        class="MuiSvgIcon-root-232"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -66,7 +66,7 @@ exports[`SignupBlock component renders correctly 1`] = `
                     </span>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-241"
                   />
                 </button>
               </div>
@@ -82,39 +82,39 @@ exports[`SignupBlock component renders correctly 1`] = `
 exports[`SignupBlock component renders correctly for large screen 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--blue-800"
+    class="ColorPair-root-867 ColorPair-blue800-880"
   >
-    <div
-      class="SignupBlock"
-    >
+    <div>
       <div
-        class="Container"
+        class="Container-root-893"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root-895 MuiContainer-maxWidthXl-902"
         >
           <div
-            class="wrapper"
+            class="SignupBlock-wrapper-684"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-905 MuiGrid-container-906 MuiGrid-spacing-xs-3-930"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-8"
+                class="MuiGrid-root-905 Grid-item-903 MuiGrid-item-907 MuiGrid-grid-lg-8-989"
               >
                 <h3
-                  class="MuiTypography-root title-large-screen Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                  class="MuiTypography-root-1016 SignupBlock-titleLargeScreen-685 Typography-root-1008 Typography-underline-1010 Typography-darkBg-1011 MuiTypography-h3-1023"
+                  data-testid="typography"
                 >
                   Lorem ipsum
                 </h3>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body2"
+                  class="MuiTypography-root-1016 Typography-root-1008 MuiTypography-body2-1017"
+                  data-testid="typography"
                 >
                   Lorem ipsum sit dolor amet
                 </p>
               </div>
               <div
-                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                class="MuiGrid-root-905 SignupBlock-buttonContainer-686 MuiGrid-item-907 MuiGrid-grid-xs-12-951 MuiGrid-grid-sm-6-959 MuiGrid-grid-md-4-971"
               >
                 <button>
                   buttonComponent
@@ -132,43 +132,43 @@ exports[`SignupBlock component renders correctly for large screen 1`] = `
 exports[`SignupBlock component renders correctly if buttonComponent is passed 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--blue-800"
+    class="ColorPair-root-505 ColorPair-blue800-518"
   >
-    <div
-      class="SignupBlock"
-    >
+    <div>
       <div
-        class="Container"
+        class="Container-root-531"
       >
         <div
-          class="MuiContainer-root MuiContainer-maxWidthXl"
+          class="MuiContainer-root-533 MuiContainer-maxWidthXl-540"
         >
           <div
-            class="wrapper"
+            class="SignupBlock-wrapper-501"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-543 MuiGrid-container-544 MuiGrid-spacing-xs-3-568"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root-543 Grid-item-541 MuiGrid-item-545 MuiGrid-grid-xs-12-589"
               >
                 <h3
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                  class="MuiTypography-root-654 Typography-root-646 Typography-underline-648 Typography-darkBg-649 MuiTypography-h3-661"
+                  data-testid="typography"
                 >
                   Lorem ipsum
                 </h3>
               </div>
               <div
-                class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+                class="MuiGrid-root-543 Grid-item-541 MuiGrid-item-545 MuiGrid-grid-xs-12-589 MuiGrid-grid-sm-6-597 MuiGrid-grid-md-8-613"
               >
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body2"
+                  class="MuiTypography-root-654 Typography-root-646 MuiTypography-body2-655"
+                  data-testid="typography"
                 >
                   Lorem ipsum sit dolor amet
                 </p>
               </div>
               <div
-                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+                class="MuiGrid-root-543 SignupBlock-buttonContainer-503 MuiGrid-item-545 MuiGrid-grid-xs-12-589 MuiGrid-grid-sm-6-597 MuiGrid-grid-md-4-609"
               >
                 <button>
                   buttonComponent

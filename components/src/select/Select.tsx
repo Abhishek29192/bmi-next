@@ -1,12 +1,15 @@
-import { Select as MuiSelect, SelectProps } from "@material-ui/core";
-import { MenuItem } from "@material-ui/core";
-import React from "react";
-import { InputLabel } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
-import { FormHelperText } from "@material-ui/core";
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select as MuiSelect,
+  SelectProps
+} from "@material-ui/core";
 import classnames from "classnames";
+import React from "react";
 import withFormControl from "../form/withFormControl";
-import styles from "./Select.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = Omit<SelectProps, "variant"> & {
   variant?: "outlined" | "hybrid";
@@ -34,6 +37,7 @@ const Select = ({
   ) => {
     onChange(event.target.value as string);
   };
+  const classes = useStyles();
   return (
     <FormControl
       error={error}
@@ -46,7 +50,7 @@ const Select = ({
       <MuiSelect
         labelId={labelId}
         label={label}
-        className={classnames(styles["Select"], className)}
+        className={classnames(classes.root, className)}
         onChange={handleChange}
         {...props}
       />

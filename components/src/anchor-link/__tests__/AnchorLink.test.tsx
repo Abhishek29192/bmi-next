@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { ColorPairContext } from "../../color-pair/ColorPair";
+import { ColorPairContext } from "../../color-pair";
 import AnchorLink from "../AnchorLink";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("AnchorLink component", () => {
   it("renders default correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }}>
         BMI Group
       </AnchorLink>
@@ -14,7 +14,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders disabled correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} isDisabled>
         BMI Group
       </AnchorLink>
@@ -23,7 +23,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders leading icon correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} iconStart>
         BMI Group
       </AnchorLink>
@@ -32,7 +32,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders trailing internal icon correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd>
         BMI Group
       </AnchorLink>
@@ -41,7 +41,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders trailing external icon correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} isExternal iconEnd>
         BMI Group
       </AnchorLink>
@@ -50,7 +50,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders icon disabled correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd isDisabled>
         BMI Group
       </AnchorLink>
@@ -59,7 +59,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders multi-line with icon correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink action={{ model: "htmlLink", href: "/" }} iconEnd>
         <p style={{ width: "300px", textAlign: "left" }}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -73,14 +73,14 @@ describe("AnchorLink component", () => {
   });
 
   it("renders with a specified color", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink color="white">BMI Group</AnchorLink>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders within a dark color pair context", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ColorPairContext.Provider value={{ type: "dark" }}>
         <AnchorLink color="white">BMI Group</AnchorLink>
       </ColorPairContext.Provider>
@@ -89,7 +89,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders within a light color pair context", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ColorPairContext.Provider value={{ type: "light" }}>
         <AnchorLink color="white">BMI Group</AnchorLink>
       </ColorPairContext.Provider>
@@ -98,7 +98,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders only with data from context", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ColorPairContext.Provider value={{ type: "light" }}>
         <AnchorLink>BMI Group</AnchorLink>
       </ColorPairContext.Provider>
@@ -107,7 +107,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders with rest props", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink target="_blank" rel="noreferrer">
         Test
       </AnchorLink>
@@ -116,7 +116,7 @@ describe("AnchorLink component", () => {
   });
 
   it("renders with children component", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink>
         <div>Test</div>
       </AnchorLink>
@@ -125,14 +125,14 @@ describe("AnchorLink component", () => {
   });
 
   it("renders with className", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink className="test-className">Test</AnchorLink>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with iconInverted", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AnchorLink iconInverted iconStart>
         Test
       </AnchorLink>

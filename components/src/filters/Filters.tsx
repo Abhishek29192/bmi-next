@@ -3,7 +3,7 @@ import Accordion from "../accordion/Accordion";
 import DefaultCheckbox from "../checkbox/Checkbox";
 import { getMicroCopy, MicroCopyContext } from "../micro-copy/MicroCopy";
 import Typography from "../typography/Typography";
-import styles from "./Filters.module.scss";
+import { useStyles } from "./styles";
 
 type FilterOption = {
   label: React.ReactNode;
@@ -38,13 +38,13 @@ const Filters = ({
   accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
   const copy = useContext(MicroCopyContext);
-
+  const classes = useStyles();
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
   };
 
   return (
-    <div className={styles["Filters"]}>
+    <div>
       <Accordion noInnerPadding>
         {filters.map((filter) => {
           const filterOptions = filter.options.map(
@@ -69,7 +69,7 @@ const Filters = ({
                 <Typography variant="h6">{summaryLabel}</Typography>
               </AccordionSummary>
               <Accordion.Details noInnerPadding={true}>
-                <div className={styles["list"]}>
+                <div className={classes.list}>
                   {filterOptions.map((option) => (
                     <div key={option.value}>
                       <Checkbox
@@ -86,6 +86,7 @@ const Filters = ({
                             value
                           );
                         }}
+                        data-testid="filter-checkbox"
                       />
                     </div>
                   ))}

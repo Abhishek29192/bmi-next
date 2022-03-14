@@ -8,10 +8,10 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-root-115 Table-evenColor-117"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-127 ColorPair-pearl-129"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"
@@ -75,10 +75,10 @@ exports[`ProductTechnicalSpec component Renders correctly when Multiple classifi
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-root-77 Table-evenColor-79"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-89 ColorPair-pearl-91"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"
@@ -142,10 +142,10 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-root-39 Table-evenColor-41"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-51 ColorPair-pearl-53"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"
@@ -195,10 +195,10 @@ exports[`ProductTechnicalSpec component Renders correctly when One classificatio
     >
       <div>
         <table
-          class="MuiTable-root Table Table--row-even-color"
+          class="MuiTable-root Table-root-1 Table-evenColor-3"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-13 ColorPair-pearl-15"
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head"

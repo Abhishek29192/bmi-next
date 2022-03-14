@@ -1,16 +1,16 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import Card, {
+  CardActionArea,
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia,
-  CardActionArea
+  CardMedia
 } from "../Card";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Card component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Card>
         <CardHeader title="test title" subheader="test subheader" />
         <CardActionArea>

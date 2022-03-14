@@ -1,11 +1,12 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import NBACard from "../NBACard";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("NbaCard component", () => {
   it("renders correctly", () => {
-    const { container } = render(
-      <NBACard theme="blue-900" title="H4 Heading">
+    const { container } = renderWithThemeProvider(
+      <NBACard theme="blue900" title="H4 Heading">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
           condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam
@@ -17,8 +18,8 @@ describe("NbaCard component", () => {
   });
 
   it("non clickable renders correctly", () => {
-    const { container } = render(
-      <NBACard theme="blue-900" title="H4 Heading" isClickable={false}>
+    const { container } = renderWithThemeProvider(
+      <NBACard theme="blue900" title="H4 Heading" isClickable={false}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
           condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam
@@ -30,8 +31,8 @@ describe("NbaCard component", () => {
   });
 
   it("renders with footer", () => {
-    const { container } = render(
-      <NBACard theme="blue-900" title="H4 Heading" footer={<div>footer</div>}>
+    const { container } = renderWithThemeProvider(
+      <NBACard theme="blue900" title="H4 Heading" footer={<div>footer</div>}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
           condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam
@@ -45,8 +46,8 @@ describe("NbaCard component", () => {
   it("accpets onClick", () => {
     const onClick = jest.fn();
 
-    const { getByText } = render(
-      <NBACard theme="blue-900" title="H4 Heading" onClick={onClick}>
+    const { getByText } = renderWithThemeProvider(
+      <NBACard theme="blue900" title="H4 Heading" onClick={onClick}>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
           condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam

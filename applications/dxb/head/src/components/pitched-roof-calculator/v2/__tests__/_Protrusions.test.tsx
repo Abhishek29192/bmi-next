@@ -1,4 +1,4 @@
-import { FormContext } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
@@ -12,18 +12,20 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Protrusions />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Protrusions />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -31,20 +33,22 @@ describe("PitchedRoofCalculator Protrusions component", () => {
 
   it("adds a protrusion", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <Protrusions
-            defaultValue={[{ type: "protrusion01", A: 3, B: 3, P: 30 }]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <Protrusions
+              defaultValue={[{ type: "protrusion01", A: 3, B: 3, P: 30 }]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const addProtrusionButton = screen.getByText(
@@ -60,30 +64,32 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const protrusion = { type: "protrusion01", A: 3, B: 3, P: 30 };
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <Protrusions
-            defaultValue={[
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion,
-              protrusion
-            ]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <Protrusions
+              defaultValue={[
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion,
+                protrusion
+              ]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -97,23 +103,25 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const submitButtonDisabled = false;
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Protrusions
-            defaultValue={[
-              {},
-              { type: "protrusion01", A: "33", B: "55", P: "44" }
-            ]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Protrusions
+              defaultValue={[
+                {},
+                { type: "protrusion01", A: "33", B: "55", P: "44" }
+              ]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const removeProtrusionButtons = screen.getAllByText(

@@ -6,7 +6,8 @@ exports[`RewardSummary render correctly 1`] = `
     class="main"
   >
     <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+      data-testid="typography"
       style="font-size: 1.2rem;"
     >
       reward.title
@@ -15,10 +16,10 @@ exports[`RewardSummary render correctly 1`] = `
       class="body"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-9 MuiGrid-item MuiGrid-grid-xs-12"
           style="text-align: center;"
         >
           <div
@@ -75,18 +76,20 @@ exports[`RewardSummary render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-9 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <div
             class="linearProgressTitle"
           >
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.stage 1
             </p>
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.status.inProgress
             </p>
@@ -111,7 +114,8 @@ exports[`RewardSummary render correctly 1`] = `
               class="linearProgressLabel"
             >
               <p
-                class="MuiTypography-root Typography body3 MuiTypography-body2"
+                class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+                data-testid="typography"
               >
                 0 / 250
               </p>
@@ -119,18 +123,20 @@ exports[`RewardSummary render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-9 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <div
             class="linearProgressTitle"
           >
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.stage 2
             </p>
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.status.pending
             </p>
@@ -155,7 +161,8 @@ exports[`RewardSummary render correctly 1`] = `
               class="linearProgressLabel"
             >
               <p
-                class="MuiTypography-root Typography body3 MuiTypography-body2"
+                class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+                data-testid="typography"
               >
                 0 / 250
               </p>
@@ -163,18 +170,20 @@ exports[`RewardSummary render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-9 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <div
             class="linearProgressTitle"
           >
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.stage 3
             </p>
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.status.pending
             </p>
@@ -199,7 +208,8 @@ exports[`RewardSummary render correctly 1`] = `
               class="linearProgressLabel"
             >
               <p
-                class="MuiTypography-root Typography body3 MuiTypography-body2"
+                class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+                data-testid="typography"
               >
                 0 / 250
               </p>
@@ -207,18 +217,20 @@ exports[`RewardSummary render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-9 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <div
             class="linearProgressTitle"
           >
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.stage 4
             </p>
             <p
-              class="MuiTypography-root Typography body3 MuiTypography-body2"
+              class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+              data-testid="typography"
             >
               reward.status.pending
             </p>
@@ -243,7 +255,8 @@ exports[`RewardSummary render correctly 1`] = `
               class="linearProgressLabel"
             >
               <p
-                class="MuiTypography-root Typography body3 MuiTypography-body2"
+                class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+                data-testid="typography"
               >
                 0 / 250
               </p>

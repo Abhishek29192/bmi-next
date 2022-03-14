@@ -3,23 +3,21 @@
 exports[`TeamList component renders correctly 1`] = `
 <div>
   <div>
-    <div
-      class="EqualHeights"
-    >
+    <div>
       <div
-        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-justifyContent-2 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-3"
           >
             <div
-              class="head"
+              class="ProfileCard-head-4"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-5 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -71,20 +69,22 @@ exports[`TeamList component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-11"
             >
               <div
-                class="body"
+                class="ProfileCard-body-7"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-12 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-6 Typography-root-12 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -102,23 +102,21 @@ exports[`TeamList component renders correctly 1`] = `
 exports[`TeamList component renders correctly when incomplete 1`] = `
 <div>
   <div>
-    <div
-      class="EqualHeights"
-    >
+    <div>
       <div
-        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-justifyContent-79 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-78 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-80"
           >
             <div
-              class="head"
+              class="ProfileCard-head-81"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-82 MuiAvatar-colorDefault"
               >
                 <svg
                   aria-hidden="true"
@@ -133,15 +131,16 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-88"
             >
               <div
-                class="body"
+                class="ProfileCard-body-84"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-89 MuiTypography-h5"
+                    data-testid="typography"
                   />
                 </div>
               </div>
@@ -157,23 +156,21 @@ exports[`TeamList component renders correctly when incomplete 1`] = `
 exports[`TeamList component renders correctly with links 1`] = `
 <div>
   <div>
-    <div
-      class="EqualHeights"
-    >
+    <div>
       <div
-        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-justifyContent-60 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-59 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-61"
           >
             <div
-              class="head"
+              class="ProfileCard-head-62"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-63 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -225,20 +222,22 @@ exports[`TeamList component renders correctly with links 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-69"
             >
               <div
-                class="body"
+                class="ProfileCard-body-65"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-70 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-64 Typography-root-70 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -246,10 +245,10 @@ exports[`TeamList component renders correctly with links 1`] = `
               </div>
             </div>
             <div
-              class="footer"
+              class="ProfileCard-footer-66"
             >
               <span
-                class="row"
+                class="ProfileCard-row-67"
               >
                 Contact us
               </span>
@@ -265,23 +264,21 @@ exports[`TeamList component renders correctly with links 1`] = `
 exports[`TeamList component renders correctly with more than 8 1`] = `
 <div>
   <div>
-    <div
-      class="EqualHeights"
-    >
+    <div>
       <div
-        class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+        class="MuiGrid-root Grid-justifyContent-21 MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -333,20 +330,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -356,16 +355,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -417,20 +416,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -440,16 +441,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -501,20 +502,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -524,16 +527,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -585,20 +588,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -608,16 +613,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -669,20 +674,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -692,16 +699,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -753,20 +760,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -776,16 +785,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -837,20 +846,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -860,16 +871,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -921,20 +932,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>
@@ -944,16 +957,16 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
+          class="MuiGrid-root Grid-item-20 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
         >
           <div
-            class="ProfileCard"
+            class="ProfileCard-root-22"
           >
             <div
-              class="head"
+              class="ProfileCard-head-23"
             >
               <div
-                class="MuiAvatar-root MuiAvatar-circular profile-picture MuiAvatar-colorDefault"
+                class="MuiAvatar-root MuiAvatar-circular ProfileCard-profilePicture-24 MuiAvatar-colorDefault"
               >
                 <div
                   class="gatsby-image-wrapper gatsby-image-wrapper-constrained"
@@ -1005,20 +1018,22 @@ exports[`TeamList component renders correctly with more than 8 1`] = `
               </div>
             </div>
             <div
-              class="content-box"
+              class="EqualHeights-contentBox-30"
             >
               <div
-                class="body"
+                class="ProfileCard-body-26"
                 style="height: auto;"
               >
                 <div>
                   <strong
-                    class="MuiTypography-root Typography MuiTypography-h5"
+                    class="MuiTypography-root Typography-root-31 MuiTypography-h5"
+                    data-testid="typography"
                   >
                     Name
                   </strong>
                   <p
-                    class="MuiTypography-root title Typography MuiTypography-body2"
+                    class="MuiTypography-root ProfileCard-title-25 Typography-root-31 MuiTypography-body2"
+                    data-testid="typography"
                   >
                     Job Title
                   </p>

@@ -1,5 +1,6 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
 import { TrainingCover } from "..";
 import { TrainingQuery } from "../../../../graphql/generated/operations";
 
@@ -33,13 +34,17 @@ describe("TrainingCover component", () => {
     };
 
     const { container } = render(
-      <TrainingCover trainingContentCollection={trainingContent} />
+      <ThemeProvider>
+        <TrainingCover trainingContentCollection={trainingContent} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders null when no trainingContent is passed", () => {
     const { container } = render(
-      <TrainingCover trainingContentCollection={null} />
+      <ThemeProvider>
+        <TrainingCover trainingContentCollection={null} />
+      </ThemeProvider>
     );
     expect(container.firstChild).toBeNull();
   });

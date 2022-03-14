@@ -4,7 +4,7 @@ import YoutubeVideo, {
   Layout,
   Props as YoutubeVideoProps
 } from "../youtube-video/YoutubeVideo";
-import styles from "./Media.module.scss";
+import { useStyles } from "./styles";
 
 export type AcceptedNode =
   | (YoutubeVideoProps & { layout: Layout })
@@ -48,6 +48,8 @@ const Media = ({
   isDragEnabled,
   size = "cover"
 }: Props) => {
+  const classes = useStyles();
+
   if (!children || !React.isValidElement<AcceptedNode>(children)) {
     return null;
   }
@@ -58,8 +60,9 @@ const Media = ({
     className: classnames(
       wrapperNode.props.className,
       className,
-      styles["Media"],
-      size !== "cover" && styles[`Media--${size}`]
+      classes.root,
+      // eslint-disable-next-line security/detect-object-injection
+      size !== "cover" && classes[size]
     )
   });
 };

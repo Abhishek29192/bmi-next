@@ -3,21 +3,23 @@
 exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-106 Section-white-110"
   >
     <div
-      class="Container"
+      class="Container-root-114"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-113 Typography-root-116 Typography-underline-118 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-116 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -25,24 +27,25 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
           style="margin-top: 40px;"
         >
           <div
-            class="accordionStyles-root-28"
+            class="Accordion-root-124"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root accordionStyles-item-29 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiAccordion-root Accordion-item-125 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
             >
               <div
                 aria-disabled="false"
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-32"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-128"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content accordionStyles-summaryContent-34"
+                  class="MuiAccordionSummary-content Accordion-summaryContent-130"
                 >
                   <h3
-                    class="MuiTypography-root Typography MuiTypography-h6"
+                    class="MuiTypography-root Typography-root-116 MuiTypography-h6"
+                    data-testid="typography"
                   >
                     name
                   </h3>
@@ -85,13 +88,14 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordionStyles-details-30 accordionStyles-details-38"
+                        class="MuiAccordionDetails-root Accordion-details-126 Accordion-details-134"
                       >
                         <div
-                          class="RichText"
+                          class="RichText-root-135"
                         >
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                            class="MuiTypography-root Typography-root-116 MuiTypography-body1 MuiTypography-gutterBottom"
+                            data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                           </p>
@@ -113,21 +117,23 @@ exports[`TabsOrAccordionSection Accordion default to name if title is null 1`] =
 exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-1 Section-white-5"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-11 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -135,24 +141,25 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="accordionStyles-root-1"
+            class="Accordion-root-19"
           >
             <div
-              class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiAccordion-root Accordion-item-20 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
             >
               <div
                 aria-disabled="false"
                 aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+                class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-23"
                 data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Accordion\\"}"
                 role="button"
                 tabindex="0"
               >
                 <div
-                  class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+                  class="MuiAccordionSummary-content Accordion-summaryContent-25"
                 >
                   <h3
-                    class="MuiTypography-root Typography MuiTypography-h6"
+                    class="MuiTypography-root Typography-root-11 MuiTypography-h6"
+                    data-testid="typography"
                   >
                     hello
                   </h3>
@@ -195,13 +202,14 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
                       role="region"
                     >
                       <div
-                        class="MuiAccordionDetails-root accordionStyles-details-3 accordionStyles-details-11"
+                        class="MuiAccordionDetails-root Accordion-details-21 Accordion-details-29"
                       >
                         <div
-                          class="RichText"
+                          class="RichText-root-30"
                         >
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                            class="MuiTypography-root Typography-root-11 MuiTypography-body1 MuiTypography-gutterBottom"
+                            data-testid="typography"
                           >
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                           </p>
@@ -223,21 +231,23 @@ exports[`TabsOrAccordionSection Accordion renders Correctly  1`] = `
 exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="Section-root-69 Section-pearl-72"
   >
     <div
-      class="Container"
+      class="Container-root-77"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-76 Typography-root-79 Typography-underline-81 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-79 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -245,19 +255,19 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="Tabs-root-87"
           >
             <div
-              class="TabsBar"
+              class="Tabs-TabsBar-93"
             >
               <div
-                class="Container"
+                class="Container-root-77"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-20 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root Tabs-ContainerRoot-88 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-21"
+                    class="MuiTabs-root Tabs-TabsRoot-89"
                   >
                     <div
                       aria-disabled="false"
@@ -293,7 +303,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         <button
                           aria-controls="tabpanel-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-22 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-90 Mui-selected"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"name\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-name"
                           id="tab-name"
@@ -312,7 +322,7 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-23 PrivateTabIndicator-colorPrimary-24 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-97 PrivateTabIndicator-colorPrimary-98 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -340,20 +350,21 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
             </div>
             <div
               aria-labelledby="tab-name"
-              class="MuiGrid-root TabPanel MuiGrid-item"
+              class="MuiGrid-root Tabs-TabPanel-91 MuiGrid-item"
               data-testid="tabpanel-name"
               heading="name"
               id="tabpanel-name"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-27 TabPanelBox"
+                class="MuiBox-root MuiBox-root-103 Tabs-TabPanelBox-92"
               >
                 <div
-                  class="RichText"
+                  class="RichText-root-104"
                 >
                   <p
-                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root Typography-root-79 MuiTypography-body1 MuiTypography-gutterBottom"
+                    data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                   </p>
@@ -371,21 +382,23 @@ exports[`TabsOrAccordionSection Tabs default to name if title is null 1`] = `
 exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="Section-root-32 Section-pearl-35"
   >
     <div
-      class="Container"
+      class="Container-root-40"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-39 Typography-root-42 Typography-underline-44 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-42 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -393,19 +406,19 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="Tabs-root-50"
           >
             <div
-              class="TabsBar"
+              class="Tabs-TabsBar-56"
             >
               <div
-                class="Container"
+                class="Container-root-40"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-12 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root Tabs-ContainerRoot-51 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-13"
+                    class="MuiTabs-root Tabs-TabsRoot-52"
                   >
                     <div
                       aria-disabled="false"
@@ -441,7 +454,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         <button
                           aria-controls="tabpanel-hello"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-14 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-53 Mui-selected"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"hello\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-hello"
                           id="tab-hello"
@@ -460,7 +473,7 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-60 PrivateTabIndicator-colorPrimary-61 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -488,20 +501,21 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
             </div>
             <div
               aria-labelledby="tab-hello"
-              class="MuiGrid-root TabPanel MuiGrid-item"
+              class="MuiGrid-root Tabs-TabPanel-54 MuiGrid-item"
               data-testid="tabpanel-hello"
               heading="hello"
               id="tabpanel-hello"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-19 TabPanelBox"
+                class="MuiBox-root MuiBox-root-66 Tabs-TabPanelBox-55"
               >
                 <div
-                  class="RichText"
+                  class="RichText-root-67"
                 >
                   <p
-                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root Typography-root-42 MuiTypography-body1 MuiTypography-gutterBottom"
+                    data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                   </p>
@@ -519,21 +533,23 @@ exports[`TabsOrAccordionSection Tabs renders Correctly  1`] = `
 exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="Section-root-174 Section-pearl-177"
   >
     <div
-      class="Container"
+      class="Container-root-182"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-181 Typography-root-184 Typography-underline-186 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-184 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -541,19 +557,19 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="Tabs-root-192"
           >
             <div
-              class="TabsBar"
+              class="Tabs-TabsBar-198"
             >
               <div
-                class="Container"
+                class="Container-root-182"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-47 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root Tabs-ContainerRoot-193 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-48"
+                    class="MuiTabs-root Tabs-TabsRoot-194"
                   >
                     <div
                       aria-disabled="false"
@@ -587,7 +603,7 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
                         role="tablist"
                       />
                       <span
-                        class="PrivateTabIndicator-root-50 PrivateTabIndicator-colorPrimary-51 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-202 PrivateTabIndicator-colorPrimary-203 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -624,21 +640,23 @@ exports[`TabsOrAccordionSection not render tab panel if item array is empty 1`] 
 exports[`TabsOrAccordionSection title attribute is rendered if both name and title exists for tab panels 1`] = `
 <div>
   <div
-    class="Section Section--pearl"
+    class="Section-root-137 Section-pearl-140"
   >
     <div
-      class="Container"
+      class="Container-root-145"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-144 Typography-root-147 Typography-underline-149 MuiTypography-h2"
+          data-testid="typography"
         >
           string
         </h2>
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-147 MuiTypography-body1"
+          data-testid="typography"
         >
           string
         </p>
@@ -646,19 +664,19 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
           style="margin-top: 40px;"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="Tabs-root-155"
           >
             <div
-              class="TabsBar"
+              class="Tabs-TabsBar-161"
             >
               <div
-                class="Container"
+                class="Container-root-145"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-39 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root Tabs-ContainerRoot-156 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-40"
+                    class="MuiTabs-root Tabs-TabsRoot-157"
                   >
                     <div
                       aria-disabled="false"
@@ -694,7 +712,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         <button
                           aria-controls="tabpanel-title"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-41 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-158 Mui-selected"
                           data-gtm="{\\"id\\":\\"selector-tabs2\\",\\"label\\":\\"title\\",\\"action\\":\\"Selector – Tabs\\"}"
                           data-testid="tab-title"
                           id="tab-title"
@@ -713,7 +731,7 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-42 PrivateTabIndicator-colorPrimary-43 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-165 PrivateTabIndicator-colorPrimary-166 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -741,20 +759,21 @@ exports[`TabsOrAccordionSection title attribute is rendered if both name and tit
             </div>
             <div
               aria-labelledby="tab-title"
-              class="MuiGrid-root TabPanel MuiGrid-item"
+              class="MuiGrid-root Tabs-TabPanel-159 MuiGrid-item"
               data-testid="tabpanel-title"
               heading="title"
               id="tabpanel-title"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-46 TabPanelBox"
+                class="MuiBox-root MuiBox-root-171 Tabs-TabPanelBox-160"
               >
                 <div
-                  class="RichText"
+                  class="RichText-root-172"
                 >
                   <p
-                    class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                    class="MuiTypography-root Typography-root-147 MuiTypography-body1 MuiTypography-gutterBottom"
+                    data-testid="typography"
                   >
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                   </p>

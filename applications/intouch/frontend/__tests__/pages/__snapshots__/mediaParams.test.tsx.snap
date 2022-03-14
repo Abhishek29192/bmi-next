@@ -26,7 +26,7 @@ exports[`Team page server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Team page server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Team page server side props render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Team page server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-274"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Team page server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Team page server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-274"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Team page server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Team page server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-274"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Team page server side props render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Tools
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Team page server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-274"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Team page server side props render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Team page server side props render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Team page server side props render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-274"
                       />
                     </button>
                   </div>
@@ -287,27 +289,27 @@ exports[`Team page server side props render correctly 1`] = `
           class="appContent"
         >
           <div
-            class="Tabs Tabs--primary"
+            class="Tabs-root-105"
           >
             <div
-              class="TabsBar"
+              class="Tabs-TabsBar-111"
             >
               <div
-                class="Container"
+                class="Container-root-115"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-3"
+                  class="MuiContainer-root-117 Tabs-ContainerRoot-106"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-4"
+                    class="MuiTabs-root-125 Tabs-TabsRoot-107"
                   >
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root-18 MuiTabScrollButton-root-136 tabsScrollBtn Mui-disabled"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root-1 MuiSvgIcon-fontSizeSmall-8"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -316,26 +318,26 @@ exports[`Team page server side props render correctly 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-274"
                       />
                     </div>
                     <div
-                      class="MuiTabs-scrollable"
+                      class="MuiTabs-scrollable-132"
                       style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                     />
                     <div
-                      class="MuiTabs-scroller MuiTabs-scrollable"
+                      class="MuiTabs-scroller-130 MuiTabs-scrollable-132"
                       style="margin-bottom: 0px;"
                     >
                       <div
                         aria-label="tabs"
-                        class="MuiTabs-flexContainer"
+                        class="MuiTabs-flexContainer-127"
                         role="tablist"
                       >
                         <button
                           aria-controls="tabpanel-undefined"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-5 Mui-selected"
+                          class="MuiButtonBase-root-18 MuiTab-root-138 MuiTab-textColorPrimary-141 Tabs-TabRoot-108 Mui-selected"
                           data-testid="tab-undefined"
                           id="tab-undefined"
                           role="tab"
@@ -343,25 +345,25 @@ exports[`Team page server side props render correctly 1`] = `
                           type="button"
                         >
                           <span
-                            class="MuiTab-wrapper"
+                            class="MuiTab-wrapper-145"
                           />
                           <span
-                            class="MuiTouchRipple-root"
+                            class="MuiTouchRipple-root-274"
                           />
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-6 PrivateTabIndicator-colorPrimary-7 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-146 PrivateTabIndicator-colorPrimary-147 MuiTabs-indicator-135"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      class="MuiButtonBase-root-18 MuiTabScrollButton-root-136 tabsScrollBtn Mui-disabled"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                        class="MuiSvgIcon-root-1 MuiSvgIcon-fontSizeSmall-8"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -370,7 +372,7 @@ exports[`Team page server side props render correctly 1`] = `
                         />
                       </svg>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-274"
                       />
                     </div>
                   </div>
@@ -379,14 +381,14 @@ exports[`Team page server side props render correctly 1`] = `
             </div>
             <div
               aria-labelledby="tab-undefined"
-              class="MuiGrid-root TabPanel MuiGrid-item"
+              class="MuiGrid-root-152 Tabs-TabPanel-109 MuiGrid-item-154"
               data-testid="tabpanel-undefined"
               hidden=""
               id="tabpanel-undefined"
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-10 TabPanelBox"
+                class="MuiBox-root-255 MuiBox-root-256 Tabs-TabPanelBox-110"
               >
                 <div
                   class="mediaGrid"
@@ -395,7 +397,8 @@ exports[`Team page server side props render correctly 1`] = `
                     class="meta"
                   >
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                      class="MuiTypography-root-27 Typography-root-19 MuiTypography-subtitle2-39 MuiTypography-displayBlock-56"
+                      data-testid="typography"
                     >
                       countIndicator
                     </h6>
@@ -409,7 +412,7 @@ exports[`Team page server side props render correctly 1`] = `
                           class="content"
                         >
                           <button
-                            class="MuiButtonBase-root MuiCardActionArea-root"
+                            class="MuiButtonBase-root-18 MuiCardActionArea-root-257"
                             data-testid="media-tile-element-2"
                             tabindex="0"
                             type="button"
@@ -418,7 +421,7 @@ exports[`Team page server side props render correctly 1`] = `
                               class="outlined"
                             >
                               <div
-                                class="MuiCardContent-root content"
+                                class="MuiCardContent-root-259 content"
                               >
                                 <svg
                                   color="primary"
@@ -430,19 +433,21 @@ exports[`Team page server side props render correctly 1`] = `
                               class="footer"
                             >
                               <span
-                                class="MuiTypography-root title Typography MuiTypography-button"
+                                class="MuiTypography-root-27 title Typography-root-19 MuiTypography-button-31"
+                                data-testid="typography"
                               />
                               <span
-                                class="MuiTypography-root meta Typography MuiTypography-button"
+                                class="MuiTypography-root-27 meta Typography-root-19 MuiTypography-button-31"
+                                data-testid="typography"
                               >
                                 contentTypes.MEDIA
                               </span>
                             </div>
                             <span
-                              class="MuiCardActionArea-focusHighlight"
+                              class="MuiCardActionArea-focusHighlight-258"
                             />
                             <span
-                              class="MuiTouchRipple-root"
+                              class="MuiTouchRipple-root-274"
                             />
                           </button>
                         </div>

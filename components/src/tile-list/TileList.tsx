@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import classnames from "classnames";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import Card from "../card/Card";
 import Icon from "../icon";
-import styles from "./TileList.module.scss";
+import { useStyles } from "./styles";
 
 type TileProps = {
   children: React.ReactNode;
@@ -13,16 +13,14 @@ type TileProps = {
 };
 
 const Tile = ({ children, icon, onClick }: TileProps) => {
+  const classes = useStyles();
   return (
     <Card
-      className={classnames(
-        styles["Tile"],
-        !!onClick && styles["Tile--clickable"]
-      )}
+      className={classnames(classes.tile, !!onClick && classes.clickable)}
       onClick={onClick}
     >
-      <Icon className={styles["icon"]} source={icon} />
-      <div className={styles["description"]}>{children}</div>
+      <Icon className={classes.icon} source={icon} />
+      <div className={classes.description}>{children}</div>
     </Card>
   );
 };
@@ -38,13 +36,14 @@ const TileList = ({ children, isPaginated, itemsPerPage = 8 }: Props) => {
   const [numberOfVisibleTiles, setNumberOfVisibleTiles] = useState(
     isPaginated ? itemsPerPage : numberOfTiles
   );
+  const classes = useStyles();
   return (
     <>
-      <div className={styles["wrapper"]}>
+      <div className={classes.wrapper}>
         {children.slice(0, numberOfVisibleTiles)}
       </div>
       {numberOfVisibleTiles >= numberOfTiles ? null : (
-        <div className={styles["button"]}>
+        <div className={classes.button}>
           <Button
             variant="outlined"
             fullWidth

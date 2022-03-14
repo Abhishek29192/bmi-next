@@ -10,19 +10,19 @@ Object {
       aria-hidden="true"
     >
       <div
-        class="Tabs Tabs--primary"
+        class="Tabs-root-290"
       >
         <div
-          class="TabsBar"
+          class="Tabs-TabsBar-296"
         >
           <div
-            class="Container"
+            class="Container-root-300"
           >
             <div
-              class="MuiContainer-root tabStyles-ContainerRoot-118"
+              class="MuiContainer-root Tabs-ContainerRoot-291"
             >
               <div
-                class="MuiTabs-root tabStyles-TabsRoot-119"
+                class="MuiTabs-root Tabs-TabsRoot-292"
               >
                 <div
                   aria-disabled="false"
@@ -56,7 +56,7 @@ Object {
                     role="tablist"
                   />
                   <span
-                    class="PrivateTabIndicator-root-141 PrivateTabIndicator-colorPrimary-142 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-366 PrivateTabIndicator-colorPrimary-367 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -85,7 +85,6 @@ Object {
       </div>
     </div>
     <div
-      class=""
       role="presentation"
       style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
     >
@@ -99,19 +98,19 @@ Object {
         tabindex="0"
       />
       <div
-        class="ColorPair ColorPair--white"
+        class="ColorPair-root-302 ColorPair-white-303"
         style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         tabindex="-1"
       >
         <div
-          class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-117"
+          class="Dialog-root-276 Dialog-bg-white-283 Dialog-width-lg-288 modal makeStyles-paper-275"
         >
           <div
-            class="header"
+            class="Dialog-header-277"
           >
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-339 iconButton IconButton-medium-345 IconButton-text-341 Dialog-iconButton-279"
               tabindex="0"
               type="button"
             >
@@ -135,10 +134,10 @@ Object {
             </button>
           </div>
           <div
-            class="wrapper"
+            class="Carousel-wrapper-352"
           >
             <div
-              class="Carousel Carousel--swipable"
+              class="Carousel-root-348 Carousel-swipable-357"
               data-testid="carousel"
             >
               <div
@@ -155,10 +154,11 @@ Object {
                     style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="page"
+                      class="Carousel-page-351"
                     >
                       <div
-                        class="slide slide"
+                        class="Carousel-slide-349 slide"
+                        data-test-class-name="slide"
                         style="width: 100%;"
                       >
                         <div>
@@ -166,7 +166,8 @@ Object {
                             class="mediaHeader"
                           >
                             <h6
-                              class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                              class="MuiTypography-root mediaTitle Typography-root-358 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                              data-testid="typography"
                             >
                               Megatest / mediaTool
                             </h6>
@@ -201,7 +202,7 @@ Object {
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 carouselControl carouselControl--previous"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-339 iconButton IconButton-medium-345 IconButton-text-341 carouselControl carouselControl--previous"
             data-testid="carousel-prev-button"
             tabindex="0"
             type="button"
@@ -225,7 +226,7 @@ Object {
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 carouselControl carouselControl--next"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-339 iconButton IconButton-medium-345 IconButton-text-341 carouselControl carouselControl--next"
             data-testid="carousel-next-button"
             tabindex="0"
             type="button"
@@ -260,19 +261,19 @@ Object {
     aria-hidden="true"
   >
     <div
-      class="Tabs Tabs--primary"
+      class="Tabs-root-290"
     >
       <div
-        class="TabsBar"
+        class="Tabs-TabsBar-296"
       >
         <div
-          class="Container"
+          class="Container-root-300"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-118"
+            class="MuiContainer-root Tabs-ContainerRoot-291"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-119"
+              class="MuiTabs-root Tabs-TabsRoot-292"
             >
               <div
                 aria-disabled="false"
@@ -306,7 +307,7 @@ Object {
                   role="tablist"
                 />
                 <span
-                  class="PrivateTabIndicator-root-141 PrivateTabIndicator-colorPrimary-142 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-366 PrivateTabIndicator-colorPrimary-367 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -394,19 +395,19 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="Tabs Tabs--primary"
+        class="Tabs-root-1"
       >
         <div
-          class="TabsBar"
+          class="Tabs-TabsBar-7"
         >
           <div
-            class="Container"
+            class="Container-root-11"
           >
             <div
-              class="MuiContainer-root tabStyles-ContainerRoot-1"
+              class="MuiContainer-root Tabs-ContainerRoot-2"
             >
               <div
-                class="MuiTabs-root tabStyles-TabsRoot-2"
+                class="MuiTabs-root Tabs-TabsRoot-3"
               >
                 <div
                   aria-disabled="false"
@@ -442,7 +443,7 @@ Object {
                     <button
                       aria-controls="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
                       aria-selected="true"
-                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                      class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-4 Mui-selected"
                       data-testid="tab-2RdhIZRj7BuTDbC2eO2vQp"
                       id="tab-2RdhIZRj7BuTDbC2eO2vQp"
                       role="tab"
@@ -458,7 +459,7 @@ Object {
                     </button>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorPrimary-14 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -486,17 +487,17 @@ Object {
         </div>
         <div
           aria-labelledby="tab-2RdhIZRj7BuTDbC2eO2vQp"
-          class="MuiGrid-root TabPanel MuiGrid-item"
+          class="MuiGrid-root Tabs-TabPanel-5 MuiGrid-item"
           data-testid="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
           id="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
           role="tabpanel"
         >
           <div
-            class="MuiBox-root MuiBox-root-8 TabPanelBox"
+            class="MuiBox-root MuiBox-root-19 Tabs-TabPanelBox-6"
           >
             <nav
               aria-label="breadcrumbs"
-              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+              class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs-root-20 MuiTypography-body1 MuiTypography-colorTextSecondary"
             >
               <ol
                 class="MuiBreadcrumbs-ol"
@@ -505,19 +506,19 @@ Object {
                   class="MuiBreadcrumbs-li"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-text buttonStyles-text-10 button link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root Button-root-28 MuiButton-text Button-text-29 Breadcrumbs-button-22 Breadcrumbs-link-23 MuiButton-textPrimary"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-12"
+                      class="MuiButton-label Button-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-13 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon Button-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root icon"
+                          class="MuiSvgIcon-root Breadcrumbs-icon-24"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -527,7 +528,7 @@ Object {
                         </svg>
                       </span>
                       <span
-                        class="label"
+                        class="Breadcrumbs-label-25"
                       >
                         <div
                           aria-role="button"
@@ -552,7 +553,8 @@ Object {
                 class="meta"
               >
                 <h6
-                  class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                  class="MuiTypography-root Typography-root-48 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                  data-testid="typography"
                 >
                   countIndicator
                 </h6>
@@ -609,12 +611,14 @@ Object {
                           class="footer"
                         >
                           <span
-                            class="MuiTypography-root title Typography MuiTypography-button"
+                            class="MuiTypography-root title Typography-root-48 MuiTypography-button"
+                            data-testid="typography"
                           >
                             mediaTool
                           </span>
                           <span
-                            class="MuiTypography-root meta Typography MuiTypography-button"
+                            class="MuiTypography-root meta Typography-root-48 MuiTypography-button"
+                            data-testid="typography"
                           >
                             contentTypes.VIDEO
                           </span>
@@ -638,19 +642,19 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Tabs Tabs--primary"
+      class="Tabs-root-1"
     >
       <div
-        class="TabsBar"
+        class="Tabs-TabsBar-7"
       >
         <div
-          class="Container"
+          class="Container-root-11"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-1"
+            class="MuiContainer-root Tabs-ContainerRoot-2"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-2"
+              class="MuiTabs-root Tabs-TabsRoot-3"
             >
               <div
                 aria-disabled="false"
@@ -686,7 +690,7 @@ Object {
                   <button
                     aria-controls="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-3 Mui-selected"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Tabs-TabRoot-4 Mui-selected"
                     data-testid="tab-2RdhIZRj7BuTDbC2eO2vQp"
                     id="tab-2RdhIZRj7BuTDbC2eO2vQp"
                     role="tab"
@@ -702,7 +706,7 @@ Object {
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-13 PrivateTabIndicator-colorPrimary-14 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -730,17 +734,17 @@ Object {
       </div>
       <div
         aria-labelledby="tab-2RdhIZRj7BuTDbC2eO2vQp"
-        class="MuiGrid-root TabPanel MuiGrid-item"
+        class="MuiGrid-root Tabs-TabPanel-5 MuiGrid-item"
         data-testid="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
         id="tabpanel-2RdhIZRj7BuTDbC2eO2vQp"
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-8 TabPanelBox"
+          class="MuiBox-root MuiBox-root-19 Tabs-TabPanelBox-6"
         >
           <nav
             aria-label="breadcrumbs"
-            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiBreadcrumbs-root Breadcrumbs-root-20 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             <ol
               class="MuiBreadcrumbs-ol"
@@ -749,19 +753,19 @@ Object {
                 class="MuiBreadcrumbs-li"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-text buttonStyles-text-10 button link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-28 MuiButton-text Button-text-29 Breadcrumbs-button-22 Breadcrumbs-link-23 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-12"
+                    class="MuiButton-label Button-label-31"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-13 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon Button-startIcon-32 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root icon"
+                        class="MuiSvgIcon-root Breadcrumbs-icon-24"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -771,7 +775,7 @@ Object {
                       </svg>
                     </span>
                     <span
-                      class="label"
+                      class="Breadcrumbs-label-25"
                     >
                       <div
                         aria-role="button"
@@ -796,7 +800,8 @@ Object {
               class="meta"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                class="MuiTypography-root Typography-root-48 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                data-testid="typography"
               >
                 countIndicator
               </h6>
@@ -853,12 +858,14 @@ Object {
                         class="footer"
                       >
                         <span
-                          class="MuiTypography-root title Typography MuiTypography-button"
+                          class="MuiTypography-root title Typography-root-48 MuiTypography-button"
+                          data-testid="typography"
                         >
                           mediaTool
                         </span>
                         <span
-                          class="MuiTypography-root meta Typography MuiTypography-button"
+                          class="MuiTypography-root meta Typography-root-48 MuiTypography-button"
+                          data-testid="typography"
                         >
                           contentTypes.VIDEO
                         </span>
@@ -941,19 +948,19 @@ Object {
   >
     <div>
       <div
-        class="Tabs Tabs--primary"
+        class="Tabs-root-370"
       >
         <div
-          class="TabsBar"
+          class="Tabs-TabsBar-376"
         >
           <div
-            class="Container"
+            class="Container-root-380"
           >
             <div
-              class="MuiContainer-root tabStyles-ContainerRoot-145"
+              class="MuiContainer-root Tabs-ContainerRoot-371"
             >
               <div
-                class="MuiTabs-root tabStyles-TabsRoot-146"
+                class="MuiTabs-root Tabs-TabsRoot-372"
               >
                 <div
                   aria-disabled="false"
@@ -987,7 +994,7 @@ Object {
                     role="tablist"
                   />
                   <span
-                    class="PrivateTabIndicator-root-148 PrivateTabIndicator-colorPrimary-149 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-382 PrivateTabIndicator-colorPrimary-383 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -1018,19 +1025,19 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Tabs Tabs--primary"
+      class="Tabs-root-370"
     >
       <div
-        class="TabsBar"
+        class="Tabs-TabsBar-376"
       >
         <div
-          class="Container"
+          class="Container-root-380"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-145"
+            class="MuiContainer-root Tabs-ContainerRoot-371"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-146"
+              class="MuiTabs-root Tabs-TabsRoot-372"
             >
               <div
                 aria-disabled="false"
@@ -1064,7 +1071,7 @@ Object {
                   role="tablist"
                 />
                 <span
-                  class="PrivateTabIndicator-root-148 PrivateTabIndicator-colorPrimary-149 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-382 PrivateTabIndicator-colorPrimary-383 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>

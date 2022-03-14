@@ -10,7 +10,7 @@ import AnchorLink from "../anchor-link";
 import Clickable from "../clickable";
 
 <NBACard
-  theme="blue-900"
+  theme="blue900"
   title="H4 Heading"
   footer={
     <div style={{ fontSize: "1rem" }}>
@@ -38,7 +38,7 @@ import Typography from "../typography";
 import Button from "../button";
 
 <NBACard
-  theme="teal-500"
+  theme="teal500"
   title="H4 Heading"
   footer={
     <Button hasDarkBackground variant="outlined">

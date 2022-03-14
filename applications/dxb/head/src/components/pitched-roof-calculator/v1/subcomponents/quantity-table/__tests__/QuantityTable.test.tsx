@@ -1,5 +1,6 @@
+import { ThemeProvider } from "@bmi/components";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import QuantityTable from "../QuantityTable";
 import tileBrown from "./images/tile-brown.jpg";
 
@@ -46,16 +47,18 @@ describe("QuantityTable component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { container } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -66,16 +69,18 @@ describe("BuildSmallViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { container } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = container.querySelectorAll(".icon")[0];
@@ -90,16 +95,18 @@ describe("BuildSmallViewRows component", () => {
     const onChangeQuantity = jest.fn();
 
     const { getAllByLabelText } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = getAllByLabelText("Up")[0];
@@ -112,16 +119,18 @@ describe("BuildSmallViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { getAllByLabelText } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = getAllByLabelText("Up")[0];
@@ -136,16 +145,18 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { container } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = container.querySelectorAll(".icon")[5];
@@ -159,16 +170,18 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { getAllByLabelText } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = getAllByLabelText("Up")[5];
@@ -181,16 +194,18 @@ describe("BuildMediumViewRows component", () => {
     const onDelete = jest.fn();
     const onChangeQuantity = jest.fn();
     const { getAllByLabelText } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+      <ThemeProvider>
+        <QuantityTable
+          onDelete={onDelete}
+          onChangeQuantity={onChangeQuantity}
+          rows={rowsTemplate}
+          title="Product"
+          packSize="Pack size"
+          externalProductCode="Nobb no"
+          quantity="Quantity"
+          remove="Remove"
+        />
+      </ThemeProvider>
     );
 
     const element = getAllByLabelText("Up")[5];

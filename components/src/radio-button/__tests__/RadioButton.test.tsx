@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import RadioButton from "../RadioButton";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("RadioButton component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioButton name="deckType" value="Combustible (timber/plywood)">
         Combustible (timber/plywood)
       </RadioButton>
@@ -14,7 +14,7 @@ describe("RadioButton component", () => {
   });
 
   it("render with prefix", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioButton
         name="color"
         before={
@@ -39,7 +39,7 @@ describe("RadioButton component", () => {
     const handleOnChange = jest.fn();
     const text = "Combustible (timber/plywood)";
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioButton
         onChange={handleOnChange}
         name="deckType"

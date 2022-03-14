@@ -26,7 +26,7 @@ exports[`Layout renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Layout renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Layout renders correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Layout renders correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-119"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Layout renders correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Layout renders correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-119"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Layout renders correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Layout renders correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-119"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Layout renders correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Public page
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Layout renders correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-119"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Layout renders correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Layout renders correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Layout renders correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-119"
                       />
                     </button>
                   </div>
@@ -339,7 +341,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -356,7 +358,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -405,17 +407,17 @@ exports[`Layout renders correctly with empty page data 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon"
+                  class="MuiButtonBase-root-274 MuiIconButton-root-266 notificationsIcon"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-273"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258 MuiSvgIcon-fontSizeLarge-265"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -425,7 +427,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-375"
                   />
                 </button>
                 <div
@@ -433,14 +435,14 @@ exports[`Layout renders correctly with empty page data 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-274"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258 MuiSvgIcon-fontSizeLarge-265"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -449,7 +451,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-375"
                     />
                   </button>
                 </div>
@@ -458,14 +460,14 @@ exports[`Layout renders correctly with empty page data 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-274"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258 MuiSvgIcon-fontSizeLarge-265"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -474,7 +476,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-375"
                     />
                   </button>
                 </div>
@@ -487,31 +489,33 @@ exports[`Layout renders correctly with empty page data 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-283 Typography-root-275 MuiTypography-h3-290"
+                  data-testid="typography"
                 >
                   Public page
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-313 lowerHeaderDivider MuiDivider-flexItem-319 MuiDivider-vertical-318"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-283 lowerHeaderUserLevel Typography-root-275 MuiTypography-h3-290"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon"
+                  class="MuiButtonBase-root-274 MuiIconButton-root-266 notificationsIcon"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-273"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-257 MuiSvgIcon-colorPrimary-258"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -521,21 +525,21 @@ exports[`Layout renders correctly with empty page data 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-375"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-5"
+                  class="makeStyles-root-320"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-274 MuiButton-root-322 MuiButton-text-324"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-323"
                       >
                         <div
                           class="userMenu"
@@ -545,7 +549,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-257"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -562,7 +566,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-257 MuiSvgIcon-colorAction-260"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -573,7 +577,7 @@ exports[`Layout renders correctly with empty page data 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-375"
                       />
                     </button>
                   </div>
@@ -632,7 +636,7 @@ exports[`Layout renders correctly without page data 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -649,7 +653,7 @@ exports[`Layout renders correctly without page data 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -698,17 +702,17 @@ exports[`Layout renders correctly without page data 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon"
+                  class="MuiButtonBase-root-146 MuiIconButton-root-138 notificationsIcon"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-145"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130 MuiSvgIcon-fontSizeLarge-137"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -718,7 +722,7 @@ exports[`Layout renders correctly without page data 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-247"
                   />
                 </button>
                 <div
@@ -726,14 +730,14 @@ exports[`Layout renders correctly without page data 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-146"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130 MuiSvgIcon-fontSizeLarge-137"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -742,7 +746,7 @@ exports[`Layout renders correctly without page data 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-247"
                     />
                   </button>
                 </div>
@@ -751,14 +755,14 @@ exports[`Layout renders correctly without page data 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-146"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130 MuiSvgIcon-fontSizeLarge-137"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -767,7 +771,7 @@ exports[`Layout renders correctly without page data 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-247"
                     />
                   </button>
                 </div>
@@ -780,31 +784,33 @@ exports[`Layout renders correctly without page data 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-155 Typography-root-147 MuiTypography-h3-162"
+                  data-testid="typography"
                 >
                   Public page
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-185 lowerHeaderDivider MuiDivider-flexItem-191 MuiDivider-vertical-190"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-155 lowerHeaderUserLevel Typography-root-147 MuiTypography-h3-162"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon"
+                  class="MuiButtonBase-root-146 MuiIconButton-root-138 notificationsIcon"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-145"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-129 MuiSvgIcon-colorPrimary-130"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -814,21 +820,21 @@ exports[`Layout renders correctly without page data 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-247"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-3"
+                  class="makeStyles-root-192"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-146 MuiButton-root-194 MuiButton-text-196"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-195"
                       >
                         <div
                           class="userMenu"
@@ -838,7 +844,7 @@ exports[`Layout renders correctly without page data 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-129"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -855,7 +861,7 @@ exports[`Layout renders correctly without page data 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-129 MuiSvgIcon-colorAction-132"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -866,7 +872,7 @@ exports[`Layout renders correctly without page data 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-247"
                       />
                     </button>
                   </div>

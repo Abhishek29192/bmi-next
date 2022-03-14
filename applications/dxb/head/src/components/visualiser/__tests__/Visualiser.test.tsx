@@ -1,4 +1,5 @@
 import { mockResponses } from "@bmi-digital/fetch-mocks";
+import { ThemeProvider } from "@bmi/components";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
@@ -69,42 +70,48 @@ describe("Visualiser component", () => {
 
   it("renders correctly", () => {
     const { baseElement } = render(
-      <Visualiser
-        contentSource="" //TODO: Need to mock this?
-        open
-        sidings={sidingsSetData}
-        onClose={jest.fn()}
-        onClick={jest.fn()}
-        houseTypes={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource="" //TODO: Need to mock this?
+          open
+          sidings={sidingsSetData}
+          onClose={jest.fn()}
+          onClick={jest.fn()}
+          houseTypes={[]}
+        />
+      </ThemeProvider>
     );
     expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when test asset url provided", () => {
     const { baseElement } = render(
-      <Visualiser
-        contentSource=""
-        open
-        sidings={sidingsSetData}
-        onClose={jest.fn()}
-        onClick={jest.fn()}
-        houseTypes={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open
+          sidings={sidingsSetData}
+          onClose={jest.fn()}
+          onClick={jest.fn()}
+          houseTypes={[]}
+        />
+      </ThemeProvider>
     );
     expect(baseElement).toMatchSnapshot();
   });
 
   it("renders correctly when non-test asset url provided", () => {
     const { baseElement } = render(
-      <Visualiser
-        contentSource=""
-        open
-        sidings={sidingsSetData}
-        onClose={jest.fn()}
-        onClick={jest.fn()}
-        houseTypes={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open
+          sidings={sidingsSetData}
+          onClose={jest.fn()}
+          onClick={jest.fn()}
+          houseTypes={[]}
+        />
+      </ThemeProvider>
     );
     expect(baseElement).toMatchSnapshot();
   });
@@ -121,16 +128,18 @@ describe("Visualiser component", () => {
 
     const houseModelUrl = "https://mock_url";
     render(
-      <Visualiser
-        contentSource=""
-        open
-        sidings={sidingsSetData}
-        onClose={jest.fn()}
-        onClick={jest.fn()}
-        houseTypes={[{ houseModel: { url: houseModelUrl } }]}
-        viewMode="roof"
-        tileId={blackTile.code}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open
+          sidings={sidingsSetData}
+          onClose={jest.fn()}
+          onClick={jest.fn()}
+          houseTypes={[{ houseModel: { url: houseModelUrl } }]}
+          viewMode="roof"
+          tileId={blackTile.code}
+        />
+      </ThemeProvider>
     );
 
     waitFor(() =>
@@ -144,15 +153,17 @@ describe("Visualiser component", () => {
 
   it("renders with share widget", () => {
     render(
-      <Visualiser
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        sidings={[]}
-        shareWidget={<div>Share widget</div>}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          sidings={[]}
+          shareWidget={<div>Share widget</div>}
+        />
+      </ThemeProvider>
     );
 
     expect(
@@ -162,14 +173,16 @@ describe("Visualiser component", () => {
 
   it("opens tile selection section", () => {
     render(
-      <Visualiser
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
@@ -190,15 +203,17 @@ describe("Visualiser component", () => {
     });
 
     render(
-      <Visualiser
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={onClick}
-        sidings={[]}
-        shareWidget={<div>Share widget</div>}
-      />
+      <ThemeProvider>
+        <Visualiser
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={onClick}
+          sidings={[]}
+          shareWidget={<div>Share widget</div>}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
@@ -221,15 +236,17 @@ describe("Visualiser component", () => {
     const onClick = jest.fn();
 
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={onClick}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={onClick}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.wallColor"));
@@ -249,15 +266,17 @@ describe("Visualiser component", () => {
     });
 
     render(
-      <Visualiser
-        viewMode="tile"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="tile"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.roofMode"));
@@ -277,15 +296,17 @@ describe("Visualiser component", () => {
     });
 
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.tileMode"));
@@ -298,15 +319,17 @@ describe("Visualiser component", () => {
     const onClick = jest.fn();
 
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={onClick}
-        sidings={[sidingMock]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={onClick}
+          sidings={[sidingMock]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.wallColor"));
@@ -332,17 +355,19 @@ describe("Visualiser component", () => {
     });
 
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={onClick}
-        onChange={jest.fn()}
-        sidings={[sidingMock]}
-        tileId={blackTile.code}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={onClick}
+          onChange={jest.fn()}
+          sidings={[sidingMock]}
+          tileId={blackTile.code}
+        />
+      </ThemeProvider>
     );
 
     const readMoreBtn = await screen.findByText("visualizer.readMore");
@@ -354,17 +379,19 @@ describe("Visualiser component", () => {
     const onClose = jest.fn();
 
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={onClose}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={onClose}
-        onChange={jest.fn()}
-        sidings={[sidingMock]}
-        tileId={blackTile.code}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={onClose}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={onClose}
+          onChange={jest.fn()}
+          sidings={[sidingMock]}
+          tileId={blackTile.code}
+        />
+      </ThemeProvider>
     );
 
     const closeBtn = screen.getByLabelText("Close");
@@ -374,18 +401,20 @@ describe("Visualiser component", () => {
 
   it("opens and closes share popover", async () => {
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        onChange={jest.fn()}
-        sidings={[sidingMock]}
-        shareWidget={<div>Share widget</div>}
-        tileId={blackTile.code}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          onChange={jest.fn()}
+          sidings={[sidingMock]}
+          shareWidget={<div>Share widget</div>}
+          tileId={blackTile.code}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(
@@ -404,16 +433,18 @@ describe("Visualiser component", () => {
 
   it("closes tile selector dialog on cross button click", async () => {
     render(
-      <Visualiser
-        viewMode="tile"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        onChange={jest.fn()}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="tile"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          onChange={jest.fn()}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.selectProduct"));
@@ -431,16 +462,18 @@ describe("Visualiser component", () => {
 
   it("closes wall selector dialog if the user clicks on the cross button", async () => {
     render(
-      <Visualiser
-        viewMode="roof"
-        contentSource=""
-        open={true}
-        onClose={jest.fn()}
-        houseTypes={[{ houseModel: { url: "" } }]}
-        onClick={jest.fn()}
-        onChange={jest.fn()}
-        sidings={[]}
-      />
+      <ThemeProvider>
+        <Visualiser
+          viewMode="roof"
+          contentSource=""
+          open={true}
+          onClose={jest.fn()}
+          houseTypes={[{ houseModel: { url: "" } }]}
+          onClick={jest.fn()}
+          onChange={jest.fn()}
+          sidings={[]}
+        />
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText("visualizer.actions.wallColor"));

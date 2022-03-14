@@ -46,16 +46,17 @@ Array [
 exports[`NbaCard component non clickable renders correctly 1`] = `
 <div>
   <div
-    class="NBACard ColorPair ColorPair--blue-900"
+    class="NBACard-root-40 ColorPair-root-45 ColorPair-blue900-59"
     type="button"
   >
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root NBACard-title-42 Typography-root-71 MuiTypography-h4"
+      data-testid="typography"
     >
       H4 Heading
     </h4>
     <div
-      class="body"
+      class="NBACard-body-43"
     >
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
@@ -68,17 +69,18 @@ exports[`NbaCard component non clickable renders correctly 1`] = `
 exports[`NbaCard component renders correctly 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
+    class="MuiButtonBase-root NBACard-root-1 NBACard-clickable-2 ColorPair-root-6 ColorPair-blue900-20"
     tabindex="0"
     type="button"
   >
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root NBACard-title-3 Typography-root-32 MuiTypography-h4"
+      data-testid="typography"
     >
       H4 Heading
     </h4>
     <div
-      class="body"
+      class="NBACard-body-4"
     >
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
@@ -94,24 +96,25 @@ exports[`NbaCard component renders correctly 1`] = `
 exports[`NbaCard component renders with footer 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--blue-900"
+    class="MuiButtonBase-root NBACard-root-79 NBACard-clickable-80 ColorPair-root-84 ColorPair-blue900-98"
     tabindex="0"
     type="button"
   >
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root NBACard-title-81 Typography-root-110 MuiTypography-h4"
+      data-testid="typography"
     >
       H4 Heading
     </h4>
     <div
-      class="body"
+      class="NBACard-body-82"
     >
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam condimentum nisi at turpis fringilla, non malesuada mi porta. Aliquam ut eros in libero rutrum ullamcorper.
       </div>
     </div>
     <div
-      class="footer"
+      class="NBACard-footer-83"
     >
       <div>
         footer

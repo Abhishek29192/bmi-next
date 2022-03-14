@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { ThemeProvider } from "@bmi/components";
 import { screen, render, fireEvent } from "../../../../../lib/tests/utils";
 import { RewardCategoryForm } from "../RewardCategoryForm";
 
@@ -43,7 +44,9 @@ describe("RewardCategory", () => {
     it("signle rewardTier", async () => {
       const rewardTiers = [generateRewardTierFactory()];
       const { container } = render(
-        <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        <ThemeProvider>
+          <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        </ThemeProvider>
       );
 
       expect(container).toMatchSnapshot();
@@ -60,7 +63,11 @@ describe("RewardCategory", () => {
         generateRewardTierFactory(),
         generateRewardTierFactory({ tierCode: "T2", id: 2, rewardPoint: 5 })
       ];
-      render(<RewardCategoryForm {...{ ...props, data: rewardTiers }} />);
+      render(
+        <ThemeProvider>
+          <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        </ThemeProvider>
+      );
 
       rewardTiers.map(({ tierCode, rewardPoint }) => {
         expect(screen.queryByText(tierCode)).toBeTruthy();
@@ -80,7 +87,9 @@ describe("RewardCategory", () => {
         ({ onCompleted }) => onCompleted()
       );
       const { container } = render(
-        <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        <ThemeProvider>
+          <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        </ThemeProvider>
       );
 
       expect(screen.queryByText("edit")).toBeTruthy();
@@ -126,7 +135,9 @@ describe("RewardCategory", () => {
         onError(error)
       );
       const { container } = render(
-        <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        <ThemeProvider>
+          <RewardCategoryForm {...{ ...props, data: rewardTiers }} />
+        </ThemeProvider>
       );
 
       expect(screen.queryByText("edit")).toBeTruthy();

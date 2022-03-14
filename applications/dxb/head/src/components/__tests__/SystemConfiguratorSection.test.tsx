@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import * as ReactRoter from "@reach/router";
 import {
   createHistory,
@@ -193,23 +194,30 @@ const mockQueryES = jest
 describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with description rich text", () => {
     const { container } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection
-          data={{
-            ...initialData,
-            description: { raw: JSON.stringify(richTextRaw), references: null }
-          }}
-        />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection
+            data={{
+              ...initialData,
+              description: {
+                raw: JSON.stringify(richTextRaw),
+                references: null
+              }
+            }}
+          />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -217,9 +225,11 @@ describe("SystemConfiguratorSection component", () => {
 
   it("renders System Configurator Block with initial question and answer data", async () => {
     const { container, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     await findByText(initialData.question.title);
@@ -230,9 +240,11 @@ describe("SystemConfiguratorSection component", () => {
     fetchMock.mockReturnValue(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1a title");
@@ -256,11 +268,13 @@ describe("SystemConfiguratorSection component", () => {
     );
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1a title");
@@ -285,9 +299,11 @@ describe("SystemConfiguratorSection component", () => {
     );
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -342,9 +358,11 @@ describe("SystemConfiguratorSection component", () => {
     );
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -399,9 +417,11 @@ describe("SystemConfiguratorSection component", () => {
     );
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -445,9 +465,11 @@ describe("SystemConfiguratorSection component", () => {
     );
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -465,9 +487,11 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container, findByLabelText, findByRole, findByText, getByText } =
       render(
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </ThemeProvider>
       );
 
     const label = await findByLabelText("Answer 1a title");
@@ -508,9 +532,11 @@ describe("SystemConfiguratorSection component", () => {
     fetchMock.mockResolvedValueOnce(getFetchResponse(question));
 
     const { container, findByLabelText, findByRole, findByText } = render(
-      <LocationProvider>
-        <SystemConfiguratorSection data={initialData} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <SystemConfiguratorSection data={initialData} />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -529,11 +555,13 @@ describe("SystemConfiguratorSection component", () => {
     fetchMock.mockRejectedValue("Function error");
 
     const { container, findByLabelText, findByRole } = render(
-      <ErrorBoundary fallbackRender={() => <>Something went wrong</>}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </ErrorBoundary>
+      <ThemeProvider>
+        <ErrorBoundary fallbackRender={() => <>Something went wrong</>}>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </ErrorBoundary>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -550,9 +578,11 @@ describe("SystemConfiguratorSection component", () => {
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =
       render(
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </ThemeProvider>
       );
 
     const answerLabel = await findByLabelText("Answer 1b title");
@@ -588,11 +618,13 @@ describe("SystemConfiguratorSection component", () => {
       const history = createHistory(createMemorySource(route));
       window.history.replaceState = jest.fn();
       const { container, findByText, findByLabelText } = render(
-        <SiteContextProvider value={getSiteContext()}>
-          <LocationProvider history={history}>
-            <SystemConfiguratorSection data={initialData} />
-          </LocationProvider>
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider value={getSiteContext()}>
+            <LocationProvider history={history}>
+              <SystemConfiguratorSection data={initialData} />
+            </LocationProvider>
+          </SiteContextProvider>
+        </ThemeProvider>
       );
 
       const label = await findByLabelText("Answer 1b title");
@@ -625,11 +657,13 @@ describe("SystemConfiguratorSection component", () => {
       const history = createHistory(createMemorySource(route));
       window.history.replaceState = jest.fn();
       const { container, findByText, findByLabelText } = render(
-        <SiteContextProvider value={getSiteContext()}>
-          <LocationProvider history={history}>
-            <SystemConfiguratorSection data={initialData} />
-          </LocationProvider>
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider value={getSiteContext()}>
+            <LocationProvider history={history}>
+              <SystemConfiguratorSection data={initialData} />
+            </LocationProvider>
+          </SiteContextProvider>
+        </ThemeProvider>
       );
 
       const label = await findByLabelText("Answer 1b title");
@@ -680,11 +714,13 @@ describe("SystemConfiguratorSection component", () => {
       findByText,
       queryByTestId
     } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -753,11 +789,13 @@ describe("SystemConfiguratorSection component", () => {
       findByText,
       queryByTestId
     } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");
@@ -795,11 +833,13 @@ describe("SystemConfiguratorSection component", () => {
       }
     });
     const { container, findByLabelText, findByText } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <LocationProvider>
-          <SystemConfiguratorSection data={initialData} />
-        </LocationProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <LocationProvider>
+            <SystemConfiguratorSection data={initialData} />
+          </LocationProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const label = await findByLabelText("Answer 1b title");

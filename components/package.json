@@ -158,8 +158,8 @@
       "input-group": [
         "./dist/src/input-group/index.d.ts"
       ],
-      "langauge-selection": [
-        "./dist/src/langauge-selection/index.d.ts"
+      "language-selection": [
+        "./dist/src/language-selection/index.d.ts"
       ],
       "lead-block": [
         "./dist/src/lead-block/index.d.ts"
@@ -441,8 +441,8 @@
     "./input-group": {
       "default": "./dist/src/input-group/index.js"
     },
-    "./langauge-selection": {
-      "default": "./dist/src/langauge-selection/index.js"
+    "./language-selection": {
+      "default": "./dist/src/language-selection/index.js"
     },
     "./lead-block": {
       "default": "./dist/src/lead-block/index.js"

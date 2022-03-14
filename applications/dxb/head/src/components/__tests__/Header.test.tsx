@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
@@ -262,49 +263,57 @@ const sampleBasketProducts: any = {
 describe("Header component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <Header
-        activeLabel="Main"
-        countryCode="gb"
-        navigationData={navigationData}
-        utilitiesData={utilitiesData}
-        regions={regions}
-      />
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders correctly when flag doesn't exist", () => {
     const { container } = render(
-      <Header
-        activeLabel="Main"
-        countryCode="grp"
-        navigationData={navigationData}
-        utilitiesData={utilitiesData}
-        regions={regions}
-      />
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="grp"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders without navigation props", () => {
     const { container } = render(
-      <Header
-        activeLabel="Main"
-        countryCode="gb"
-        navigationData={null}
-        utilitiesData={null}
-        regions={regions}
-      />
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={null}
+          utilitiesData={null}
+          regions={regions}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("toggles search", () => {
     const { container, getByLabelText } = render(
-      <Header
-        activeLabel="Main"
-        countryCode="gb"
-        navigationData={navigationData}
-        utilitiesData={utilitiesData}
-        regions={regions}
-      />
+      <ThemeProvider>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+        />
+      </ThemeProvider>
     );
 
     const searchLabel = getMicroCopy(microCopy.SEARCH_LABEL);
@@ -320,16 +329,18 @@ describe("Header component", () => {
 
   it("shows sample basket icon", () => {
     const { container, queryByLabelText } = render(
-      <BasketContext.Provider value={sampleBasketProducts}>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={navigationData}
-          utilitiesData={utilitiesData}
-          regions={regions}
-          sampleBasketLink={sampleBasketLinkInfo}
-        />
-      </BasketContext.Provider>
+      <ThemeProvider>
+        <BasketContext.Provider value={sampleBasketProducts}>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </BasketContext.Provider>
+      </ThemeProvider>
     );
 
     const basketButton = queryByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
@@ -341,25 +352,31 @@ describe("Header component", () => {
   it("shows sample basket dialog on clicking on basket and hide it clicking on close", async () => {
     const { container, getByLabelText } = render(
       <BasketContext.Provider value={sampleBasketProducts}>
-        <Header
-          activeLabel="Main"
-          countryCode="gb"
-          navigationData={navigationData}
-          utilitiesData={utilitiesData}
-          regions={regions}
-          sampleBasketLink={sampleBasketLinkInfo}
-        />
+        <ThemeProvider>
+          <Header
+            activeLabel="Main"
+            countryCode="gb"
+            navigationData={navigationData}
+            utilitiesData={utilitiesData}
+            regions={regions}
+            sampleBasketLink={sampleBasketLinkInfo}
+          />
+        </ThemeProvider>
       </BasketContext.Provider>
     );
-    expect(container.querySelector(".cart-drawer-container")).not.toBeVisible();
+    expect(
+      container.querySelector("[class*='cartDrawerContainer']")
+    ).not.toBeVisible();
     const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
     fireEvent.click(basketButton);
 
-    expect(container.querySelector(".cart-drawer-container")).toBeVisible();
+    expect(
+      container.querySelector("[class*='cartDrawerContainer']")
+    ).toBeVisible();
     fireEvent.click(getByLabelText(getMicroCopy(microCopy.DIALOG_CLOSE)));
     await waitFor(() =>
       expect(
-        container.querySelector(".cart-drawer-container")
+        container.querySelector("[class*='cartDrawerContainer']")
       ).not.toBeVisible()
     );
   });

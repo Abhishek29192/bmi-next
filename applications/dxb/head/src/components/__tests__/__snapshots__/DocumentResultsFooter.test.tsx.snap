@@ -15,7 +15,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
@@ -36,7 +36,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
             tabindex="0"
             type="button"
           >
@@ -49,7 +49,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-2 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
@@ -69,7 +69,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </ul>
     </nav>
     <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads Anchorlink MuiTypography-colorPrimary"
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
       type="button"
     >
       <span>
@@ -77,13 +77,13 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </span>
     </a>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-2 MuiButton-contained buttonStyles-contained-4 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-11 MuiButton-contained Button-contained-13 MuiButton-containedPrimary"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (4)\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-5"
+        class="MuiButton-label Button-label-14"
       >
         MC: downloadList.download (4)
       </span>
@@ -92,11 +92,12 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       />
     </button>
     <p
-      class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+      class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-31 MuiTypography-body1"
+      data-testid="typography"
     >
       This site is protected by reCAPTCHA and the Google 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
         href="https://policies.google.com/privacy"
         rel="noreferrer noopener"
         target="_blank"
@@ -107,7 +108,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
       </a>
        and 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-5 Anchorlink MuiTypography-colorPrimary"
         href="https://policies.google.com/terms"
         rel="noreferrer noopener"
         target="_blank"
@@ -129,7 +130,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
   >
     <nav
       aria-label="pagination navigation"
-      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-22"
+      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-39"
     >
       <ul
         class="MuiPagination-ul"
@@ -137,7 +138,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
@@ -158,7 +159,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
             tabindex="0"
             type="button"
           >
@@ -171,7 +172,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-40 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
@@ -191,7 +192,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </ul>
     </nav>
     <a
-      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads Anchorlink MuiTypography-colorPrimary"
+      class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-downloads AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
       type="button"
     >
       <span>
@@ -199,13 +200,13 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </span>
     </a>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-contained buttonStyles-contained-25 MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-49 MuiButton-contained Button-contained-51 MuiButton-containedPrimary"
       data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (2)\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-26"
+        class="MuiButton-label Button-label-52"
       >
         MC: downloadList.download (2)
       </span>
@@ -214,11 +215,12 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       />
     </button>
     <p
-      class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+      class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-69 MuiTypography-body1"
+      data-testid="typography"
     >
       This site is protected by reCAPTCHA and the Google 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
         href="https://policies.google.com/privacy"
         rel="noreferrer noopener"
         target="_blank"
@@ -229,7 +231,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
       </a>
        and 
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-43 Anchorlink MuiTypography-colorPrimary"
         href="https://policies.google.com/terms"
         rel="noreferrer noopener"
         target="_blank"
@@ -251,7 +253,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
   >
     <nav
       aria-label="pagination navigation"
-      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-43"
+      class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-77"
     >
       <ul
         class="MuiPagination-ul"
@@ -259,7 +261,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
         <li>
           <button
             aria-label="Go to previous page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"
@@ -280,7 +282,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
           <button
             aria-current="true"
             aria-label="page 1"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
             tabindex="0"
             type="button"
           >
@@ -293,7 +295,7 @@ exports[`DocumentResultsFooter component renders correctly if onDownloadClick no
         <li>
           <button
             aria-label="Go to next page"
-            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-78 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="button"

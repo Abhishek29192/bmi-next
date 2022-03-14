@@ -1,27 +1,27 @@
 import React from "react";
-import Homepage, { getServerSideProps } from "../../pages";
-import { generateMarketContent } from "../../lib/tests/factories/contentful/marketContentCollection";
+import {
+  GetGlobalDataQuery,
+  GetPartnerBrandsQuery
+} from "../../graphql/generated/operations";
+import { getServerPageGetPartnerBrands } from "../../graphql/generated/page";
+import { ROLES } from "../../lib/constants";
+import { generateAccount } from "../../lib/tests/factories/account";
 import {
   generateCarouselCollection,
   generateCarouselItem
 } from "../../lib/tests/factories/contentful/carouselCollection";
+import { generateMarketContent } from "../../lib/tests/factories/contentful/marketContentCollection";
 import { generateTierBenefitCollection } from "../../lib/tests/factories/contentful/tierBenefitCollection";
-import { getServerPageGetPartnerBrands } from "../../graphql/generated/page";
-import {
-  GetPartnerBrandsQuery,
-  GetGlobalDataQuery
-} from "../../graphql/generated/operations";
-import { generateAccount } from "../../lib/tests/factories/account";
-import {
-  renderWithUserProvider,
-  fireEvent,
-  waitFor
-} from "../../lib/tests/utils";
-import ApolloProvider from "../../lib/tests/fixtures/apollo";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import { generateMarketContext } from "../../lib/tests/factories/market";
 import AccountContextWrapper from "../../lib/tests/fixtures/account";
-import { ROLES } from "../../lib/constants";
+import ApolloProvider from "../../lib/tests/fixtures/apollo";
+import {
+  fireEvent,
+  renderWithUserProvider,
+  waitFor
+} from "../../lib/tests/utils";
+import Homepage, { getServerSideProps } from "../../pages";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (fn) => {
@@ -180,8 +180,10 @@ describe("homepage", () => {
         })
       }
     );
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Hero--space-bottom")).toBeTruthy();
+    expect(container.querySelector("[class*=Hero-root]")).toBeTruthy();
+    expect(
+      container.querySelector("[class*=Hero-root][class*=Hero-spaceBottom]")
+    ).toBeTruthy();
     expect(getByText("partnerBrands.title")).toBeTruthy();
     expect(container.querySelector(".feedholder")).toBeTruthy();
   });
@@ -272,11 +274,11 @@ describe("homepage", () => {
 
       const projectCta = getByTestId("project-cta");
       fireEvent.click(projectCta);
-      expect(baseElement.querySelector(".Dialog")).toBeTruthy();
+      expect(baseElement.querySelector("[class*=Dialog-root]")).toBeTruthy();
       const iconButton = baseElement.querySelector(".iconButton");
       fireEvent.click(iconButton);
       await waitFor(() => {
-        expect(baseElement.querySelector(".Dialog")).toBeFalsy();
+        expect(baseElement.querySelector("[class*=Dialog-root]")).toBeFalsy();
       });
     });
 
@@ -308,11 +310,11 @@ describe("homepage", () => {
 
       const projectCta = getByTestId("project-cta");
       fireEvent.click(projectCta);
-      expect(baseElement.querySelector(".Dialog")).toBeTruthy();
+      expect(baseElement.querySelector("[class*=Dialog-root]")).toBeTruthy();
       const submitButton = baseElement.querySelector(".form button");
       fireEvent.submit(submitButton);
       await waitFor(() => {
-        expect(baseElement.querySelector(".Dialog")).toBeFalsy();
+        expect(baseElement.querySelector("[class*=Dialog-root]")).toBeFalsy();
       });
     });
   });
@@ -339,7 +341,7 @@ describe("homepage", () => {
       </ApolloProvider>
     );
 
-    expect(container.querySelector(".dialog")).toBeFalsy();
+    expect(container.querySelector("[class*=Dialog-root]")).toBeFalsy();
   });
 
   it("render no hero when no heroitems", async () => {
@@ -361,7 +363,7 @@ describe("homepage", () => {
       </ApolloProvider>
     );
 
-    expect(container.querySelector(".Hero")).toBeFalsy();
+    expect(container.querySelector("[class*=Hero-root]")).toBeFalsy();
   });
 
   it("interval set to 8000 when 2 heroitems", async () => {
@@ -386,7 +388,7 @@ describe("homepage", () => {
       </ApolloProvider>
     );
 
-    expect(container.querySelector(".Hero")).toBeTruthy();
+    expect(container.querySelector("[class*=Hero-root]")).toBeTruthy();
     expect(
       container.querySelector(".Carousel__slide--global[aria-hidden='false']")
     ).toHaveTextContent("header1");

@@ -1,8 +1,8 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
 import { useTheme } from "@material-ui/core/styles";
-import BrandProvider, { getBrandClassName } from "../BrandProvider";
+import { render, screen } from "@testing-library/react";
+import React from "react";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
+import BrandProvider from "../BrandProvider";
 
 describe("BrandProvider", () => {
   it("renders", () => {
@@ -35,31 +35,6 @@ describe("BrandProvider", () => {
   it("renders without brand", () => {
     const { container } = render(<BrandProvider>Without brand</BrandProvider>);
     expect(container).toMatchSnapshot();
-  });
-
-  it("adds brand className only when brand is provided", () => {
-    const { rerender } = render(
-      <ConfigProvider>
-        <BrandProvider>Without brand</BrandProvider>
-      </ConfigProvider>
-    );
-    expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
-
-    rerender(
-      <ConfigProvider>
-        <BrandProvider brand="Unknown">With brand</BrandProvider>
-      </ConfigProvider>
-    );
-    expect(screen.getByTestId("brand-colors-provider")).not.toHaveClass();
-
-    const brand = "Braas";
-    const className = getBrandClassName(brand);
-    rerender(
-      <ConfigProvider>
-        <BrandProvider brand={brand}>With brand</BrandProvider>
-      </ConfigProvider>
-    );
-    expect(screen.getByTestId("brand-colors-provider")).toHaveClass(className);
   });
 
   it("modifies Material UI Theme with interaction color", () => {

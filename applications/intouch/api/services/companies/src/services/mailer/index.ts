@@ -1,8 +1,8 @@
 import { MessageTemplate } from "@bmi/intouch-api-types";
-import { publish, TOPICS } from "../events";
-import { messageTemplate, EventMessage } from "../contentful";
 import { PostGraphileContext } from "../../types";
 import { parseMarketCompanyTag } from "../../utils/contentful";
+import { EventMessage, messageTemplate } from "../contentful";
+import { publish, TOPICS } from "../events";
 import { getDbPool } from "../../db";
 
 export const replaceData = (template, data) => {

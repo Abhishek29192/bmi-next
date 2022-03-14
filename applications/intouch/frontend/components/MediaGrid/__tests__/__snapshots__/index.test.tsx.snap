@@ -10,7 +10,8 @@ exports[`MediaGrid should render component 1`] = `
         class="meta"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+          class="MuiTypography-root Typography-root-1 MuiTypography-subtitle2 MuiTypography-displayBlock"
+          data-testid="typography"
         >
           countIndicator
         </h6>
@@ -45,12 +46,14 @@ exports[`MediaGrid should render component 1`] = `
                   class="footer"
                 >
                   <span
-                    class="MuiTypography-root title Typography MuiTypography-button"
+                    class="MuiTypography-root title Typography-root-1 MuiTypography-button"
+                    data-testid="typography"
                   >
                     mediaTool
                   </span>
                   <span
-                    class="MuiTypography-root meta Typography MuiTypography-button"
+                    class="MuiTypography-root meta Typography-root-1 MuiTypography-button"
+                    data-testid="typography"
                   >
                     contentTypes.EXTERNAL_LINK
                   </span>

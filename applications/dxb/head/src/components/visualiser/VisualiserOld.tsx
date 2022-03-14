@@ -34,7 +34,7 @@ import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
 import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewerOld from "./HouseViewerOld";
-import styles from "./styles/VisualiserOld.module.scss";
+import { useStyles } from "./styles/VisualiserStylesOld";
 import TileViewer from "./TileViewerOld";
 import { Colour, Material, Siding, Tile } from "./Types";
 
@@ -102,8 +102,9 @@ const Actions = ({
   onButtonClick: (data: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
   return (
-    <nav className={styles["actions"]}>
+    <nav className={classes.actions}>
       <Button
         hasDarkBackground
         variant="text"
@@ -188,10 +189,11 @@ const SelectionOptions = ({
   onClick: (data: { tileId: number; colourId: number; label: string }) => any;
 }) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
 
   return (
-    <div className={styles["select-options"]}>
-      <Typography variant="h5" component="h3" className={styles["group-title"]}>
+    <div>
+      <Typography variant="h5" component="h3" className={classes.groupTitle}>
         {title}
       </Typography>
       <Grid container spacing={2}>
@@ -213,7 +215,7 @@ const SelectionOptions = ({
               }
               className={classnames(
                 defaultValue === `${id}-${colour.id}` &&
-                  styles["active-selection-option"]
+                  classes.activeSelectionOption
               )}
               aria-label={
                 defaultValue === `${id}-${colour.id}`
@@ -259,6 +261,7 @@ const TileSectorDialog = ({
   }, {});
 
   const defaultTileIdentifier = `${activeTile.id}-${activeColour.id}`;
+  const classes = useStyles();
 
   return (
     <ContainerDialog
@@ -267,11 +270,8 @@ const TileSectorDialog = ({
       onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
-      className={classnames(
-        styles["Visualiser"],
-        styles["Visualiser--secondary"]
-      )}
-      containerClassName={styles["container"]}
+      className={classnames(classes.root, classes.secondary)}
+      containerClassName={classes.container}
       backdropProps={{ invisible: true }}
       allowOverflow
     >
@@ -279,7 +279,7 @@ const TileSectorDialog = ({
         variant="h4"
         component="h2"
         align="center"
-        className={styles["group-title"]}
+        className={classes.groupTitle}
       >
         {getMicroCopy(microCopy.titleSelector.title)}
       </Typography>
@@ -320,6 +320,7 @@ const SidingsSelectorDialog = ({
   onClick: (event: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
   return (
     <ContainerDialog
       open={open}
@@ -327,11 +328,8 @@ const SidingsSelectorDialog = ({
       onBackdropClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
-      className={classnames(
-        styles["Visualiser"],
-        styles["Visualiser--secondary"]
-      )}
-      containerClassName={styles["container"]}
+      className={classnames(classes.root, classes.secondary)}
+      containerClassName={classes.container}
       backdropProps={{ invisible: true }}
       allowOverflow
     >
@@ -339,7 +337,7 @@ const SidingsSelectorDialog = ({
         variant="h4"
         component="h2"
         align="center"
-        className={styles["group-title"]}
+        className={classes.groupTitle}
       >
         {getMicroCopy(microCopy.sidingsSelector.title)}
       </Typography>
@@ -362,7 +360,7 @@ const SidingsSelectorDialog = ({
                 });
               }}
               className={classnames(
-                activeSiding.id === id && styles["active-selection-option"]
+                activeSiding.id === id && classes.activeSelectionOption
               )}
               aria-label={
                 activeSiding.id === id
@@ -397,11 +395,13 @@ const SharePopover = ({
     setAnchorElement(null);
   };
 
+  const classes = useStyles();
+
   return (
     <div>
       <Button
         isIconButton
-        className={styles["share-button"]}
+        className={classes.shareButton}
         variant="text"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -413,7 +413,7 @@ const SharePopover = ({
       </Button>
       <Popover
         id="share-popover"
-        className={styles["Visualiser-popover"]}
+        className={classes.VisualiserPopover}
         open={Boolean(anchorElement)}
         anchorEl={anchorElement}
         onClose={handlePopoverClose}
@@ -459,6 +459,7 @@ const Visualiser = ({
   const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
 
   const stateRef = React.useRef(state);
   const setState = useCallback(
@@ -541,23 +542,21 @@ const Visualiser = ({
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
       maxWidth="xl"
-      className={styles["Visualiser"]}
-      containerClassName={styles["content"]}
+      className={classes.root}
+      containerClassName={classes.content}
     >
       {shareWidget && (
         <ContainerDialog.Header ref={header}>
           <SharePopover shareWidget={shareWidget} anchorRef={header} />
         </ContainerDialog.Header>
       )}
-      <div
-        className={classnames(styles["container"], styles["container--viewer"])}
-      >
+      <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
-          <div className={styles["progress-container"]}>
+          <div className={classes.progressContainer}>
             <CircularProgress />
           </div>
         )}
-        <div className={styles["details"]}>
+        <div className={classes.details}>
           <Grid container>
             <Grid item xs={10} sm={6} md={5} lg={4}>
               <Card square={true}>
@@ -566,12 +565,12 @@ const Visualiser = ({
                     source={BMI}
                     width="60"
                     height="60"
-                    className={styles["details-logo"]}
+                    className={classes.detailsLogo}
                   />
                   <Typography
                     variant="h5"
                     component="h3"
-                    className={styles["details-title"]}
+                    className={classes.detailsTitle}
                   >
                     {activeTile.name}
                   </Typography>

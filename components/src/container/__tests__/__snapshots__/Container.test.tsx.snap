@@ -3,7 +3,7 @@
 exports[`Container component allows full-width mode 1`] = `
 <div>
   <div
-    class="Container Container--full-width"
+    class="Container-root-5 Container-fullWidth-6"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -17,7 +17,7 @@ exports[`Container component allows full-width mode 1`] = `
 exports[`Container component allows wrapper className 1`] = `
 <div>
   <div
-    class="Container wrapper-className"
+    class="Container-root-3 wrapper-className"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -31,7 +31,7 @@ exports[`Container component allows wrapper className 1`] = `
 exports[`Container component renders correctly 1`] = `
 <div>
   <div
-    class="Container"
+    class="Container-root-1"
   >
     <div
       class="MuiContainer-root MuiContainer-maxWidthXl"

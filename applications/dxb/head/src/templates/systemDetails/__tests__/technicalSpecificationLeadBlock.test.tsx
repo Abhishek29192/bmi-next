@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
@@ -73,7 +74,9 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
     describe("when no classifications provided", () => {
       it("With tech spec an empty set", () => {
         const { container, queryByText } = render(
-          <Component technicalSpecClassifications={[]} />
+          <ThemeProvider>
+            <Component technicalSpecClassifications={[]} />
+          </ThemeProvider>
         );
         const accordion = container.querySelectorAll(".Accordion");
         const techTable = container.querySelectorAll(
@@ -91,9 +94,11 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
     describe("when One classifications provided", () => {
       it("With no feature units", () => {
         const { container, queryByText } = render(
-          <Component
-            technicalSpecClassifications={technicalSpecClassifications}
-          />
+          <ThemeProvider>
+            <Component
+              technicalSpecClassifications={technicalSpecClassifications}
+            />
+          </ThemeProvider>
         );
         const accordion = container.querySelectorAll(".Accordion");
         const techTable = container.querySelectorAll(
@@ -115,7 +120,9 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           }
         ];
         const { container, queryByText } = render(
-          <Component technicalSpecClassifications={classifications} />
+          <ThemeProvider>
+            <Component technicalSpecClassifications={classifications} />
+          </ThemeProvider>
         );
         const unitTypeText = queryByText(featureWithUnit.value, {
           exact: false
@@ -129,12 +136,14 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
     describe("when Multiple classifications provided", () => {
       it("With no feature units", () => {
         const { container, queryByText } = render(
-          <Component
-            technicalSpecClassifications={[
-              ...technicalSpecClassifications,
-              ...technicalSpecClassifications
-            ]}
-          />
+          <ThemeProvider>
+            <Component
+              technicalSpecClassifications={[
+                ...technicalSpecClassifications,
+                ...technicalSpecClassifications
+              ]}
+            />
+          </ThemeProvider>
         );
         const accordion = container.querySelectorAll(".MuiAccordion-root");
         const techTable = container.querySelectorAll(
@@ -160,7 +169,9 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           }
         ];
         const { container, queryAllByText } = render(
-          <Component technicalSpecClassifications={classifications} />
+          <ThemeProvider>
+            <Component technicalSpecClassifications={classifications} />
+          </ThemeProvider>
         );
         const unitTypeText = queryAllByText(featureWithUnit.value, {
           exact: false
@@ -174,13 +185,15 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
     describe("when specification provided", () => {
       it("With specification", () => {
         const { container, queryByTestId } = render(
-          <Component
-            technicalSpecClassifications={[
-              ...technicalSpecClassifications,
-              ...technicalSpecClassifications
-            ]}
-            specificationNotes={specificationNotesData}
-          />
+          <ThemeProvider>
+            <Component
+              technicalSpecClassifications={[
+                ...technicalSpecClassifications,
+                ...technicalSpecClassifications
+              ]}
+              specificationNotes={specificationNotesData}
+            />
+          </ThemeProvider>
         );
 
         const specificationNotes = queryByTestId("specificationNotes");
@@ -190,12 +203,14 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
 
       it("With no specification", () => {
         const { container, queryByTestId } = render(
-          <Component
-            technicalSpecClassifications={[
-              ...technicalSpecClassifications,
-              ...technicalSpecClassifications
-            ]}
-          />
+          <ThemeProvider>
+            <Component
+              technicalSpecClassifications={[
+                ...technicalSpecClassifications,
+                ...technicalSpecClassifications
+              ]}
+            />
+          </ThemeProvider>
         );
 
         const specificationNotes = queryByTestId("specificationNotes");
@@ -209,13 +224,15 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
           action: "https://www.external.co.uk"
         });
         const { getByRole } = render(
-          <Component
-            technicalSpecClassifications={[
-              ...technicalSpecClassifications,
-              ...technicalSpecClassifications
-            ]}
-            specificationNotes={specificationNotesData}
-          />
+          <ThemeProvider>
+            <Component
+              technicalSpecClassifications={[
+                ...technicalSpecClassifications,
+                ...technicalSpecClassifications
+              ]}
+              specificationNotes={specificationNotesData}
+            />
+          </ThemeProvider>
         );
 
         const specificationNotesCTA = getByRole("button", { name: "ImALink" });

@@ -1,9 +1,9 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import Breadcrumbs from "../../breadcrumbs/Breadcrumbs";
 import Button from "../../button/Button";
 import SpotlightHero from "../SpotlightHero";
 import Typography from "../../typography/Typography";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import imageSource from "./images/demo-house.png";
 
 const breadcrumbNode = (
@@ -23,7 +23,7 @@ const breadcrumbNode = (
 
 describe("SpotlightHero component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}
         title="H1 Heading desktop"
@@ -41,7 +41,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders with cta", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}
         title="H1 Heading desktop"
@@ -60,7 +60,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders with keyline", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}
         title="H1 Heading desktop"
@@ -79,7 +79,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders if media !== 'img'", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SpotlightHero
         breadcrumbs={breadcrumbNode}
         title="H1 Heading desktop"
@@ -102,7 +102,7 @@ describe("SpotlightHero component", () => {
   });
 
   it("renders correctly if title as React node", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SpotlightHero title={<span className="test-title">Title</span>}>
         <Typography>
           Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu

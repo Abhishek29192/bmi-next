@@ -1,13 +1,13 @@
 import { Link, LinkProps } from "@material-ui/core";
 import classnames from "classnames";
 import React, { useContext } from "react";
-import { withClickable } from "../clickable/Clickable";
-import { ColorPairContext } from "../color-pair/ColorPair";
-import Icon from "../icon/Icon";
-import { transformHyphens } from "../utils/commonUtils";
-import styles from "./AnchorLink.module.scss";
+import { withClickable } from "../clickable";
+import { ColorPairContext } from "../color-pair";
+import Icon from "../icon";
+import { transformHyphens } from "../utils/hyphenUtils";
 import arrowForwardIcon from "./icons/arrow-right.svg";
 import launchIcon from "./icons/launch.svg";
+import { useStyles } from "./styles";
 
 export type Props = Omit<LinkProps, "color"> & {
   children: React.ReactNode;
@@ -37,6 +37,7 @@ const AnchorLink = ({
   ...rest
 }: Props) => {
   const { type, theme } = useContext(ColorPairContext);
+  const classes = useStyles();
   const colorFromTheme: Props["color"] =
     // eslint-disable-next-line security/detect-object-injection
     color || (type && typeToColorMap[type]) || "default";
@@ -46,19 +47,25 @@ const AnchorLink = ({
       source={isExternal ? launchIcon : arrowForwardIcon}
       aria-hidden="true"
       focusable="false"
-      className={classnames(styles["icon"], {
-        [styles["icon--inverted"]!]: iconInverted
-      })}
+      className={classnames(
+        classes.icon,
+        iconInverted && classes["icon--inverted"]
+      )}
     />
   );
 
   return (
     <Link
-      className={classnames(className, styles["Anchorlink"], {
-        [styles["Anchorlink--disabled"]!]: isDisabled,
-        [styles[`Anchorlink--${colorFromTheme}`]!]:
-          theme !== "white" && colorFromTheme !== "default"
-      })}
+      className={classnames(
+        className,
+        classes.root,
+        "Anchorlink",
+        isDisabled && classes.disabled,
+        theme !== "white" &&
+          colorFromTheme !== "default" &&
+          // eslint-disable-next-line security/detect-object-injection
+          classes[colorFromTheme]
+      )}
       aria-disabled={isDisabled}
       {...rest}
     >

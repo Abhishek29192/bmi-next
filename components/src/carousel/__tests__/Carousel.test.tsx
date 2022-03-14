@@ -1,9 +1,10 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { cleanup, fireEvent } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import mockConsole from "jest-mock-console";
 import { useMediaQuery } from "@material-ui/core";
 import Carousel, { getPageFromAbsoluteIndex } from "../Carousel";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 jest.mock("@material-ui/core", () => ({
   ...(jest.requireActual("@material-ui/core") as any),
@@ -19,9 +20,10 @@ beforeAll(() => {
 });
 
 afterEach(cleanup);
+
 describe("Carousel component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Carousel isSwipeDisabled>
         <Carousel.Slide>First slide</Carousel.Slide>
         <Carousel.Slide>Second slide</Carousel.Slide>
@@ -31,9 +33,10 @@ describe("Carousel component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("navigates to next page", () => {
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <div>
         <Carousel isSwipeDisabled>
           <Carousel.Slide>First slide</Carousel.Slide>
@@ -49,9 +52,10 @@ describe("Carousel component", () => {
 
     expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
+
   it("navigates to previous page", () => {
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <div>
         <Carousel isSwipeDisabled>
           <Carousel.Slide>First slide</Carousel.Slide>
@@ -67,8 +71,9 @@ describe("Carousel component", () => {
 
     expect(snapshotDiff(containerBeforeClick, container)).toMatchSnapshot();
   });
+
   it("works when controlled", () => {
-    const { container, rerender } = render(
+    const { container, rerender } = renderWithThemeProvider(
       <Carousel initialPage={0}>
         <Carousel.Slide>First slide</Carousel.Slide>
         <Carousel.Slide>Second slide</Carousel.Slide>
@@ -94,7 +99,7 @@ describe("Carousel component", () => {
   it.skip("triggers an onPageChange event", () => {
     const onPageChange = jest.fn();
 
-    const { rerender, getByText } = render(
+    const { rerender, getByText } = renderWithThemeProvider(
       <Carousel initialPage={0} onPageChange={onPageChange}>
         <Carousel.Slide>First slide</Carousel.Slide>
         <Carousel.Slide>Second slide</Carousel.Slide>
@@ -116,9 +121,10 @@ describe("Carousel component", () => {
 
     expect(onPageChange.mock.calls).toMatchSnapshot();
   });
+
   it("starts and stops autoplay when interacting with the carousel", async () => {
     const nextLabel = "next";
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <div>
         <Carousel isSwipeDisabled hasAutoPlay pauseAutoPlayOnHover>
           <Carousel.Slide>First slide</Carousel.Slide>
@@ -137,8 +143,9 @@ describe("Carousel component", () => {
     fireEvent.mouseOut(getByTestId("carousel-interacted"));
     expect(getByTestId("carousel")).toBeTruthy();
   });
+
   it("renders correctly with arrow controls", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Carousel
         slidesPerPage={{
           xs: 1,
@@ -154,8 +161,9 @@ describe("Carousel component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   it("doesn't render controls when scroll is finite and pages per slides = total slides", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Carousel
         scroll="finite"
         slidesPerPage={{
@@ -173,12 +181,14 @@ describe("Carousel component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
   describe("in mobile view", () => {
     beforeEach(() => {
       mockUseMediaQuery.mockReturnValue(true);
     });
+
     it("should render slides with equal height", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <Carousel
           scroll="finite"
           slidesPerPage={{
@@ -196,7 +206,7 @@ describe("Carousel component", () => {
         </Carousel>
       );
       expect(
-        container.querySelectorAll(".Carousel--slide-constant-height")
+        container.querySelectorAll("[class*='Carousel-slideConstantHeight-']")
       ).toHaveLength(1);
     });
   });
@@ -209,6 +219,7 @@ describe("Carousel component", () => {
 
       expect(getPageFromAbsoluteIndex(2, 3)).toBe(3);
     });
+
     it("returns page number from index > total", () => {
       expect(getPageFromAbsoluteIndex(3, 3)).toBe(1);
 
@@ -216,6 +227,7 @@ describe("Carousel component", () => {
 
       expect(getPageFromAbsoluteIndex(5, 3)).toBe(3);
     });
+
     it("returns page number from index < 0", () => {
       expect(getPageFromAbsoluteIndex(-1, 3)).toBe(3);
 

@@ -1,12 +1,13 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import CardRadioGroup from "../CardRadioGroup";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
 describe("CardRadioGroup component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardRadioGroup name="tileType">
         <CardRadioGroup.Item
           value="Zanda Arktis"
@@ -32,7 +33,7 @@ describe("CardRadioGroup component", () => {
   });
 
   it("renders with initial value", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardRadioGroup name="tileType" defaultValue={"Zanda Arktis"}>
         <CardRadioGroup.Item
           value="Zanda Arktis"
@@ -60,7 +61,7 @@ describe("CardRadioGroup component", () => {
   it("calls onChange", () => {
     const handleOnChange = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardRadioGroup name="tileType" onChange={handleOnChange}>
         <CardRadioGroup.Item
           value="Zanda Arktis"
@@ -88,7 +89,7 @@ describe("CardRadioGroup component", () => {
   });
 
   it("renders non radio item element", () => {
-    const { queryByText } = render(
+    const { queryByText } = renderWithThemeProvider(
       <CardRadioGroup name="titleType">
         <div>test</div>
       </CardRadioGroup>

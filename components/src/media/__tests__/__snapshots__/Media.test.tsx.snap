@@ -3,7 +3,7 @@
 exports[`Media component renders correctly 1`] = `
 <div>
   <img
-    class="Media"
+    class="Media-root-1"
   />
 </div>
 `;
@@ -11,7 +11,7 @@ exports[`Media component renders correctly 1`] = `
 exports[`Media component renders correctly if child is not img or YoutubeVideo 1`] = `
 <div>
   <p
-    class="Media"
+    class="Media-root-7"
   >
     text
   </p>
@@ -21,32 +21,33 @@ exports[`Media component renders correctly if child is not img or YoutubeVideo 1
 exports[`Media component renders correctly if child youtube video 1`] = `
 <div>
   <div
-    class="Media Media--contain"
+    class="Media-root-11 Media-contain-12"
   >
     <div
-      class="YoutubeVideo"
+      class="YoutubeVideo-root-13"
       data-testid="youtube-dialog-wrapper"
     >
       <button
         aria-label="label"
-        class="thumbnail"
+        class="YoutubeVideo-thumbnail-15"
         data-testid="thumbnail"
         type="button"
       >
         <img
           alt="label"
-          class="preview-image"
+          class="YoutubeVideo-previewImage-14"
+          data-testid="youtube-preview-image"
           src="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         />
         <span
-          class="AlternativeContent"
+          class="AlternativeContent-root-24"
         >
           label
         </span>
         <div
           aria-disabled="false"
           aria-label="label"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-36 iconButton IconButton-medium-42 IconButton-contained-37 YoutubeVideo-playButton-17"
           data-testid="thumbnail-button"
           role="button"
           tabindex="0"
@@ -78,7 +79,7 @@ exports[`Media component renders correctly if child youtube video 1`] = `
 exports[`Media component renders correctly if size is not cover 1`] = `
 <div>
   <img
-    class="Media Media--contain"
+    class="Media-root-9 Media-contain-10"
   />
 </div>
 `;
@@ -86,7 +87,7 @@ exports[`Media component renders correctly if size is not cover 1`] = `
 exports[`Media component renders correctly with className 1`] = `
 <div>
   <img
-    class="test Media"
+    class="test Media-root-3"
   />
 </div>
 `;

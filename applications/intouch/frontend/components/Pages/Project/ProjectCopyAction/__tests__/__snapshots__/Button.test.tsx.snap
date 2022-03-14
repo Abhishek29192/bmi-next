@@ -3,12 +3,12 @@
 exports[`ProjectCopyAction Component renders correctly and proper flow execution 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-4"
+      class="MuiButton-label Button-label-4"
     >
       projectDetails.cta.copy
     </span>

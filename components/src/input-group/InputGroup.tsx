@@ -1,10 +1,9 @@
-import React from "react";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 import classnames from "classnames";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
+import React from "react";
 import { ButtonProps, IconButtonProps } from "../button/Button";
 import { Props as TextFieldProps } from "../text-field/TextField";
-import styles from "./InputGroup.module.scss";
+import { useStyles } from "./styles";
 
 // TODO: This check doesn't really work.
 type Props = {
@@ -14,11 +13,12 @@ type Props = {
 };
 
 const InputGroup = ({ input, button, lockBreakpoint = "sm" }: Props) => {
+  const classes = useStyles();
   const theme = useTheme();
   const matches =
     lockBreakpoint && useMediaQuery(theme.breakpoints.up(lockBreakpoint));
   const InputComponent = React.cloneElement(input, {
-    className: styles["input"]
+    className: classes.input
   });
   const extraProp = button.props.isIconButton
     ? {}
@@ -27,15 +27,15 @@ const InputGroup = ({ input, button, lockBreakpoint = "sm" }: Props) => {
       };
 
   const ButtonComponent = React.cloneElement(button, {
-    className: styles["button"],
+    className: classes.button,
     ...extraProp
   });
 
   return (
     <div
       className={classnames(
-        styles["InputGroup"],
-        lockBreakpoint && styles[`InputGroup--locked-${lockBreakpoint}`]
+        classes.root,
+        lockBreakpoint && classes[`locked${lockBreakpoint}`]
       )}
     >
       {InputComponent}

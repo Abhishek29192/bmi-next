@@ -3,39 +3,41 @@
 exports[`ProductDetailsCard component renders correctly with optional prop 1`] = `
 <div>
   <div
-    class="OverviewCard"
+    class="ProductDetailsCard-root-1"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media Media--contain"
+      class="ProductDetailsCard-headerPicture-3 Media-root-8 Media-contain-9"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="ProductDetailsCard-body-7"
     >
       <svg
-        class="brand-logo"
+        class="ProductDetailsCard-brandLogo-2"
         preserveAspectRatio="xMinYMin"
       />
       <h5
-        class="MuiTypography-root title Typography MuiTypography-h5"
+        class="MuiTypography-root ProductDetailsCard-title-4 Typography-root-10 MuiTypography-h5"
+        data-testid="typography"
       >
         Sed ut perspiciatis
       </h5>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-10 MuiTypography-body1"
+        data-testid="typography"
       >
         productDetailsCard.externalRefLabel
         :
          
         <span
-          class="bold-nobb"
+          class="ProductDetailsCard-boldNobb-5"
         >
           09174907099
         </span>
       </p>
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover ProductDetailsCard-link-6 AnchorLink-root-18 Anchorlink MuiTypography-colorPrimary"
         href="/"
       >
         <span>
@@ -43,7 +45,7 @@ exports[`ProductDetailsCard component renders correctly with optional prop 1`] =
         </span>
         <svg
           aria-hidden="true"
-          class="icon"
+          class="AnchorLink-icon-22"
           data-testid="internal"
           focusable="false"
         />
@@ -56,39 +58,41 @@ exports[`ProductDetailsCard component renders correctly with optional prop 1`] =
 exports[`ProductDetailsCard component renders correctly without optional prop 1`] = `
 <div>
   <div
-    class="OverviewCard"
+    class="ProductDetailsCard-root-47"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media Media--contain"
+      class="ProductDetailsCard-headerPicture-49 Media-root-54 Media-contain-55"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="ProductDetailsCard-body-53"
     >
       <svg
-        class="brand-logo"
+        class="ProductDetailsCard-brandLogo-48"
         preserveAspectRatio="xMinYMin"
       />
       <h5
-        class="MuiTypography-root title Typography MuiTypography-h5"
+        class="MuiTypography-root ProductDetailsCard-title-50 Typography-root-56 MuiTypography-h5"
+        data-testid="typography"
       >
         Sed ut perspiciatis
       </h5>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+        data-testid="typography"
       >
         productDetailsCard.externalRefLabel
         :
          
         <span
-          class="bold-nobb"
+          class="ProductDetailsCard-boldNobb-51"
         >
           09174907099
         </span>
       </p>
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover ProductDetailsCard-link-52 AnchorLink-root-64 Anchorlink MuiTypography-colorPrimary"
         type="button"
       >
         <span>
@@ -96,7 +100,7 @@ exports[`ProductDetailsCard component renders correctly without optional prop 1`
         </span>
         <svg
           aria-hidden="true"
-          class="icon"
+          class="AnchorLink-icon-68"
           data-testid="internal"
           focusable="false"
         />
@@ -109,34 +113,36 @@ exports[`ProductDetailsCard component renders correctly without optional prop 1`
 exports[`ProductDetailsCard component renders deprecated imageSource 1`] = `
 <div>
   <div
-    class="OverviewCard"
+    class="ProductDetailsCard-root-24"
   >
     <div
-      class="body"
+      class="ProductDetailsCard-body-30"
     >
       <svg
-        class="brand-logo"
+        class="ProductDetailsCard-brandLogo-25"
         preserveAspectRatio="xMinYMin"
       />
       <h5
-        class="MuiTypography-root title Typography MuiTypography-h5"
+        class="MuiTypography-root ProductDetailsCard-title-27 Typography-root-33 MuiTypography-h5"
+        data-testid="typography"
       >
         Sed ut perspiciatis
       </h5>
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-33 MuiTypography-body1"
+        data-testid="typography"
       >
         productDetailsCard.externalRefLabel
         :
          
         <span
-          class="bold-nobb"
+          class="ProductDetailsCard-boldNobb-28"
         >
           09174907099
         </span>
       </p>
       <a
-        class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover ProductDetailsCard-link-29 AnchorLink-root-41 Anchorlink MuiTypography-colorPrimary"
         href="/"
       >
         <span>
@@ -144,7 +150,7 @@ exports[`ProductDetailsCard component renders deprecated imageSource 1`] = `
         </span>
         <svg
           aria-hidden="true"
-          class="icon"
+          class="AnchorLink-icon-45"
           data-testid="internal"
           focusable="false"
         />

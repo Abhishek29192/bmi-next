@@ -4,14 +4,14 @@ exports[`MerchandiseCTA should render component for INSTALLER 1`] = `
 <body>
   <div>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined buttonStyles-outlinedDarkBg-27 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      class="MuiButtonBase-root MuiButton-root Button-root-21 MuiButton-outlined Button-outlinedDarkBg-27 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
       disabled=""
       style="margin-top: 2em;"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-24"
+        class="MuiButton-label Button-label-24"
       >
         buttonText
       </span>
@@ -24,14 +24,14 @@ exports[`MerchandiseCTA should render component for INSTALLER without button tex
 <body>
   <div>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined buttonStyles-outlinedDarkBg-67 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+      class="MuiButtonBase-root MuiButton-root Button-root-61 MuiButton-outlined Button-outlinedDarkBg-67 MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
       disabled=""
       style="margin-top: 2em;"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-64"
+        class="MuiButton-label Button-label-64"
       >
         hero.cta.ctaName
       </span>
@@ -50,13 +50,13 @@ exports[`MerchandiseCTA should render component for SUPER_ADMIN 1`] = `
       target="_blank"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-outlinedDarkBg-7 MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-outlined Button-outlinedDarkBg-7 MuiButton-outlinedPrimary"
         style="margin-top: 2em;"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-4"
         >
           buttonText
         </span>
@@ -79,13 +79,13 @@ exports[`MerchandiseCTA should render component for SUPER_ADMIN without button t
       target="_blank"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined buttonStyles-outlinedDarkBg-47 MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-41 MuiButton-outlined Button-outlinedDarkBg-47 MuiButton-outlinedPrimary"
         style="margin-top: 2em;"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-44"
+          class="MuiButton-label Button-label-44"
         >
           hero.cta.ctaName
         </span>

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import * as Gatsby from "gatsby";
 import React from "react";
@@ -10,15 +11,17 @@ import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContextProvider
-      value={{
-        ...getMockSiteContext("no"),
-        reCaptchaKey: "1234",
-        reCaptchaNet: false
-      }}
-    >
-      {children}
-    </SiteContextProvider>
+    <ThemeProvider>
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ThemeProvider>
   );
 };
 const submitText = "Submit";
@@ -168,7 +171,9 @@ afterEach(() => {
 describe("FormSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <FormSection data={data} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={data} backgroundColor="white" />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -176,14 +181,16 @@ describe("FormSection component", () => {
 
   it("test flow when gtm data passed from outside", () => {
     const { container } = render(
-      <FormSection
-        data={data}
-        backgroundColor="white"
-        gtmOverride={{
-          label: "GTM-label",
-          action: "GTM-action"
-        }}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={data}
+          backgroundColor="white"
+          gtmOverride={{
+            label: "GTM-label",
+            action: "GTM-action"
+          }}
+        />
+      </ThemeProvider>
     );
 
     const specificationButton = container.querySelector(
@@ -207,7 +214,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const emailInput = container.querySelector(`input[name="email"]`);
     fireEvent.change(emailInput, {
@@ -231,7 +240,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const emailInput = container.querySelector(`input[name="email"]`);
     fireEvent.change(emailInput, {
@@ -255,7 +266,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container, getByTestId } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const upload = getByTestId("upload");
     fireEvent.change(upload, {
@@ -280,7 +293,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container, getByTestId } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const upload = getByTestId("upload");
     fireEvent.change(upload, {
@@ -305,7 +320,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -313,9 +330,11 @@ describe("FormSection component", () => {
   it("test submit when preview is on", () => {
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <ConfigProvider configObject={{ isPreviewMode: true }}>
-        <FormSection data={data} backgroundColor="white" />
-      </ConfigProvider>
+      <ThemeProvider>
+        <ConfigProvider configObject={{ isPreviewMode: true }}>
+          <FormSection data={data} backgroundColor="white" />
+        </ConfigProvider>
+      </ThemeProvider>
     );
     fireEvent.submit(container.querySelector("form"));
     expect(window.alert).toHaveBeenCalledWith(
@@ -484,7 +503,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -508,7 +529,9 @@ describe("FormSection component", () => {
       ]
     };
     const { container } = render(
-      <FormSection data={specificData} backgroundColor="white" />
+      <ThemeProvider>
+        <FormSection data={specificData} backgroundColor="white" />
+      </ThemeProvider>
     );
     const ExternalLinkLabel = container.querySelector(
       `a[href="https://google.co.uk"]`
@@ -530,7 +553,11 @@ describe("FormSection component", () => {
         type: "select"
       }
     ];
-    render(<FormInputs inputs={specificData} />);
+    render(
+      <ThemeProvider>
+        <FormInputs inputs={specificData} />
+      </ThemeProvider>
+    );
     const select = screen.getByRole("button");
     fireEvent.mouseDown(select);
 
@@ -589,55 +616,64 @@ describe("FormSection component", () => {
       }
     );
   });
-});
 
-describe("Hubspot FormSection component", () => {
-  it("renders correctly", () => {
-    const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" />
-    );
+  describe("Hubspot FormSection component", () => {
+    it("renders correctly", () => {
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
 
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly with sampleIds", () => {
-    const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
-
-    const onFormReadyEvent = new MessageEvent("message", {
-      data: {
-        type: "hsFormCallback",
-        eventName: "onFormReady"
-      }
+      expect(container).toMatchSnapshot();
     });
 
-    const { container } = render(
-      <FormSection
-        data={dataHubSpot}
-        sampleIds={sampleIds}
-        backgroundColor="white"
-      />
-    );
-    window.dispatchEvent(onFormReadyEvent);
+    it("renders correctly with sampleIds", () => {
+      const sampleIds =
+        "0945848_test_prod_variant1, 0945849_test_prod_variant2";
 
-    expect(container).toMatchSnapshot();
-  });
+      const onFormReadyEvent = new MessageEvent("message", {
+        data: {
+          type: "hsFormCallback",
+          eventName: "onFormReady"
+        }
+      });
 
-  it("test submit when preview is on", () => {
-    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
-    jest.spyOn(window, "alert").mockImplementation();
-    const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" />
-    );
-    expect(container).toMatchSnapshot();
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection
+            data={dataHubSpot}
+            sampleIds={sampleIds}
+            backgroundColor="white"
+          />
+        </ThemeProvider>
+      );
+      window.dispatchEvent(onFormReadyEvent);
+
+      expect(container).toMatchSnapshot();
+    });
+
+    it("test submit when preview is on", () => {
+      process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
+      jest.spyOn(window, "alert").mockImplementation();
+      const { container } = render(
+        <ThemeProvider>
+          <FormSection data={dataHubSpot} backgroundColor="white" />
+        </ThemeProvider>
+      );
+      expect(container).toMatchSnapshot();
+    });
   });
 
   it("calls onSuccess function", () => {
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onSuccess={onSuccess}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onSuccess={onSuccess}
+        />
+      </ThemeProvider>
     );
 
     const onFormSubmittedEvent = new MessageEvent("message", {
@@ -659,11 +695,13 @@ describe("Hubspot FormSection component", () => {
     });
 
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onFormReady={onFormReady}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onFormReady={onFormReady}
+        />
+      </ThemeProvider>
     );
     window.dispatchEvent(onFormReadyEvent);
     expect(onFormReady).toHaveBeenCalledTimes(1);
@@ -679,11 +717,13 @@ describe("Hubspot FormSection component", () => {
     });
 
     render(
-      <FormSection
-        data={dataHubSpot}
-        backgroundColor="white"
-        onFormLoadError={onFormLoadError}
-      />
+      <ThemeProvider>
+        <FormSection
+          data={dataHubSpot}
+          backgroundColor="white"
+          onFormLoadError={onFormLoadError}
+        />
+      </ThemeProvider>
     );
     window.dispatchEvent(onFormLoadErrorEvent);
     expect(onFormLoadError).toHaveBeenCalledTimes(1);
@@ -691,7 +731,9 @@ describe("Hubspot FormSection component", () => {
 
   it("renders correctly for dialog", () => {
     const { container } = render(
-      <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+      <ThemeProvider>
+        <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+      </ThemeProvider>
     );
     expect(container.querySelector(".Section")).toBeNull();
     expect(container).toMatchSnapshot();

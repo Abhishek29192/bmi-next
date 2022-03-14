@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import * as all from "@bmi-digital/use-dimensions";
 import Pagination from "../Pagination";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const firstPageLabel = "Go to first page";
 const lastPageLabel = "Go to last page";
@@ -26,7 +26,9 @@ afterEach(() => {
 describe("Pagination component", () => {
   it("renders correctly", () => {
     mockAvailableWidth(11 * 48);
-    const { getByLabelText } = render(<Pagination page={1} count={10} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <Pagination page={1} count={10} />
+    );
     expect(getByLabelText(firstPageLabel).children[0].children[0]).toHaveStyle(
       "font-size: 16px"
     );
@@ -37,7 +39,7 @@ describe("Pagination component", () => {
 
   it("renders without go-to-first, go-to-last double arrow buttons with less than 10 pages", () => {
     mockAvailableWidth(11 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={1} count={9} />
     );
     expect(container).toMatchSnapshot();
@@ -47,7 +49,7 @@ describe("Pagination component", () => {
 
   it("renders with page buttons, go-to-first, go-to-last double arrow buttons and ellipses with >= 10 pages", () => {
     mockAvailableWidth(11 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={1} count={10} />
     );
     const page10Button = container.querySelector(
@@ -72,7 +74,7 @@ describe("Pagination component", () => {
 
   it("renders with only prev and next buttons", () => {
     mockAvailableWidth(2 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={1} count={10} />
     );
     expect(container).toMatchSnapshot();
@@ -84,7 +86,7 @@ describe("Pagination component", () => {
 
   it("renders with only prev, next and current page button only", () => {
     mockAvailableWidth(3 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={4} count={10} />
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -99,7 +101,7 @@ describe("Pagination component", () => {
 
   it("renders without first and last page buttons", () => {
     mockAvailableWidth(7 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={4} count={5} />
     );
     expect(container).toMatchSnapshot();
@@ -109,7 +111,7 @@ describe("Pagination component", () => {
 
   it("renders all buttons without go-to-first, go-to-last double arrow buttons", () => {
     mockAvailableWidth(7 * 48);
-    const { container, queryByLabelText } = render(
+    const { container, queryByLabelText } = renderWithThemeProvider(
       <Pagination page={1} count={5} />
     );
     expect(container).toMatchSnapshot();
@@ -126,13 +128,15 @@ describe("Pagination component", () => {
         document.createElement("div")
       ]);
     const setStateSpy = jest.spyOn(React, "useState");
-    render(<Pagination page={1} count={5} />);
+    renderWithThemeProvider(<Pagination page={1} count={5} />);
     expect(setStateSpy).lastCalledWith(11);
   });
 
   it("renders correctly under hideAllPages condition", () => {
     mockAvailableWidth(2 * 48);
-    const { container } = render(<Pagination page={1} count={2} />);
+    const { container } = renderWithThemeProvider(
+      <Pagination page={1} count={2} />
+    );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
     expect(container).toMatchSnapshot();
@@ -142,9 +146,8 @@ describe("Pagination component", () => {
 
   it("renders correctly under reducedMode", () => {
     mockAvailableWidth(5 * 48);
-    const { container, queryByText, queryByLabelText } = render(
-      <Pagination page={1} count={7} />
-    );
+    const { container, queryByText, queryByLabelText } =
+      renderWithThemeProvider(<Pagination page={1} count={7} />);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
     expect(container).toMatchSnapshot();
@@ -159,7 +162,9 @@ describe("Pagination component", () => {
 
   it("covers test for count is not provided", () => {
     mockAvailableWidth(5 * 48);
-    const { container, queryByLabelText } = render(<Pagination page={1} />);
+    const { container, queryByLabelText } = renderWithThemeProvider(
+      <Pagination page={1} />
+    );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const paginationContainer = container.querySelector(".MuiPagination-ul");
     expect(container).toMatchSnapshot();

@@ -3,19 +3,20 @@
 exports[`SampleBasketSection component renders correctly 1`] = `
 <div>
   <div
-    class="SampleBasketSection Section Section--white"
+    class="SampleBasketSection Section-root-1 Section-white-5"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="RichText"
+          class="RichText-root-11"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            class="MuiTypography-root Typography-root-13 MuiTypography-body1 MuiTypography-gutterBottom"
+            data-testid="typography"
           >
             test rich text
           </p>
@@ -24,24 +25,25 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="SampleBasketSectionProducts"
         >
           <button
-            class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+            class="MuiButtonBase-root OverviewCard-root-21 OverviewCard-clickable-24 product-wrapper"
             tabindex="0"
             type="button"
           >
             <img
               alt="sample-1"
-              class="product-image header-picture Media"
+              class="product-image OverviewCard-headerPicture-27 Media-root-36"
               src="http://localhost:8000/image-real-file-name.jpg"
               style="object-fit: contain; object-position: center;"
             />
             <div
-              class="body"
+              class="OverviewCard-body-28"
             >
               <h4
-                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                class="MuiTypography-root OverviewCard-title-29 OverviewCard-noBrandLogo-30 Typography-root-13 MuiTypography-h4"
+                data-testid="typography"
               />
               <div
-                class="children text children--without-margin"
+                class="OverviewCard-children-32 OverviewCard-text-31 OverviewCard-withoutMargin-33"
               >
                 <div
                   class="product"
@@ -50,17 +52,20 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                     class="product-description"
                   >
                     <p
-                      class="MuiTypography-root product-title Typography MuiTypography-body1"
+                      class="MuiTypography-root product-title Typography-root-13 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       sample-1
                     </p>
                     <p
-                      class="MuiTypography-root product-color Typography MuiTypography-body1"
+                      class="MuiTypography-root product-color Typography-root-13 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       green | rough
                     </p>
                     <p
-                      class="MuiTypography-root product-size Typography MuiTypography-body1"
+                      class="MuiTypography-root product-size Typography-root-13 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       1x2x3 mm
                     </p>
@@ -68,15 +73,15 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="footer"
+                class="OverviewCard-footer-34"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-38 MuiButton-outlined product-button MuiButton-outlinedPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-41"
                   >
                     MC: pdp.overview.removeSample
                     <span
@@ -109,12 +114,12 @@ exports[`SampleBasketSection component renders correctly 1`] = `
           class="complete-button"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-38 MuiButton-contained Button-contained-40 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-41"
             >
               MC: pdp.overview.completeSampleOrder
               <span
@@ -146,19 +151,20 @@ exports[`SampleBasketSection component renders correctly 1`] = `
 exports[`SampleBasketSection component should render form after complete button press 1`] = `
 <div>
   <div
-    class="SampleBasketSection Section Section--white"
+    class="SampleBasketSection Section-root-58 Section-white-62"
   >
     <div
-      class="Container"
+      class="Container-root-66"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="RichText"
+          class="RichText-root-68"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            class="MuiTypography-root Typography-root-70 MuiTypography-body1 MuiTypography-gutterBottom"
+            data-testid="typography"
           >
             test rich text
           </p>
@@ -167,24 +173,25 @@ exports[`SampleBasketSection component should render form after complete button 
           class="SampleBasketSectionProducts"
         >
           <button
-            class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+            class="MuiButtonBase-root OverviewCard-root-78 OverviewCard-clickable-81 product-wrapper"
             tabindex="0"
             type="button"
           >
             <img
               alt="sample-1"
-              class="product-image header-picture Media"
+              class="product-image OverviewCard-headerPicture-84 Media-root-93"
               src="http://localhost:8000/image-real-file-name.jpg"
               style="object-fit: contain; object-position: center;"
             />
             <div
-              class="body"
+              class="OverviewCard-body-85"
             >
               <h4
-                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                class="MuiTypography-root OverviewCard-title-86 OverviewCard-noBrandLogo-87 Typography-root-70 MuiTypography-h4"
+                data-testid="typography"
               />
               <div
-                class="children text children--without-margin"
+                class="OverviewCard-children-89 OverviewCard-text-88 OverviewCard-withoutMargin-90"
               >
                 <div
                   class="product"
@@ -193,17 +200,20 @@ exports[`SampleBasketSection component should render form after complete button 
                     class="product-description"
                   >
                     <p
-                      class="MuiTypography-root product-title Typography MuiTypography-body1"
+                      class="MuiTypography-root product-title Typography-root-70 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       sample-1
                     </p>
                     <p
-                      class="MuiTypography-root product-color Typography MuiTypography-body1"
+                      class="MuiTypography-root product-color Typography-root-70 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       green | rough
                     </p>
                     <p
-                      class="MuiTypography-root product-size Typography MuiTypography-body1"
+                      class="MuiTypography-root product-size Typography-root-70 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       1x2x3 mm
                     </p>
@@ -211,15 +221,15 @@ exports[`SampleBasketSection component should render form after complete button 
                 </div>
               </div>
               <div
-                class="footer"
+                class="OverviewCard-footer-91"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined product-button MuiButton-outlinedPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-95 MuiButton-outlined product-button MuiButton-outlinedPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-98"
                   >
                     MC: pdp.overview.removeSample
                     <span
@@ -252,30 +262,31 @@ exports[`SampleBasketSection component should render form after complete button 
     </div>
   </div>
   <div
-    class="Section"
+    class="Section-root-58"
   >
     <div
-      class="Container"
+      class="Container-root-66"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-65 Typography-root-70 Typography-underline-72 MuiTypography-h2"
+          data-testid="typography"
         >
           Complete form
         </h2>
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-120 FormSection-root-115 Form-rightAlignButton-121"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-125 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-128 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -298,10 +309,10 @@ exports[`SampleBasketSection component should render form after complete button 
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-41 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-131 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-43"
+                      class="PrivateNotchedOutline-legendLabelled-133"
                     >
                       <span>
                         Text
@@ -313,18 +324,18 @@ exports[`SampleBasketSection component should render form after complete button 
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-123"
           >
             <button
               aria-label="samples ordering basket form submitted"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-95 MuiButton-contained Button-contained-97 Form-button-122 MuiButton-containedPrimary"
               data-action="sample-1-green-rough-1x2x3 mm"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green-rough-1x2x3 mm\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-98"
               >
                 Submit
                 <span
@@ -349,11 +360,12 @@ exports[`SampleBasketSection component should render form after complete button 
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-70 MuiTypography-body1"
+          data-testid="typography"
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-135 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -364,7 +376,7 @@ exports[`SampleBasketSection component should render form after complete button 
           </a>
            og 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-135 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -384,19 +396,20 @@ exports[`SampleBasketSection component should render form after complete button 
 exports[`SampleBasketSection remove sample from basket when all samples are removed renders empty basket content and \`browse all products\` button 1`] = `
 <div>
   <div
-    class="SampleBasketSection Section Section--white"
+    class="SampleBasketSection Section-root-307 Section-white-311"
   >
     <div
-      class="Container"
+      class="Container-root-315"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="RichText"
+          class="RichText-root-317"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            class="MuiTypography-root Typography-root-319 MuiTypography-body1 MuiTypography-gutterBottom"
+            data-testid="typography"
           >
             test rich text
           </p>
@@ -405,24 +418,25 @@ exports[`SampleBasketSection remove sample from basket when all samples are remo
           class="SampleBasketSectionProducts"
         />
         <div
-          class="RichText"
+          class="RichText-root-317"
         >
           <p
-            class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+            class="MuiTypography-root Typography-root-319 MuiTypography-body1 MuiTypography-gutterBottom"
+            data-testid="typography"
           >
             your basket is empty.
           </p>
         </div>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-344 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"browse all products\\"}"
           href="/no/zanda-brand/torvtak/"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-96"
+            class="MuiButton-label Button-label-347"
           >
             browse all products
             <span

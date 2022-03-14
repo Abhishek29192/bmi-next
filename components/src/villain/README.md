@@ -131,7 +131,7 @@ import greyRoofHouseImage from "./__tests__/images/grey-roof-house.png";
 <Villain
   title="H4 Heading"
   media={<img src={greyTiles} alt="Lorem ipsum" />}
-  theme="teal-400"
+  theme="teal400"
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nisl blandit,
   finibus augue et, ultricies felis.

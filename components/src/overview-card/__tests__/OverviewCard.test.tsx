@@ -1,13 +1,14 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import mockImage from "path-to-image.jpg";
 import mockLogo from "mock-to-logo.svg";
 import Button from "../../button/Button";
 import OverviewCard from "../OverviewCard";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("OverviewCard component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -25,7 +26,7 @@ describe("OverviewCard component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with a string brandImageSource prop", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -43,13 +44,13 @@ describe("OverviewCard component", () => {
   });
 
   it("renders correctly without optional props", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard title="Heading">We do the things</OverviewCard>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with a subtitle", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard title="Heading" subtitle="Subtitle" subtitleVariant="h5">
         We do the things
       </OverviewCard>
@@ -57,7 +58,7 @@ describe("OverviewCard component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with contain image", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         media={<img src={mockImage} alt="Lorem ipsum" />}
@@ -70,7 +71,7 @@ describe("OverviewCard component", () => {
   });
   it("renders as a flat card", () => {
     const onClick = jest.fn();
-    const { container, getByText } = render(
+    const { container, getByText } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -98,7 +99,7 @@ describe("OverviewCard component", () => {
   it("accpets onClick", () => {
     const onClick = jest.fn();
 
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -123,7 +124,7 @@ describe("OverviewCard component", () => {
   });
 
   it("removes clickable class when the area is none", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -145,7 +146,7 @@ describe("OverviewCard component", () => {
   });
 
   it("renders correctly if clickableArea === body", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -165,7 +166,7 @@ describe("OverviewCard component", () => {
   });
 
   it("renders correctly if moreOptionsAvailable === true", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -185,7 +186,7 @@ describe("OverviewCard component", () => {
   });
 
   it("renders correctly if hasChildrenWithoutMargin  === true", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"
@@ -205,7 +206,7 @@ describe("OverviewCard component", () => {
   });
 
   it("renders correctly if imageSize === contain", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <OverviewCard
         title="Heading"
         titleVariant="h4"

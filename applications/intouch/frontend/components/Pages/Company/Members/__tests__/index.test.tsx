@@ -1,25 +1,26 @@
-import React, { useRef } from "react";
-import {
-  render,
-  fireEvent,
-  screen,
-  within,
-  waitFor,
-  waitForElementToBeRemoved
-} from "@testing-library/react";
+import { ThemeProvider } from "@bmi/components";
 import { Certification } from "@bmi/intouch-api-types";
-import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
-import Apollo from "../../../../../lib/tests/fixtures/apollo";
-import CompanyMembersPage, { PageProps } from "..";
 import {
-  adminTeamMembers,
-  teamMembers,
-  installerTeamMembers
-} from "../../../../../fixtures/teamMembers";
-import { projectFactory } from "../../../../../lib/tests/factories/project";
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+  within
+} from "@testing-library/react";
+import React, { useRef } from "react";
+import CompanyMembersPage, { PageProps } from "..";
 import { useAccountContext } from "../../../../../context/AccountContext";
 import { useMarketContext } from "../../../../../context/MarketContext";
+import {
+  adminTeamMembers,
+  installerTeamMembers,
+  teamMembers
+} from "../../../../../fixtures/teamMembers";
 import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
+import { projectFactory } from "../../../../../lib/tests/factories/project";
+import Apollo from "../../../../../lib/tests/fixtures/apollo";
+import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 
 const inviteMock = jest.fn();
 const mockDelete = jest.fn();
@@ -102,11 +103,13 @@ describe("Company Members Page", () => {
     }));
 
     wrapper = render(
-      <Apollo>
-        <I18nProvider>
-          <CompanyMembersPage {...props} />
-        </I18nProvider>
-      </Apollo>
+      <ThemeProvider>
+        <Apollo>
+          <I18nProvider>
+            <CompanyMembersPage {...props} />
+          </I18nProvider>
+        </Apollo>
+      </ThemeProvider>
     );
   });
 
@@ -203,11 +206,13 @@ describe("Company Members Page", () => {
           }
         };
         wrapper.rerender(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         fireEvent.change(wrapper.container.querySelector("#filter"), {
           target: { value: installerTeamMembers[0].email }
@@ -228,11 +233,13 @@ describe("Company Members Page", () => {
         };
         wrapper.unmount();
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         fireEvent.change(wrapper.container.querySelector("#filter"), {
           target: { value: "alex" }
@@ -273,11 +280,13 @@ describe("Company Members Page", () => {
             }
           };
           wrapper.rerender(
-            <Apollo>
-              <I18nProvider>
-                <CompanyMembersPage {...{ data }} />
-              </I18nProvider>
-            </Apollo>
+            <ThemeProvider>
+              <Apollo>
+                <I18nProvider>
+                  <CompanyMembersPage {...{ data }} />
+                </I18nProvider>
+              </Apollo>
+            </ThemeProvider>
           );
           fireEvent.change(wrapper.container.querySelector("#filter"), {
             target: { value: "A Company name" }
@@ -306,11 +315,13 @@ describe("Company Members Page", () => {
             }
           };
           wrapper.rerender(
-            <Apollo>
-              <I18nProvider>
-                <CompanyMembersPage {...{ data }} />
-              </I18nProvider>
-            </Apollo>
+            <ThemeProvider>
+              <Apollo>
+                <I18nProvider>
+                  <CompanyMembersPage {...{ data }} />
+                </I18nProvider>
+              </Apollo>
+            </ThemeProvider>
           );
           fireEvent.change(wrapper.container.querySelector("#filter"), {
             target: { value: installerTeamMembers[0].email }
@@ -370,11 +381,13 @@ describe("Company Members Page", () => {
       };
       wrapper.unmount();
       wrapper = render(
-        <Apollo>
-          <I18nProvider>
-            <CompanyMembersPage {...{ data }} />
-          </I18nProvider>
-        </Apollo>
+        <ThemeProvider>
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        </ThemeProvider>
       );
 
       expect(screen.getByTestId("certification-0-icon")).not.toHaveClass(
@@ -426,11 +439,13 @@ describe("Company Members Page", () => {
       };
       it("the remove button shouldn't be visible if selected account not Installer", async () => {
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage data={adminData} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage data={adminData} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -440,11 +455,13 @@ describe("Company Members Page", () => {
 
       it("Should not remove the member if press cancel", async () => {
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage data={installerData} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage data={installerData} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         fireEvent.click(screen.getByTestId("remove-member"));
@@ -462,11 +479,13 @@ describe("Company Members Page", () => {
 
       it("Should remove the member", async () => {
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage data={installerData} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage data={installerData} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         fireEvent.click(screen.getByTestId("remove-member"));
@@ -501,11 +520,13 @@ describe("Company Members Page", () => {
         }));
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -515,11 +536,13 @@ describe("Company Members Page", () => {
 
       it("show error message when fail to remove member", async () => {
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage data={installerData} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage data={installerData} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         fireEvent.click(screen.getByTestId("remove-member"));
@@ -603,11 +626,13 @@ describe("Company Members Page", () => {
         }));
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -657,11 +682,13 @@ describe("Company Members Page", () => {
         }));
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -674,11 +701,13 @@ describe("Company Members Page", () => {
         }));
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -695,11 +724,13 @@ describe("Company Members Page", () => {
         }));
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         expect(
@@ -719,11 +750,13 @@ describe("Company Members Page", () => {
         );
 
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         const button = within(wrapper.container).getByTestId(
           "change-user-status"
@@ -794,11 +827,13 @@ describe("Company Members Page", () => {
         });
         wrapper.unmount();
         wrapper = render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         const { getByText } = within(screen.getByTestId("user-card"));
         expect(
@@ -855,11 +890,13 @@ describe("Company Members Page", () => {
         expect(screen.queryByTestId("project-table")).toBeFalsy();
         wrapper.unmount();
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         await waitFor(() => {
           expect(screen.getByTestId("project-table")).toBeTruthy();
@@ -919,11 +956,13 @@ describe("Company Members Page", () => {
         };
         wrapper.unmount();
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         await waitFor(() => {
           expect(screen.getByTestId("project-table")).toBeTruthy();
@@ -949,11 +988,13 @@ describe("Company Members Page", () => {
         };
         wrapper.unmount();
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
         await waitFor(() => {
           expect(screen.queryByTestId("project-table")).toBeFalsy();
@@ -970,11 +1011,13 @@ describe("Company Members Page", () => {
         }));
         wrapper.unmount();
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...props} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...props} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         await waitFor(() => {
@@ -1024,11 +1067,13 @@ describe("Company Members Page", () => {
         };
         wrapper.unmount();
         render(
-          <Apollo>
-            <I18nProvider>
-              <CompanyMembersPage {...{ data }} />
-            </I18nProvider>
-          </Apollo>
+          <ThemeProvider>
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          </ThemeProvider>
         );
 
         await waitFor(() => {

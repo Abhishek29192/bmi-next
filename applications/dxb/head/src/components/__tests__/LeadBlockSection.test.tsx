@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
@@ -72,7 +73,11 @@ const leadBlockSectionData: LeadBlockSectionProps = {
 
 describe("LeadBlockSection", () => {
   it("renders correctly with link, text and postIt Card", () => {
-    render(<LeadBlockSection data={leadBlockSectionData} />);
+    render(
+      <ThemeProvider>
+        <LeadBlockSection data={leadBlockSectionData} />
+      </ThemeProvider>
+    );
     expect(screen.getByText("Text Section")).toBeInTheDocument();
     expect(screen.getByText("Link Section Label")).toBeInTheDocument();
     expect(screen.getByText("PostItCard Label")).toBeInTheDocument();
@@ -80,13 +85,21 @@ describe("LeadBlockSection", () => {
 
   it("renders leadBlock", () => {
     render(
-      <LeadBlockSection data={{ ...leadBlockSectionData, postItCard: null }} />
+      <ThemeProvider>
+        <LeadBlockSection
+          data={{ ...leadBlockSectionData, postItCard: null }}
+        />
+      </ThemeProvider>
     );
     expect(screen.getByText("MC: page.jumpToSection")).toBeInTheDocument();
   });
 
   it("renders correct gtm-data for postItCard", () => {
-    render(<LeadBlockSection data={{ ...leadBlockSectionData }} />);
+    render(
+      <ThemeProvider>
+        <LeadBlockSection data={{ ...leadBlockSectionData }} />
+      </ThemeProvider>
+    );
     const expectedGTMData = JSON.stringify({
       id: "cta-click1",
       label: "PostItCard heading-5 - PostItCard Label",

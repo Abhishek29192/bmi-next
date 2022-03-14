@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { ThemeProvider } from "@bmi/components";
 import { generateMarketContext } from "../../../../../lib/tests/factories/market";
 import { screen, render } from "../../../../../lib/tests/utils";
 import { RewardCategory } from "../";
@@ -50,7 +51,11 @@ describe("RewardCategory", () => {
     useQueryRewardTierByMarketIdLazyQuerySpy.mockImplementationOnce(
       ({ onCompleted }) => onCompleted({ rewardTiers: { nodes: rewardTiers } })
     );
-    const { container } = render(<RewardCategory market={market} />);
+    const { container } = render(
+      <ThemeProvider>
+        <RewardCategory market={market} />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
     expect(screen.queryByText("Reward Category")).toBeTruthy();
@@ -83,7 +88,10 @@ describe("RewardCategory", () => {
     useQueryRewardTierByMarketIdLazyQuerySpy.mockImplementationOnce(
       ({ onError }) => onError(error)
     );
-    render(<RewardCategory market={market} />);
+    render(
+      <ThemeProvider>
+    <RewardCategory market={market} />
+    </ThemeProvider>);
 
     expect(logSpy).toHaveBeenCalledWith({
       severity: "ERROR",

@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../button/Button";
 import { ClickableAction } from "../clickable/Clickable";
 import Typography from "../typography/Typography";
-import styles from "./ExploreBar.module.scss";
+import { useStyles } from "./styles";
 
 type Link = {
   label: React.ReactNode;
@@ -15,20 +15,22 @@ type Props = {
 };
 
 const ExploreBar = ({ heading, links }: Props) => {
+  const classes = useStyles();
+
   return (
-    <nav className={styles["ExploreBar"]} aria-labelledby="explore-bar">
+    <nav className={classes.root} aria-labelledby="explore-bar">
       <Typography
         id="explore-bar"
         variant="h6"
         component="h2"
-        className={styles["heading"]}
+        className={classes.heading}
       >
         {heading}
       </Typography>
       {links.map(({ label, action }, key) => (
         <Button
           key={`link-${key}`}
-          className={styles["link"]}
+          className={classes.link}
           variant="opaqueOutlined"
           action={action}
         >

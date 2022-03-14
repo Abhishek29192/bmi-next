@@ -9,7 +9,8 @@ exports[`Review empty project members 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-56 Typography-underline-58 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.header
       </h4>
@@ -17,12 +18,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.preferred_language
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           EN
         </div>
@@ -32,7 +35,8 @@ exports[`Review empty project members 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-56 Typography-underline-58 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.receipt_title
       </h4>
@@ -40,12 +44,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.receipt_subTitle
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           <div>
             test
@@ -57,7 +63,8 @@ exports[`Review empty project members 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-56 Typography-underline-58 MuiTypography-h4"
+        data-testid="typography"
       >
         building_owner.title
       </h4>
@@ -65,12 +72,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.contact_detail
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerFirstname 
         </div>
@@ -79,12 +88,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.email
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerMail
         </div>
@@ -93,12 +104,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.address
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             data-testid="address"
@@ -110,7 +123,8 @@ exports[`Review empty project members 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-56 Typography-underline-58 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.required.title
       </h4>
@@ -118,12 +132,14 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.required.evidence
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           <ul>
             <li>
@@ -139,35 +155,38 @@ exports[`Review empty project members 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-56 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.responsible_installer.title
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-56 MuiTypography-body1"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.responsible_installer.description
         </div>
       </div>
     </div>
     <div
-      class="Alert ColorPair ColorPair--alabaster"
+      class="AlertBanner-root-64 ColorPair-root-71 ColorPair-alabaster-80"
     >
       <div
-        class="actions"
+        class="AlertBanner-actions-68"
       />
       <div
-        class="Container"
+        class="Container-root-97"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
+            class="MuiTypography-root AlertBanner-title-69 Typography-root-56 MuiTypography-h5"
+            data-testid="typography"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root AlertBanner-icon-70"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -194,7 +213,8 @@ exports[`Review installer is responsible 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-99 Typography-underline-101 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.header
       </h4>
@@ -202,12 +222,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.preferred_language
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           EN
         </div>
@@ -216,12 +238,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.system_title
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
@@ -237,7 +261,8 @@ exports[`Review installer is responsible 1`] = `
               class="MuiCardContent-root"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+                class="MuiTypography-root Typography-root-99 MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+                data-testid="typography"
               />
               <div
                 class="footer"
@@ -251,7 +276,8 @@ exports[`Review installer is responsible 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-99 Typography-underline-101 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.receipt_title
       </h4>
@@ -259,12 +285,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.receipt_subTitle
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           <div>
             test
@@ -276,7 +304,8 @@ exports[`Review installer is responsible 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-99 Typography-underline-101 MuiTypography-h4"
+        data-testid="typography"
       >
         building_owner.title
       </h4>
@@ -284,12 +313,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.contact_detail
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerFirstname 
         </div>
@@ -298,12 +329,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.email
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerMail
         </div>
@@ -312,12 +345,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.address
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             data-testid="address"
@@ -329,7 +364,8 @@ exports[`Review installer is responsible 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-99 Typography-underline-101 MuiTypography-h4"
+        data-testid="typography"
       >
         <div>
           responsible_installer.title
@@ -339,18 +375,21 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           responsible_installer.contact_detail
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
            
         </div>
       </div>
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-99 Typography-underline-101 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.required.title
       </h4>
@@ -358,12 +397,14 @@ exports[`Review installer is responsible 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-99 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.required.evidence
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-99 MuiTypography-body1"
+          data-testid="typography"
         >
           <ul>
             <li>
@@ -377,23 +418,24 @@ exports[`Review installer is responsible 1`] = `
       </div>
     </div>
     <div
-      class="Alert ColorPair ColorPair--alabaster"
+      class="AlertBanner-root-107 ColorPair-root-114 ColorPair-alabaster-123"
     >
       <div
-        class="actions"
+        class="AlertBanner-actions-111"
       />
       <div
-        class="Container"
+        class="Container-root-140"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
+            class="MuiTypography-root AlertBanner-title-112 Typography-root-99 MuiTypography-h5"
+            data-testid="typography"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root AlertBanner-icon-113"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -420,7 +462,8 @@ exports[`Review should render correct 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.header
       </h4>
@@ -428,12 +471,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.preferred_language
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           EN
         </div>
@@ -442,12 +487,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.product_title
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
@@ -469,12 +516,14 @@ exports[`Review should render correct 1`] = `
               class="footer"
             >
               <span
-                class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+                class="MuiTypography-root footer__inner Typography-root-1 MuiTypography-caption"
+                data-testid="typography"
               >
                 brand
               </span>
               <span
-                class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+                class="MuiTypography-root footer__inner Typography-root-1 MuiTypography-caption"
+                data-testid="typography"
               >
                 family
               </span>
@@ -486,12 +535,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.system_title
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
@@ -513,17 +564,18 @@ exports[`Review should render correct 1`] = `
               class="MuiCardContent-root"
             >
               <h6
-                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+                class="MuiTypography-root Typography-root-1 MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+                data-testid="typography"
               />
               <div
                 class="footer"
               >
                 <div>
                   <table
-                    class="MuiTable-root Table Table--row-even-color"
+                    class="MuiTable-root Table-root-9 Table-evenColor-11"
                   >
                     <thead
-                      class="MuiTableHead-root ColorPair ColorPair--pearl"
+                      class="MuiTableHead-root ColorPair-root-21 ColorPair-pearl-23"
                     >
                       <tr
                         class="MuiTableRow-root MuiTableRow-head"
@@ -562,7 +614,8 @@ exports[`Review should render correct 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.receipt_title
       </h4>
@@ -570,12 +623,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.receipt_subTitle
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           <div>
             test
@@ -587,7 +642,8 @@ exports[`Review should render correct 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+        data-testid="typography"
       >
         building_owner.title
       </h4>
@@ -595,12 +651,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.contact_detail
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerFirstname 
         </div>
@@ -609,12 +667,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.email
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerMail
         </div>
@@ -623,12 +683,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           building_owner.address
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             data-testid="address"
@@ -640,7 +702,8 @@ exports[`Review should render correct 1`] = `
       class="sectionContainer"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+        data-testid="typography"
       >
         guarantee_tab.apply_guarantee.review.required.title
       </h4>
@@ -648,12 +711,14 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.required.evidence
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           <ul>
             <li>
@@ -669,35 +734,38 @@ exports[`Review should render correct 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.responsible_installer.title
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+          data-testid="typography"
         >
           guarantee_tab.apply_guarantee.review.responsible_installer.description
         </div>
       </div>
     </div>
     <div
-      class="Alert ColorPair ColorPair--alabaster"
+      class="AlertBanner-root-47 ColorPair-root-21 ColorPair-alabaster-30"
     >
       <div
-        class="actions"
+        class="AlertBanner-actions-51"
       />
       <div
-        class="Container"
+        class="Container-root-54"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
+            class="MuiTypography-root AlertBanner-title-52 Typography-root-1 MuiTypography-h5"
+            data-testid="typography"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root AlertBanner-icon-53"
               focusable="false"
               viewBox="0 0 24 24"
             >

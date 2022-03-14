@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import {
+  KeyboardArrowDown,
+  KeyboardArrowLeft,
+  KeyboardArrowRight,
+  KeyboardArrowUp
+} from "@material-ui/icons";
 import classnames from "classnames";
-import { KeyboardArrowUp } from "@material-ui/icons";
-import { KeyboardArrowRight } from "@material-ui/icons";
-import { KeyboardArrowDown } from "@material-ui/icons";
-import { KeyboardArrowLeft } from "@material-ui/icons";
+import React, { useState } from "react";
 import Button from "../button/Button";
-import styles from "./SlideControls.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = {
   current?: number;
@@ -84,6 +86,7 @@ const SlideControls = ({
   const PreviousArrow = isVertical ? KeyboardArrowUp : KeyboardArrowLeft;
   const NextArrow = isVertical ? KeyboardArrowDown : KeyboardArrowRight;
 
+  const classes = useStyles();
   /* istanbul ignore next */
   if (process.env.NODE_ENV === "development" && initialCurrent > total) {
     // eslint-disable-next-line no-console
@@ -98,13 +101,11 @@ const SlideControls = ({
   return (
     <div
       className={classnames(
-        styles["SlideControls"],
-        {
-          [styles["SlideControls--full-size"]!]: isFullSize && !isVertical,
-          [styles["SlideControls--vertical"]!]: isVertical,
-          [styles["SlideControls--light"]!]: isDarkThemed,
-          [styles["SlideControls--hide"]!]: total === 1
-        },
+        classes.root,
+        isFullSize && !isVertical && classes.fullSize,
+        isVertical && classes.vertical,
+        isDarkThemed && classes.light,
+        total === 1 && classes.hide,
         className
       )}
     >
@@ -121,22 +122,22 @@ const SlideControls = ({
           }}
           accessibilityLabel={previousLabel}
         >
-          <PreviousArrow className={styles["chevron"]} />
+          <PreviousArrow className={classes.chevron} />
         </Button>
       )}
-      <span className={styles["middle-container"]}>
-        <span className={styles["sliding-slot"]}>
+      <span className={classes.middleContainer}>
+        <span className={classes.slidingSlot}>
           <span
-            className={classnames(styles["numbers"], {
-              [styles[`numbers--${direction === "backward" ? "down" : "up"}`]!]:
+            className={classnames(classes.numbers, {
+              [direction === "backward" ? classes.down : classes.up]:
                 direction !== "none"
             })}
           >
             {numbers.map((number, key) => (
               <span
                 key={key}
-                className={classnames(styles["number"], {
-                  [styles["number--active"]!]: number === newCurrent
+                className={classnames(classes.number, {
+                  [classes.active]: number === newCurrent
                 })}
                 onAnimationEnd={() => {
                   if (newCurrent !== current) {
@@ -149,7 +150,7 @@ const SlideControls = ({
             ))}
           </span>
         </span>
-        <span className={styles["total"]}>{addZero(total)}</span>
+        <span className={classes.total}>{addZero(total)}</span>
       </span>
       {total > 1 && (
         <Button
@@ -164,7 +165,7 @@ const SlideControls = ({
           }}
           accessibilityLabel={nextLabel}
         >
-          <NextArrow className={styles["chevron"]} />
+          <NextArrow className={classes.chevron} />
         </Button>
       )}
     </div>

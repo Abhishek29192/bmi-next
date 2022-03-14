@@ -3,22 +3,25 @@
 exports[`LinkCard component onCloseClick for item 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root LinkCard-root-29 LinkCard-open-30 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="item"
+      class="LinkCard-item-31"
+      data-testid="linkCard-item"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-root-35 MuiTypography-h6 MuiTypography-gutterBottom"
+        data-testid="typography"
       >
         test
       </h6>
       <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        class="MuiTypography-root LinkCard-subtitle-32 Typography-root-35 MuiTypography-body1"
+        data-testid="typography"
       />
     </div>
     <div
-      class="icon"
+      class="LinkCard-icon-33"
     >
       <svg
         aria-hidden="true"
@@ -32,7 +35,7 @@ exports[`LinkCard component onCloseClick for item 1`] = `
       </svg>
     </div>
     <div
-      class="MuiCollapse-root details MuiCollapse-entered"
+      class="MuiCollapse-root LinkCard-details-34 MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -52,22 +55,25 @@ exports[`LinkCard component onCloseClick for item 1`] = `
 exports[`LinkCard component renders correctly closed variant 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root LinkCard-root-1 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="item"
+      class="LinkCard-item-3"
+      data-testid="linkCard-item"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-root-7 MuiTypography-h6 MuiTypography-gutterBottom"
+        data-testid="typography"
       >
         test
       </h6>
       <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        class="MuiTypography-root LinkCard-subtitle-4 Typography-root-7 MuiTypography-body1"
+        data-testid="typography"
       />
     </div>
     <div
-      class="icon"
+      class="LinkCard-icon-5"
     >
       <svg
         aria-hidden="true"
@@ -81,7 +87,7 @@ exports[`LinkCard component renders correctly closed variant 1`] = `
       </svg>
     </div>
     <div
-      class="MuiCollapse-root details MuiCollapse-hidden"
+      class="MuiCollapse-root LinkCard-details-6 MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -101,22 +107,25 @@ exports[`LinkCard component renders correctly closed variant 1`] = `
 exports[`LinkCard component renders on open variant 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root LinkCard-root-15 LinkCard-open-16 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="item"
+      class="LinkCard-item-17"
+      data-testid="linkCard-item"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-root-21 MuiTypography-h6 MuiTypography-gutterBottom"
+        data-testid="typography"
       >
         test
       </h6>
       <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        class="MuiTypography-root LinkCard-subtitle-18 Typography-root-21 MuiTypography-body1"
+        data-testid="typography"
       />
     </div>
     <div
-      class="icon"
+      class="LinkCard-icon-19"
     >
       <svg
         aria-hidden="true"
@@ -130,7 +139,7 @@ exports[`LinkCard component renders on open variant 1`] = `
       </svg>
     </div>
     <div
-      class="MuiCollapse-root details MuiCollapse-entered"
+      class="MuiCollapse-root LinkCard-details-20 MuiCollapse-entered"
       style="min-height: 0px;"
     >
       <div
@@ -150,22 +159,25 @@ exports[`LinkCard component renders on open variant 1`] = `
 exports[`LinkCard component renders onEnterd transition onClick  1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root LinkCard-root-43 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="item"
+      class="LinkCard-item-45"
+      data-testid="linkCard-item"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-root-49 MuiTypography-h6 MuiTypography-gutterBottom"
+        data-testid="typography"
       >
         test
       </h6>
       <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        class="MuiTypography-root LinkCard-subtitle-46 Typography-root-49 MuiTypography-body1"
+        data-testid="typography"
       />
     </div>
     <div
-      class="icon"
+      class="LinkCard-icon-47"
     >
       <svg
         aria-hidden="true"
@@ -179,7 +191,7 @@ exports[`LinkCard component renders onEnterd transition onClick  1`] = `
       </svg>
     </div>
     <div
-      class="MuiCollapse-root details MuiCollapse-hidden"
+      class="MuiCollapse-root LinkCard-details-48 MuiCollapse-hidden"
       style="min-height: 0px;"
     >
       <div
@@ -199,22 +211,25 @@ exports[`LinkCard component renders onEnterd transition onClick  1`] = `
 exports[`LinkCard component renders onEnterd transition onClick  2`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root LinkCard LinkCard--selected MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root LinkCard-root-43 LinkCard-open-44 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <div
-      class="item"
+      class="LinkCard-item-45"
+      data-testid="linkCard-item"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+        class="MuiTypography-root Typography-root-49 MuiTypography-h6 MuiTypography-gutterBottom"
+        data-testid="typography"
       >
         test
       </h6>
       <p
-        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+        class="MuiTypography-root LinkCard-subtitle-46 Typography-root-49 MuiTypography-body1"
+        data-testid="typography"
       />
     </div>
     <div
-      class="icon"
+      class="LinkCard-icon-47"
     >
       <svg
         aria-hidden="true"
@@ -228,7 +243,7 @@ exports[`LinkCard component renders onEnterd transition onClick  2`] = `
       </svg>
     </div>
     <div
-      class="MuiCollapse-root details"
+      class="MuiCollapse-root LinkCard-details-48"
       style="min-height: 0px; height: 0px; transition-duration: 300ms;"
     >
       <div

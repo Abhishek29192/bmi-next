@@ -1,7 +1,8 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import mockImage from "path-to-image.png";
 import MockLogo from "path-to-logo.svg";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import ProductOverviewPane, { Props } from "../ProductOverviewPane";
 
 const attributes: Props["attributes"] = [
@@ -48,7 +49,7 @@ const attributes: Props["attributes"] = [
 
 describe("ProductOverviewPane component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -61,7 +62,7 @@ describe("ProductOverviewPane component", () => {
   });
 
   it("renders correctly with children", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -76,7 +77,7 @@ describe("ProductOverviewPane component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with empty variants", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -95,7 +96,7 @@ describe("ProductOverviewPane component", () => {
 
   it("renders correctly if nobb === null", () => {
     const component = () => <div>thumbnail</div>;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -126,7 +127,7 @@ describe("ProductOverviewPane component", () => {
 
   it("renders correctly if attribute type === chips", () => {
     const component = () => <div>thumbnail</div>;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -157,7 +158,7 @@ describe("ProductOverviewPane component", () => {
 
   it("renders correctly if attributesis empty array", () => {
     const component = () => <div>thumbnail</div>;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -172,7 +173,7 @@ describe("ProductOverviewPane component", () => {
 
   it("renders correctly if some variant has isSelected equals false", () => {
     const component = () => <div>thumbnail</div>;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ProductOverviewPane
         name="Type S Roof Shingles"
         brandLogo={MockLogo}
@@ -203,7 +204,7 @@ describe("ProductOverviewPane component", () => {
 
   describe("renders tooltips with unavailableMicrocopy when hover attribute ", () => {
     it("for chips", async () => {
-      const { getByText, findByText } = render(
+      const { getByText, findByText } = renderWithThemeProvider(
         <ProductOverviewPane
           name="Type S Roof Shingles"
           brandLogo={MockLogo}
@@ -237,7 +238,7 @@ describe("ProductOverviewPane component", () => {
       expect(await findByText("unavailableMicroCopy 2")).toBeTruthy();
     });
     it("for thumbnails", async () => {
-      const { getByText, findByText } = render(
+      const { getByText, findByText } = renderWithThemeProvider(
         <ProductOverviewPane
           name="Type S Roof Shingles"
           brandLogo={MockLogo}
@@ -277,7 +278,7 @@ describe("ProductOverviewPane component", () => {
 
   describe("does not render tooltips with unavailableMicrocopy when hover attribute without action ", () => {
     it("for chips", async () => {
-      const { getByText, queryByText } = render(
+      const { getByText, queryByText } = renderWithThemeProvider(
         <ProductOverviewPane
           name="Type S Roof Shingles"
           brandLogo={MockLogo}
@@ -310,7 +311,7 @@ describe("ProductOverviewPane component", () => {
       expect(await queryByText("unavailableMicroCopy 2")).toBeFalsy();
     });
     it("for thumbnails", async () => {
-      const { getByText, queryByText } = render(
+      const { getByText, queryByText } = renderWithThemeProvider(
         <ProductOverviewPane
           name="Type S Roof Shingles"
           brandLogo={MockLogo}

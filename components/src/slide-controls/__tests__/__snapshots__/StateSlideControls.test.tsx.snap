@@ -3,11 +3,11 @@
 exports[`SlideControls component moves backward from 5 to 4 1`] = `
 <div>
   <div
-    class="SlideControls"
+    class="SlideControls-root-73"
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-100 iconButton IconButton-medium-106 IconButton-text-102"
       tabindex="0"
       type="button"
     >
@@ -16,7 +16,7 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-79"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -30,35 +30,35 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
       />
     </button>
     <span
-      class="middle-container"
+      class="SlideControls-middleContainer-78"
     >
       <span
-        class="sliding-slot"
+        class="SlideControls-slidingSlot-77"
       >
         <span
-          class="numbers numbers--down"
+          class="SlideControls-numbers-80 SlideControls-down-82"
         >
           <span
-            class="number number--active"
+            class="SlideControls-number-85 SlideControls-active-84"
           >
             04
           </span>
           <span
-            class="number"
+            class="SlideControls-number-85"
           >
             05
           </span>
         </span>
       </span>
       <span
-        class="total"
+        class="SlideControls-total-83"
       >
         05
       </span>
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-100 iconButton IconButton-medium-106 IconButton-text-102"
       tabindex="0"
       type="button"
     >
@@ -67,7 +67,7 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-79"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -87,11 +87,11 @@ exports[`SlideControls component moves backward from 5 to 4 1`] = `
 exports[`SlideControls component moves forward from 1 to 2 1`] = `
 <div>
   <div
-    class="SlideControls"
+    class="SlideControls-root-37"
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-64 iconButton IconButton-medium-70 IconButton-text-66"
       tabindex="0"
       type="button"
     >
@@ -100,7 +100,7 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-43"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -114,35 +114,35 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
       />
     </button>
     <span
-      class="middle-container"
+      class="SlideControls-middleContainer-42"
     >
       <span
-        class="sliding-slot"
+        class="SlideControls-slidingSlot-41"
       >
         <span
-          class="numbers numbers--up"
+          class="SlideControls-numbers-44 SlideControls-up-45"
         >
           <span
-            class="number"
+            class="SlideControls-number-49"
           >
             01
           </span>
           <span
-            class="number number--active"
+            class="SlideControls-number-49 SlideControls-active-48"
           >
             02
           </span>
         </span>
       </span>
       <span
-        class="total"
+        class="SlideControls-total-47"
       >
         05
       </span>
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-64 iconButton IconButton-medium-70 IconButton-text-66"
       tabindex="0"
       type="button"
     >
@@ -151,7 +151,7 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-43"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -171,11 +171,11 @@ exports[`SlideControls component moves forward from 1 to 2 1`] = `
 exports[`SlideControls component moves from first to last number 1`] = `
 <div>
   <div
-    class="SlideControls"
+    class="SlideControls-root-145"
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-172 iconButton IconButton-medium-178 IconButton-text-174"
       tabindex="0"
       type="button"
     >
@@ -184,7 +184,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-151"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -198,35 +198,35 @@ exports[`SlideControls component moves from first to last number 1`] = `
       />
     </button>
     <span
-      class="middle-container"
+      class="SlideControls-middleContainer-150"
     >
       <span
-        class="sliding-slot"
+        class="SlideControls-slidingSlot-149"
       >
         <span
-          class="numbers numbers--down"
+          class="SlideControls-numbers-152 SlideControls-down-154"
         >
           <span
-            class="number number--active"
+            class="SlideControls-number-157 SlideControls-active-156"
           >
             05
           </span>
           <span
-            class="number"
+            class="SlideControls-number-157"
           >
             01
           </span>
         </span>
       </span>
       <span
-        class="total"
+        class="SlideControls-total-155"
       >
         05
       </span>
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-172 iconButton IconButton-medium-178 IconButton-text-174"
       tabindex="0"
       type="button"
     >
@@ -235,7 +235,7 @@ exports[`SlideControls component moves from first to last number 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-151"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -255,11 +255,11 @@ exports[`SlideControls component moves from first to last number 1`] = `
 exports[`SlideControls component moves from last to first number 1`] = `
 <div>
   <div
-    class="SlideControls"
+    class="SlideControls-root-109"
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-136 iconButton IconButton-medium-142 IconButton-text-138"
       tabindex="0"
       type="button"
     >
@@ -268,7 +268,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-115"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -282,35 +282,35 @@ exports[`SlideControls component moves from last to first number 1`] = `
       />
     </button>
     <span
-      class="middle-container"
+      class="SlideControls-middleContainer-114"
     >
       <span
-        class="sliding-slot"
+        class="SlideControls-slidingSlot-113"
       >
         <span
-          class="numbers numbers--up"
+          class="SlideControls-numbers-116 SlideControls-up-117"
         >
           <span
-            class="number"
+            class="SlideControls-number-121"
           >
             05
           </span>
           <span
-            class="number number--active"
+            class="SlideControls-number-121 SlideControls-active-120"
           >
             01
           </span>
         </span>
       </span>
       <span
-        class="total"
+        class="SlideControls-total-119"
       >
         05
       </span>
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-136 iconButton IconButton-medium-142 IconButton-text-138"
       tabindex="0"
       type="button"
     >
@@ -319,7 +319,7 @@ exports[`SlideControls component moves from last to first number 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-115"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -339,11 +339,11 @@ exports[`SlideControls component moves from last to first number 1`] = `
 exports[`SlideControls component renders correctly 1`] = `
 <div>
   <div
-    class="SlideControls"
+    class="SlideControls-root-1"
   >
     <button
       aria-label="previous"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-28 iconButton IconButton-medium-34 IconButton-text-30"
       tabindex="0"
       type="button"
     >
@@ -352,7 +352,7 @@ exports[`SlideControls component renders correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-7"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -366,30 +366,30 @@ exports[`SlideControls component renders correctly 1`] = `
       />
     </button>
     <span
-      class="middle-container"
+      class="SlideControls-middleContainer-6"
     >
       <span
-        class="sliding-slot"
+        class="SlideControls-slidingSlot-5"
       >
         <span
-          class="numbers"
+          class="SlideControls-numbers-8"
         >
           <span
-            class="number number--active"
+            class="SlideControls-number-13 SlideControls-active-12"
           >
             01
           </span>
         </span>
       </span>
       <span
-        class="total"
+        class="SlideControls-total-11"
       >
         05
       </span>
     </span>
     <button
       aria-label="next"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-28 iconButton IconButton-medium-34 IconButton-text-30"
       tabindex="0"
       type="button"
     >
@@ -398,7 +398,7 @@ exports[`SlideControls component renders correctly 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root SlideControls-chevron-7"
           focusable="false"
           viewBox="0 0 24 24"
         >

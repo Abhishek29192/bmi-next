@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
@@ -18,58 +19,64 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel="Go Back"
-          backButtonOnClick={() => {}}
-          linkLabel="Skip"
-          linkOnClick={() => {}}
-          nextLabel="Calculate"
-          nextButtonOnClick={() => {}}
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Go Back"
+            backButtonOnClick={() => {}}
+            linkLabel="Skip"
+            linkOnClick={() => {}}
+            nextLabel="Calculate"
+            nextButtonOnClick={() => {}}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders as a div", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          isForm={false}
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel="Go Back"
-          backButtonOnClick={() => {}}
-          linkLabel="Skip"
-          linkOnClick={() => {}}
-          nextLabel="Calculate"
-          nextButtonOnClick={() => {}}
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            isForm={false}
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Go Back"
+            backButtonOnClick={() => {}}
+            linkLabel="Skip"
+            linkOnClick={() => {}}
+            nextLabel="Calculate"
+            nextButtonOnClick={() => {}}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("ignores footer when there are no buttons", () => {
     const { container } = render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -85,21 +92,24 @@ describe("CalculatorStepper component", () => {
     const nextLabel = "Calculate";
 
     const { getByText } = render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel={backLabel}
-          backButtonOnClick={onClickBack}
-          linkLabel={linkLabel}
-          linkOnClick={onClickLink}
-          nextLabel={nextLabel}
-          nextButtonOnClick={onClickNext}
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        {" "}
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel={backLabel}
+            backButtonOnClick={onClickBack}
+            linkLabel={linkLabel}
+            linkOnClick={onClickLink}
+            nextLabel={nextLabel}
+            nextButtonOnClick={onClickNext}
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
 
     const backButton = getByText(backLabel);
@@ -117,22 +127,24 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with sm paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel={undefined}
-          backButtonOnClick={jest.fn()}
-          linkLabel={undefined}
-          linkOnClick={jest.fn()}
-          nextLabel="Next button"
-          nextButtonOnClick={jest.fn()}
-          isForm
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel={undefined}
+            backButtonOnClick={jest.fn()}
+            linkLabel={undefined}
+            linkOnClick={jest.fn()}
+            nextLabel="Next button"
+            nextButtonOnClick={jest.fn()}
+            isForm
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
 
     const form = screen.getByTestId("calculator-step-form");
@@ -141,22 +153,24 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with md paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel={undefined}
-          backButtonOnClick={jest.fn()}
-          linkLabel="Link label"
-          linkOnClick={jest.fn()}
-          nextLabel="Next button"
-          nextButtonOnClick={jest.fn()}
-          isForm
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel={undefined}
+            backButtonOnClick={jest.fn()}
+            linkLabel="Link label"
+            linkOnClick={jest.fn()}
+            nextLabel="Next button"
+            nextButtonOnClick={jest.fn()}
+            isForm
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
 
     const form = screen.getByTestId("calculator-step-form");
@@ -165,22 +179,24 @@ describe("CalculatorStepper component", () => {
 
   it("renders correctly with large paddings", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel="Back label"
-          backButtonOnClick={jest.fn()}
-          linkLabel="Link label"
-          linkOnClick={jest.fn()}
-          nextLabel="Next button"
-          nextButtonOnClick={jest.fn()}
-          isForm
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel="Back label"
+            backButtonOnClick={jest.fn()}
+            linkLabel="Link label"
+            linkOnClick={jest.fn()}
+            nextLabel="Next button"
+            nextButtonOnClick={jest.fn()}
+            isForm
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
 
     const form = screen.getByTestId("calculator-step-form");
@@ -200,22 +216,24 @@ describe("CalculatorStepper component", () => {
     const backButtonLabel = "Back button label";
 
     render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={false}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-          backLabel={backButtonLabel}
-          backButtonOnClick={jest.fn()}
-          linkLabel={linkLabel}
-          linkOnClick={jest.fn()}
-          nextLabel={nextButtonLabel}
-          nextButtonOnClick={jest.fn()}
-          isForm
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={false}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+            backLabel={backButtonLabel}
+            backButtonOnClick={jest.fn()}
+            linkLabel={linkLabel}
+            linkOnClick={jest.fn()}
+            nextLabel={nextButtonLabel}
+            nextButtonOnClick={jest.fn()}
+            isForm
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
 
     const buttons = screen.getAllByRole("button");
@@ -226,15 +244,17 @@ describe("CalculatorStepper component", () => {
 
   it("renders with loader", () => {
     render(
-      <CalculatorStepper selected="select-a-roof-shape" loading={true}>
-        <CalculatorStepper.Step
-          key="select-a-roof-shape"
-          title="This is the 2nd page"
-          subtitle="Choose the closest to your roof shape"
-        >
-          <SelectingARoof />
-        </CalculatorStepper.Step>
-      </CalculatorStepper>
+      <ThemeProvider>
+        <CalculatorStepper selected="select-a-roof-shape" loading={true}>
+          <CalculatorStepper.Step
+            key="select-a-roof-shape"
+            title="This is the 2nd page"
+            subtitle="Choose the closest to your roof shape"
+          >
+            <SelectingARoof />
+          </CalculatorStepper.Step>
+        </CalculatorStepper>
+      </ThemeProvider>
     );
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });

@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import mockImage from "path-to-image.png";
 import PromoSection from "../PromoSection";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("PromoSection component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection
         title="H2 Heading"
         media={<img src={mockImage} alt="Lorem ipsum" />}
@@ -19,7 +19,7 @@ describe("PromoSection component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders a two-thirds row", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection
         title="H2 Heading"
         media={<img src={mockImage} alt="Lorem ipsum" />}
@@ -34,7 +34,7 @@ describe("PromoSection component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders reversed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection
         title="H2 Heading"
         media={<img src={mockImage} alt="Lorem ipsum" />}
@@ -49,7 +49,7 @@ describe("PromoSection component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders without a title", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection media={<img src={mockImage} alt="Lorem ipsum" />}>
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
@@ -61,7 +61,7 @@ describe("PromoSection component", () => {
   });
 
   it("renders with white background", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection backgroundColor="white" className="test-class">
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
@@ -72,7 +72,7 @@ describe("PromoSection component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with alabaster background", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection backgroundColor="alabaster" className="test-class">
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
@@ -84,7 +84,7 @@ describe("PromoSection component", () => {
   });
 
   it("renders correctly if no props passed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection>
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
@@ -96,7 +96,7 @@ describe("PromoSection component", () => {
   });
 
   it("renders correctly if title is react node", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <PromoSection title={<span className="test-title">Title</span>}>
         Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
         mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,

@@ -1,5 +1,6 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React, { useContext, useEffect } from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Form, { FormContext } from "../Form";
 import withFormControl from "../withFormControl";
 
@@ -16,7 +17,7 @@ const Component = () => {
 
 describe("Form component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Form>
         <Form.Row>
           <p>Lorem Ipsum</p>
@@ -28,7 +29,7 @@ describe("Form component", () => {
   });
 
   it("renders with a multiple buttons", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Form>
         <Form.Row>
           <p>Lorem Ipsum</p>
@@ -43,7 +44,7 @@ describe("Form component", () => {
   });
 
   it("renders with a right aligned button", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Form rightAlignButton>
         <Form.Row>
           <p>Lorem Ipsum</p>
@@ -58,7 +59,7 @@ describe("Form component", () => {
 
   it("test submit form", () => {
     const onSubmit = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Form onSubmit={onSubmit} data-testid="form">
         <Form.Row>
           <input type="text" name="text" data-testid="id" />
@@ -78,7 +79,7 @@ describe("Form component", () => {
 
   it("test values passed to updateFormState function from context to be called on submit", () => {
     const onSubmit = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Form onSubmit={onSubmit} data-testid="form">
         <Component />
       </Form>
@@ -92,7 +93,7 @@ describe("Form component", () => {
 
   it("should not call onSubmit when it not pass for wrapped with formContext coponent", () => {
     const onSubmit = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Form data-testid="form">
         <Component />
       </Form>
@@ -108,7 +109,7 @@ describe("Form component", () => {
     ));
     const WithFormControlComponent = withFormControl(mockComponent);
     const onChange = jest.fn();
-    const { getByTestId, container } = render(
+    const { getByTestId, container } = renderWithThemeProvider(
       <WithFormControlComponent
         name="test"
         onChange={onChange}
@@ -127,7 +128,7 @@ describe("Form component", () => {
     ));
     const WithFormControlComponent = withFormControl(mockComponent);
     const onChange = jest.fn();
-    const { getByTestId, container } = render(
+    const { getByTestId, container } = renderWithThemeProvider(
       <WithFormControlComponent name="test" defaultValue="Value" />
     );
     expect(container).toMatchSnapshot();
@@ -142,7 +143,7 @@ describe("Form component", () => {
     ));
     const getValidationErrorMock = jest.fn().mockImplementation(() => "error");
     const WithFormControlComponent = withFormControl(mockComponent);
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <WithFormControlComponent
         name="test"
         isRequired={true}
@@ -160,7 +161,7 @@ describe("Form component", () => {
       <input type="text" name="test" data-testid="id" {...props} />
     ));
     const WithFormControlComponent = withFormControl(mockComponent);
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <WithFormControlComponent
         name="test"
         fieldIsRequiredError="fieldIsRequiredError"
@@ -176,7 +177,7 @@ describe("Form component", () => {
       <input type="text" name="test" data-testid="id" {...props} />
     ));
     const WithFormControlComponent = withFormControl(mockComponent);
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <WithFormControlComponent name="test" isRequired={true} />
     );
     expect(container).toMatchSnapshot();

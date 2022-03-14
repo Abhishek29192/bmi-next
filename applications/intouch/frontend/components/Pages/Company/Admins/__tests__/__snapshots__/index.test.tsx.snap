@@ -7,10 +7,10 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
   >
     
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -30,12 +30,14 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 Ben Afleck
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -64,7 +66,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -90,7 +93,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+4@digitaldetox.co.uk
                 </p>
@@ -100,7 +104,7 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -120,12 +124,14 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 Dom Perignon
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -154,7 +160,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -180,7 +187,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+3@digitaldetox.co.uk
                 </p>
@@ -190,7 +198,7 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -210,12 +218,14 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 Steve Jobs
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -244,7 +254,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -270,7 +281,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+5@digitaldetox.co.uk
                 </p>
@@ -280,7 +292,7 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -300,12 +312,14 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 Umit Davala
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.INSTALLER
               </p>
@@ -334,7 +348,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -360,7 +375,8 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-15 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+6@digitaldetox.co.uk
                 </p>
@@ -374,12 +390,12 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
       class="more"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-23 MuiButton-outlined MuiButton-outlinedPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-26"
         >
           button.less
         </span>
@@ -399,10 +415,10 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
   >
     
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -422,12 +438,14 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 Ben Afleck
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -456,7 +474,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -482,7 +501,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+4@digitaldetox.co.uk
                 </p>
@@ -492,7 +512,7 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -512,12 +532,14 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 Dom Perignon
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -546,7 +568,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -572,7 +595,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+3@digitaldetox.co.uk
                 </p>
@@ -582,7 +606,7 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -602,12 +626,14 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 Steve Jobs
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.COMPANY_ADMIN
               </p>
@@ -636,7 +662,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -662,7 +689,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+5@digitaldetox.co.uk
                 </p>
@@ -672,7 +700,7 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
           class="main"
@@ -692,12 +720,14 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
               class="nameTag"
             >
               <p
-                class="MuiTypography-root name Typography MuiTypography-body1"
+                class="MuiTypography-root name Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 Umit Davala
               </p>
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                data-testid="typography"
               >
                 roles.INSTALLER
               </p>
@@ -726,7 +756,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   1234567
                 </p>
@@ -752,7 +783,8 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
                   />
                 </svg>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-5 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   devs+6@digitaldetox.co.uk
                 </p>
@@ -772,7 +804,7 @@ exports[`CompanyAdmins Components render correctly if there is no members 1`] = 
     class="wrapper"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     />
   </div>
 </div>

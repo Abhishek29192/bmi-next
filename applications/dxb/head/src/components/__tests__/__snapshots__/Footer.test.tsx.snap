@@ -3,47 +3,49 @@
 exports[`Footer component renders correctly 1`] = `
 <div>
   <div
-    class="HidePrint"
+    class="HidePrint-root-1"
   >
     <div
-      class="Footer"
+      class="Footer-root-2"
+      data-testid="footer"
     >
       <div
-        class="Container"
+        class="Container-root-14"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item"
+              class="MuiGrid-root Grid-item-16 MuiGrid-item"
             >
               <h4
-                class="MuiTypography-root Typography MuiTypography-h4"
+                class="MuiTypography-root Typography-root-18 MuiTypography-h4"
+                data-testid="typography"
               >
                 Get in touch
               </h4>
               <nav>
                 <ul
-                  class="list"
+                  class="Footer-list-8"
                 >
                   <li
-                    class="list-item"
+                    class="Footer-listItem-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-4"
+                        class="MuiButton-label Button-label-29"
                       >
                         <span
-                          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon Button-startIcon-30 MuiButton-iconSizeMedium"
                         >
                           <svg
                             aria-hidden="true"
@@ -67,30 +69,31 @@ exports[`Footer component renders correctly 1`] = `
               </nav>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item"
+              class="MuiGrid-root Grid-item-16 MuiGrid-item"
             >
               <h4
-                class="MuiTypography-root Typography MuiTypography-h4"
+                class="MuiTypography-root Typography-root-18 MuiTypography-h4"
+                data-testid="typography"
               >
                 About BMI
               </h4>
               <nav>
                 <ul
-                  class="list"
+                  class="Footer-list-8"
                 >
                   <li
-                    class="list-item"
+                    class="Footer-listItem-3"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                       href="/uk/landing-page/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-4"
+                        class="MuiButton-label Button-label-29"
                       >
                         Our story
                       </span>
@@ -104,29 +107,29 @@ exports[`Footer component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="secondary-navigation"
+            class="Footer-secondaryNavigation-9"
           >
             <div
-              class="logo"
+              class="Footer-logo-10"
             >
               <svg />
             </div>
             <ul
-              class="list list--inline"
+              class="Footer-list-8 Footer-listInline-11"
             >
               <li
-                class="list-item"
+                class="Footer-listItem-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                   href="/uk/landing-page/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-29"
                   >
                     Our story
                   </span>
@@ -136,18 +139,18 @@ exports[`Footer component renders correctly 1`] = `
                 </a>
               </li>
               <li
-                class="list-item"
+                class="Footer-listItem-3"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-text Button-text-27 Button-textDarkBg-31 Footer-link-7 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
                   href="/uk/sitemap/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-29"
                   >
                     global.sitemap
                   </span>
@@ -158,7 +161,7 @@ exports[`Footer component renders correctly 1`] = `
               </li>
             </ul>
             <div
-              class="standard-logo"
+              class="Footer-standardLogo-12"
             >
               <svg />
             </div>
@@ -173,47 +176,49 @@ exports[`Footer component renders correctly 1`] = `
 exports[`Footer component renders without brand logo Icon if it is presented in link 1`] = `
 <div>
   <div
-    class="HidePrint"
+    class="HidePrint-root-46"
   >
     <div
-      class="Footer"
+      class="Footer-root-47"
+      data-testid="footer"
     >
       <div
-        class="Container"
+        class="Container-root-59"
       >
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item"
+              class="MuiGrid-root Grid-item-61 MuiGrid-item"
             >
               <h4
-                class="MuiTypography-root Typography MuiTypography-h4"
+                class="MuiTypography-root Typography-root-63 MuiTypography-h4"
+                data-testid="typography"
               >
                 Get in touch
               </h4>
               <nav>
                 <ul
-                  class="list"
+                  class="Footer-list-53"
                 >
                   <li
-                    class="list-item"
+                    class="Footer-listItem-48"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"+44 (0) 1234567890\\",\\"action\\":\\"tel:+4401234567890\\"}"
                       href="tel:+4401234567890"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-24"
+                        class="MuiButton-label Button-label-74"
                       >
                         <span
-                          class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                          class="MuiButton-startIcon Button-startIcon-75 MuiButton-iconSizeMedium"
                         >
                           <svg
                             aria-hidden="true"
@@ -237,30 +242,31 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </nav>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item"
+              class="MuiGrid-root Grid-item-61 MuiGrid-item"
             >
               <h4
-                class="MuiTypography-root Typography MuiTypography-h4"
+                class="MuiTypography-root Typography-root-63 MuiTypography-h4"
+                data-testid="typography"
               >
                 About BMI
               </h4>
               <nav>
                 <ul
-                  class="list"
+                  class="Footer-list-53"
                 >
                   <li
-                    class="list-item"
+                    class="Footer-listItem-48"
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                      class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
                       href="/uk/landing-page/"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-24"
+                        class="MuiButton-label Button-label-74"
                       >
                         Our story
                       </span>
@@ -274,29 +280,29 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
             </div>
           </div>
           <div
-            class="secondary-navigation"
+            class="Footer-secondaryNavigation-54"
           >
             <div
-              class="logo"
+              class="Footer-logo-55"
             >
               <svg />
             </div>
             <ul
-              class="list list--inline"
+              class="Footer-list-53 Footer-listInline-56"
             >
               <li
-                class="list-item"
+                class="Footer-listItem-48"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Icopal brand\\",\\"action\\":\\"/uk/landing-page/\\"}"
                   href="/uk/landing-page/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-74"
                   >
                     Icopal brand
                   </span>
@@ -306,18 +312,18 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
                 </a>
               </li>
               <li
-                class="list-item"
+                class="Footer-listItem-48"
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 buttonStyles-textDarkBg-26 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-text Button-text-72 Button-textDarkBg-76 Footer-link-52 MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
                   href="/uk/sitemap/"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-74"
                   >
                     global.sitemap
                   </span>
@@ -328,7 +334,7 @@ exports[`Footer component renders without brand logo Icon if it is presented in 
               </li>
             </ul>
             <div
-              class="standard-logo"
+              class="Footer-standardLogo-57"
             >
               <svg />
             </div>

@@ -1,12 +1,12 @@
-import React from "react";
-import { ArrowForward } from "@material-ui/icons";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import { ArrowForward } from "@material-ui/icons";
 import classnames from "classnames";
-import Card from "../card/Card";
-import { withClickable } from "../clickable/Clickable";
-import Media, { AcceptedNode } from "../media/Media";
-import Typography from "../typography/Typography";
-import styles from "./CTACard.module.scss";
+import React from "react";
+import Card from "../card";
+import { withClickable } from "../clickable";
+import Media, { AcceptedNode } from "../media";
+import Typography from "../typography";
+import { useStyles } from "./styles";
 
 type Props = ButtonBaseProps & {
   buttonComponent?: React.ComponentType<any>; // TODO
@@ -23,6 +23,8 @@ const CTACard = ({
   clickableArea = "full",
   ...rest
 }: Props) => {
+  const classes = useStyles();
+
   const ClickableArea = ({
     className,
     children
@@ -40,15 +42,18 @@ const CTACard = ({
     clickableArea === "heading" ? ClickableArea : "section";
 
   return (
-    <WrapperElement className={classnames(styles["Card"], className)}>
-      <Card className={styles["body"]}>
-        <HeadingElement className={styles["top-box"]}>
-          <Typography variant="h5" className={styles["heading"]}>
+    <WrapperElement
+      data-test-class-name="card"
+      className={classnames(classes.root, className)}
+    >
+      <Card className={classes.body}>
+        <HeadingElement className={classes.topBox}>
+          <Typography variant="h5" className={classes.heading}>
             {title}
-            <ArrowForward className={styles["icon"]} />
+            <ArrowForward className={classes.icon} />
           </Typography>
         </HeadingElement>
-        <Media className={styles["image"]}>{media}</Media>
+        <Media className={classes.image}>{media}</Media>
       </Card>
     </WrapperElement>
   );

@@ -14,7 +14,7 @@ import {
   useBasketContext
 } from "../contexts/SampleBasketContext";
 import { useSiteContext } from "./Site";
-import styles from "./styles/SampleBasketDialog.module.scss";
+import { useStyles } from "./styles/SampleBasketDialogStyles";
 
 const SampleBasketDialog = ({
   title,
@@ -42,14 +42,14 @@ const SampleBasketDialog = ({
     });
   };
 
+  const classes = useStyles();
+
   return title && productsInBasket.length > 0 ? (
-    <div className={styles["cart-drawer"]}>
-      <div
-        className={classnames(styles["cart-drawer--pad"], styles["pad-b-24"])}
-      >
+    <div className={classnames(classes.cartDrawer, "cart-drawer")}>
+      <div className={classnames("pad", "pad-b-24")}>
         <Button
           accessibilityLabel={getMicroCopy(microCopy.DIALOG_CLOSE)}
-          className={styles["close-button"]}
+          className={classes.closeButton}
           isIconButton
           onClick={toggleCart}
         >
@@ -59,7 +59,7 @@ const SampleBasketDialog = ({
           {title}
         </Typography>
 
-        <div className={styles["cart-info"]}>
+        <div className={classnames(classes.cartInfo, "cart-info")}>
           <p>
             {productsInBasket.length < maximumSamples
               ? getMicroCopy(
@@ -79,24 +79,24 @@ const SampleBasketDialog = ({
 
       {/*Product List */}
 
-      <div className={styles["product-list"]}>
+      <div className={classes.productList}>
         {productsInBasket.map((product) => (
-          <div key={product.code} className={styles["row"]}>
-            <div className={styles["image-container"]}>
-              <img src={product.image} className={styles["cart-image"]} />
+          <div key={product.code} className={classnames(classes.row, "row")}>
+            <div className={classes.imageContainer}>
+              <img src={product.image} className={classes.cartImage} />
             </div>
-            <div className={styles["info-container"]}>
-              <Typography variant="h6" className={styles["product-title"]}>
+            <div className={classes.infoContainer}>
+              <Typography variant="h6" className="product-title">
                 {product.name}
               </Typography>
-              <Typography variant="h6" className={styles["product-color"]}>
+              <Typography variant="h6" className="product-color">
                 {product.colour}
               </Typography>
-              <Typography className={styles["product-size"]}>
+              <Typography className="product-size">
                 {product.measurements}
               </Typography>
             </div>
-            <div className={styles["button-container"]}>
+            <div className={classes.buttonContainer}>
               <Button
                 accessibilityLabel={getMicroCopy(
                   microCopy.PDP_OVERVIEW_REMOVE_SAMPLE
@@ -111,12 +111,7 @@ const SampleBasketDialog = ({
           </div>
         ))}
       </div>
-      <div
-        className={classnames(
-          styles["cart-actions"],
-          styles["cart-drawer--pad"]
-        )}
-      >
+      <div className={classnames(classes.cartActions, "pad")}>
         <Button action={basketAction} endIcon={<ArrowForwardIcon />}>
           {getMicroCopy(microCopy.PDP_OVERVIEW_COMPLETE_SAMPLE_ORDER)}
         </Button>

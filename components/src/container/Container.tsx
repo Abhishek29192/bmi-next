@@ -1,7 +1,7 @@
-import React from "react";
 import { Container as MUIContainer, ContainerProps } from "@material-ui/core";
 import classnames from "classnames";
-import styles from "./Container.module.scss";
+import React from "react";
+import { useStyles } from "./styles";
 
 export type Props = ContainerProps & {
   wrapperClassName?: string;
@@ -15,13 +15,13 @@ const Container = ({
   fullWidth,
   ...props
 }: Props) => {
+  const classes = useStyles();
+
   return (
     <div
       className={classnames(
-        styles["Container"],
-        {
-          [styles["Container--full-width"]!]: fullWidth
-        },
+        classes.root,
+        fullWidth && classes.fullWidth,
         wrapperClassName
       )}
     >

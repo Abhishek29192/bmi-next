@@ -1,8 +1,8 @@
-import React from "react";
 import classnames from "classnames";
+import React from "react";
 import LinesEllipsis from "react-lines-ellipsis";
 import responsiveHOC from "react-lines-ellipsis/lib/responsiveHOC";
-import styles from "./Truncate.module.scss";
+import { useStyles } from "./styles";
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
@@ -17,9 +17,10 @@ type Props = {
 };
 
 const Truncate = ({ children, lines, component, className }: Props) => {
+  const classes = useStyles();
   return (
     <ResponsiveEllipsis
-      className={classnames(className, styles["Truncate"])}
+      className={classnames(className, classes.root)}
       component={component || "span"}
       text={children}
       maxLine={lines}

@@ -1,6 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AnchorLink from "../anchor-link/AnchorLink";
-import styles from "./TableOfContent.module.scss";
+import { useStyles } from "./styles";
 
 type ContextType = {
   titles: Record<string, string>;
@@ -52,13 +52,14 @@ const TableOfContentMenu = ({
   className?: string;
   anchorLinkComponent?: React.ElementType;
 }) => {
+  const classes = useStyles();
   return (
     <Context.Consumer>
       {({ titles }) => (
         <div className={className}>
           {Object.entries(titles).map(([title, sectionId], index) => {
             return (
-              <div className={styles["link"]} key={index}>
+              <div className={classes.link} key={index}>
                 <AnchorComponent
                   action={{
                     model: "htmlLink",
@@ -91,9 +92,11 @@ const TableOfContent = ({ children }: Props) => {
     return getId(title);
   };
 
+  const classes = useStyles();
+
   return (
     <Context.Provider value={{ titles, getTitleId }}>
-      <div className={styles["TOC"]}>{children}</div>
+      <div className={classes.root}>{children}</div>
     </Context.Provider>
   );
 };

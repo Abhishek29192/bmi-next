@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
 import { DownloadList, LeadBlock } from "@bmi/components";
-import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
+import React, { useRef, useState } from "react";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
+import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import { SystemDocument } from "../../types/pim";
 import styles from "./styles/documentsLeadBlock.module.scss";
 

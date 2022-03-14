@@ -9,7 +9,8 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
       class="productCard__title"
     >
       <h2
-        class="MuiTypography-root Typography MuiTypography-h6"
+        class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+        data-testid="typography"
       >
         product_name
       </h2>
@@ -18,15 +19,16 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
       class="productCard__description"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2"
+        class="MuiTypography-root Typography-root-1 MuiTypography-subtitle2"
+        data-testid="typography"
       />
     </div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-even-color"
+        class="MuiTable-root Table-root-9 Table-evenColor-11"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-root-21 ColorPair-pearl-23"
         >
           <tr
             class="MuiTableRow-root MuiTableRow-head"
@@ -81,7 +83,7 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
       data-testid="guarantee-pdf-item"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
+        class="MuiButtonBase-root MuiButton-root Button-root-47 MuiButton-outlined MuiButton-outlinedPrimary Mui-disabled Mui-disabled"
         disabled=""
         rel="noopener noreferrer"
         tabindex="-1"
@@ -89,10 +91,10 @@ exports[`ProductGuaranteeCard Component renders correctly 1`] = `
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-50"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon Button-startIcon-51 MuiButton-iconSizeMedium"
           >
             <svg
               class="productCard__logo"

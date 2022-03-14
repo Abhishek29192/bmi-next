@@ -1,12 +1,11 @@
+import { CircularProgress, Tooltip } from "@material-ui/core";
 import React, {
   createContext,
   useContext,
   useEffect,
-  useState,
-  useRef
+  useRef,
+  useState
 } from "react";
-import { CircularProgress } from "@material-ui/core";
-import { Tooltip } from "@material-ui/core";
 import AnchorLink, {
   Props as AnchorLinkProps
 } from "../anchor-link/AnchorLink";

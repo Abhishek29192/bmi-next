@@ -18,29 +18,30 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                       aria-hidden=\\"false\\"
                       class=\\"Carousel__slide--global\\"
                       data-swipeable=\\"true\\"
-@@ -36,39 +36,20 @@
-                      >
+@@ -37,40 +37,21 @@
                         <div
-                          class=\\"slide left-pane-slide\\"
+                          class=\\"Carousel-slide-158 TwoPaneCarousel-leftPaneSlide-151\\"
+                          data-test-class-name=\\"slide\\"
                           style=\\"width: 100%;\\"
                         >
 -                         <svg
--                           class=\\"brand-icon\\"
+-                           class=\\"TwoPaneCarousel-brandIcon-148\\"
 -                           preserveAspectRatio=\\"xMinYMin\\"
 -                         />
                           <h2
-                            class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h1\\"
+                            class=\\"MuiTypography-root TwoPaneCarousel-heading-149 Typography-root-167 Typography-underline-169 MuiTypography-h1\\"
+                            data-testid=\\"typography\\"
                           >
 -                           H1 Heading running onto 2 lines
 +                           H1 Heading
                           </h2>
                           <div
-                            class=\\"text\\"
+                            class=\\"TwoPaneCarousel-text-152\\"
                           >
 -                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
 -                           <div>
 -                             <a
--                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-154 AnchorLink-root-177 Anchorlink MuiTypography-colorPrimary\\"
 -                               type=\\"button\\"
 -                             >
 -                               <span>
@@ -48,7 +49,7 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
 -                               </span>
 -                               <svg
 -                                 aria-hidden=\\"true\\"
--                                 class=\\"icon\\"
+-                                 class=\\"AnchorLink-icon-181\\"
 -                                 data-testid=\\"internal\\"
 -                                 focusable=\\"false\\"
 -                               />
@@ -61,24 +62,24 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                       </div>
                     </div>
                   </div>
-@@ -105,18 +86,23 @@
+@@ -107,18 +88,23 @@
               <span
-                class=\\"middle-container\\"
+                class=\\"SlideControls-middleContainer-188\\"
               >
                 <span
-                  class=\\"sliding-slot\\"
+                  class=\\"SlideControls-slidingSlot-187\\"
 +               >
 +                 <span
-+                   class=\\"numbers numbers--up\\"
++                   class=\\"SlideControls-numbers-190 SlideControls-up-191\\"
                   >
                     <span
--                   class=\\"numbers\\"
-+                     class=\\"number\\"
+-                   class=\\"SlideControls-numbers-190\\"
++                     class=\\"SlideControls-number-195\\"
                     >
 +                     01
 +                   </span>
                     <span
-                      class=\\"number number--active\\"
+                      class=\\"SlideControls-number-195 SlideControls-active-194\\"
                     >
 -                     01
 +                     02
@@ -86,8 +87,8 @@ exports[`TwoPaneCarousel component navigates to next page 1`] = `
                   </span>
                 </span>
                 <span
-                  class=\\"total\\"
-@@ -164,11 +150,11 @@
+                  class=\\"SlideControls-total-193\\"
+@@ -166,11 +152,11 @@
               <div
                 style=\\"overflow-x: hidden;\\"
               >
@@ -120,18 +121,19 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
                   data-swipeable=\\"true\\"
-@@ -28,18 +28,14 @@
-                  >
+@@ -29,19 +29,15 @@
                     <div
-                      class=\\"slide left-pane-slide\\"
+                      class=\\"Carousel-slide-306 TwoPaneCarousel-leftPaneSlide-299\\"
+                      data-test-class-name=\\"slide\\"
                       style=\\"width: 100%;\\"
                     >
 -                     <svg
--                       class=\\"brand-icon\\"
+-                       class=\\"TwoPaneCarousel-brandIcon-296\\"
 -                       preserveAspectRatio=\\"xMinYMin\\"
 -                     />
                       <h2
-                        class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h2\\"
+                        class=\\"MuiTypography-root TwoPaneCarousel-heading-297 Typography-root-315 Typography-underline-317 MuiTypography-h2\\"
+                        data-testid=\\"typography\\"
                       >
 -                       H1 Heading running onto 2 lines
 +                       H1 Heading
@@ -140,7 +142,7 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
                   </div>
                 </div>
               </div>
-@@ -56,11 +52,11 @@
+@@ -58,11 +54,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
             >
@@ -153,16 +155,16 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
                   data-swipeable=\\"true\\"
-@@ -79,27 +75,12 @@
+@@ -82,27 +78,12 @@
                         src=\\"path-to-image\\"
                       />
                       <div
-                        class=\\"text\\"
+                        class=\\"TwoPaneCarousel-text-300\\"
                       >
 -                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
 -                       <div>
 -                         <a
--                           class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                           class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-302 AnchorLink-root-325 Anchorlink MuiTypography-colorPrimary\\"
 -                           type=\\"button\\"
 -                         >
 -                           <span>
@@ -170,7 +172,7 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
 -                           </span>
 -                           <svg
 -                             aria-hidden=\\"true\\"
--                             class=\\"icon\\"
+-                             class=\\"AnchorLink-icon-329\\"
 -                             data-testid=\\"internal\\"
 -                             focusable=\\"false\\"
 -                           />
@@ -183,24 +185,24 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
                   </div>
                 </div>
               </div>
-@@ -136,18 +117,23 @@
+@@ -139,18 +120,23 @@
           <span
-            class=\\"middle-container\\"
+            class=\\"SlideControls-middleContainer-336\\"
           >
             <span
-              class=\\"sliding-slot\\"
+              class=\\"SlideControls-slidingSlot-335\\"
 +           >
 +             <span
-+               class=\\"numbers numbers--up\\"
++               class=\\"SlideControls-numbers-338 SlideControls-up-339\\"
               >
                 <span
--               class=\\"numbers\\"
-+                 class=\\"number\\"
+-               class=\\"SlideControls-numbers-338\\"
++                 class=\\"SlideControls-number-343\\"
                 >
 +                 01
 +               </span>
                 <span
-                  class=\\"number number--active\\"
+                  class=\\"SlideControls-number-343 SlideControls-active-342\\"
                 >
 -                 01
 +                 02
@@ -208,7 +210,7 @@ exports[`TwoPaneCarousel component navigates to next page on mobile 1`] = `
               </span>
             </span>
             <span
-              class=\\"total\\""
+              class=\\"SlideControls-total-341\\""
 `;
 
 exports[`TwoPaneCarousel component navigates to previous page 1`] = `
@@ -229,29 +231,30 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                       aria-hidden=\\"false\\"
                       class=\\"Carousel__slide--global\\"
                       data-swipeable=\\"true\\"
-@@ -36,40 +36,15 @@
-                      >
+@@ -37,41 +37,16 @@
                         <div
-                          class=\\"slide left-pane-slide\\"
+                          class=\\"Carousel-slide-232 TwoPaneCarousel-leftPaneSlide-225\\"
+                          data-test-class-name=\\"slide\\"
                           style=\\"width: 100%;\\"
                         >
 -                         <svg
--                           class=\\"brand-icon\\"
+-                           class=\\"TwoPaneCarousel-brandIcon-222\\"
 -                           preserveAspectRatio=\\"xMinYMin\\"
 -                         />
                           <h2
-                            class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h1\\"
+                            class=\\"MuiTypography-root TwoPaneCarousel-heading-223 Typography-root-241 Typography-underline-243 MuiTypography-h1\\"
+                            data-testid=\\"typography\\"
                           >
 -                           H1 Heading running onto 2 lines
 +                           H1 Heading
                           </h2>
 -                         <div
--                           class=\\"text\\"
+-                           class=\\"TwoPaneCarousel-text-226\\"
 -                         >
 -                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
 -                           <div>
 -                             <a
--                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                               class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-228 AnchorLink-root-251 Anchorlink MuiTypography-colorPrimary\\"
 -                               type=\\"button\\"
 -                             >
 -                               <span>
@@ -259,7 +262,7 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
 -                               </span>
 -                               <svg
 -                                 aria-hidden=\\"true\\"
--                                 class=\\"icon\\"
+-                                 class=\\"AnchorLink-icon-255\\"
 -                                 data-testid=\\"internal\\"
 -                                 focusable=\\"false\\"
 -                               />
@@ -271,28 +274,28 @@ exports[`TwoPaneCarousel component navigates to previous page 1`] = `
                     </div>
                   </div>
                 </div>
-@@ -107,14 +82,19 @@
+@@ -109,14 +84,19 @@
               >
                 <span
-                  class=\\"sliding-slot\\"
+                  class=\\"SlideControls-slidingSlot-261\\"
                 >
                   <span
--                   class=\\"numbers\\"
-+                   class=\\"numbers numbers--down\\"
+-                   class=\\"SlideControls-numbers-264\\"
++                   class=\\"SlideControls-numbers-264 SlideControls-down-266\\"
                   >
                     <span
-                      class=\\"number number--active\\"
+                      class=\\"SlideControls-number-269 SlideControls-active-268\\"
 +                   >
 +                     04
 +                   </span>
 +                   <span
-+                     class=\\"number\\"
++                     class=\\"SlideControls-number-269\\"
                     >
                       01
                     </span>
                   </span>
                 </span>
-@@ -164,11 +144,11 @@
+@@ -166,11 +146,11 @@
               <div
                 style=\\"overflow-x: hidden;\\"
               >
@@ -325,18 +328,19 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
                   data-swipeable=\\"true\\"
-@@ -28,18 +28,14 @@
-                  >
+@@ -29,19 +29,15 @@
                     <div
-                      class=\\"slide left-pane-slide\\"
+                      class=\\"Carousel-slide-378 TwoPaneCarousel-leftPaneSlide-371\\"
+                      data-test-class-name=\\"slide\\"
                       style=\\"width: 100%;\\"
                     >
 -                     <svg
--                       class=\\"brand-icon\\"
+-                       class=\\"TwoPaneCarousel-brandIcon-368\\"
 -                       preserveAspectRatio=\\"xMinYMin\\"
 -                     />
                       <h2
-                        class=\\"MuiTypography-root heading Typography Typography--underline MuiTypography-h2\\"
+                        class=\\"MuiTypography-root TwoPaneCarousel-heading-369 Typography-root-387 Typography-underline-389 MuiTypography-h2\\"
+                        data-testid=\\"typography\\"
                       >
 -                       H1 Heading running onto 2 lines
 +                       H1 Heading
@@ -345,7 +349,7 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
                   </div>
                 </div>
               </div>
-@@ -56,11 +52,11 @@
+@@ -58,11 +54,11 @@
             <div
               style=\\"overflow-x: hidden;\\"
             >
@@ -358,20 +362,20 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
                   aria-hidden=\\"false\\"
                   class=\\"Carousel__slide--global\\"
                   data-swipeable=\\"true\\"
-@@ -75,39 +71,18 @@
+@@ -78,39 +74,18 @@
                     >
                       <img
                         alt=\\"Lorem ipsum\\"
-                        class=\\"image Media\\"
+                        class=\\"TwoPaneCarousel-image-370 Media-root-395\\"
                         src=\\"path-to-image\\"
 -                     />
 -                     <div
--                       class=\\"text\\"
+-                       class=\\"TwoPaneCarousel-text-372\\"
 -                     >
 -                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
 -                       <div>
 -                         <a
--                           class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary\\"
+-                           class=\\"MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-374 AnchorLink-root-397 Anchorlink MuiTypography-colorPrimary\\"
 -                           type=\\"button\\"
 -                         >
 -                           <span>
@@ -379,7 +383,7 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
 -                           </span>
 -                           <svg
 -                             aria-hidden=\\"true\\"
--                             class=\\"icon\\"
+-                             class=\\"AnchorLink-icon-401\\"
 -                             data-testid=\\"internal\\"
 -                             focusable=\\"false\\"
                       />
@@ -394,26 +398,26 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
         </div>
 -       </div>
         <div
-          class=\\"SlideControls SlideControls--full-size controls\\"
+          class=\\"SlideControls-root-403 SlideControls-fullSize-404 TwoPaneCarousel-controls-373\\"
         >
           <button
             aria-label=\\"previous\\"
-@@ -138,14 +113,19 @@
+@@ -141,14 +116,19 @@
           >
             <span
-              class=\\"sliding-slot\\"
+              class=\\"SlideControls-slidingSlot-407\\"
             >
               <span
--               class=\\"numbers\\"
-+               class=\\"numbers numbers--down\\"
+-               class=\\"SlideControls-numbers-410\\"
++               class=\\"SlideControls-numbers-410 SlideControls-down-412\\"
               >
                 <span
-                  class=\\"number number--active\\"
+                  class=\\"SlideControls-number-415 SlideControls-active-414\\"
 +               >
 +                 04
 +               </span>
 +               <span
-+                 class=\\"number\\"
++                 class=\\"SlideControls-number-415\\"
                 >
                   01
                 </span>
@@ -424,22 +428,22 @@ exports[`TwoPaneCarousel component navigates to previous page on mobile 1`] = `
 exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
 <div>
   <div
-    class="TwoPaneCarousel"
+    class="TwoPaneCarousel-root-73"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-xl-4"
+        class="MuiGrid-root Grid-item-145 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-xl-4"
       >
         <div
-          class="left-pane"
+          class="TwoPaneCarousel-leftPane-82"
         >
           <div
-            class="wrapper"
+            class="Carousel-wrapper-87"
           >
             <div
-              class="Carousel Carousel--opacity Carousel--swipable"
+              class="Carousel-root-83 Carousel-opacity-90 Carousel-swipable-92"
               data-testid="carousel"
             >
               <div
@@ -456,28 +460,30 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                     style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="page"
+                      class="Carousel-page-86"
                     >
                       <div
-                        class="slide left-pane-slide"
+                        class="Carousel-slide-84 TwoPaneCarousel-leftPaneSlide-77"
+                        data-test-class-name="slide"
                         style="width: 100%;"
                       >
                         <svg
-                          class="brand-icon"
+                          class="TwoPaneCarousel-brandIcon-74"
                           preserveAspectRatio="xMinYMin"
                         />
                         <h2
-                          class="MuiTypography-root heading Typography Typography--underline MuiTypography-h1"
+                          class="MuiTypography-root TwoPaneCarousel-heading-75 Typography-root-93 Typography-underline-95 MuiTypography-h1"
+                          data-testid="typography"
                         >
                           H1 Heading running onto 2 lines
                         </h2>
                         <div
-                          class="text"
+                          class="TwoPaneCarousel-text-78"
                         >
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
                           <div>
                             <a
-                              class="MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary"
+                              class="MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-80 AnchorLink-root-103 Anchorlink MuiTypography-colorPrimary"
                               type="button"
                             >
                               <span>
@@ -485,7 +491,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                               </span>
                               <svg
                                 aria-hidden="true"
-                                class="icon"
+                                class="AnchorLink-icon-107"
                                 data-testid="internal"
                                 focusable="false"
                               />
@@ -500,11 +506,11 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
             </div>
           </div>
           <div
-            class="SlideControls controls"
+            class="SlideControls-root-109 TwoPaneCarousel-controls-79"
           >
             <button
               aria-label="previous"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-136 iconButton IconButton-medium-142 IconButton-text-138"
               tabindex="0"
               type="button"
             >
@@ -513,7 +519,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-115"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -527,30 +533,30 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
               />
             </button>
             <span
-              class="middle-container"
+              class="SlideControls-middleContainer-114"
             >
               <span
-                class="sliding-slot"
+                class="SlideControls-slidingSlot-113"
               >
                 <span
-                  class="numbers"
+                  class="SlideControls-numbers-116"
                 >
                   <span
-                    class="number number--active"
+                    class="SlideControls-number-121 SlideControls-active-120"
                   >
                     01
                   </span>
                 </span>
               </span>
               <span
-                class="total"
+                class="SlideControls-total-119"
               >
                 04
               </span>
             </span>
             <button
               aria-label="next"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-136 iconButton IconButton-medium-142 IconButton-text-138"
               tabindex="0"
               type="button"
             >
@@ -559,7 +565,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-115"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -576,13 +582,13 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-xl-8"
+        class="MuiGrid-root Grid-item-145 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-xl-8"
       >
         <div
-          class="wrapper"
+          class="Carousel-wrapper-87"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-83 Carousel-swipable-92"
             data-testid="carousel"
           >
             <div
@@ -599,15 +605,16 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-86"
                   >
                     <div
-                      class="slide"
+                      class="Carousel-slide-84"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <img
                         alt="Lorem ipsum"
-                        class="image Media"
+                        class="TwoPaneCarousel-image-76 Media-root-101"
                         src="path-to-image"
                       />
                     </div>
@@ -620,7 +627,7 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
       </div>
     </div>
     <div
-      class="wrapper"
+      class="TwoPaneCarousel-wrapper-81"
     >
       Lorem ipsum
     </div>
@@ -631,14 +638,14 @@ exports[`TwoPaneCarousel component renders a single pane carousel 1`] = `
 exports[`TwoPaneCarousel component renders correctly 1`] = `
 <div>
   <div
-    class="TwoPaneCarousel"
+    class="TwoPaneCarousel-root-1"
   >
     <div>
       <div
-        class="wrapper"
+        class="Carousel-wrapper-15"
       >
         <div
-          class="Carousel Carousel--opacity Carousel--swipable"
+          class="Carousel-root-11 Carousel-opacity-18 Carousel-swipable-20"
           data-testid="carousel"
         >
           <div
@@ -655,18 +662,20 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
                 style="width: 100%; flex-shrink: 0; overflow: auto;"
               >
                 <div
-                  class="page"
+                  class="Carousel-page-14"
                 >
                   <div
-                    class="slide left-pane-slide"
+                    class="Carousel-slide-12 TwoPaneCarousel-leftPaneSlide-5"
+                    data-test-class-name="slide"
                     style="width: 100%;"
                   >
                     <svg
-                      class="brand-icon"
+                      class="TwoPaneCarousel-brandIcon-2"
                       preserveAspectRatio="xMinYMin"
                     />
                     <h2
-                      class="MuiTypography-root heading Typography Typography--underline MuiTypography-h2"
+                      class="MuiTypography-root TwoPaneCarousel-heading-3 Typography-root-21 Typography-underline-23 MuiTypography-h2"
+                      data-testid="typography"
                     >
                       H1 Heading running onto 2 lines
                     </h2>
@@ -678,10 +687,10 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="wrapper"
+        class="Carousel-wrapper-15"
       >
         <div
-          class="Carousel Carousel--opacity Carousel--swipable"
+          class="Carousel-root-11 Carousel-opacity-18 Carousel-swipable-20"
           data-testid="carousel"
         >
           <div
@@ -698,24 +707,25 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
                 style="width: 100%; flex-shrink: 0; overflow: auto;"
               >
                 <div
-                  class="page"
+                  class="Carousel-page-14"
                 >
                   <div
-                    class="slide left-pane-slide"
+                    class="Carousel-slide-12 TwoPaneCarousel-leftPaneSlide-5"
+                    data-test-class-name="slide"
                     style="width: 100%;"
                   >
                     <img
                       alt="Lorem ipsum"
-                      class="image Media"
+                      class="TwoPaneCarousel-image-4 Media-root-29"
                       src="path-to-image"
                     />
                     <div
-                      class="text"
+                      class="TwoPaneCarousel-text-6"
                     >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ligula nisi, condimentum facilisis hendrerit eget, sollicitudin non sapien. Class aptent taciti sociosqu ad litora.
                       <div>
                         <a
-                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover cta Anchorlink MuiTypography-colorPrimary"
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover TwoPaneCarousel-cta-8 AnchorLink-root-31 Anchorlink MuiTypography-colorPrimary"
                           type="button"
                         >
                           <span>
@@ -723,7 +733,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
                           </span>
                           <svg
                             aria-hidden="true"
-                            class="icon"
+                            class="AnchorLink-icon-35"
                             data-testid="internal"
                             focusable="false"
                           />
@@ -738,11 +748,11 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="SlideControls SlideControls--full-size controls"
+        class="SlideControls-root-37 SlideControls-fullSize-38 TwoPaneCarousel-controls-7"
       >
         <button
           aria-label="previous"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-64 iconButton IconButton-medium-70 IconButton-text-66"
           tabindex="0"
           type="button"
         >
@@ -751,7 +761,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root chevron"
+              class="MuiSvgIcon-root SlideControls-chevron-43"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -765,30 +775,30 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
           />
         </button>
         <span
-          class="middle-container"
+          class="SlideControls-middleContainer-42"
         >
           <span
-            class="sliding-slot"
+            class="SlideControls-slidingSlot-41"
           >
             <span
-              class="numbers"
+              class="SlideControls-numbers-44"
             >
               <span
-                class="number number--active"
+                class="SlideControls-number-49 SlideControls-active-48"
               >
                 01
               </span>
             </span>
           </span>
           <span
-            class="total"
+            class="SlideControls-total-47"
           >
             04
           </span>
         </span>
         <button
           aria-label="next"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-64 iconButton IconButton-medium-70 IconButton-text-66"
           tabindex="0"
           type="button"
         >
@@ -797,7 +807,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root chevron"
+              class="MuiSvgIcon-root SlideControls-chevron-43"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -813,7 +823,7 @@ exports[`TwoPaneCarousel component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="wrapper"
+      class="TwoPaneCarousel-wrapper-9"
     >
       Lorem ipsum
     </div>

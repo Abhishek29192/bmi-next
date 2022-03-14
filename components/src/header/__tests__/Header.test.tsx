@@ -1,8 +1,9 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import Clickable from "../../clickable/Clickable";
 import { Arrow } from "../../icon";
-import languages from "../../language-selection/languages";
+import languages from "../../language-selection/__tests__/languages";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Header from "../Header";
 
 const productsLabel = "Products";
@@ -76,9 +77,13 @@ const navigation = [
   }
 ];
 
+afterEach(() => {
+  document.getElementsByTagName("html")[0].innerHTML = "";
+});
+
 describe("Header component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -93,7 +98,7 @@ describe("Header component", () => {
   });
 
   it("opens menu when clicked", () => {
-    const { container, getAllByText } = render(
+    const { container, getAllByText } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -106,12 +111,12 @@ describe("Header component", () => {
     );
 
     const menuButton = getAllByText(productsLabel)[0];
-    menuButton.click();
+    fireEvent.click(menuButton);
     expect(container).toMatchSnapshot();
   });
 
   it("opens menu two deep", () => {
-    const { container, getAllByText } = render(
+    const { container, getAllByText } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -125,13 +130,13 @@ describe("Header component", () => {
 
     const menuButton = getAllByText(productsLabel)[0];
     const nestedMenuButton = getAllByText(roofLabel)[0];
-    menuButton.click();
-    nestedMenuButton.click();
+    fireEvent.click(menuButton);
+    fireEvent.click(nestedMenuButton);
     expect(container).toMatchSnapshot();
   });
 
   it("closes menu on same tab click", () => {
-    const { container, getAllByText } = render(
+    const { container, getAllByText } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -153,7 +158,7 @@ describe("Header component", () => {
     const closeLabel = "Close";
     const openLabel = "Open";
 
-    const { container, getByRole } = render(
+    const { container, getByTestId } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -167,19 +172,19 @@ describe("Header component", () => {
       />
     );
 
-    const openButton = getByRole("button", { name: openLabel });
-    openButton.click();
+    const openButton = getByTestId("open-button");
+    fireEvent.click(openButton);
     expect(container).toMatchSnapshot();
 
-    const closeButton = getByRole("button", { name: closeLabel });
-    closeButton.click();
+    const closeButton = getByTestId("language-close-button");
+    fireEvent.click(closeButton);
     expect(container).toMatchSnapshot();
   });
 
   it("toggle search", () => {
     const searchLabel = "Search";
 
-    const { container, getByRole } = render(
+    const { container, getByTestId } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -192,16 +197,16 @@ describe("Header component", () => {
       />
     );
 
-    const searchButton = getByRole("button", { name: searchLabel });
-    searchButton.click();
+    const searchButton = getByTestId("search-button");
+    fireEvent.click(searchButton);
     expect(container).toMatchSnapshot();
 
-    searchButton.click();
+    fireEvent.click(searchButton);
     expect(container).toMatchSnapshot();
   });
 
   it("toggles language selection", () => {
-    const { container, getByRole } = render(
+    const { container, getByTestId } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -216,21 +221,18 @@ describe("Header component", () => {
       />
     );
 
-    const languageButton = getByRole("button", { name: languageLabel });
-
-    languageButton.click();
-
+    const languageButton = getByTestId("language-button");
+    fireEvent.click(languageButton);
     expect(container).toMatchSnapshot("Language selection open");
 
-    languageButton.click();
-
+    fireEvent.click(languageButton);
     expect(container).toMatchSnapshot("Language selection closed");
   });
 
-  it("clicking backdrop hides everything", () => {
+  it("clicking backdrop hides everything", async () => {
     const openLabel = "Open";
 
-    const { container, getByRole } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -239,21 +241,26 @@ describe("Header component", () => {
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
         openLabel={openLabel}
-        useGTM={jest.fn}
+        useGTM={(gtm) => ({
+          pushGTMEvent: jest.fn(),
+          dataGTM: gtm
+        })}
       />
     );
 
-    const openButton = getByRole("button", { name: openLabel });
-    openButton.click();
-    expect(document.body).toHaveClass("MenuIsOpen");
+    const openButton = getByTestId("open-button");
+    fireEvent.click(openButton);
+    expect(document.body.classList.toString()).toContain("Header-menuIsOpen");
 
-    const backdrop = container.querySelector(".backdrop") as HTMLElement;
-    backdrop.click();
-    expect(document.body).not.toHaveClass("MenuIsOpen");
+    const backdrop = getByTestId("backdrop");
+    fireEvent.click(backdrop);
+    expect(document.body.classList.toString()).not.toContain(
+      "Header-menuIsOpen"
+    );
   });
 
   it("sets default language when it's empty", () => {
-    const { findByText } = render(
+    const { findByText } = renderWithThemeProvider(
       <Header utilities={utilities} navigation={navigation} useGTM={jest.fn} />
     );
 
@@ -261,7 +268,7 @@ describe("Header component", () => {
   });
 
   it("show basket icon if basket is not empty", () => {
-    const { queryByRole } = render(
+    const { queryByRole } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -279,7 +286,7 @@ describe("Header component", () => {
   });
 
   it("toggle sample basket dialog", async () => {
-    const { getByRole, queryByText } = render(
+    const { getByRole, queryByText } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -305,7 +312,7 @@ describe("Header component", () => {
   it("no search input when ES is disabled", () => {
     const searchLabel = "Search";
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}
@@ -324,7 +331,7 @@ describe("Header component", () => {
   });
 
   it("render language code for bilingual sites", () => {
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <Header
         utilities={utilities}
         navigation={navigation}

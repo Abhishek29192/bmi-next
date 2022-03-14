@@ -3,7 +3,7 @@
 exports[`ColorPair component creates the right context value - dark theme 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--black"
+    class="ColorPair-root-131 ColorPair-black-141"
   >
     <span>
       type: 
@@ -18,7 +18,7 @@ exports[`ColorPair component creates the right context value - dark theme 1`] = 
 exports[`ColorPair component creates the right context value - light theme 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--white"
+    class="ColorPair-root-105 ColorPair-white-106"
   >
     <span>
       type: 
@@ -33,7 +33,7 @@ exports[`ColorPair component creates the right context value - light theme 1`] =
 exports[`ColorPair component renders correctly 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--white"
+    class="ColorPair-root-1 ColorPair-white-2"
   >
     Lorem ipsum
   </div>
@@ -43,7 +43,7 @@ exports[`ColorPair component renders correctly 1`] = `
 exports[`ColorPair component renders with a custom component 1`] = `
 <div>
   <span
-    class="ColorPair ColorPair--teal-500"
+    class="ColorPair-root-79 ColorPair-teal500-95"
   >
     Lorem ipsum
   </span>
@@ -53,7 +53,7 @@ exports[`ColorPair component renders with a custom component 1`] = `
 exports[`ColorPair component renders with a custom element 1`] = `
 <div>
   <span
-    class="ColorPair ColorPair--teal-500"
+    class="ColorPair-root-53 ColorPair-teal500-69"
   >
     Lorem ipsum
   </span>
@@ -63,7 +63,7 @@ exports[`ColorPair component renders with a custom element 1`] = `
 exports[`ColorPair component renders with a theme 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--teal-500"
+    class="ColorPair-root-27 ColorPair-teal500-43"
   >
     Lorem ipsum
   </div>

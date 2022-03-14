@@ -1,11 +1,12 @@
-import React from "react";
-import { screen, render } from "@testing-library/react";
+import { ThemeProvider } from "@bmi/components";
 import "@testing-library/jest-dom";
-import PostItCard, {
-  Props as PostItCradProps,
-  Data as SectionProps
-} from "../../components/PostItCard";
+import { render, screen } from "@testing-library/react";
+import React from "react";
 import { Data as LinkProps } from "../../components/Link";
+import PostItCard, {
+  Data as SectionProps,
+  Props as PostItCradProps
+} from "../../components/PostItCard";
 
 describe("PostItCard", () => {
   const linkData: LinkProps = {
@@ -48,24 +49,30 @@ describe("PostItCard", () => {
 
   it("renders component with link section", () => {
     render(
-      <PostItCard {...postItCardProps} cardSections={[linkSectionData]} />
+      <ThemeProvider>
+        <PostItCard {...postItCardProps} cardSections={[linkSectionData]} />
+      </ThemeProvider>
     );
     expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();
   });
 
   it("renders component with button section", () => {
     render(
-      <PostItCard {...postItCardProps} cardSections={[buttonSectionData]} />
+      <ThemeProvider>
+        <PostItCard {...postItCardProps} cardSections={[buttonSectionData]} />
+      </ThemeProvider>
     );
     expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
   });
 
   it("renders both link and button sections", () => {
     render(
-      <PostItCard
-        {...postItCardProps}
-        cardSections={[buttonSectionData, linkSectionData]}
-      />
+      <ThemeProvider>
+        <PostItCard
+          {...postItCardProps}
+          cardSections={[buttonSectionData, linkSectionData]}
+        />
+      </ThemeProvider>
     );
     expect(screen.getByText(buttonSectionData.link.label)).toBeInTheDocument();
     expect(screen.getByText(linkSectionData.link.label)).toBeInTheDocument();

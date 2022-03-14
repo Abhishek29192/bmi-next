@@ -1,4 +1,4 @@
-import { MediaGallery } from "@bmi/components";
+import { MediaGallery, ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import { Link } from "gatsby";
 import React from "react";
@@ -1685,7 +1685,11 @@ describe("product-details-transforms tests", () => {
           }
         ]);
 
-        const wrapper = render(<MediaGallery media={[...result]} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <MediaGallery media={[...result]} />
+          </ThemeProvider>
+        );
         const linkResult = wrapper.container.querySelectorAll("img");
         expect(linkResult).toHaveLength(1);
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
@@ -1708,7 +1712,11 @@ describe("product-details-transforms tests", () => {
             altText: "alt text 2"
           }
         ]);
-        const wrapper = render(<MediaGallery media={[...result]} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <MediaGallery media={[...result]} />
+          </ThemeProvider>
+        );
         const linkResult = wrapper.container.querySelectorAll("img");
         expect(linkResult).toHaveLength(3);
         expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);

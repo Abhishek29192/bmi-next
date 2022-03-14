@@ -3,62 +3,66 @@
 exports[`Brands component renders correctly 1`] = `
 <div>
   <div
-    class="Brands Section Section--pearl"
+    class="Brands Section-root-1 Section-pearl-4"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-8 Typography-root-11 Typography-underline-13 MuiTypography-h2"
+          data-testid="typography"
         >
            
           MC: homepage.brands
         </h2>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
+            class="MuiGrid-root Grid-item-19 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
           >
             <div
-              class="MuiPaper-root MuiCard-root BrandIntroCard MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root MuiCard-root BrandIntroCard-root-21 MuiPaper-elevation1 MuiPaper-rounded"
             >
               <a
                 aria-disabled="false"
                 aria-label="BMI"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-27 MuiButton-text Button-text-28 BrandIntroCard-brandLogoButton-22 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
+                data-testid="brandLogoButton"
                 href="/smilex"
                 role="button"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-4"
+                  class="MuiButton-label Button-label-30"
                 >
                   <svg
-                    class="brandLogo"
+                    class="BrandIntroCard-brandLogo-23"
+                    data-testid="brandLogo"
                     preserveAspectRatio="xMinYMin"
                   />
                 </span>
               </a>
               <h6
-                class="MuiTypography-root description Typography MuiTypography-subtitle1"
+                class="MuiTypography-root BrandIntroCard-description-24 Typography-root-11 MuiTypography-subtitle1"
+                data-testid="brandLogoDescription"
               >
                 Uh-oh.  He don't look happy. He's been using brand X
               </h6>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-27 MuiButton-text Button-text-28 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"
                 role="button"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-4"
+                  class="MuiButton-label Button-label-30"
                 >
                   MC: homepage.brands.learn
                   <span

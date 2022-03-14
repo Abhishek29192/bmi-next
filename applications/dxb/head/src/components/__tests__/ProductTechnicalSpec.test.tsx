@@ -1,9 +1,10 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
+import createClassification from "../../__tests__/helpers/ClassificationHelper";
+import createProduct from "../../__tests__/helpers/ProductHelper";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { SiteContextProvider } from "../Site";
-import createProduct from "../../__tests__/helpers/ProductHelper";
-import createClassification from "../../__tests__/helpers/ClassificationHelper";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -29,16 +30,22 @@ describe("ProductTechnicalSpec component", () => {
   describe("Renders correctly", () => {
     it("when no classifications provided", () => {
       const product = createProduct({ classifications: [] });
-      const wrapper = render(<ProductTechnicalSpec product={product} />);
+      const wrapper = render(
+        <ThemeProvider>
+          <ProductTechnicalSpec product={product} />
+        </ThemeProvider>
+      );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
     describe("with microcopy text", () => {
       it("when no classifications and microcopy text is provided", () => {
         const product = createProduct({ classifications: [] });
         const wrapper = render(
-          <MockSiteContext>
-            <ProductTechnicalSpec product={product} />
-          </MockSiteContext>
+          <ThemeProvider>
+            <MockSiteContext>
+              <ProductTechnicalSpec product={product} />
+            </MockSiteContext>
+          </ThemeProvider>
         );
         expect(wrapper.baseElement).toMatchSnapshot();
       });
@@ -54,7 +61,11 @@ describe("ProductTechnicalSpec component", () => {
           ]
         });
 
-        const wrapper = render(<ProductTechnicalSpec product={product} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <ProductTechnicalSpec product={product} />
+          </ThemeProvider>
+        );
         expect(wrapper.baseElement).toMatchSnapshot();
       });
 
@@ -67,7 +78,11 @@ describe("ProductTechnicalSpec component", () => {
           ]
         });
 
-        const wrapper = render(<ProductTechnicalSpec product={product} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <ProductTechnicalSpec product={product} />
+          </ThemeProvider>
+        );
         expect(wrapper.baseElement).toMatchSnapshot();
       });
     });
@@ -84,7 +99,11 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
-        const wrapper = render(<ProductTechnicalSpec product={product} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <ProductTechnicalSpec product={product} />
+          </ThemeProvider>
+        );
         expect(wrapper.baseElement).toMatchSnapshot();
       });
 
@@ -99,7 +118,11 @@ describe("ProductTechnicalSpec component", () => {
             })
           ]
         });
-        const wrapper = render(<ProductTechnicalSpec product={product} />);
+        const wrapper = render(
+          <ThemeProvider>
+            <ProductTechnicalSpec product={product} />
+          </ThemeProvider>
+        );
         expect(wrapper.baseElement).toMatchSnapshot();
       });
     });

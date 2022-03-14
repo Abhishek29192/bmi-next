@@ -115,7 +115,7 @@ class ComponentUsingRef extends React.Component {
     }
   }
 
-  render() {
+  renderWithThemeProvider() {
     return (
       <>
         {this.state.refElement && (

@@ -2,9 +2,7 @@
 
 exports[`EqualHeights component renders correctly should get the biggest height of added elements and if it's not equal with current height of elements set new height value to all added elements 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
       class=""
     >
@@ -56,11 +54,9 @@ exports[`EqualHeights component renders correctly should get the biggest height 
 
 exports[`EqualHeights component renders correctly should set equal height auto to added elements 1`] = `
 <div>
-  <div
-    class="EqualHeights"
-  >
+  <div>
     <div
-      class="content-box"
+      class="EqualHeights-contentBox-1"
     >
       <div
         style="display: flex; flex-wrap: wrap;"
@@ -111,7 +107,7 @@ exports[`EqualHeights component renders correctly should set equal height auto t
 exports[`EqualHeights component test EqualHeights.Consumer without Provider should call addRef method from default context 1`] = `
 <div>
   <div
-    class="content-box"
+    class="EqualHeights-contentBox-3"
   >
     <div
       style="display: flex; flex-wrap: wrap;"

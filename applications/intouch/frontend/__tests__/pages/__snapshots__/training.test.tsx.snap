@@ -26,7 +26,7 @@ exports[`Training Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Training Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Training Page render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Training Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-398"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Training Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Training Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-398"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Training Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Training Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-398"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Training Page render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Training
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Training Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-398"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Training Page render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Training Page render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Training Page render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-398"
                       />
                     </button>
                   </div>
@@ -300,10 +302,10 @@ exports[`Training Page render correctly 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-110 MuiTextField-root-109 TextField-root-106 TextField-leftAdornment-107 MuiFormControl-fullWidth-113"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-122 MuiInputLabel-root-114 MuiInputLabel-formControl-116 MuiInputLabel-animated-119 MuiInputLabel-outlined-121"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -311,22 +313,22 @@ exports[`Training Page render correctly 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-138 MuiOutlinedInput-root-126 MuiInputBase-fullWidth-145 MuiInputBase-formControl-139 MuiInputBase-adornedEnd-141 MuiOutlinedInput-adornedEnd-129"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-146 MuiOutlinedInput-input-133 MuiInputBase-inputAdornedEnd-151 MuiOutlinedInput-inputAdornedEnd-137"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-153 MuiInputAdornment-positionEnd-156"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -337,10 +339,10 @@ exports[`Training Page render correctly 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-3 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-160 MuiOutlinedInput-notchedOutline-132"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-5"
+                            class="PrivateNotchedOutline-legendLabelled-162"
                           >
                             <span>
                               search.inputLabel
@@ -361,17 +363,17 @@ exports[`Training Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 MuiChip-colorPrimary-169 MuiChip-clickableColorPrimary-172 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filter.labels.all
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-398"
                         />
                       </div>
                     </div>
@@ -379,17 +381,17 @@ exports[`Training Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           certifications.flat
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-398"
                         />
                       </div>
                     </div>
@@ -397,17 +399,17 @@ exports[`Training Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           certifications.pitched
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-398"
                         />
                       </div>
                     </div>
@@ -415,17 +417,17 @@ exports[`Training Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           certifications.other
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-398"
                         />
                       </div>
                     </div>
@@ -438,27 +440,30 @@ exports[`Training Page render correctly 1`] = `
                     data-testid="filterResult"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-18 MuiCardActionArea-root-196"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-198 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-27 title Typography-root-19 MuiTypography-h6-37"
+                          data-testid="typography"
                         >
                           Flat Course
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                             style="text-transform: capitalize;"
                           >
                             type.undefined
                           </p>
                           <p
-                            class="MuiTypography-root icon Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 icon Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             <svg
                               class="technologyIcon"
@@ -468,7 +473,7 @@ exports[`Training Page render correctly 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1 chevron MuiSvgIcon-colorDisabled-6"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -479,10 +484,10 @@ exports[`Training Page render correctly 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-197"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-398"
                       />
                     </button>
                   </div>
@@ -490,27 +495,30 @@ exports[`Training Page render correctly 1`] = `
                     data-testid="filterResult"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-18 MuiCardActionArea-root-196"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-198 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-27 title Typography-root-19 MuiTypography-h6-37"
+                          data-testid="typography"
                         >
                           Other Course
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                             style="text-transform: capitalize;"
                           >
                             type.undefined
                           </p>
                           <p
-                            class="MuiTypography-root icon Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 icon Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             <svg
                               class="technologyIcon"
@@ -520,7 +528,7 @@ exports[`Training Page render correctly 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1 chevron MuiSvgIcon-colorDisabled-6"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -531,10 +539,10 @@ exports[`Training Page render correctly 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-197"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-398"
                       />
                     </button>
                   </div>
@@ -542,34 +550,37 @@ exports[`Training Page render correctly 1`] = `
                     data-testid="filterResult"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-18 MuiCardActionArea-root-196"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-198 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-27 title Typography-root-19 MuiTypography-h6-37"
+                          data-testid="typography"
                         >
                           Pitch Course
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                             style="text-transform: capitalize;"
                           >
                             type.undefined
                           </p>
                           <p
-                            class="MuiTypography-root icon Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 icon Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             enrolled
                           </p>
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1 chevron MuiSvgIcon-colorDisabled-6"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -580,10 +591,10 @@ exports[`Training Page render correctly 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-197"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-398"
                       />
                     </button>
                   </div>
@@ -591,39 +602,40 @@ exports[`Training Page render correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-2"
+              class="MuiGrid-root-201 outerGrid MuiGrid-container-202 MuiGrid-spacing-xs-2-225"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item"
+                class="MuiGrid-root-201 Grid-item-199 MuiGrid-item-203"
               >
                 <div
-                  class="Hero Hero--lvl-1"
+                  class="Hero-root-304 Hero-lvl1-320 Hero--lvl-1"
                 >
                   <div
-                    class="Container"
+                    class="Container-root-323"
                   >
                     <div
-                      class="MuiContainer-root container MuiContainer-maxWidthXl"
+                      class="MuiContainer-root-325 Hero-container-309 MuiContainer-maxWidthXl-332"
                     >
                       <div
-                        class="wrapper"
+                        class="Hero-wrapper-310"
                       >
                         <div
-                          class="content"
+                          class="Hero-content-311"
                         >
                           <h1
-                            class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                            class="MuiTypography-root-27 Hero-title-312 Typography-root-19 Typography-underline-21 Typography-darkBg-22 MuiTypography-h1-32"
+                            data-testid="typography"
                           >
                             pageHeading
                           </h1>
                           <div
-                            class="text"
+                            class="Hero-text-313"
                           >
                             description
                           </div>
                           <a
                             aria-disabled="false"
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-7 MuiButton-outlined buttonStyles-outlinedDarkBg-13 cta MuiButton-outlinedPrimary"
+                            class="MuiButtonBase-root-18 MuiButton-root-66 Button-root-333 MuiButton-outlined-71 Button-outlinedDarkBg-339 Hero-cta-314 MuiButton-outlinedPrimary-72"
                             href="/api/docebo-sso"
                             label="lmsCtaLabel"
                             rel="noopener noreferrer"
@@ -631,12 +643,12 @@ exports[`Training Page render correctly 1`] = `
                             target="_blank"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-10"
+                              class="MuiButton-label-67 Button-label-336"
                             >
                               lmsCtaLabel
                             </span>
                             <span
-                              class="MuiTouchRipple-root"
+                              class="MuiTouchRipple-root-398"
                             />
                           </a>
                         </div>
@@ -644,19 +656,20 @@ exports[`Training Page render correctly 1`] = `
                     </div>
                   </div>
                   <img
-                    class="image Media"
+                    class="Hero-image-318 Media-root-353"
                     src="url"
                   />
                 </div>
                 <div
-                  class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root-356 MuiCard-root-355 card MuiPaper-elevation1-360 MuiPaper-rounded-357"
                   style="margin-top: 1.5rem;"
                 >
                   <div
-                    class="MuiCardContent-root"
+                    class="MuiCardContent-root-198"
                   >
                     <h4
-                      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                      class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                      data-testid="typography"
                     >
                       pageSubHeading
                     </h4>
@@ -671,7 +684,7 @@ exports[`Training Page render correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -680,7 +693,8 @@ exports[`Training Page render correctly 1`] = `
                             />
                           </svg>
                           <h5
-                            class="MuiTypography-root Typography MuiTypography-h5"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h5-36"
+                            data-testid="typography"
                           >
                             step1Heading
                           </h5>
@@ -689,12 +703,14 @@ exports[`Training Page render correctly 1`] = `
                           style="margin-bottom: 1.5rem;"
                         >
                           <h6
-                            class="MuiTypography-root Typography MuiTypography-h6"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                            data-testid="typography"
                           >
                             step1SubHeading
                           </h6>
                           <div
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             step1Description
                           </div>
@@ -708,7 +724,7 @@ exports[`Training Page render correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -717,7 +733,8 @@ exports[`Training Page render correctly 1`] = `
                             />
                           </svg>
                           <h5
-                            class="MuiTypography-root Typography MuiTypography-h5"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h5-36"
+                            data-testid="typography"
                           >
                             step2Heading
                           </h5>
@@ -726,12 +743,14 @@ exports[`Training Page render correctly 1`] = `
                           style="margin-bottom: 1.5rem;"
                         >
                           <h6
-                            class="MuiTypography-root Typography MuiTypography-h6"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                            data-testid="typography"
                           >
                             step2SubHeading
                           </h6>
                           <div
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             step2Description
                           </div>
@@ -745,7 +764,7 @@ exports[`Training Page render correctly 1`] = `
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -754,7 +773,8 @@ exports[`Training Page render correctly 1`] = `
                             />
                           </svg>
                           <h5
-                            class="MuiTypography-root Typography MuiTypography-h5"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h5-36"
+                            data-testid="typography"
                           >
                             step3Heading
                           </h5>
@@ -763,12 +783,14 @@ exports[`Training Page render correctly 1`] = `
                           style="margin-bottom: 1.5rem;"
                         >
                           <h6
-                            class="MuiTypography-root Typography MuiTypography-h6"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                            data-testid="typography"
                           >
                             step3SubHeading
                           </h6>
                           <div
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             step3Description
                           </div>
@@ -832,7 +854,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -849,7 +871,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -912,17 +934,17 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-553 MuiIconButton-root-545 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-552"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537 MuiSvgIcon-fontSizeLarge-544"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -932,7 +954,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-654"
                   />
                 </button>
                 <div
@@ -940,14 +962,14 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-553"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537 MuiSvgIcon-fontSizeLarge-544"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -956,7 +978,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-654"
                     />
                   </button>
                 </div>
@@ -965,14 +987,14 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-553"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537 MuiSvgIcon-fontSizeLarge-544"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -981,7 +1003,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-654"
                     />
                   </button>
                 </div>
@@ -994,31 +1016,33 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-562 Typography-root-554 MuiTypography-h3-569"
+                  data-testid="typography"
                 >
                   Training
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-592 lowerHeaderDivider MuiDivider-flexItem-598 MuiDivider-vertical-597"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-562 lowerHeaderUserLevel Typography-root-554 MuiTypography-h3-569"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-553 MuiIconButton-root-545 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-552"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-536 MuiSvgIcon-colorPrimary-537"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1028,21 +1052,21 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-654"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-29"
+                  class="makeStyles-root-599"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-553 MuiButton-root-601 MuiButton-text-603"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-602"
                       >
                         <div
                           class="userMenu"
@@ -1052,7 +1076,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-536"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -1069,7 +1093,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-536 MuiSvgIcon-colorAction-539"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1080,7 +1104,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-654"
                       />
                     </button>
                   </div>
@@ -1148,7 +1172,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1165,7 +1189,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1228,17 +1252,17 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-425 MuiIconButton-root-417 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-424"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409 MuiSvgIcon-fontSizeLarge-416"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1248,7 +1272,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-526"
                   />
                 </button>
                 <div
@@ -1256,14 +1280,14 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-425"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409 MuiSvgIcon-fontSizeLarge-416"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1272,7 +1296,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-526"
                     />
                   </button>
                 </div>
@@ -1281,14 +1305,14 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-425"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409 MuiSvgIcon-fontSizeLarge-416"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1297,7 +1321,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-526"
                     />
                   </button>
                 </div>
@@ -1310,31 +1334,33 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-434 Typography-root-426 MuiTypography-h3-441"
+                  data-testid="typography"
                 >
                   Training
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-464 lowerHeaderDivider MuiDivider-flexItem-470 MuiDivider-vertical-469"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-434 lowerHeaderUserLevel Typography-root-426 MuiTypography-h3-441"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-425 MuiIconButton-root-417 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-424"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-408 MuiSvgIcon-colorPrimary-409"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1344,21 +1370,21 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-526"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-27"
+                  class="makeStyles-root-471"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-425 MuiButton-root-473 MuiButton-text-475"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-474"
                       >
                         <div
                           class="userMenu"
@@ -1368,7 +1394,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-408"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -1385,7 +1411,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-408 MuiSvgIcon-colorAction-411"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1396,7 +1422,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-526"
                       />
                     </button>
                   </div>

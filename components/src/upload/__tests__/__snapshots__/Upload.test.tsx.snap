@@ -3,7 +3,7 @@
 exports[`Upload component render correctly with error 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-630 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -11,12 +11,12 @@ exports[`Upload component render correctly with error 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-314 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-650 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-317"
+            class="MuiButton-label Button-label-653"
           >
             <svg
               aria-hidden="true"
@@ -36,7 +36,7 @@ exports[`Upload component render correctly with error 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-641"
         data-testid="onFilesChange-mock-upload"
         id="onFilesChange-mock-upload"
         multiple=""
@@ -45,31 +45,33 @@ exports[`Upload component render correctly with error 1`] = `
     </div>
     <div>
       <div
-        class="file"
+        class="Upload-file-642"
         data-testid="test-file"
       >
         <img
           alt="name"
-          class="file-display"
+          class="Upload-fileDisplay-645"
           src="url"
         />
         <div
-          class="file-info-wrapper"
+          class="Upload-fileInfoWrapper-648"
         >
           <p
-            class="MuiTypography-root filename Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-filename-643 Typography-root-670 MuiTypography-body1"
+            data-testid="typography"
           >
             name
           </p>
           <p
-            class="MuiTypography-root file-size Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-fileSize-644 Typography-root-670 MuiTypography-body1"
+            data-testid="typography"
           >
             0KB
           </p>
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-325 iconButtonStyles-medium-331 iconButtonStyles-text-327 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-661 iconButton IconButton-medium-667 IconButton-text-663 Upload-deleteIcon-647"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -101,7 +103,7 @@ exports[`Upload component render correctly with error 1`] = `
 exports[`Upload component render correctly with error 2`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-630 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -109,12 +111,12 @@ exports[`Upload component render correctly with error 2`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-314 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-650 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-317"
+            class="MuiButton-label Button-label-653"
           >
             <svg
               aria-hidden="true"
@@ -134,7 +136,7 @@ exports[`Upload component render correctly with error 2`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-641"
         data-testid="onFilesChange-mock-upload"
         id="onFilesChange-mock-upload"
         multiple=""
@@ -155,7 +157,7 @@ exports[`Upload component render correctly with error 2`] = `
 exports[`Upload component render correctly with value 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-582 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -163,12 +165,12 @@ exports[`Upload component render correctly with value 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-294 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-602 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-297"
+            class="MuiButton-label Button-label-605"
           >
             <svg
               aria-hidden="true"
@@ -188,7 +190,7 @@ exports[`Upload component render correctly with value 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-593"
         data-testid="onFilesChange-mock-upload"
         id="onFilesChange-mock-upload"
         multiple=""
@@ -197,31 +199,33 @@ exports[`Upload component render correctly with value 1`] = `
     </div>
     <div>
       <div
-        class="file"
+        class="Upload-file-594"
         data-testid="test-file"
       >
         <img
           alt="file1"
-          class="file-display"
+          class="Upload-fileDisplay-597"
           src="url"
         />
         <div
-          class="file-info-wrapper"
+          class="Upload-fileInfoWrapper-600"
         >
           <p
-            class="MuiTypography-root filename Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-filename-595 Typography-root-622 MuiTypography-body1"
+            data-testid="typography"
           >
             file1
           </p>
           <p
-            class="MuiTypography-root file-size Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-fileSize-596 Typography-root-622 MuiTypography-body1"
+            data-testid="typography"
           >
             0KB
           </p>
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-305 iconButtonStyles-medium-311 iconButtonStyles-text-307 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-613 iconButton IconButton-medium-619 IconButton-text-615 Upload-deleteIcon-599"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -246,31 +250,33 @@ exports[`Upload component render correctly with value 1`] = `
         </button>
       </div>
       <div
-        class="file"
+        class="Upload-file-594"
         data-testid="test-file"
       >
         <img
           alt="file2"
-          class="file-display"
+          class="Upload-fileDisplay-597"
           src="url"
         />
         <div
-          class="file-info-wrapper"
+          class="Upload-fileInfoWrapper-600"
         >
           <p
-            class="MuiTypography-root filename Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-filename-595 Typography-root-622 MuiTypography-body1"
+            data-testid="typography"
           >
             file2
           </p>
           <p
-            class="MuiTypography-root file-size Typography MuiTypography-body1"
+            class="MuiTypography-root Upload-fileSize-596 Typography-root-622 MuiTypography-body1"
+            data-testid="typography"
           >
             0KB
           </p>
         </div>
         <button
           aria-label="Remove file"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-305 iconButtonStyles-medium-311 iconButtonStyles-text-307 delete-icon"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-613 iconButton IconButton-medium-619 IconButton-text-615 Upload-deleteIcon-599"
           data-testid="file-delete"
           tabindex="0"
           type="button"
@@ -302,7 +308,7 @@ exports[`Upload component render correctly with value 1`] = `
 exports[`Upload component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-1 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -310,12 +316,12 @@ exports[`Upload component renders correctly 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-21 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-4"
+            class="MuiButton-label Button-label-24"
           >
             <svg
               aria-hidden="true"
@@ -335,7 +341,7 @@ exports[`Upload component renders correctly 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-12"
         data-testid="default-upload"
         id="default-upload"
         multiple=""
@@ -350,7 +356,7 @@ exports[`Upload component renders correctly 1`] = `
 exports[`Upload component renders correctly on mobile 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-494 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -358,12 +364,12 @@ exports[`Upload component renders correctly on mobile 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-254 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-514 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-257"
+            class="MuiButton-label Button-label-517"
           >
             <svg
               aria-hidden="true"
@@ -383,7 +389,7 @@ exports[`Upload component renders correctly on mobile 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-505"
         data-testid="mobile-upload"
         id="mobile-upload"
         multiple=""
@@ -398,7 +404,7 @@ exports[`Upload component renders correctly on mobile 1`] = `
 exports[`Upload component renders correctly with buttonLabel 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-41 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -406,12 +412,12 @@ exports[`Upload component renders correctly with buttonLabel 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-61 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label Button-label-64"
           >
             <svg
               aria-hidden="true"
@@ -431,7 +437,7 @@ exports[`Upload component renders correctly with buttonLabel 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-52"
         data-testid="default-upload"
         id="default-upload"
         multiple=""
@@ -446,7 +452,7 @@ exports[`Upload component renders correctly with buttonLabel 1`] = `
 exports[`Upload component renders correctly with defaultExpanded 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-81 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -454,12 +460,12 @@ exports[`Upload component renders correctly with defaultExpanded 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-101 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-44"
+            class="MuiButton-label Button-label-104"
           >
             <svg
               aria-hidden="true"
@@ -479,7 +485,7 @@ exports[`Upload component renders correctly with defaultExpanded 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-92"
         data-testid="default-upload"
         id="default-upload"
         multiple=""
@@ -494,7 +500,7 @@ exports[`Upload component renders correctly with defaultExpanded 1`] = `
 exports[`Upload component renders correctly with description 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-121 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -502,12 +508,12 @@ exports[`Upload component renders correctly with description 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-141 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-64"
+            class="MuiButton-label Button-label-144"
           >
             <svg
               aria-hidden="true"
@@ -527,14 +533,15 @@ exports[`Upload component renders correctly with description 1`] = `
         </span>
       </label>
       <input
-        class="input"
+        class="Upload-input-132"
         data-testid="upload-with-description"
         id="upload-with-description"
         multiple=""
         type="file"
       />
       <p
-        class="MuiTypography-root mobile-instructions Typography MuiTypography-body1"
+        class="MuiTypography-root Upload-mobileInstructions-131 Typography-root-161 MuiTypography-body1"
+        data-testid="typography"
       >
         Please upload your images here
       </p>
@@ -547,7 +554,7 @@ exports[`Upload component renders correctly with description 1`] = `
 exports[`Upload component renders correctly with restricted file types 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+    class="MuiFormControl-root Upload-root-169 MuiFormControl-fullWidth"
   >
     <div>
       <label
@@ -555,12 +562,12 @@ exports[`Upload component renders correctly with restricted file types 1`] = `
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root Button-root-189 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-84"
+            class="MuiButton-label Button-label-192"
           >
             <svg
               aria-hidden="true"
@@ -581,7 +588,7 @@ exports[`Upload component renders correctly with restricted file types 1`] = `
       </label>
       <input
         accept=".png,.pdf"
-        class="input"
+        class="Upload-input-180"
         data-testid="restricted-upload"
         id="restricted-upload"
         multiple=""

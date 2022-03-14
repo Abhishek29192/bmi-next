@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import TableOfContent from "../TableOfContent";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("TableOfContent component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <TableOfContent>
         <TableOfContent.Menu />
         <TableOfContent.Anchor title="div with text">
@@ -23,7 +23,7 @@ describe("TableOfContent component", () => {
   });
 
   it("renders anchor correctly without the context ", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <TableOfContent.Anchor title="div with text">
         <h2>section with text</h2>
         <p>Lorem ipsum dolor sit amet.</p>

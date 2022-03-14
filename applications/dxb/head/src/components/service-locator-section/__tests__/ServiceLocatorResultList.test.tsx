@@ -1,7 +1,8 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import { ServiceLocatorResultList } from "../components";
+import React from "react";
 import createService from "../../../__tests__/helpers/ServiceHelper";
+import { ServiceLocatorResultList } from "../components";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -12,17 +13,19 @@ const handlePageChange = jest.fn();
 describe("ServiceLocatorResultList component", () => {
   it("should renders empty list with NO service", () => {
     const { getByRole } = render(
-      <ServiceLocatorResultList
-        page={1}
-        pageCount={1}
-        onPageChange={handlePageChange}
-        roofersList={[]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={jest.fn}
-        selectedRoofer={null}
-        shouldListCertification={false}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={jest.fn}
+          selectedRoofer={null}
+          shouldListCertification={false}
+        />
+      </ThemeProvider>
     );
     const noResultHeading = getByRole("heading", {
       name: /MC: findARoofer.noResults.title/i
@@ -44,17 +47,19 @@ describe("ServiceLocatorResultList component", () => {
         : ` - ${service.entryType}`
     } - selected`;
     const { getByTestId } = render(
-      <ServiceLocatorResultList
-        page={1}
-        pageCount={1}
-        onPageChange={handlePageChange}
-        roofersList={[service]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={jest.fn}
-        selectedRoofer={null}
-        shouldListCertification={false}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={jest.fn}
+          selectedRoofer={null}
+          shouldListCertification={false}
+        />
+      </ThemeProvider>
     );
     const gtmData = JSON.parse(
       getByTestId(listItemTestId).getAttribute("data-gtm")
@@ -65,17 +70,19 @@ describe("ServiceLocatorResultList component", () => {
     const service = createService({ serviceTypes: [] });
     const onListItemClick = jest.fn();
     const { getByTestId } = render(
-      <ServiceLocatorResultList
-        page={1}
-        pageCount={1}
-        onPageChange={handlePageChange}
-        roofersList={[service]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={onListItemClick}
-        selectedRoofer={null}
-        shouldListCertification={false}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={null}
+          shouldListCertification={false}
+        />
+      </ThemeProvider>
     );
     const listItem = getByTestId(listItemTestId);
     listItem.click();
@@ -85,17 +92,19 @@ describe("ServiceLocatorResultList component", () => {
     const service = createService({ certification: "expert" });
     const onListItemClick = jest.fn();
     const { getByText } = render(
-      <ServiceLocatorResultList
-        page={1}
-        pageCount={1}
-        onPageChange={handlePageChange}
-        roofersList={[service]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={onListItemClick}
-        selectedRoofer={null}
-        shouldListCertification={true}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={null}
+          shouldListCertification={true}
+        />
+      </ThemeProvider>
     );
     const listItem = getByText("MC: findARoofer.certificationLabel:");
 
@@ -106,17 +115,19 @@ describe("ServiceLocatorResultList component", () => {
     const service = createService({ certification: "expert" });
     const onListItemClick = jest.fn();
     const { container } = render(
-      <ServiceLocatorResultList
-        page={5}
-        pageCount={5}
-        onPageChange={handlePageChange}
-        roofersList={[service]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={onListItemClick}
-        selectedRoofer={null}
-        shouldListCertification={false}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={5}
+          pageCount={5}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={null}
+          shouldListCertification={false}
+        />
+      </ThemeProvider>
     );
 
     const pagination = container.querySelector(".pagination");
@@ -127,22 +138,24 @@ describe("ServiceLocatorResultList component", () => {
     const service = createService({ id: "testServiceId" });
     const onListItemClick = jest.fn();
     const { getByTestId } = render(
-      <ServiceLocatorResultList
-        page={1}
-        pageCount={1}
-        onPageChange={handlePageChange}
-        roofersList={[service]}
-        getCompanyDetails={jest.fn()}
-        onCloseCard={jest.fn()}
-        onListItemClick={onListItemClick}
-        selectedRoofer={service}
-        shouldListCertification={true}
-      />
+      <ThemeProvider>
+        <ServiceLocatorResultList
+          page={1}
+          pageCount={1}
+          onPageChange={handlePageChange}
+          roofersList={[service]}
+          getCompanyDetails={jest.fn()}
+          onCloseCard={jest.fn()}
+          onListItemClick={onListItemClick}
+          selectedRoofer={service}
+          shouldListCertification={true}
+        />
+      </ThemeProvider>
     );
     const integratedLinkCard = getByTestId(listItemTestId);
     let hasSelectedClass = false;
     integratedLinkCard.classList.forEach((item) => {
-      if (item.startsWith("LinkCard--selected")) {
+      if (item.startsWith("LinkCard-open")) {
         hasSelectedClass = true;
       }
     });

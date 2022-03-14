@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { LocationProvider } from "@reach/router";
 import { render } from "@testing-library/react";
 import React from "react";
@@ -11,9 +12,11 @@ describe("404 page tests", () => {
   describe("When site data and error page data are null", () => {
     it("renders place holder content", async () => {
       const { container, findByText, getByText } = render(
-        <FourOFour
-          data={{ fourOFour: { siteData: null, errorPageData: null } }}
-        />
+        <ThemeProvider>
+          <FourOFour
+            data={{ fourOFour: { siteData: null, errorPageData: null } }}
+          />
+        </ThemeProvider>
       );
       await findByText(
         "It's not you, it's us - something went wrong on our web server."
@@ -31,16 +34,18 @@ describe("404 page tests", () => {
       const errorData = createContentfulPromoCard();
       const { container, findByText, getByText, getAllByText, getByAltText } =
         renderWithRouter(
-          <LocationProvider>
-            <FourOFour
-              data={{
-                fourOFour: {
-                  siteData: createMockSiteData() as ContentfulSite,
-                  errorPageData: errorData
-                }
-              }}
-            />
-          </LocationProvider>
+          <ThemeProvider>
+            <LocationProvider>
+              <FourOFour
+                data={{
+                  fourOFour: {
+                    siteData: createMockSiteData() as ContentfulSite,
+                    errorPageData: errorData
+                  }
+                }}
+              />
+            </LocationProvider>
+          </ThemeProvider>
         );
       await findByText(errorData.subtitle);
       expect(container).toMatchSnapshot();
@@ -81,16 +86,18 @@ describe("404 page tests", () => {
         getAllByText,
         getByAltText
       } = renderWithRouter(
-        <LocationProvider>
-          <FourOFour
-            data={{
-              fourOFour: {
-                siteData: createMockSiteData() as ContentfulSite,
-                errorPageData: errorData
-              }
-            }}
-          />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider>
+            <FourOFour
+              data={{
+                fourOFour: {
+                  siteData: createMockSiteData() as ContentfulSite,
+                  errorPageData: errorData
+                }
+              }}
+            />
+          </LocationProvider>
+        </ThemeProvider>
       );
       await findAllByText(expectedTitle);
       expect(container).toMatchSnapshot();

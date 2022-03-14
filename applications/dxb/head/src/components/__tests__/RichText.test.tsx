@@ -1,6 +1,7 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich-text";
+import React from "react";
 import RichText, { RichTextData } from "../RichText";
 
 describe("RichText component", () => {
@@ -325,13 +326,19 @@ describe("RichText component", () => {
   };
 
   it("renders correctly", () => {
-    const { container } = render(<RichText document={document} />);
+    const { container } = render(
+      <ThemeProvider>
+        <RichText document={document} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly with gtmLabel", () => {
     const { container } = render(
-      <RichText gtmLabel="gtmLabelTest" document={document} />
+      <ThemeProvider>
+        <RichText gtmLabel="gtmLabelTest" document={document} />
+      </ThemeProvider>
     );
 
     const expectedDataGtm = JSON.stringify({
@@ -345,7 +352,11 @@ describe("RichText component", () => {
   });
 
   it("renders when dialog clicked", () => {
-    const { container, getByText } = render(<RichText document={document} />);
+    const { container, getByText } = render(
+      <ThemeProvider>
+        <RichText document={document} />
+      </ThemeProvider>
+    );
     const openDialogButton = getByText("Open dialog");
     openDialogButton.click();
     expect(container).toMatchSnapshot();
@@ -353,7 +364,9 @@ describe("RichText component", () => {
 
   it("closes dialog", () => {
     const { container, getByText, getByRole } = render(
-      <RichText document={document} />
+      <ThemeProvider>
+        <RichText document={document} />
+      </ThemeProvider>
     );
     const openDialogButton = getByText("Open dialog");
     openDialogButton.click();
@@ -399,12 +412,20 @@ describe("RichText component", () => {
       ]
     };
 
-    const { container } = render(<RichText document={document} />);
+    const { container } = render(
+      <ThemeProvider>
+        <RichText document={document} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with no data", () => {
-    const { container } = render(<RichText />);
+    const { container } = render(
+      <ThemeProvider>
+        <RichText />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

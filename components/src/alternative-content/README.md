@@ -5,5 +5,8 @@ Simple component to render accessibility content.
 ### Default
 
 ```jsx
-This text will be <AlternativeContent>only for content readers</AlternativeContent>.
+<p>
+  This text will be{" "}
+  <AlternativeContent>only for content readers</AlternativeContent>.
+</p>
 ```

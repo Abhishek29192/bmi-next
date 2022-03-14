@@ -8,7 +8,7 @@ exports[`GoogleAutocomplete component invokes APIs and renders correctly 1`] = `
     role="combobox"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root TextField-root-4 MuiFormControl-fullWidth"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -89,10 +89,10 @@ exports[`GoogleAutocomplete component invokes APIs and renders correctly 1`] = `
         </div>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-7 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-9"
           >
             <span>
               Search

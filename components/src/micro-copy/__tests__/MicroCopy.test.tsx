@@ -1,6 +1,6 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import MicroCopy, { getMicroCopy } from "../MicroCopy";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const ProviderMock = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -83,7 +83,7 @@ describe("MicroCopy tests", () => {
 
   describe("MicroCopy component", () => {
     it("renders correctly without replacement", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <>
           <ProviderMock>
             Without placeholders (but they are passed):{" "}
@@ -103,7 +103,7 @@ describe("MicroCopy tests", () => {
     });
 
     it("replaces all occurrences", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <ProviderMock>
           <MicroCopy
             path="second"
@@ -118,7 +118,7 @@ describe("MicroCopy tests", () => {
     });
 
     it("does not replace placeholders unless passed", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <ProviderMock>
           Only firstKey should be replaced:{" "}
           <MicroCopy

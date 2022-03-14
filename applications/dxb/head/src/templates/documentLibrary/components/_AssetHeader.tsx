@@ -4,15 +4,16 @@ import InfoIcon from "@material-ui/icons/Info";
 import React, { useState } from "react";
 import RichText from "../../../components/RichText";
 import { useSiteContext } from "../../../components/Site";
+import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { microCopy } from "../../../constants/microCopies";
 import { AssetType } from "../types";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 
 const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
   const { name, code, description } = assetType;
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const { getMicroCopy } = useSiteContext();
+  const classes = useStyles();
 
   return (
     <>
@@ -69,7 +70,7 @@ const AssetHeader = ({ assetType }: { assetType: AssetType }) => {
                 )
               }
             >
-              <Icon source={InfoIcon} className={styles["tooltip-icon"]} />
+              <Icon source={InfoIcon} className={classes.tooltipIcon} />
             </Button>
           </div>
         </Tooltip>

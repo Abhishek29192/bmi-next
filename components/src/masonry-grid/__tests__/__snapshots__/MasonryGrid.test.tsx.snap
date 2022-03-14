@@ -3,10 +3,10 @@
 exports[`MasonryGrid component renders correctly 1`] = `
 <div>
   <div
-    class="MasonryGrid"
+    class="MasonryGrid-root-1"
   >
     <div
-      class="column"
+      class="MasonryGrid-column-2"
       style="width: 33.333333333333336%;"
     >
       <div>
@@ -17,7 +17,7 @@ exports[`MasonryGrid component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="column"
+      class="MasonryGrid-column-2"
       style="width: 33.333333333333336%;"
     >
       <div>
@@ -25,7 +25,7 @@ exports[`MasonryGrid component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="column"
+      class="MasonryGrid-column-2"
       style="width: 33.333333333333336%;"
     >
       <div>

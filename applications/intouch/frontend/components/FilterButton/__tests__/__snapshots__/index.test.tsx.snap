@@ -6,7 +6,7 @@ exports[`FilterButton Component renders correctly 1`] = `
     class="filterButton"
   >
     <div
-      class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+      class="MuiButtonBase-root MuiChip-root Chip-root-1 Chip-default-2 MuiChip-clickable"
       role="button"
       tabindex="0"
     >
@@ -29,7 +29,7 @@ exports[`FilterButton Component show selected chip style if isActive props is tr
     class="filterButton"
   >
     <div
-      class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+      class="MuiButtonBase-root MuiChip-root Chip-root-7 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
       role="button"
       tabindex="0"
     >

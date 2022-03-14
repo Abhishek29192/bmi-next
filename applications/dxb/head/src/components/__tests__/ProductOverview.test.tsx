@@ -1,4 +1,4 @@
-import { YoutubeVideo } from "@bmi/components";
+import { ThemeProvider, YoutubeVideo } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import ProductOverview from "../ProductOverview";
@@ -55,10 +55,12 @@ describe("ProductOverview component", () => {
   it("renders with default image if there are no images, videos nor visualiser media", () => {
     const localData = { ...data, images: [], videos: [] };
     const { container } = render(
-      <ProductOverview data={localData}>
-        <div>block</div>
-        <p>text</p>
-      </ProductOverview>
+      <ThemeProvider>
+        <ProductOverview data={localData}>
+          <div>block</div>
+          <p>text</p>
+        </ProductOverview>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -66,10 +68,12 @@ describe("ProductOverview component", () => {
 
   it("renders correctly with Recaptcha", () => {
     const { container } = render(
-      <ProductOverview data={data}>
-        <div>block</div>
-        <p>text</p>
-      </ProductOverview>
+      <ThemeProvider>
+        <ProductOverview data={data}>
+          <div>block</div>
+          <p>text</p>
+        </ProductOverview>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -78,10 +82,12 @@ describe("ProductOverview component", () => {
   it("renders correctly without Recaptcha", () => {
     const localData = { ...data, isRecaptchaShown: false };
     const { container } = render(
-      <ProductOverview data={localData}>
-        <div>block</div>
-        <p>text</p>
-      </ProductOverview>
+      <ThemeProvider>
+        <ProductOverview data={localData}>
+          <div>block</div>
+          <p>text</p>
+        </ProductOverview>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -89,16 +95,18 @@ describe("ProductOverview component", () => {
 
   it("renders with visualiser media", async () => {
     const { container } = render(
-      <ProductOverview
-        data={{
-          ...data,
-          isNavigationToVisualiserAvailable: true,
-          variantCode: "133000634_Zanda_Arktis_main_tile_antique_red"
-        }}
-      >
-        <div>block</div>
-        <p>text</p>
-      </ProductOverview>
+      <ThemeProvider>
+        <ProductOverview
+          data={{
+            ...data,
+            isNavigationToVisualiserAvailable: true,
+            variantCode: "133000634_Zanda_Arktis_main_tile_antique_red"
+          }}
+        >
+          <div>block</div>
+          <p>text</p>
+        </ProductOverview>
+      </ThemeProvider>
     );
 
     expect(container.querySelector("svg[name='Cube']")).toBeInTheDocument();

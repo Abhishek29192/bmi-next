@@ -104,7 +104,7 @@ const colorBoxStyle = {
 };
 
 <div style={{ display: "flex" }}>
-  <ColorPair style={colorBoxStyle} theme="teal-500">
+  <ColorPair style={colorBoxStyle} theme="teal500">
     <Typography>
       This example shows a <AnchorLink>link on a</AnchorLink> teal 500 theme
     </Typography>

@@ -1,9 +1,10 @@
+import { ThemeProvider } from "@bmi/components";
+import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { useMediaQuery } from "@material-ui/core";
 import { render } from "@testing-library/react";
 import React from "react";
-import { createPimProductDocument } from "@bmi/elasticsearch-types";
-import DocumentTechnicalTableResults from "../DocumentTechnicalTableResults";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
+import DocumentTechnicalTableResults from "../DocumentTechnicalTableResults";
 
 jest.mock("@material-ui/core", () => ({
   ...(jest.requireActual("@material-ui/core") as any),
@@ -26,10 +27,12 @@ describe("DocumentTechnicalTableResults component", () => {
     });
     it("renders correctly", () => {
       const { container } = render(
-        <DocumentTechnicalTableResults
-          documents={[pimDocument]}
-          assetTypes={[assetType]}
-        />
+        <ThemeProvider>
+          <DocumentTechnicalTableResults
+            documents={[pimDocument]}
+            assetTypes={[assetType]}
+          />
+        </ThemeProvider>
       );
 
       expect(container).toMatchSnapshot();
@@ -42,10 +45,12 @@ describe("DocumentTechnicalTableResults component", () => {
     });
     it("renders correctly", () => {
       const { container } = render(
-        <DocumentTechnicalTableResults
-          documents={[pimDocument]}
-          assetTypes={[assetType]}
-        />
+        <ThemeProvider>
+          <DocumentTechnicalTableResults
+            documents={[pimDocument]}
+            assetTypes={[assetType]}
+          />
+        </ThemeProvider>
       );
 
       expect(container).toMatchSnapshot();

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
@@ -282,31 +283,41 @@ describe("Contact us page", () => {
 
   it("renders correctly", () => {
     const { container, getByTestId, getByText } = renderWithRouter(
-      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      <ThemeProvider>
+        <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(container.querySelectorAll(".Footer").length).toBe(1);
+    expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
-    expect(container.querySelector(".Section--pearl")).toBeTruthy();
+    expect(container.querySelector("[class*='Hero']")).toBeTruthy();
+    expect(
+      container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
+    ).toBeTruthy();
+    expect(
+      container.querySelector("[class*='Section'][class*='pearl']")
+    ).toBeTruthy();
     expect(getByText("What do you wish to contact us about?")).toBeTruthy();
     expect(container.querySelector(".ContactTopics")).toBeTruthy();
     expect(getByText("No footer")).toBeTruthy();
     expect(getByText("Did you know?")).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim")
+      container.querySelector("[class*='alabaster'][class*='slim']")
     ).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
+      container.querySelector(
+        "[class*='alabaster'][class*='slim'] [class*='Breadcrumbs']"
+      )
     ).toBeTruthy();
   });
 
   it("render iframe correctly", () => {
     const { container, getByText } = renderWithRouter(
-      <ContactUsPage data={data} pageContext={null} />
+      <ThemeProvider>
+        <ContactUsPage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -321,7 +332,9 @@ describe("Contact us page", () => {
 
   it("render Sections correctly", () => {
     const { container, getByText } = renderWithRouter(
-      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      <ThemeProvider>
+        <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -330,25 +343,33 @@ describe("Contact us page", () => {
 
   it("render location correctly", () => {
     const { container, getByText } = renderWithRouter(
-      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      <ThemeProvider>
+        <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".Section--white")).toBeTruthy();
+    expect(container.querySelector("[class*='white']")).toBeTruthy();
     expect(getByText("Locations")).toBeTruthy();
-    expect(container.querySelectorAll(".Locations .LocationCard").length).toBe(
-      3
-    );
+    expect(
+      container.querySelectorAll(
+        "[class*='Locations'] address[class*='LocationCard']"
+      ).length
+    ).toBe(3);
   });
 
   it("render NextBestActions correctly", () => {
     const { container, getByText } = renderWithRouter(
-      <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      <ThemeProvider>
+        <ContactUsPage data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
     expect(getByText("Mer informasjon")).toBeTruthy();
-    expect(container.querySelectorAll(".NBACard").length).toBe(2);
+    expect(
+      container.querySelectorAll("[class*='NBACard'][type='button']").length
+    ).toBe(2);
   });
 
   it("render firstslide featuredMedia instead when no featuredVideo", () => {
@@ -395,10 +416,12 @@ describe("Contact us page", () => {
       }
     };
     const { container } = renderWithRouter(
-      <ContactUsPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <ContactUsPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();

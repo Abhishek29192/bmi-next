@@ -3,20 +3,20 @@
 exports[`ExpandableCard component ExpandableCard.List component closes the opened card 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-411"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-412"
     >
       <div
         aria-label="Lorem ipsum"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-413 ExpandableCard-collapsed-414 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
       >
         <button
           aria-label="Close me"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-436 iconButton IconButton-medium-442 IconButton-text-438 ExpandableCard-close-420"
           tabindex="0"
           type="button"
         >
@@ -39,22 +39,23 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-423"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-416"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-417"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-418 ExpandableCard-titleStatic-419 Typography-root-445 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem ipsum
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-421"
           >
             Sit dolor amet
           </div>
@@ -62,17 +63,17 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-412"
     >
       <div
         aria-label="Lorem Ipsum 0"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-413 ExpandableCard-collapsed-414 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-436 iconButton IconButton-medium-442 IconButton-text-438 ExpandableCard-close-420"
           tabindex="0"
           type="button"
         >
@@ -95,22 +96,23 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-423"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-416"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-417"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-418 ExpandableCard-titleStatic-419 Typography-root-445 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 0
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-421"
           >
             Sit dolor amet
           </div>
@@ -118,17 +120,17 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-412"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-413 ExpandableCard-collapsed-414 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-436 iconButton IconButton-medium-442 IconButton-text-438 ExpandableCard-close-420"
           tabindex="0"
           type="button"
         >
@@ -151,22 +153,23 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-423"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-416"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-417"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-418 ExpandableCard-titleStatic-419 Typography-root-445 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-421"
           >
             Sit dolor amet
           </div>
@@ -174,17 +177,17 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-412"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-413 ExpandableCard-collapsed-414 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-436 iconButton IconButton-medium-442 IconButton-text-438 ExpandableCard-close-420"
           tabindex="0"
           type="button"
         >
@@ -207,22 +210,23 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-423"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-416"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-417"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-418 ExpandableCard-titleStatic-419 Typography-root-445 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-421"
           >
             Sit dolor amet
           </div>
@@ -230,17 +234,17 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-412"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-413 ExpandableCard-collapsed-414 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-436 iconButton IconButton-medium-442 IconButton-text-438 ExpandableCard-close-420"
           tabindex="0"
           type="button"
         >
@@ -263,22 +267,23 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-423"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-416"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-417"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-418 ExpandableCard-titleStatic-419 Typography-root-445 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-421"
           >
             Sit dolor amet
           </div>
@@ -292,20 +297,20 @@ exports[`ExpandableCard component ExpandableCard.List component closes the opene
 exports[`ExpandableCard component ExpandableCard.List component doesn't re-expand an expanded card 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-369"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-370"
     >
       <div
         aria-label="Lorem Ipsum 0"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-371 ExpandableCard-expanded-373 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-394 iconButton IconButton-medium-400 IconButton-text-396 ExpandableCard-close-378"
           tabindex="0"
           type="button"
         >
@@ -328,22 +333,23 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-381"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-374"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-375"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-376 Typography-root-403 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 0
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-379"
           >
             Sit dolor amet
           </div>
@@ -351,17 +357,17 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-370"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-371 ExpandableCard-collapsed-372 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-394 iconButton IconButton-medium-400 IconButton-text-396 ExpandableCard-close-378"
           tabindex="0"
           type="button"
         >
@@ -384,22 +390,23 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-381"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-374"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-375"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-376 ExpandableCard-titleStatic-377 Typography-root-403 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-379"
           >
             Sit dolor amet
           </div>
@@ -407,17 +414,17 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-370"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-371 ExpandableCard-collapsed-372 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-394 iconButton IconButton-medium-400 IconButton-text-396 ExpandableCard-close-378"
           tabindex="0"
           type="button"
         >
@@ -440,22 +447,23 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-381"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-374"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-375"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-376 ExpandableCard-titleStatic-377 Typography-root-403 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-379"
           >
             Sit dolor amet
           </div>
@@ -463,17 +471,17 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-370"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-371 ExpandableCard-collapsed-372 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-394 iconButton IconButton-medium-400 IconButton-text-396 ExpandableCard-close-378"
           tabindex="0"
           type="button"
         >
@@ -496,22 +504,23 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-381"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-374"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-375"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-376 ExpandableCard-titleStatic-377 Typography-root-403 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-379"
           >
             Sit dolor amet
           </div>
@@ -525,20 +534,20 @@ exports[`ExpandableCard component ExpandableCard.List component doesn't re-expan
 exports[`ExpandableCard component ExpandableCard.List component handles multiple cards expanded by default 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-285"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-286"
     >
       <div
         aria-label="Lorem Ipsum 0"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-287 ExpandableCard-expanded-289 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-310 iconButton IconButton-medium-316 IconButton-text-312 ExpandableCard-close-294"
           tabindex="0"
           type="button"
         >
@@ -561,22 +570,23 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-297"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-290"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-291"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-292 Typography-root-319 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 0
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-295"
           >
             Sit dolor amet
           </div>
@@ -584,17 +594,17 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-286"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-287 ExpandableCard-collapsed-288 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-310 iconButton IconButton-medium-316 IconButton-text-312 ExpandableCard-close-294"
           tabindex="0"
           type="button"
         >
@@ -617,22 +627,23 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-297"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-290"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-291"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-292 ExpandableCard-titleStatic-293 Typography-root-319 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-295"
           >
             Sit dolor amet
           </div>
@@ -640,17 +651,17 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-286"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-287 ExpandableCard-collapsed-288 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-310 iconButton IconButton-medium-316 IconButton-text-312 ExpandableCard-close-294"
           tabindex="0"
           type="button"
         >
@@ -673,22 +684,23 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-297"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-290"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-291"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-292 ExpandableCard-titleStatic-293 Typography-root-319 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-295"
           >
             Sit dolor amet
           </div>
@@ -696,17 +708,17 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-286"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-287 ExpandableCard-collapsed-288 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-310 iconButton IconButton-medium-316 IconButton-text-312 ExpandableCard-close-294"
           tabindex="0"
           type="button"
         >
@@ -729,22 +741,23 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-297"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-290"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-291"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-292 ExpandableCard-titleStatic-293 Typography-root-319 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-295"
           >
             Sit dolor amet
           </div>
@@ -752,17 +765,17 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-286"
     >
       <div
         aria-label="Lorem Ipsum"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-287 ExpandableCard-collapsed-288 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-310 iconButton IconButton-medium-316 IconButton-text-312 ExpandableCard-close-294"
           tabindex="0"
           type="button"
         >
@@ -785,22 +798,23 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-297"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-290"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-291"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-292 ExpandableCard-titleStatic-293 Typography-root-319 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-295"
           >
             Sit dolor amet
           </div>
@@ -814,20 +828,20 @@ exports[`ExpandableCard component ExpandableCard.List component handles multiple
 exports[`ExpandableCard component ExpandableCard.List component it renders a list of cards 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-201"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-202"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-203 ExpandableCard-collapsed-204 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-226 iconButton IconButton-medium-232 IconButton-text-228 ExpandableCard-close-210"
           tabindex="0"
           type="button"
         >
@@ -850,22 +864,23 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-213"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-206"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-207"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-208 ExpandableCard-titleStatic-209 Typography-root-235 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-211"
           >
             Sit dolor amet
           </div>
@@ -873,17 +888,17 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-202"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-203 ExpandableCard-collapsed-204 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-226 iconButton IconButton-medium-232 IconButton-text-228 ExpandableCard-close-210"
           tabindex="0"
           type="button"
         >
@@ -906,22 +921,23 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-213"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-206"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-207"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-208 ExpandableCard-titleStatic-209 Typography-root-235 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-211"
           >
             Sit dolor amet
           </div>
@@ -929,17 +945,17 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-202"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-203 ExpandableCard-collapsed-204 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-226 iconButton IconButton-medium-232 IconButton-text-228 ExpandableCard-close-210"
           tabindex="0"
           type="button"
         >
@@ -962,22 +978,23 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-213"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-206"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-207"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-208 ExpandableCard-titleStatic-209 Typography-root-235 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-211"
           >
             Sit dolor amet
           </div>
@@ -991,20 +1008,20 @@ exports[`ExpandableCard component ExpandableCard.List component it renders a lis
 exports[`ExpandableCard component ExpandableCard.List component renders with one card expanded 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-243"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-244"
     >
       <div
         aria-label="Lorem Ipsum 0"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-245 ExpandableCard-expanded-247 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-268 iconButton IconButton-medium-274 IconButton-text-270 ExpandableCard-close-252"
           tabindex="0"
           type="button"
         >
@@ -1027,22 +1044,23 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-255"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-248"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-249"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-250 Typography-root-277 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 0
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-253"
           >
             Sit dolor amet
           </div>
@@ -1050,17 +1068,17 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-244"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-245 ExpandableCard-collapsed-246 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-268 iconButton IconButton-medium-274 IconButton-text-270 ExpandableCard-close-252"
           tabindex="0"
           type="button"
         >
@@ -1083,22 +1101,23 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-255"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-248"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-249"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-250 ExpandableCard-titleStatic-251 Typography-root-277 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-253"
           >
             Sit dolor amet
           </div>
@@ -1106,17 +1125,17 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-244"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-245 ExpandableCard-collapsed-246 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-268 iconButton IconButton-medium-274 IconButton-text-270 ExpandableCard-close-252"
           tabindex="0"
           type="button"
         >
@@ -1139,22 +1158,23 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-255"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-248"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-249"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-250 ExpandableCard-titleStatic-251 Typography-root-277 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-253"
           >
             Sit dolor amet
           </div>
@@ -1162,17 +1182,17 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-244"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-245 ExpandableCard-collapsed-246 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-268 iconButton IconButton-medium-274 IconButton-text-270 ExpandableCard-close-252"
           tabindex="0"
           type="button"
         >
@@ -1195,22 +1215,23 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-255"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-248"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-249"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-250 ExpandableCard-titleStatic-251 Typography-root-277 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-253"
           >
             Sit dolor amet
           </div>
@@ -1224,20 +1245,20 @@ exports[`ExpandableCard component ExpandableCard.List component renders with one
 exports[`ExpandableCard component ExpandableCard.List component sets the clicked card to expanded 1`] = `
 <div>
   <div
-    class="ExpandableCardList"
+    class="ExpandableCardList-root-327"
   >
     <div
-      class="item"
+      class="ExpandableCardList-item-328"
     >
       <div
         aria-label="Lorem Ipsum 0"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-329 ExpandableCard-collapsed-330 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="height: 0px; position: absolute; top: 0px; right: 0px; left: 0px; min-height: auto;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-352 iconButton IconButton-medium-358 IconButton-text-354 ExpandableCard-close-336"
           tabindex="0"
           type="button"
         >
@@ -1260,22 +1281,23 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-339"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-332"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-333"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-334 ExpandableCard-titleStatic-335 Typography-root-361 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 0
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-337"
           >
             Sit dolor amet
           </div>
@@ -1283,18 +1305,18 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-328"
       style="min-width: 0px; height: 0px;"
     >
       <div
         aria-label="Lorem Ipsum 1"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-329 ExpandableCard-expanded-331 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="height: 0px; top: 0px; right: 0px; left: 0px;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-352 iconButton IconButton-medium-358 IconButton-text-354 ExpandableCard-close-336"
           tabindex="0"
           type="button"
         >
@@ -1317,22 +1339,23 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-339"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-332"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-333"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-334 Typography-root-361 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 1
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-337"
           >
             Sit dolor amet
           </div>
@@ -1340,17 +1363,17 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-328"
     >
       <div
         aria-label="Lorem Ipsum 2"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-329 ExpandableCard-collapsed-330 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-352 iconButton IconButton-medium-358 IconButton-text-354 ExpandableCard-close-336"
           tabindex="0"
           type="button"
         >
@@ -1373,22 +1396,23 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-339"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-332"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-333"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-334 ExpandableCard-titleStatic-335 Typography-root-361 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 2
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-337"
           >
             Sit dolor amet
           </div>
@@ -1396,17 +1420,17 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
       </div>
     </div>
     <div
-      class="item"
+      class="ExpandableCardList-item-328"
     >
       <div
         aria-label="Lorem Ipsum 3"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-329 ExpandableCard-collapsed-330 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%;"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-text-114 close"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-352 iconButton IconButton-medium-358 IconButton-text-354 ExpandableCard-close-336"
           tabindex="0"
           type="button"
         >
@@ -1429,22 +1453,23 @@ exports[`ExpandableCard component ExpandableCard.List component sets the clicked
           />
         </button>
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-339"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-332"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-333"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-334 ExpandableCard-titleStatic-335 Typography-root-361 MuiTypography-h5"
+              data-testid="typography"
             >
               Lorem Ipsum 3
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-337"
           >
             Sit dolor amet
           </div>
@@ -1463,27 +1488,28 @@ Object {
       <div>
         <div
           aria-label="Title"
-          class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiCard-root ExpandableCard-root-1 ExpandableCard-expanded-3 MuiPaper-elevation1 MuiPaper-rounded"
           role="button"
           style="min-height: 100%; pointer-events: auto;"
         >
           <div
-            class="MuiCardContent-root content"
+            class="MuiCardContent-root ExpandableCard-content-11"
           >
             <div
-              class="header"
+              class="ExpandableCard-header-4"
             >
               <svg
-                class="icon"
+                class="ExpandableCard-icon-5"
               />
               <h5
-                class="MuiTypography-root title Typography MuiTypography-h5"
+                class="MuiTypography-root ExpandableCard-title-6 Typography-root-13 MuiTypography-h5"
+                data-testid="typography"
               >
                 Title
               </h5>
             </div>
             <div
-              class="body"
+              class="ExpandableCard-body-9"
             >
               Body
             </div>
@@ -1496,27 +1522,28 @@ Object {
     <div>
       <div
         aria-label="Title"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-1 ExpandableCard-expanded-3 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%; pointer-events: auto;"
       >
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-11"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-4"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-5"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-6 Typography-root-13 MuiTypography-h5"
+              data-testid="typography"
             >
               Title
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-9"
           >
             Body
           </div>
@@ -1586,27 +1613,28 @@ Object {
       <div>
         <div
           aria-label="Title"
-          class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiCard-root ExpandableCard-root-21 ExpandableCard-collapsed-22 MuiPaper-elevation1 MuiPaper-rounded"
           role="button"
           style="min-height: 100%; pointer-events: auto;"
         >
           <div
-            class="MuiCardContent-root content"
+            class="MuiCardContent-root ExpandableCard-content-31"
           >
             <div
-              class="header"
+              class="ExpandableCard-header-24"
             >
               <svg
-                class="icon"
+                class="ExpandableCard-icon-25"
               />
               <h5
-                class="MuiTypography-root title title--static Typography MuiTypography-h5"
+                class="MuiTypography-root ExpandableCard-title-26 ExpandableCard-titleStatic-27 Typography-root-33 MuiTypography-h5"
+                data-testid="typography"
               >
                 Title
               </h5>
             </div>
             <div
-              class="body"
+              class="ExpandableCard-body-29"
             >
               Body
             </div>
@@ -1619,27 +1647,28 @@ Object {
     <div>
       <div
         aria-label="Title"
-        class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-21 ExpandableCard-collapsed-22 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%; pointer-events: auto;"
       >
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-31"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-24"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-25"
             />
             <h5
-              class="MuiTypography-root title title--static Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-26 ExpandableCard-titleStatic-27 Typography-root-33 MuiTypography-h5"
+              data-testid="typography"
             >
               Title
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-29"
           >
             Body
           </div>
@@ -1708,27 +1737,28 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 1
   >
     <div
       aria-label="Title"
-      class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ExpandableCard-root-161 ExpandableCard-expanded-163 MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
       style="pointer-events: auto; height: 0px;"
     >
       <div
-        class="MuiCardContent-root content"
+        class="MuiCardContent-root ExpandableCard-content-171"
       >
         <div
-          class="header"
+          class="ExpandableCard-header-164"
         >
           <svg
-            class="icon"
+            class="ExpandableCard-icon-165"
           />
           <h5
-            class="MuiTypography-root title Typography MuiTypography-h5"
+            class="MuiTypography-root ExpandableCard-title-166 Typography-root-173 MuiTypography-h5"
+            data-testid="typography"
           >
             Title
           </h5>
         </div>
         <div
-          class="body"
+          class="ExpandableCard-body-169"
         >
           Body
         </div>
@@ -1745,27 +1775,28 @@ exports[`ExpandableCard component it expands the card when changing isExpanded 2
   >
     <div
       aria-label="Title"
-      class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ExpandableCard-root-161 ExpandableCard-collapsed-162 MuiPaper-elevation1 MuiPaper-rounded"
       role="button"
       style="pointer-events: auto; min-height: 100%;"
     >
       <div
-        class="MuiCardContent-root content"
+        class="MuiCardContent-root ExpandableCard-content-171"
       >
         <div
-          class="header"
+          class="ExpandableCard-header-164"
         >
           <svg
-            class="icon"
+            class="ExpandableCard-icon-165"
           />
           <h5
-            class="MuiTypography-root title title--static Typography MuiTypography-h5"
+            class="MuiTypography-root ExpandableCard-title-166 ExpandableCard-titleStatic-167 Typography-root-173 MuiTypography-h5"
+            data-testid="typography"
           >
             Title
           </h5>
         </div>
         <div
-          class="body"
+          class="ExpandableCard-body-169"
         >
           Body
         </div>
@@ -1791,27 +1822,28 @@ Object {
       <div>
         <div
           aria-label="Title"
-          class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiCard-root ExpandableCard-root-453 ExpandableCard-expanded-455 MuiPaper-elevation1 MuiPaper-rounded"
           role="button"
           style="min-height: 100%; pointer-events: auto;"
         >
           <div
-            class="MuiCardContent-root content"
+            class="MuiCardContent-root ExpandableCard-content-463"
           >
             <div
-              class="header"
+              class="ExpandableCard-header-456"
             >
               <svg
-                class="icon"
+                class="ExpandableCard-icon-457"
               />
               <h5
-                class="MuiTypography-root title Typography MuiTypography-h5"
+                class="MuiTypography-root ExpandableCard-title-458 Typography-root-465 MuiTypography-h5"
+                data-testid="typography"
               >
                 Title
               </h5>
             </div>
             <div
-              class="body"
+              class="ExpandableCard-body-461"
             >
               Body
             </div>
@@ -1824,27 +1856,28 @@ Object {
     <div>
       <div
         aria-label="Title"
-        class="MuiPaper-root MuiCard-root ExpandableCard ExpandableCard--expanded MuiPaper-elevation1 MuiPaper-rounded"
+        class="MuiPaper-root MuiCard-root ExpandableCard-root-453 ExpandableCard-expanded-455 MuiPaper-elevation1 MuiPaper-rounded"
         role="button"
         style="min-height: 100%; pointer-events: auto;"
       >
         <div
-          class="MuiCardContent-root content"
+          class="MuiCardContent-root ExpandableCard-content-463"
         >
           <div
-            class="header"
+            class="ExpandableCard-header-456"
           >
             <svg
-              class="icon"
+              class="ExpandableCard-icon-457"
             />
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root ExpandableCard-title-458 Typography-root-465 MuiTypography-h5"
+              data-testid="typography"
             >
               Title
             </h5>
           </div>
           <div
-            class="body"
+            class="ExpandableCard-body-461"
           >
             Body
           </div>

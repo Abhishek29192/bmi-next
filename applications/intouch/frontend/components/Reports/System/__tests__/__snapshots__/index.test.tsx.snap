@@ -4,13 +4,13 @@ exports[`SystemReport Component renders correctly 1`] = `
 <div>
   <div>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined sidePanelFooterButton MuiButton-outlinedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-outlined sidePanelFooterButton MuiButton-outlinedPrimary"
       data-testid="export-button"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-4"
+        class="MuiButton-label Button-label-4"
       >
         report.system
       </span>

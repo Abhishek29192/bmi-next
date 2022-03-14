@@ -3,45 +3,47 @@
 exports[`PostItCard component renders correctly 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--pearl"
+    class="ColorPair-root-5 ColorPair-pearl-7"
   >
     <div
-      class="PostItCard"
+      class="PostItCard-root-1"
     >
       <div
-        class="section"
+        class="PostItCard-section-2"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+          class="MuiTypography-root Typography-root-31 Typography-underline-33 MuiTypography-h4"
+          data-testid="typography"
         >
           Heading 1
         </h4>
         <div
-          class="content"
+          class="PostItCard-content-3"
         >
           Content
         </div>
         <div
-          class="action"
+          class="PostItCard-action-4"
         >
           Action
         </div>
       </div>
       <div
-        class="section"
+        class="PostItCard-section-2"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+          class="MuiTypography-root Typography-root-31 Typography-underline-33 MuiTypography-h4"
+          data-testid="typography"
         >
           Heading 2
         </h4>
         <div
-          class="content"
+          class="PostItCard-content-3"
         >
           Content
         </div>
         <div
-          class="action"
+          class="PostItCard-action-4"
         >
           Action
         </div>
@@ -54,45 +56,47 @@ exports[`PostItCard component renders correctly 1`] = `
 exports[`PostItCard component renders with different color pair 1`] = `
 <div>
   <div
-    class="ColorPair ColorPair--blue-900"
+    class="ColorPair-root-43 ColorPair-blue900-57"
   >
     <div
-      class="PostItCard"
+      class="PostItCard-root-39"
     >
       <div
-        class="section"
+        class="PostItCard-section-40"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+          class="MuiTypography-root Typography-root-69 Typography-underline-71 MuiTypography-h4"
+          data-testid="typography"
         >
           Heading 1
         </h4>
         <div
-          class="content"
+          class="PostItCard-content-41"
         >
           Content
         </div>
         <div
-          class="action"
+          class="PostItCard-action-42"
         >
           Action
         </div>
       </div>
       <div
-        class="section"
+        class="PostItCard-section-40"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+          class="MuiTypography-root Typography-root-69 Typography-underline-71 MuiTypography-h4"
+          data-testid="typography"
         >
           Heading 2
         </h4>
         <div
-          class="content"
+          class="PostItCard-content-41"
         >
           Content
         </div>
         <div
-          class="action"
+          class="PostItCard-action-42"
         >
           Action
         </div>

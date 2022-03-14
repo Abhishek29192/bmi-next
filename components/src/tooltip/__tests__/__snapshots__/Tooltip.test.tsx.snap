@@ -3,7 +3,7 @@
 exports[`Tooltip component renders correctly 1`] = `
 <div>
   <div
-    class="test className Tooltip"
+    class="test className ToggleCard-root-1"
     title="test title"
   >
     test children context

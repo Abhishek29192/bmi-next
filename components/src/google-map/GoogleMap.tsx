@@ -22,7 +22,7 @@ import GoogleApi, {
   Marker,
   MarkerOptionsWithData
 } from "../google-api/GoogleApi";
-import styles from "./GoogleMap.module.scss";
+import { useStyles } from "./styles";
 
 // This component is not concerned with the shape of
 // the arbitraty data sent into the marker.
@@ -93,6 +93,7 @@ const GoogleMap = ({
   zoom,
   ...mapOptions
 }: Props) => {
+  const classes = useStyles();
   const google = useContext<Google | null>(GoogleApi);
   const [error] = useState<Error>();
   const googleMap: MutableRefObject<Map | null> = useRef<Map>(null);
@@ -197,15 +198,15 @@ const GoogleMap = ({
   }, [zoom]);
 
   return (
-    <div className={styles["GoogleMap"]}>
-      <div className={styles["map"]} ref={mapElement}>
+    <div className={classes.root}>
+      <div className={classes.map} ref={mapElement}>
         {error ? (
-          <pre className={styles["error"]}>Error: {error.message}</pre>
+          <pre className={classes.error}>Error: {error.message}</pre>
         ) : (
           <CircularProgress />
         )}
       </div>
-      {children && <div className={styles["popup"]}>{children}</div>}
+      {children && <div className={classes.popup}>{children}</div>}
     </div>
   );
 };

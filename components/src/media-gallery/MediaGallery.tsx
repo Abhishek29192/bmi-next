@@ -5,7 +5,7 @@ import Media from "../media/Media";
 import Truncate from "../truncate/Truncate";
 import Typography from "../typography/Typography";
 import { YoutubeContext } from "./context";
-import styles from "./MediaGallery.module.scss";
+import { useMediaGalleryStyles } from "./styles";
 import { Media as MediaData } from "./types";
 import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
@@ -24,39 +24,15 @@ const renderThumbnails = () => {
     "ontouchstart" in document.documentElement;
   return isTouchDevice ? MobileThumbnails : DesktopThumbnails;
 };
-const renderMedia = (
-  mediaData: MediaData,
-  mediaSize: Props["mediaSize"],
-  layout?: Props["layout"]
-) => {
-  if (!mediaData) {
-    return null;
-  }
-  const { media } = mediaData;
-  const className = classnames(
-    styles["main-image-wrapper"],
-    mediaSize !== "contain" && styles[`main-image-wrapper--${mediaSize}`],
-    styles[`main-image-wrapper--${layout}`]
-  );
-
-  if (media) {
-    return (
-      <Media size={mediaSize} className={className}>
-        {media}
-      </Media>
-    );
-  }
-
-  return null;
-};
 
 const MediaGallery = ({
-  media = [],
+  media,
   mediaSize = "contain",
   layout = "default",
   className,
   thumbnailComponent
 }: Props) => {
+  const classes = useMediaGalleryStyles();
   const [currentMedias, setCurrentMedias] = useState<MediaData[]>([]);
   const [currentMedia, setCurrentMedia] = useState<MediaData | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
@@ -104,42 +80,53 @@ const MediaGallery = ({
   }
 
   return (
-    <div className={classnames(styles["MediaGallery"], className)}>
+    <div className={classnames(classes.root, className)}>
       {currentMedia && (
         <div
           className={classnames(
-            styles["image-wrapper"],
-            styles[currentMedia.visualiserParameters ? "visualiser-slide" : ""]
+            classes.imageWrapper,
+            currentMedia.visualiserParameters && classes.visualiserSlide
           )}
           onClick={onSlideClick}
         >
           <YoutubeContext.Provider value={showYouTubeVideo}>
-            {renderMedia(currentMedia, mediaSize, layout)}
+            {currentMedia?.media && (
+              <Media
+                size={mediaSize}
+                className={classnames(
+                  classes.mainImageWrapper,
+                  mediaSize === "cover" && classes.mainImageWrapperCover,
+                  layout && classes[`mainImageWrapper${layout}`]
+                )}
+              >
+                {currentMedia?.media}
+              </Media>
+            )}
           </YoutubeContext.Provider>
           {currentMedia.caption ? (
-            <div className={styles["caption"]}>
+            <div className={classes.caption}>
               <Typography
                 variant="h6"
                 component="p"
-                className={styles["caption-text"]}
+                className={classes.captionText}
               >
                 <Truncate lines={2}>{currentMedia.caption}</Truncate>
               </Typography>
             </div>
           ) : null}
           {currentMedia.visualiserParameters ? (
-            <div className={styles["caption-holder"]}>
-              <div className={styles["cube-holder"]}>
+            <div className={classes.captionHolder}>
+              <div className={classes.cubeHolder}>
                 <Icon
                   source={iconMap.Cube}
-                  className={styles["cube-icon"]}
+                  className={classes.cubeIcon}
                   name="Cube"
                 />
               </div>
               <Typography
                 variant="h6"
                 component="p"
-                className={styles["caption-text"]}
+                className={classes.captionText}
               >
                 {currentMedia.visualiserParameters.caption}
               </Typography>

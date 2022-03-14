@@ -5,7 +5,7 @@ import { ClickableAction } from "../clickable/Clickable";
 import Icon, { iconMap } from "../icon";
 import ShowMore from "../show-more/ShowMore";
 import Typography from "../typography/Typography";
-import styles from "./ExpandableLinksTextCard.module.scss";
+import { useStyles } from "./styles";
 
 function partitionLinks(links: Link[], separator?: number) {
   return links.reduce(
@@ -50,49 +50,44 @@ const ExpandableLinksTextCards = ({
   closeButton,
   anchorLinkComponent: AnchorLinkComponent = AnchorLink
 }: ExpandableLinksTextCardsProps) => {
+  const classes = useStyles();
   const { shownLinks, hiddenLinks } = partitionLinks(links, separator);
 
   return (
-    <div className={styles["ExpandableLinksTextCards"]}>
-      <Typography component="h3" variant="h5" className={styles["title"]}>
+    <div className={classes.root}>
+      <Typography component="h3" variant="h5" className={classes.title}>
         {title}
       </Typography>
       <nav>
-        <div className={styles["shown-links-container"]}>
+        <div className={classes.shownLinksContainer}>
           {shownLinks &&
             shownLinks.map(({ label, action }, index) => (
-              <div className={styles["link-wrapper"]} key={`${label}-${index}`}>
+              <div className={classes.linkWrapper} key={`${label}-${index}`}>
                 {action && action.model === "download" && (
-                  <Icon source={iconMap.Download} className={styles["icon"]} />
+                  <Icon source={iconMap.Download} className={classes.icon} />
                 )}
                 <AnchorLinkComponent
                   key={`${label}-${index}`}
                   action={action}
-                  className={styles["link"]}
+                  className={classes.link}
                 >
                   {label}
                 </AnchorLinkComponent>
               </div>
             ))}
         </div>
-        <div className={styles["hidden-links-container"]}>
+        <div className={classes.hiddenLinksContainer}>
           {hiddenLinks.length > 0 && (
             <ShowMore openButton={openButton} closeButton={closeButton}>
               {hiddenLinks.map(({ label, action }, index) => (
-                <div
-                  className={styles["link-wrapper"]}
-                  key={`${label}-${index}`}
-                >
+                <div className={classes.linkWrapper} key={`${label}-${index}`}>
                   {action && action.model === "download" && (
-                    <Icon
-                      source={iconMap.Download}
-                      className={styles["icon"]}
-                    />
+                    <Icon source={iconMap.Download} className={classes.icon} />
                   )}
                   <AnchorLinkComponent
                     key={`${label}-${index}`}
                     action={action}
-                    className={styles["link"]}
+                    className={classes.link}
                   >
                     {label}
                   </AnchorLinkComponent>

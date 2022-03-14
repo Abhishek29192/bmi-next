@@ -1,7 +1,8 @@
 import * as all from "@bmi-digital/use-dimensions";
 import { useMediaQuery } from "@material-ui/core";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import YoutubeVideo, { getSize } from "../YoutubeVideo";
 
 jest.mock("@material-ui/core", () => ({
@@ -113,10 +114,10 @@ describe("YoutubeVideo component", () => {
 
   describe("InPlaceVideo", () => {
     it("should render InPlaceVideo component inside YoutubeVideo", () => {
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="in-place" {...props} />
       );
-      const component = getByTestId("youtupe-inplace-wrapper");
+      const component = getByTestId("youtube-inplace-wrapper");
 
       expect(component).toBeInTheDocument();
     });
@@ -124,7 +125,7 @@ describe("YoutubeVideo component", () => {
     it("should render ReactPlayer if dimensions.width", () => {
       mockUseDimensionsOnce(400);
 
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="in-place" {...props} />
       );
 
@@ -135,7 +136,7 @@ describe("YoutubeVideo component", () => {
 
   describe("InlineVideo", () => {
     it("should render InlineVideo component inside YoutubeVideo", () => {
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="inline" {...props} />
       );
       const component = getByTestId("youtube-inline-wrapper");
@@ -143,7 +144,7 @@ describe("YoutubeVideo component", () => {
     });
 
     it("should trigger onGTMEvent", () => {
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="inline" {...props} />
       );
       fireEvent.click(getByTestId("youtube-inline-wrapper"));
@@ -151,7 +152,7 @@ describe("YoutubeVideo component", () => {
     });
 
     it("should trigger onGTMEvent only once", () => {
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="inline" {...props} />
       );
       fireEvent.click(getByTestId("youtube-inline-wrapper"));
@@ -162,14 +163,16 @@ describe("YoutubeVideo component", () => {
 
   describe("DialogVideo", () => {
     it("should render DialogVideo component inside YoutubeVideo", () => {
-      const { getByTestId } = render(<YoutubeVideo {...props} />);
+      const { getByTestId } = renderWithThemeProvider(
+        <YoutubeVideo layout="dialog" {...props} />
+      );
 
       const component = getByTestId("youtube-dialog-wrapper");
       expect(component).toBeInTheDocument();
     });
 
     it("should add data-gtm attribute to wrapper", () => {
-      const { getByTestId } = render(
+      const { getByTestId } = renderWithThemeProvider(
         <YoutubeVideo layout="dialog" {...props} />
       );
       expect(getByTestId("youtube-dialog-wrapper")).toHaveAttribute(
@@ -178,8 +181,16 @@ describe("YoutubeVideo component", () => {
       );
     });
 
+    it("should trigger onGTMEvent when dialog opened", () => {
+      const { getByAltText } = renderWithThemeProvider(
+        <YoutubeVideo layout="dialog" {...props} />
+      );
+      fireEvent.click(getByAltText(props.label));
+      expect(props.onGTMEvent).toBeCalled();
+    });
+
     test("should render correct previewImageSource", () => {
-      const { getByAltText } = render(
+      const { getByAltText } = renderWithThemeProvider(
         <YoutubeVideo
           {...props}
           layout="dialog"
@@ -191,7 +202,7 @@ describe("YoutubeVideo component", () => {
     });
 
     it("should trigger onGTMEvent", () => {
-      const { getByAltText } = render(
+      const { getByAltText } = renderWithThemeProvider(
         <YoutubeVideo layout="dialog" {...props} />
       );
       fireEvent.click(getByAltText(props.label));
@@ -199,7 +210,7 @@ describe("YoutubeVideo component", () => {
     });
 
     it("opens and close dialog on click", () => {
-      const { container, getByTestId, getByRole } = render(
+      const { container, getByTestId, getByRole } = renderWithThemeProvider(
         <YoutubeVideo layout="dialog" {...props} />
       );
 
@@ -218,14 +229,18 @@ describe("YoutubeVideo component", () => {
         normalTableWidth: 401,
         mediumTableWidth: 400
       });
-      const { container } = render(<YoutubeVideo {...props} />);
+      const { container } = renderWithThemeProvider(
+        <YoutubeVideo {...props} />
+      );
       expect(container).toMatchSnapshot();
     });
 
     it("should use fallback height if it can't get height from dimensions", () => {
       mockUseDimensionsOnce(0);
 
-      const { container } = render(<YoutubeVideo {...props} embedHeight={0} />);
+      const { container } = renderWithThemeProvider(
+        <YoutubeVideo {...props} embedHeight={0} />
+      );
       expect(container).toMatchSnapshot();
     });
 
@@ -234,7 +249,9 @@ describe("YoutubeVideo component", () => {
       mockUseMediaQuery.mockReturnValueOnce(true);
       mockUseMediaQuery.mockReturnValueOnce(true);
 
-      const { container } = render(<YoutubeVideo {...props} />);
+      const { container } = renderWithThemeProvider(
+        <YoutubeVideo {...props} />
+      );
       expect(container).toMatchSnapshot();
     });
   });

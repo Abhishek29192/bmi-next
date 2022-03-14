@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Typography } from "@bmi/components";
-import { withFormControl, checkboxStyles } from "@bmi/components";
+import { checkboxStyles, Typography, withFormControl } from "@bmi/components";
 import {
   Checkbox as MuiCheckbox,
   CheckboxProps,
@@ -8,6 +6,7 @@ import {
   FormControlLabel,
   FormHelperText
 } from "@material-ui/core";
+import React, { useState } from "react";
 import { convertMarkdownLinksToAnchorLinks } from "./FormSection";
 import styles from "./styles/CheckboxGroup.module.scss";
 
@@ -41,6 +40,7 @@ const CheckboxGroup = ({
     setSelected(val);
     onChange && onChange(val as string[]);
   };
+  const classes = checkboxStyles();
   return (
     <FormControl error={!!error}>
       <Typography className={styles["CheckboxGroup-heading"]}>
@@ -51,7 +51,7 @@ const CheckboxGroup = ({
         <FormControl
           key={$i}
           disabled={disabled}
-          className={checkboxStyles["Checkbox"]}
+          className={classes.root}
           fullWidth
         >
           <FormControlLabel

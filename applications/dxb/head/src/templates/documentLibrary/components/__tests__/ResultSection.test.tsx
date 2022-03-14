@@ -1,9 +1,10 @@
+import { ThemeProvider } from "@bmi/components";
+import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
-import { createPimProductDocument } from "@bmi/elasticsearch-types";
 import * as documentResultsFooter from "../../../../components/DocumentResultsFooter";
-import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
+import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -40,7 +41,11 @@ describe("ResultSection", () => {
   };
 
   it("render correctly", () => {
-    const { container } = render(<ResultSection {...props} />);
+    const { container } = render(
+      <ThemeProvider>
+        <ResultSection {...props} />
+      </ThemeProvider>
+    );
 
     expect(container.querySelector(".DocumentSimpleTableResults")).toBeTruthy();
     expect(
@@ -55,7 +60,11 @@ describe("ResultSection", () => {
       documentResultsFooter,
       "handleDownloadClick"
     );
-    const { getByText } = render(<ResultSection {...props} />);
+    const { getByText } = render(
+      <ThemeProvider>
+        <ResultSection {...props} />
+      </ThemeProvider>
+    );
 
     const downloadButton = getByText("MC: downloadList.download (0)");
     fireEvent.click(downloadButton);
@@ -67,7 +76,9 @@ describe("ResultSection", () => {
 
   it("not render downloadList when format is set to technicalTable", async () => {
     const { queryByText } = render(
-      <ResultSection {...{ ...props, format: "technicalTable" }} />
+      <ThemeProvider>
+        <ResultSection {...{ ...props, format: "technicalTable" }} />
+      </ThemeProvider>
     );
 
     expect(queryByText("MC: downloadList.clear")).toBeFalsy();

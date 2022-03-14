@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import {
   createHistory,
   createMemorySource,
@@ -38,13 +39,15 @@ const renderWithStylesAndLocationProvider = (
   pageContext: Props["pageContext"]
 ): RenderResult =>
   render(
-    <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
-      <ProvideStyles>
-        <LocationProvider history={history}>
-          <SimplePage data={pageData} pageContext={pageContext} />
-        </LocationProvider>
-      </ProvideStyles>
-    </ConfigProvider>
+    <ThemeProvider>
+      <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
+        <ProvideStyles>
+          <LocationProvider history={history}>
+            <SimplePage data={pageData} pageContext={pageContext} />
+          </LocationProvider>
+        </ProvideStyles>
+      </ConfigProvider>
+    </ThemeProvider>
   );
 
 const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {

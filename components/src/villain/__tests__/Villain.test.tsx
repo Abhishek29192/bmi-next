@@ -1,12 +1,12 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import testImage from "test-image.png";
 import Button from "../../button/Button";
 import Villain from "../Villain";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Villain component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
@@ -23,7 +23,7 @@ describe("Villain component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders reversed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
@@ -40,7 +40,7 @@ describe("Villain component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders full size", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
@@ -58,7 +58,7 @@ describe("Villain component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders full size and reversed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Villain
         title="H2 Heading"
         media={<img src={testImage} alt="Lorem ipsum" />}
@@ -86,7 +86,7 @@ describe("Villain component", () => {
         };
       }
     });
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Villain
         title="H2 Heading"
         cta={<Button>Call to action</Button>}

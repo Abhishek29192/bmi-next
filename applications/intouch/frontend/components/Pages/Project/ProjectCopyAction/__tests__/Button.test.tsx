@@ -1,7 +1,8 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
-import ProjectCopyAction from "../Button";
 import { generateProject } from "../../../../../lib/tests/factories/project";
 import { renderAsDeep, screen } from "../../../../../lib/tests/utils";
+import ProjectCopyAction from "../Button";
 
 jest.mock("../../../../../lib/logger", () => jest.fn());
 
@@ -37,7 +38,9 @@ describe("ProjectCopyAction Component", () => {
   it("renders correctly and proper flow execution", () => {
     const project = generateProject();
     const { container } = renderAsDeep({ account: { role: "SUPER_ADMIN" } })(
-      <ProjectCopyAction parentProject={project} />
+      <ThemeProvider>
+        <ProjectCopyAction parentProject={project} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -61,7 +64,9 @@ describe("ProjectCopyAction Component", () => {
   it("error", () => {
     const project = generateProject();
     renderAsDeep({ account: { role: "SUPER_ADMIN" } })(
-      <ProjectCopyAction parentProject={project} />
+      <ThemeProvider>
+        <ProjectCopyAction parentProject={project} />
+      </ThemeProvider>
     );
 
     const openButton = screen.getByText("projectDetails.cta.copy");

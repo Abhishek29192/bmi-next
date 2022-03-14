@@ -1,6 +1,6 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import * as all from "@bmi-digital/use-dimensions";
+import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Table, { TableProps } from "../Table";
 
 function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
@@ -59,12 +59,12 @@ describe("Table component", () => {
       normalTableWidth: 400,
       mediumTableWidth: 400
     });
-    const { container } = render(<ExampleTable />);
+    const { container } = renderWithThemeProvider(<ExampleTable />);
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly without width", () => {
-    const { container } = render(<ExampleTable />);
+    const { container } = renderWithThemeProvider(<ExampleTable />);
     expect(container).toMatchSnapshot();
   });
 
@@ -74,7 +74,9 @@ describe("Table component", () => {
       normalTableWidth: 400,
       mediumTableWidth: 400
     });
-    const { container } = render(<ExampleTable theme="blue-900" />);
+    const { container } = renderWithThemeProvider(
+      <ExampleTable theme="blue900" />
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -84,7 +86,7 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 400
     });
-    const { container } = render(<ExampleTable />);
+    const { container } = renderWithThemeProvider(<ExampleTable />);
     expect(container).toMatchSnapshot();
   });
 
@@ -94,9 +96,11 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 400
     });
-    const { container } = render(<ExampleTable hasNoBorder />);
+    const { container } = renderWithThemeProvider(<ExampleTable hasNoBorder />);
     expect(container).toMatchSnapshot();
-    expect(container.getElementsByClassName("Table--no-border").length).toBe(1);
+    expect(container.querySelectorAll("[class*=Table-noBorder-]").length).toBe(
+      1
+    );
   });
   it("renders small table with no border", () => {
     mockUseDimensions({
@@ -104,11 +108,11 @@ describe("Table component", () => {
       normalTableWidth: 400,
       mediumTableWidth: 401
     });
-    const { container } = render(<ExampleTable hasNoBorder />);
+    const { container } = renderWithThemeProvider(<ExampleTable hasNoBorder />);
     expect(container).toMatchSnapshot();
-    expect(
-      container.getElementsByClassName("SmallTable--no-border").length
-    ).toBe(1);
+    expect(container.querySelectorAll("[class*=Table-noBorder-]").length).toBe(
+      1
+    );
   });
 
   it("without header renders with reduced size - list view even if there is enough space", () => {
@@ -117,7 +121,7 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 400
     });
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Table>
         <Table.Body>
           <Table.Row>
@@ -140,7 +144,7 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 401
     });
-    const { container } = render(<ExampleTable />);
+    const { container } = renderWithThemeProvider(<ExampleTable />);
     expect(container).toMatchSnapshot();
   });
 
@@ -150,7 +154,7 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 400
     });
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Table rowBgColorPattern="none">
         <Table.Body>
           <Table.Row>
@@ -172,7 +176,7 @@ describe("Table component", () => {
       normalTableWidth: 401,
       mediumTableWidth: 400
     });
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Table>
         <Table.Head>
           <Table.Row>
@@ -191,7 +195,7 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     try {
-      render(
+      renderWithThemeProvider(
         <Table>
           <Table.Head>{null}</Table.Head>
           <Table.Body>
@@ -213,7 +217,7 @@ describe("Table component", () => {
       mediumTableWidth: 400
     });
     try {
-      render(
+      renderWithThemeProvider(
         <Table>
           <Table.Head>Head</Table.Head>
           <Table.Body>

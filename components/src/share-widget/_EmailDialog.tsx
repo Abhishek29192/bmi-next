@@ -4,7 +4,7 @@ import Dialog from "../dialog/Dialog";
 import Form from "../form/Form";
 import { InputValue } from "../form/withFormControl";
 import TextField from "../text-field/TextField";
-import styles from "./EmailDialog.module.scss";
+import { useEmailDialogStyles } from "./styles";
 
 type Props = {
   title?: string;
@@ -19,6 +19,7 @@ const EmailDialog = ({
   open,
   setOpen
 }: Props) => {
+  const classes = useEmailDialogStyles();
   const handleOnSubmit = (
     _: FormEvent<HTMLFormElement>,
     { email, message, name }: Record<string, InputValue | undefined>
@@ -39,7 +40,7 @@ const EmailDialog = ({
     <Dialog
       open={open}
       onCloseClick={() => setOpen(false)}
-      className={styles["EmailDialog"]}
+      className={classes.root}
       color="alabaster"
     >
       <Dialog.Title hasUnderline>{title}</Dialog.Title>
@@ -51,7 +52,7 @@ const EmailDialog = ({
             isRequired
             variant="outlined"
             label="Recipient's email address"
-            className={styles["input"]}
+            className={classes.input}
             getValidationError={validateEmail}
             fullWidth
           />
@@ -60,7 +61,7 @@ const EmailDialog = ({
             isRequired
             label="Your name"
             variant="outlined"
-            className={styles["input"]}
+            className={classes.input}
             fullWidth
           />
           <TextField
@@ -68,13 +69,13 @@ const EmailDialog = ({
             name="message"
             label="Your message (optional)"
             variant="outlined"
-            className={styles["input"]}
+            className={classes.input}
             rows="6"
             fullWidth
           />
           <Checkbox
             name="terms-privacy"
-            className={styles["input"]}
+            className={classes.input}
             isRequired
             label="By submitting this form I aggree to the terms of BMI's website
               terms of use and privacy policy"

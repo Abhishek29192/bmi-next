@@ -1,5 +1,6 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
 import { Feature } from "../../types/pim";
 import ProductFeaturesTable from "../ProductFeaturesTable";
 
@@ -7,7 +8,9 @@ describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {
     it("When no features provided", () => {
       const wrapper = render(
-        <ProductFeaturesTable hasNoBorder features={[]} />
+        <ThemeProvider>
+          <ProductFeaturesTable hasNoBorder features={[]} />
+        </ThemeProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -25,7 +28,9 @@ describe("ProductFeaturesTable component", () => {
       ];
 
       const wrapper = render(
-        <ProductFeaturesTable hasNoBorder features={features} />
+        <ThemeProvider>
+          <ProductFeaturesTable hasNoBorder features={features} />
+        </ThemeProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -43,7 +48,9 @@ describe("ProductFeaturesTable component", () => {
       ];
 
       const wrapper = render(
-        <ProductFeaturesTable hasNoBorder={false} features={features} />
+        <ThemeProvider>
+          <ProductFeaturesTable hasNoBorder={false} features={features} />
+        </ThemeProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -61,11 +68,13 @@ describe("ProductFeaturesTable component", () => {
       ];
 
       const wrapper = render(
-        <ProductFeaturesTable
-          hasNoBorder={false}
-          features={features}
-          HeadRow={<div>Header Row</div>}
-        />
+        <ThemeProvider>
+          <ProductFeaturesTable
+            hasNoBorder={false}
+            features={features}
+            HeadRow={<div>Header Row</div>}
+          />
+        </ThemeProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });
@@ -83,11 +92,13 @@ describe("ProductFeaturesTable component", () => {
       ];
 
       const wrapper = render(
-        <ProductFeaturesTable
-          hasNoBorder
-          features={features}
-          rowBgColorPattern="even"
-        />
+        <ThemeProvider>
+          <ProductFeaturesTable
+            hasNoBorder
+            features={features}
+            rowBgColorPattern="even"
+          />
+        </ThemeProvider>
       );
       expect(wrapper.baseElement).toMatchSnapshot();
     });

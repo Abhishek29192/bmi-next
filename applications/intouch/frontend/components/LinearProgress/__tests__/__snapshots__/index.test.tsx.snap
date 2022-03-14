@@ -18,7 +18,8 @@ exports[`LinearProgress render correctly 1`] = `
       class="linearProgressLabel"
     >
       <p
-        class="MuiTypography-root Typography body3 MuiTypography-body2"
+        class="MuiTypography-root Typography-root-1 Typography-body3-2 MuiTypography-body2"
+        data-testid="typography"
       >
         10 / 30
       </p>
@@ -45,7 +46,8 @@ exports[`LinearProgress render correctly with custom LinearProgress Props 1`] = 
       class="linearProgressLabel"
     >
       <p
-        class="MuiTypography-root Typography body3 MuiTypography-body2"
+        class="MuiTypography-root Typography-root-9 Typography-body3-10 MuiTypography-body2"
+        data-testid="typography"
       >
         10 / 30
       </p>

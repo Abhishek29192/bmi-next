@@ -1,13 +1,14 @@
+import { useTheme } from "@material-ui/core";
 import React from "react";
 import Masonry from "react-masonry-css";
-import { useTheme } from "@material-ui/core";
-import styles from "./MasonryGrid.module.scss";
+import { useStyles } from "./styles";
 
 type MasonryGridProps = {
   children: React.ReactNode;
 };
 
 const MasonryGrid = ({ children }: MasonryGridProps) => {
+  const classes = useStyles();
   const defaultTheme = useTheme();
 
   const { lg, md, sm, xs } = defaultTheme.breakpoints.values;
@@ -23,8 +24,8 @@ const MasonryGrid = ({ children }: MasonryGridProps) => {
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
-      className={styles["MasonryGrid"]!}
-      columnClassName={styles["column"]}
+      className={classes.root}
+      columnClassName={classes.column}
     >
       {children}
     </Masonry>

@@ -5,8 +5,8 @@ import React, { Fragment } from "react";
 import { withClickable } from "../clickable";
 import Media, { AcceptedNode } from "../media";
 import Typography from "../typography/Typography";
-import { transformHyphens } from "../utils/commonUtils";
-import styles from "./OverviewCard.module.scss";
+import { transformHyphens } from "../utils/hyphenUtils";
+import { useStyles } from "./styles";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {
   title: React.ReactNode;
@@ -30,13 +30,12 @@ const BrandLogo = ({
   brandImageSource,
   media
 }: Pick<Props, "brandImageSource" | "media">) => {
+  const classes = useStyles();
   if (!brandImageSource) {
     return null;
   }
 
-  const className = classnames(styles["brand-logo"], {
-    [styles["brand-logo--negative"]!]: Boolean(media)
-  });
+  const className = classnames(classes.brandLogo, media && classes.negative);
 
   if (typeof brandImageSource === "string") {
     return (
@@ -73,6 +72,7 @@ const OverviewCard = ({
   moreOptionsAvailable = false,
   ...rest
 }: Props) => {
+  const classes = useStyles();
   const ClickableArea = ({
     className,
     children
@@ -89,7 +89,7 @@ const OverviewCard = ({
   const Body = !isFlat && clickableArea === "body" ? ClickableArea : "div";
   const Title = ({ ...rest }): JSX.Element =>
     isFlat && title ? (
-      <ClickableArea className={styles["clickable"]} {...rest} />
+      <ClickableArea className={classes.clickableArea} {...rest} />
     ) : (
       <Fragment {...rest} />
     );
@@ -97,51 +97,47 @@ const OverviewCard = ({
   return (
     <Wrapper
       className={classnames(
-        styles["OverviewCard"],
-        {
-          [styles["OverviewCard--highlighted"]!]: isHighlighted
-        },
-        isFlat && styles[`OverviewCard--flat`],
-        !isFlat &&
-          clickableArea !== "none" &&
-          styles[`OverviewCard--clickable`],
+        classes.root,
+        isHighlighted && classes.highlighted,
+        isFlat && classes.flat,
+        !isFlat && clickableArea !== "none" && classes.clickable,
         className
       )}
     >
-      <Media size={imageSize} className={styles["header-picture"]}>
+      <Media size={imageSize} className={classes.headerPicture}>
         {media}
       </Media>
-      <Body className={styles["body"]}>
+      <Body className={classes.body}>
         <BrandLogo brandImageSource={brandImageSource} media={media} />
         <Typography
           variant={titleVariant}
           className={classnames(
-            styles["title"],
-            !brandImageSource && styles["title--no-brand-logo"]
+            classes.title,
+            !brandImageSource && classes.noBrandLogo
           )}
         >
           <Title>{transformHyphens(title)}</Title>
         </Typography>
         {!moreOptionsAvailable && subtitle && (
-          <Typography variant={subtitleVariant} className={styles["text"]}>
+          <Typography variant={subtitleVariant} className={classes.text}>
             {transformHyphens(subtitle)}
           </Typography>
         )}
         {moreOptionsAvailable && (
-          <Typography variant={subtitleVariant} className={styles["text"]}>
+          <Typography variant={subtitleVariant} className={classes.text}>
             {transformHyphens(moreOptionsAvailable)}
           </Typography>
         )}
         <div
           className={classnames(
-            styles["children"],
-            styles["text"],
-            hasChildrenWithoutMargin && styles["children--without-margin"]
+            classes.children,
+            classes.text,
+            hasChildrenWithoutMargin && classes.withoutMargin
           )}
         >
           {transformHyphens(children)}
         </div>
-        {footer && <div className={styles["footer"]}>{footer}</div>}
+        {footer && <div className={classes.footer}>{footer}</div>}
       </Body>
     </Wrapper>
   );

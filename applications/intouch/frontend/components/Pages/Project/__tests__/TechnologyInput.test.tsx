@@ -1,15 +1,17 @@
+import { Form, ThemeProvider } from "@bmi/components";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { Form } from "@bmi/components";
-import TechnologyInput from "../TechnologyInput";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";
+import TechnologyInput from "../TechnologyInput";
 
 describe("TechnologyInput", () => {
   it("should render correctly", () => {
     const { container } = render(
-      <I18nProvider>
-        <TechnologyInput />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TechnologyInput />
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -17,9 +19,11 @@ describe("TechnologyInput", () => {
 
   it("should render disabled", () => {
     const { container } = render(
-      <I18nProvider>
-        <TechnologyInput disabled />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TechnologyInput disabled />
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -27,11 +31,13 @@ describe("TechnologyInput", () => {
 
   it("should render with a default value", async () => {
     const { container } = render(
-      <I18nProvider>
-        <Form>
-          <TechnologyInput defaultValue="FLAT" />
-        </Form>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <Form>
+            <TechnologyInput defaultValue="FLAT" />
+          </Form>
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     // NOTE: Checked attribute does not change in the snapshots
@@ -48,11 +54,13 @@ describe("TechnologyInput", () => {
 
   it("should change value when interacted with", async () => {
     const { container } = render(
-      <I18nProvider>
-        <Form>
-          <TechnologyInput defaultValue="FLAT" />
-        </Form>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <Form>
+            <TechnologyInput defaultValue="FLAT" />
+          </Form>
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     const inputPitched = container.querySelector<HTMLInputElement>(

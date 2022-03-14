@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
@@ -22,17 +23,19 @@ const MockSiteContext = ({
   children: React.ReactNode;
 }) => {
   return (
-    <ConfigProvider configObject={mockEnvConfig}>
-      <SiteContextProvider
-        value={{
-          ...getMockSiteContext("no"),
-          reCaptchaKey: "1234",
-          reCaptchaNet: false
-        }}
-      >
-        {children}
-      </SiteContextProvider>
-    </ConfigProvider>
+    <ThemeProvider>
+      <ConfigProvider configObject={mockEnvConfig}>
+        <SiteContextProvider
+          value={{
+            ...getMockSiteContext("no"),
+            reCaptchaKey: "1234",
+            reCaptchaNet: false
+          }}
+        >
+          {children}
+        </SiteContextProvider>
+      </ConfigProvider>
+    </ThemeProvider>
   );
 };
 
@@ -118,9 +121,11 @@ beforeEach(() => {
 describe("SampleBasketSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSection data={data} />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketSection data={data} />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();

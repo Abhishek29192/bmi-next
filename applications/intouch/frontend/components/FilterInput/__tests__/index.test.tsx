@@ -1,10 +1,15 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
 import { FilterInput } from "..";
 
 describe("FilterInput Component", () => {
   it("renders correctly", () => {
-    const { container } = render(<FilterInput label="Filter Input" />);
+    const { container } = render(
+      <ThemeProvider>
+        <FilterInput label="Filter Input" />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
   });

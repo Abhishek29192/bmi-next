@@ -1,7 +1,7 @@
+import { ThemeProvider } from "@bmi/components";
 import { History } from "@reach/router";
 import { screen, waitFor } from "@testing-library/dom";
 import React from "react";
-
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -47,9 +47,11 @@ const withProviders = ({
   renderComponent: React.ReactElement;
 }) => {
   return renderWithRouter(
-    <ConfigProvider configObject={customConfig}>
-      <ProvideStyles>{renderComponent}</ProvideStyles>
-    </ConfigProvider>,
+    <ThemeProvider>
+      <ConfigProvider configObject={customConfig}>
+        <ProvideStyles>{renderComponent}</ProvideStyles>
+      </ConfigProvider>
+    </ThemeProvider>,
     routerObject
   );
 };
@@ -113,7 +115,7 @@ describe("SystemDetailsPage template component", () => {
         />
       )
     });
-    const tabSection = container.querySelector(".TabsBar");
+    const tabSection = container.querySelector("[class*='TabsBar']");
 
     expect(container).toMatchSnapshot();
     expect(tabSection).toBeInTheDocument();

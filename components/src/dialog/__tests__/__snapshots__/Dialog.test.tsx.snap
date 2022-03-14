@@ -8,7 +8,6 @@ exports[`Dialog component renders closed 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -21,24 +20,25 @@ exports[`Dialog component renders closed 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-199 ColorPair-white-200"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-md"
+        class="Dialog-root-185 Dialog-bg-white-192 Dialog-width-md-196"
       >
         <div
-          class="header"
+          class="Dialog-header-186"
         >
           <h3
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+            class="MuiTypography-root Dialog-title-187 Dialog-title-187 Typography-root-225 Typography-underline-227 MuiTypography-h3"
+            data-testid="typography"
           >
             Heading
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-244 iconButton IconButton-medium-250 IconButton-text-246 Dialog-iconButton-188"
             tabindex="0"
             type="button"
           >
@@ -62,20 +62,20 @@ exports[`Dialog component renders closed 1`] = `
           </button>
         </div>
         <div
-          class="content"
+          class="Dialog-content-189"
         >
           Some content
         </div>
         <div
-          class="actions"
+          class="Dialog-actions-190"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-233 MuiButton-contained Button-contained-235 Dialog-actionButton-191 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-44"
+              class="MuiButton-label Button-label-236"
             >
               Close
             </span>
@@ -102,7 +102,6 @@ exports[`Dialog component renders correctly 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -115,24 +114,25 @@ exports[`Dialog component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-15 ColorPair-white-16"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-md"
+        class="Dialog-root-1 Dialog-bg-white-8 Dialog-width-md-12"
       >
         <div
-          class="header"
+          class="Dialog-header-2"
         >
           <h3
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+            class="MuiTypography-root Dialog-title-3 Dialog-title-3 Typography-root-41 Typography-underline-43 MuiTypography-h3"
+            data-testid="typography"
           >
             Heading
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-60 iconButton IconButton-medium-66 IconButton-text-62 Dialog-iconButton-4"
             tabindex="0"
             type="button"
           >
@@ -156,20 +156,20 @@ exports[`Dialog component renders correctly 1`] = `
           </button>
         </div>
         <div
-          class="content"
+          class="Dialog-content-5"
         >
           Some content
         </div>
         <div
-          class="actions"
+          class="Dialog-actions-6"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-49 MuiButton-contained Button-contained-51 Dialog-actionButton-7 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-52"
             >
               Close
             </span>
@@ -196,7 +196,6 @@ exports[`Dialog component renders without a heading 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -209,19 +208,19 @@ exports[`Dialog component renders without a heading 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-267 ColorPair-white-268"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-md"
+        class="Dialog-root-253 Dialog-bg-white-260 Dialog-width-md-264"
       >
         <div
-          class="header"
+          class="Dialog-header-254"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-304 iconButton IconButton-medium-310 IconButton-text-306 Dialog-iconButton-256"
             tabindex="0"
             type="button"
           >
@@ -245,20 +244,20 @@ exports[`Dialog component renders without a heading 1`] = `
           </button>
         </div>
         <div
-          class="content"
+          class="Dialog-content-257"
         >
           Some content
         </div>
         <div
-          class="actions"
+          class="Dialog-actions-258"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 actionButton MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-293 MuiButton-contained Button-contained-295 Dialog-actionButton-259 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-64"
+              class="MuiButton-label Button-label-296"
             >
               Close
             </span>
@@ -285,7 +284,6 @@ exports[`Dialog component renders without close icon 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -298,24 +296,25 @@ exports[`Dialog component renders without close icon 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-151 ColorPair-white-152"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-md"
+        class="Dialog-root-137 Dialog-bg-white-144 Dialog-width-md-148"
       >
         <div
-          class="header"
+          class="Dialog-header-138"
         >
           <h3
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+            class="MuiTypography-root Dialog-title-139 Dialog-title-139 Typography-root-177 Typography-underline-179 MuiTypography-h3"
+            data-testid="typography"
           >
             Heading
           </h3>
         </div>
         <div
-          class="content"
+          class="Dialog-content-141"
         >
           Some content
         </div>
@@ -337,7 +336,6 @@ exports[`Dialog component renders without confirm label 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -350,24 +348,25 @@ exports[`Dialog component renders without confirm label 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-83 ColorPair-white-84"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-md"
+        class="Dialog-root-69 Dialog-bg-white-76 Dialog-width-md-80"
       >
         <div
-          class="header"
+          class="Dialog-header-70"
         >
           <h3
-            class="MuiTypography-root title title Typography Typography--underline MuiTypography-h3"
+            class="MuiTypography-root Dialog-title-71 Dialog-title-71 Typography-root-109 Typography-underline-111 MuiTypography-h3"
+            data-testid="typography"
           >
             Heading
           </h3>
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-128 iconButton IconButton-medium-134 IconButton-text-130 Dialog-iconButton-72"
             tabindex="0"
             type="button"
           >
@@ -391,12 +390,12 @@ exports[`Dialog component renders without confirm label 1`] = `
           </button>
         </div>
         <div
-          class="content"
+          class="Dialog-content-73"
         >
           Some content
         </div>
         <div
-          class="actions"
+          class="Dialog-actions-74"
         />
       </div>
     </div>

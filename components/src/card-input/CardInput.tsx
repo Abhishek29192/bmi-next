@@ -1,9 +1,7 @@
-import React from "react";
 import classnames from "classnames";
-import ToggleCard, {
-  Props as ToggleCardProps
-} from "../toggle-card/ToggleCard";
-import styles from "./CardInput.module.scss";
+import React from "react";
+import ToggleCard, { ToggleCardProps } from "../toggle-card";
+import { useStyles } from "./styles";
 
 export type Props = {
   type?: "radio" | "checkbox";
@@ -23,14 +21,16 @@ const CardInput = ({
   onChange,
   ...rest
 }: Props) => {
+  const classes = useStyles();
+
   return (
-    <div className={classnames(styles["CardInput"], className)}>
+    <div className={classnames(classes.root, className)}>
       <label>
         <input
-          className={styles["input"]}
+          className={classes.input}
           {...{ type, name, value, checked, onChange }}
         />
-        <ToggleCard className={styles["card"]} {...rest} />
+        <ToggleCard className={classes.card} {...rest} />
       </label>
     </div>
   );

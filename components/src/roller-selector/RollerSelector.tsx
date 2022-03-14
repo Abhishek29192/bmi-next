@@ -1,8 +1,8 @@
-import React from "react";
-import classnames from "classnames";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import { ArrowForward } from "@material-ui/icons";
-import styles from "./RollerSelector.module.scss";
+import classnames from "classnames";
+import React from "react";
+import { useStyles } from "./styles";
 
 type Props = {
   children: React.ReactNode;
@@ -18,18 +18,19 @@ const RollerSelector = ({
   className,
   ...rest
 }: Props) => {
+  const classes = useStyles();
   return (
     <Component
       onClick={onClick}
       className={classnames(
         className,
-        styles["RollerSelector"],
-        isSelected && styles["RollerSelector--selected"]
+        classes.root,
+        isSelected && classes.selected
       )}
       {...rest}
     >
       {children}
-      <ArrowForward className={styles["icon"]} />
+      <ArrowForward className={classes.icon} />
     </Component>
   );
 };

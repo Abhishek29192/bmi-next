@@ -1,7 +1,7 @@
-import React from "react";
 import { Table } from "@bmi/components";
 import { graphql } from "gatsby";
-import styles from "./styles/EmbeddedTable.module.scss";
+import React from "react";
+import { useStyles } from "./styles/EmbeddedTableStyles";
 
 type TableFields = {
   data: {
@@ -18,13 +18,14 @@ const EmbeddedTable = ({ fields }: Props) => {
     data: { tableData }
   } = fields;
   const [head, ...rows] = tableData || [];
+  const classes = useStyles();
 
   if (!head) {
     return null;
   }
 
   return (
-    <div className={styles["EmbeddedTable"]}>
+    <div className={classes.root}>
       <Table>
         <Table.Head>
           <Table.Row>

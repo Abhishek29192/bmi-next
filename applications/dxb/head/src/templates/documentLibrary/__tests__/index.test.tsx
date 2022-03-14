@@ -1,4 +1,5 @@
 /* eslint-disable prefer-spread */
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, RenderResult, waitFor } from "@testing-library/react";
 import React from "react";
 import DocumentLibraryPage, { PAGE_SIZE } from "../";
@@ -64,14 +65,16 @@ const renderWithProviders = ({
   const filters = filtersMock();
   const defaultPageData = createData(filters);
   return renderWithRouter(
-    <ConfigProvider
-      configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
-    >
-      <DocumentLibraryPage
-        data={pageData || defaultPageData}
-        pageContext={pageContext || defaultPageContext}
-      />
-    </ConfigProvider>,
+    <ThemeProvider>
+      <ConfigProvider
+        configObject={{ ...defaultPageEnvVars, ...mockEnvVariables }}
+      >
+        <DocumentLibraryPage
+          data={pageData || defaultPageData}
+          pageContext={pageContext || defaultPageContext}
+        />
+      </ConfigProvider>
+    </ThemeProvider>,
     { route }
   );
 };
@@ -86,21 +89,25 @@ describe("Document Library page", () => {
   it("renders correctly ", async () => {
     const { container, getByTestId, getByText } = renderWithProviders({});
     expect(container.querySelectorAll("header").length).toBe(1);
-    expect(container.querySelectorAll(".Footer").length).toBe(1);
+    expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
+    expect(container.querySelector("[class*='Hero']")).toBeTruthy();
     expect(
-      container.querySelector(".Section--white .Filters .scroll-bar")
+      container.querySelector("[class*='Hero'] [class*='Breadcrumbs']")
+    ).toBeTruthy();
+    expect(
+      container.querySelector("[class*='white'] .Filters .scroll-bar")
     ).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.title")).toBeTruthy();
     expect(getByText("MC: documentLibrary.filters.clearAll")).toBeTruthy();
     expect(mockQueryES).toBeCalled();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim")
+      container.querySelector("[class*='alabaster'][class*='slim']")
     ).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
+      container.querySelector(
+        "[class*='alabaster'][class*='slim'] [class*='Breadcrumbs']"
+      )
     ).toBeTruthy();
   });
 
@@ -168,7 +175,7 @@ describe("Document Library page", () => {
 
     await waitFor(() => expect(mockQueryES).toBeCalled());
     expect(
-      container.querySelector(".DocumentTechnicalTableResults")
+      container.querySelector("[class*=DocumentTechnicalTableResults-root]")
     ).toBeTruthy();
     expect(container.querySelector(`a[href="https://url"]`)).toBeTruthy();
     expect(container.querySelector(".results")).toBeTruthy();

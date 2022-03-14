@@ -16,7 +16,7 @@ import {
   ShoppingCartOutlined
 } from "@material-ui/icons";
 import classnames from "classnames";
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { GTM } from "../";
 import Button from "../button/Button";
 import Clickable, {
@@ -37,12 +37,8 @@ import Navigation, {
 } from "../navigation/Navigation";
 import Search from "../search/Search";
 import Typography from "../typography/Typography";
-import styles from "./Header.module.scss";
-import {
-  getElementWidths,
-  getSize,
-  HeaderSizes
-} from "./utils/widthCalculations";
+import { useStyles } from "./styles";
+import { getElementWidths, getSize, HeaderSizes } from "./widthCalculations";
 
 type HeaderProps = {
   language?: LanguageSelectionItem;
@@ -113,15 +109,12 @@ const Header = ({
   isGatsbyDisabledElasticSearch,
   isSpaEnabled
 }: HeaderProps) => {
+  const classes = useStyles();
   const body =
     typeof document !== "undefined"
       ? document.querySelector("body")
       : undefined;
-  const [sizes, setSizes] = React.useState<HeaderSizes>([
-    "small",
-    "medium",
-    "large"
-  ]);
+  const [sizes, setSizes] = useState<HeaderSizes>(["small", "medium", "large"]);
   const [showLanguageSelection, setShowLanguageSelection] =
     React.useState<boolean>(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
@@ -155,10 +148,10 @@ const Header = ({
     newValue: any
   ) => {
     if (value === newValue) {
-      amendClassList(styles.MenuIsOpen!, "remove");
+      amendClassList(classes.menuIsOpen, "remove");
       setValue(false);
     } else {
-      amendClassList(styles.MenuIsOpen!, "add");
+      amendClassList(classes.menuIsOpen, "add");
       setShowSearch(false);
       setShowCart(false);
       setValue(newValue);
@@ -167,10 +160,10 @@ const Header = ({
 
   const toggleMenu = () => {
     if (typeof value === "number" || value === true) {
-      amendClassList(styles.MenuIsOpen!, "remove");
+      amendClassList(classes.menuIsOpen, "remove");
       setValue(false);
     } else {
-      amendClassList(styles.MenuIsOpen!, "add");
+      amendClassList(classes.menuIsOpen, "add");
       setShowSearch(false);
       setShowCart(false);
       setValue(!value);
@@ -185,7 +178,7 @@ const Header = ({
   const toggleCart = () => {
     if (!showCart) {
       setValue(false);
-      amendClassList(styles.MenuIsOpen!, "remove");
+      amendClassList(classes.menuIsOpen!, "remove");
     }
     if (showSearch) {
       setShowSearch(false);
@@ -196,7 +189,7 @@ const Header = ({
   const toggleSearch = () => {
     if (!showSearch) {
       setValue(false);
-      amendClassList(styles.MenuIsOpen!, "remove");
+      amendClassList(classes.menuIsOpen, "remove");
     }
     setShowCart(false);
     setShowSearch(!showSearch);
@@ -207,7 +200,7 @@ const Header = ({
     setShowLanguageSelection(false);
     setShowSearch(false);
     setShowCart(false);
-    amendClassList(styles.MenuIsOpen!, "remove");
+    amendClassList(classes.menuIsOpen!, "remove");
   };
 
   const handleResize = ({ currentTarget }: Pick<UIEvent, "currentTarget">) => {
@@ -218,8 +211,8 @@ const Header = ({
     setSizes(getSize(target.innerWidth, elementWidths));
   };
 
-  React.useEffect(() => {
-    amendClassList(styles.MenuIsOpen!, "remove");
+  useEffect(() => {
+    amendClassList(classes.menuIsOpen, "remove");
     handleResize({ currentTarget: window });
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -249,8 +242,8 @@ const Header = ({
   return (
     <Paper
       className={classnames(
-        styles["Header"],
-        ...sizes.map((size) => styles[`Header--${size}`])
+        classes.root,
+        ...sizes.map((size) => classes[`header${size}`])
       )}
       component="header"
       elevation={3}
@@ -258,19 +251,16 @@ const Header = ({
     >
       <nav
         aria-label="Utilities"
-        className={styles["utilities-bar"]}
+        className={classes.utilitiesBar}
         role="navigation"
       >
         <Container>
           <ul>
             {!isSpaEnabled &&
               utilities.map(({ label, action }, key) => (
-                <li
-                  key={`utilities-link-${key}`}
-                  className={styles["nav-item"]}
-                >
+                <li key={`utilities-link-${key}`} className={classes.navItem}>
                   <NavUtilityLinkButton
-                    className={styles["utilities-button"]}
+                    className={classes.utilitiesButton}
                     action={action}
                     variant="text"
                     target="_blank"
@@ -280,27 +270,26 @@ const Header = ({
                 </li>
               ))}
             {language && languages && (
-              <li className={styles["nav-item"]}>
+              <li className={classes.navItem}>
                 <Button
                   className={classnames(
-                    styles["utilities-button"],
-                    styles["language-selection-button"],
-                    {
-                      [styles["language-selection-button--active"]!]:
-                        showLanguageSelection
-                    }
+                    classes.utilitiesButton,
+                    classes.languageSelectionButton,
+                    showLanguageSelection &&
+                      classes.languageSelectionButtonActive
                   )}
                   data-gtm={JSON.stringify(dataGTM)}
                   onClick={toggleLanguageSelection}
                   variant="text"
                   aria-label={languageLabel}
+                  data-testid="language-button"
                 >
                   {language.icon &&
                     (typeof language.icon === "string" ? (
                       <img
                         width="20px"
                         height="16px"
-                        className={styles["language-icon"]}
+                        className={classes.languageIcon}
                         src={language.icon}
                         alt={language.label}
                       />
@@ -309,14 +298,15 @@ const Header = ({
                         width="20px"
                         height="16px"
                         source={language.icon}
-                        className={styles["language-icon"]}
+                        className={classes.languageIcon}
                       />
                     ))}
                   {(languageCode || language.code).toUpperCase()}
                   <span
-                    className={classnames(styles["down-arrow"], {
-                      [styles["down-arrow--up"]!]: showLanguageSelection
-                    })}
+                    className={classnames(
+                      classes.downArrow,
+                      showLanguageSelection && classes.downArrowUp
+                    )}
                   >
                     ▾
                   </span>
@@ -331,30 +321,29 @@ const Header = ({
           direction={!sizes.length ? "left" : "down"}
           in={showLanguageSelection}
         >
-          <div
-            className={classnames(styles["drawer"], styles["language-drawer"])}
-          >
+          <div className={classnames(classes.drawer, classes.languageDrawer)}>
             <CloseButtonComponent
               accessibilityLabel={closeLabel}
-              className={styles["close-button"]}
+              className={classes.closeButton}
               isIconButton
               onClick={hideAll}
+              data-testid="language-close-button"
             >
               <Icon source={Close} />
             </CloseButtonComponent>
-            <div className={styles["back-navigation"]}>
+            <div className={classes.backNavigation}>
               <NavigationListButton
                 component={Button}
-                className={styles["back-button"]}
-                startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
+                className={classes.backButton}
+                startIcon={<ChevronLeft className={classes.chevronLeft} />}
                 endIcon={false}
                 onClick={toggleLanguageSelection}
               >
                 {mainMenuDefaultLabel}
               </NavigationListButton>
-              <hr className={styles["separator"]} />
+              <hr className={classes.separator} />
             </div>
-            <Container wrapperClassName={styles["language-container"]}>
+            <Container wrapperClassName={classes.languageContainer}>
               <LanguageSelection
                 introduction={languageIntroduction}
                 languages={languages}
@@ -365,24 +354,22 @@ const Header = ({
           </div>
         </Slide>
       )}
-      <div className={styles["navigation-bar"]}>
+      <div className={classes.navigationBar}>
         <Container>
-          <div className={styles["navigation-bar-content"]}>
+          <div className={classes.navigationBarContent}>
             <Clickable
               {...logoAction}
-              className={styles["logo-link"]}
+              className={classes.logoLink}
               aria-label={logoLabel}
             >
               <Icon
-                className={
-                  isSpaEnabled ? styles["static-logo"] : styles["logo"]
-                }
+                className={isSpaEnabled ? classes.staticLogo : classes.logo}
                 source={BmiIcon}
               />
             </Clickable>
             <nav
               aria-label="Navigation"
-              className={styles["navigation"]}
+              className={classes.navigation}
               role="navigation"
             >
               <Tabs
@@ -421,10 +408,9 @@ const Header = ({
                       return (
                         <Tab
                           className={classnames(
-                            styles["nav-item"],
-                            styles["nav-item--no-children"],
-                            activeNavLabel === label &&
-                              styles["nav-item--selected"]
+                            classes.navItem,
+                            classes.navItemNoChildren,
+                            activeNavLabel === label && classes.navItemSelected
                           )}
                           key={`navigation-tab-${key}`}
                           component={forwardRef(ClickableNavItem)}
@@ -436,9 +422,9 @@ const Header = ({
                       <Tab
                         aria-controls={`navigation-tabpanel-${key}`}
                         className={classnames(
-                          styles["nav-item"],
-                          activeNavLabel === label &&
-                            styles["nav-item--selected"]
+                          classes.navItem,
+                          classes.navItemNoChildren,
+                          activeNavLabel === label && classes.navItemSelected
                         )}
                         icon={<KeyboardArrowDown />}
                         id={`navigation-tab-${key}`}
@@ -450,11 +436,11 @@ const Header = ({
                 )}
               </Tabs>
             </nav>
-            <div className={styles["navigation-bar-buttons"]}>
+            <div className={classes.navigationBarButtons}>
               {!isBasketEmpty && !isSpaEnabled && (
                 <Button
                   accessibilityLabel={basketLabel}
-                  className={classnames(styles["basket-button"])}
+                  className={classes.basketButton}
                   component="a"
                   variant={!sizes.length ? "text" : "contained"}
                   isIconButton
@@ -466,23 +452,25 @@ const Header = ({
               {!isSearchDisabled && !isGatsbyDisabledElasticSearch && (
                 <Button
                   accessibilityLabel={searchLabel}
-                  className={classnames(styles["search-button"], {
-                    [styles["search-button--is-on-search-page"]!]:
-                      isOnSearchPage
-                  })}
+                  className={classnames(
+                    classes.searchButton,
+                    isOnSearchPage && classes.searchButtonIsOnSearchPage
+                  )}
                   variant={!sizes.length ? "text" : "contained"}
                   isIconButton
                   onClick={toggleSearch}
+                  data-testid="search-button"
                 >
                   <Icon source={SearchIcon} />
                 </Button>
               )}
               <Button
                 accessibilityLabel={openLabel}
-                className={styles["burger-button"]}
+                className={classes.burgerButton}
                 variant="text"
                 isIconButton
                 onClick={toggleMenu}
+                data-testid="open-button"
               >
                 <Icon source={Menu} />
               </Button>
@@ -491,19 +479,21 @@ const Header = ({
         </Container>
       </div>
       <Backdrop
-        className={styles["backdrop"]}
+        className={classes.backdrop}
         open={
           value !== false || showSearch || showLanguageSelection || showCart
         }
         onClick={hideAll}
+        data-testid="backdrop"
       />
       <Slide direction={!sizes.length ? "left" : "down"} in={value !== false}>
-        <div className={classnames(styles["drawer"], styles["nav-drawer"])}>
+        <div className={classnames(classes.drawer, classes.navDrawer)}>
           <Button
             accessibilityLabel={closeLabel}
-            className={styles["close-button"]}
+            className={classes.closeButton}
             isIconButton
             onClick={toggleMenu}
+            data-testid="nav-close-button"
           >
             <Icon source={Close} />
           </Button>
@@ -523,26 +513,26 @@ const Header = ({
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
             language={language}
-            sizes={sizes}
           />
         </div>
       </Slide>
       {!isSearchDisabled && (
         <Slide direction={!sizes.length ? "left" : "down"} in={showSearch}>
           <div
-            className={classnames(styles["search-drawer-container"], {
-              [styles["search-drawer-container--hidden"]!]:
-                !showSearch && !sizes.length
-            })}
+            className={classnames(
+              classes.searchDrawerContainer,
+              !showSearch &&
+                !sizes.length &&
+                classes.searchDrawerContainerHidden
+            )}
           >
-            <div
-              className={classnames(styles["drawer"], styles["search-drawer"])}
-            >
+            <div className={classnames(classes.drawer, classes.searchDrawer)}>
               <Button
                 accessibilityLabel={closeLabel}
-                className={styles["close-button"]}
+                className={classes.closeButton}
                 isIconButton
                 onClick={toggleSearch}
+                data-testid="search-close-button"
               >
                 <Icon source={Close} />
               </Button>
@@ -563,10 +553,10 @@ const Header = ({
       {!isBasketEmpty && SampleBasketDialog && (
         <Slide direction={isMobile ? "left" : "down"} in={showCart}>
           <div
-            className={classnames(styles["cart-drawer-container"], {
-              [styles["cart-drawer-container--hidden"]!]:
-                !showCart && !sizes.length
-            })}
+            className={classnames(
+              classes.cartDrawerContainer,
+              !showCart && !sizes.length && classes.cartDrawerContainerHidden
+            )}
           >
             <SampleBasketDialog toggleCart={toggleCart} />
           </div>

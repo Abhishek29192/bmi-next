@@ -3,31 +3,32 @@
 exports[`ExploreBarSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-1"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <nav
           aria-labelledby="explore-bar"
-          class="ExploreBar"
+          class="ExploreBar-root-11"
         >
           <h2
-            class="MuiTypography-root heading Typography MuiTypography-h6"
+            class="MuiTypography-root ExploreBar-heading-12 Typography-root-14 MuiTypography-h6"
+            data-testid="typography"
             id="explore-bar"
           >
             Lorem ipsum
           </h2>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-22 MuiButton-outlined Button-opaqueOutlined-29 ExploreBar-link-13 MuiButton-outlinedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-25"
             >
               String
             </span>
@@ -36,12 +37,12 @@ exports[`ExploreBarSection component renders correctly 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined buttonStyles-opaqueOutlined-8 link MuiButton-outlinedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-22 MuiButton-outlined Button-opaqueOutlined-29 ExploreBar-link-13 MuiButton-outlinedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-25"
             >
               Another string
             </span>

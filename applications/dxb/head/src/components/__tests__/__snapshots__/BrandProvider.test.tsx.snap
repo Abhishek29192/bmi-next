@@ -13,12 +13,7 @@ exports[`BrandProvider renders 1`] = `
 
 exports[`BrandProvider renders with brand 1`] = `
 <div>
-  <div
-    class="BrandRed"
-    data-testid="brand-colors-provider"
-  >
-    Test
-  </div>
+  Test
 </div>
 `;
 

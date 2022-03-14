@@ -1,8 +1,8 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import React from "react";
 import RecaptchaPrivacyLinks from "../RecaptchaPrivacyLinks";
-
 import { SiteContextProvider } from "../Site";
 
 beforeAll(() => {
@@ -13,18 +13,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When invalid country code is provided", () => {
     it("renders English Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "COUNTRY_CODE",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "COUNTRY_CODE",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -45,18 +47,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'no' country code is provided", () => {
     it("renders Norwegian Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "no",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "no",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -78,18 +82,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'fi' country code is provided", () => {
     it("renders Finnish Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "fi",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "fi",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -112,18 +118,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'it' country code is provided", () => {
     it("renders Italian Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "it",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "it",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -147,18 +155,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'fr' country code is provided", () => {
     it("renders French Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "fr",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "fr",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith("Ce site est protégé par reCAPTCHA et la ")
@@ -184,18 +194,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'de' country code is provided", () => {
     it("renders German Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "de",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "de",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -222,18 +234,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When 'at' country code is provided", () => {
     it("renders German Recaptcha policy text and urls", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "at",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "at",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(
@@ -260,18 +274,20 @@ describe("RecaptchaPrivacyLinks component", () => {
   describe("When custom styles added", () => {
     it("renders with custom style", async () => {
       const { container, findByText, getByText } = render(
-        <SiteContextProvider
-          value={{
-            node_locale: "en-UK",
-            homePage: { title: "Home Page" },
-            getMicroCopy: (path) => path,
-            countryCode: "de",
-            reCaptchaKey: "1234",
-            reCaptchaNet: false
-          }}
-        >
-          <RecaptchaPrivacyLinks className="customStyle" />
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider
+            value={{
+              node_locale: "en-UK",
+              homePage: { title: "Home Page" },
+              getMicroCopy: (path) => path,
+              countryCode: "de",
+              reCaptchaKey: "1234",
+              reCaptchaNet: false
+            }}
+          >
+            <RecaptchaPrivacyLinks className="customStyle" />
+          </SiteContextProvider>
+        </ThemeProvider>
       );
       await findByText((content) =>
         content.startsWith(

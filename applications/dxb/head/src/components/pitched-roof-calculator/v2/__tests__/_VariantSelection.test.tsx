@@ -1,4 +1,4 @@
-import { FormContext } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
@@ -38,18 +38,20 @@ afterEach(() => {
 describe("PitchedRoofCalculator VariantSelection component", () => {
   it("calls analytics event", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <VariantSelection options={tiles} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <VariantSelection options={tiles} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText(tiles[0].color));
@@ -58,18 +60,20 @@ describe("PitchedRoofCalculator VariantSelection component", () => {
 
   it("renders with no variants", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <VariantSelection selected={undefined} options={[]} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <VariantSelection selected={undefined} options={[]} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container.childNodes.length).toBe(0);

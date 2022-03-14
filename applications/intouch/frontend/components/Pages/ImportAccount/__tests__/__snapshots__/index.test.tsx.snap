@@ -3,26 +3,28 @@
 exports[`ImportAccount Component render correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container"
+    class="MuiGrid-root MuiGrid-container"
   >
     <div
       class="MuiGrid-root importContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
     >
       <h3
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
+        class="MuiTypography-root Typography-root-3 Typography-underline-5 MuiTypography-h3"
+        data-testid="typography"
       >
         uploadFile
       </h3>
       <p
-        class="MuiTypography-root uploadText Typography MuiTypography-body1"
+        class="MuiTypography-root uploadText Typography-root-3 MuiTypography-body1"
+        data-testid="typography"
       >
         uploadFileText
       </p>
       <form
-        class="Form form"
+        class="Form-root-11 form"
       >
         <div
-          class="Row"
+          class="Form-row-15"
         >
           <input
             data-testid="add-account-documents"
@@ -33,15 +35,15 @@ exports[`ImportAccount Component render correctly 1`] = `
           />
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-14"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-16 MuiButton-contained Button-contained-18 Form-button-13 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-19"
             >
               dryRun
             </span>
@@ -50,12 +52,12 @@ exports[`ImportAccount Component render correctly 1`] = `
             />
           </button>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-16 MuiButton-contained Button-contained-18 Form-button-13 MuiButton-containedPrimary"
             tabindex="0"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-19"
             >
               submit
             </span>

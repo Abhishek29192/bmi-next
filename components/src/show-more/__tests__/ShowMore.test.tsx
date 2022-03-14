@@ -1,11 +1,12 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import Button from "../../button/Button";
 import ShowMore from "../ShowMore";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ShowMore component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ShowMore openButton={<Button>Show more</Button>}>
         Show more content
       </ShowMore>
@@ -14,7 +15,7 @@ describe("ShowMore component", () => {
   });
 
   it("renders correctly with content expanded", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ShowMore openButton={<Button>Show more</Button>} isExpanded={true}>
         Show more content
       </ShowMore>
@@ -23,7 +24,7 @@ describe("ShowMore component", () => {
   });
 
   it("renders correctly when trigger button is clicked", () => {
-    const { getByText, container } = render(
+    const { getByText, container } = renderWithThemeProvider(
       <ShowMore openButton={<Button>Trigger</Button>}>
         Show more content
       </ShowMore>
@@ -36,7 +37,7 @@ describe("ShowMore component", () => {
   });
 
   it("renders correctly with close button", () => {
-    const { getByText, container } = render(
+    const { getByText, container } = renderWithThemeProvider(
       <ShowMore
         openButton={<Button>Trigger</Button>}
         closeButton={<Button>Close</Button>}
@@ -52,7 +53,7 @@ describe("ShowMore component", () => {
   });
 
   it("renders correctly with close button is clicked", () => {
-    const { getByText, container } = render(
+    const { getByText, container } = renderWithThemeProvider(
       <ShowMore
         openButton={<Button>Trigger</Button>}
         closeButton={<Button>Close</Button>}

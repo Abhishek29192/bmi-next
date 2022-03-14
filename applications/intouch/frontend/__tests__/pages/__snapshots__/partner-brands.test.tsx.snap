@@ -26,7 +26,7 @@ exports[`Partner Brands server side props empty 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Partner Brands server side props empty 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Partner Brands server side props empty 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-184 MuiIconButton-root-176 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-183"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168 MuiSvgIcon-fontSizeLarge-175"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Partner Brands server side props empty 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-285"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Partner Brands server side props empty 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-184"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168 MuiSvgIcon-fontSizeLarge-175"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Partner Brands server side props empty 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-285"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Partner Brands server side props empty 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-184"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168 MuiSvgIcon-fontSizeLarge-175"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Partner Brands server side props empty 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-285"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Partner Brands server side props empty 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-193 Typography-root-185 MuiTypography-h3-200"
+                  data-testid="typography"
                 >
                   Partner Brands
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-223 lowerHeaderDivider MuiDivider-flexItem-229 MuiDivider-vertical-228"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-193 lowerHeaderUserLevel Typography-root-185 MuiTypography-h3-200"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-184 MuiIconButton-root-176 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-183"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-167 MuiSvgIcon-colorPrimary-168"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Partner Brands server side props empty 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-285"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-23"
+                  class="makeStyles-root-230"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-184 MuiButton-root-232 MuiButton-text-234"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-233"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Partner Brands server side props empty 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-167"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Partner Brands server side props empty 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-167 MuiSvgIcon-colorAction-170"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Partner Brands server side props empty 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-285"
                       />
                     </button>
                   </div>
@@ -337,7 +339,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -354,7 +356,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -417,17 +419,17 @@ exports[`Partner Brands server side props render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -437,7 +439,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-157"
                   />
                 </button>
                 <div
@@ -445,14 +447,14 @@ exports[`Partner Brands server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -461,7 +463,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-157"
                     />
                   </button>
                 </div>
@@ -470,14 +472,14 @@ exports[`Partner Brands server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -486,7 +488,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-157"
                     />
                   </button>
                 </div>
@@ -499,31 +501,33 @@ exports[`Partner Brands server side props render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Partner Brands
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -533,21 +537,21 @@ exports[`Partner Brands server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-157"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -557,7 +561,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -574,7 +578,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -585,7 +589,7 @@ exports[`Partner Brands server side props render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-157"
                       />
                     </button>
                   </div>
@@ -598,13 +602,13 @@ exports[`Partner Brands server side props render correctly 1`] = `
           class="appContent"
         >
           <div
-            class="Section Section--alabaster Section--slim"
+            class="Section-root-105 Section-alabaster-107 Section-slim-111"
           >
             <div
-              class="Container"
+              class="Container-root-113"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root-115 MuiContainer-maxWidthXl-122"
               >
                 <div
                   class="main"
@@ -632,7 +636,8 @@ exports[`Partner Brands server side props render correctly 1`] = `
                     class="body"
                   >
                     <h3
-                      class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
+                      class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h3-34"
+                      data-testid="typography"
                       style="font-size: 1.5rem;"
                     >
                       test
@@ -644,7 +649,8 @@ exports[`Partner Brands server side props render correctly 1`] = `
                         class="main"
                       >
                         <p
-                          class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                          class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29 MuiTypography-gutterBottom-47"
+                          data-testid="typography"
                         >
                           test text
                         </p>
@@ -656,17 +662,17 @@ exports[`Partner Brands server side props render correctly 1`] = `
                   >
                     <a
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-contained buttonStyles-contained-5 MuiButton-containedPrimary"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 Button-root-123 MuiButton-contained-74 Button-contained-125 MuiButton-containedPrimary-75"
                       href="http://test"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-6"
+                        class="MuiButton-label-67 Button-label-126"
                       >
                         visitWebsite
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-157"
                       />
                     </a>
                   </div>

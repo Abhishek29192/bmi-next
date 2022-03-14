@@ -1,25 +1,28 @@
-import React from "react";
 import { fireEvent } from "@testing-library/react";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
+import React from "react";
+import {
+  GetGlobalDataQuery,
+  GetProjectsQuery
+} from "../../graphql/generated/operations";
+import { ROLES } from "../../lib/constants";
+import { ErrorStatusCode } from "../../lib/error";
+import { generateAccount } from "../../lib/tests/factories/account";
+import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
+import { projectFactory } from "../../lib/tests/factories/project";
+import AccountContextWrapper from "../../lib/tests/fixtures/account";
+import ApolloProvider from "../../lib/tests/fixtures/apollo";
+import I18nextProvider from "../../lib/tests/fixtures/i18n";
+import MarketContextWrapper from "../../lib/tests/fixtures/market";
+import UserProvider from "../../lib/tests/fixtures/user";
 import {
   createMockRouter,
   renderWithAllProviders,
   screen
 } from "../../lib/tests/utils";
-import { generateAccount } from "../../lib/tests/factories/account";
-import { ErrorStatusCode } from "../../lib/error";
-import { getServerSideProps } from "../../pages/projects/[[...project]]";
-import { projectFactory } from "../../lib/tests/factories/project";
-import { ROLES } from "../../lib/constants";
-import ProjectPage from "../../pages/projects/[[...project]]";
-import { GetProjectsQuery } from "../../graphql/generated/operations";
-import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
-import { GetGlobalDataQuery } from "../../graphql/generated/operations";
-import I18nextProvider from "../../lib/tests/fixtures/i18n";
-import UserProvider from "../../lib/tests/fixtures/user";
-import ApolloProvider from "../../lib/tests/fixtures/apollo";
-import MarketContextWrapper from "../../lib/tests/fixtures/market";
-import AccountContextWrapper from "../../lib/tests/fixtures/account";
+import ProjectPage, {
+  getServerSideProps
+} from "../../pages/projects/[[...project]]";
 
 jest.mock("../../lib/middleware/withPage", () => ({
   withPage: (getServerSideProps: any) => {

@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { ArrowForward } from "@material-ui/icons";
-import classnames from "classnames";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import Carousel, { getPageFromAbsoluteIndex } from "../carousel/Carousel";
 import { ClickableAction } from "../clickable/Clickable";
@@ -10,8 +9,8 @@ import Media, { AcceptedNode } from "../media/Media";
 import RollerSelector from "../roller-selector/RollerSelector";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
-import transformHyphens from "../utils";
-import styles from "./VerticalRoller.module.scss";
+import { transformHyphens } from "../utils";
+import { useStyles } from "./styles";
 
 export type Slide = {
   title: React.ReactNode;
@@ -32,20 +31,21 @@ type Props = {
 
 const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
+  const classes = useStyles();
 
   return (
-    <div className={styles["VerticalRoller"]}>
+    <div className={classes.root}>
       <Grid container spacing={3} alignItems="flex-start">
         <Grid item xs={12} md={6}>
-          <div className={styles["left-column"]}>
+          <div className={classes.leftColumn}>
             <Typography variant="h2" hasUnderline>
               {transformHyphens(title)}
             </Typography>
-            <div className={styles["selectors"]}>
+            <div className={classes.selectors}>
               {slides.map(({ title }, index) => {
                 return (
                   <RollerSelector
-                    className={styles["selector"]}
+                    className={classes.selector}
                     key={`roller-selector-${index}`}
                     component={rollerSectionComponent}
                     isSelected={
@@ -60,7 +60,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
               })}
             </div>
             <SlideControls
-              className={styles["controls"]}
+              className={classes.controls}
               current={getPageFromAbsoluteIndex(activePage, slides.length)}
               total={slides.length}
               onNextClick={() => setActivePage((activePage) => activePage + 1)}
@@ -70,26 +70,26 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
-          <div className={styles["right-column"]}>
+          <div className={classes.rightColumn}>
             <Carousel initialPage={activePage} onPageChange={setActivePage}>
               {slides.map(
                 ({ media, brandIcon: BrandIcon, description, cta }, index) => {
                   return (
-                    <Carousel.Slide key={index} className={styles["slide"]}>
-                      <div className={classnames(styles["image"])}>
+                    <Carousel.Slide key={index} className={classes.slide}>
+                      <div className={classes.image}>
                         {BrandIcon && (
-                          <BrandIcon className={styles["brand-icon"]} />
+                          <BrandIcon className={classes.brandIcon} />
                         )}
                         <Media>{media}</Media>
                       </div>
                       {description && (
-                        <Typography className={styles["description"]}>
+                        <Typography className={classes.description}>
                           {transformHyphens(description)}
                         </Typography>
                       )}
                       {cta && (
                         <Button
-                          className={styles["button"]}
+                          className={classes.button}
                           action={cta.action}
                           endIcon={<ArrowForward />}
                         >

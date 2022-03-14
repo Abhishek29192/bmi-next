@@ -10,7 +10,8 @@ exports[`CourseDescription component renders correctly 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-1 Typography-underline-3 MuiTypography-h4"
+        data-testid="typography"
       >
         Basic competency programme (BCP)
       </h4>
@@ -27,7 +28,8 @@ exports[`CourseDescription component renders correctly 1`] = `
               type.Pitched roof
             </div>
             <p
-              class="MuiTypography-root tech Typography MuiTypography-body1"
+              class="MuiTypography-root tech Typography-root-1 MuiTypography-body1"
+              data-testid="typography"
             >
               <svg
                 class="technologyIcon"
@@ -38,7 +40,8 @@ exports[`CourseDescription component renders correctly 1`] = `
               class="status"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-1 MuiTypography-body1"
+                data-testid="typography"
               >
                 undefined
               </p>
@@ -48,17 +51,17 @@ exports[`CourseDescription component renders correctly 1`] = `
             class="cta"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-9 MuiButton-outlined MuiButton-outlinedPrimary"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-4"
+                class="MuiButton-label Button-label-12"
               >
                 <span
-                  class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                  class="MuiButton-startIcon Button-startIcon-13 MuiButton-iconSizeMedium"
                 >
                   <svg
                     aria-hidden="true"
@@ -102,7 +105,8 @@ exports[`CourseDescription component should not show technology button if techno
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-29 Typography-underline-31 MuiTypography-h4"
+        data-testid="typography"
       >
         Basic competency programme (BCP)
       </h4>
@@ -122,7 +126,8 @@ exports[`CourseDescription component should not show technology button if techno
               class="status"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-29 MuiTypography-body1"
+                data-testid="typography"
               >
                 undefined
               </p>
@@ -132,17 +137,17 @@ exports[`CourseDescription component should not show technology button if techno
             class="cta"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-37 MuiButton-outlined MuiButton-outlinedPrimary"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
               type="button"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-40"
               >
                 <span
-                  class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                  class="MuiButton-startIcon Button-startIcon-41 MuiButton-iconSizeMedium"
                 >
                   <svg
                     aria-hidden="true"

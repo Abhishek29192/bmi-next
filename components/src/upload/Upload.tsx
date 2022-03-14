@@ -1,19 +1,20 @@
-import React, { useState, useEffect, ChangeEvent, DragEvent } from "react";
-import { FormHelperText } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
-import { CloudUpload } from "@material-ui/icons";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
-import { AttachFile } from "@material-ui/icons";
+import {
+  FormControl,
+  FormHelperText,
+  useMediaQuery,
+  useTheme
+} from "@material-ui/core";
+import { AttachFile, CloudUpload } from "@material-ui/icons";
 import classnames from "classnames";
+import React, { ChangeEvent, DragEvent, useEffect, useState } from "react";
 import Accordion from "../accordion/Accordion";
 import Button from "../button/Button";
 import withFormControl from "../form/withFormControl";
 import Icon from "../icon";
 import MicroCopy from "../micro-copy/MicroCopy";
 import Typography from "../typography/Typography";
-import File, { UploadFile, Props as FileProps } from "./_File";
-import styles from "./Upload.module.scss";
+import { useStyles } from "./styles";
+import File, { Props as FileProps, UploadFile } from "./_File";
 
 export type Props = {
   buttonLabel?: string;
@@ -67,6 +68,8 @@ const Upload = ({
   const acceptedTypes = accept
     ? accept.replace(/[.\s]/g, "").split(",")
     : undefined;
+
+  const classes = useStyles();
 
   useEffect(() => {
     if (value && value.length > 0) {
@@ -159,7 +162,7 @@ const Upload = ({
   const input = (
     <input
       accept={accept}
-      className={styles["input"]}
+      className={classes.input}
       id={id}
       data-testid={id}
       multiple
@@ -169,20 +172,20 @@ const Upload = ({
   );
 
   return (
-    <FormControl fullWidth error={!!error} className={styles["Upload"]}>
+    <FormControl fullWidth error={!!error} className={classes.root}>
       {matches ? (
         <Accordion>
           <Accordion.Item
-            className={styles["accordion"]}
+            className={classes.accordion}
             defaultExpanded={defaultExpanded}
           >
             <Accordion.Summary aria-controls="upload-header" id="upload-header">
-              <Typography className={styles["accordion-summary"]}>
+              <Typography className={classes.accordionSummary}>
                 {buttonLabel}
               </Typography>
             </Accordion.Summary>
             <Accordion.Details>
-              <div className={styles["wrapper"]}>
+              <div className={classes.wrapper}>
                 <div
                   id="drop-zone"
                   data-testid={`drop-zone-${id}`}
@@ -191,23 +194,23 @@ const Upload = ({
                   onDragLeave={() => setDragCounter((counter) => counter - 1)}
                   onDragEnter={() => setDragCounter((counter) => counter + 1)}
                   className={classnames(
-                    styles["drop-zone"],
-                    dragCounter && styles["drop-zone--drag"]
+                    classes.dropZone,
+                    dragCounter && classes.drag
                   )}
                 >
-                  <Icon className={styles["icon"]} source={CloudUpload} />
-                  <Typography className={styles["typography"]}>
+                  <Icon className={classes.icon} source={CloudUpload} />
+                  <Typography className={classes.typography}>
                     <MicroCopy.Provider values={microcopyProvider}>
                       <MicroCopy path="upload.instructions.drop" />
                     </MicroCopy.Provider>
                   </Typography>
                   {input}
-                  <label htmlFor={id} className={styles["label"]}>
+                  <label htmlFor={id} className={classes.label}>
                     <MicroCopy.Provider values={microcopyProvider}>
                       <MicroCopy path="upload.instructions.browse" />
                     </MicroCopy.Provider>
                   </label>
-                  <Typography className={styles["instructions"]}>
+                  <Typography className={classes.instructions}>
                     {instructions}
                   </Typography>
                 </div>
@@ -228,7 +231,7 @@ const Upload = ({
             </label>
             {input}
             {instructions ? (
-              <Typography className={styles["mobile-instructions"]}>
+              <Typography className={classes.mobileInstructions}>
                 {instructions}
               </Typography>
             ) : null}

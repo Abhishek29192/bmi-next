@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
@@ -11,18 +12,20 @@ import { SourceType } from "../types/FormSectionTypes";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SiteContextProvider
-      value={{
-        node_locale: "en-UK",
-        homePage: { title: "Home Page" },
-        getMicroCopy: (path) => path,
-        countryCode: "uk",
-        reCaptchaKey: "1234",
-        reCaptchaNet: false
-      }}
-    >
-      {children}
-    </SiteContextProvider>
+    <ThemeProvider>
+      <SiteContextProvider
+        value={{
+          node_locale: "en-UK",
+          homePage: { title: "Home Page" },
+          getMicroCopy: (path) => path,
+          countryCode: "uk",
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ThemeProvider>
   );
 };
 

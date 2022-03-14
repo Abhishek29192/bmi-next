@@ -37,7 +37,7 @@ import { getProductsQuery } from "./helpers/esQuery";
 import { prepareProducts } from "./helpers/products";
 import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewer from "./HouseViewer";
-import styles from "./styles/Visualiser.module.scss";
+import { useStyles } from "./styles/VisualiserStyles";
 import TileViewer from "./TileViewer";
 import { Category, HouseType, PIMTile, Siding } from "./Types";
 
@@ -91,8 +91,9 @@ const Actions = ({
 }) => {
   const isXsMobile = useMediaQuery("(max-width: 376px)");
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
   return (
-    <nav className={styles["actions"]}>
+    <nav className={classes.actions}>
       <Button
         hasDarkBackground
         variant="text"
@@ -176,10 +177,11 @@ const SelectionOptions = ({
   onClick: (data: { tileId: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
 
   return (
-    <div className={styles["select-options"]}>
-      <Typography variant="h5" component="h3" className={styles["group-title"]}>
+    <div>
+      <Typography variant="h5" component="h3" className={classes.groupTitle}>
         {title}
       </Typography>
       <Grid container spacing={2}>
@@ -196,7 +198,7 @@ const SelectionOptions = ({
                 });
               }}
               className={classnames(
-                defaultValue === tile.code && styles["active-selection-option"]
+                defaultValue === tile.code && classes.activeSelectionOption
               )}
               aria-label={
                 defaultValue === tile.code
@@ -222,6 +224,7 @@ const TileSectorDialog = ({
   tiles
 }: TileSectorDialogProps) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
 
   const categories = Object.values(Category);
 
@@ -231,11 +234,8 @@ const TileSectorDialog = ({
       onCloseClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
-      className={classnames(
-        styles["Visualiser"],
-        styles["Visualiser--secondary"]
-      )}
-      containerClassName={styles["container"]}
+      className={classnames(classes.root, classes.secondary)}
+      containerClassName={classes.container}
       backdropProps={{ invisible: true }}
       allowOverflow
     >
@@ -243,7 +243,7 @@ const TileSectorDialog = ({
         variant="h4"
         component="h2"
         align="center"
-        className={styles["group-title"]}
+        className={classes.groupTitle}
       >
         {getMicroCopy(microCopy.titleSelector.title)}
       </Typography>
@@ -292,17 +292,15 @@ const SidingsSelectorDialog = ({
   onClick: (event: { type: string; label: string }) => void;
 }) => {
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
   return (
     <ContainerDialog
       open={open}
       onCloseClick={() => onCloseClick(false)}
       maxWidth="xl"
       color="pearl"
-      className={classnames(
-        styles["Visualiser"],
-        styles["Visualiser--secondary"]
-      )}
-      containerClassName={styles["container"]}
+      className={classnames(classes.root, classes.secondary)}
+      containerClassName={classes.container}
       backdropProps={{ invisible: true }}
       allowOverflow
     >
@@ -310,7 +308,7 @@ const SidingsSelectorDialog = ({
         variant="h4"
         component="h2"
         align="center"
-        className={styles["group-title"]}
+        className={classes.groupTitle}
       >
         {getMicroCopy(microCopy.sidingsSelector.title)}
       </Typography>
@@ -333,7 +331,7 @@ const SidingsSelectorDialog = ({
                 });
               }}
               className={classnames(
-                activeSiding.id === id && styles["active-selection-option"]
+                activeSiding.id === id && classes.activeSelectionOption
               )}
               aria-label={
                 activeSiding.id === id
@@ -359,6 +357,7 @@ const SharePopover = ({
     null
   );
   const { getMicroCopy } = useMicroCopy();
+  const classes = useStyles();
 
   const handlePopoverClick = () => {
     setAnchorElement(anchorRef.current);
@@ -371,7 +370,8 @@ const SharePopover = ({
   return (
     <>
       <Button
-        className={styles["share-button"]}
+        isIconButton
+        className={classes.shareButton}
         variant="outlined"
         accessibilityLabel={getMicroCopy(
           microCopy.sharePopover.accessibilityLabel
@@ -383,7 +383,7 @@ const SharePopover = ({
       </Button>
       <Popover
         id="share-popover"
-        className={styles["Visualiser-popover"]}
+        className={classes.VisualiserPopover}
         open={Boolean(anchorElement)}
         anchorEl={anchorElement}
         onClose={handlePopoverClose}
@@ -528,6 +528,7 @@ const Visualiser = ({
   };
 
   const Viewer = viewerComponentMap[state.viewMode || "tile"];
+  const classes = useStyles();
 
   return (
     <ContainerDialog
@@ -535,35 +536,33 @@ const Visualiser = ({
       onCloseClick={handleOnClose}
       onBackdropClick={handleOnClose}
       maxWidth="xl"
-      className={styles["Visualiser"]}
-      containerClassName={styles["content"]}
+      className={classes.root}
+      containerClassName={classes.content}
     >
-      <div
-        className={classnames(styles["container"], styles["container--viewer"])}
-      >
+      <div className={classnames(classes.container, classes.viewer)}>
         {isLoading && (
-          <div className={styles["progress-container"]}>
+          <div className={classes.progressContainer}>
             <CircularProgress />
           </div>
         )}
-        <div className={styles["details"]}>
+        <div className={classes.details}>
           <Logo
             source={BMI}
             width="60"
             height="60"
-            className={styles["details-logo"]}
+            className={classes.detailsLogo}
           />
-          <div className={styles["deatils-labels"]}>
+          <div>
             <Typography
               variant="h5"
               component="h3"
-              className={styles["details-title"]}
+              className={classes.detailsTitle}
             >
               {activeTile?.name || ""}
             </Typography>
             <Typography>{activeTile?.colour || ""}</Typography>
           </div>
-          <div className={styles["details-actions"]} ref={shareAnchor}>
+          <div className={classes.detailsActions} ref={shareAnchor}>
             {activeTile && (
               <Button
                 variant="outlined"
@@ -579,7 +578,7 @@ const Visualiser = ({
                   });
                 }}
               >
-                <span className={styles["details-text"]}>
+                <span className={classes.detailsText}>
                   {getMicroCopy(microCopy.readMore)}
                 </span>
               </Button>

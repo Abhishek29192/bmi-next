@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
@@ -20,14 +21,16 @@ beforeEach(() => {
 describe("PitchedRoofCalculator component", () => {
   it("renders correctly", async () => {
     const { container, findByText } = render(
-      <MicroCopy.Provider values={en}>
-        <PitchedRoofCalculator
-          isOpen
-          onClose={jest.fn()}
-          isDebugging
-          calculatorConfig={null}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <PitchedRoofCalculator
+            isOpen
+            onClose={jest.fn()}
+            isDebugging
+            calculatorConfig={null}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     await findByText(LOADED_TEXT);
@@ -37,14 +40,16 @@ describe("PitchedRoofCalculator component", () => {
 
   it("renders closed", async () => {
     const { container, findByText } = render(
-      <MicroCopy.Provider values={no}>
-        <PitchedRoofCalculator
-          onClose={jest.fn()}
-          isDebugging
-          onAnalyticsEvent={jest.fn()}
-          calculatorConfig={null}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={no}>
+          <PitchedRoofCalculator
+            onClose={jest.fn()}
+            isDebugging
+            onAnalyticsEvent={jest.fn()}
+            calculatorConfig={null}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     await findByText(LOADED_TEXT);
@@ -57,15 +62,17 @@ describe("PitchedRoofCalculator component", () => {
     const onAnalyticsEvent = jest.fn();
 
     const { getByLabelText, findByText } = render(
-      <MicroCopy.Provider values={en}>
-        <PitchedRoofCalculator
-          isOpen
-          onClose={onClose}
-          isDebugging
-          onAnalyticsEvent={onAnalyticsEvent}
-          calculatorConfig={null}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <PitchedRoofCalculator
+            isOpen
+            onClose={onClose}
+            isDebugging
+            onAnalyticsEvent={onAnalyticsEvent}
+            calculatorConfig={null}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     await findByText(LOADED_TEXT);
@@ -83,15 +90,17 @@ describe("PitchedRoofCalculator component", () => {
     });
 
     const { getByLabelText, findByText } = render(
-      <MicroCopy.Provider values={en}>
-        <PitchedRoofCalculator
-          isOpen
-          onClose={onClose}
-          isDebugging
-          onAnalyticsEvent={onAnalyticsEvent}
-          calculatorConfig={null}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <PitchedRoofCalculator
+            isOpen
+            onClose={onClose}
+            isDebugging
+            onAnalyticsEvent={onAnalyticsEvent}
+            calculatorConfig={null}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     await findByText(LOADED_TEXT);

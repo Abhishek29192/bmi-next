@@ -11,44 +11,46 @@ Array [
 exports[`CardRadioGroup component renders correctly 1`] = `
 <div>
   <div
-    class="CardRadioGroup"
+    class="CardRadioGroup-root-1"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
         <div
-          class="CardInput item"
+          class="CardInput-root-5 CardRadioGroup-item-2"
         >
           <label>
             <input
-              class="input"
+              class="CardInput-input-6"
               name="tileType"
               type="radio"
               value="Zanda Arktis"
             />
             <div
               aria-disabled="false"
-              class="MuiButtonBase-root ToggleCard card"
+              class="MuiButtonBase-root ToggleCard-root-8 CardInput-card-7"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root ToggleCard-body-9 MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
-                  class="image"
+                  class="ToggleCard-image-13"
                   style="background-image: url(path-to-image);"
                 />
                 <h6
-                  class="MuiTypography-root title Typography MuiTypography-h6"
+                  class="MuiTypography-root ToggleCard-title-10 Typography-root-16 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Zanda Arktis
                 </h6>
                 <p
-                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                  class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   6 colours
                 </p>
@@ -61,38 +63,40 @@ exports[`CardRadioGroup component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+        class="MuiGrid-root Grid-item-3 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
         <div
-          class="CardInput item"
+          class="CardInput-root-5 CardRadioGroup-item-2"
         >
           <label>
             <input
-              class="input"
+              class="CardInput-input-6"
               name="tileType"
               type="radio"
               value="Aerodek Traditional"
             />
             <div
               aria-disabled="false"
-              class="MuiButtonBase-root ToggleCard card"
+              class="MuiButtonBase-root ToggleCard-root-8 CardInput-card-7"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root ToggleCard-body-9 MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
-                  class="image"
+                  class="ToggleCard-image-13"
                   style="background-image: url(path-to-image);"
                 />
                 <h6
-                  class="MuiTypography-root title Typography MuiTypography-h6"
+                  class="MuiTypography-root ToggleCard-title-10 Typography-root-16 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Aerodek Traditional
                 </h6>
                 <p
-                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                  class="MuiTypography-root ToggleCard-paragraph-12 Typography-root-16 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   6 colours
                 </p>
@@ -112,45 +116,47 @@ exports[`CardRadioGroup component renders correctly 1`] = `
 exports[`CardRadioGroup component renders with initial value 1`] = `
 <div>
   <div
-    class="CardRadioGroup"
+    class="CardRadioGroup-root-24"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+        class="MuiGrid-root Grid-item-26 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
         <div
-          class="CardInput item"
+          class="CardInput-root-28 CardRadioGroup-item-25"
         >
           <label>
             <input
               checked=""
-              class="input"
+              class="CardInput-input-29"
               name="tileType"
               type="radio"
               value="Zanda Arktis"
             />
             <div
               aria-disabled="false"
-              class="MuiButtonBase-root ToggleCard card"
+              class="MuiButtonBase-root ToggleCard-root-31 CardInput-card-30"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root ToggleCard-body-32 MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
-                  class="image"
+                  class="ToggleCard-image-36"
                   style="background-image: url(path-to-image);"
                 />
                 <h6
-                  class="MuiTypography-root title Typography MuiTypography-h6"
+                  class="MuiTypography-root ToggleCard-title-33 Typography-root-39 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Zanda Arktis
                 </h6>
                 <p
-                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                  class="MuiTypography-root ToggleCard-paragraph-35 Typography-root-39 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   6 colours
                 </p>
@@ -163,38 +169,40 @@ exports[`CardRadioGroup component renders with initial value 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+        class="MuiGrid-root Grid-item-26 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
       >
         <div
-          class="CardInput item"
+          class="CardInput-root-28 CardRadioGroup-item-25"
         >
           <label>
             <input
-              class="input"
+              class="CardInput-input-29"
               name="tileType"
               type="radio"
               value="Aerodek Traditional"
             />
             <div
               aria-disabled="false"
-              class="MuiButtonBase-root ToggleCard card"
+              class="MuiButtonBase-root ToggleCard-root-31 CardInput-card-30"
               role="button"
               tabindex="0"
             >
               <div
-                class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                class="MuiPaper-root MuiCard-root ToggleCard-body-32 MuiPaper-elevation1 MuiPaper-rounded"
               >
                 <div
-                  class="image"
+                  class="ToggleCard-image-36"
                   style="background-image: url(path-to-image);"
                 />
                 <h6
-                  class="MuiTypography-root title Typography MuiTypography-h6"
+                  class="MuiTypography-root ToggleCard-title-33 Typography-root-39 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Aerodek Traditional
                 </h6>
                 <p
-                  class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                  class="MuiTypography-root ToggleCard-paragraph-35 Typography-root-39 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   6 colours
                 </p>

@@ -1,17 +1,18 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { cleanup, fireEvent } from "@testing-library/react";
 import { StateSlideControls as SlideControls } from "../SlideControls";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 afterEach(cleanup);
 
 describe("SlideControls component", () => {
   it("renders correctly", () => {
-    const { container } = render(<SlideControls total={5} />);
+    const { container } = renderWithThemeProvider(<SlideControls total={5} />);
     expect(container).toMatchSnapshot();
   });
   it("moves forward from 1 to 2", () => {
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <SlideControls current={1} total={5} nextLabel={nextLabel} />
     );
 
@@ -21,7 +22,7 @@ describe("SlideControls component", () => {
   });
   it("moves backward from 5 to 4", () => {
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <SlideControls current={5} total={5} previousLabel={previousLabel} />
     );
 
@@ -31,7 +32,7 @@ describe("SlideControls component", () => {
   });
   it("moves from last to first number", () => {
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <SlideControls current={5} total={5} nextLabel={nextLabel} />
     );
 
@@ -41,7 +42,7 @@ describe("SlideControls component", () => {
   });
   it("moves from first to last number", () => {
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <SlideControls current={1} total={5} previousLabel={previousLabel} />
     );
 
@@ -53,7 +54,7 @@ describe("SlideControls component", () => {
   it("triggers a onPrevClick event", () => {
     const onPrevClick = jest.fn();
     const previousLabel = "previous";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -71,7 +72,7 @@ describe("SlideControls component", () => {
     const onPrevClick = jest.fn();
     const onChange = jest.fn();
     const previousLabel = "previous";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         onChange={onChange}
         current={1}
@@ -89,7 +90,7 @@ describe("SlideControls component", () => {
   it("triggers a onNextClick event", () => {
     const onNextClick = jest.fn();
     const nextLabel = "next";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -107,7 +108,7 @@ describe("SlideControls component", () => {
     const onChange = jest.fn();
     const onNextClick = jest.fn();
     const nextLabel = "next";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         onChange={onChange}
         current={1}

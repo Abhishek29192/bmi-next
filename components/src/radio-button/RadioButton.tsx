@@ -1,7 +1,7 @@
-import React from "react";
 import { ButtonBase } from "@material-ui/core";
 import classnames from "classnames";
-import styles from "./RadioButton.module.scss";
+import React from "react";
+import { useStyles } from "./styles";
 
 export type Props = {
   name?: string;
@@ -23,30 +23,31 @@ const RadioButton = ({
   disabled,
   ...rest
 }: Props) => {
+  const classes = useStyles();
   return (
     <div
       className={classnames(
-        styles["RadioButton"],
-        { [styles["RadioButton--disabled"] as string]: disabled },
+        classes.root,
+        disabled && classes.disabled,
         className
       )}
       style={style}
     >
       <input
         id={id}
-        className={styles["input"]}
+        className={classes.input}
         type="radio"
         name={name}
         value={value}
         disabled={disabled}
         {...rest}
       />
-      <label className={styles["label"]} htmlFor={id}>
+      <label className={classes.label} htmlFor={id}>
         {before}
         <ButtonBase
           tabIndex={-1}
           component="div"
-          className={styles["text"]}
+          className={classes.text}
           disabled={disabled}
         >
           {children}

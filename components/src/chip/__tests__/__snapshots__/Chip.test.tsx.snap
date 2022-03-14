@@ -3,7 +3,7 @@
 exports[`Chip component renders correctly default chip 1`] = `
 <div>
   <div
-    class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+    class="MuiChip-root Chip-root-1 Chip-default-2"
   >
     <span
       class="MuiChip-label"
@@ -17,7 +17,7 @@ exports[`Chip component renders correctly default chip 1`] = `
 exports[`Chip component renders correctly removable chip 1`] = `
 <div>
   <div
-    class="MuiButtonBase-root MuiChip-root Chip Chip--removable Chip--default Chip--theme-pearl MuiChip-clickable MuiChip-deletable"
+    class="MuiButtonBase-root MuiChip-root Chip-root-7 Chip-default-8 MuiChip-clickable MuiChip-deletable"
     role="button"
     tabindex="0"
   >
@@ -46,7 +46,7 @@ exports[`Chip component renders correctly removable chip 1`] = `
 exports[`Chip component renders correctly selected chip 1`] = `
 <div>
   <div
-    class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+    class="MuiChip-root Chip-root-4 MuiChip-colorPrimary"
   >
     <span
       class="MuiChip-label"

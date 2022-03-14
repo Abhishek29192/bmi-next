@@ -26,7 +26,7 @@ exports[`FAQ server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`FAQ server side props render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`FAQ server side props render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`FAQ server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-284"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`FAQ server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`FAQ server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-284"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`FAQ server side props render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`FAQ server side props render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-284"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`FAQ server side props render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   FAQ
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`FAQ server side props render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-284"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`FAQ server side props render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`FAQ server side props render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`FAQ server side props render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-284"
                       />
                     </button>
                   </div>
@@ -287,38 +289,40 @@ exports[`FAQ server side props render correctly 1`] = `
           class="appContent"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container"
+            class="MuiGrid-root-107 MuiGrid-container-108"
           >
             <div
-              class="MuiGrid-root faqContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+              class="MuiGrid-root-107 faqContent MuiGrid-container-108 MuiGrid-spacing-xs-3-132 MuiGrid-grid-xs-12-153"
             >
               <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                data-testid="typography"
                 style="font-size: 31.5px; padding-bottom: 24px;"
               >
                 test
               </h4>
               <div
-                class="accordionStyles-root-3 accordionStyles-no-inner-padding-6"
+                class="Accordion-root-210 Accordion-noInnerPadding-213"
               >
                 <div
-                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root-221 MuiAccordion-root-219 Accordion-item-211 MuiAccordion-rounded-220 MuiPaper-elevation1-225 MuiPaper-rounded-222"
                   data-testid="accordion-item"
                   style="box-shadow: none;"
                 >
                   <div
                     aria-disabled="false"
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    class="MuiButtonBase-root-18 MuiAccordionSummary-root-250 Accordion-summaryRoot-214"
                     data-testid="accordion-summary"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                      class="MuiAccordionSummary-content-251 Accordion-summaryContent-216"
                     >
                       <h6
-                        class="MuiTypography-root Typography MuiTypography-h6"
+                        class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                        data-testid="typography"
                       >
                         title 1
                       </h6>
@@ -326,14 +330,14 @@ exports[`FAQ server side props render correctly 1`] = `
                     <div
                       aria-disabled="false"
                       aria-hidden="true"
-                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      class="MuiButtonBase-root-18 MuiIconButton-root-10 MuiAccordionSummary-expandIcon-252 MuiIconButton-edgeEnd-12"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        class="MuiIconButton-label-17"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root-1"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -343,25 +347,25 @@ exports[`FAQ server side props render correctly 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-284"
                       />
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-root MuiCollapse-hidden"
+                    class="MuiCollapse-root-253 MuiCollapse-hidden-255"
                     style="min-height: 0px;"
                   >
                     <div
-                      class="MuiCollapse-wrapper"
+                      class="MuiCollapse-wrapper-256"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner"
+                        class="MuiCollapse-wrapperInner-257"
                       >
                         <div
                           role="region"
                         >
                           <div
-                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-13"
+                            class="MuiAccordionDetails-root-259 Accordion-details-212 Accordion-details-258"
                             style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
                           >
                             <div
@@ -374,23 +378,24 @@ exports[`FAQ server side props render correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root-221 MuiAccordion-root-219 Accordion-item-211 MuiAccordion-rounded-220 MuiPaper-elevation1-225 MuiPaper-rounded-222"
                   data-testid="accordion-item"
                   style="box-shadow: none;"
                 >
                   <div
                     aria-disabled="false"
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    class="MuiButtonBase-root-18 MuiAccordionSummary-root-250 Accordion-summaryRoot-214"
                     data-testid="accordion-summary"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                      class="MuiAccordionSummary-content-251 Accordion-summaryContent-216"
                     >
                       <h6
-                        class="MuiTypography-root Typography MuiTypography-h6"
+                        class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                        data-testid="typography"
                       >
                         title 2
                       </h6>
@@ -398,14 +403,14 @@ exports[`FAQ server side props render correctly 1`] = `
                     <div
                       aria-disabled="false"
                       aria-hidden="true"
-                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      class="MuiButtonBase-root-18 MuiIconButton-root-10 MuiAccordionSummary-expandIcon-252 MuiIconButton-edgeEnd-12"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        class="MuiIconButton-label-17"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root-1"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -415,25 +420,25 @@ exports[`FAQ server side props render correctly 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-284"
                       />
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-root MuiCollapse-hidden"
+                    class="MuiCollapse-root-253 MuiCollapse-hidden-255"
                     style="min-height: 0px;"
                   >
                     <div
-                      class="MuiCollapse-wrapper"
+                      class="MuiCollapse-wrapper-256"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner"
+                        class="MuiCollapse-wrapperInner-257"
                       >
                         <div
                           role="region"
                         >
                           <div
-                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-16"
+                            class="MuiAccordionDetails-root-259 Accordion-details-212 Accordion-details-262"
                             style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
                           >
                             <div
@@ -448,35 +453,37 @@ exports[`FAQ server side props render correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root faqContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+              class="MuiGrid-root-107 faqContent MuiGrid-container-108 MuiGrid-spacing-xs-3-132 MuiGrid-grid-xs-12-153"
             >
               <h4
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                data-testid="typography"
                 style="font-size: 31.5px; padding-bottom: 24px;"
               >
                 test 2
               </h4>
               <div
-                class="accordionStyles-root-3 accordionStyles-no-inner-padding-6"
+                class="Accordion-root-210 Accordion-noInnerPadding-213"
               >
                 <div
-                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root-221 MuiAccordion-root-219 Accordion-item-211 MuiAccordion-rounded-220 MuiPaper-elevation1-225 MuiPaper-rounded-222"
                   data-testid="accordion-item"
                   style="box-shadow: none;"
                 >
                   <div
                     aria-disabled="false"
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    class="MuiButtonBase-root-18 MuiAccordionSummary-root-250 Accordion-summaryRoot-214"
                     data-testid="accordion-summary"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                      class="MuiAccordionSummary-content-251 Accordion-summaryContent-216"
                     >
                       <h6
-                        class="MuiTypography-root Typography MuiTypography-h6"
+                        class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                        data-testid="typography"
                       >
                         title 3
                       </h6>
@@ -484,14 +491,14 @@ exports[`FAQ server side props render correctly 1`] = `
                     <div
                       aria-disabled="false"
                       aria-hidden="true"
-                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      class="MuiButtonBase-root-18 MuiIconButton-root-10 MuiAccordionSummary-expandIcon-252 MuiIconButton-edgeEnd-12"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        class="MuiIconButton-label-17"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root-1"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -501,25 +508,25 @@ exports[`FAQ server side props render correctly 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-284"
                       />
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-root MuiCollapse-hidden"
+                    class="MuiCollapse-root-253 MuiCollapse-hidden-255"
                     style="min-height: 0px;"
                   >
                     <div
-                      class="MuiCollapse-wrapper"
+                      class="MuiCollapse-wrapper-256"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner"
+                        class="MuiCollapse-wrapperInner-257"
                       >
                         <div
                           role="region"
                         >
                           <div
-                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-20"
+                            class="MuiAccordionDetails-root-259 Accordion-details-212 Accordion-details-266"
                             style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
                           >
                             <div
@@ -532,23 +539,24 @@ exports[`FAQ server side props render correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiPaper-root MuiAccordion-root accordionStyles-item-4 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+                  class="MuiPaper-root-221 MuiAccordion-root-219 Accordion-item-211 MuiAccordion-rounded-220 MuiPaper-elevation1-225 MuiPaper-rounded-222"
                   data-testid="accordion-item"
                   style="box-shadow: none;"
                 >
                   <div
                     aria-disabled="false"
                     aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-7"
+                    class="MuiButtonBase-root-18 MuiAccordionSummary-root-250 Accordion-summaryRoot-214"
                     data-testid="accordion-summary"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="MuiAccordionSummary-content accordionStyles-summaryContent-9"
+                      class="MuiAccordionSummary-content-251 Accordion-summaryContent-216"
                     >
                       <h6
-                        class="MuiTypography-root Typography MuiTypography-h6"
+                        class="MuiTypography-root-27 Typography-root-19 MuiTypography-h6-37"
+                        data-testid="typography"
                       >
                         title 4
                       </h6>
@@ -556,14 +564,14 @@ exports[`FAQ server side props render correctly 1`] = `
                     <div
                       aria-disabled="false"
                       aria-hidden="true"
-                      class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+                      class="MuiButtonBase-root-18 MuiIconButton-root-10 MuiAccordionSummary-expandIcon-252 MuiIconButton-edgeEnd-12"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        class="MuiIconButton-label-17"
                       >
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root"
+                          class="MuiSvgIcon-root-1"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -573,25 +581,25 @@ exports[`FAQ server side props render correctly 1`] = `
                         </svg>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-284"
                       />
                     </div>
                   </div>
                   <div
-                    class="MuiCollapse-root MuiCollapse-hidden"
+                    class="MuiCollapse-root-253 MuiCollapse-hidden-255"
                     style="min-height: 0px;"
                   >
                     <div
-                      class="MuiCollapse-wrapper"
+                      class="MuiCollapse-wrapper-256"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner"
+                        class="MuiCollapse-wrapperInner-257"
                       >
                         <div
                           role="region"
                         >
                           <div
-                            class="MuiAccordionDetails-root accordionStyles-details-5 accordionStyles-details-23"
+                            class="MuiAccordionDetails-root-259 Accordion-details-212 Accordion-details-269"
                             style="padding: 8px 16px; border-radius: 0 0 5px 5px;"
                           >
                             <div

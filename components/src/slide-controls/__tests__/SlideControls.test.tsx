@@ -1,43 +1,46 @@
+import { cleanup, fireEvent } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import SlideControls from "../SlideControls";
 
 afterEach(cleanup);
 
 describe("SlideControls component", () => {
   it("renders correctly", () => {
-    const { container } = render(<SlideControls total={5} />);
+    const { container } = renderWithThemeProvider(<SlideControls total={5} />);
     expect(container).toMatchSnapshot();
   });
   it("renders the total number when current is more than total", () => {
-    const { container } = render(<SlideControls current={7} total={5} />);
+    const { container } = renderWithThemeProvider(
+      <SlideControls current={7} total={5} />
+    );
 
     expect(container).toMatchSnapshot();
   });
   it("renders vertically", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SlideControls current={1} total={5} isVertical />
     );
 
     expect(container).toMatchSnapshot();
   });
   it("renders full size", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SlideControls current={1} total={5} isFullSize isVertical />
     );
 
     expect(container).toMatchSnapshot();
   });
   it("renders a dark themed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SlideControls current={1} total={5} isDarkThemed />
     );
 
     expect(container).toMatchSnapshot();
   });
   it("doesn't apply the full size class, when vertical", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SlideControls current={1} total={5} isFullSize isVertical />
     );
 
@@ -46,7 +49,7 @@ describe("SlideControls component", () => {
   it("triggers a onPrevClick event", () => {
     const onPrevClick = jest.fn();
     const previousLabel = "previous";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -62,7 +65,7 @@ describe("SlideControls component", () => {
   it("triggers a onNextClick event", () => {
     const onNextClick = jest.fn();
     const nextLabel = "next";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -80,7 +83,7 @@ describe("SlideControls component", () => {
     const onNextClick = jest.fn();
     const onChange = jest.fn();
     const nextLabel = "next";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -99,7 +102,7 @@ describe("SlideControls component", () => {
     const onPrevClick = jest.fn();
     const onChange = jest.fn();
     const prevLabel = "prev";
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -118,7 +121,7 @@ describe("SlideControls component", () => {
     const onClick = jest.fn();
     const previousLabel = "previous";
     const nextLabel = "next";
-    const { rerender, getByLabelText } = render(
+    const { rerender, getByLabelText } = renderWithThemeProvider(
       <SlideControls
         current={1}
         total={5}
@@ -148,7 +151,7 @@ describe("SlideControls component", () => {
     expect(onClick).toBeCalledTimes(0);
   });
   it("doesn't call useless state change on animationEnd", () => {
-    const { container, getByText } = render(
+    const { container, getByText } = renderWithThemeProvider(
       <SlideControls current={1} total={5} />
     );
     const containerBeforeAnimationEnd = container!.cloneNode(true);
@@ -160,7 +163,7 @@ describe("SlideControls component", () => {
     ).toMatchSnapshot();
   });
   it("moves forward by one number", () => {
-    const { container, rerender, getByText } = render(
+    const { container, rerender, getByText } = renderWithThemeProvider(
       <SlideControls current={1} total={5} />
     );
 
@@ -171,7 +174,7 @@ describe("SlideControls component", () => {
     expect(container).toMatchSnapshot();
   });
   it("moves backward by one number", () => {
-    const { container, rerender, getByText } = render(
+    const { container, rerender, getByText } = renderWithThemeProvider(
       <SlideControls current={2} total={5} />
     );
 
@@ -182,7 +185,7 @@ describe("SlideControls component", () => {
     expect(container).toMatchSnapshot();
   });
   it("moves from last to first number", () => {
-    const { container, rerender, getByText } = render(
+    const { container, rerender, getByText } = renderWithThemeProvider(
       <SlideControls current={5} total={5} />
     );
 
@@ -193,7 +196,7 @@ describe("SlideControls component", () => {
     expect(container).toMatchSnapshot();
   });
   it("getDirection execute correctly if total === 2", () => {
-    const { container, rerender } = render(
+    const { container, rerender } = renderWithThemeProvider(
       <SlideControls current={1} total={2} />
     );
 
@@ -202,7 +205,7 @@ describe("SlideControls component", () => {
     expect(container).toMatchSnapshot();
   });
   it("moves from first to last number", () => {
-    const { container, rerender, getAllByText } = render(
+    const { container, rerender, getAllByText } = renderWithThemeProvider(
       <SlideControls current={1} total={5} />
     );
 

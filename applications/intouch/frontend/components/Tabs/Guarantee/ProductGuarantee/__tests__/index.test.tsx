@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
-import { GetProjectQuery } from "../../../../../graphql/generated/operations";
 import { ProductGuarantee } from "..";
+import { GetProjectQuery } from "../../../../../graphql/generated/operations";
+import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
 
 const mockProduct = {
   id: 1,

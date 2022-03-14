@@ -3,23 +3,24 @@
 exports[`CtaCard component renders correctly 1`] = `
 <a
   aria-disabled="false"
-  class="MuiButtonBase-root Card test-className"
+  class="MuiButtonBase-root CTACard-root-1 test-className"
   href="#"
   tabindex="0"
 >
   <div
-    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root CTACard-body-2 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <section
-      class="top-box"
+      class="CTACard-topBox-3"
     >
       <h5
-        class="MuiTypography-root heading Typography MuiTypography-h5"
+        class="MuiTypography-root CTACard-heading-4 Typography-root-7 MuiTypography-h5"
+        data-testid="typography"
       >
         Call to Action Card
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root CTACard-icon-5"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -31,7 +32,7 @@ exports[`CtaCard component renders correctly 1`] = `
     </section>
     <img
       alt="Lorem ipsum"
-      class="image Media"
+      class="CTACard-image-6 Media-root-15"
       src="path-to-image"
     />
   </div>
@@ -44,23 +45,24 @@ exports[`CtaCard component renders correctly 1`] = `
 exports[`CtaCard component renders with custom button 1`] = `
 <div>
   <button
-    class="Card"
+    class="CTACard-root-17"
     data-testid="custom-button"
     type="button"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root CTACard-body-18 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <section
-        class="top-box"
+        class="CTACard-topBox-19"
       >
         <h5
-          class="MuiTypography-root heading Typography MuiTypography-h5"
+          class="MuiTypography-root CTACard-heading-20 Typography-root-23 MuiTypography-h5"
+          data-testid="typography"
         >
           Call to Action Card
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root CTACard-icon-21"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -78,24 +80,26 @@ exports[`CtaCard component renders with custom button 1`] = `
 exports[`CtaCard component renders with the clickable area around the heading 1`] = `
 <div>
   <div
-    class="Card"
+    class="CTACard-root-33"
+    data-test-class-name="card"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root CTACard-body-34 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root top-box"
+        class="MuiButtonBase-root CTACard-topBox-35"
         href="#"
         tabindex="0"
       >
         <h5
-          class="MuiTypography-root heading Typography MuiTypography-h5"
+          class="MuiTypography-root CTACard-heading-36 Typography-root-39 MuiTypography-h5"
+          data-testid="typography"
         >
           Call to Action Card
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root CTACard-icon-37"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -110,7 +114,7 @@ exports[`CtaCard component renders with the clickable area around the heading 1`
       </a>
       <img
         alt="Lorem ipsum"
-        class="image Media"
+        class="CTACard-image-38 Media-root-47"
         src="path-to-image"
       />
     </div>

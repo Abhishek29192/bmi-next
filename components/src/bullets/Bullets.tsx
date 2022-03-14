@@ -1,10 +1,11 @@
 import classnames from "classnames";
 import React from "react";
-import Typography from "../typography/Typography";
-import styles from "./Bullets.module.scss";
+import Typography from "../typography";
+import { useStyles } from "./styles";
 
 const Bullets = ({ className, ...rest }: React.HTMLProps<HTMLUListElement>) => {
-  return <ul className={classnames(styles["Bullets"], className)} {...rest} />;
+  const classes = useStyles();
+  return <ul className={classnames(classes.root, className)} {...rest} />;
 };
 
 const Bullet = ({
@@ -14,11 +15,12 @@ const Bullet = ({
   className?: string;
   children?: React.ReactNode;
 }) => {
+  const classes = useStyles();
   return (
     <Typography
       variant="body1"
       component="li"
-      className={classnames(styles["li"], className)}
+      className={classnames(classes.li, className)}
     >
       {children}
     </Typography>

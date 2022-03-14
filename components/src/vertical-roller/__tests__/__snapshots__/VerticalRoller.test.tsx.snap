@@ -5,60 +5,60 @@ exports[`VerticalRoller component navigates to next page 1`] = `
 - First value
 + Second value
 
-@@ -18,11 +18,11 @@
+@@ -19,11 +19,11 @@
             </h2>
             <div
-              class=\\"selectors\\"
+              class=\\"VerticalRoller-selectors-149\\"
             >
               <button
--               class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
-+               class=\\"MuiButtonBase-root selector RollerSelector\\"
+-               class=\\"MuiButtonBase-root VerticalRoller-selector-150 RollerSelector-root-169 RollerSelector-selected-170\\"
++               class=\\"MuiButtonBase-root VerticalRoller-selector-150 RollerSelector-root-169\\"
                 tabindex=\\"0\\"
                 type=\\"button\\"
               >
                 Approved Installers
                 <svg
-@@ -38,11 +38,11 @@
+@@ -39,11 +39,11 @@
                 <span
                   class=\\"MuiTouchRipple-root\\"
                 />
               </button>
               <button
--               class=\\"MuiButtonBase-root selector RollerSelector\\"
-+               class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
+-               class=\\"MuiButtonBase-root VerticalRoller-selector-150 RollerSelector-root-169\\"
++               class=\\"MuiButtonBase-root VerticalRoller-selector-150 RollerSelector-root-169 RollerSelector-selected-170\\"
                 tabindex=\\"0\\"
                 type=\\"button\\"
               >
                 Realiable Warranties
                 <svg
-@@ -112,19 +112,24 @@
+@@ -113,19 +113,24 @@
               >
                 <span
-                  class=\\"sliding-slot\\"
+                  class=\\"SlideControls-slidingSlot-176\\"
                 >
                   <span
--                   class=\\"numbers\\"
-+                   class=\\"numbers numbers--up\\"
+-                   class=\\"SlideControls-numbers-179\\"
++                   class=\\"SlideControls-numbers-179 SlideControls-up-180\\"
                   >
                     <span
--                     class=\\"number number--active\\"
-+                     class=\\"number\\"
+-                     class=\\"SlideControls-number-184 SlideControls-active-183\\"
++                     class=\\"SlideControls-number-184\\"
                     >
                       01
                     </span>
 +                   <span
-+                     class=\\"number number--active\\"
++                     class=\\"SlideControls-number-184 SlideControls-active-183\\"
 +                   >
 +                     02
                     </span>
                   </span>
 +               </span>
                 <span
-                  class=\\"total\\"
+                  class=\\"SlideControls-total-182\\"
                 >
                   03
                 </span>
-@@ -172,11 +177,11 @@
+@@ -173,11 +178,11 @@
                 <div
                   style=\\"overflow-x: hidden;\\"
                 >
@@ -71,32 +71,33 @@ exports[`VerticalRoller component navigates to next page 1`] = `
                       aria-hidden=\\"false\\"
                       class=\\"Carousel__slide--global\\"
                       data-swipeable=\\"true\\"
-@@ -190,28 +195,25 @@
+@@ -192,29 +197,25 @@
                           style=\\"width: 100%;\\"
                         >
                           <div
-                            class=\\"image\\"
+                            class=\\"VerticalRoller-image-154\\"
                           >
 -                           <svg
--                             class=\\"brand-icon\\"
+-                             class=\\"VerticalRoller-brandIcon-156\\"
 +                           <img
 +                             alt=\\"Lorem ipsum\\"
-+                             class=\\"Media\\"
++                             class=\\"Media-root-218\\"
 +                             src=\\"path-to-image\\"
                             />
                           </div>
 -                         <p
--                           class=\\"MuiTypography-root description Typography MuiTypography-body1\\"
+-                           class=\\"MuiTypography-root VerticalRoller-description-157 Typography-root-161 MuiTypography-body1\\"
+-                           data-testid=\\"typography\\"
 -                         >
 -                           Accredited BMI installers are masters of their craft and available all over Norway.
 -                         </p>
                           <button
-                            class=\\"MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary\\"
+                            class=\\"MuiButtonBase-root MuiButton-root Button-root-188 MuiButton-contained Button-contained-190 VerticalRoller-button-158 MuiButton-containedPrimary\\"
                             tabindex=\\"0\\"
                             type=\\"button\\"
                           >
                             <span
-                              class=\\"MuiButton-label buttonStyles-label-44\\"
+                              class=\\"MuiButton-label Button-label-191\\"
                             >
 -                             Go to Approved Installers
 +                             Go to Realiable Warranties
@@ -112,54 +113,54 @@ exports[`VerticalRoller component navigates to previous page 1`] = `
 - First value
 + Second value
 
-@@ -18,11 +18,11 @@
+@@ -19,11 +19,11 @@
             </h2>
             <div
-              class=\\"selectors\\"
+              class=\\"VerticalRoller-selectors-222\\"
             >
               <button
--               class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
-+               class=\\"MuiButtonBase-root selector RollerSelector\\"
+-               class=\\"MuiButtonBase-root VerticalRoller-selector-223 RollerSelector-root-242 RollerSelector-selected-243\\"
++               class=\\"MuiButtonBase-root VerticalRoller-selector-223 RollerSelector-root-242\\"
                 tabindex=\\"0\\"
                 type=\\"button\\"
               >
                 Approved Installers
                 <svg
-@@ -58,11 +58,11 @@
+@@ -59,11 +59,11 @@
                 <span
                   class=\\"MuiTouchRipple-root\\"
                 />
               </button>
               <button
--               class=\\"MuiButtonBase-root selector RollerSelector\\"
-+               class=\\"MuiButtonBase-root selector RollerSelector RollerSelector--selected\\"
+-               class=\\"MuiButtonBase-root VerticalRoller-selector-223 RollerSelector-root-242\\"
++               class=\\"MuiButtonBase-root VerticalRoller-selector-223 RollerSelector-root-242 RollerSelector-selected-243\\"
                 tabindex=\\"0\\"
                 type=\\"button\\"
               >
                 slide 3
                 <svg
-@@ -112,14 +112,19 @@
+@@ -113,14 +113,19 @@
               >
                 <span
-                  class=\\"sliding-slot\\"
+                  class=\\"SlideControls-slidingSlot-249\\"
                 >
                   <span
--                   class=\\"numbers\\"
-+                   class=\\"numbers numbers--down\\"
+-                   class=\\"SlideControls-numbers-252\\"
++                   class=\\"SlideControls-numbers-252 SlideControls-down-254\\"
                   >
                     <span
-                      class=\\"number number--active\\"
+                      class=\\"SlideControls-number-257 SlideControls-active-256\\"
 +                   >
 +                     03
 +                   </span>
 +                   <span
-+                     class=\\"number\\"
++                     class=\\"SlideControls-number-257\\"
                     >
                       01
                     </span>
                   </span>
                 </span>
-@@ -172,11 +177,11 @@
+@@ -173,11 +178,11 @@
                 <div
                   style=\\"overflow-x: hidden;\\"
                 >
@@ -172,29 +173,30 @@ exports[`VerticalRoller component navigates to previous page 1`] = `
                       aria-hidden=\\"false\\"
                       class=\\"Carousel__slide--global\\"
                       data-swipeable=\\"true\\"
-@@ -189,29 +194,20 @@
-                          class=\\"slide slide\\"
+@@ -191,30 +196,20 @@
+                          data-test-class-name=\\"slide\\"
                           style=\\"width: 100%;\\"
                         >
                           <div
-                            class=\\"image\\"
+                            class=\\"VerticalRoller-image-227\\"
 -                         >
 -                           <svg
--                             class=\\"brand-icon\\"
+-                             class=\\"VerticalRoller-brandIcon-229\\"
                           />
 -                         </div>
 -                         <p
--                           class=\\"MuiTypography-root description Typography MuiTypography-body1\\"
+-                           class=\\"MuiTypography-root VerticalRoller-description-230 Typography-root-234 MuiTypography-body1\\"
+-                           data-testid=\\"typography\\"
 -                         >
 -                           Accredited BMI installers are masters of their craft and available all over Norway.
 -                         </p>
                           <button
-                            class=\\"MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 button MuiButton-containedPrimary\\"
+                            class=\\"MuiButtonBase-root MuiButton-root Button-root-261 MuiButton-contained Button-contained-263 VerticalRoller-button-231 MuiButton-containedPrimary\\"
                             tabindex=\\"0\\"
                             type=\\"button\\"
                           >
                             <span
-                              class=\\"MuiButton-label buttonStyles-label-64\\"
+                              class=\\"MuiButton-label Button-label-264\\"
                             >
 -                             Go to Approved Installers
 +                             Go to side 3
@@ -208,34 +210,35 @@ exports[`VerticalRoller component navigates to previous page 1`] = `
 exports[`VerticalRoller component renders correctly 1`] = `
 <div>
   <div
-    class="VerticalRoller"
+    class="VerticalRoller-root-1"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
-          class="left-column"
+          class="VerticalRoller-leftColumn-2"
         >
           <h2
-            class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Typography-root-15 Typography-underline-17 MuiTypography-h2"
+            data-testid="typography"
           >
             H2 Heading
           </h2>
           <div
-            class="selectors"
+            class="VerticalRoller-selectors-3"
           >
             <button
-              class="MuiButtonBase-root selector RollerSelector RollerSelector--selected"
+              class="MuiButtonBase-root VerticalRoller-selector-4 RollerSelector-root-23 RollerSelector-selected-24"
               tabindex="0"
               type="button"
             >
               Approved Installers
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-25"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -248,14 +251,14 @@ exports[`VerticalRoller component renders correctly 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root selector RollerSelector"
+              class="MuiButtonBase-root VerticalRoller-selector-4 RollerSelector-root-23"
               tabindex="0"
               type="button"
             >
               Realiable Warranties
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-25"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -268,14 +271,14 @@ exports[`VerticalRoller component renders correctly 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root selector RollerSelector"
+              class="MuiButtonBase-root VerticalRoller-selector-4 RollerSelector-root-23"
               tabindex="0"
               type="button"
             >
               slide 3
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-25"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -289,11 +292,11 @@ exports[`VerticalRoller component renders correctly 1`] = `
             </button>
           </div>
           <div
-            class="SlideControls SlideControls--vertical controls"
+            class="SlideControls-root-26 SlideControls-vertical-28 VerticalRoller-controls-5"
           >
             <button
               aria-label="previous"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-53 iconButton IconButton-medium-59 IconButton-text-55"
               tabindex="0"
               type="button"
             >
@@ -302,7 +305,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-32"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -316,30 +319,30 @@ exports[`VerticalRoller component renders correctly 1`] = `
               />
             </button>
             <span
-              class="middle-container"
+              class="SlideControls-middleContainer-31"
             >
               <span
-                class="sliding-slot"
+                class="SlideControls-slidingSlot-30"
               >
                 <span
-                  class="numbers"
+                  class="SlideControls-numbers-33"
                 >
                   <span
-                    class="number number--active"
+                    class="SlideControls-number-38 SlideControls-active-37"
                   >
                     01
                   </span>
                 </span>
               </span>
               <span
-                class="total"
+                class="SlideControls-total-36"
               >
                 03
               </span>
             </span>
             <button
               aria-label="next"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-53 iconButton IconButton-medium-59 IconButton-text-55"
               tabindex="0"
               type="button"
             >
@@ -348,7 +351,7 @@ exports[`VerticalRoller component renders correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-32"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -365,16 +368,16 @@ exports[`VerticalRoller component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-13 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
-          class="right-column"
+          class="VerticalRoller-rightColumn-6"
         >
           <div
-            class="wrapper"
+            class="Carousel-wrapper-66"
           >
             <div
-              class="Carousel Carousel--swipable"
+              class="Carousel-root-62 Carousel-swipable-71"
               data-testid="carousel"
             >
               <div
@@ -391,31 +394,33 @@ exports[`VerticalRoller component renders correctly 1`] = `
                     style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="page"
+                      class="Carousel-page-65"
                     >
                       <div
-                        class="slide slide"
+                        class="Carousel-slide-63 VerticalRoller-slide-7"
+                        data-test-class-name="slide"
                         style="width: 100%;"
                       >
                         <div
-                          class="image"
+                          class="VerticalRoller-image-8"
                         >
                           <svg
-                            class="brand-icon"
+                            class="VerticalRoller-brandIcon-10"
                           />
                         </div>
                         <p
-                          class="MuiTypography-root description Typography MuiTypography-body1"
+                          class="MuiTypography-root VerticalRoller-description-11 Typography-root-15 MuiTypography-body1"
+                          data-testid="typography"
                         >
                           Accredited BMI installers are masters of their craft and available all over Norway.
                         </p>
                         <button
-                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 button MuiButton-containedPrimary"
+                          class="MuiButtonBase-root MuiButton-root Button-root-42 MuiButton-contained Button-contained-44 VerticalRoller-button-12 MuiButton-containedPrimary"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="MuiButton-label buttonStyles-label-4"
+                            class="MuiButton-label Button-label-45"
                           >
                             Go to Approved Installers
                             <span
@@ -454,34 +459,35 @@ exports[`VerticalRoller component renders correctly 1`] = `
 exports[`VerticalRoller component renders correctly on onClick 1`] = `
 <div>
   <div
-    class="VerticalRoller"
+    class="VerticalRoller-root-74"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-align-items-xs-flex-start"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-86 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
-          class="left-column"
+          class="VerticalRoller-leftColumn-75"
         >
           <h2
-            class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+            class="MuiTypography-root Typography-root-88 Typography-underline-90 MuiTypography-h2"
+            data-testid="typography"
           >
             H2 Heading
           </h2>
           <div
-            class="selectors"
+            class="VerticalRoller-selectors-76"
           >
             <button
-              class="MuiButtonBase-root selector RollerSelector RollerSelector--selected"
+              class="MuiButtonBase-root VerticalRoller-selector-77 RollerSelector-root-96 RollerSelector-selected-97"
               tabindex="0"
               type="button"
             >
               Approved Installers
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-98"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -494,14 +500,14 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root selector RollerSelector"
+              class="MuiButtonBase-root VerticalRoller-selector-77 RollerSelector-root-96"
               tabindex="0"
               type="button"
             >
               Realiable Warranties
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-98"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -514,14 +520,14 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root selector RollerSelector"
+              class="MuiButtonBase-root VerticalRoller-selector-77 RollerSelector-root-96"
               tabindex="0"
               type="button"
             >
               slide 3
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root RollerSelector-icon-98"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -535,11 +541,11 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
             </button>
           </div>
           <div
-            class="SlideControls SlideControls--vertical controls"
+            class="SlideControls-root-99 SlideControls-vertical-101 VerticalRoller-controls-78"
           >
             <button
               aria-label="previous"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-126 iconButton IconButton-medium-132 IconButton-text-128"
               tabindex="0"
               type="button"
             >
@@ -548,7 +554,7 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-105"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -562,30 +568,30 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
               />
             </button>
             <span
-              class="middle-container"
+              class="SlideControls-middleContainer-104"
             >
               <span
-                class="sliding-slot"
+                class="SlideControls-slidingSlot-103"
               >
                 <span
-                  class="numbers"
+                  class="SlideControls-numbers-106"
                 >
                   <span
-                    class="number number--active"
+                    class="SlideControls-number-111 SlideControls-active-110"
                   >
                     01
                   </span>
                 </span>
               </span>
               <span
-                class="total"
+                class="SlideControls-total-109"
               >
                 03
               </span>
             </span>
             <button
               aria-label="next"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-126 iconButton IconButton-medium-132 IconButton-text-128"
               tabindex="0"
               type="button"
             >
@@ -594,7 +600,7 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevron"
+                  class="MuiSvgIcon-root SlideControls-chevron-105"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -611,16 +617,16 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+        class="MuiGrid-root Grid-item-86 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
       >
         <div
-          class="right-column"
+          class="VerticalRoller-rightColumn-79"
         >
           <div
-            class="wrapper"
+            class="Carousel-wrapper-139"
           >
             <div
-              class="Carousel Carousel--swipable"
+              class="Carousel-root-135 Carousel-swipable-144"
               data-testid="carousel"
             >
               <div
@@ -637,31 +643,33 @@ exports[`VerticalRoller component renders correctly on onClick 1`] = `
                     style="width: 100%; flex-shrink: 0; overflow: auto;"
                   >
                     <div
-                      class="page"
+                      class="Carousel-page-138"
                     >
                       <div
-                        class="slide slide"
+                        class="Carousel-slide-136 VerticalRoller-slide-80"
+                        data-test-class-name="slide"
                         style="width: 100%;"
                       >
                         <div
-                          class="image"
+                          class="VerticalRoller-image-81"
                         >
                           <svg
-                            class="brand-icon"
+                            class="VerticalRoller-brandIcon-83"
                           />
                         </div>
                         <p
-                          class="MuiTypography-root description Typography MuiTypography-body1"
+                          class="MuiTypography-root VerticalRoller-description-84 Typography-root-88 MuiTypography-body1"
+                          data-testid="typography"
                         >
                           Accredited BMI installers are masters of their craft and available all over Norway.
                         </p>
                         <button
-                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 button MuiButton-containedPrimary"
+                          class="MuiButtonBase-root MuiButton-root Button-root-115 MuiButton-contained Button-contained-117 VerticalRoller-button-85 MuiButton-containedPrimary"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="MuiButton-label buttonStyles-label-24"
+                            class="MuiButton-label Button-label-118"
                           >
                             Go to Approved Installers
                             <span

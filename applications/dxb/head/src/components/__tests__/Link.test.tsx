@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import {
@@ -37,9 +38,11 @@ describe("Link component", () => {
       };
 
       const { getByText } = render(
-        <Link component="a" data={cta} onClick={onClick}>
-          {cta.label}
-        </Link>
+        <ThemeProvider>
+          <Link component="a" data={cta} onClick={onClick}>
+            {cta.label}
+          </Link>
+        </ThemeProvider>
       );
 
       fireEvent.click(getByText("ImALink"));
@@ -62,9 +65,11 @@ describe("Link component", () => {
       };
 
       const { getByText } = render(
-        <Link component="a" data={cta} onClick={onClick}>
-          {cta.label}
-        </Link>
+        <ThemeProvider>
+          <Link component="a" data={cta} onClick={onClick}>
+            {cta.label}
+          </Link>
+        </ThemeProvider>
       );
 
       fireEvent.click(getByText("ImALink"));
@@ -87,9 +92,11 @@ describe("Link component", () => {
       };
 
       const { getByText } = render(
-        <Link component="a" data={cta} onClick={onClick}>
-          {cta.label}
-        </Link>
+        <ThemeProvider>
+          <Link component="a" data={cta} onClick={onClick}>
+            {cta.label}
+          </Link>
+        </ThemeProvider>
       );
 
       fireEvent.click(getByText("ImALink"));
@@ -112,9 +119,11 @@ describe("Link component", () => {
       };
 
       const { getByText } = render(
-        <Link component="a" data={cta} onClick={onClick}>
-          {cta.label}
-        </Link>
+        <ThemeProvider>
+          <Link component="a" data={cta} onClick={onClick}>
+            {cta.label}
+          </Link>
+        </ThemeProvider>
       );
 
       fireEvent.click(getByText("ImALink"));
@@ -147,9 +156,11 @@ describe("Link component", () => {
         hubSpotCTAID: null
       };
       const { getByText, getByRole } = render(
-        <SiteContextProvider value={getMockSiteContext()}>
-          <Link data={data}>{data.label}</Link>
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider value={getMockSiteContext()}>
+            <Link data={data}>{data.label}</Link>
+          </SiteContextProvider>
+        </ThemeProvider>
       );
 
       const openDialog = getByText("ImALink");

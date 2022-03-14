@@ -3,11 +3,11 @@
 exports[`ResponseMessage component renders correctly 1`] = `
 <div>
   <div
-    class="ResponseMessage"
+    class="ResponseMessage-root-1"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root ResponseMessage-icon-2"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -16,7 +16,8 @@ exports[`ResponseMessage component renders correctly 1`] = `
       />
     </svg>
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root ResponseMessage-title-4 Typography-root-5 MuiTypography-h2"
+      data-testid="typography"
     >
       Thank you!
     </h2>
@@ -27,11 +28,11 @@ exports[`ResponseMessage component renders correctly 1`] = `
 exports[`ResponseMessage component renders correctly with children 1`] = `
 <div>
   <div
-    class="ResponseMessage"
+    class="ResponseMessage-root-13"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root ResponseMessage-icon-14"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -40,18 +41,21 @@ exports[`ResponseMessage component renders correctly with children 1`] = `
       />
     </svg>
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root ResponseMessage-title-16 Typography-root-17 MuiTypography-h2"
+      data-testid="typography"
     >
       Thank you!
     </h2>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1"
+      class="MuiTypography-root Typography-root-17 MuiTypography-body1"
+      data-testid="typography"
       style="padding: 10px 0px;"
     >
       Your email has been sent.
     </p>
     <p
-      class="MuiTypography-root Typography MuiTypography-body1"
+      class="MuiTypography-root Typography-root-17 MuiTypography-body1"
+      data-testid="typography"
       style="padding: 10px 0px;"
     >
       We'll get back to you as soon as we can.
@@ -63,11 +67,11 @@ exports[`ResponseMessage component renders correctly with children 1`] = `
 exports[`ResponseMessage component renders correctly with error 1`] = `
 <div>
   <div
-    class="ResponseMessage"
+    class="ResponseMessage-root-25"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon icon--error"
+      class="MuiSvgIcon-root ResponseMessage-icon-26 ResponseMessage-error-27"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -76,7 +80,8 @@ exports[`ResponseMessage component renders correctly with error 1`] = `
       />
     </svg>
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root ResponseMessage-title-28 Typography-root-29 MuiTypography-h2"
+      data-testid="typography"
     >
       Error
     </h2>

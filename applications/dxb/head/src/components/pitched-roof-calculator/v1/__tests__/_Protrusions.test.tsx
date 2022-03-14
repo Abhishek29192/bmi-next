@@ -1,7 +1,7 @@
-import React from "react";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
-import { FormContext } from "@bmi/components";
-import { MicroCopy, getMicroCopy } from "../../helpers/microCopy";
+import React from "react";
+import { getMicroCopy, MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import Protrusions from "../_Protrusions";
 
@@ -12,18 +12,20 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Protrusions />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Protrusions />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -35,18 +37,20 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const submitButtonDisabled = false;
 
     const { getByText } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Protrusions />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Protrusions />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const addProtrusionButton = getByText(
@@ -63,20 +67,24 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     const submitButtonDisabled = false;
 
     const { getByText } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Protrusions
-            defaultValue={[{ type: "protrusion01", A: "33", B: "55", P: "44" }]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Protrusions
+              defaultValue={[
+                { type: "protrusion01", A: "33", B: "55", P: "44" }
+              ]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const removeProtrusionButton = getByText(

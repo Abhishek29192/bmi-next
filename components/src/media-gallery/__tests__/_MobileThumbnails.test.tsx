@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
 import Thumbnail from "../../thumbnail/Thumbnail";
@@ -18,14 +19,16 @@ beforeAll(() => {
 
 const renderComponent = (images = getImages(false)) => {
   return render(
-    <MobileThumbnails
-      media={images}
-      component={(props) => (
-        <Thumbnail data-testid="default-thumbnail" {...props} />
-      )}
-      activeImageIndex={1}
-      onThumbnailClick={onThumbnailClick}
-    />
+    <ThemeProvider>
+      <MobileThumbnails
+        media={images}
+        component={(props) => (
+          <Thumbnail data-testid="default-thumbnail" {...props} />
+        )}
+        activeImageIndex={1}
+        onThumbnailClick={onThumbnailClick}
+      />
+    </ThemeProvider>
   );
 };
 
@@ -33,19 +36,22 @@ describe("_MobileThumbnails component", () => {
   it("renders correctly", async () => {
     const images = getImages(false);
 
-    const { container, getAllByTestId, findByText } = renderComponent(images);
+    const { container, getAllByTestId, getByTestId, findByText } =
+      renderComponent(images);
 
     const thumbnails = getAllByTestId("default-thumbnail");
-    const scroller = container.querySelector(".scroller");
+    const scroller = getByTestId("thumbnail-scroller");
     expect(container.firstChild).toMatchSnapshot();
     expect(thumbnails).toHaveLength(2);
     expect(thumbnails[0]).toHaveStyle(`background-image: url(${mockImage})`);
     expect(thumbnails[1]).toHaveStyle(`background-image: url(${mockImage})`);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[1].className.includes("Thumbnail-selected-")).toBe(true);
     expect(scroller).toHaveStyle(`width: ${images.length * THUMBNAIL_WIDTH}px`);
-    expect(await findByText(images[0].altText as string)).toHaveClass(
-      "accessibility-text"
-    );
+    expect(
+      await (
+        await findByText(images[0].altText as string)
+      ).className.includes("Thumbnail-accessibilityText")
+    ).toBe(true);
 
     fireEvent.click(thumbnails[1]);
     expect(onThumbnailClick).toHaveBeenCalledWith(expect.any(Object), 1);
@@ -53,14 +59,14 @@ describe("_MobileThumbnails component", () => {
   it("renders correctly with media prop component", async () => {
     const images = getImages(true);
 
-    const { container, getAllByTestId } = renderComponent(images);
+    const { container, getAllByTestId, getByTestId } = renderComponent(images);
 
     const thumbnails = getAllByTestId("default-thumbnail");
-    const scroller = container.querySelector(".scroller");
+    const scroller = getByTestId("thumbnail-scroller");
     expect(container.firstChild).toMatchSnapshot();
     expect(thumbnails).toHaveLength(2);
     expect(container.getElementsByTagName("img")).toHaveLength(2);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[1].className.includes("Thumbnail-selected-")).toBe(true);
     expect(scroller).toHaveStyle(`width: ${images.length * THUMBNAIL_WIDTH}px`);
 
     fireEvent.click(thumbnails[1]);
@@ -68,8 +74,8 @@ describe("_MobileThumbnails component", () => {
   });
 
   it("scroll correctly", async () => {
-    const { container } = renderComponent();
-    const scroller = container.querySelector(".scroller");
+    const { container, getByTestId } = renderComponent();
+    const scroller = getByTestId("thumbnail-scroller");
     const scrollToSpy = jest.spyOn(scroller!.parentElement!, "scrollTo");
     expect(container.firstChild).toMatchSnapshot();
     expect(scroller).toBeTruthy();
@@ -87,8 +93,16 @@ describe("_MobileThumbnails component", () => {
     await waitFor(() => {
       expect(scrollToSpy).toHaveBeenCalledWith({ left: 10 });
     });
-    expect(container.querySelector(".thumbnails--left-gradient")).toBeTruthy();
-    expect(container.querySelector(".thumbnails--right-gradient")).toBeTruthy();
+    expect(
+      getByTestId("thumbnails-root").className.includes(
+        "Thumbnails-leftGradient-"
+      )
+    ).toBe(true);
+    expect(
+      getByTestId("thumbnails-root").className.includes(
+        "Thumbnails-rightGradient-"
+      )
+    ).toBe(true);
   });
 
   it("scroll correctly when parentScrollLeft, parentOffsetWidth and offsetWidth is 0", async () => {
@@ -106,17 +120,19 @@ describe("_MobileThumbnails component", () => {
       }
     ];
 
-    const { container } = render(
-      <MobileThumbnails
-        media={images}
-        component={(props) => (
-          <Thumbnail data-testid="default-thumbnail" {...props} />
-        )}
-        activeImageIndex={0}
-        onThumbnailClick={onThumbnailClick}
-      />
+    const { container, getByTestId } = render(
+      <ThemeProvider>
+        <MobileThumbnails
+          media={images}
+          component={(props) => (
+            <Thumbnail data-testid="default-thumbnail" {...props} />
+          )}
+          activeImageIndex={0}
+          onThumbnailClick={onThumbnailClick}
+        />
+      </ThemeProvider>
     );
-    const scroller = container.querySelector(".scroller");
+    const scroller = getByTestId("thumbnail-scroller");
     const scrollToSpy = jest.spyOn(scroller!.parentElement!, "scrollTo");
     expect(container.firstChild).toMatchSnapshot();
     expect(scroller).toBeTruthy();
@@ -131,7 +147,7 @@ describe("_MobileThumbnails component", () => {
     await waitFor(() => {
       expect(scrollToSpy).toHaveBeenCalledWith({ left: undefined });
     });
-    expect(container.querySelector(".thumbnails--left-gradient")).toBeFalsy();
-    expect(container.querySelector(".thumbnails--right-gradient")).toBeFalsy();
+    expect(container.querySelector(".left-gradient")).toBeFalsy();
+    expect(container.querySelector(".right-gradient")).toBeFalsy();
   });
 });

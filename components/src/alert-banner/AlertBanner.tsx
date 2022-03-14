@@ -1,14 +1,11 @@
-import React, { createContext, useContext } from "react";
-import { Warning } from "@material-ui/icons";
-import { Info } from "@material-ui/icons";
-import { Error } from "@material-ui/icons";
-import { ThumbUp } from "@material-ui/icons";
+import { Error, Info, ThumbUp, Warning } from "@material-ui/icons";
 import classnames from "classnames";
-import Typography from "../typography/Typography";
+import React, { createContext, useContext } from "react";
 import ColorPair, { Colors } from "../color-pair/ColorPair";
 import Container from "../container/Container";
 import Icon from "../icon/Icon";
-import styles from "./AlertBanner.module.scss";
+import Typography from "../typography/Typography";
+import { useStyles } from "./styles";
 
 type Context = Props["severity"];
 
@@ -21,7 +18,7 @@ const severityToIconMap: Record<Props["severity"], React.ComponentType> = {
   error: Error
 };
 
-const seveirtyToThemeMap: Record<Props["severity"], Colors> = {
+const severityToThemeMap: Record<Props["severity"], Colors> = {
   warning: "alert",
   info: "alabaster",
   success: "white",
@@ -41,19 +38,23 @@ const AlertBanner = ({
   actions,
   stickyPosition
 }: Props) => {
+  const classes = useStyles();
+
   return (
     <ColorPair
       // eslint-disable-next-line security/detect-object-injection
-      theme={seveirtyToThemeMap[severity]}
-      className={classnames(styles["Alert"], {
-        [styles["Alert--sticky"]!]: stickyPosition !== undefined,
-        [styles[`Alert--${severity}`]!]: ["error", "success"].includes(severity)
-      })}
+      theme={severityToThemeMap[severity]}
+      className={classnames(
+        classes.root,
+        stickyPosition !== undefined && classes.sticky,
+        // eslint-disable-next-line security/detect-object-injection
+        (severity === "error" || severity === "success") && classes[severity]
+      )}
       style={{
         top: typeof stickyPosition && `${stickyPosition}px`
       }}
     >
-      <div className={styles["actions"]}>{actions}</div>
+      <div className={classes.actions}>{actions}</div>
       <Container>
         <AlertBannerContext.Provider value={severity}>
           {children}
@@ -69,11 +70,12 @@ type TitleProps = {
 
 const AlertTitle = ({ children }: TitleProps) => {
   const severity = useContext(AlertBannerContext);
+  const classes = useStyles();
 
   return (
-    <Typography variant="h5" className={styles["title"]}>
+    <Typography variant="h5" className={classes.title}>
       {/* eslint-disable-next-line security/detect-object-injection */}
-      <Icon className={styles["icon"]} source={severityToIconMap[severity]} />
+      <Icon className={classes.icon} source={severityToIconMap[severity]} />
       {children}
     </Typography>
   );

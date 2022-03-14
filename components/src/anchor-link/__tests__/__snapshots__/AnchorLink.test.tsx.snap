@@ -3,7 +3,7 @@
 exports[`AnchorLink component renders default correctly 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-1 Anchorlink MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -17,7 +17,7 @@ exports[`AnchorLink component renders disabled correctly 1`] = `
 <div>
   <a
     aria-disabled="true"
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-7 Anchorlink AnchorLink-disabled-8 MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -31,7 +31,7 @@ exports[`AnchorLink component renders icon disabled correctly 1`] = `
 <div>
   <a
     aria-disabled="true"
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-31 Anchorlink AnchorLink-disabled-32 MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -39,7 +39,7 @@ exports[`AnchorLink component renders icon disabled correctly 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="icon"
+      class="AnchorLink-icon-35"
       data-testid="internal"
       focusable="false"
     />
@@ -50,12 +50,12 @@ exports[`AnchorLink component renders icon disabled correctly 1`] = `
 exports[`AnchorLink component renders leading icon correctly 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-13 Anchorlink MuiTypography-colorPrimary"
     href="/"
   >
     <svg
       aria-hidden="true"
-      class="icon"
+      class="AnchorLink-icon-17"
       data-testid="internal"
       focusable="false"
     />
@@ -69,7 +69,7 @@ exports[`AnchorLink component renders leading icon correctly 1`] = `
 exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-37 Anchorlink MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -81,7 +81,7 @@ exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="icon"
+      class="AnchorLink-icon-41"
       data-testid="internal"
       focusable="false"
     />
@@ -92,7 +92,7 @@ exports[`AnchorLink component renders multi-line with icon correctly 1`] = `
 exports[`AnchorLink component renders only with data from context 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--black MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-61 Anchorlink AnchorLink-black-64 MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -105,7 +105,7 @@ exports[`AnchorLink component renders only with data from context 1`] = `
 exports[`AnchorLink component renders trailing external icon correctly 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-25 Anchorlink MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -113,7 +113,7 @@ exports[`AnchorLink component renders trailing external icon correctly 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="icon"
+      class="AnchorLink-icon-29"
       data-testid="external"
       focusable="false"
     />
@@ -124,7 +124,7 @@ exports[`AnchorLink component renders trailing external icon correctly 1`] = `
 exports[`AnchorLink component renders trailing internal icon correctly 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-19 Anchorlink MuiTypography-colorPrimary"
     href="/"
   >
     <span>
@@ -132,7 +132,7 @@ exports[`AnchorLink component renders trailing internal icon correctly 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="icon"
+      class="AnchorLink-icon-23"
       data-testid="internal"
       focusable="false"
     />
@@ -143,7 +143,7 @@ exports[`AnchorLink component renders trailing internal icon correctly 1`] = `
 exports[`AnchorLink component renders with a specified color 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-43 Anchorlink AnchorLink-white-45 MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -156,7 +156,7 @@ exports[`AnchorLink component renders with a specified color 1`] = `
 exports[`AnchorLink component renders with children component 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-73 Anchorlink MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -171,7 +171,7 @@ exports[`AnchorLink component renders with children component 1`] = `
 exports[`AnchorLink component renders with className 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover test-className Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover test-className AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -184,12 +184,12 @@ exports[`AnchorLink component renders with className 1`] = `
 exports[`AnchorLink component renders with iconInverted 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-85 Anchorlink MuiTypography-colorPrimary"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="icon icon--inverted"
+      class="AnchorLink-icon-89 AnchorLink-icon--inverted-90"
       data-testid="internal"
       focusable="false"
     />
@@ -203,7 +203,7 @@ exports[`AnchorLink component renders with iconInverted 1`] = `
 exports[`AnchorLink component renders with rest props 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-67 Anchorlink MuiTypography-colorPrimary"
     rel="noreferrer"
     target="_blank"
     type="button"
@@ -218,7 +218,7 @@ exports[`AnchorLink component renders with rest props 1`] = `
 exports[`AnchorLink component renders within a dark color pair context 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-49 Anchorlink AnchorLink-white-51 MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -231,7 +231,7 @@ exports[`AnchorLink component renders within a dark color pair context 1`] = `
 exports[`AnchorLink component renders within a light color pair context 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-55 Anchorlink AnchorLink-white-57 MuiTypography-colorPrimary"
     type="button"
   >
     <span>

@@ -26,7 +26,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -43,7 +43,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -106,17 +106,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-1320 MuiIconButton-root-1312 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-1319"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304 MuiSvgIcon-fontSizeLarge-1311"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -126,7 +126,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-1620"
                   />
                 </button>
                 <div
@@ -134,14 +134,14 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-1320"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304 MuiSvgIcon-fontSizeLarge-1311"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -150,7 +150,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-1620"
                     />
                   </button>
                 </div>
@@ -159,14 +159,14 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-1320"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304 MuiSvgIcon-fontSizeLarge-1311"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -175,7 +175,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-1620"
                     />
                   </button>
                 </div>
@@ -188,31 +188,33 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-1329 Typography-root-1321 MuiTypography-h3-1336"
+                  data-testid="typography"
                 >
                   Projects
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-1359 lowerHeaderDivider MuiDivider-flexItem-1365 MuiDivider-vertical-1364"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-1329 lowerHeaderUserLevel Typography-root-1321 MuiTypography-h3-1336"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-1320 MuiIconButton-root-1312 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-1319"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1303 MuiSvgIcon-colorPrimary-1304"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -222,21 +224,21 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-1620"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-25"
+                  class="makeStyles-root-1366"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-1320 MuiButton-root-1368 MuiButton-text-1370"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-1369"
                       >
                         <div
                           class="userMenu"
@@ -246,7 +248,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1303"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -263,7 +265,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1303 MuiSvgIcon-colorAction-1306"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -274,7 +276,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-1620"
                       />
                     </button>
                   </div>
@@ -300,10 +302,10 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-1412 MuiTextField-root-1411 TextField-root-1408 TextField-leftAdornment-1409 MuiFormControl-fullWidth-1415"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-1424 MuiInputLabel-root-1416 MuiInputLabel-formControl-1418 MuiInputLabel-animated-1421 MuiInputLabel-outlined-1423"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -311,22 +313,22 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-1440 MuiOutlinedInput-root-1428 MuiInputBase-fullWidth-1447 MuiInputBase-formControl-1441 MuiInputBase-adornedEnd-1443 MuiOutlinedInput-adornedEnd-1431"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-1448 MuiOutlinedInput-input-1435 MuiInputBase-inputAdornedEnd-1453 MuiOutlinedInput-inputAdornedEnd-1439"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-1455 MuiInputAdornment-positionEnd-1458"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1303"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -337,10 +339,10 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-1462 MuiOutlinedInput-notchedOutline-1434"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-29"
+                            class="PrivateNotchedOutline-legendLabelled-1464"
                           >
                             <span>
                               search.inputLabel
@@ -361,17 +363,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 MuiChip-colorPrimary-1471 MuiChip-clickableColorPrimary-1474 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.ALL
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -379,17 +381,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 Chip-default-1467 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.NOT_STARTED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -397,17 +399,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 Chip-default-1467 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.IN_PROGRESS
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -415,17 +417,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 Chip-default-1467 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.COMPLETED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -433,17 +435,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 Chip-default-1467 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.FLAT
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -451,17 +453,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1320 MuiChip-root-1469 Chip-root-1466 Chip-default-1467 MuiChip-clickable-1473"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1490"
                         >
                           filters.labels.PITCHED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1620"
                         />
                       </div>
                     </div>
@@ -474,26 +476,29 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                     data-testid="projectCard"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-1320 MuiCardActionArea-root-1498"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-1500 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-1329 title Typography-root-1321 MuiTypography-h6-1339"
+                          data-testid="typography"
                         >
                           Project 1
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-1329 Typography-root-1321 MuiTypography-body1-1331"
+                            data-testid="typography"
                           >
                             12345
                           </p>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-1329 Typography-root-1321 MuiTypography-body1-1331"
+                            data-testid="typography"
                             style="display: flex;"
                           >
                             <svg
@@ -504,7 +509,7 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1303 chevron MuiSvgIcon-colorDisabled-1308"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -515,10 +520,10 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-1499"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-1620"
                       />
                     </button>
                   </div>
@@ -533,16 +538,17 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-1503 outerGrid MuiGrid-container-1504 MuiGrid-spacing-xs-3-1528"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root-1503 Grid-item-1501 MuiGrid-item-1505 MuiGrid-grid-xs-12-1549"
               >
                 <div
                   class="main"
                 >
                   <h4
-                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                    class="MuiTypography-root-1329 Typography-root-1321 Typography-underline-1323 MuiTypography-h4-1337"
+                    data-testid="typography"
                   >
                     noProjects.title
                   </h4>
@@ -550,12 +556,14 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                     class="body"
                   >
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-1329 Typography-root-1321 MuiTypography-subtitle2-1341"
+                      data-testid="typography"
                     >
                       noProjects.body1
                     </h6>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-1329 Typography-root-1321 MuiTypography-subtitle2-1341"
+                      data-testid="typography"
                     >
                       noProjects.body2
                     </h6>
@@ -616,7 +624,7 @@ exports[`Projects Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -633,7 +641,7 @@ exports[`Projects Page render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -696,17 +704,17 @@ exports[`Projects Page render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -716,7 +724,7 @@ exports[`Projects Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-318"
                   />
                 </button>
                 <div
@@ -724,14 +732,14 @@ exports[`Projects Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -740,7 +748,7 @@ exports[`Projects Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-318"
                     />
                   </button>
                 </div>
@@ -749,14 +757,14 @@ exports[`Projects Page render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -765,7 +773,7 @@ exports[`Projects Page render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-318"
                     />
                   </button>
                 </div>
@@ -778,31 +786,33 @@ exports[`Projects Page render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Projects
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -812,21 +822,21 @@ exports[`Projects Page render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-318"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -836,7 +846,7 @@ exports[`Projects Page render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -853,7 +863,7 @@ exports[`Projects Page render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -864,7 +874,7 @@ exports[`Projects Page render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-318"
                       />
                     </button>
                   </div>
@@ -890,10 +900,10 @@ exports[`Projects Page render correctly 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-110 MuiTextField-root-109 TextField-root-106 TextField-leftAdornment-107 MuiFormControl-fullWidth-113"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-122 MuiInputLabel-root-114 MuiInputLabel-formControl-116 MuiInputLabel-animated-119 MuiInputLabel-outlined-121"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -901,22 +911,22 @@ exports[`Projects Page render correctly 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-138 MuiOutlinedInput-root-126 MuiInputBase-fullWidth-145 MuiInputBase-formControl-139 MuiInputBase-adornedEnd-141 MuiOutlinedInput-adornedEnd-129"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-146 MuiOutlinedInput-input-133 MuiInputBase-inputAdornedEnd-151 MuiOutlinedInput-inputAdornedEnd-137"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-153 MuiInputAdornment-positionEnd-156"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -927,10 +937,10 @@ exports[`Projects Page render correctly 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-3 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-160 MuiOutlinedInput-notchedOutline-132"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-5"
+                            class="PrivateNotchedOutline-legendLabelled-162"
                           >
                             <span>
                               search.inputLabel
@@ -951,17 +961,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 MuiChip-colorPrimary-169 MuiChip-clickableColorPrimary-172 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.ALL
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -969,17 +979,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.NOT_STARTED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -987,17 +997,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.IN_PROGRESS
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -1005,17 +1015,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.COMPLETED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -1023,17 +1033,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.FLAT
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -1041,17 +1051,17 @@ exports[`Projects Page render correctly 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-18 MuiChip-root-167 Chip-root-164 Chip-default-165 MuiChip-clickable-171"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-188"
                         >
                           filters.labels.PITCHED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-318"
                         />
                       </div>
                     </div>
@@ -1064,26 +1074,29 @@ exports[`Projects Page render correctly 1`] = `
                     data-testid="projectCard"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-18 MuiCardActionArea-root-196"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-198 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-27 title Typography-root-19 MuiTypography-h6-37"
+                          data-testid="typography"
                         >
                           Project 1
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                           >
                             12345
                           </p>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                            data-testid="typography"
                             style="display: flex;"
                           >
                             <svg
@@ -1094,7 +1107,7 @@ exports[`Projects Page render correctly 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1 chevron MuiSvgIcon-colorDisabled-6"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -1105,10 +1118,10 @@ exports[`Projects Page render correctly 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-197"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-318"
                       />
                     </button>
                   </div>
@@ -1123,16 +1136,17 @@ exports[`Projects Page render correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-201 outerGrid MuiGrid-container-202 MuiGrid-spacing-xs-3-226"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root-201 Grid-item-199 MuiGrid-item-203 MuiGrid-grid-xs-12-247"
               >
                 <div
                   class="main"
                 >
                   <h4
-                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                    class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                    data-testid="typography"
                   >
                     noProjects.title
                   </h4>
@@ -1140,12 +1154,14 @@ exports[`Projects Page render correctly 1`] = `
                     class="body"
                   >
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-27 Typography-root-19 MuiTypography-subtitle2-39"
+                      data-testid="typography"
                     >
                       noProjects.body1
                     </h6>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-27 Typography-root-19 MuiTypography-subtitle2-39"
+                      data-testid="typography"
                     >
                       noProjects.body2
                     </h6>
@@ -1206,7 +1222,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1223,7 +1239,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -1286,17 +1302,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-1647 MuiIconButton-root-1639 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-1646"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631 MuiSvgIcon-fontSizeLarge-1638"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1306,7 +1322,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-1947"
                   />
                 </button>
                 <div
@@ -1314,14 +1330,14 @@ exports[`Projects Page sort project with non super admin 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-1647"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631 MuiSvgIcon-fontSizeLarge-1638"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1330,7 +1346,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-1947"
                     />
                   </button>
                 </div>
@@ -1339,14 +1355,14 @@ exports[`Projects Page sort project with non super admin 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-1647"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631 MuiSvgIcon-fontSizeLarge-1638"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1355,7 +1371,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-1947"
                     />
                   </button>
                 </div>
@@ -1368,31 +1384,33 @@ exports[`Projects Page sort project with non super admin 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-1656 Typography-root-1648 MuiTypography-h3-1663"
+                  data-testid="typography"
                 >
                   Projects
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-1686 lowerHeaderDivider MuiDivider-flexItem-1692 MuiDivider-vertical-1691"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-1656 lowerHeaderUserLevel Typography-root-1648 MuiTypography-h3-1663"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-1647 MuiIconButton-root-1639 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-1646"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1630 MuiSvgIcon-colorPrimary-1631"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1402,21 +1420,21 @@ exports[`Projects Page sort project with non super admin 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-1947"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-31"
+                  class="makeStyles-root-1693"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-1647 MuiButton-root-1695 MuiButton-text-1697"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-1696"
                       >
                         <div
                           class="userMenu"
@@ -1426,7 +1444,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1630"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -1443,7 +1461,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1630 MuiSvgIcon-colorAction-1633"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1454,7 +1472,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-1947"
                       />
                     </button>
                   </div>
@@ -1480,10 +1498,10 @@ exports[`Projects Page sort project with non super admin 1`] = `
                 >
                   <nav>
                     <div
-                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                      class="MuiFormControl-root-1739 MuiTextField-root-1738 TextField-root-1735 TextField-leftAdornment-1736 MuiFormControl-fullWidth-1742"
                     >
                       <label
-                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        class="MuiFormLabel-root-1751 MuiInputLabel-root-1743 MuiInputLabel-formControl-1745 MuiInputLabel-animated-1748 MuiInputLabel-outlined-1750"
                         data-shrink="false"
                         for="filter"
                         id="filter-label"
@@ -1491,22 +1509,22 @@ exports[`Projects Page sort project with non super admin 1`] = `
                         search.inputLabel
                       </label>
                       <div
-                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                        class="MuiInputBase-root-1767 MuiOutlinedInput-root-1755 MuiInputBase-fullWidth-1774 MuiInputBase-formControl-1768 MuiInputBase-adornedEnd-1770 MuiOutlinedInput-adornedEnd-1758"
                       >
                         <input
                           aria-invalid="false"
-                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          class="MuiInputBase-input-1775 MuiOutlinedInput-input-1762 MuiInputBase-inputAdornedEnd-1780 MuiOutlinedInput-inputAdornedEnd-1766"
                           id="filter"
                           name="filter"
                           type="text"
                           value=""
                         />
                         <div
-                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                          class="MuiInputAdornment-root-1782 MuiInputAdornment-positionEnd-1785"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root-1630"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -1517,10 +1535,10 @@ exports[`Projects Page sort project with non super admin 1`] = `
                         </div>
                         <fieldset
                           aria-hidden="true"
-                          class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+                          class="PrivateNotchedOutline-root-1789 MuiOutlinedInput-notchedOutline-1761"
                         >
                           <legend
-                            class="PrivateNotchedOutline-legendLabelled-35"
+                            class="PrivateNotchedOutline-legendLabelled-1791"
                           >
                             <span>
                               search.inputLabel
@@ -1541,17 +1559,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 MuiChip-colorPrimary-1798 MuiChip-clickableColorPrimary-1801 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.ALL
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1559,17 +1577,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 Chip-default-1794 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.NOT_STARTED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1577,17 +1595,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 Chip-default-1794 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.IN_PROGRESS
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1595,17 +1613,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 Chip-default-1794 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.COMPLETED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1613,17 +1631,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 Chip-default-1794 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.FLAT
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1631,17 +1649,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
                       class="filterButton"
                     >
                       <div
-                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        class="MuiButtonBase-root-1647 MuiChip-root-1796 Chip-root-1793 Chip-default-1794 MuiChip-clickable-1800"
                         role="button"
                         tabindex="0"
                       >
                         <span
-                          class="MuiChip-label"
+                          class="MuiChip-label-1817"
                         >
                           filters.labels.PITCHED
                         </span>
                         <span
-                          class="MuiTouchRipple-root"
+                          class="MuiTouchRipple-root-1947"
                         />
                       </div>
                     </div>
@@ -1654,26 +1672,29 @@ exports[`Projects Page sort project with non super admin 1`] = `
                     data-testid="projectCard"
                   >
                     <button
-                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      class="MuiButtonBase-root-1647 MuiCardActionArea-root-1825"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="MuiCardContent-root main"
+                        class="MuiCardContent-root-1827 main"
                       >
                         <h6
-                          class="MuiTypography-root title Typography MuiTypography-h6"
+                          class="MuiTypography-root-1656 title Typography-root-1648 MuiTypography-h6-1666"
+                          data-testid="typography"
                         >
                           Project 1
                         </h6>
                         <div>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-1656 Typography-root-1648 MuiTypography-body1-1658"
+                            data-testid="typography"
                           >
                             12345
                           </p>
                           <p
-                            class="MuiTypography-root Typography MuiTypography-body1"
+                            class="MuiTypography-root-1656 Typography-root-1648 MuiTypography-body1-1658"
+                            data-testid="typography"
                             style="display: flex;"
                           >
                             <svg
@@ -1684,7 +1705,7 @@ exports[`Projects Page sort project with non super admin 1`] = `
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          class="MuiSvgIcon-root-1630 chevron MuiSvgIcon-colorDisabled-1635"
                           focusable="false"
                           style="font-size: 36px;"
                           viewBox="0 0 24 24"
@@ -1695,10 +1716,10 @@ exports[`Projects Page sort project with non super admin 1`] = `
                         </svg>
                       </div>
                       <span
-                        class="MuiCardActionArea-focusHighlight"
+                        class="MuiCardActionArea-focusHighlight-1826"
                       />
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-1947"
                       />
                     </button>
                   </div>
@@ -1713,16 +1734,17 @@ exports[`Projects Page sort project with non super admin 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root-1830 outerGrid MuiGrid-container-1831 MuiGrid-spacing-xs-3-1855"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                class="MuiGrid-root-1830 Grid-item-1828 MuiGrid-item-1832 MuiGrid-grid-xs-12-1876"
               >
                 <div
                   class="main"
                 >
                   <h4
-                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                    class="MuiTypography-root-1656 Typography-root-1648 Typography-underline-1650 MuiTypography-h4-1664"
+                    data-testid="typography"
                   >
                     noProjects.title
                   </h4>
@@ -1730,12 +1752,14 @@ exports[`Projects Page sort project with non super admin 1`] = `
                     class="body"
                   >
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-1656 Typography-root-1648 MuiTypography-subtitle2-1668"
+                      data-testid="typography"
                     >
                       noProjects.body1
                     </h6>
                     <h6
-                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                      class="MuiTypography-root-1656 Typography-root-1648 MuiTypography-subtitle2-1668"
+                      data-testid="typography"
                     >
                       noProjects.body2
                     </h6>

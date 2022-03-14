@@ -1,7 +1,7 @@
 import React from "react";
-import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
-import { generateProduct } from "../../../../../lib/tests/factories/product";
 import { ProductCard } from "..";
+import { generateProduct } from "../../../../../lib/tests/factories/product";
+import { renderWithI18NProvider } from "../../../../../lib/tests/utils";
 
 describe("ProductCard component", () => {
   const product = generateProduct();

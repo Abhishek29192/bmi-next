@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import MediaGallerySection, { Data } from "../MediaGallerySection";
@@ -134,7 +135,11 @@ describe("MediaGallerySection component", () => {
       ]
     };
 
-    const { container } = render(<MediaGallerySection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <MediaGallerySection data={data} />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
   });
@@ -187,7 +192,9 @@ describe("MediaGallerySection component", () => {
     };
 
     const { container, getByText } = render(
-      <MediaGallerySection data={data} />
+      <ThemeProvider>
+        <MediaGallerySection data={data} />
+      </ThemeProvider>
     );
 
     expect(getByText("this is a test paragraph")).not.toBeNull();

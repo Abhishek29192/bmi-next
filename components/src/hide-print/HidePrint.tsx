@@ -1,6 +1,6 @@
-import React from "react";
 import classnames from "classnames";
-import styles from "./HidePrint.module.scss";
+import React from "react";
+import { useStyles } from "./styles";
 
 type Props = {
   children?: React.ReactNode;
@@ -9,10 +9,11 @@ type Props = {
 };
 
 const HidePrint = ({ children, className, component = "div" }: Props) => {
+  const classes = useStyles();
   const Component = component;
 
   return (
-    <Component className={classnames(className, styles["HidePrint"])}>
+    <Component className={classnames(className, classes.root)}>
       {children}
     </Component>
   );

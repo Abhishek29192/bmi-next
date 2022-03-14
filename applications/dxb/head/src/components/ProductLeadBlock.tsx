@@ -8,11 +8,13 @@ import {
   LeadBlock,
   MediaGallery,
   Tabs,
+  ThemeOptions,
   Typography
 } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
+import { makeStyles } from "@material-ui/styles";
 import React, { useRef, useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -29,9 +31,19 @@ import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ProductLeadBlock.module.scss";
 
-const BlueCheckIcon = (
-  <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
+export const useStyles = makeStyles(
+  (theme: ThemeOptions) => ({
+    root: {
+      color: theme.colours.accent300
+    }
+  }),
+  { name: "BlueCheckIcon" }
 );
+
+const BlueCheckIcon = () => {
+  const classes = useStyles();
+  return <Icon source={CheckIcon} className={classes.root} />;
+};
 type Props = {
   product: Product;
   sidebarItems?: {
@@ -195,7 +207,7 @@ const ProductLeadBlock = ({
               )}
             </LeadBlock.Content>
             {(product.productBenefits || sidebarItems?.length) && (
-              <LeadBlock.Card theme="blue-900">
+              <LeadBlock.Card theme="blue900">
                 {product.productBenefits ? (
                   <LeadBlock.Card.Section>
                     <LeadBlock.Card.Heading>
@@ -206,7 +218,7 @@ const ProductLeadBlock = ({
                         {product.productBenefits.map((feature, index) => (
                           <IconList.Item
                             key={index}
-                            icon={BlueCheckIcon}
+                            icon={BlueCheckIcon()}
                             title={feature}
                             isCompact
                           />
@@ -252,7 +264,7 @@ const ProductLeadBlock = ({
               <ProductTechnicalSpec product={product} />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
-              <LeadBlock.Card theme="blue-900">
+              <LeadBlock.Card theme="blue900">
                 {sidebarItems.slice(1).map(({ title, content }, index) => {
                   return (
                     <LeadBlock.Card.Section key={`sidebar-item-${index}`}>

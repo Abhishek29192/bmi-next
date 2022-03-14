@@ -10,7 +10,7 @@ import ContainerDialog from "../container-dialog/ContainerDialog";
 import Icon, { iconMap } from "../icon";
 import { YoutubeContext } from "../media-gallery";
 import Typography from "../typography/Typography";
-import styles from "./YoutubeVideo.module.scss";
+import { useStyles } from "./styles";
 
 export type GTM = {
   id: string;
@@ -71,15 +71,17 @@ const getValidPreviewImage = (
   previewImageSource: string | React.ReactNode,
   label: React.ReactNode
 ) => {
+  const classes = useStyles({});
   return React.isValidElement(previewImageSource) ? (
     React.cloneElement(previewImageSource, {
-      className: styles["preview-image"]
+      className: classes.previewImage
     })
   ) : (
     <img
-      className={styles["preview-image"]}
+      className={classes.previewImage}
       src={String(previewImageSource)}
       alt={String(label)}
+      data-testid={"youtube-preview-image"}
     />
   );
 };
@@ -104,6 +106,7 @@ const DialogVideo = ({
   const [isDialogOpen, setDialogOpen] = useState(showYouTubeVideo);
   const [ref, dimensions] = useDimensions();
   const { width, height } = getSize(embedWidth, embedHeight, dimensions);
+  const classes = useStyles({});
   let calculatedHeight = dimensions.height;
   useEffect(() => {
     setDialogOpen(showYouTubeVideo);
@@ -127,12 +130,12 @@ const DialogVideo = ({
   const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div
-      className={classnames(styles["YoutubeVideo"], className)}
+      className={classnames(classes.root, className)}
       data-gtm={JSON.stringify(dataGTM)}
       data-testid="youtube-dialog-wrapper"
     >
       <Clickable
-        className={styles["thumbnail"]}
+        className={classes.thumbnail}
         aria-label={label}
         onClick={(_) => {
           setDialogOpen(true);
@@ -143,7 +146,7 @@ const DialogVideo = ({
         <AlternativeContent>{label}</AlternativeContent>
         <Button
           isIconButton
-          className={styles["play-button"]}
+          className={classes.playButton}
           component="div"
           aria-label={label}
           data-testid={"thumbnail-button"}
@@ -186,16 +189,12 @@ const InPlaceVideo = ({
 }: Props) => {
   const [ref, dimensions] = useDimensions();
   const { width, height } = getSize(embedWidth, embedHeight, dimensions);
-
+  const classes = useStyles({});
   return (
     <div
-      className={classnames(
-        styles["YoutubeVideo"],
-        styles["YoutubeVideo--in-place"],
-        className
-      )}
+      className={classnames(classes.root, classes.inPlace, className)}
       ref={!!ref && ref}
-      data-testid="youtupe-inplace-wrapper"
+      data-testid="youtube-inplace-wrapper"
     >
       {dimensions.width && (
         <ReactPlayer
@@ -233,6 +232,7 @@ const InlineVideo = ({
 }: Props) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFirstPlay, setIsFirstPlay] = useState(true);
+  const classes = useStyles({ aspectRatio: embedHeight / embedWidth });
 
   useEffect(() => {
     if (onGTMEvent && isFirstPlay && isPlaying) {
@@ -244,11 +244,7 @@ const InlineVideo = ({
   const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div
-      className={classnames(
-        styles["YoutubeVideo"],
-        styles["YoutubeVideo--inline"],
-        className
-      )}
+      className={classnames(classes.root, classes.inline, className)}
       style={{ ["--aspect-ratio" as any]: embedHeight / embedWidth }}
       data-gtm={JSON.stringify(dataGTM)}
       data-testid="youtube-inline-wrapper"
@@ -256,15 +252,15 @@ const InlineVideo = ({
     >
       <div>
         {validImageComponent}
-        <div className={styles["overlay"]}>
+        <div className={classes.overlay}>
           <Button
             isIconButton
-            className={styles["play-button"]}
+            className={classes.playButton}
             aria-label={label}
           >
             <Icon source={iconMap.PlayArrow} />
           </Button>
-          <Typography className={styles["subtitle"]}>{subtitle}</Typography>
+          <Typography className={classes.subtitle}>{subtitle}</Typography>
         </div>
       </div>
       <Fade in={isPlaying} timeout={250} style={{ transitionDelay: "500ms" }}>

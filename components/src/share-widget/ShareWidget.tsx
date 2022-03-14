@@ -1,16 +1,18 @@
 import { Tooltip } from "@material-ui/core";
-import { Email } from "@material-ui/icons";
-import { Facebook } from "@material-ui/icons";
-import { FileCopyOutlined } from "@material-ui/icons";
-import { LinkedIn } from "@material-ui/icons";
-import { Pinterest } from "@material-ui/icons";
-import { Twitter } from "@material-ui/icons";
+import {
+  Email,
+  Facebook,
+  FileCopyOutlined,
+  LinkedIn,
+  Pinterest,
+  Twitter
+} from "@material-ui/icons";
 import classnames from "classnames";
 import React, { MouseEvent, useEffect, useState } from "react";
 import DefaultButton from "../button/Button";
 import Icon from "../icon";
 import Typography from "../typography/Typography";
-import styles from "./ShareWidget.module.scss";
+import { useStyles } from "./styles";
 
 const iconMap = {
   copy: FileCopyOutlined,
@@ -53,6 +55,8 @@ const ShareWidget = ({
 }: Props) => {
   const [tooltipTitle, setTooltipTitle] = useState<string>("");
   const [tooltipOpen, setTooltipOpen] = useState<boolean>(false);
+
+  const classes = useStyles();
 
   const Button = buttonComponent || DefaultButton;
 
@@ -107,27 +111,28 @@ const ShareWidget = ({
   return (
     <div
       className={classnames(
-        styles["ShareWidget"],
-        isLeftAligned && styles["ShareWidget--left-aligned"]
+        classes.root,
+        isLeftAligned && classes.leftAligned,
+        isLeftAligned && "test-shareWidget-left-aligned"
       )}
     >
-      <Typography className={styles["title"]} variant="h6">
+      <Typography className={classes.title} variant="h6">
         {title || "Share this"}:
       </Typography>
-      <ul className={styles["icon-list"]}>
+      <ul className={classes.iconList}>
         {channels.map((channel, key) => (
           <li key={key}>
             <Button
               isIconButton
               variant="text"
-              className={styles["icon-button"]}
+              className={classes.iconButton}
               data-channel={channel.type}
               accessibilityLabel={channel.label}
               onClick={(event: MouseEvent<HTMLButtonElement>) =>
                 handleClick(event, channel)
               }
             >
-              <Icon className={styles["icon"]} source={iconMap[channel.type]} />
+              <Icon className={classes.icon} source={iconMap[channel.type]} />
             </Button>
             {channel.type === "copy" && (
               <Tooltip title={tooltipTitle} open={tooltipOpen}>

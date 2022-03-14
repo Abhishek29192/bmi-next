@@ -1,10 +1,11 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
+import { renderWithRouter } from "../../../test/renderWithRouter";
+import createService from "../../../__tests__/helpers/ServiceHelper";
+import { EntryTypeEnum } from "../../Service";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../index";
-import { EntryTypeEnum } from "../../Service";
-import createService from "../../../__tests__/helpers/ServiceHelper";
-import { renderWithRouter } from "../../../test/renderWithRouter";
 
 jest.mock("@reach/router", () => ({
   ...(jest.requireActual("@reach/router") as Record<string, unknown>),
@@ -39,7 +40,11 @@ describe("ServiceLocatorSection resulst list pannel component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const text = wrapper.getByText("MC: findARoofer.listLabel");
     expect(
       wrapper.container.querySelector(".tabs .tab-panel .list")

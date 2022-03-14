@@ -37,7 +37,7 @@ import { Data as LinkData, isExternalUrl } from "./Link";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import styles from "./styles/FormSection.module.scss";
+import { useStyles } from "./styles/FormSectionStyles";
 import { SourceType } from "./types/FormSectionTypes";
 
 export type Data = {
@@ -354,6 +354,7 @@ const HubspotForm = ({
   const {
     config: { hubSpotId }
   } = useConfig();
+  const classes = useStyles();
 
   // Uses the HS script to bring in the form. This will create an iframe regardless
   // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
@@ -435,10 +436,7 @@ const HubspotForm = ({
       )}
       <div
         id={hubSpotFormID}
-        className={classNames(
-          styles["Form--hubSpot"],
-          isDialog && styles["Form--dialog"]
-        )}
+        className={classNames(classes.hubSpot, isDialog && classes.dialog)}
       />
     </Section>
   );
@@ -496,6 +494,7 @@ const FormSection = ({
     label: "aria-label",
     action: "data-action"
   });
+  const classes = useStyles();
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
@@ -714,7 +713,7 @@ const FormSection = ({
               ? handleHubSpotSubmit
               : handleSubmit
           }
-          className={styles["Form"]}
+          className={classes.root}
           rightAlignButton
         >
           <Grid container spacing={3}>

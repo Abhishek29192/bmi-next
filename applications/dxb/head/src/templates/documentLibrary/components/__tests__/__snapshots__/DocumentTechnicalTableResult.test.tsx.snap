@@ -3,27 +3,25 @@
 exports[`DocumentTechnicalTableResults component in desktop view renders correctly 1`] = `
 <div>
   <div
-    class="DocumentTechnicalTableResults"
+    class="DocumentTechnicalTableResults-root-1"
   >
-    <div
-      class="accordion-div"
-    >
+    <div>
       <div
-        class="accordionStyles-root-1"
+        class="Accordion-root-18"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root Accordion-item-19 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-22"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+              class="MuiAccordionSummary-content Accordion-summaryContent-24"
             >
               product name
             </div>
@@ -65,28 +63,28 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root accordion-details"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails-11"
                   >
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-9"
                     >
                       <svg
-                        class="format-icon"
+                        class="DocumentTechnicalTableResults-formatIcon-6 format-icon"
                       />
                     </div>
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-9"
                     >
                       asset-type-code
                     </div>
                     <div
-                      class="info-icon-container"
+                      class="DocumentTechnicalTableResults-infoIconContainer-8"
                     >
                       <div
-                        class="Tooltip"
+                        class="ToggleCard-root-43"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root-55 iconButton IconButton-42-54 IconButton-text-57"
                           tabindex="0"
                           type="button"
                         >
@@ -95,7 +93,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root tooltip-icon"
+                              class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-5"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -111,7 +109,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                       </div>
                     </div>
                     <div
-                      class="download-icon-container"
+                      class="DocumentTechnicalTableResults-downloadIconContainer-10"
                     >
                       <a
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -120,9 +118,7 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <svg
-                          class="all-files-icon"
-                        />
+                        <svg />
                       </a>
                     </div>
                   </div>
@@ -140,27 +136,25 @@ exports[`DocumentTechnicalTableResults component in desktop view renders correct
 exports[`DocumentTechnicalTableResults component in mobile view renders correctly 1`] = `
 <div>
   <div
-    class="DocumentTechnicalTableResults"
+    class="DocumentTechnicalTableResults-root-64"
   >
-    <div
-      class="accordion-div"
-    >
+    <div>
       <div
-        class="accordionStyles-root-32"
+        class="Accordion-root-81"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root accordionStyles-item-33 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root Accordion-item-82 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-36"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-85"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content accordionStyles-summaryContent-38"
+              class="MuiAccordionSummary-content Accordion-summaryContent-87"
             >
               product name
             </div>
@@ -202,28 +196,28 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root accordion-details"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails-74"
                   >
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-72"
                     >
                       <svg
-                        class="format-icon"
+                        class="DocumentTechnicalTableResults-formatIcon-69 format-icon"
                       />
                     </div>
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-72"
                     >
                       asset-type-code
                     </div>
                     <div
-                      class="info-icon-container"
+                      class="DocumentTechnicalTableResults-infoIconContainer-71"
                     >
                       <div
-                        class="Tooltip"
+                        class="ToggleCard-root-106"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-54 iconButtonStyles-42-53 iconButtonStyles-text-56"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root-118 iconButton IconButton-42-117 IconButton-text-120"
                           tabindex="0"
                           type="button"
                         >
@@ -232,7 +226,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root tooltip-icon"
+                              class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-68"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -248,7 +242,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                       </div>
                     </div>
                     <div
-                      class="download-icon-container"
+                      class="DocumentTechnicalTableResults-downloadIconContainer-73"
                     >
                       <a
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -257,9 +251,7 @@ exports[`DocumentTechnicalTableResults component in mobile view renders correctl
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <svg
-                          class="all-files-icon"
-                        />
+                        <svg />
                       </a>
                     </div>
                   </div>

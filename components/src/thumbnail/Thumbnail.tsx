@@ -4,7 +4,7 @@ import React from "react";
 import { withClickable } from "../clickable/Clickable";
 import Icon, { iconMap } from "../icon";
 import Media, { AcceptedNode } from "../media/Media";
-import styles from "./Thumbnail.module.scss";
+import { useStyles } from "./styles";
 
 export enum StateEnum {
   ENABLED = "enabled",
@@ -42,12 +42,7 @@ const Thumbnail = ({
   visualiserParameters,
   ...rest
 }: Props) => {
-  const classList = classnames(
-    className,
-    styles["Thumbnail"],
-    state !== StateEnum.ENABLED && styles[`Thumbnail--${state}`],
-    size === SizeEnum.LARGE && styles["Thumbnail--large"]
-  );
+  const classes = useStyles();
   const backgroundImage =
     (imageSource && isVideo) || (imageSource && !media)
       ? { backgroundImage: `url("${imageSource}")` }
@@ -55,36 +50,40 @@ const Thumbnail = ({
 
   const accessibilityText =
     (altText && isVideo) || (altText && !media) ? (
-      <span className={styles["accessibility-text"]}>{altText}</span>
+      <span className={classes.accessibilityText}>{altText}</span>
     ) : null;
 
   return (
     <ButtonBase
       disabled={state === StateEnum.DISABLED}
       disableRipple={state === StateEnum.SELECTED}
-      className={classList}
-      aria-label={altText}
+      className={classnames(
+        className,
+        classes.root,
+        // eslint-disable-next-line security/detect-object-injection
+        state !== StateEnum.ENABLED && classes[state],
+        size === SizeEnum.LARGE && classes.large,
+        state === StateEnum.SELECTED && classes.selected
+      )}
       {...rest}
       style={{
         backgroundColor: color,
         ...backgroundImage
       }}
+      data-testid={"default-thumbnail"}
     >
       {accessibilityText}
       {media && !isVideo && <Media>{media}</Media>}
       {isVideo && (
         <Icon
           source={iconMap.PlayArrow}
-          className={styles["play-icon"]}
+          className={classes.playIcon}
           onClick={(e) => openYoutubeVideo && openYoutubeVideo(e)}
+          data-testid={"thumbnail-play-icon"}
         />
       )}
       {visualiserParameters && (
-        <Icon
-          source={iconMap.Cube}
-          className={styles["cube-icon"]}
-          name="Cube"
-        />
+        <Icon source={iconMap.Cube} className={classes.cubeIcon} name="Cube" />
       )}
     </ButtonBase>
   );

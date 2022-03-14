@@ -7,7 +7,7 @@ import Button from "../button/Button";
 import ColorPair from "../color-pair/ColorPair";
 import Typography from "../typography/Typography";
 import { DialogClassNameContext } from "./context";
-import styles from "./Dialog.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   open?: boolean;
@@ -37,6 +37,7 @@ const Dialog = ({
   className
 }: Props) => {
   const dialogClassName = useContext(DialogClassNameContext);
+  const classes = useStyles();
   const childrenArray = React.Children.toArray(children);
   const rawTitle = childrenArray.find(
     (child) => isElement(child) && child.type === Title
@@ -44,7 +45,7 @@ const Dialog = ({
 
   const title = rawTitle
     ? React.cloneElement(rawTitle, {
-        className: classnames(styles["title"], rawTitle.props.className) // TODO: no need to clone
+        className: classnames(classes.title, rawTitle.props.className) // TODO: no need to clone
       })
     : null;
 
@@ -54,7 +55,7 @@ const Dialog = ({
 
   return (
     <Modal
-      className={classnames(dialogClassName)}
+      className={dialogClassName}
       open={open}
       onClose={onBackdropClick}
       BackdropProps={backdropProps}
@@ -66,19 +67,19 @@ const Dialog = ({
         <ColorPair theme={color}>
           <div
             className={classnames(
-              styles["Dialog"],
-              styles[`Dialog--bg-${color}`],
-              styles[`Dialog--width-${maxWidth}`],
+              classes.root,
+              classes[`bg-${color}`],
+              classes[`width-${maxWidth}`],
               className
             )}
           >
-            <div className={styles["header"]}>
+            <div className={classes.header}>
               {title}
               {onCloseClick && (
                 <Button
                   isIconButton
                   variant="text"
-                  className={styles["iconButton"]}
+                  className={classes.iconButton}
                   onClick={onCloseClick}
                   accessibilityLabel={"Close"}
                 >
@@ -106,21 +107,27 @@ const Title = ({
   className,
   children,
   hasUnderline
-}: TitleProps) => (
-  <Typography
-    variant={variant}
-    hasUnderline={hasUnderline}
-    className={classnames(styles["title"], className)}
-  >
-    {children}
-  </Typography>
-);
+}: TitleProps) => {
+  const classes = useStyles();
+  return (
+    <Typography
+      variant={variant}
+      hasUnderline={hasUnderline}
+      className={classnames(classes.title, className)}
+    >
+      {children}
+    </Typography>
+  );
+};
 
 Dialog.Title = Title;
 
-const Content = ({ className, ...rest }: React.HTMLProps<HTMLDivElement>) => (
-  <div className={classnames(styles["content"], className)} {...rest} />
-);
+// TODO: Some how thinks className is not in HTMLProps
+// eslint-disable-next-line react/prop-types
+const Content = ({ className, ...rest }: React.HTMLProps<HTMLDivElement>) => {
+  const classes = useStyles();
+  return <div className={classnames(classes.content, className)} {...rest} />;
+};
 
 Dialog.Content = Content;
 
@@ -144,28 +151,31 @@ const Actions = ({
   onConfirmClick,
   isConfirmButtonDisabled,
   ...rest
-}: ActionsProps) => (
-  <div className={classnames(styles["actions"], className)} {...rest}>
-    {cancelLabel ? (
-      <Button
-        onClick={onCancelClick}
-        variant={"outlined"}
-        className={styles["actionButton"]}
-      >
-        {cancelLabel}
-      </Button>
-    ) : null}
-    {confirmLabel ? (
-      <Button
-        onClick={onConfirmClick}
-        className={styles["actionButton"]}
-        disabled={isConfirmButtonDisabled}
-      >
-        {confirmLabel}
-      </Button>
-    ) : null}
-  </div>
-);
+}: ActionsProps) => {
+  const classes = useStyles();
+  return (
+    <div className={classnames(classes.actions, className)} {...rest}>
+      {cancelLabel ? (
+        <Button
+          onClick={onCancelClick}
+          variant={"outlined"}
+          className={classes.actionButton}
+        >
+          {cancelLabel}
+        </Button>
+      ) : null}
+      {confirmLabel ? (
+        <Button
+          onClick={onConfirmClick}
+          className={classes.actionButton}
+          disabled={isConfirmButtonDisabled}
+        >
+          {confirmLabel}
+        </Button>
+      ) : null}
+    </div>
+  );
+};
 
 Dialog.Actions = Actions;
 

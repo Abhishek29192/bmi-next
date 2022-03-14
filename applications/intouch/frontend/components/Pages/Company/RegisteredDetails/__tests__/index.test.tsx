@@ -1,13 +1,15 @@
 import React from "react";
+import { ThemeProvider } from "@bmi/components";
+import { screen } from "@testing-library/react";
+import { CompanyRegisteredDetails, formatCompanyOperations } from "..";
 import { mockCompany } from "../../../../../fixtures/company";
-import { render, screen } from "../../../../../lib/tests/utils";
-import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
-import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
-import MarketContextWrapper from "../../../../../lib/tests/fixtures/market";
-import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import { OPERATION_TYPES } from "../../../../../lib/constants";
-import { formatCompanyOperations, CompanyRegisteredDetails } from "..";
 import { generateTierBenefitItem } from "../../../../../lib/tests/factories/contentful/tierBenefitCollection";
+import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
+import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
+import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
+import MarketContextWrapper from "../../../../../lib/tests/fixtures/market";
+import { render } from "../../../../../lib/tests/utils";
 
 const useGetTierBenefitQuerySpy = jest.fn();
 jest.mock("../../../../../graphql/generated/hooks", () => {
@@ -151,18 +153,20 @@ describe("CompanyRegisteredDetails", () => {
   describe("render normally", () => {
     beforeEach(() => {
       render(
-        <ApolloProvider>
-          <I18nProvider>
-            <MarketContextWrapper>
-              <AccountContextWrapper>
-                <CompanyRegisteredDetails
-                  company={mockCompany}
-                  mapsApiKey="mapsApiKey"
-                />
-              </AccountContextWrapper>
-            </MarketContextWrapper>
-          </I18nProvider>
-        </ApolloProvider>
+        <ThemeProvider>
+          <ApolloProvider>
+            <I18nProvider>
+              <MarketContextWrapper>
+                <AccountContextWrapper>
+                  <CompanyRegisteredDetails
+                    company={mockCompany}
+                    mapsApiKey="mapsApiKey"
+                  />
+                </AccountContextWrapper>
+              </MarketContextWrapper>
+            </I18nProvider>
+          </ApolloProvider>
+        </ThemeProvider>
       );
     });
     it("renders company name", () => {
@@ -198,18 +202,20 @@ describe("CompanyRegisteredDetails", () => {
 
   it("matches snapshot", () => {
     const { container } = render(
-      <ApolloProvider>
-        <I18nProvider>
-          <MarketContextWrapper>
-            <AccountContextWrapper>
-              <CompanyRegisteredDetails
-                company={mockCompany}
-                mapsApiKey="mapsApiKey"
-              />
-            </AccountContextWrapper>
-          </MarketContextWrapper>
-        </I18nProvider>
-      </ApolloProvider>
+      <ThemeProvider>
+        <ApolloProvider>
+          <I18nProvider>
+            <MarketContextWrapper>
+              <AccountContextWrapper>
+                <CompanyRegisteredDetails
+                  company={mockCompany}
+                  mapsApiKey="mapsApiKey"
+                />
+              </AccountContextWrapper>
+            </MarketContextWrapper>
+          </I18nProvider>
+        </ApolloProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -217,26 +223,28 @@ describe("CompanyRegisteredDetails", () => {
   describe("show not render field when no data found", () => {
     useGetTierBenefitQuerySpy.mockImplementation(() => null);
     render(
-      <ApolloProvider>
-        <I18nProvider>
-          <MarketContextWrapper>
-            <AccountContextWrapper>
-              <CompanyRegisteredDetails
-                company={{
-                  ...mockCompany,
-                  referenceNumber: null,
-                  registeredAddress: null,
-                  taxNumber: null,
-                  companyOperationsByCompany: {
-                    nodes: []
-                  }
-                }}
-                mapsApiKey="mapsApiKey"
-              />
-            </AccountContextWrapper>
-          </MarketContextWrapper>
-        </I18nProvider>
-      </ApolloProvider>
+      <ThemeProvider>
+        <ApolloProvider>
+          <I18nProvider>
+            <MarketContextWrapper>
+              <AccountContextWrapper>
+                <CompanyRegisteredDetails
+                  company={{
+                    ...mockCompany,
+                    referenceNumber: null,
+                    registeredAddress: null,
+                    taxNumber: null,
+                    companyOperationsByCompany: {
+                      nodes: []
+                    }
+                  }}
+                  mapsApiKey="mapsApiKey"
+                />
+              </AccountContextWrapper>
+            </MarketContextWrapper>
+          </I18nProvider>
+        </ApolloProvider>
+      </ThemeProvider>
     );
 
     it("no referenceNumber", () => {

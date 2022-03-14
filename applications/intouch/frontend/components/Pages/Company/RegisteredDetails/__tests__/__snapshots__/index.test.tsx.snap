@@ -6,7 +6,8 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
     class="main"
   >
     <h4
-      class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      class="MuiTypography-root Typography-root-155 Typography-underline-157 MuiTypography-h4"
+      data-testid="typography"
       style="font-size: 1.2rem;"
     >
       details.registeredDetails
@@ -18,12 +19,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           details.name
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           Integrated Solutions Inc
         </div>
@@ -32,12 +35,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           details.referenceNumber
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           937392
         </div>
@@ -46,12 +51,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           details.registeredAddress
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           <div
             data-testid="address"
@@ -93,12 +100,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           details.taxNumber
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           63323-463
         </div>
@@ -107,12 +116,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           edit_dialog.form.fields.tier
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           tier benefit T2
         </div>
@@ -121,12 +132,14 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         style="margin-bottom: 1.5rem;"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-155 MuiTypography-h6"
+          data-testid="typography"
         >
           companyOperations
         </h6>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-155 MuiTypography-body1"
+          data-testid="typography"
         >
           Pitched and flat companyOperationsSuffix
         </div>

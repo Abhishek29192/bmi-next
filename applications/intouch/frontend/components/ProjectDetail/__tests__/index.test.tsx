@@ -1,13 +1,14 @@
+import { ThemeProvider } from "@bmi/components";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
-import { fireEvent, waitFor, render } from "@testing-library/react";
 import ProjectDetail from "..";
-import { renderWithUserProvider, screen } from "../../../lib/tests/utils";
-import AccountContextWrapper from "../../../lib/tests/fixtures/account";
-import { generateProject } from "../../../lib/tests/factories/project";
-import { generateGuarantee } from "../../../lib/tests/factories/guarantee";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
-import { generateProduct } from "../../../lib/tests/factories/product";
 import { generateAccount } from "../../../lib/tests/factories/account";
+import { generateGuarantee } from "../../../lib/tests/factories/guarantee";
+import { generateProduct } from "../../../lib/tests/factories/product";
+import { generateProject } from "../../../lib/tests/factories/project";
+import AccountContextWrapper from "../../../lib/tests/fixtures/account";
+import { renderWithUserProvider, screen } from "../../../lib/tests/utils";
 
 const mockGetProjectQuery = jest.fn();
 const mockOnUpdateGuaranteeSpy = jest.fn();
@@ -124,12 +125,14 @@ describe("ProjectDetail component", () => {
 
   it("should show NoProjectsCard", () => {
     renderWithUserProvider(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={null}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={null}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     expect(screen.getByText("noProjecSelected.body2")).toBeInTheDocument();
   });
@@ -141,12 +144,14 @@ describe("ProjectDetail component", () => {
     }));
 
     renderWithUserProvider(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={1}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={1}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     expect(screen.getByText("projectDetails.loading")).toBeInTheDocument();
   });
@@ -157,12 +162,14 @@ describe("ProjectDetail component", () => {
     }));
 
     renderWithUserProvider(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={1}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={1}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     expect(screen.getByText("projectDetails.error")).toBeInTheDocument();
   });
@@ -174,12 +181,14 @@ describe("ProjectDetail component", () => {
     }));
 
     renderWithUserProvider(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     expect(screen.getByText("projectDetails.roofArea")).toBeInTheDocument();
   });
@@ -191,29 +200,35 @@ describe("ProjectDetail component", () => {
     }));
 
     const res = render(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     project.id = 2;
     res.rerender(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     res.rerender(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
     expect(screen.getByText("projectDetails.roofArea")).toBeInTheDocument();
   });
@@ -235,12 +250,16 @@ describe("ProjectDetail component", () => {
     });
 
     renderWithUserProvider(
-      <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper
+          account={generateAccount({ role: "SUPER_ADMIN" })}
+        >
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
 
     const guaranteeEventButton = screen.getByTestId("guarantee-event-button");
@@ -291,12 +310,14 @@ describe("ProjectDetail component", () => {
     }));
 
     renderWithUserProvider(
-      <AccountContextWrapper>
-        <ProjectDetail
-          onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
-          projectId={project.id}
-        />
-      </AccountContextWrapper>
+      <ThemeProvider>
+        <AccountContextWrapper>
+          <ProjectDetail
+            onUpdateGuarantee={mockOnUpdateGuaranteeSpy}
+            projectId={project.id}
+          />
+        </AccountContextWrapper>
+      </ThemeProvider>
     );
 
     expect(screen.getByText("projectDetails.roofArea")).toBeInTheDocument();

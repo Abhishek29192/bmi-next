@@ -1,4 +1,4 @@
-import { Form, FormContext } from "@bmi/components";
+import { Form, FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
@@ -28,18 +28,20 @@ const gutterHook = createProduct<GutterHook>({
 describe("PitchedRoofCalculator Guttering component", () => {
   it("renders with no options", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <Guttering selections={{}} gutters={{}} gutterHooks={[]} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <Guttering selections={{}} gutters={{}} gutterHooks={[]} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -49,11 +51,13 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("renders fields step by step", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Form>
-          <Guttering gutters={gutters} gutterHooks={[gutterHook]} />
-        </Form>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Form>
+            <Guttering gutters={gutters} gutterHooks={[gutterHook]} />
+          </Form>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(screen.queryByText(gutterVariant.name)).not.toBeInTheDocument();
@@ -71,11 +75,13 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("return null for GutteringSelection component", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Form>
-          <Guttering gutters={{}} gutterHooks={[]} />
-        </Form>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Form>
+            <Guttering gutters={{}} gutterHooks={[]} />
+          </Form>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -85,18 +91,20 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("returns null for GutteringHookSelection component", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Form>
-          <Guttering
-            gutters={gutters}
-            selections={{
-              guttering: gutterVariant.baseProduct.code,
-              gutteringVariant: gutterVariant
-            }}
-            gutterHooks={[]}
-          />
-        </Form>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Form>
+            <Guttering
+              gutters={gutters}
+              selections={{
+                guttering: gutterVariant.baseProduct.code,
+                gutteringVariant: gutterVariant
+              }}
+              gutterHooks={[]}
+            />
+          </Form>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(
@@ -106,33 +114,39 @@ describe("PitchedRoofCalculator Guttering component", () => {
 
   it("renders downPipe and downPipeConnector inputs", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <Form>
-          <Guttering
-            gutters={{
-              base_product_code: [
-                {
-                  ...gutterVariant,
-                  baseProduct: { code: "base_product_code", name: undefined },
-                  productReferences: [
-                    { type: "DOWN_PIPE", code: "down_pipe", name: "Down Pipe" },
-                    {
-                      type: "DOWN_PIPE_CONNECTOR",
-                      code: "down_pipe_connector",
-                      name: "Down Pipe Connector"
-                    }
-                  ]
-                }
-              ]
-            }}
-            selections={{
-              guttering: gutterVariant.baseProduct.code,
-              gutteringVariant: gutterVariant
-            }}
-            gutterHooks={[]}
-          />
-        </Form>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Form>
+            <Guttering
+              gutters={{
+                base_product_code: [
+                  {
+                    ...gutterVariant,
+                    baseProduct: { code: "base_product_code", name: undefined },
+                    productReferences: [
+                      {
+                        type: "DOWN_PIPE",
+                        code: "down_pipe",
+                        name: "Down Pipe"
+                      },
+                      {
+                        type: "DOWN_PIPE_CONNECTOR",
+                        code: "down_pipe_connector",
+                        name: "Down Pipe Connector"
+                      }
+                    ]
+                  }
+                ]
+              }}
+              selections={{
+                guttering: gutterVariant.baseProduct.code,
+                gutteringVariant: gutterVariant
+              }}
+              gutterHooks={[]}
+            />
+          </Form>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(

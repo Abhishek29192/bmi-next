@@ -1,13 +1,14 @@
-import React from "react";
-import * as Gatsby from "gatsby";
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { local } from "../../utils/storage";
-import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
+import * as Gatsby from "gatsby";
+import React from "react";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
+import { local } from "../../utils/storage";
 import createImage from "../../__tests__/helpers/ImageHelper";
+import SampleBasketSectionProducts from "../SampleBasketSectionProducts";
 import { SiteContextProvider } from "../Site";
 
 const getSiteContext = () => ({
@@ -56,18 +57,22 @@ describe("SampleBasketSectionProducts component", () => {
 
   it("renders correctly", () => {
     const { container } = render(
-      <BasketContextProvider>
-        <SampleBasketSectionProducts />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketSectionProducts />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("should remove sample", () => {
     render(
-      <BasketContextProvider>
-        <SampleBasketSectionProducts />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketSectionProducts />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.queryAllByText("MC: pdp.overview.removeSample")[0]);
@@ -79,11 +84,13 @@ describe("SampleBasketSectionProducts component", () => {
     jest.spyOn(Gatsby, "navigate").mockImplementation();
 
     render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BasketContextProvider>
-          <SampleBasketSectionProducts />
-        </BasketContextProvider>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BasketContextProvider>
+            <SampleBasketSectionProducts />
+          </BasketContextProvider>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.queryByText("sample-1"));

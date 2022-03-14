@@ -1,8 +1,8 @@
 import { initialize, Map } from "@googlemaps/jest-mocks";
-import { render } from "@testing-library/react";
 import React from "react";
 import GoogleApi from "../../google-api/GoogleApi";
 import GoogleMap from "../GoogleMap";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 jest.mock("@googlemaps/markerclusterer");
 
@@ -14,7 +14,7 @@ beforeEach(() => {
 
 describe("GoogleMap component", () => {
   it("loader renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <GoogleApi.Provider value={null}>
         <GoogleMap />
       </GoogleApi.Provider>
@@ -26,7 +26,7 @@ describe("GoogleMap component", () => {
     const bounds = { north: 90, east: 180, south: 90, west: 180 };
     const centre = { lat: 0, lng: 0 };
     const zoom = 1;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <GoogleApi.Provider value={global.google}>
         <GoogleMap bounds={bounds} center={centre} zoom={zoom} />
       </GoogleApi.Provider>
@@ -43,7 +43,7 @@ describe("GoogleMap component", () => {
     const bounds = { north: 90, east: 180, south: 90, west: 180 };
     const centre = { lat: 0, lng: 0 };
     const zoom = 1;
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <GoogleApi.Provider value={global.google}>
         <GoogleMap bounds={bounds} center={centre} zoom={zoom} />
         <GoogleMap bounds={bounds} center={centre} zoom={zoom} />

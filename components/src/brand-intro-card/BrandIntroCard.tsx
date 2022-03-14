@@ -6,7 +6,7 @@ import DefaultButton from "../button/Button";
 import Card from "../card/Card";
 import { ClickableAction } from "../clickable/Clickable";
 import Typography from "../typography/Typography";
-import styles from "./BrandIntroCard.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   name: string;
@@ -27,29 +27,37 @@ const BrandIntroCard = ({
   action,
   whiteBox = false
 }: Props) => {
+  const classes = useStyles();
   const BrandLogo = logoIcon;
 
   return (
-    <Card className={styles["BrandIntroCard"]}>
+    <Card className={classes.root}>
       <Button
         className={classnames(
-          styles["brandLogoButton"],
-          !action && styles["brandLogoButton-no-pointer"]
+          classes.brandLogoButton,
+          !action && classes.noPointer
         )}
         action={action}
         variant="text"
         aria-label={name}
         disableRipple
+        data-testid={"brandLogoButton"}
       >
         <BrandLogo
+          data-testid={"brandLogo"}
           preserveAspectRatio="xMinYMin"
-          className={classnames(styles["brandLogo"], {
-            [styles["brandLogo-whiteBox"]!]: whiteBox
-          })}
+          className={classnames(
+            classes.brandLogo,
+            whiteBox && classes.whiteBox
+          )}
         />
       </Button>
       {description && (
-        <Typography className={styles["description"]} variant="subtitle1">
+        <Typography
+          className={classes.description}
+          variant="subtitle1"
+          data-testid={"brandLogoDescription"}
+        >
           {description}
         </Typography>
       )}

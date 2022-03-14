@@ -3,13 +3,13 @@
 exports[`GuaranteeReport Component renders correctly 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+    class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
     data-testid="export-guarantee-report-button"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-4"
+      class="MuiButton-label Button-label-4"
     >
       report.guarantee
       <span

@@ -2,7 +2,7 @@ import classnames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import ThumbScrollerButton from "../thumb-scroller-button/ThumbScrollerButton";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
-import styles from "./MediaGallery.module.scss";
+import { useThumbnailStyles } from "./styles";
 import { ThumbnailsProps } from "./types";
 
 const THUMBNAIL_WIDTH = 86;
@@ -14,6 +14,7 @@ const Thumbnails = ({
   openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
 }: ThumbnailsProps) => {
+  const classes = useThumbnailStyles();
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const [visibleArrows, setVisibleArrows] = useState<{
@@ -67,32 +68,35 @@ const Thumbnails = ({
   }, [thumbnailsRef.current]);
 
   return (
-    <div className={styles["thumbnails"]}>
+    <div className={classes.root} data-testid={"thumbnails-root"}>
       <ThumbScrollerButton
         direction="left"
         className={classnames(
-          styles["thumb-scroller"],
-          styles["thumb-scroller--left"],
-          !visibleArrows.left && styles["thumb-scroller--hidden"]
+          classes.thumbScroller,
+          classes.thumbScrollerLeft,
+          !visibleArrows.left && classes.thumbScrollerHidden
         )}
         onClick={() => handleThumbScrollerClick("left")}
+        data-testid={"thumbnail-scroller-left"}
       />
       <ThumbScrollerButton
         direction="right"
         className={classnames(
-          styles["thumb-scroller"],
-          styles["thumb-scroller--right"],
-          !visibleArrows.right && styles["thumb-scroller--hidden"]
+          classes.thumbScroller,
+          classes.thumbScrollerRight,
+          !visibleArrows.right && classes.thumbScrollerHidden
         )}
         onClick={() => handleThumbScrollerClick("right")}
+        data-testid={"thumbnail-scroller-right"}
       />
       <div
-        className={styles["scroller"]}
+        className={classes.scroller}
         ref={thumbnailsRef}
         onTransitionEnd={handleTransitionEnd}
         style={{
           marginRight: `${scrollerPosition}%`
         }}
+        data-testid={"thumbnail-scroller"}
       >
         {mediaData.map(
           (
@@ -107,7 +111,7 @@ const Thumbnails = ({
                 state={activeImageIndex === index ? "selected" : "enabled"}
                 onClick={(e: Event) => onThumbnailClick(e, index)}
                 altText={altText}
-                className={styles["thumbnail"]}
+                className={classes.thumbnail}
                 size="large"
                 isVideo={isVideo}
                 openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>

@@ -2,7 +2,7 @@ import classnames from "classnames";
 import React, { createContext, useContext } from "react";
 import Container, { Props as ContainerProps } from "../container/Container";
 import Typography, { Props as TypographyProps } from "../typography/Typography";
-import styles from "./Section.module.scss";
+import { useStyles } from "./styles";
 
 export const SectionContext = createContext<boolean>(false);
 
@@ -35,6 +35,7 @@ const Section = ({
   ...containerProps
 }: Props) => {
   const isNested = useContext(SectionContext);
+  const classes = useStyles();
 
   if (isNested) {
     /* istanbul ignore next */
@@ -54,12 +55,14 @@ const Section = ({
         id={id}
         className={classnames(
           className,
-          !isDialog && styles["Section"],
+          !isDialog && classes.root,
           backgroundColor !== "transparent" &&
-            styles[`Section--${backgroundColor}`],
-          spacing === "none" && styles["Section--no-spacing"],
-          isSlim && styles["Section--slim"],
-          overflowVisible && styles["Section--overflow-visible"]
+            ((backgroundColor === "white" && classes.white) ||
+              (backgroundColor === "alabaster" && classes.alabaster) ||
+              (backgroundColor === "pearl" && classes.pearl)),
+          spacing === "none" && classes.noSpacing,
+          isSlim && classes.slim,
+          overflowVisible && classes.overflowVisible
         )}
       >
         <Container
@@ -74,14 +77,17 @@ const Section = ({
   );
 };
 
-const SectionTitle = ({ className, ...rest }: TypographyProps) => (
-  <Typography
-    variant="h2"
-    hasUnderline
-    className={classnames(styles["title"], className)}
-    {...rest}
-  />
-);
+const SectionTitle = ({ className, ...rest }: TypographyProps) => {
+  const classes = useStyles();
+  return (
+    <Typography
+      variant="h2"
+      hasUnderline
+      className={classnames(classes.title, className)}
+      {...rest}
+    />
+  );
+};
 
 Section.Title = SectionTitle;
 

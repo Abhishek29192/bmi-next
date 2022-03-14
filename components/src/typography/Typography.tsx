@@ -4,8 +4,8 @@ import {
 } from "@material-ui/core";
 import classnames from "classnames";
 import React, { useMemo } from "react";
-import { transformHyphens } from "../utils/commonUtils";
-import styles from "./Typography.module.scss";
+import { transformHyphens } from "../utils/hyphenUtils";
+import { useStyles } from "./styles";
 
 export type Props = Omit<TypographyProps, "variant"> & {
   hasUnderline?: boolean;
@@ -56,17 +56,23 @@ const Typography = ({
     () => hasUnderline && variant && ["h1", "h2", "h3", "h4"].includes(variant),
     [variant, hasUnderline]
   );
+  const classes = useStyles();
 
   return (
     <MaterialTypography
       variant={getTypographyVariant(variant)}
-      className={classnames(className, styles["Typography"], {
-        [styles["Typography--underline"]!]: canAddUnderLine,
-        [styles["body3"]!]: variant === "body3" || variant === "card",
-        "no-clamp": noClamp,
-        [styles["Typography--underline--dark-bg"]!]:
-          hasDarkBackground && canAddUnderLine
-      })}
+      className={classnames(
+        className,
+        classes.root,
+        canAddUnderLine && classes.underline,
+        (variant === "body3" || variant === "card") && classes.body3,
+        noClamp && variant === "h1" && classes.h1NoClamp,
+        noClamp && variant === "h2" && classes.h2NoClamp,
+        noClamp && variant === "h3" && classes.h3NoClamp,
+        noClamp && variant === "h4" && classes.h4NoClamp,
+        hasDarkBackground && canAddUnderLine && classes.darkBg
+      )}
+      data-testid={"typography"}
       {...props}
     >
       {transformHyphens(children)}

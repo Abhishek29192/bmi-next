@@ -6,7 +6,8 @@ exports[`Notification render correctly 1`] = `
     class="main"
   >
     <div
-      class="MuiTypography-root body Typography MuiTypography-body1"
+      class="MuiTypography-root body Typography-root-1 MuiTypography-body1"
+      data-testid="typography"
     >
       <div
         class="timeAgo"

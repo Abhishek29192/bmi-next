@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import { ThemeProvider } from "@bmi/components";
 import { Product } from "@bmi/intouch-api-types";
-import { fireEvent, render, screen } from "../../../../lib/tests/utils";
+import React, { useRef } from "react";
 import { WizardSystemDetailCard } from "..";
+import { fireEvent, render, screen } from "../../../../lib/tests/utils";
 
 jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
@@ -16,34 +17,40 @@ describe("WizardSystemDetailCard", () => {
   ] as Product[];
   it("should render with no products", () => {
     const { container } = render(
-      <WizardSystemDetailCard
-        name="name"
-        description="description"
-        products={[]}
-      />
+      <ThemeProvider>
+        <WizardSystemDetailCard
+          name="name"
+          description="description"
+          products={[]}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("should render with  products", () => {
     const { container } = render(
-      <WizardSystemDetailCard
-        name="name"
-        description="description"
-        products={products}
-      />
+      <ThemeProvider>
+        <WizardSystemDetailCard
+          name="name"
+          description="description"
+          products={products}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("should render with onDelete", () => {
     const { container } = render(
-      <WizardSystemDetailCard
-        name="name"
-        description="description"
-        products={products}
-        onDeleteClick={() => {}}
-      />
+      <ThemeProvider>
+        <WizardSystemDetailCard
+          name="name"
+          description="description"
+          products={products}
+          onDeleteClick={() => {}}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -51,12 +58,14 @@ describe("WizardSystemDetailCard", () => {
   it("should trigger onDelete", () => {
     const mockCallBack = jest.fn();
     render(
-      <WizardSystemDetailCard
-        name="name"
-        description="description"
-        products={products}
-        onDeleteClick={mockCallBack}
-      />
+      <ThemeProvider>
+        <WizardSystemDetailCard
+          name="name"
+          description="description"
+          products={products}
+          onDeleteClick={mockCallBack}
+        />
+      </ThemeProvider>
     );
     const deleteSystem = screen.getByTestId("system-delete");
     fireEvent.click(deleteSystem);

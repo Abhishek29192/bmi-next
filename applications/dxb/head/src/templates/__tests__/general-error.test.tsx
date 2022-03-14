@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
 import { Data as LinkData } from "../../components/Link";
 import { Data as SiteData } from "../../components/Site";
@@ -115,14 +116,16 @@ describe("General Error", () => {
 
   it("render correctly", () => {
     const { container, queryAllByText, getByTestId } = renderWithRouter(
-      <GeneralError data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      <ThemeProvider>
+        <GeneralError data={data} pageContext={{ variantCodeToPathMap: {} }} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector(".Footer")).toBeTruthy();
+    expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".PromoSection")).toBeTruthy();
+    expect(container.querySelector("[class*='PromoSection']")).toBeTruthy();
     expect(
       queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
     ).toBe(2);
@@ -133,11 +136,13 @@ describe("General Error", () => {
     newData.contentfulSite.resources.errorGeneral = null;
 
     const { container, queryAllByText } = renderWithRouter(
-      <GeneralError data={newData} />
+      <ThemeProvider>
+        <GeneralError data={newData} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelector(".PromoSection")).toBeTruthy();
+    expect(container.querySelector("[class*='PromoSection']")).toBeTruthy();
     expect(
       queryAllByText(data.contentfulSite.resources.errorGeneral.title).length
     ).toBe(0);

@@ -51,7 +51,7 @@ export const Head = ({
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
-      title={seo?.metaTitle || transformHyphens(title)}
+      title={seo?.metaTitle || (transformHyphens(title) as string)}
       defer={defer}
     >
       <script>{`

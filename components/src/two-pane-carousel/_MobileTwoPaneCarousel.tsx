@@ -4,13 +4,13 @@ import Carousel, { getPageFromAbsoluteIndex } from "../carousel/Carousel";
 import Media from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
-import transformHyphens from "../utils";
-import styles from "./TwoPaneCarousel.module.scss";
+import { transformHyphens } from "../utils";
+import { useStyles } from "./styles";
 import { Props } from "./types";
 
 const MobileTwoPaneCarousel = ({ slides }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
-
+  const classes = useStyles();
   return (
     <div>
       <Carousel
@@ -22,19 +22,15 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
           return (
             <Carousel.Slide
               key={`left-pane-${index}`}
-              className={styles["left-pane-slide"]}
+              className={classes.leftPaneSlide}
             >
               {BrandIcon && (
                 <BrandIcon
                   preserveAspectRatio="xMinYMin"
-                  className={styles["brand-icon"]}
+                  className={classes.brandIcon}
                 />
               )}
-              <Typography
-                variant="h2"
-                hasUnderline
-                className={styles["heading"]}
-              >
+              <Typography variant="h2" hasUnderline className={classes.heading}>
                 {transformHyphens(title)}
               </Typography>
             </Carousel.Slide>
@@ -50,18 +46,18 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
           return (
             <Carousel.Slide
               key={`left-pane-${index}`}
-              className={styles["left-pane-slide"]}
+              className={classes.leftPaneSlide}
             >
-              <Media className={styles["image"]}>{media}</Media>
+              <Media className={classes.image}>{media}</Media>
               {(description || cta) && (
-                <div className={styles["text"]}>
+                <div className={classes.text}>
                   {transformHyphens(description)}
                   <div>
                     {cta && (
                       <AnchorLink
                         action={cta.action}
                         iconEnd
-                        className={styles["cta"]}
+                        className={classes.cta}
                       >
                         {cta.label}
                       </AnchorLink>
@@ -75,7 +71,7 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
       </Carousel>
       <SlideControls
         isFullSize
-        className={styles["controls"]}
+        className={classes.controls}
         current={getPageFromAbsoluteIndex(activePage, slides.length)}
         total={slides.length}
         onNextClick={() => setActivePage((activePage) => activePage + 1)}

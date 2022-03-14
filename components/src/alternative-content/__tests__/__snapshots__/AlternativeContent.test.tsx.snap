@@ -3,7 +3,7 @@
 exports[`AlternativeContent component renders correctly 1`] = `
 <div>
   <span
-    class="AlternativeContent"
+    class="AlternativeContent-root-1"
   >
     Lorem Ipsum
   </span>

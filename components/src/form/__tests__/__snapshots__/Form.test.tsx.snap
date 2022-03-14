@@ -3,22 +3,22 @@
 exports[`Form component renders correctly 1`] = `
 <div>
   <form
-    class="Form"
+    class="Form-root-1"
   >
     <div
-      class="Row"
+      class="Form-row-5"
     >
       <p>
         Lorem Ipsum
       </p>
     </div>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-6 MuiButton-contained Button-contained-8 Form-button-3 MuiButton-containedPrimary"
       tabindex="0"
       type="submit"
     >
       <span
-        class="MuiButton-label buttonStyles-label-4"
+        class="MuiButton-label Button-label-9"
       >
         Submit
       </span>
@@ -33,25 +33,25 @@ exports[`Form component renders correctly 1`] = `
 exports[`Form component renders with a multiple buttons 1`] = `
 <div>
   <form
-    class="Form"
+    class="Form-root-26"
   >
     <div
-      class="Row"
+      class="Form-row-30"
     >
       <p>
         Lorem Ipsum
       </p>
     </div>
     <div
-      class="ButtonWrapper"
+      class="Form-buttonWrapper-29"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-31 MuiButton-contained Button-contained-33 Form-button-28 MuiButton-containedPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-24"
+          class="MuiButton-label Button-label-34"
         >
           Cancel
         </span>
@@ -60,12 +60,12 @@ exports[`Form component renders with a multiple buttons 1`] = `
         />
       </button>
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-31 MuiButton-contained Button-contained-33 Form-button-28 MuiButton-containedPrimary"
         tabindex="0"
         type="submit"
       >
         <span
-          class="MuiButton-label buttonStyles-label-24"
+          class="MuiButton-label Button-label-34"
         >
           Submit
         </span>
@@ -81,25 +81,25 @@ exports[`Form component renders with a multiple buttons 1`] = `
 exports[`Form component renders with a right aligned button 1`] = `
 <div>
   <form
-    class="Form Form--rightAlignButton"
+    class="Form-root-51 Form-rightAlignButton-52"
   >
     <div
-      class="Row"
+      class="Form-row-55"
     >
       <p>
         Lorem Ipsum
       </p>
     </div>
     <div
-      class="ButtonWrapper"
+      class="Form-buttonWrapper-54"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 Button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-56 MuiButton-contained Button-contained-58 Form-button-53 MuiButton-containedPrimary"
         tabindex="0"
         type="submit"
       >
         <span
-          class="MuiButton-label buttonStyles-label-44"
+          class="MuiButton-label Button-label-59"
         >
           Submit
         </span>

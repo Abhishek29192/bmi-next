@@ -7,17 +7,17 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
   >
     <div>
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
         data-testid="SATDownload"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-4"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon Button-startIcon-5 MuiButton-iconSizeMedium"
           >
             <svg />
           </span>
@@ -31,7 +31,7 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
     <div>
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-1 MuiButton-text Button-text-2 MuiButton-textPrimary"
         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\"]\\"}"
         data-testid="AATDownload"
         href="http://pimdocument/"
@@ -40,10 +40,10 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
         target="_blank"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-4"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon Button-startIcon-5 MuiButton-iconSizeMedium"
           >
             <svg
               aria-hidden="true"

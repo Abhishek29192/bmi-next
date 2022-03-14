@@ -1,5 +1,6 @@
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import ShareWidget from "../ShareWidget";
 
 const url = "http://test.com";
@@ -63,7 +64,9 @@ describe("ShareWidget component", () => {
     }
   ];
   it("renders correctly", () => {
-    const { getByLabelText } = render(<ShareWidget channels={channels} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <ShareWidget channels={channels} />
+    );
     const copy = getByLabelText("Copy to clipboard");
     const email = getByLabelText("Share by email");
     const linkedIn = getByLabelText("Share on LinkedIn");
@@ -78,20 +81,22 @@ describe("ShareWidget component", () => {
     expect(pinterest).toBeInTheDocument();
   });
   it("renders left aligned", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ShareWidget channels={channels} isLeftAligned />
     );
-    expect(container.firstChild).toHaveClass("ShareWidget--left-aligned");
+    expect(container.firstChild).toHaveClass("test-shareWidget-left-aligned");
   });
   it("shares on Facebook", () => {
-    const { getByLabelText } = render(<ShareWidget channels={channels} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <ShareWidget channels={channels} />
+    );
     const facebookButton = getByLabelText(channels[4].label);
     fireEvent.click(facebookButton);
     expect(windowOpen).toBeCalledTimes(1);
   });
 
   it("shares on Facebook if message provided", () => {
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <ShareWidget channels={additionalChannels} message="Test message" />
     );
     const facebookButton = getByLabelText(additionalChannels[0].label);
@@ -104,7 +109,7 @@ describe("ShareWidget component", () => {
   });
 
   it("shares on Facebook if message NOT provided", () => {
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <ShareWidget channels={additionalChannels} />
     );
     const facebookButton = getByLabelText(additionalChannels[0].label);
@@ -123,7 +128,9 @@ describe("ShareWidget component", () => {
         writeText
       }
     });
-    const { getByLabelText } = render(<ShareWidget channels={channels} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <ShareWidget channels={channels} />
+    );
     const copyButton = getByLabelText(channels[0].label);
     fireEvent.click(copyButton);
 
@@ -136,14 +143,16 @@ describe("ShareWidget component", () => {
         writeText: undefined
       }
     });
-    const { getByLabelText } = render(<ShareWidget channels={channels} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <ShareWidget channels={channels} />
+    );
     const copyButton = getByLabelText(channels[0].label);
     fireEvent.click(copyButton);
     expect(writeText).toBeCalledTimes(0);
   });
 
   it("shares on Email if template {{href}} present", () => {
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <ShareWidget channels={additionalChannels} />
     );
     const emailButton = getByLabelText(additionalChannels[1].label);
@@ -152,7 +161,9 @@ describe("ShareWidget component", () => {
   });
 
   it("shares on Email", () => {
-    const { getByLabelText } = render(<ShareWidget channels={channels} />);
+    const { getByLabelText } = renderWithThemeProvider(
+      <ShareWidget channels={channels} />
+    );
     const emailButton = getByLabelText(channels[1].label);
     fireEvent.click(emailButton);
     expect(location.href).toEqual("mailto:?body=");
@@ -160,7 +171,7 @@ describe("ShareWidget component", () => {
 
   // @todo: Reinstate email tests when implemented
   // it("renders dialog when email clicked", () => {
-  //   const { container, getByLabelText } = render(
+  //   const { container, getByLabelText } = renderWithThemeProvider(
   //     <ShareWidget channels={channels} isLeftAligned />
   //   );
 

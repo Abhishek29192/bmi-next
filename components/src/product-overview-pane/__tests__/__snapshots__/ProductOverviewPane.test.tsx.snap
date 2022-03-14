@@ -3,60 +3,61 @@
 exports[`ProductOverviewPane component renders correctly 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-1"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-2"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-3 Typography-root-14 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-4"
     >
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-7"
         >
           label
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-8"
         >
           1394983720195
         </span>
       </li>
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-7"
         >
           Colour
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-8"
         >
           Brown
         </span>
         <div
-          class="variants"
+          class="ProductOverviewPane-variants-5"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-6"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-22"
             >
               <button
-                aria-label="Black"
-                class="MuiButtonBase-root Thumbnail"
+                class="MuiButtonBase-root Thumbnail-root-23"
+                data-testid="default-thumbnail"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="accessibility-text"
+                  class="Thumbnail-accessibilityText-27"
                 >
                   Black
                 </span>
@@ -67,21 +68,21 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-6"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-22"
             >
               <a
                 aria-disabled="false"
-                aria-label="Brown"
-                class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+                class="MuiButtonBase-root Thumbnail-root-23 Thumbnail-selected-25 Thumbnail-selected-25"
+                data-testid="default-thumbnail"
                 href="#"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
               >
                 <span
-                  class="accessibility-text"
+                  class="Thumbnail-accessibilityText-27"
                 >
                   Brown
                 </span>
@@ -92,21 +93,21 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
       </li>
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-7"
         >
           Size
         </span>
         <div
-          class="variants variants--spaced"
+          class="ProductOverviewPane-variants-5 ProductOverviewPane-spaced-13"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-6"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-22"
             >
               <div
-                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+                class="MuiChip-root Chip-root-30 MuiChip-colorPrimary"
               >
                 <span
                   class="MuiChip-label"
@@ -117,13 +118,13 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-6"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-22"
             >
               <div
-                class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+                class="MuiChip-root Chip-root-30 Chip-default-31"
                 href="#"
               >
                 <span
@@ -135,14 +136,14 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-6"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-22"
             >
               <div
                 aria-disabled="true"
-                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+                class="MuiChip-root Chip-root-30 Chip-default-31 Mui-disabled"
               >
                 <span
                   class="MuiChip-label"
@@ -162,48 +163,49 @@ exports[`ProductOverviewPane component renders correctly 1`] = `
 exports[`ProductOverviewPane component renders correctly if attribute type === chips 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-108"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-109"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-110 Typography-root-121 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-111"
     >
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-114"
         >
           label
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-115"
         >
           1394983720195
         </span>
       </li>
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-114"
         >
           Size
         </span>
         <div
-          class="variants variants--spaced"
+          class="ProductOverviewPane-variants-112 ProductOverviewPane-spaced-120"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-113"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-129"
             >
               <div
-                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+                class="MuiChip-root Chip-root-130 MuiChip-colorPrimary"
               >
                 <span
                   class="MuiChip-label"
@@ -214,14 +216,14 @@ exports[`ProductOverviewPane component renders correctly if attribute type === c
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-113"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-129"
             >
               <div
                 aria-disabled="true"
-                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+                class="MuiChip-root Chip-root-130 Chip-default-131 Mui-disabled"
               >
                 <span
                   class="MuiChip-label"
@@ -241,18 +243,19 @@ exports[`ProductOverviewPane component renders correctly if attribute type === c
 exports[`ProductOverviewPane component renders correctly if attributesis empty array 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-133"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-134"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-135 Typography-root-146 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-136"
     />
   </div>
 </div>
@@ -261,38 +264,39 @@ exports[`ProductOverviewPane component renders correctly if attributesis empty a
 exports[`ProductOverviewPane component renders correctly if nobb === null 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-86"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-87"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-88 Typography-root-99 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-89"
     >
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-92"
         >
           Size
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-93"
         >
           22cm x 42cm
         </span>
         <div
-          class="variants"
+          class="ProductOverviewPane-variants-90"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-91"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-107"
             >
               <div>
                 thumbnail
@@ -300,10 +304,10 @@ exports[`ProductOverviewPane component renders correctly if nobb === null 1`] = 
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-91"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-107"
             >
               <div>
                 thumbnail
@@ -320,18 +324,19 @@ exports[`ProductOverviewPane component renders correctly if nobb === null 1`] = 
 exports[`ProductOverviewPane component renders correctly if some variant has isSelected equals false 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-154"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-155"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-156 Typography-root-167 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-157"
     />
   </div>
 </div>
@@ -340,60 +345,61 @@ exports[`ProductOverviewPane component renders correctly if some variant has isS
 exports[`ProductOverviewPane component renders correctly with children 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-33"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-34"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-35 Typography-root-46 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-36"
     >
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-39"
         >
           label
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-40"
         >
           1394983720195
         </span>
       </li>
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-39"
         >
           Colour
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-40"
         >
           Brown
         </span>
         <div
-          class="variants"
+          class="ProductOverviewPane-variants-37"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-38"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-54"
             >
               <button
-                aria-label="Black"
-                class="MuiButtonBase-root Thumbnail"
+                class="MuiButtonBase-root Thumbnail-root-55"
+                data-testid="default-thumbnail"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="accessibility-text"
+                  class="Thumbnail-accessibilityText-59"
                 >
                   Black
                 </span>
@@ -404,21 +410,21 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-38"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-54"
             >
               <a
                 aria-disabled="false"
-                aria-label="Brown"
-                class="MuiButtonBase-root Thumbnail Thumbnail--selected"
+                class="MuiButtonBase-root Thumbnail-root-55 Thumbnail-selected-57 Thumbnail-selected-57"
+                data-testid="default-thumbnail"
                 href="#"
                 style="background-color: rgb(255, 255, 255); background-image: url(path-to-image);"
                 tabindex="0"
               >
                 <span
-                  class="accessibility-text"
+                  class="Thumbnail-accessibilityText-59"
                 >
                   Brown
                 </span>
@@ -429,21 +435,21 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
       </li>
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-39"
         >
           Size
         </span>
         <div
-          class="variants variants--spaced"
+          class="ProductOverviewPane-variants-37 ProductOverviewPane-spaced-45"
         >
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-38"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-54"
             >
               <div
-                class="MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary"
+                class="MuiChip-root Chip-root-62 MuiChip-colorPrimary"
               >
                 <span
                   class="MuiChip-label"
@@ -454,13 +460,13 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-38"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-54"
             >
               <div
-                class="MuiChip-root Chip Chip--default Chip--theme-pearl"
+                class="MuiChip-root Chip-root-62 Chip-default-63"
                 href="#"
               >
                 <span
@@ -472,14 +478,14 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
             </div>
           </div>
           <div
-            class="variant"
+            class="ProductOverviewPane-variant-38"
           >
             <div
-              class="Tooltip"
+              class="ToggleCard-root-54"
             >
               <div
                 aria-disabled="true"
-                class="MuiChip-root Chip Chip--default Chip--theme-pearl Mui-disabled"
+                class="MuiChip-root Chip-root-62 Chip-default-63 Mui-disabled"
               >
                 <span
                   class="MuiChip-label"
@@ -505,27 +511,28 @@ exports[`ProductOverviewPane component renders correctly with children 1`] = `
 exports[`ProductOverviewPane component renders correctly with empty variants 1`] = `
 <div>
   <div
-    class="ProductOverview"
+    class="ProductOverviewPane-root-65"
   >
     <svg
-      class="brand-logo"
+      class="ProductOverviewPane-brandLogo-66"
     />
     <h1
-      class="MuiTypography-root heading Typography MuiTypography-h3"
+      class="MuiTypography-root ProductOverviewPane-heading-67 Typography-root-78 MuiTypography-h3"
+      data-testid="typography"
     >
       Type S Roof Shingles
     </h1>
     <ul
-      class="attributes"
+      class="ProductOverviewPane-attributes-68"
     >
       <li>
         <span
-          class="term"
+          class="ProductOverviewPane-term-71"
         >
           label
         </span>
         <span
-          class="definition"
+          class="ProductOverviewPane-definition-72"
         >
           1394983720195
         </span>

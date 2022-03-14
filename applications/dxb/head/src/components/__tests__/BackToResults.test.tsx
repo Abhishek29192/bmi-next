@@ -1,4 +1,4 @@
-import { QUERY_KEY } from "@bmi/components";
+import { QUERY_KEY, ThemeProvider } from "@bmi/components";
 import { useMediaQuery } from "@material-ui/core";
 import { render } from "@testing-library/react";
 import QueryString from "query-string";
@@ -45,9 +45,11 @@ describe("BackToResults component", () => {
 
   it("renders children if no url query params provided", () => {
     const { container } = render(
-      <BackToResults>
-        <h1>Rest of Breadcrumbs</h1>
-      </BackToResults>
+      <ThemeProvider>
+        <BackToResults>
+          <h1>Rest of Breadcrumbs</h1>
+        </BackToResults>
+      </ThemeProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -56,9 +58,11 @@ describe("BackToResults component", () => {
     window.location = getLocation({ test: "test" });
 
     const { container } = render(
-      <BackToResults>
-        <h1>Rest of Breadcrumbs</h1>
-      </BackToResults>
+      <ThemeProvider>
+        <BackToResults>
+          <h1>Rest of Breadcrumbs</h1>
+        </BackToResults>
+      </ThemeProvider>
     );
     expect(container.firstChild).toMatchSnapshot();
   });
@@ -67,11 +71,13 @@ describe("BackToResults component", () => {
     window.location = getLocation({ [QUERY_KEY]: "query" });
 
     const { container, getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const cta = getByRole("link") as HTMLLinkElement;
@@ -93,11 +99,13 @@ describe("BackToResults component", () => {
     });
 
     const { container, getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const cta = getByRole("link") as HTMLLinkElement;
@@ -121,11 +129,13 @@ describe("BackToResults component", () => {
     });
 
     const { container, getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const cta = getByRole("link") as HTMLLinkElement;
@@ -148,11 +158,13 @@ describe("BackToResults component", () => {
       });
 
       const { container, getByRole } = render(
-        <SiteContextProvider value={getSiteContext()}>
-          <BackToResults>
-            <h1>Rest of Breadcrumbs</h1>
-          </BackToResults>
-        </SiteContextProvider>
+        <ThemeProvider>
+          <SiteContextProvider value={getSiteContext()}>
+            <BackToResults>
+              <h1>Rest of Breadcrumbs</h1>
+            </BackToResults>
+          </SiteContextProvider>
+        </ThemeProvider>
       );
 
       const cta = getByRole("link") as HTMLLinkElement;
@@ -175,11 +187,13 @@ describe("BackToResults component", () => {
     });
 
     const { container, getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const cta = getByRole("link") as HTMLLinkElement;
@@ -203,11 +217,13 @@ describe("BackToResults component", () => {
     });
 
     const { container, getByRole } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     const cta = getByRole("link") as HTMLLinkElement;
@@ -235,11 +251,13 @@ describe("BackToResults component", () => {
     });
 
     const { container } = render(
-      <SiteContextProvider value={getSiteContext()}>
-        <BackToResults>
-          <h1>Rest of Breadcrumbs</h1>
-        </BackToResults>
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      </ThemeProvider>
     );
 
     expect(container.firstChild).toMatchSnapshot();

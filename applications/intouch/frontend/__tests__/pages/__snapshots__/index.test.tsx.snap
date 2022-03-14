@@ -26,7 +26,7 @@ exports[`homepage render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ exports[`homepage render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -70,7 +70,7 @@ exports[`homepage render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ exports[`homepage render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ exports[`homepage render correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
               focusable="false"
               style="font-size: 24px;"
               viewBox="0 0 24 24"
@@ -167,17 +167,17 @@ exports[`homepage render correctly 1`] = `
               >
                 <button
                   aria-label="aria.notifications"
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   id="notifications-panel-toggle"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -187,7 +187,7 @@ exports[`homepage render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-249"
                   />
                 </button>
                 <div
@@ -195,14 +195,14 @@ exports[`homepage render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="tablet-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -211,7 +211,7 @@ exports[`homepage render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-249"
                     />
                   </button>
                 </div>
@@ -220,14 +220,14 @@ exports[`homepage render correctly 1`] = `
                 >
                   <button
                     aria-label="aria.navigation"
-                    class="MuiButtonBase-root"
+                    class="MuiButtonBase-root-18"
                     id="mobile-navigation-panel-toggle"
                     tabindex="0"
                     type="button"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2 MuiSvgIcon-fontSizeLarge-9"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -236,7 +236,7 @@ exports[`homepage render correctly 1`] = `
                       />
                     </svg>
                     <span
-                      class="MuiTouchRipple-root"
+                      class="MuiTouchRipple-root-249"
                     />
                   </button>
                 </div>
@@ -249,31 +249,33 @@ exports[`homepage render correctly 1`] = `
                 class="lowerHeaderMeta"
               >
                 <h3
-                  class="MuiTypography-root Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 >
                   Integrated Solutions Inc
                 </h3>
                 <hr
-                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                  class="MuiDivider-root-57 lowerHeaderDivider MuiDivider-flexItem-63 MuiDivider-vertical-62"
                 />
                 <h3
-                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                  class="MuiTypography-root-27 lowerHeaderUserLevel Typography-root-19 MuiTypography-h3-34"
+                  data-testid="typography"
                 />
               </div>
               <div
                 class="lowerHeaderNav"
               >
                 <button
-                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  class="MuiButtonBase-root-18 MuiIconButton-root-10 notificationsIcon notificationsIcon--unread"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiIconButton-label"
+                    class="MuiIconButton-label-17"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      class="MuiSvgIcon-root-1 MuiSvgIcon-colorPrimary-2"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -283,21 +285,21 @@ exports[`homepage render correctly 1`] = `
                     </svg>
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-249"
                   />
                 </button>
                 <div
-                  class="makeStyles-root-1"
+                  class="makeStyles-root-64"
                 >
                   <div>
                     <button
                       aria-haspopup="true"
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      class="MuiButtonBase-root-18 MuiButton-root-66 MuiButton-text-68"
                       tabindex="0"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiButton-label-67"
                       >
                         <div
                           class="userMenu"
@@ -307,7 +309,7 @@ exports[`homepage render correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root"
+                              class="MuiSvgIcon-root-1"
                               focusable="false"
                               style="width: 20px; color: rgb(238, 238, 238);"
                               viewBox="0 0 24 24"
@@ -324,7 +326,7 @@ exports[`homepage render correctly 1`] = `
                           </div>
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            class="MuiSvgIcon-root-1 MuiSvgIcon-colorAction-4"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -335,7 +337,7 @@ exports[`homepage render correctly 1`] = `
                         </div>
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
+                        class="MuiTouchRipple-root-249"
                       />
                     </button>
                   </div>
@@ -348,22 +350,23 @@ exports[`homepage render correctly 1`] = `
           class="appContent"
         >
           <div
-            class="Hero Hero--slim Hero--carousel Hero--space-bottom"
+            class="Hero-root-105 Hero-slim-106 Hero-carousel-107 Hero-spaceBottom-109"
+            data-test-class-name="Hero"
           >
             <div
-              class="Container"
+              class="Container-root-124"
             >
               <div
-                class="MuiContainer-root container MuiContainer-maxWidthXl"
+                class="MuiContainer-root-126 Hero-container-110 MuiContainer-maxWidthXl-133"
               >
                 <div
-                  class="wrapper"
+                  class="Hero-wrapper-111"
                 >
                   <div
-                    class="wrapper"
+                    class="Carousel-wrapper-138"
                   >
                     <div
-                      class="Carousel Carousel--opacity Carousel--swipable"
+                      class="Carousel-root-134 Carousel-opacity-141 Carousel-swipable-143"
                       data-testid="carousel"
                     >
                       <div
@@ -380,27 +383,30 @@ exports[`homepage render correctly 1`] = `
                             style="width: 100%; flex-shrink: 0; overflow: auto;"
                           >
                             <div
-                              class="page"
+                              class="Carousel-page-137"
                             >
                               <div
-                                class="slide"
+                                class="Carousel-slide-135"
+                                data-test-class-name="slide"
                                 style="width: 100%;"
                               >
                                 <div
-                                  class="content"
+                                  class="Hero-content-112"
                                 >
                                   <h1
-                                    class="MuiTypography-root title title--truncated Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
+                                    class="MuiTypography-root-27 Hero-title-113 Typography-root-19 Typography-underline-21 Typography-darkBg-22 MuiTypography-h1-32"
+                                    data-testid="typography"
                                   >
                                     header
                                   </h1>
                                   <div
-                                    class="text"
+                                    class="Hero-text-114"
+                                    data-test-class-name="text"
                                   >
                                     Body
                                   </div>
                                   <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-outlined buttonStyles-outlinedDarkBg-9 MuiButton-outlinedPrimary"
+                                    class="MuiButtonBase-root-18 MuiButton-root-66 Button-root-144 MuiButton-outlined-71 Button-outlinedDarkBg-150 MuiButton-outlinedPrimary-72"
                                     data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"hero.cta.PROJECT\\",\\"action\\":\\"project\\"}"
                                     data-testid="project-cta"
                                     style="margin-top: 2em;"
@@ -408,12 +414,12 @@ exports[`homepage render correctly 1`] = `
                                     type="button"
                                   >
                                     <span
-                                      class="MuiButton-label buttonStyles-label-6"
+                                      class="MuiButton-label-67 Button-label-147"
                                     >
                                       hero.cta.PROJECT
                                     </span>
                                     <span
-                                      class="MuiTouchRipple-root"
+                                      class="MuiTouchRipple-root-249"
                                     />
                                   </button>
                                 </div>
@@ -425,45 +431,45 @@ exports[`homepage render correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="SlideControls SlideControls--light SlideControls--hide controls"
+                    class="SlideControls-root-164 SlideControls-light-177 SlideControls-hide-167 Hero-controls-116"
                   >
                     <span
-                      class="middle-container"
+                      class="SlideControls-middleContainer-169"
                     >
                       <span
-                        class="sliding-slot"
+                        class="SlideControls-slidingSlot-168"
                       >
                         <span
-                          class="numbers"
+                          class="SlideControls-numbers-171"
                         >
                           <span
-                            class="number number--active"
+                            class="SlideControls-number-176 SlideControls-active-175"
                           >
                             01
                           </span>
                         </span>
                       </span>
                       <span
-                        class="total"
+                        class="SlideControls-total-174"
                       >
                         01
                       </span>
                     </span>
                   </div>
                   <div
-                    class="children"
+                    class="Hero-children-117"
                   />
                 </div>
               </div>
             </div>
             <div
-              class="image-carousel"
+              class="Hero-imageCarousel-118"
             >
               <div
-                class="wrapper"
+                class="Carousel-wrapper-138"
               >
                 <div
-                  class="Carousel Carousel--swipable"
+                  class="Carousel-root-134 Carousel-swipable-143"
                   data-testid="carousel"
                 >
                   <div
@@ -480,15 +486,16 @@ exports[`homepage render correctly 1`] = `
                         style="width: 100%; flex-shrink: 0; overflow: auto;"
                       >
                         <div
-                          class="page"
+                          class="Carousel-page-137"
                         >
                           <div
-                            class="slide"
+                            class="Carousel-slide-135"
+                            data-test-class-name="slide"
                             style="width: 100%;"
                           >
                             <img
                               alt="header"
-                              class="carouselImage image Media"
+                              class="carouselImage Hero-image-119 Media-root-180"
                               src="image url"
                             />
                           </div>
@@ -501,21 +508,23 @@ exports[`homepage render correctly 1`] = `
             </div>
           </div>
           <div
-            class="Section Section--white Section--slim"
+            class="Section-root-182 Section-white-186 Section-slim-188"
           >
             <div
-              class="Container"
+              class="Container-root-124"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root-126 MuiContainer-maxWidthXl-133"
               >
                 <h2
-                  class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                  class="MuiTypography-root-27 Section-title-189 Typography-root-19 Typography-underline-21 MuiTypography-h2-33"
+                  data-testid="typography"
                 >
                   partnerBrands.title
                 </h2>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root-27 Typography-root-19 MuiTypography-body1-29"
+                  data-testid="typography"
                 >
                   partnerBrands.description
                 </p>
@@ -523,19 +532,19 @@ exports[`homepage render correctly 1`] = `
             </div>
           </div>
           <div
-            class="Section Section--alabaster Section--slim"
+            class="Section-root-182 Section-alabaster-184 Section-slim-188"
           >
             <div
-              class="Container"
+              class="Container-root-124"
             >
               <div
-                class="MuiContainer-root MuiContainer-maxWidthXl"
+                class="MuiContainer-root-126 MuiContainer-maxWidthXl-133"
               >
                 <div
-                  class="wrapper wrapper--with-gutter"
+                  class="Carousel-wrapper-138 Carousel-wrapperGutter-139"
                 >
                   <div
-                    class="Carousel Carousel--opacity Carousel--with-gutter"
+                    class="Carousel-root-134 Carousel-opacity-141 Carousel-carouselGutter-136"
                     data-testid="carousel"
                   >
                     <div
@@ -552,29 +561,30 @@ exports[`homepage render correctly 1`] = `
                           style="width: 100%; flex-shrink: 0; overflow: auto;"
                         >
                           <div
-                            class="page"
+                            class="Carousel-page-137"
                           >
                             <div
-                              class="slide"
+                              class="Carousel-slide-135"
+                              data-test-class-name="slide"
                               style="width: 33.333333333333336%;"
                             >
                               <a
                                 aria-disabled="false"
-                                class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                                class="MuiButtonBase-root-18 OverviewCard-root-190 OverviewCard-clickable-193"
                                 href="/partner-brands"
                                 tabindex="0"
                                 target="_blank"
                               >
                                 <img
                                   alt="partner brand image title"
-                                  class="header-picture Media"
+                                  class="OverviewCard-headerPicture-196 Media-root-180"
                                   src="partner brand image url"
                                 />
                                 <div
-                                  class="body"
+                                  class="OverviewCard-body-197"
                                 >
                                   <div
-                                    class="brand-logo brand-logo--negative"
+                                    class="OverviewCard-brandLogo-194 OverviewCard-negative-195"
                                   >
                                     <img
                                       alt=""
@@ -582,37 +592,38 @@ exports[`homepage render correctly 1`] = `
                                     />
                                   </div>
                                   <h4
-                                    class="MuiTypography-root title Typography MuiTypography-h4"
+                                    class="MuiTypography-root-27 OverviewCard-title-198 Typography-root-19 MuiTypography-h4-35"
+                                    data-testid="typography"
                                   >
                                     partner brand name
                                   </h4>
                                   <div
-                                    class="children text"
+                                    class="OverviewCard-children-201 OverviewCard-text-200"
                                   >
                                     partner brand shortDescription
                                   </div>
                                   <div
-                                    class="footer"
+                                    class="OverviewCard-footer-203"
                                   >
                                     <span
                                       aria-disabled="false"
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-outlined MuiButton-outlinedPrimary"
+                                      class="MuiButtonBase-root-18 MuiButton-root-66 Button-root-144 MuiButton-outlined-71 MuiButton-outlinedPrimary-72"
                                       role="button"
                                       tabindex="0"
                                     >
                                       <span
-                                        class="MuiButton-label buttonStyles-label-6"
+                                        class="MuiButton-label-67 Button-label-147"
                                       >
                                         partnerBrands.ctaLabel
                                       </span>
                                       <span
-                                        class="MuiTouchRipple-root"
+                                        class="MuiTouchRipple-root-249"
                                       />
                                     </span>
                                   </div>
                                 </div>
                                 <span
-                                  class="MuiTouchRipple-root"
+                                  class="MuiTouchRipple-root-249"
                                 />
                               </a>
                             </div>
@@ -629,13 +640,14 @@ exports[`homepage render correctly 1`] = `
             class="feedholder"
           >
             <div
-              class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root-206 MuiCard-root-205 card MuiPaper-elevation1-210 MuiPaper-rounded-207"
             >
               <div
-                class="MuiCardContent-root"
+                class="MuiCardContent-root-234"
               >
                 <h4
-                  class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                  data-testid="typography"
                 >
                   newsItemHeading
                 </h4>
@@ -649,30 +661,31 @@ exports[`homepage render correctly 1`] = `
                 />
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-3 MuiButton-outlined MuiButton-outlinedPrimary"
+                  class="MuiButtonBase-root-18 MuiButton-root-66 Button-root-144 MuiButton-outlined-71 MuiButton-outlinedPrimary-72"
                   href="newsItemCta"
                   tabindex="0"
                   target="_blank"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-6"
+                    class="MuiButton-label-67 Button-label-147"
                   >
                     linkedin.ctaLabel
                   </span>
                   <span
-                    class="MuiTouchRipple-root"
+                    class="MuiTouchRipple-root-249"
                   />
                 </a>
               </div>
             </div>
             <div
-              class="MuiPaper-root MuiCard-root card MuiPaper-elevation1 MuiPaper-rounded"
+              class="MuiPaper-root-206 MuiCard-root-205 card MuiPaper-elevation1-210 MuiPaper-rounded-207"
             >
               <div
-                class="MuiCardContent-root"
+                class="MuiCardContent-root-234"
               >
                 <h4
-                  class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  class="MuiTypography-root-27 Typography-root-19 Typography-underline-21 MuiTypography-h4-35"
+                  data-testid="typography"
                 >
                   tier benefit name
                 </h4>

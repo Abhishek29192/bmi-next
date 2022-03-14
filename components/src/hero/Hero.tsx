@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import classnames from "classnames";
 import { useMediaQuery } from "@material-ui/core";
-import Container from "../container/Container";
+import { useTheme } from "@material-ui/styles";
+import classnames from "classnames";
+import React, { useState } from "react";
 import Carousel, { getPageFromAbsoluteIndex } from "../carousel/Carousel";
+import Container from "../container/Container";
 import Media, { AcceptedNode } from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
+import { ThemeOptions } from "../theme-provider";
 import Typography from "../typography/Typography";
-import transformHyphens from "../utils";
-import styles from "./Hero.module.scss";
+import { transformHyphens } from "../utils";
+import { useStyles } from "./styles";
 
 export type HeroItem = {
   title: React.ReactNode | string;
@@ -49,6 +51,8 @@ const Hero = ({
   autoPlayInterval?: number;
   children?: React.ReactNode;
 }>) => {
+  const classes = useStyles();
+  const theme = useTheme<ThemeOptions>();
   if (levelProps.level !== 0) {
     return (
       <SingleHero
@@ -62,23 +66,24 @@ const Hero = ({
 
   const [activePage, setActivePage] = useState<number>(0);
   const matches = useMediaQuery(
-    `@media (max-width:${styles["breakpoint-sm"]})`
+    `@media (max-width:${theme.breakpoints!.values!.sm}px)`
   );
   const { heroes, children, hasSpaceBottom, autoPlayInterval } = levelProps;
 
   return (
     <div
       className={classnames(
-        styles["Hero"],
-        styles["Hero--slim"],
-        styles["Hero--carousel"],
-        isHeroKeyLine && styles["Hero--keyline"],
-        hasSpaceBottom && styles["Hero--space-bottom"],
+        classes.root,
+        classes.slim,
+        classes.carousel,
+        isHeroKeyLine && classes.keyline,
+        hasSpaceBottom && classes.spaceBottom,
         className
       )}
+      data-test-class-name="Hero"
     >
-      <Container className={styles["container"]}>
-        <div className={styles["wrapper"]}>
+      <Container className={classes.container}>
+        <div className={classes.wrapper}>
           {breadcrumbs}
           <Carousel
             initialPage={activePage}
@@ -91,25 +96,23 @@ const Hero = ({
               ({ title, children, cta, hasUnderline = true }, index) => {
                 return (
                   <Carousel.Slide key={`content-slide-${index}`}>
-                    <div className={styles["content"]}>
+                    <div className={classes.content}>
                       <Typography
                         variant="h1"
                         hasUnderline={hasUnderline}
                         hasDarkBackground
-                        className={classnames(
-                          styles["title"],
-                          styles["title--truncated"]
-                        )}
+                        className={classes.title}
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>
+                      <div className={classes.text} data-test-class-name="text">
                         {transformHyphens(children)}
                       </div>
                       {React.isValidElement(cta) &&
                         React.cloneElement(cta, {
                           className: classnames(
-                            styles["cta"],
+                            classes.cta,
+                            "cta",
                             cta.props.className
                           ),
                           variant: "outlined",
@@ -123,17 +126,17 @@ const Hero = ({
           </Carousel>
           <SlideControls
             isFullSize={matches}
-            className={styles["controls"]}
+            className={classes.controls}
             isDarkThemed
             current={getPageFromAbsoluteIndex(activePage, heroes.length)}
             total={heroes.length}
             onNextClick={() => setActivePage((activePage) => activePage + 1)}
             onPrevClick={() => setActivePage((activePage) => activePage - 1)}
           />
-          <div className={styles["children"]}>{transformHyphens(children)}</div>
+          <div className={classes.children}>{transformHyphens(children)}</div>
         </div>
       </Container>
-      <div className={styles["image-carousel"]}>
+      <div className={classes.imageCarousel}>
         <Carousel
           initialPage={activePage}
           onPageChange={setActivePage}
@@ -142,7 +145,7 @@ const Hero = ({
         >
           {heroes.map(({ media }, index) => (
             <Carousel.Slide key={`image-slide-${index}`}>
-              <Media className={styles["image"]}>{media}</Media>
+              <Media className={classes.image}>{media}</Media>
             </Carousel.Slide>
           ))}
         </Carousel>
@@ -158,41 +161,40 @@ const SingleHero = ({
   isHeroKeyLine,
   ...levelProps
 }: Props) => {
+  const classes = useStyles();
   return (
     <div
       className={classnames(
-        styles["Hero"],
-        isHeroKeyLine && styles["Hero--keyline"],
-        levelProps.level === 3 && styles["Hero--light"],
-        levelProps.level !== 1 && styles["Hero--slim"],
-        !!levelProps.level && styles[`Hero--lvl-${levelProps.level}`],
+        classes.root,
+        isHeroKeyLine && classes.keyline,
+        levelProps.level === 3 && classes.light,
+        levelProps.level !== 1 && classes.slim,
+        !!levelProps.level && classes[`lvl${levelProps.level}`],
+        !!levelProps.level && `Hero--lvl-${levelProps.level}`,
         className
       )}
     >
-      <Container className={styles["container"]}>
-        <div className={styles["wrapper"]}>
+      <Container className={classes.container}>
+        <div className={classes.wrapper}>
           {breadcrumbs}
-          <div className={styles["content"]}>
+          <div className={classes.content}>
             <Typography
               variant="h1"
               hasUnderline
               hasDarkBackground={levelProps.level !== 3}
-              className={classnames(
-                styles["title"],
-                styles["title--truncated"]
-              )}
+              className={classes.title}
             >
               {title}
             </Typography>
             {levelProps.level === 1 && (
               <>
-                <div className={styles["text"]}>
+                <div className={classes.text}>
                   {transformHyphens(levelProps.children)}
                 </div>
                 {React.isValidElement(levelProps.cta) &&
                   React.cloneElement(levelProps.cta, {
                     className: classnames(
-                      styles["cta"],
+                      classes.cta,
                       levelProps.cta.props.className
                     ),
                     variant: "outlined",
@@ -204,7 +206,7 @@ const SingleHero = ({
         </div>
       </Container>
       {levelProps.level === 1 && (
-        <Media className={styles["image"]}>{levelProps.media}</Media>
+        <Media className={classes.image}>{levelProps.media}</Media>
       )}
     </div>
   );

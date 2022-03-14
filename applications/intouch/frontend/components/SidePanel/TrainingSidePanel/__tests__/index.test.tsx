@@ -1,25 +1,30 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
+import React from "react";
 import { TrainingSidePanel } from "..";
-import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 import { generateTrainingCourseCatalogues } from "../../../../lib/tests/factories/training";
+import I18nProvider from "../../../../lib/tests/fixtures/i18n";
 
 describe("TrainingSidePanel component", () => {
   const courseCatalog = generateTrainingCourseCatalogues().nodes;
 
   it("renders correctly", () => {
     const { container } = render(
-      <I18nProvider>
-        <TrainingSidePanel courseCatalog={courseCatalog} />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel courseCatalog={courseCatalog} />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders correctly when no courseCatalog is passed", () => {
     const { container } = render(
-      <I18nProvider>
-        <TrainingSidePanel courseCatalog={[]} />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel courseCatalog={[]} />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -37,9 +42,11 @@ describe("TrainingSidePanel component", () => {
     ];
 
     const { container } = render(
-      <I18nProvider>
-        <TrainingSidePanel courseCatalog={courseCatalog} />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel courseCatalog={courseCatalog} />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -47,16 +54,20 @@ describe("TrainingSidePanel component", () => {
     const filterChangeSpy = jest.fn();
 
     const { container, getAllByTestId } = render(
-      <I18nProvider>
-        <TrainingSidePanel
-          courseCatalog={courseCatalog}
-          onFilterChange={filterChangeSpy}
-        />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel
+            courseCatalog={courseCatalog}
+            onFilterChange={filterChangeSpy}
+          />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
     expect(getAllByTestId("filterResult").length).toBe(3);
-    const filterButton = container.querySelectorAll(".filterButton .Chip");
+    const filterButton = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
 
     fireEvent.click(filterButton[1]);
     expect(filterChangeSpy).toHaveBeenCalledTimes(1);
@@ -64,9 +75,11 @@ describe("TrainingSidePanel component", () => {
   });
   it("run search correctly", () => {
     const { container, getByLabelText, getAllByTestId } = render(
-      <I18nProvider>
-        <TrainingSidePanel courseCatalog={courseCatalog} />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel courseCatalog={courseCatalog} />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
     expect(getAllByTestId("filterResult").length).toBe(3);
@@ -80,12 +93,14 @@ describe("TrainingSidePanel component", () => {
   it("run onCourseSelected correctly when select course", () => {
     const onCourseSelected = jest.fn();
     const { container, getByText } = render(
-      <I18nProvider>
-        <TrainingSidePanel
-          courseCatalog={courseCatalog}
-          onCourseSelected={onCourseSelected}
-        />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel
+            courseCatalog={courseCatalog}
+            onCourseSelected={onCourseSelected}
+          />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
 
@@ -112,9 +127,11 @@ describe("TrainingSidePanel component", () => {
       }
     ];
     const { container, getByLabelText } = render(
-      <I18nProvider>
-        <TrainingSidePanel courseCatalog={courseCatalog} />
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <TrainingSidePanel courseCatalog={courseCatalog} />
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
     const searchButton = getByLabelText("search.inputLabel");

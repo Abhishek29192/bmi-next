@@ -1,14 +1,12 @@
-import React, { useRef, useState } from "react";
-import { ButtonBase } from "@material-ui/core";
-import InfoIcon from "@material-ui/icons/Info";
-import CancelIcon from "@material-ui/icons/Cancel";
-import { Divider } from "@material-ui/core";
+import { ButtonBase, Divider, IconButton } from "@material-ui/core";
 import { CheckCircle } from "@material-ui/icons";
+import CancelIcon from "@material-ui/icons/Cancel";
+import InfoIcon from "@material-ui/icons/Info";
 import classnames from "classnames";
-import { IconButton } from "@material-ui/core";
-import Typography from "../typography/Typography";
+import React, { useRef, useState } from "react";
 import Icon from "../icon";
-import styles from "./RadioPane.module.scss";
+import Typography from "../typography/Typography";
+import { useStyles } from "./styles";
 
 export type Props = {
   title: string;
@@ -27,27 +25,28 @@ const RadioPane = ({
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [isCollapse, setIsCollapse] = useState(true);
+  const classes = useStyles();
 
   return (
     <div
       className={classnames(
-        styles["RadioPaneContainer"],
-        collapseFeature && styles["CollapseFeature"]
+        classes.radioPaneContainer,
+        collapseFeature && classes.collapseFeature
       )}
     >
-      <label className={classnames(styles["RadioPane"], className)}>
-        <input className={styles["input"]} type="radio" {...rest} />
-        <ButtonBase component="div" tabIndex={-1} className={styles["pane"]}>
-          <div className={styles["header"]}>
-            <Typography variant="h6" className={styles["title"]}>
+      <label className={classnames(classes.root, className)}>
+        <input className={classes.input} type="radio" {...rest} />
+        <ButtonBase component="div" tabIndex={-1} className={classes.pane}>
+          <div className={classes.header}>
+            <Typography variant="h6" className={classes.title}>
               {title}
             </Typography>
-            <Icon className={styles["checkedIcon"]} source={CheckCircle} />
+            <Icon className={classes.checkedIcon} source={CheckCircle} />
           </div>
           {children ? (
             collapseFeature ? (
               <div
-                className={styles["description-container"]}
+                className={classes.descriptionContainer}
                 ref={contentRef}
                 style={
                   isCollapse
@@ -57,15 +56,15 @@ const RadioPane = ({
               >
                 <div
                   data-testid={isCollapse ? "collapsed" : "expanded"}
-                  className={styles["content"]}
+                  className={classes.content}
                 >
-                  <Divider className={styles["hr"]} />
+                  <Divider className={classes.hr} />
                   {children}
                 </div>
               </div>
             ) : (
-              <div className={styles["content"]}>
-                <Divider className={styles["hr"]} />
+              <div className={classes.content}>
+                <Divider className={classes.hr} />
                 {children}
               </div>
             )
@@ -73,20 +72,21 @@ const RadioPane = ({
         </ButtonBase>
       </label>
       {collapseFeature && (
-        <div className={styles["btn-container"]}>
+        <div className={classes.btnContainer}>
           {children ? (
             <IconButton
               onClick={() => setIsCollapse(!isCollapse)}
-              className={styles["icon-btn"]}
+              className={classes.iconBtn}
+              data-testid="radio-pane-icon-button"
             >
               {isCollapse ? (
-                <Icon source={InfoIcon} className={styles["info-icon"]} />
+                <Icon source={InfoIcon} className={classes.infoIcon} />
               ) : (
-                <Icon source={CancelIcon} className={styles["cancel-icon"]} />
+                <Icon source={CancelIcon} className={classes.cancelIcon} />
               )}
             </IconButton>
           ) : (
-            <div className={styles["icon-btn"]} />
+            <div className={classes.iconBtn} />
           )}
         </div>
       )}

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import classnames from "classnames";
+import React, { useState } from "react";
+import withFormControl from "../form/withFormControl";
 import RadioButton, {
   Props as RadioButtonProps
 } from "../radio-button/RadioButton";
-import withFormControl from "../form/withFormControl";
-import styles from "./RadioGroup.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   name: string;
@@ -31,6 +31,7 @@ const RadioGroup = ({
   onChange
 }: Props) => {
   const [selected, setSelected] = useState(defaultValue);
+  const classes = useStyles();
   const items = React.Children.map(children, (child) => {
     if (isRadioItemElement(child)) {
       const { value, className } = child.props;
@@ -44,7 +45,7 @@ const RadioGroup = ({
         name,
         checked: value === selected,
         onChange: handleOnChange,
-        className: classnames(styles["item"], className)
+        className: classnames(classes.item, className)
       });
     } else {
       return child;
@@ -52,8 +53,8 @@ const RadioGroup = ({
   });
 
   return (
-    <div className={classnames(styles["RadioGroup"], className)}>
-      <div className={styles["container"]}>{items}</div>
+    <div className={classnames(classes.root, className)}>
+      <div className={classes.container}>{items}</div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
 import { TrainingProcessCard } from "..";
 
 describe("TrainingProcessCard component", () => {
@@ -26,7 +27,11 @@ describe("TrainingProcessCard component", () => {
       ]
     };
 
-    const { container } = render(<TrainingProcessCard data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <TrainingProcessCard data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

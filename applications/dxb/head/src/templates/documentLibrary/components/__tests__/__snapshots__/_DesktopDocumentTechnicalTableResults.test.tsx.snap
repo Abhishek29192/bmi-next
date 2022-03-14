@@ -3,18 +3,16 @@
 exports[`DesktopDocumentTechnicalTableResults component Renders correctly when multiple documents are present for asset types 1`] = `
 <body>
   <div>
-    <div
-      class="table-div"
-    >
+    <div>
       <div>
         <table
-          class="MuiTable-root Table Table--row-no-color"
+          class="MuiTable-root Table-root-210 Table-rowNoColor-214"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-222 ColorPair-pearl-224"
           >
             <tr
-              class="MuiTableRow-root header-row MuiTableRow-head"
+              class="MuiTableRow-root DocumentTechnicalTableResults-headerRow-194 MuiTableRow-head"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-head"
@@ -23,15 +21,15 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                 MC: documentLibrary.headers.product
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-assetTypeCell-196"
                 scope="col"
               >
                 asset-code
                 <div
-                  class="Tooltip"
+                  class="ToggleCard-root-262"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-42-59 iconButtonStyles-text-62"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root-274 iconButton IconButton-42-273 IconButton-text-276"
                     tabindex="0"
                     type="button"
                   >
@@ -40,7 +38,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root tooltip-icon"
+                        class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-197"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -56,14 +54,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                 </div>
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-allFilesHeader-207"
                 scope="col"
               >
                 <span
-                  class="all-files-header-wrapper"
+                  class="DocumentTechnicalTableResults-allFilesHeaderWrapper-208"
                 >
                   <svg
-                    class="all-files-icon"
+                    class="DocumentTechnicalTableResults-allFilesIcon-209"
                   />
                   <span>
                     MC: documentLibrary.headers.allFiles
@@ -76,7 +74,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
             class="MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -84,34 +82,34 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                 product name
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-199"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-204"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-199"
               >
                 <span
                   class=""
                 >
                   <div
-                    class="MuiFormControl-root Checkbox"
+                    class="MuiFormControl-root Checkbox-root-283"
                   >
                     <label
                       class="MuiFormControlLabel-root"
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-69 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-285 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-72"
+                            class="PrivateSwitchBase-input-288"
                             data-indeterminate="false"
                             name="product-base-code-0"
                             type="checkbox"
@@ -141,7 +139,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
               </td>
             </tr>
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -149,14 +147,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                 product3
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-199"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-204"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-199"
               />
             </tr>
           </tbody>
@@ -170,18 +168,16 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
 exports[`DesktopDocumentTechnicalTableResults component Renders correctly when not all products have all asset types 1`] = `
 <body>
   <div>
-    <div
-      class="table-div"
-    >
+    <div>
       <div>
         <table
-          class="MuiTable-root Table Table--row-no-color"
+          class="MuiTable-root Table-root-114 Table-rowNoColor-118"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-126 ColorPair-pearl-128"
           >
             <tr
-              class="MuiTableRow-root header-row MuiTableRow-head"
+              class="MuiTableRow-root DocumentTechnicalTableResults-headerRow-98 MuiTableRow-head"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-head"
@@ -190,15 +186,15 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 MC: documentLibrary.headers.product
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-assetTypeCell-100"
                 scope="col"
               >
                 asset-code
                 <div
-                  class="Tooltip"
+                  class="ToggleCard-root-166"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root-178 iconButton IconButton-42-177 IconButton-text-180"
                     tabindex="0"
                     type="button"
                   >
@@ -207,7 +203,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root tooltip-icon"
+                        class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-101"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -223,15 +219,15 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 </div>
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-assetTypeCell-100"
                 scope="col"
               >
                 asset-code
                 <div
-                  class="Tooltip"
+                  class="ToggleCard-root-166"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-42-35 iconButtonStyles-text-38"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root-178 iconButton IconButton-42-177 IconButton-text-180"
                     tabindex="0"
                     type="button"
                   >
@@ -240,7 +236,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root tooltip-icon"
+                        class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-101"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -256,14 +252,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 </div>
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-allFilesHeader-111"
                 scope="col"
               >
                 <span
-                  class="all-files-header-wrapper"
+                  class="DocumentTechnicalTableResults-allFilesHeaderWrapper-112"
                 >
                   <svg
-                    class="all-files-icon"
+                    class="DocumentTechnicalTableResults-allFilesIcon-113"
                   />
                   <span>
                     MC: documentLibrary.headers.allFiles
@@ -276,7 +272,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
             class="MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -284,7 +280,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 product name
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               >
                 <a
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -294,12 +290,12 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   target="_blank"
                 >
                   <svg
-                    class="format-icon"
+                    class="DocumentTechnicalTableResults-formatIcon-102 format-icon"
                   />
                 </a>
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               >
                 <a
                   data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -309,32 +305,32 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   target="_blank"
                 >
                   <svg
-                    class="format-icon"
+                    class="DocumentTechnicalTableResults-formatIcon-102 format-icon"
                   />
                 </a>
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               >
                 <span
                   class=""
                 >
                   <div
-                    class="MuiFormControl-root Checkbox"
+                    class="MuiFormControl-root Checkbox-root-187"
                   >
                     <label
                       class="MuiFormControlLabel-root"
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-45 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-189 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-48"
+                            class="PrivateSwitchBase-input-192"
                             data-indeterminate="false"
                             name="product-base-code-0"
                             type="checkbox"
@@ -364,7 +360,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
               </td>
             </tr>
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -372,21 +368,21 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 product3
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-108"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-108"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-103"
               />
             </tr>
           </tbody>
@@ -400,18 +396,16 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
 exports[`DesktopDocumentTechnicalTableResults component Renders correctly when only single documents are present for asset types 1`] = `
 <body>
   <div>
-    <div
-      class="table-div"
-    >
+    <div>
       <div>
         <table
-          class="MuiTable-root Table Table--row-no-color"
+          class="MuiTable-root Table-root-18 Table-rowNoColor-22"
         >
           <thead
-            class="MuiTableHead-root ColorPair ColorPair--pearl"
+            class="MuiTableHead-root ColorPair-root-30 ColorPair-pearl-32"
           >
             <tr
-              class="MuiTableRow-root header-row MuiTableRow-head"
+              class="MuiTableRow-root DocumentTechnicalTableResults-headerRow-2 MuiTableRow-head"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-head"
@@ -420,15 +414,15 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 MC: documentLibrary.headers.product
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head asset-type-cell"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-assetTypeCell-4"
                 scope="col"
               >
                 asset-code
                 <div
-                  class="Tooltip"
+                  class="ToggleCard-root-70"
                 >
                   <button
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-42-11 iconButtonStyles-text-14"
+                    class="MuiButtonBase-root MuiIconButton-root IconButton-root-82 iconButton IconButton-42-81 IconButton-text-84"
                     tabindex="0"
                     type="button"
                   >
@@ -437,7 +431,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root tooltip-icon"
+                        class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-5"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -453,14 +447,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 </div>
               </th>
               <th
-                class="MuiTableCell-root MuiTableCell-head all-files-header"
+                class="MuiTableCell-root MuiTableCell-head DocumentTechnicalTableResults-allFilesHeader-15"
                 scope="col"
               >
                 <span
-                  class="all-files-header-wrapper"
+                  class="DocumentTechnicalTableResults-allFilesHeaderWrapper-16"
                 >
                   <svg
-                    class="all-files-icon"
+                    class="DocumentTechnicalTableResults-allFilesIcon-17"
                   />
                   <span>
                     MC: documentLibrary.headers.allFiles
@@ -473,7 +467,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
             class="MuiTableBody-root"
           >
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -481,34 +475,34 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 product name
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-7"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-12"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-7"
               >
                 <span
                   class=""
                 >
                   <div
-                    class="MuiFormControl-root Checkbox"
+                    class="MuiFormControl-root Checkbox-root-91"
                   >
                     <label
                       class="MuiFormControlLabel-root"
                     >
                       <span
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-93 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
                         <span
                           class="MuiIconButton-label"
                         >
                           <input
                             aria-label="MC: documentLibrary.download product1"
-                            class="PrivateSwitchBase-input-24"
+                            class="PrivateSwitchBase-input-96"
                             data-indeterminate="false"
                             name="product-base-code-0"
                             type="checkbox"
@@ -538,7 +532,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
               </td>
             </tr>
             <tr
-              class="MuiTableRow-root row"
+              class="MuiTableRow-root"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body"
@@ -546,14 +540,14 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 product3
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-7"
               >
                 <svg
-                  class="no-document-icon"
+                  class="DocumentTechnicalTableResults-noDocumentIcon-12"
                 />
               </td>
               <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
+                class="MuiTableCell-root MuiTableCell-body DocumentTechnicalTableResults-alignCenter-7"
               />
             </tr>
           </tbody>

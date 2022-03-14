@@ -1,8 +1,9 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
-import I18nextProvider from "../../../../lib/tests/fixtures/i18n";
+import React from "react";
 import { CertificationsCard } from "..";
+import I18nextProvider from "../../../../lib/tests/fixtures/i18n";
 
 const title = "BMI Certifications";
 
@@ -10,33 +11,39 @@ describe("CertificationsCard", () => {
   describe("renders correct number of icons", () => {
     it("none", () => {
       render(
-        <I18nextProvider>
-          <CertificationsCard title={title} certifications={[]} />
-        </I18nextProvider>
+        <ThemeProvider>
+          <I18nextProvider>
+            <CertificationsCard title={title} certifications={[]} />
+          </I18nextProvider>
+        </ThemeProvider>
       );
       expect(screen.queryByTestId("certifications-item")).toBeNull();
     });
 
     it("2 icons", () => {
       render(
-        <I18nextProvider>
-          <CertificationsCard
-            title={title}
-            certifications={["FLAT", "PITCHED"]}
-          />
-        </I18nextProvider>
+        <ThemeProvider>
+          <I18nextProvider>
+            <CertificationsCard
+              title={title}
+              certifications={["FLAT", "PITCHED"]}
+            />
+          </I18nextProvider>
+        </ThemeProvider>
       );
       expect(screen.getAllByTestId("certifications-item").length).toEqual(2);
     });
 
     it("all icons", () => {
       render(
-        <I18nextProvider>
-          <CertificationsCard
-            title={title}
-            certifications={["FLAT", "PITCHED", "OTHER"]}
-          />
-        </I18nextProvider>
+        <ThemeProvider>
+          <I18nextProvider>
+            <CertificationsCard
+              title={title}
+              certifications={["FLAT", "PITCHED", "OTHER"]}
+            />
+          </I18nextProvider>
+        </ThemeProvider>
       );
       expect(screen.getAllByTestId("certifications-item").length).toEqual(3);
     });
@@ -44,24 +51,28 @@ describe("CertificationsCard", () => {
 
   it("renders title", () => {
     render(
-      <I18nextProvider>
-        <CertificationsCard
-          title={title}
-          certifications={["FLAT", "PITCHED"]}
-        />
-      </I18nextProvider>
+      <ThemeProvider>
+        <I18nextProvider>
+          <CertificationsCard
+            title={title}
+            certifications={["FLAT", "PITCHED"]}
+          />
+        </I18nextProvider>
+      </ThemeProvider>
     );
     expect(screen.getByText(title)).toBeInTheDocument();
   });
 
   it("matches snapshot", () => {
     const { container } = render(
-      <I18nextProvider>
-        <CertificationsCard
-          title={title}
-          certifications={["FLAT", "PITCHED"]}
-        />
-      </I18nextProvider>
+      <ThemeProvider>
+        <I18nextProvider>
+          <CertificationsCard
+            title={title}
+            certifications={["FLAT", "PITCHED"]}
+          />
+        </I18nextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

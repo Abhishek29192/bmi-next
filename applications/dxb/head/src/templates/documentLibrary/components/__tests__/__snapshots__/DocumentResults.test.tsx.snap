@@ -3,14 +3,14 @@
 exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 <div>
   <div
-    class="DocumentSimpleTableResults"
+    class="DocumentSimpleTableResults-root-1 DocumentSimpleTableResults"
   >
     <div>
       <table
-        class="MuiTable-root Table Table--row-no-color"
+        class="MuiTable-root Table-root-10 Table-rowNoColor-14"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-root-22 ColorPair-pearl-24"
         >
           <tr
             class="MuiTableRow-root MuiTableRow-head"
@@ -28,13 +28,13 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               MC: documentLibrary.headers.title
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head table-header"
+              class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-2"
               scope="col"
             >
               MC: documentLibrary.headers.download
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head table-header"
+              class="MuiTableCell-root MuiTableCell-head DocumentSimpleTableResults-tableHeader-2"
               scope="col"
             >
               MC: documentLibrary.headers.add
@@ -45,10 +45,10 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
           class="MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root row"
+            class="MuiTableRow-root DocumentSimpleTableResults-row-5 row"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
             >
               <abbr
                 title="contentful asset type name"
@@ -57,20 +57,18 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body title-table-cell"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
             >
-              <p
-                class="title"
-              >
+              <p>
                 contentful document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignLeft"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-48 MuiButton-text Button-text-49 MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
                 href="http://localhost:9000/asset-filename.jpg"
                 rel="noopener noreferrer"
@@ -78,13 +76,13 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
                 target="_blank"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-4"
+                  class="MuiButton-label Button-label-51"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                    class="MuiButton-startIcon Button-startIcon-52 MuiButton-iconSizeMedium"
                   >
                     <svg
-                      class="download-icon"
+                      class="DocumentSimpleTableResults-downloadIcon-6 download-icon"
                     />
                   </span>
                   1 B
@@ -95,27 +93,27 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </a>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignCenter"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignCenter"
             >
               <span
                 class=""
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="MuiFormControl-root Checkbox-root-68"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-70 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
                           aria-label="MC: documentLibrary.download contentful document title"
-                          class="PrivateSwitchBase-input-24"
+                          class="PrivateSwitchBase-input-73"
                           data-indeterminate="false"
                           name="contentful-document-id-contentful_document_title"
                           type="checkbox"
@@ -145,10 +143,10 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
             </td>
           </tr>
           <tr
-            class="MuiTableRow-root row"
+            class="MuiTableRow-root DocumentSimpleTableResults-row-5 row"
           >
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
             >
               <abbr
                 title="asset type name"
@@ -157,39 +155,37 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
               </abbr>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body title-table-cell"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3"
             >
-              <p
-                class="title"
-              >
+              <p>
                 pim document title
               </p>
             </td>
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignLeft"
             />
             <td
-              class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignCenter"
+              class="MuiTableCell-root MuiTableCell-body DocumentSimpleTableResults-tableCell-3 MuiTableCell-alignCenter"
             >
               <span
                 class=""
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="MuiFormControl-root Checkbox-root-68"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-70 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
                           aria-label="MC: documentLibrary.download pim document title"
-                          class="PrivateSwitchBase-input-24"
+                          class="PrivateSwitchBase-input-73"
                           data-indeterminate="false"
                           name="pim-document-id-pim_document_title"
                           type="checkbox"
@@ -228,14 +224,14 @@ exports[`DocumentResults component SimpleTable: renders correctly 1`] = `
 exports[`DocumentResults component cards: renders correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
+      class="MuiGrid-root Grid-item-137 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-lg-6 MuiGrid-grid-xl-4"
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+        class="MuiButtonBase-root OverviewCard-root-139 OverviewCard-clickable-142"
         data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: documentLibrary.card.download\\",\\"action\\":\\"http://localhost:9000/asset-filename.jpg\\"}"
         href="https:http://localhost:9000/asset-filename.jpg"
         rel="noopener noreferrer"
@@ -243,27 +239,28 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
         target="_blank"
       >
         <div
-          class="body"
+          class="OverviewCard-body-146"
         >
           <h4
-            class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+            class="MuiTypography-root OverviewCard-title-147 OverviewCard-noBrandLogo-148 Typography-root-156 MuiTypography-h4"
+            data-testid="typography"
           >
             contentful document title
           </h4>
           <div
-            class="children text"
+            class="OverviewCard-children-150 OverviewCard-text-149"
           />
           <div
-            class="footer"
+            class="OverviewCard-footer-152"
           >
             <span
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-56 MuiButton-contained buttonStyles-contained-58 MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-164 MuiButton-contained Button-contained-166 MuiButton-containedPrimary"
               role="button"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-59"
+                class="MuiButton-label Button-label-167"
               >
                 MC: documentLibrary.card.download
               </span>
@@ -285,27 +282,25 @@ exports[`DocumentResults component cards: renders correctly 1`] = `
 exports[`DocumentResults component technicalTable: renders correctly 1`] = `
 <div>
   <div
-    class="DocumentTechnicalTableResults"
+    class="DocumentTechnicalTableResults-root-74"
   >
-    <div
-      class="accordion-div"
-    >
+    <div>
       <div
-        class="accordionStyles-root-25"
+        class="Accordion-root-91"
       >
         <div
-          class="MuiPaper-root MuiAccordion-root accordionStyles-item-26 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+          class="MuiPaper-root MuiAccordion-root Accordion-item-92 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
         >
           <div
             aria-disabled="false"
             aria-expanded="false"
-            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-29"
+            class="MuiButtonBase-root MuiAccordionSummary-root Accordion-summaryRoot-95"
             data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
             role="button"
             tabindex="0"
           >
             <div
-              class="MuiAccordionSummary-content accordionStyles-summaryContent-31"
+              class="MuiAccordionSummary-content Accordion-summaryContent-97"
             >
               product name
             </div>
@@ -347,28 +342,28 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                   role="region"
                 >
                   <div
-                    class="MuiAccordionDetails-root accordion-details"
+                    class="MuiAccordionDetails-root DocumentTechnicalTableResults-accordionDetails-84"
                   >
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-82"
                     >
                       <svg
-                        class="format-icon"
+                        class="DocumentTechnicalTableResults-formatIcon-79 format-icon"
                       />
                     </div>
                     <div
-                      class="icon-container"
+                      class="DocumentTechnicalTableResults-iconContainer-82"
                     >
                       asset-type-code
                     </div>
                     <div
-                      class="info-icon-container"
+                      class="DocumentTechnicalTableResults-infoIconContainer-81"
                     >
                       <div
-                        class="Tooltip"
+                        class="ToggleCard-root-116"
                       >
                         <button
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-47 iconButtonStyles-42-46 iconButtonStyles-text-49"
+                          class="MuiButtonBase-root MuiIconButton-root IconButton-root-128 iconButton IconButton-42-127 IconButton-text-130"
                           tabindex="0"
                           type="button"
                         >
@@ -377,7 +372,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root tooltip-icon"
+                              class="MuiSvgIcon-root DocumentTechnicalTableResults-tooltipIcon-78"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -393,7 +388,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      class="download-icon-container"
+                      class="DocumentTechnicalTableResults-downloadIconContainer-83"
                     >
                       <a
                         data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost:9000/document.pdf\\"}"
@@ -402,9 +397,7 @@ exports[`DocumentResults component technicalTable: renders correctly 1`] = `
                         rel="noopener noreferrer"
                         target="_blank"
                       >
-                        <svg
-                          class="all-files-icon"
-                        />
+                        <svg />
                       </a>
                     </div>
                   </div>

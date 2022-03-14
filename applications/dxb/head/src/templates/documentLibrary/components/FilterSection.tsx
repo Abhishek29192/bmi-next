@@ -39,7 +39,11 @@ const DocumentLibraryFilter = ({
         <Typography variant="h5">
           {getMicroCopy("documentLibrary.filters.title")}
         </Typography>
-        <Button variant="text" onClick={clearFilters}>
+        <Button
+          variant="text"
+          onClick={clearFilters}
+          data-testid="filters-clear-all"
+        >
           {getMicroCopy("documentLibrary.filters.clearAll")}
         </Button>
       </div>

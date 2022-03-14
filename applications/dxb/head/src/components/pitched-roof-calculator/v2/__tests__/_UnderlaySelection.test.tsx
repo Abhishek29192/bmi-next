@@ -1,4 +1,4 @@
-import { FormContext } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { createProduct } from "@bmi/elasticsearch-types";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
@@ -43,73 +43,7 @@ const underlayWithDescription = createProduct({
 describe("PitchedRoofCalculator UnderlaySelection component", () => {
   it("renders with description", () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <UnderlaySelection
-            selected={undefined}
-            options={[underlayWithDescription]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
-    );
-
-    expect(
-      screen.getByText(underlayWithDescription.shortDescription)
-    ).toBeInTheDocument();
-  });
-
-  it("renders with no options", () => {
-    render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <UnderlaySelection options={[]} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
-    );
-
-    expect(screen.getByText("MC: underlaySelection.empty")).toBeInTheDocument();
-  });
-
-  it("render with selected by default option", () => {
-    let selected = undefined;
-    render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: (fieldValues) => (selected = fieldValues),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <UnderlaySelection
-            selected={underlayWithDescription}
-            options={[underlayWithDescription, underlayWithoutDescription]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
-    );
-
-    expect(selected.underlay).toBe(underlayWithDescription.externalProductCode);
-  });
-
-  describe("PitchedRoofCalculator UnderlaySelection - GTM labels", () => {
-    it("calls analytics event with description", () => {
-      render(
+      <ThemeProvider>
         <MicroCopy.Provider values={en}>
           <FormContext.Provider
             value={{
@@ -125,6 +59,80 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
             />
           </FormContext.Provider>
         </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(
+      screen.getByText(underlayWithDescription.shortDescription)
+    ).toBeInTheDocument();
+  });
+
+  it("renders with no options", () => {
+    render(
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <UnderlaySelection options={[]} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(screen.getByText("MC: underlaySelection.empty")).toBeInTheDocument();
+  });
+
+  it("render with selected by default option", () => {
+    let selected = undefined;
+    render(
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: (fieldValues) => (selected = fieldValues),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
+            }}
+          >
+            <UnderlaySelection
+              selected={underlayWithDescription}
+              options={[underlayWithDescription, underlayWithoutDescription]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
+    );
+
+    expect(selected.underlay).toBe(underlayWithDescription.externalProductCode);
+  });
+
+  describe("PitchedRoofCalculator UnderlaySelection - GTM labels", () => {
+    it("pushed event with description", () => {
+      render(
+        <ThemeProvider>
+          <MicroCopy.Provider values={en}>
+            <FormContext.Provider
+              value={{
+                updateFormState: jest.fn(),
+                hasBeenSubmitted: false,
+                submitButtonDisabled: false,
+                values: {}
+              }}
+            >
+              <UnderlaySelection
+                selected={undefined}
+                options={[underlayWithDescription]}
+              />
+            </FormContext.Provider>
+          </MicroCopy.Provider>
+        </ThemeProvider>
       );
 
       const expectedResult = {
@@ -140,21 +148,23 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
 
     it("calls analytics event without description", () => {
       render(
-        <MicroCopy.Provider values={en}>
-          <FormContext.Provider
-            value={{
-              updateFormState: jest.fn(),
-              hasBeenSubmitted: false,
-              submitButtonDisabled: false,
-              values: {}
-            }}
-          >
-            <UnderlaySelection
-              selected={undefined}
-              options={[underlayWithoutDescription]}
-            />
-          </FormContext.Provider>
-        </MicroCopy.Provider>
+        <ThemeProvider>
+          <MicroCopy.Provider values={en}>
+            <FormContext.Provider
+              value={{
+                updateFormState: jest.fn(),
+                hasBeenSubmitted: false,
+                submitButtonDisabled: false,
+                values: {}
+              }}
+            >
+              <UnderlaySelection
+                selected={undefined}
+                options={[underlayWithoutDescription]}
+              />
+            </FormContext.Provider>
+          </MicroCopy.Provider>
+        </ThemeProvider>
       );
 
       const expectedResult = {

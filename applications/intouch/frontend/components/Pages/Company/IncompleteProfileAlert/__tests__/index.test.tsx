@@ -1,4 +1,5 @@
 import React from "react";
+import { IncompleteProfileAlert } from "..";
 import {
   act,
   fireEvent,
@@ -6,7 +7,6 @@ import {
   screen,
   waitFor
 } from "../../../../../lib/tests/utils";
-import { IncompleteProfileAlert } from "..";
 
 const phoneFieldText = "incompleteProfile.fields.phone";
 

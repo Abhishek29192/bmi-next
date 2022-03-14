@@ -1,9 +1,8 @@
-import React from "react";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons";
 import classnames from "classnames";
-import { KeyboardArrowRight } from "@material-ui/icons";
-import { KeyboardArrowLeft } from "@material-ui/icons";
+import React from "react";
 import Button from "../button/Button";
-import styles from "./ArrowControl.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   direction: "left" | "right";
@@ -11,6 +10,7 @@ type Props = {
 };
 
 const ArrowControl = ({ direction, onClick }: Props) => {
+  const classes = useStyles();
   // eslint-disable-next-line security/detect-object-injection
   const ArrowIcon = {
     left: KeyboardArrowLeft,
@@ -22,14 +22,12 @@ const ArrowControl = ({ direction, onClick }: Props) => {
       isIconButton
       size="medium"
       onClick={() => onClick && onClick()}
-      className={classnames(
-        styles["ArrowControl"],
-        styles[`ArrowControl--${direction}`]
-      )}
+      /* eslint-disable-next-line security/detect-object-injection */
+      className={classnames(classes.root, classes[direction])}
       // TODO: Use a UI string for this.
       accessibilityLabel={`Move ${direction}`}
     >
-      <ArrowIcon className={styles["chevron"]} />
+      <ArrowIcon className={classes.chevron} />
     </Button>
   );
 };

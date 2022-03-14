@@ -1,8 +1,8 @@
-import React from "react";
 import { ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
+import React from "react";
 import Typography from "../typography/Typography";
-import styles from "./IconList.module.scss";
+import { useStyles } from "./styles";
 
 type ListItemProps = {
   icon?: React.ReactNode;
@@ -18,26 +18,22 @@ const ListItem = ({
   children,
   component,
   isCompact
-}: ListItemProps) => (
-  <li
-    className={classnames(
-      styles["ListItem"],
-      isCompact && styles["ListItem--isCompact"]
-    )}
-  >
-    <div className={styles["icon"]}>{icon || <ChevronRight />}</div>
-    <div className={styles["content"]}>
-      <Typography
-        className={styles["title"]}
-        component={component}
-        variant={isCompact ? "body1" : "h6"}
-      >
-        {title}
-      </Typography>
-      {children && <span className={styles["description"]}>{children}</span>}
-    </div>
-  </li>
-);
+}: ListItemProps) => {
+  const classes = useStyles();
+  return (
+    <li
+      className={classnames(classes.listItem, isCompact && classes.isCompact)}
+    >
+      <div className={classes.icon}>{icon || <ChevronRight />}</div>
+      <div className={classes.content}>
+        <Typography component={component} variant={isCompact ? "body1" : "h6"}>
+          {title}
+        </Typography>
+        {children && <span className={classes.description}>{children}</span>}
+      </div>
+    </li>
+  );
+};
 
 type Props = {
   children:
@@ -46,7 +42,8 @@ type Props = {
 };
 
 const IconList = ({ children }: Props) => {
-  return <ul className={styles["IconList"]}>{children}</ul>;
+  const classes = useStyles();
+  return <ul className={classes.root}>{children}</ul>;
 };
 
 IconList.Item = ListItem;

@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { ThemeProvider } from "@bmi/components";
 import { mockCompany } from "../../../../../fixtures/company";
 import {
   screen,
@@ -50,7 +51,11 @@ describe("RewardSummary", () => {
     const { container } = renderAsDeep({
       market: { rewardEffectiveDate: "01-01-2022" },
       account: { role: "COMPANY_ADMIN" }
-    })(<RewardSummary company={generateCompany()} />);
+    })(
+      <ThemeProvider>
+        <RewardSummary company={generateCompany()} />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
     expect(screen.getByText("reward.title")).toBeTruthy();
@@ -82,7 +87,11 @@ describe("RewardSummary", () => {
     renderAsDeep({
       market: { rewardEffectiveDate: "01-01-2022" },
       account: { role: "COMPANY_ADMIN" }
-    })(<RewardSummary company={generateCompany()} />);
+    })(
+      <ThemeProvider>
+        <RewardSummary company={generateCompany()} />
+      </ThemeProvider>
+    );
 
     expect(screen.getByText("50%")).toBeTruthy();
     expect(screen.getAllByText("reward.status.claimed").length).toBe(1);
@@ -99,7 +108,11 @@ describe("RewardSummary", () => {
     renderAsDeep({
       market: { rewardEffectiveDate: "01-01-2022" },
       account: { role: "COMPANY_ADMIN" }
-    })(<RewardSummary company={generateCompany()} />);
+    })(
+      <ThemeProvider>
+        <RewardSummary company={generateCompany()} />
+      </ThemeProvider>
+    );
 
     fireEvent.click(screen.getByText("reward.claimLabel"));
     fireEvent.click(screen.getByLabelText("Close"));
@@ -120,7 +133,11 @@ describe("RewardSummary", () => {
     renderAsDeep({
       market: { rewardEffectiveDate: "01-01-2022" },
       account: { role: "COMPANY_ADMIN" }
-    })(<RewardSummary company={generateCompany()} />);
+    })(
+      <ThemeProvider>
+        <RewardSummary company={generateCompany()} />
+      </ThemeProvider>
+    );
 
     fireEvent.click(screen.getByText("reward.claimLabel"));
 
@@ -161,7 +178,11 @@ describe("RewardSummary", () => {
     renderAsDeep({
       market: { rewardEffectiveDate: "01-01-2022" },
       account: { role: "COMPANY_ADMIN" }
-    })(<RewardSummary company={generateCompany()} />);
+    })(
+      <ThemeProvider>
+        <RewardSummary company={generateCompany()} />
+      </ThemeProvider>
+    );
 
     expect(screen.getByText("100%")).toBeTruthy();
   });

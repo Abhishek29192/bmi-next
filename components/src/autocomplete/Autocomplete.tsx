@@ -6,12 +6,11 @@ import {
 } from "@material-ui/lab";
 import parse from "autosuggest-highlight/parse";
 import React from "react";
-import Grid from "../grid/Grid";
-import { TextField } from "../text-field/TextField";
-import Icon from "../icon/Icon";
-import { iconMap, IconName } from "../icon";
-import Typography from "../typography/Typography";
-import styles from "./Autocomplete.module.scss";
+import Grid from "../grid";
+import Icon, { iconMap, IconName } from "../icon";
+import { TextField } from "../text-field";
+import Typography from "../typography";
+import { useStyles } from "./styles";
 
 type SubstringParams = {
   length: number;
@@ -39,6 +38,8 @@ const Autocomplete = ({
   startAdornmentIcon,
   ...props
 }: Props) => {
+  const classes = useStyles();
+
   const mapParams = (params: AutocompleteRenderInputParams) => {
     if (!startAdornmentIcon) {
       return params;
@@ -52,7 +53,7 @@ const Autocomplete = ({
           <Icon
             // eslint-disable-next-line security/detect-object-injection
             source={iconMap[startAdornmentIcon]}
-            className={styles["start-adornment-icon"]}
+            className={classes.startAdornmentIcon}
           />
         )
       }
@@ -70,13 +71,15 @@ const Autocomplete = ({
 };
 
 const Option = ({ text, secondaryText, matches = [] }: OptionProps) => {
+  const classes = useStyles();
+
   const parts = parse(
     text,
     matches.map(({ offset, length }) => [offset, offset + length])
   );
 
   return (
-    <Grid container className={styles["option"]}>
+    <Grid container className={classes.option}>
       <Grid item>
         <Icon source={LocationOn} />
       </Grid>

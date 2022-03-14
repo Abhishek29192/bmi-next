@@ -3,13 +3,13 @@
 exports[`Search component renders correctly 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-4 Search-root-1"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-9 InputGroup-lockedxs-11"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 InputGroup-input-10"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -31,7 +31,7 @@ exports[`Search component renders correctly 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-31 iconButton IconButton-medium-37 IconButton-contained-32 InputGroup-button-15"
         tabindex="0"
         type="submit"
       >
@@ -61,13 +61,13 @@ exports[`Search component renders correctly 1`] = `
 exports[`Search component renders correctly if buttonComponent provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-394 Search-root-391"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-399 InputGroup-lockedxs-401"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-407 InputGroup-input-400"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -98,13 +98,13 @@ exports[`Search component renders correctly if buttonComponent provided 1`] = `
 exports[`Search component renders correctly if buttonText provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-82 Search-root-79"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-87 InputGroup-lockedxs-89"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-95 InputGroup-input-88"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -125,12 +125,12 @@ exports[`Search component renders correctly if buttonText provided 1`] = `
         </div>
       </div>
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 button MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-98 MuiButton-contained Button-contained-100 InputGroup-button-93 MuiButton-containedPrimary"
         tabindex="0"
         type="submit"
       >
         <span
-          class="MuiButton-label buttonStyles-label-44"
+          class="MuiButton-label Button-label-101"
         >
           buttonText
           <span
@@ -160,13 +160,13 @@ exports[`Search component renders correctly if buttonText provided 1`] = `
 exports[`Search component renders correctly if clearLabel provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-160 Search-root-157"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-165 InputGroup-lockedxs-167"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-173 InputGroup-input-166"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -188,7 +188,65 @@ exports[`Search component renders correctly if clearLabel provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-contained-93 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-187 iconButton IconButton-medium-193 IconButton-contained-188 InputGroup-button-171"
+        tabindex="0"
+        type="submit"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Search component renders correctly if defaultValue provided 1`] = `
+<div>
+  <form
+    class="Form-root-199 Search-root-196"
+  >
+    <div
+      class="InputGroup-root-204 InputGroup-lockedxs-206"
+    >
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField-root-212 InputGroup-input-205"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+          data-shrink="false"
+        >
+          Search BMI...
+        </label>
+        <div
+          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiFilledInput-input"
+            name="q"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <button
+        aria-label="Search"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-226 iconButton IconButton-medium-232 IconButton-contained-227 InputGroup-button-210"
         tabindex="0"
         type="submit"
       >
@@ -218,13 +276,13 @@ exports[`Search component renders correctly if clearLabel provided 1`] = `
 exports[`Search component renders correctly if fieldName provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-277 Search-root-274"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-282 InputGroup-lockedxs-284"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-290 InputGroup-input-283"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -246,7 +304,7 @@ exports[`Search component renders correctly if fieldName provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-304 iconButton IconButton-medium-310 IconButton-contained-305 InputGroup-button-288"
         tabindex="0"
         type="submit"
       >
@@ -276,13 +334,13 @@ exports[`Search component renders correctly if fieldName provided 1`] = `
 exports[`Search component renders correctly if helperText provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-121 Search-root-118"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-126 InputGroup-lockedxs-128"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-134 InputGroup-input-127"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -304,7 +362,7 @@ exports[`Search component renders correctly if helperText provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-contained-73 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-148 iconButton IconButton-medium-154 IconButton-contained-149 InputGroup-button-132"
         tabindex="0"
         type="submit"
       >
@@ -328,7 +386,7 @@ exports[`Search component renders correctly if helperText provided 1`] = `
       </button>
     </div>
     <p
-      class="helper-text"
+      class="Search-helperText-119"
     >
       helperText
     </p>
@@ -339,13 +397,13 @@ exports[`Search component renders correctly if helperText provided 1`] = `
 exports[`Search component renders correctly if isSubmitDisabled provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-355 Search-root-352"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-360 InputGroup-lockedxs-362"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-368 InputGroup-input-361"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -367,7 +425,7 @@ exports[`Search component renders correctly if isSubmitDisabled provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-contained-173 button Mui-disabled Mui-disabled"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-382 iconButton IconButton-medium-388 IconButton-contained-383 InputGroup-button-366 Mui-disabled Mui-disabled"
         disabled=""
         tabindex="-1"
         type="submit"
@@ -395,13 +453,13 @@ exports[`Search component renders correctly if isSubmitDisabled provided 1`] = `
 exports[`Search component renders correctly if label provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-238 Search-root-235"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-243 InputGroup-lockedxs-245"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-251 InputGroup-input-244"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -423,7 +481,7 @@ exports[`Search component renders correctly if label provided 1`] = `
       </div>
       <button
         aria-label="label"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-265 iconButton IconButton-medium-271 IconButton-contained-266 InputGroup-button-249"
         tabindex="0"
         type="submit"
       >
@@ -453,13 +511,13 @@ exports[`Search component renders correctly if label provided 1`] = `
 exports[`Search component renders correctly if placeholder provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-316 Search-root-313"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-321 InputGroup-lockedxs-323"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-329 InputGroup-input-322"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -481,7 +539,7 @@ exports[`Search component renders correctly if placeholder provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-343 iconButton IconButton-medium-349 IconButton-contained-344 InputGroup-button-327"
         tabindex="0"
         type="submit"
       >
@@ -511,13 +569,13 @@ exports[`Search component renders correctly if placeholder provided 1`] = `
 exports[`Search component renders correctly if value provided 1`] = `
 <div>
   <form
-    class="Form Search"
+    class="Form-root-43 Search-root-40"
   >
     <div
-      class="InputGroup InputGroup--locked-xs"
+      class="InputGroup-root-48 InputGroup-lockedxs-50"
     >
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input"
+        class="MuiFormControl-root MuiTextField-root TextField-root-56 InputGroup-input-49"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-filled MuiFormLabel-filled"
@@ -540,7 +598,7 @@ exports[`Search component renders correctly if value provided 1`] = `
           >
             <button
               aria-label="Clear"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-70 iconButton IconButton-medium-76 IconButton-text-72"
               tabindex="0"
               type="button"
             >
@@ -549,7 +607,7 @@ exports[`Search component renders correctly if value provided 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root clear-icon"
+                  class="MuiSvgIcon-root Search-clearIcon-42"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -567,7 +625,7 @@ exports[`Search component renders correctly if value provided 1`] = `
       </div>
       <button
         aria-label="Search"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-70 iconButton IconButton-medium-76 IconButton-contained-71 InputGroup-button-54"
         tabindex="0"
         type="submit"
       >

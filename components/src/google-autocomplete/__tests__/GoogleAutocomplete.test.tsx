@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import React from "react";
 import GoogleApi, {
   AutocompletePrediction,
@@ -7,6 +7,7 @@ import GoogleApi, {
   GeocoderResult,
   Google
 } from "../../google-api/GoogleApi";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import GoogleAutocomplete from "../GoogleAutocomplete";
 
 describe("GoogleAutocomplete component", () => {
@@ -19,7 +20,7 @@ describe("GoogleAutocomplete component", () => {
   });
 
   it("loader renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <GoogleApi.Provider value={null}>
         <GoogleAutocomplete id="google-autocomplete-loader-test" />
       </GoogleApi.Provider>
@@ -31,7 +32,7 @@ describe("GoogleAutocomplete component", () => {
       maps: { places: { AutocompleteService: jest.fn() }, Geocoder: jest.fn() }
     };
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <GoogleApi.Provider value={google as unknown as Google}>
         <GoogleAutocomplete id="google-autocomplete-test" />
       </GoogleApi.Provider>
@@ -46,7 +47,7 @@ describe("GoogleAutocomplete component", () => {
       const google = getGoogleMock();
       const search = "Diakonveien";
       const onPlaceChange = jest.fn();
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete
             id="google-autocomplete-test"
@@ -73,7 +74,7 @@ describe("GoogleAutocomplete component", () => {
       const google = getGoogleMock([{ ...predictionStub[0], place_id: "" }]);
       const search = "Diakonveien";
       const onPlaceChange = jest.fn();
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete
             id="google-autocomplete-test"
@@ -102,7 +103,7 @@ describe("GoogleAutocomplete component", () => {
     it("should set value when option is selected", async () => {
       const google = getGoogleMock();
       const search = "Diakonveien";
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>
@@ -126,7 +127,7 @@ describe("GoogleAutocomplete component", () => {
     });
     it("should display correct value if controlledValue is passed", async () => {
       const google = getGoogleMock();
-      const { rerender } = render(
+      const { rerender } = renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>
@@ -149,7 +150,7 @@ describe("GoogleAutocomplete component", () => {
     it("options should be empty by default", () => {
       const google = getGoogleMock();
 
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>
@@ -161,7 +162,7 @@ describe("GoogleAutocomplete component", () => {
       const google = getGoogleMock();
       const search = "Diakonveien";
 
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>
@@ -180,7 +181,7 @@ describe("GoogleAutocomplete component", () => {
       const google = getGoogleMock(null as never);
       const search = "Diakonveien";
 
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>
@@ -199,7 +200,7 @@ describe("GoogleAutocomplete component", () => {
       const option = "Diakonveien";
       const google = getGoogleMock([option] as never);
 
-      render(
+      renderWithThemeProvider(
         <GoogleApi.Provider value={google as unknown as Google}>
           <GoogleAutocomplete id="google-autocomplete-test" />
         </GoogleApi.Provider>

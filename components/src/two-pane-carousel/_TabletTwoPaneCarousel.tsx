@@ -5,17 +5,18 @@ import Grid from "../grid/Grid";
 import Media from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
-import transformHyphens from "../utils";
+import { transformHyphens } from "../utils";
+import { useStyles } from "./styles";
 import { Props } from "./types";
-import styles from "./TwoPaneCarousel.module.scss";
 
 const TwoPaneCarousel = ({ slides }: Props) => {
   const [activePage, setActivePage] = useState<number>(0);
+  const classes = useStyles();
 
   return (
     <Grid container spacing={3} alignItems="flex-start">
       <Grid item xs={12} sm={6} xl={4}>
-        <div className={styles["left-pane"]}>
+        <div className={classes.leftPane}>
           <Carousel
             initialPage={activePage}
             onPageChange={setActivePage}
@@ -26,31 +27,31 @@ const TwoPaneCarousel = ({ slides }: Props) => {
                 return (
                   <Carousel.Slide
                     key={`left-pane-${index}`}
-                    className={styles["left-pane-slide"]}
+                    className={classes.leftPaneSlide}
                   >
                     {BrandIcon && (
                       <BrandIcon
                         preserveAspectRatio="xMinYMin"
-                        className={styles["brand-icon"]}
+                        className={classes.brandIcon}
                       />
                     )}
                     <Typography
                       variant="h1"
                       component="h2"
                       hasUnderline
-                      className={styles["heading"]}
+                      className={classes.heading}
                     >
                       {title}
                     </Typography>
                     {(description || cta) && (
-                      <div className={styles["text"]}>
+                      <div className={classes.text}>
                         {transformHyphens(description)}
                         <div>
                           {cta && (
                             <AnchorLink
                               action={cta.action}
                               iconEnd
-                              className={styles["cta"]}
+                              className={classes.cta}
                             >
                               {cta.label}
                             </AnchorLink>
@@ -64,7 +65,7 @@ const TwoPaneCarousel = ({ slides }: Props) => {
             )}
           </Carousel>
           <SlideControls
-            className={styles["controls"]}
+            className={classes.controls}
             current={getPageFromAbsoluteIndex(activePage, slides.length)}
             total={slides.length}
             onNextClick={() => setActivePage((activePage) => activePage + 1)}
@@ -76,7 +77,7 @@ const TwoPaneCarousel = ({ slides }: Props) => {
         <Carousel initialPage={activePage} onPageChange={setActivePage}>
           {slides.map(({ media }, index) => (
             <Carousel.Slide key={`$right-pane-${index}`}>
-              <Media className={styles["image"]}>{media}</Media>
+              <Media className={classes.image}>{media}</Media>
             </Carousel.Slide>
           ))}
         </Carousel>

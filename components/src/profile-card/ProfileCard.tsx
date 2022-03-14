@@ -1,11 +1,11 @@
-import React, { MutableRefObject } from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { Avatar } from "@material-ui/core";
 import classnames from "classnames";
+import React, { MutableRefObject } from "react";
 import AnchorLink from "../anchor-link/AnchorLink";
 import { ClickableAction } from "../clickable/Clickable";
 import Typography from "../typography/Typography";
-import styles from "./ProfileCard.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   imageSource?: string | React.ReactNode;
@@ -27,14 +27,15 @@ const Body = (
     | MutableRefObject<HTMLDivElement | null>
     | null
 ) => {
+  const classes = useStyles();
   return (
-    <div className={styles["body"]} style={style}>
+    <div className={classes.body} style={style}>
       <div ref={ref}>
         <Typography variant="h5" component="strong">
           {name}
         </Typography>
         {title && (
-          <Typography className={styles["title"]} variant="body2">
+          <Typography className={classes.title} variant="body2">
             {title}
           </Typography>
         )}
@@ -45,19 +46,20 @@ const Body = (
 
 const ProfileCard = ({ imageSource, children, className, body }: Props) => {
   const hasFooter = Array.isArray(children) ? children.length > 0 : children;
+  const classes = useStyles();
 
   return (
-    <div className={classnames(styles["ProfileCard"], className)}>
-      <div className={styles["head"]}>
+    <div className={classnames(classes.root, className)}>
+      <div className={classes.head}>
         <Avatar
-          className={styles["profile-picture"]}
+          className={classes.profilePicture}
           src={typeof imageSource === "string" ? imageSource : undefined}
         >
           {typeof imageSource !== "string" && imageSource}
         </Avatar>
       </div>
       {body}
-      {hasFooter && <div className={styles["footer"]}>{children}</div>}
+      {hasFooter && <div className={classes.footer}>{children}</div>}
     </div>
   );
 };
@@ -75,9 +77,10 @@ const ProfileRow = ({
   icon: Icon,
   anchorComponent: AnchorLinkComponent = AnchorLink
 }: RowProps) => {
+  const classes = useStyles();
   return (
-    <span className={styles["row"]}>
-      {Icon ? <Icon className={styles["row-icon"]} /> : null}
+    <span className={classes.row}>
+      {Icon ? <Icon className={classes.rowIcon} /> : null}
       {action ? (
         <AnchorLinkComponent action={action}>{children}</AnchorLinkComponent>
       ) : (

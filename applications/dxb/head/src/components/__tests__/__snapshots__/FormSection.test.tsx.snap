@@ -1,27 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`FormSection component Hubspot FormSection component renders correctly 1`] = `
+<div>
+  <div
+    class="Section-root-1044 Section-white-1048"
+  >
+    <div
+      class="Container-root-1052"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="FormSection-hubSpot-1040"
+          id="bmi-hubspot-form-no-id"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormSection component Hubspot FormSection component renders correctly with sampleIds 1`] = `
+<div>
+  <div
+    class="Section-root-1059 Section-white-1063"
+  >
+    <div
+      class="Container-root-1067"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="FormSection-hubSpot-1055"
+          id="bmi-hubspot-form-no-id"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FormSection component Hubspot FormSection component test submit when preview is on 1`] = `
+<div>
+  <div
+    class="Section-root-1074 Section-white-1078"
+  >
+    <div
+      class="Container-root-1082"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="FormSection-hubSpot-1070"
+          id="bmi-hubspot-form-no-id"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`FormSection component renders correctly 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-6 Section-white-10"
   >
     <div
-      class="Container"
+      class="Container-root-14"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-16 FormSection-root-1 Form-rightAlignButton-17"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-24 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -44,10 +107,10 @@ exports[`FormSection component renders correctly 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-3"
+                      class="PrivateNotchedOutline-legendLabelled-29"
                     >
                       <span>
                         Text
@@ -58,10 +121,10 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-24 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -83,10 +146,10 @@ exports[`FormSection component renders correctly 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-3"
+                      class="PrivateNotchedOutline-legendLabelled-29"
                     >
                       <span>
                         Textarea
@@ -97,10 +160,10 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-24 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -131,10 +194,10 @@ exports[`FormSection component renders correctly 1`] = `
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-3"
+                      class="PrivateNotchedOutline-legendLabelled-29"
                     >
                       <span>
                         Email
@@ -146,23 +209,23 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-31"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-8"
+                        class="PrivateSwitchBase-input-36"
                         data-indeterminate="false"
                         name="checkbox"
                         type="checkbox"
@@ -192,31 +255,32 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
                 class="MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root CheckboxGroup-heading Typography MuiTypography-body1"
+                  class="MuiTypography-root CheckboxGroup-heading Typography-root-37 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   CheckboxGroup
                 </p>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-31 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-8"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="CheckboxGroup1"
                           type="checkbox"
@@ -245,20 +309,20 @@ exports[`FormSection component renders correctly 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-31 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-8"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="CheckboxGroup2"
                           type="checkbox"
@@ -287,20 +351,20 @@ exports[`FormSection component renders correctly 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-31 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-8"
+                          class="PrivateSwitchBase-input-36"
                           data-indeterminate="false"
                           name="CheckboxGroup3"
                           type="checkbox"
@@ -331,38 +395,39 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-37 MuiTypography-body1"
+                  data-testid="typography"
                   style="padding-bottom: 15px;"
                 >
                   Radio
                 </p>
                 <div
-                  class="RadioGroup"
+                  class="RadioGroup-root-45"
                 >
                   <div
-                    class="container"
+                    class="RadioGroup-container-46"
                   >
                     <div
-                      class="RadioButton item"
+                      class="RadioButton-root-48 RadioGroup-item-47"
                     >
                       <input
-                        class="input"
+                        class="RadioButton-input-50"
                         id="radio-radio-Option1"
                         name="radio"
                         type="radio"
                         value="Option1"
                       />
                       <label
-                        class="label"
+                        class="RadioButton-label-51"
                         for="radio-radio-Option1"
                       >
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root text"
+                          class="MuiButtonBase-root RadioButton-text-52"
                           role="button"
                           tabindex="-1"
                         >
@@ -374,22 +439,22 @@ exports[`FormSection component renders correctly 1`] = `
                       </label>
                     </div>
                     <div
-                      class="RadioButton item"
+                      class="RadioButton-root-48 RadioGroup-item-47"
                     >
                       <input
-                        class="input"
+                        class="RadioButton-input-50"
                         id="radio-radio-Option2"
                         name="radio"
                         type="radio"
                         value="Option2"
                       />
                       <label
-                        class="label"
+                        class="RadioButton-label-51"
                         for="radio-radio-Option2"
                       >
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root text"
+                          class="MuiButtonBase-root RadioButton-text-52"
                           role="button"
                           tabindex="-1"
                         >
@@ -401,22 +466,22 @@ exports[`FormSection component renders correctly 1`] = `
                       </label>
                     </div>
                     <div
-                      class="RadioButton item"
+                      class="RadioButton-root-48 RadioGroup-item-47"
                     >
                       <input
-                        class="input"
+                        class="RadioButton-input-50"
                         id="radio-radio-Option3"
                         name="radio"
                         type="radio"
                         value="Option3"
                       />
                       <label
-                        class="label"
+                        class="RadioButton-label-51"
                         for="radio-radio-Option3"
                       >
                         <div
                           aria-disabled="false"
-                          class="MuiButtonBase-root text"
+                          class="MuiButtonBase-root RadioButton-text-52"
                           role="button"
                           tabindex="-1"
                         >
@@ -432,7 +497,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth"
@@ -444,7 +509,7 @@ exports[`FormSection component renders correctly 1`] = `
                   Select
                 </label>
                 <div
-                  class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+                  class="MuiInputBase-root MuiOutlinedInput-root Select-root-53 MuiInputBase-formControl"
                 >
                   <div
                     aria-haspopup="listbox"
@@ -477,10 +542,10 @@ exports[`FormSection component renders correctly 1`] = `
                   </svg>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-27 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-3"
+                      class="PrivateNotchedOutline-legendLabelled-29"
                     >
                       <span>
                         Select
@@ -494,10 +559,10 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
             >
               <div
-                class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+                class="MuiFormControl-root Upload-root-54 MuiFormControl-fullWidth"
               >
                 <div>
                   <label
@@ -505,12 +570,12 @@ exports[`FormSection component renders correctly 1`] = `
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+                      class="MuiButtonBase-root MuiButton-root Button-root-74 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-12"
+                        class="MuiButton-label Button-label-77"
                       >
                         <svg
                           aria-hidden="true"
@@ -531,14 +596,15 @@ exports[`FormSection component renders correctly 1`] = `
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
-                    class="input"
+                    class="Upload-input-65"
                     data-testid="upload"
                     id="upload"
                     multiple=""
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root mobile-instructions Typography MuiTypography-body1"
+                    class="MuiTypography-root Upload-mobileInstructions-64 Typography-root-37 MuiTypography-body1"
+                    data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 5.2MB
                   </p>
@@ -547,10 +613,11 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-37 MuiTypography-body1"
+                data-testid="typography"
               >
                 <span>
                   Hubspot text
@@ -569,7 +636,7 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
                 class="MuiInputBase-root"
@@ -584,23 +651,23 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-31"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-8"
+                        class="PrivateSwitchBase-input-36"
                         data-indeterminate="false"
                         name="hubspot-checkbox"
                         type="checkbox"
@@ -632,23 +699,23 @@ exports[`FormSection component renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-21 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-31"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-8"
+                        class="PrivateSwitchBase-input-36"
                         data-indeterminate="false"
                         name="hubspot-checkbox"
                         type="checkbox"
@@ -681,11 +748,11 @@ exports[`FormSection component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-19"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              class="MuiButtonBase-root MuiButton-root Button-root-74 MuiButton-contained Button-contained-76 Form-button-18 MuiButton-containedPrimary Mui-disabled Mui-disabled"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               disabled=""
@@ -693,7 +760,7 @@ exports[`FormSection component renders correctly 1`] = `
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-12"
+                class="MuiButton-label Button-label-77"
               >
                 Submit
                 <span
@@ -715,11 +782,12 @@ exports[`FormSection component renders correctly 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-37 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-94 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -730,7 +798,7 @@ exports[`FormSection component renders correctly 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-94 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -747,41 +815,62 @@ exports[`FormSection component renders correctly 1`] = `
 </div>
 `;
 
+exports[`FormSection component renders correctly for dialog 1`] = `
+<div>
+  <div
+    class="Section-white-1138"
+  >
+    <div
+      class="Container-root-1142"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="FormSection-hubSpot-1130 FormSection-dialog-1131"
+          id="bmi-hubspot-form-no-id"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`FormSection component test convertMarkdownLinksToAnchorLinks function with link in label 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-913 Section-white-917"
   >
     <div
-      class="Container"
+      class="Container-root-921"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-923 FormSection-root-908 Form-rightAlignButton-924"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-928 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-930"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-289 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-932 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-292"
+                        class="PrivateSwitchBase-input-935"
                         data-indeterminate="false"
                         name="checkbox-wih-link"
                         type="checkbox"
@@ -807,7 +896,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   >
                     I agree with BMI's 
                     <a
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-936 Anchorlink MuiTypography-colorPrimary"
                       href="https://google.co.uk"
                       rel="noopener"
                       target="_blank"
@@ -822,23 +911,23 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
               </div>
             </div>
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-928 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-930"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-289 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-932 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-292"
+                        class="PrivateSwitchBase-input-935"
                         data-indeterminate="false"
                         name="checkbox-wih-link"
                         type="checkbox"
@@ -864,7 +953,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                   >
                     I agree with BMI's 
                     <a
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-936 Anchorlink MuiTypography-colorPrimary"
                       href="http://www.bmigroup.com"
                       target="_blank"
                     >
@@ -879,18 +968,18 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-926"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-293 MuiButton-contained buttonStyles-contained-295 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-942 MuiButton-contained Button-contained-944 Form-button-925 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-296"
+                class="MuiButton-label Button-label-945"
               >
                 Submit
                 <span
@@ -915,11 +1004,12 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-962 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-936 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -930,7 +1020,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-936 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -950,38 +1040,38 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 exports[`FormSection component test convertMarkdownLinksToAnchorLinks function with no label 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-851 Section-white-855"
   >
     <div
-      class="Container"
+      class="Container-root-859"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-861 FormSection-root-846 Form-rightAlignButton-862"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-866 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Checkbox"
+                class="MuiFormControl-root Checkbox-root-868"
               >
                 <label
                   class="MuiFormControlLabel-root"
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-265 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-870 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-268"
+                        class="PrivateSwitchBase-input-873"
                         data-indeterminate="false"
                         name="checkbox-null-label"
                         type="checkbox"
@@ -1010,18 +1100,18 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-864"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-269 MuiButton-contained buttonStyles-contained-271 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-874 MuiButton-contained Button-contained-876 Form-button-863 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-272"
+                class="MuiButton-label Button-label-877"
               >
                 Submit
                 <span
@@ -1046,11 +1136,12 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-894 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-902 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1061,7 +1152,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-902 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1081,25 +1172,25 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
 exports[`FormSection component test handleEmailValidation with correct email 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-268 Section-white-272"
   >
     <div
-      class="Container"
+      class="Container-root-276"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-278 FormSection-root-263 Form-rightAlignButton-279"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-283 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-286 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1130,10 +1221,10 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                   />
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-81 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-289 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-83 PrivateNotchedOutline-legendNotched-84"
+                      class="PrivateNotchedOutline-legendLabelled-291 PrivateNotchedOutline-legendNotched-292"
                     >
                       <span>
                         Email
@@ -1146,18 +1237,18 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-281"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-85 MuiButton-contained buttonStyles-contained-87 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-293 MuiButton-contained Button-contained-295 Form-button-280 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-88"
+                class="MuiButton-label Button-label-296"
               >
                 Submit
                 <span
@@ -1182,11 +1273,12 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-313 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-321 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1197,7 +1289,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-321 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1217,25 +1309,25 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
 exports[`FormSection component test handleEmailValidation with incorrect email 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-204 Section-white-208"
   >
     <div
-      class="Container"
+      class="Container-root-212"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-214 FormSection-root-199 Form-rightAlignButton-215"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
+              class="MuiGrid-root Grid-item-219 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
             >
               <div
-                class="MuiFormControl-root MuiTextField-root TextField TextField--error MuiFormControl-fullWidth"
+                class="MuiFormControl-root MuiTextField-root TextField-root-222 TextField-textFieldError-224 MuiFormControl-fullWidth"
               >
                 <label
                   class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error MuiFormLabel-filled Mui-required Mui-required"
@@ -1270,7 +1362,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root Error"
+                      class="MuiSvgIcon-root TextField-error-221"
                       focusable="false"
                       style="color: red;"
                       viewBox="0 0 24 24"
@@ -1282,10 +1374,10 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                   </div>
                   <fieldset
                     aria-hidden="true"
-                    class="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
+                    class="PrivateNotchedOutline-root-225 MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="PrivateNotchedOutline-legendLabelled-59 PrivateNotchedOutline-legendNotched-60"
+                      class="PrivateNotchedOutline-legendLabelled-227 PrivateNotchedOutline-legendNotched-228"
                     >
                       <span>
                         Email
@@ -1304,11 +1396,11 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-217"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+              class="MuiButtonBase-root MuiButton-root Button-root-229 MuiButton-contained Button-contained-231 Form-button-216 MuiButton-containedPrimary Mui-disabled Mui-disabled"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               disabled=""
@@ -1316,7 +1408,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-64"
+                class="MuiButton-label Button-label-232"
               >
                 Submit
                 <span
@@ -1338,11 +1430,12 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-249 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-257 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1353,7 +1446,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-257 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1373,46 +1466,47 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
 exports[`FormSection component test multiply options in a checkbox group 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-982 Section-white-986"
   >
     <div
-      class="Container"
+      class="Container-root-990"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-992 FormSection-root-977 Form-rightAlignButton-993"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-997 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
                 class="MuiFormControl-root"
               >
                 <p
-                  class="MuiTypography-root CheckboxGroup-heading Typography MuiTypography-body1"
+                  class="MuiTypography-root CheckboxGroup-heading Typography-root-1001 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   Pizza
                 </p>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-999 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-317 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1009 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-320"
+                          class="PrivateSwitchBase-input-1012"
                           data-indeterminate="false"
                           name="Parma"
                           type="checkbox"
@@ -1441,20 +1535,20 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-999 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-317 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1009 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-320"
+                          class="PrivateSwitchBase-input-1012"
                           data-indeterminate="false"
                           name="Caprize"
                           type="checkbox"
@@ -1483,20 +1577,20 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
                   </label>
                 </div>
                 <div
-                  class="MuiFormControl-root Checkbox MuiFormControl-fullWidth"
+                  class="MuiFormControl-root Checkbox-root-999 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormControlLabel-root"
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-317 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1009 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     >
                       <span
                         class="MuiIconButton-label"
                       >
                         <input
-                          class="PrivateSwitchBase-input-320"
+                          class="PrivateSwitchBase-input-1012"
                           data-indeterminate="false"
                           name="Margarita"
                           type="checkbox"
@@ -1528,18 +1622,18 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-995"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-321 MuiButton-contained buttonStyles-contained-323 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-1013 MuiButton-contained Button-contained-1015 Form-button-994 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-324"
+                class="MuiButton-label Button-label-1016"
               >
                 Submit
                 <span
@@ -1564,11 +1658,12 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-1001 MuiTypography-body1"
+          data-testid="typography"
         >
           Dette nettstedet er beskyttet av reCAPTCHA og Googles 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-1033 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1579,7 +1674,7 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
           </a>
            og 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-1033 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms?hl=no-nb"
             rel="noreferrer noopener"
             target="_blank"
@@ -1599,25 +1694,25 @@ exports[`FormSection component test multiply options in a checkbox group 1`] = `
 exports[`FormSection component test upload input with large file 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-332 Section-white-336"
   >
     <div
-      class="Container"
+      class="Container-root-340"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-342 FormSection-root-327 Form-rightAlignButton-343"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-347 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+                class="MuiFormControl-root Upload-root-349 MuiFormControl-fullWidth"
               >
                 <div>
                   <label
@@ -1625,12 +1720,12 @@ exports[`FormSection component test upload input with large file 1`] = `
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-105 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+                      class="MuiButtonBase-root MuiButton-root Button-root-369 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-108"
+                        class="MuiButton-label Button-label-372"
                       >
                         <svg
                           aria-hidden="true"
@@ -1651,26 +1746,27 @@ exports[`FormSection component test upload input with large file 1`] = `
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
-                    class="input"
+                    class="Upload-input-360"
                     data-testid="upload"
                     id="upload"
                     multiple=""
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root mobile-instructions Typography MuiTypography-body1"
+                    class="MuiTypography-root Upload-mobileInstructions-359 Typography-root-389 MuiTypography-body1"
+                    data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
                 <div>
                   <div
-                    class="file"
+                    class="Upload-file-361"
                     data-testid="test-file"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root file-display"
+                      class="MuiSvgIcon-root Upload-fileDisplay-364"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -1679,22 +1775,24 @@ exports[`FormSection component test upload input with large file 1`] = `
                       />
                     </svg>
                     <div
-                      class="file-info-wrapper"
+                      class="Upload-fileInfoWrapper-367"
                     >
                       <p
-                        class="MuiTypography-root filename Typography MuiTypography-body1"
+                        class="MuiTypography-root Upload-filename-362 Typography-root-389 MuiTypography-body1"
+                        data-testid="typography"
                       >
                         fileName
                       </p>
                       <p
-                        class="MuiTypography-root error Typography MuiTypography-body1"
+                        class="MuiTypography-root Upload-error-365 Typography-root-389 MuiTypography-body1"
+                        data-testid="typography"
                       >
                         MC: errors.maxSize
                       </p>
                     </div>
                     <button
                       aria-label="Remove file"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-116 iconButtonStyles-medium-122 iconButtonStyles-text-118 delete-icon"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root-380 iconButton IconButton-medium-386 IconButton-text-382 Upload-deleteIcon-366"
                       data-testid="file-delete"
                       tabindex="0"
                       type="button"
@@ -1723,18 +1821,18 @@ exports[`FormSection component test upload input with large file 1`] = `
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-345"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-105 MuiButton-contained buttonStyles-contained-107 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-369 MuiButton-contained Button-contained-371 Form-button-344 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-108"
+                class="MuiButton-label Button-label-372"
               >
                 Submit
                 <span
@@ -1759,11 +1857,12 @@ exports[`FormSection component test upload input with large file 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-389 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-397 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1774,7 +1873,7 @@ exports[`FormSection component test upload input with large file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-397 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1794,25 +1893,25 @@ exports[`FormSection component test upload input with large file 1`] = `
 exports[`FormSection component test upload input with no maxSize 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-484 Section-white-488"
   >
     <div
-      class="Container"
+      class="Container-root-492"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-494 FormSection-root-479 Form-rightAlignButton-495"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-499 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+                class="MuiFormControl-root Upload-root-501 MuiFormControl-fullWidth"
               >
                 <div>
                   <label
@@ -1820,12 +1919,12 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+                      class="MuiButtonBase-root MuiButton-root Button-root-521 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-148"
+                        class="MuiButton-label Button-label-524"
                       >
                         <svg
                           aria-hidden="true"
@@ -1846,14 +1945,15 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
-                    class="input"
+                    class="Upload-input-512"
                     data-testid="upload"
                     id="upload"
                     multiple=""
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root mobile-instructions Typography MuiTypography-body1"
+                    class="MuiTypography-root Upload-mobileInstructions-511 Typography-root-541 MuiTypography-body1"
+                    data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
@@ -1863,18 +1963,18 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-497"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-contained buttonStyles-contained-147 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-521 MuiButton-contained Button-contained-523 Form-button-496 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-148"
+                class="MuiButton-label Button-label-524"
               >
                 Submit
                 <span
@@ -1899,11 +1999,12 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-541 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-549 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -1914,7 +2015,7 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-549 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -1934,25 +2035,25 @@ exports[`FormSection component test upload input with no maxSize 1`] = `
 exports[`FormSection component test upload input with small file 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-408 Section-white-412"
   >
     <div
-      class="Container"
+      class="Container-root-416"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <form
-          class="Form Form Form--rightAlignButton"
+          class="Form-root-418 FormSection-root-403 Form-rightAlignButton-419"
         >
           <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
           >
             <div
-              class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+              class="MuiGrid-root Grid-item-423 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
             >
               <div
-                class="MuiFormControl-root Upload MuiFormControl-fullWidth"
+                class="MuiFormControl-root Upload-root-425 MuiFormControl-fullWidth"
               >
                 <div>
                   <label
@@ -1960,12 +2061,12 @@ exports[`FormSection component test upload input with small file 1`] = `
                   >
                     <span
                       aria-disabled="false"
-                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-125 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+                      class="MuiButtonBase-root MuiButton-root Button-root-445 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
                       role="button"
                       tabindex="0"
                     >
                       <span
-                        class="MuiButton-label buttonStyles-label-128"
+                        class="MuiButton-label Button-label-448"
                       >
                         <svg
                           aria-hidden="true"
@@ -1986,26 +2087,27 @@ exports[`FormSection component test upload input with small file 1`] = `
                   </label>
                   <input
                     accept=".pdf, .jpg, .jpeg, .png"
-                    class="input"
+                    class="Upload-input-436"
                     data-testid="upload"
                     id="upload"
                     multiple=""
                     type="file"
                   />
                   <p
-                    class="MuiTypography-root mobile-instructions Typography MuiTypography-body1"
+                    class="MuiTypography-root Upload-mobileInstructions-435 Typography-root-465 MuiTypography-body1"
+                    data-testid="typography"
                   >
                     MC: form.upload.supportedFormats: .pdf, .jpg, .jpeg, .png. MC: form.upload.maxSize: 1MB
                   </p>
                 </div>
                 <div>
                   <div
-                    class="file"
+                    class="Upload-file-437"
                     data-testid="test-file"
                   >
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root file-display"
+                      class="MuiSvgIcon-root Upload-fileDisplay-440"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -2014,22 +2116,24 @@ exports[`FormSection component test upload input with small file 1`] = `
                       />
                     </svg>
                     <div
-                      class="file-info-wrapper"
+                      class="Upload-fileInfoWrapper-443"
                     >
                       <p
-                        class="MuiTypography-root filename Typography MuiTypography-body1"
+                        class="MuiTypography-root Upload-filename-438 Typography-root-465 MuiTypography-body1"
+                        data-testid="typography"
                       >
                         fileName
                       </p>
                       <p
-                        class="MuiTypography-root file-size Typography MuiTypography-body1"
+                        class="MuiTypography-root Upload-fileSize-439 Typography-root-465 MuiTypography-body1"
+                        data-testid="typography"
                       >
                         0KB
                       </p>
                     </div>
                     <button
                       aria-label="Remove file"
-                      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-136 iconButtonStyles-medium-142 iconButtonStyles-text-138 delete-icon"
+                      class="MuiButtonBase-root MuiIconButton-root IconButton-root-456 iconButton IconButton-medium-462 IconButton-text-458 Upload-deleteIcon-442"
                       data-testid="file-delete"
                       tabindex="0"
                       type="button"
@@ -2058,18 +2162,18 @@ exports[`FormSection component test upload input with small file 1`] = `
             </div>
           </div>
           <div
-            class="ButtonWrapper"
+            class="Form-buttonWrapper-421"
           >
             <button
               aria-label="children"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-125 MuiButton-contained buttonStyles-contained-127 Button MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-445 MuiButton-contained Button-contained-447 Form-button-420 MuiButton-containedPrimary"
               data-action="Test form"
               data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Test form\\"}"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label buttonStyles-label-128"
+                class="MuiButton-label Button-label-448"
               >
                 Submit
                 <span
@@ -2094,11 +2198,12 @@ exports[`FormSection component test upload input with small file 1`] = `
           </div>
         </form>
         <p
-          class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
+          class="MuiTypography-root RecaptchaPrivacyLinks Typography-root-465 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-473 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -2109,7 +2214,7 @@ exports[`FormSection component test upload input with small file 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-473 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -2120,90 +2225,6 @@ exports[`FormSection component test upload input with small file 1`] = `
           </a>
            apply.
         </p>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hubspot FormSection component renders correctly 1`] = `
-<div>
-  <div
-    class="Section Section--white"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <div
-          class="Form--hubSpot"
-          id="bmi-hubspot-form-no-id"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hubspot FormSection component renders correctly for dialog 1`] = `
-<div>
-  <div
-    class="Section--white"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <div
-          class="Form--hubSpot Form--dialog"
-          id="bmi-hubspot-form-no-id"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hubspot FormSection component renders correctly with sampleIds 1`] = `
-<div>
-  <div
-    class="Section Section--white"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <div
-          class="Form--hubSpot"
-          id="bmi-hubspot-form-no-id"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Hubspot FormSection component test submit when preview is on 1`] = `
-<div>
-  <div
-    class="Section Section--white"
-  >
-    <div
-      class="Container"
-    >
-      <div
-        class="MuiContainer-root MuiContainer-maxWidthXl"
-      >
-        <div
-          class="Form--hubSpot"
-          id="bmi-hubspot-form-no-id"
-        />
       </div>
     </div>
   </div>

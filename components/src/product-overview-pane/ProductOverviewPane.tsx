@@ -7,7 +7,7 @@ import { AcceptedNode } from "../media/Media";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
 import ToolTip from "../tooltip/Tooltip";
 import Typography from "../typography/Typography";
-import styles from "./ProductOverviewPane.module.scss";
+import { useStyles } from "./styles";
 
 const Chip = withClickable((props) => <PureChip {...props} />);
 
@@ -48,6 +48,7 @@ const renderThumbnailAttribute = (
 ) => {
   const Thumbnail = component || DefaultThumbnail;
   const activeColor = variants.find(({ isSelected }) => isSelected);
+  const classes = useStyles();
 
   if (!activeColor) {
     /* istanbul ignore next */
@@ -63,17 +64,17 @@ const renderThumbnailAttribute = (
 
   return (
     <li key={key}>
-      <span className={styles["term"]}>{name}</span>
+      <span className={classes.term}>{name}</span>
       {activeColor && (
-        <span className={styles["definition"]}>{activeColor.label}</span>
+        <span className={classes.definition}>{activeColor.label}</span>
       )}
-      <div className={styles["variants"]}>
+      <div className={classes.variants}>
         {variants.map(
           (
             { label, isSelected, thumbnail, action, availability, media },
             index
           ) => (
-            <div className={styles["variant"]} key={`${key}-variant-${index}`}>
+            <div className={classes.variant} key={`${key}-variant-${index}`}>
               <ToolTip
                 title={<div>{unavailableMicroCopy}</div>}
                 placement="top"
@@ -86,10 +87,7 @@ const renderThumbnailAttribute = (
               >
                 <div
                   className={classnames(
-                    !isSelected &&
-                      !availability &&
-                      action &&
-                      styles["unavailable-thumbnail"]
+                    !isSelected && !availability && action && classes.thumbnail
                   )}
                 >
                   <Thumbnail
@@ -115,6 +113,7 @@ const renderAttribute = (
   index: number
 ) => {
   const key = `attribute-${index}`;
+  const classes = useStyles();
 
   if (!attribute.variants.length || !name) {
     return null;
@@ -123,8 +122,8 @@ const renderAttribute = (
   if (attribute.variants.length === 1) {
     return (
       <li key={key}>
-        <span className={styles["term"]}>{name}</span>
-        <span className={styles["definition"]}>
+        <span className={classes.term}>{name}</span>
+        <span className={classes.definition}>
           {attribute.variants[0].label}
         </span>
       </li>
@@ -143,20 +142,15 @@ const renderAttribute = (
 
   return (
     <li key={key}>
-      <span className={styles["term"]}>{name}</span>
-      <div
-        className={classnames(styles["variants"], styles["variants--spaced"])}
-      >
+      <span className={classes.term}>{name}</span>
+      <div className={classnames(classes.variants, classes.spaced)}>
         {attribute.variants.map(
           ({ label, action, isSelected, availability }, index) => {
             return (
               <div
                 className={classnames(
-                  styles["variant"],
-                  !isSelected &&
-                    !availability &&
-                    action &&
-                    styles["unavailable-chip"]
+                  classes.variant,
+                  !isSelected && !availability && action && classes.chip
                 )}
                 key={`${key}-variant-${index}`}
               >
@@ -199,13 +193,14 @@ const ProductOverviewPane = ({
   attributes,
   children
 }: Props) => {
+  const classes = useStyles();
   return (
-    <div className={styles["ProductOverview"]}>
-      {BrandLogo && <BrandLogo className={styles["brand-logo"]} />}
-      <Typography className={styles["heading"]} variant="h3" component="h1">
+    <div className={classes.root}>
+      {BrandLogo && <BrandLogo className={classes.brandLogo} />}
+      <Typography className={classes.heading} variant="h3" component="h1">
         {name}
       </Typography>
-      <ul className={styles["attributes"]}>
+      <ul className={classes.attributes}>
         {[
           {
             name: nobbLabel,

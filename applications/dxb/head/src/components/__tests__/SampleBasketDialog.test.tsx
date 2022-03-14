@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import {
@@ -55,9 +56,11 @@ describe("SampleBasketDialog component", () => {
 
   it("renders correctly", () => {
     const { container, queryByRole } = render(
-      <BasketContextProvider>
-        <SampleBasketDialog title="Basket title" />
-      </BasketContextProvider>
+      <ThemeProvider>
+        <BasketContextProvider>
+          <SampleBasketDialog title="Basket title" />
+        </BasketContextProvider>
+      </ThemeProvider>
     );
     expect(
       container.getElementsByClassName("cart-drawer")[0]

@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { ThemeProvider } from "@bmi/components";
 import dayjs from "dayjs";
 import { generateMarketContext } from "../../../../../lib/tests/factories/market";
 import { screen, render, fireEvent } from "../../../../../lib/tests/utils";
@@ -34,11 +35,13 @@ describe("RewardSummary", () => {
   it("render correctly", async () => {
     const market = generateMarketContext();
     const { container } = render(
-      <RewardSystemForm
-        market={market}
-        markets={{ nodes: [market] }}
-        updateMarkets={updateMarketsSpy}
-      />
+      <ThemeProvider>
+        <RewardSystemForm
+          market={market}
+          markets={{ nodes: [market] }}
+          updateMarkets={updateMarketsSpy}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -62,11 +65,13 @@ describe("RewardSummary", () => {
         )
       );
       const { container } = render(
-        <RewardSystemForm
-          market={market}
-          markets={{ nodes: [market] }}
-          updateMarkets={updateMarketsSpy}
-        />
+        <ThemeProvider>
+          <RewardSystemForm
+            market={market}
+            markets={{ nodes: [market] }}
+            updateMarkets={updateMarketsSpy}
+          />
+        </ThemeProvider>
       );
 
       expect(screen.queryByText("edit")).toBeTruthy();
@@ -115,11 +120,13 @@ describe("RewardSummary", () => {
         onCompleted(updatedMarketFactory({ rewardEffectiveDate: null }))
       );
       render(
-        <RewardSystemForm
-          market={market}
-          markets={{ nodes: [market] }}
-          updateMarkets={updateMarketsSpy}
-        />
+        <ThemeProvider>
+          <RewardSystemForm
+            market={market}
+            markets={{ nodes: [market] }}
+            updateMarkets={updateMarketsSpy}
+          />
+        </ThemeProvider>
       );
 
       fireEvent.click(screen.queryByTestId("reward-category-btn-edit"));
@@ -156,11 +163,13 @@ describe("RewardSummary", () => {
         onError(error)
       );
       render(
-        <RewardSystemForm
-          market={market}
-          markets={{ nodes: [market] }}
-          updateMarkets={updateMarketsSpy}
-        />
+        <ThemeProvider>
+          <RewardSystemForm
+            market={market}
+            markets={{ nodes: [market] }}
+            updateMarkets={updateMarketsSpy}
+          />
+        </ThemeProvider>
       );
 
       fireEvent.click(screen.queryByTestId("reward-category-btn-edit"));

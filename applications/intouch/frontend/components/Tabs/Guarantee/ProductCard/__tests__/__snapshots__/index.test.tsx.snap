@@ -4,10 +4,10 @@ exports[`ProductCard component renders correctly 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-1 Table-evenColor-3"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+        class="MuiTableHead-root ColorPair-root-13 ColorPair-pearl-15"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"

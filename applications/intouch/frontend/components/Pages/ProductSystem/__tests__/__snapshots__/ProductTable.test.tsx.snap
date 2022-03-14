@@ -4,10 +4,10 @@ exports[`ProductTable Component render correctly if there is no products 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-1 Table-evenColor-3"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+        class="MuiTableHead-root ColorPair-root-13 ColorPair-pearl-15"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"
@@ -38,10 +38,10 @@ exports[`ProductTable Component render correctly if there is products 1`] = `
 <div>
   <div>
     <table
-      class="MuiTable-root Table Table--row-even-color"
+      class="MuiTable-root Table-root-39 Table-evenColor-41"
     >
       <thead
-        class="MuiTableHead-root ColorPair ColorPair--pearl"
+        class="MuiTableHead-root ColorPair-root-51 ColorPair-pearl-53"
       >
         <tr
           class="MuiTableRow-root MuiTableRow-head"

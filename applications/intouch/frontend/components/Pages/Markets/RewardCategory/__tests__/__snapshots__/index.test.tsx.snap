@@ -3,13 +3,14 @@
 exports[`RewardCategory render correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
     >
       <h4
-        class="MuiTypography-root Typography MuiTypography-h4"
+        class="MuiTypography-root Typography-root-3 MuiTypography-h4"
+        data-testid="typography"
         style="margin-bottom: 15px;"
       >
         Reward Category

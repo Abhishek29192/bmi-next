@@ -1,16 +1,22 @@
-import React from "react";
+import {
+  createTheme,
+  MuiThemeProvider,
+  useMediaQuery,
+  useTheme
+} from "@material-ui/core";
 import { ArrowForward } from "@material-ui/icons";
-import { createTheme, MuiThemeProvider } from "@material-ui/core";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
+import React from "react";
 import DefaultButton from "../button/Button";
-import ColorPair from "../color-pair/ColorPair";
+import ColorPair, { Colors } from "../color-pair/ColorPair";
 import Container from "../container/Container";
 import Grid from "../grid/Grid";
 import Typography from "../typography/Typography";
-import styles from "./SignupBlock.module.scss";
+import { useStyles } from "./styles";
 
-export type SignupBlockTheme = "blue-800" | "white" | "pearl" | "alabaster";
+export type SignupBlockTheme = Extract<
+  Colors,
+  "blue800" | "white" | "pearl" | "alabaster"
+>;
 
 type Props = {
   title: React.ReactNode;
@@ -29,6 +35,7 @@ const SignupBlock = ({
   buttonComponent: Button = DefaultButton,
   onSubmit
 }: Props) => {
+  const classes = useStyles();
   const defaultTheme = useTheme();
 
   const customTheme = createTheme({
@@ -52,30 +59,19 @@ const SignupBlock = ({
 
   return (
     <MuiThemeProvider theme={customTheme}>
-      <ColorPair theme={theme || "blue-800"}>
-        <div className={styles["SignupBlock"]}>
+      <ColorPair theme={theme || "blue800"}>
+        <div>
           <Container>
-            <div className={styles["wrapper"]}>
+            <div className={classes.wrapper}>
               <Grid container spacing={3}>
                 {!isLargeScreen && (
                   <>
                     <Grid item xs={12}>
-                      <Typography
-                        variant="h3"
-                        hasUnderline
-                        hasDarkBackground
-                        className={styles["title"]}
-                      >
+                      <Typography variant="h3" hasUnderline hasDarkBackground>
                         {title}
                       </Typography>
                     </Grid>
-                    <Grid
-                      item
-                      xs={12}
-                      sm={6}
-                      md={8}
-                      className={styles["description-grid"]}
-                    >
+                    <Grid item xs={12} sm={6} md={8}>
                       <Typography variant="body2" hasDarkBackground>
                         {description}
                       </Typography>
@@ -88,7 +84,7 @@ const SignupBlock = ({
                       variant="h3"
                       hasUnderline
                       hasDarkBackground
-                      className={styles["title-large-screen"]}
+                      className={classes.titleLargeScreen}
                     >
                       {title}
                     </Typography>
@@ -102,7 +98,7 @@ const SignupBlock = ({
                   xs={12}
                   sm={6}
                   md={4}
-                  className={styles["buttonContainer"]}
+                  className={classes.buttonContainer}
                 >
                   <Button
                     endIcon={<ArrowForward />}
@@ -110,7 +106,7 @@ const SignupBlock = ({
                       handleClick();
                     }}
                     hasDarkBackground
-                    className={styles["signupLabel"]}
+                    className={classes.signupLabel}
                   >
                     {inputCallToAction}
                   </Button>

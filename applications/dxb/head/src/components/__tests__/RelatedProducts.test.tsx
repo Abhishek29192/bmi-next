@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import { RelatedProduct } from "../../types/pim";
@@ -7,7 +8,9 @@ import RelatedProducts from "../RelatedProducts";
 describe("RelatedProducts component", () => {
   it("renders correctly with no related products", () => {
     const { container } = render(
-      <RelatedProducts countryCode="en" products={[]} />
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={[]} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -16,7 +19,9 @@ describe("RelatedProducts component", () => {
     const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
 
     const { container } = render(
-      <RelatedProducts countryCode="en" products={relatedProducts} />
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -27,7 +32,9 @@ describe("RelatedProducts component", () => {
     ];
 
     const { container } = render(
-      <RelatedProducts countryCode="en" products={relatedProducts} />
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -40,7 +47,9 @@ describe("RelatedProducts component", () => {
     ];
 
     const { container } = render(
-      <RelatedProducts countryCode="en" products={relatedProducts} />
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -49,7 +58,9 @@ describe("RelatedProducts component", () => {
     const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
 
     const { container } = render(
-      <RelatedProducts countryCode="en" products={relatedProducts} />
+      <ThemeProvider>
+        <RelatedProducts countryCode="en" products={relatedProducts} />
+      </ThemeProvider>
     );
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
@@ -58,7 +69,9 @@ describe("RelatedProducts component", () => {
       action: "/en/path/"
     });
 
-    const elemsWithGTM = container.querySelectorAll(".OverviewCard");
+    const elemsWithGTM = container.querySelectorAll(
+      "[class*='OverviewCard-root']"
+    );
     expect(elemsWithGTM).toHaveLength(1);
     expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
   });

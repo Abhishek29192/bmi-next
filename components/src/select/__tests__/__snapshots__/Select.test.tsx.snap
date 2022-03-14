@@ -20,7 +20,7 @@ exports[`Select component displays errorText instead of helperText if error is p
       </span>
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select Mui-error Mui-error MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-27 Mui-error Mui-error MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
@@ -54,10 +54,10 @@ exports[`Select component displays errorText instead of helperText if error is p
       </svg>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-28 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-23"
+          class="PrivateNotchedOutline-legendLabelled-30"
         >
           <span>
             Country
@@ -87,7 +87,7 @@ exports[`Select component displays helperText instead of errorText if errorText 
       Country
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-32 MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
@@ -120,10 +120,10 @@ exports[`Select component displays helperText instead of errorText if errorText 
       </svg>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-27"
+          class="PrivateNotchedOutline-legendLabelled-35"
         >
           <span>
             Country
@@ -153,7 +153,7 @@ exports[`Select component renders correctly 1`] = `
       Country
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-1 MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
@@ -186,10 +186,10 @@ exports[`Select component renders correctly 1`] = `
       </svg>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-3"
+          class="PrivateNotchedOutline-legendLabelled-4"
         >
           <span>
             Country
@@ -217,7 +217,7 @@ exports[`Select component renders correctly as variant hybrid 1`] = `
       Country
     </label>
     <div
-      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Select MuiInputBase-formControl"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline Select-root-6 MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
@@ -269,11 +269,265 @@ exports[`Select component renders correctly as variant outlined 1`] = `
       Country
     </label>
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-17 MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
         aria-labelledby="outlined-country-simple mui-component-select-Country"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+        id="mui-component-select-Country"
+        role="button"
+        tabindex="0"
+      >
+        <span>
+          ​
+        </span>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        name="Country"
+        tabindex="-1"
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-18 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-20"
+        >
+          <span>
+            Country
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select component renders correctly as variant undefined 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      id="outlined-country-simple"
+    >
+      Country
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-22 MuiInputBase-formControl"
+    >
+      <div
+        aria-haspopup="listbox"
+        aria-labelledby="outlined-country-simple mui-component-select-Country"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+        id="mui-component-select-Country"
+        role="button"
+        tabindex="0"
+      >
+        <span>
+          ​
+        </span>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        name="Country"
+        tabindex="-1"
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-23 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-25"
+        >
+          <span>
+            Country
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select component renders correctly if disabled 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+      data-shrink="false"
+    />
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-37 Mui-disabled Mui-disabled MuiInputBase-formControl"
+    >
+      <div
+        aria-disabled="true"
+        aria-haspopup="listbox"
+        aria-labelledby="mui-component-select-Country"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled Mui-disabled"
+        id="mui-component-select-Country"
+        role="button"
+      >
+        <span>
+          ​
+        </span>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        name="Country"
+        tabindex="-1"
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined Mui-disabled"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-38 MuiOutlinedInput-notchedOutline"
+        style="padding-left: 8px;"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-39"
+          style="width: 0.01px;"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-disabled"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select component renders correctly if label is undefined 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      id="outlined-country-simple"
+    />
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-7 MuiInputBase-formControl"
+    >
+      <div
+        aria-haspopup="listbox"
+        aria-labelledby="outlined-country-simple mui-component-select-Country"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
+        id="mui-component-select-Country"
+        role="button"
+        tabindex="0"
+      >
+        <span>
+          ​
+        </span>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        name="Country"
+        tabindex="-1"
+        value=""
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-8 MuiOutlinedInput-notchedOutline"
+        style="padding-left: 8px;"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-9"
+          style="width: 0.01px;"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained"
+    />
+  </div>
+</div>
+`;
+
+exports[`Select component renders correctly if labelId is undefined 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiFormControl-fullWidth"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+    >
+      label
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-12 MuiInputBase-formControl"
+    >
+      <div
+        aria-haspopup="listbox"
+        aria-labelledby="mui-component-select-Country"
         class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
         id="mui-component-select-Country"
         role="button"
@@ -308,260 +562,6 @@ exports[`Select component renders correctly as variant outlined 1`] = `
           class="PrivateNotchedOutline-legendLabelled-15"
         >
           <span>
-            Country
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-    <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained"
-    />
-  </div>
-</div>
-`;
-
-exports[`Select component renders correctly as variant undefined 1`] = `
-<div>
-  <div
-    class="MuiFormControl-root MuiFormControl-fullWidth"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-      id="outlined-country-simple"
-    >
-      Country
-    </label>
-    <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
-    >
-      <div
-        aria-haspopup="listbox"
-        aria-labelledby="outlined-country-simple mui-component-select-Country"
-        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
-        id="mui-component-select-Country"
-        role="button"
-        tabindex="0"
-      >
-        <span>
-          ​
-        </span>
-      </div>
-      <input
-        aria-hidden="true"
-        class="MuiSelect-nativeInput"
-        name="Country"
-        tabindex="-1"
-        value=""
-      />
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10l5 5 5-5z"
-        />
-      </svg>
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-19"
-        >
-          <span>
-            Country
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-    <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained"
-    />
-  </div>
-</div>
-`;
-
-exports[`Select component renders correctly if disabled 1`] = `
-<div>
-  <div
-    class="MuiFormControl-root MuiFormControl-fullWidth"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
-      data-shrink="false"
-    />
-    <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select Mui-disabled Mui-disabled MuiInputBase-formControl"
-    >
-      <div
-        aria-disabled="true"
-        aria-haspopup="listbox"
-        aria-labelledby="mui-component-select-Country"
-        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled Mui-disabled"
-        id="mui-component-select-Country"
-        role="button"
-      >
-        <span>
-          ​
-        </span>
-      </div>
-      <input
-        aria-hidden="true"
-        class="MuiSelect-nativeInput"
-        name="Country"
-        tabindex="-1"
-        value=""
-      />
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined Mui-disabled"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10l5 5 5-5z"
-        />
-      </svg>
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
-        style="padding-left: 8px;"
-      >
-        <legend
-          class="PrivateNotchedOutline-legend-30"
-          style="width: 0.01px;"
-        >
-          <span>
-            ​
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-    <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-disabled"
-    />
-  </div>
-</div>
-`;
-
-exports[`Select component renders correctly if label is undefined 1`] = `
-<div>
-  <div
-    class="MuiFormControl-root MuiFormControl-fullWidth"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-      id="outlined-country-simple"
-    />
-    <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
-    >
-      <div
-        aria-haspopup="listbox"
-        aria-labelledby="outlined-country-simple mui-component-select-Country"
-        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
-        id="mui-component-select-Country"
-        role="button"
-        tabindex="0"
-      >
-        <span>
-          ​
-        </span>
-      </div>
-      <input
-        aria-hidden="true"
-        class="MuiSelect-nativeInput"
-        name="Country"
-        tabindex="-1"
-        value=""
-      />
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10l5 5 5-5z"
-        />
-      </svg>
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
-        style="padding-left: 8px;"
-      >
-        <legend
-          class="PrivateNotchedOutline-legend-6"
-          style="width: 0.01px;"
-        >
-          <span>
-            ​
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-    <p
-      class="MuiFormHelperText-root MuiFormHelperText-contained"
-    />
-  </div>
-</div>
-`;
-
-exports[`Select component renders correctly if labelId is undefined 1`] = `
-<div>
-  <div
-    class="MuiFormControl-root MuiFormControl-fullWidth"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-    >
-      label
-    </label>
-    <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
-    >
-      <div
-        aria-haspopup="listbox"
-        aria-labelledby="mui-component-select-Country"
-        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input"
-        id="mui-component-select-Country"
-        role="button"
-        tabindex="0"
-      >
-        <span>
-          ​
-        </span>
-      </div>
-      <input
-        aria-hidden="true"
-        class="MuiSelect-nativeInput"
-        name="Country"
-        tabindex="-1"
-        value=""
-      />
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M7 10l5 5 5-5z"
-        />
-      </svg>
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-11"
-        >
-          <span>
             label
           </span>
         </legend>
@@ -584,7 +584,7 @@ exports[`Select component renders correctly with className 1`] = `
       data-shrink="false"
     />
     <div
-      class="MuiInputBase-root MuiOutlinedInput-root Select class MuiInputBase-formControl"
+      class="MuiInputBase-root MuiOutlinedInput-root Select-root-42 class MuiInputBase-formControl"
     >
       <div
         aria-haspopup="listbox"
@@ -617,11 +617,11 @@ exports[`Select component renders correctly with className 1`] = `
       </svg>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-43 MuiOutlinedInput-notchedOutline"
         style="padding-left: 8px;"
       >
         <legend
-          class="PrivateNotchedOutline-legend-34"
+          class="PrivateNotchedOutline-legend-44"
           style="width: 0.01px;"
         >
           <span>

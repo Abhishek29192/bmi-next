@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import UserIcon from "@material-ui/icons/Person";
 import IconList from "../IconList";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("IconList component", () => {
   it("renders correctly with default icon", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <IconList>
         <IconList.Item title="Title">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui
@@ -17,7 +17,7 @@ describe("IconList component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with multiple children", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <IconList>
         <IconList.Item
           icon={<UserIcon />}
@@ -54,7 +54,7 @@ describe("IconList component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with custom component", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <IconList>
         <IconList.Item title="Title" component="span">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui
@@ -66,7 +66,7 @@ describe("IconList component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders compact list correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <IconList>
         <IconList.Item title="Title 1" isCompact />
         <IconList.Item title="Title 2" isCompact />

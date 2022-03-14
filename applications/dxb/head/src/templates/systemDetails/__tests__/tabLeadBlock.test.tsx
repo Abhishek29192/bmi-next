@@ -1,9 +1,10 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import Component from "../tabLeadBlock";
+import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import createSystem from "../../../__tests__/helpers/SystemHelper";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
+import createSystem from "../../../__tests__/helpers/SystemHelper";
+import Component from "../tabLeadBlock";
 
 const systemDetailsMockData = createSystem({
   code: "1234",
@@ -22,7 +23,9 @@ const systemDetailsMockData = createSystem({
 describe("TabLeadBlock tests", () => {
   it("should render", () => {
     const { container, getByText } = render(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
 
     const aboutTabButton = getByText("sdp.leadBlock.about", {
@@ -34,7 +37,9 @@ describe("TabLeadBlock tests", () => {
 
   it("should render documents and downloads", () => {
     const { container } = renderWithRouter(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
     expect(container.querySelector("#tabpanel-three")).toMatchSnapshot();
   });
@@ -42,7 +47,9 @@ describe("TabLeadBlock tests", () => {
   it("should not render the documents and downloads", () => {
     systemDetailsMockData.documents = null;
     const { container } = renderWithRouter(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
     expect(container.querySelector("#tabpanel-three")).toBe(null);
   });
@@ -50,7 +57,9 @@ describe("TabLeadBlock tests", () => {
   it("should not render the documents and downloads when its empty array", () => {
     systemDetailsMockData.documents = [];
     const { container } = renderWithRouter(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
     expect(container.querySelector("#tabpanel-three")).toBe(null);
   });
@@ -61,7 +70,9 @@ describe("TabLeadBlock tests", () => {
       url: "http://nowhere.com"
     };
     const { container, queryByTestId } = renderWithRouter(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
     expect(container.querySelector("#tabpanel-four")).toMatchSnapshot();
     expect(queryByTestId("bmi-iframe")).toHaveAttribute(
@@ -73,7 +84,9 @@ describe("TabLeadBlock tests", () => {
   it("should not render the bimIframe tab", () => {
     systemDetailsMockData.bim = null;
     const { container } = renderWithRouter(
-      <Component system={systemDetailsMockData} />
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector("#tabpanel-four")).toBe(null);
@@ -81,7 +94,11 @@ describe("TabLeadBlock tests", () => {
 
   it("should not render technical Specification tab", () => {
     systemDetailsMockData.classifications = [];
-    const { container } = render(<Component system={systemDetailsMockData} />);
+    const { container } = render(
+      <ThemeProvider>
+        <Component system={systemDetailsMockData} />
+      </ThemeProvider>
+    );
     const techSepcSection = container.querySelector(
       ".SystemDetailsTechnicalSpec"
     );

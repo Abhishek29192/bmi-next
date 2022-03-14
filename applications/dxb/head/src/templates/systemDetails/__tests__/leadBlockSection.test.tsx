@@ -1,13 +1,14 @@
-import React from "react";
-import { render } from "@testing-library/react";
+import { ThemeProvider } from "@bmi/components";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import LeadBlockSection from "../leadBlockSection";
-import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import { render } from "@testing-library/react";
+import React from "react";
 import { iconMap } from "../../../components/Icon";
+import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import LeadBlockSection from "../leadBlockSection";
 
 const leadBlockSectionName = "lead Block section";
 const uniqueSellingPropositions = ["feature 1", "feature 2"];
@@ -31,13 +32,15 @@ const linkData: LinkData = {
 describe("LeadBlockSection tests", () => {
   it("should render", () => {
     const { container, queryByText } = render(
-      <LocationProvider>
-        <LeadBlockSection
-          name={leadBlockSectionName}
-          cta={linkData}
-          brandLogo={iconMap.Icopal}
-        />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            cta={linkData}
+            brandLogo={iconMap.Icopal}
+          />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const setionName = queryByText(leadBlockSectionName);
@@ -49,14 +52,16 @@ describe("LeadBlockSection tests", () => {
 
   it("should render with uniqueSellingPropositions", () => {
     const { container, queryByText, queryByTestId } = render(
-      <LocationProvider>
-        <LeadBlockSection
-          name={leadBlockSectionName}
-          cta={linkData}
-          uniqueSellingPropositions={uniqueSellingPropositions}
-          brandLogo={iconMap.Icopal}
-        />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            cta={linkData}
+            uniqueSellingPropositions={uniqueSellingPropositions}
+            brandLogo={iconMap.Icopal}
+          />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const setionName = queryByText(leadBlockSectionName);
@@ -72,14 +77,16 @@ describe("LeadBlockSection tests", () => {
 
   it("should not render systemAttributes Card with empty uniqueSellingPropositions", () => {
     const { container, queryByText, queryByTestId } = render(
-      <LocationProvider>
-        <LeadBlockSection
-          name={leadBlockSectionName}
-          cta={linkData}
-          brandLogo={iconMap.Icopal}
-          uniqueSellingPropositions={[]}
-        />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <LeadBlockSection
+            name={leadBlockSectionName}
+            cta={linkData}
+            brandLogo={iconMap.Icopal}
+            uniqueSellingPropositions={[]}
+          />
+        </LocationProvider>
+      </ThemeProvider>
     );
 
     const setionName = queryByText(leadBlockSectionName);
@@ -97,13 +104,15 @@ describe("LeadBlockSection tests", () => {
         "/jest-test-page?selected_system=123&prev_page=system-configurator-page&referer=sys_details";
       const history = createHistory(createMemorySource(route));
       const { container, queryByText } = render(
-        <LocationProvider history={history}>
-          <LeadBlockSection
-            name={leadBlockSectionName}
-            cta={linkData}
-            brandLogo={iconMap.Icopal}
-          />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider history={history}>
+            <LeadBlockSection
+              name={leadBlockSectionName}
+              cta={linkData}
+              brandLogo={iconMap.Icopal}
+            />
+          </LocationProvider>
+        </ThemeProvider>
       );
 
       const setionName = queryByText(leadBlockSectionName);

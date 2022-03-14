@@ -1,4 +1,4 @@
-import { FormContext } from "@bmi/components";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
@@ -108,25 +108,27 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     const updateFormState = jest.fn();
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileOptions
-            variant={{
-              ...tileVariant,
-              ridgeOptions: [ridgeTile],
-              vergeOptions: [],
-              ventilationHoodOptions: []
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
             }}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+          >
+            <TileOptions
+              variant={{
+                ...tileVariant,
+                ridgeOptions: [ridgeTile],
+                vergeOptions: [],
+                ventilationHoodOptions: []
+              }}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(updateFormState).toBeCalledWith({
@@ -138,26 +140,28 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     const updateFormState = jest.fn();
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileOptions
-            variant={{
-              ...tileVariant,
-              ridgeOptions: [],
-              vergeOptions: [],
-              ventilationHoodOptions: [ventilationHood]
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
             }}
-            selections={{ ventilationHoods: [ventilationHood] }}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+          >
+            <TileOptions
+              variant={{
+                ...tileVariant,
+                ridgeOptions: [],
+                vergeOptions: [],
+                ventilationHoodOptions: [ventilationHood]
+              }}
+              selections={{ ventilationHoods: [ventilationHood] }}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
     expect(updateFormState).toHaveBeenCalledWith(
       {
@@ -170,34 +174,36 @@ describe("PitchedRoofCalculator TileOptions component", () => {
 
   it("calls pushEvent", async () => {
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: jest.fn(),
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileOptions
-            selections={undefined}
-            variant={{
-              ...tileVariant,
-              vergeOption: verge,
-              ridgeOptions: [
-                ridgeTile,
-                {
-                  ...createProduct<RidgeOption>({
-                    name: "Second ridge",
-                    length: 25
-                  })
-                }
-              ],
-              ventilationHoodOptions: [ventilationHood]
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: jest.fn(),
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
             }}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+          >
+            <TileOptions
+              selections={undefined}
+              variant={{
+                ...tileVariant,
+                vergeOption: verge,
+                ridgeOptions: [
+                  ridgeTile,
+                  {
+                    ...createProduct<RidgeOption>({
+                      name: "Second ridge",
+                      length: 25
+                    })
+                  }
+                ],
+                ventilationHoodOptions: [ventilationHood]
+              }}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     fireEvent.click(screen.getByText(verge.left.name));
@@ -245,26 +251,28 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     const updateFormState = jest.fn();
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: updateFormState,
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileOptions
-            selections={{ ventilationHoods: "none" }}
-            variant={{
-              ...tileVariant,
-              vergeOption: undefined,
-              ridgeOptions: [],
-              ventilationHoodOptions: [ventilationHood]
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: updateFormState,
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
             }}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+          >
+            <TileOptions
+              selections={{ ventilationHoods: "none" }}
+              variant={{
+                ...tileVariant,
+                vergeOption: undefined,
+                ridgeOptions: [],
+                ventilationHoodOptions: [ventilationHood]
+              }}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     waitFor(() =>
@@ -276,26 +284,28 @@ describe("PitchedRoofCalculator TileOptions component", () => {
     const updateFormState = jest.fn();
 
     render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState: updateFormState,
-            hasBeenSubmitted: false,
-            submitButtonDisabled: false,
-            values: {}
-          }}
-        >
-          <TileOptions
-            selections={{ verge: "none", ventilationHoods: [] }}
-            variant={{
-              ...tileVariant,
-              vergeOption: verge,
-              ridgeOptions: [],
-              ventilationHoodOptions: []
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState: updateFormState,
+              hasBeenSubmitted: false,
+              submitButtonDisabled: false,
+              values: {}
             }}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+          >
+            <TileOptions
+              selections={{ verge: "none", ventilationHoods: [] }}
+              variant={{
+                ...tileVariant,
+                vergeOption: verge,
+                ridgeOptions: [],
+                ventilationHoodOptions: []
+              }}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     waitFor(() =>

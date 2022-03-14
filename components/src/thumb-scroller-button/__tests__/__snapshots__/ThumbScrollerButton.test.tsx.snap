@@ -4,13 +4,13 @@ exports[`ThumbScrollerButton component renders correctly 1`] = `
 <div>
   <button
     aria-label="Scroll right"
-    class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--right"
+    class="MuiButtonBase-root ThumbScrollerButton-root-1 ThumbScrollerButton-right-3"
     tabindex="-1"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root ThumbScrollerButton-icon-4"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -29,13 +29,13 @@ exports[`ThumbScrollerButton component renders correctly when className is provi
 <div>
   <button
     aria-label="Scroll left"
-    class="MuiButtonBase-root testClass ThumbScrollerButton ThumbScrollerButton--left"
+    class="MuiButtonBase-root testClass ThumbScrollerButton-root-9 ThumbScrollerButton-left-10"
     tabindex="-1"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root ThumbScrollerButton-icon-12"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -54,13 +54,13 @@ exports[`ThumbScrollerButton component renders correctly when direction is left 
 <div>
   <button
     aria-label="Scroll left"
-    class="MuiButtonBase-root ThumbScrollerButton ThumbScrollerButton--left"
+    class="MuiButtonBase-root ThumbScrollerButton-root-5 ThumbScrollerButton-left-6"
     tabindex="-1"
     type="button"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root ThumbScrollerButton-icon-8"
       focusable="false"
       viewBox="0 0 24 24"
     >

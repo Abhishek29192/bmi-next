@@ -9,6 +9,11 @@ import {
   iconMap,
   Table
 } from "@bmi/components";
+import {
+  ContentfulDocument as EsContentfulDocument,
+  PimProductDocument as EsPimDocument,
+  PimSystemDocument as EsPimSystemDocument
+} from "@bmi/elasticsearch-types";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { GetApp } from "@material-ui/icons";
@@ -17,11 +22,6 @@ import filesize from "filesize";
 import fetch, { Response } from "node-fetch";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import {
-  ContentfulDocument as EsContentfulDocument,
-  PimProductDocument as EsPimDocument,
-  PimSystemDocument as EsPimSystemDocument
-} from "@bmi/elasticsearch-types";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { ContentfulDocument } from "../types/Document";
@@ -40,7 +40,7 @@ import createAssetFileCountMap, {
 import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
 import fileIconsMap from "./FileIconsMap";
 import { useSiteContext } from "./Site";
-import styles from "./styles/DocumentSimpleTableResults.module.scss";
+import { useStyles } from "./styles/DocumentSimpleTableResultsStyles";
 
 export type AvailableHeader =
   | "typeCode"
@@ -76,7 +76,11 @@ const isLinkDocument = (document: Document): boolean =>
 const getUniqueId = (document: Document): string =>
   `${document.id}-${document.title}`.replace(/ /g, "_");
 
-const getDocument = (document: Document, headers: AvailableHeader[]) => {
+const getDocument = (
+  document: Document,
+  headers: AvailableHeader[],
+  classes: any
+) => {
   const { getMicroCopy } = useSiteContext();
   const { __typename } = document;
   return headers.map((header) => {
@@ -84,7 +88,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "typeCode") {
       return (
-        <Table.Cell className={styles["table-cell"]} key={key}>
+        <Table.Cell className={classes.tableCell} key={key}>
           <abbr title={document.assetType.name}>{document.assetType.code}</abbr>
         </Table.Cell>
       );
@@ -92,7 +96,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "type") {
       return (
-        <Table.Cell className={styles["table-cell"]} key={key}>
+        <Table.Cell className={classes.tableCell} key={key}>
           {document.assetType.name}
         </Table.Cell>
       );
@@ -104,7 +108,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         document.__typename === "PIMSystemDocument"
       ) {
         return (
-          <Table.Cell className={styles["table-cell"]} key={key}>
+          <Table.Cell className={classes.tableCell} key={key}>
             {document.title}
           </Table.Cell>
         );
@@ -113,15 +117,15 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "title") {
       return (
-        <Table.Cell className={styles["title-table-cell"]} key={key}>
-          <p className={styles["title"]}>{document.title}</p>
+        <Table.Cell className={classes.tableCell} key={key}>
+          <p className={classes.title}>{document.title}</p>
         </Table.Cell>
       );
     }
 
     if (header === "download") {
       return (
-        <Table.Cell className={styles["table-cell"]} align="left" key={key}>
+        <Table.Cell className={classes.tableCell} align="left" key={key}>
           {!isLinkDocument(document) ? (
             document.__typename === "PIMDocumentWithPseudoZip" ? (
               <MultipleAssetToFileDownload document={document} />
@@ -141,7 +145,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
             >
               <Icon
                 source={iconMap.External}
-                className={styles["external-link-icon"]}
+                className={classes.externalLinkIcon}
               />
             </Button>
           )}
@@ -151,7 +155,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
 
     if (header === "add") {
       return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
-        <Table.Cell className={styles["table-cell"]} align="center" key={key}>
+        <Table.Cell className={classes.tableCell} align="center" key={key}>
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
               name={getUniqueId(document)}
@@ -165,11 +169,11 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
               fileSize={document[typenameToSizeMap[document.__typename]] || 0}
             />
           ) : (
-            <span className={styles["no-document-icon"]}>-</span>
+            <span className={classes.noDocumentIcon}>-</span>
           )}
         </Table.Cell>
       ) : (
-        <Table.Cell className={styles["table-cell"]} align="center" key={key}>
+        <Table.Cell className={classes.tableCell} align="center" key={key}>
           <DownloadList.Checkbox
             name={getUniqueId(document)}
             maxLimitReachedLabel={getMicroCopy(
@@ -186,7 +190,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
     }
 
     return (
-      <Table.Cell className={styles["table-cell"]} key={key}>
+      <Table.Cell className={classes.tableCell} key={key}>
         n/d
       </Table.Cell>
     );
@@ -243,6 +247,7 @@ export const MultipleAssetToFileDownload = ({
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const classes = useStyles();
   const downloadMultipleFiles = async () => {
     try {
       if (!documentDownloadEndpoint) {
@@ -340,7 +345,7 @@ export const MultipleAssetToFileDownload = ({
           <Icon
             // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[document.format] || iconMap.FileUniversal}
-            className={styles["download-icon"]}
+            className={classnames(classes.downloadIcon, "download-icon")}
           />
         )
       }
@@ -359,8 +364,9 @@ export type FileDownloadButtonProps = {
   isLinkDocument: boolean;
 };
 
-const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
-  format && url ? (
+const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) => {
+  const classes = useStyles();
+  return format && url ? (
     <GTMButton
       gtm={{ id: "download1", label: "Download", action: url }}
       action={{
@@ -374,7 +380,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
           <Icon
             // eslint-disable-next-line security/detect-object-injection
             source={fileIconsMap[format] || iconMap.FileUniversal}
-            className={styles["download-icon"]}
+            className={classnames(classes.downloadIcon, "download-icon")}
           />
         )
       }
@@ -382,6 +388,7 @@ const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
       {filesize(size)}
     </GTMButton>
   ) : null;
+};
 
 const typenameToSizeMap: Record<
   (
@@ -407,22 +414,23 @@ const DocumentSimpleTableResults = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { list } = useContext(DownloadListContext);
+  const classes = useStyles();
 
   if (isMobile) {
     return <DocumentSimpleTableResultsMobile documents={documents} />;
   }
 
   return (
-    <div className={styles["DocumentSimpleTableResults"]}>
+    <div className={classnames(classes.root, "DocumentSimpleTableResults")}>
       <Table rowBgColorPattern="none">
         <Table.Head>
           <Table.Row>
             {headers.map((header) => (
               <Table.Cell
                 key={`header-${header}`}
-                className={classnames({
-                  [styles["table-header"]]: ["download", "add"].includes(header)
-                })}
+                className={classnames(
+                  ["download", "add"].includes(header) && classes.tableHeader
+                )}
               >
                 {getMicroCopy(`documentLibrary.headers.${header}`)}
               </Table.Cell>
@@ -439,14 +447,16 @@ const DocumentSimpleTableResults = ({
             return (
               <Table.Row
                 key={`${__typename}-${index}`}
-                className={classnames(styles["row"], {
+                className={classnames(
+                  classes.row,
+                  "row",
                   // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[getUniqueId(document)]
-                })}
+                  !!list[getUniqueId(document)] && classes.checked
+                )}
                 // eslint-disable-next-line security/detect-object-injection
                 selected={!!list[getUniqueId(document)]}
               >
-                {getDocument(document, headers)}
+                {getDocument(document, headers, classes)}
               </Table.Row>
             );
           })}

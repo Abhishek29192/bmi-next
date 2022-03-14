@@ -6,7 +6,7 @@ import { InputValue } from "../form/withFormControl";
 import Icon from "../icon";
 import InputGroup from "../input-group/InputGroup";
 import TextField from "../text-field/TextField";
-import styles from "./Search.module.scss";
+import { useStyles } from "./styles";
 
 export const QUERY_KEY = "q";
 
@@ -38,6 +38,7 @@ const Search = ({
   isSubmitDisabled,
   ...formProps
 }: Props) => {
+  const classes = useStyles();
   const [value, setValue] = useState<string>(valueProp || defaultValue || "");
   const Button = buttonComponent || DefaultButton;
 
@@ -56,7 +57,7 @@ const Search = ({
   }, [valueProp]);
 
   return (
-    <Form className={styles["Search"]} {...formProps}>
+    <Form className={classes.root} {...formProps}>
       <InputGroup
         button={
           <Button
@@ -84,7 +85,7 @@ const Search = ({
                   onClick={clearSearch}
                   variant="text"
                 >
-                  <Icon className={styles["clear-icon"]} source={Cancel} />
+                  <Icon className={classes.clearIcon} source={Cancel} />
                 </Button>
               )
             }
@@ -92,7 +93,7 @@ const Search = ({
         }
         lockBreakpoint="xs"
       />
-      {helperText && <p className={styles["helper-text"]}>{helperText}</p>}
+      {helperText && <p className={classes.helperText}>{helperText}</p>}
     </Form>
   );
 };

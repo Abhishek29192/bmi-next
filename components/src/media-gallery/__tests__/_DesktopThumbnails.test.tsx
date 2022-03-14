@@ -1,6 +1,7 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
 import Thumbnail from "../../thumbnail/Thumbnail";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import DesktopThumbnails from "../_DesktopThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
 
@@ -21,7 +22,7 @@ export const getImages = (isMedia: boolean) => [
   }
 ];
 const renderedComponent = (isMedia = false) =>
-  render(
+  renderWithThemeProvider(
     <DesktopThumbnails
       media={getImages(isMedia)}
       component={(props) => (
@@ -39,30 +40,31 @@ beforeAll(() => {
 describe("_DesktopThumbnails component", () => {
   it("renders correctly without media prop", async () => {
     const images = getImages(false);
-    const { container, getAllByTestId, findByText } = renderedComponent();
+    const { container, getAllByTestId, getByTestId, findByText } =
+      renderedComponent();
 
     const thumbnails = getAllByTestId("default-thumbnail");
-    const scrollerButtons = container.querySelectorAll(".thumb-scroller");
     expect(container.firstChild).toMatchSnapshot();
-    expect(scrollerButtons).toHaveLength(2);
+    expect(getByTestId("thumbnail-scroller-left")).toBeTruthy();
+    expect(getByTestId("thumbnail-scroller-right")).toBeTruthy();
     expect(thumbnails).toHaveLength(2);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
-    expect(await findByText(images[0].altText as string)).toHaveClass(
-      "accessibility-text"
-    );
+    expect(thumbnails[1].classList.toString()).toContain("Thumbnail-selected");
+    expect(
+      await (await findByText(images[0].altText as string)).classList.toString()
+    ).toContain("Thumbnail-accessibilityText");
 
     fireEvent.click(thumbnails[1]);
     expect(onThumbnailClick).toHaveBeenCalledWith(expect.any(Object), 1);
   });
   it("renders correctly with media prop", async () => {
-    const { container, getAllByTestId } = renderedComponent(true);
+    const { container, getAllByTestId, getByTestId } = renderedComponent(true);
 
     const thumbnails = getAllByTestId("default-thumbnail");
-    const scrollerButtons = container.querySelectorAll(".thumb-scroller");
     expect(container.firstChild).toMatchSnapshot();
-    expect(scrollerButtons).toHaveLength(2);
+    expect(getByTestId("thumbnail-scroller-left")).toBeTruthy();
+    expect(getByTestId("thumbnail-scroller-right")).toBeTruthy();
     expect(thumbnails).toHaveLength(2);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
+    expect(thumbnails[1].classList.toString()).toContain("Thumbnail-selected");
     expect(container.getElementsByTagName("img")).toHaveLength(2);
 
     fireEvent.click(thumbnails[1]);
@@ -76,23 +78,21 @@ describe("_DesktopThumbnails component", () => {
       -(THUMBNAIL_WIDTH * images.length - parentOffsetWidth) / 2;
 
     it("should scroll correctly", async () => {
-      const { container } = renderedComponent();
-      const scrollerButtonLeft = container.querySelector(
-        ".thumb-scroller--left"
+      const { getByTestId } = renderedComponent();
+      const scrollerButtonLeft = getByTestId(
+        "thumbnail-scroller-left"
       ) as Element;
-      const scrollerButtonRight = container.querySelector(
-        ".thumb-scroller--right"
+      const scrollerButtonRight = getByTestId(
+        "thumbnail-scroller-right"
       ) as Element;
-      const scroller = container.querySelector(".scroller") as Element;
+      const scroller = getByTestId("thumbnail-scroller") as Element;
       const parentElement = scroller?.parentElement as HTMLElement;
 
       Object.defineProperty(parentElement, "offsetWidth", {
         configurable: true,
         value: parentOffsetWidth
       });
-      expect(container.querySelector(".scroller")).toHaveStyle(
-        "margin-right: 0%"
-      );
+      expect(getByTestId("thumbnail-scroller")).toHaveStyle("margin-right: 0%");
 
       fireEvent.click(scrollerButtonLeft);
       expect(scroller).toHaveStyle(`margin-right: ${expectedMarginRight}%`);
@@ -103,14 +103,14 @@ describe("_DesktopThumbnails component", () => {
     });
 
     it("should not scroll if isTransitioning", async () => {
-      const { container } = renderedComponent();
-      const scrollerButtonLeft = container.querySelector(
-        ".thumb-scroller--left"
+      const { getByTestId } = renderedComponent();
+      const scrollerButtonLeft = getByTestId(
+        "thumbnail-scroller-left"
       ) as Element;
-      const scrollerButtonRight = container.querySelector(
-        ".thumb-scroller--right"
+      const scrollerButtonRight = getByTestId(
+        "thumbnail-scroller-right"
       ) as Element;
-      const scroller = container.querySelector(".scroller") as Element;
+      const scroller = getByTestId("thumbnail-scroller") as Element;
       const parentElement = scroller?.parentElement as HTMLElement;
 
       Object.defineProperty(parentElement, "offsetWidth", {
@@ -126,18 +126,16 @@ describe("_DesktopThumbnails component", () => {
     });
 
     it("should scroll correctly when no parentElement offsetWidth", () => {
-      const { container } = renderedComponent();
-      const scrollerButtonLeft = container.querySelector(
-        ".thumb-scroller--left"
+      const { getByTestId } = renderedComponent();
+      const scrollerButtonLeft = getByTestId(
+        "thumbnail-scroller-left"
       ) as Element;
-      const scrollerButtonRight = container.querySelector(
-        ".thumb-scroller--right"
+      const scrollerButtonRight = getByTestId(
+        "thumbnail-scroller-right"
       ) as Element;
-      const scroller = container.querySelector(".scroller") as Element;
+      const scroller = getByTestId("thumbnail-scroller") as Element;
 
-      expect(container.querySelector(".scroller")).toHaveStyle(
-        "margin-right: 0%"
-      );
+      expect(getByTestId("thumbnail-scroller")).toHaveStyle("margin-right: 0%");
 
       fireEvent.click(scrollerButtonLeft);
       expect(scroller).toHaveStyle(`margin-right: -100%`);
@@ -149,10 +147,10 @@ describe("_DesktopThumbnails component", () => {
   });
 
   it("shoule run calculateLeftRightVisibility correctly when thumbnailsElement offsetWidth is not 0 or undefined", async () => {
-    const { container } = renderedComponent();
-    const scroller = container.querySelector(".scroller") as Element;
-    const scrollerButtonLeft = container.querySelector(
-      ".thumb-scroller--left"
+    const { getByTestId } = renderedComponent();
+    const scroller = getByTestId("thumbnail-scroller") as Element;
+    const scrollerButtonLeft = getByTestId(
+      "thumbnail-scroller-left"
     ) as Element;
 
     Object.defineProperty(scroller, "offsetWidth", {
@@ -162,28 +160,28 @@ describe("_DesktopThumbnails component", () => {
 
     fireEvent.click(scrollerButtonLeft);
     expect(
-      container.querySelector(".thumb-scroller--left.thumb-scroller--hidden")
-    ).toBeFalsy();
+      getByTestId("thumbnail-scroller-left").classList.toString()
+    ).not.toContain("Thumbnails-thumbScrollerHidden");
     expect(
-      container.querySelector(".thumb-scroller--right.thumb-scroller--hidden")
-    ).toBeTruthy();
+      getByTestId("thumbnail-scroller-right").classList.toString()
+    ).toContain("Thumbnails-thumbScrollerHidden");
 
     fireEvent.transitionEnd(scroller);
 
     expect(
-      container.querySelector(".thumb-scroller--left.thumb-scroller--hidden")
-    ).toBeFalsy();
+      getByTestId("thumbnail-scroller-left").classList.toString()
+    ).not.toContain("Thumbnails-thumbScrollerHidden");
     expect(
-      container.querySelector(".thumb-scroller--right.thumb-scroller--hidden")
-    ).toBeFalsy();
+      getByTestId("thumbnail-scroller-right").classList.toString()
+    ).not.toContain("Thumbnails-thumbScrollerHidden");
   });
 
   it("should run calculateLeftRightVisibility correctly when no parentElement", async () => {
-    const { container } = renderedComponent();
-    const scrollerButtonLeft = container.querySelector(
-      ".thumb-scroller--left"
+    const { getByTestId } = renderedComponent();
+    const scrollerButtonLeft = getByTestId(
+      "thumbnail-scroller-left"
     ) as Element;
-    const scroller = container.querySelector(".scroller") as Element;
+    const scroller = getByTestId("thumbnail-scroller") as Element;
 
     Object.defineProperty(scroller, "offsetWidth", {
       configurable: true,
@@ -200,19 +198,19 @@ describe("_DesktopThumbnails component", () => {
     });
 
     expect(
-      container.querySelector(".thumb-scroller--left.thumb-scroller--hidden")
-    ).toBeFalsy();
+      getByTestId("thumbnail-scroller-left").classList.toString()
+    ).not.toContain("Thumbnails-thumbScrollerHidden");
     expect(
-      container.querySelector(".thumb-scroller--right.thumb-scroller--hidden")
-    ).toBeTruthy();
+      getByTestId("thumbnail-scroller-right").classList.toString()
+    ).toContain("Thumbnails-thumbScrollerHidden");
 
     fireEvent.transitionEnd(scroller);
 
     expect(
-      container.querySelector(".thumb-scroller--left.thumb-scroller--hidden")
-    ).toBeFalsy();
+      getByTestId("thumbnail-scroller-left").classList.toString()
+    ).not.toContain("Thumbnails-thumbScrollerHidden");
     expect(
-      container.querySelector(".thumb-scroller--right.thumb-scroller--hidden")
-    ).toBeTruthy();
+      getByTestId("thumbnail-scroller-right").classList.toString()
+    ).toContain("Thumbnails-thumbScrollerHidden");
   });
 });

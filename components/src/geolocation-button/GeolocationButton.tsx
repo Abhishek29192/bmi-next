@@ -3,7 +3,7 @@ import { NearMe } from "@material-ui/icons";
 import React, { MouseEvent, useEffect, useState } from "react";
 import Button, { ButtonProps } from "../button/Button";
 import Icon from "../icon";
-import styles from "./GeolocationButton.module.scss";
+import { useStyles } from "./styles";
 
 export const getGeolocation = () => {
   return typeof navigator !== "undefined" ? navigator.geolocation : undefined;
@@ -33,6 +33,7 @@ const GeolocationButton = ({
   onError,
   ...props
 }: Props) => {
+  const classes = useStyles();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   // NOTE: workaround to force it to re-render on client
   // point is for the SSR state to be different from client
@@ -61,7 +62,7 @@ const GeolocationButton = ({
 
   return (
     <Button
-      className={styles["GeolocationButton"]}
+      className={classes.root}
       disabled={isLoading || !geolocation}
       onClick={handleClick}
       startIcon={

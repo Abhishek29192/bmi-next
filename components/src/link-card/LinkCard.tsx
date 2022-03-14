@@ -1,10 +1,10 @@
-import React, { forwardRef, MutableRefObject } from "react";
-import classnames from "classnames";
 import { Collapse } from "@material-ui/core";
 import { KeyboardArrowRight } from "@material-ui/icons";
+import classnames from "classnames";
+import React, { forwardRef, MutableRefObject } from "react";
 import Card from "../card/Card";
 import Typography from "../typography/Typography";
-import styles from "./LinkCard.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = {
   title: React.ReactNode;
@@ -32,31 +32,30 @@ const LinkCard = (
     | MutableRefObject<HTMLElement | null>
     | null
 ) => {
+  const classes = useStyles();
   return (
     <Card
-      className={classnames(
-        styles["LinkCard"],
-        isOpen && styles[`LinkCard--selected`]
-      )}
+      className={classnames(classes.root, isOpen && classes.open)}
       onClick={!isOpen ? onClick : undefined}
       ref={forwardedRef}
       {...rest}
     >
       <div
-        className={styles["item"]}
+        className={classes.item}
         onClick={isOpen ? onCloseClick : undefined}
+        data-testid={"linkCard-item"}
       >
         <Typography gutterBottom variant="h6">
           {title}
         </Typography>
-        <Typography className={styles["subtitle"]}>{subtitle}</Typography>
+        <Typography className={classes.subtitle}>{subtitle}</Typography>
       </div>
-      <div className={styles["icon"]}>
+      <div className={classes.icon}>
         <KeyboardArrowRight onClick={isOpen ? onCloseClick : undefined} />
       </div>
       <Collapse
         in={isOpen}
-        className={styles["details"]}
+        className={classes.details}
         collapsedSize={0}
         onEntered={(element, isAppearing) => {
           onExpandCompleted && onExpandCompleted();

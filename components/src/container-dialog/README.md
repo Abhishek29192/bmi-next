@@ -6,6 +6,8 @@ ContainerDialog component, based on Material UI Modal.
 
 ```jsx
 import Button from "../button";
+import ContainerDialog from "./ContainerDialog";
+
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>
@@ -29,6 +31,8 @@ By default, it has the same value as `onCloseClick`.
 
 ```jsx
 import Button from "../button";
+import ContainerDialog from "./ContainerDialog";
+
 const [open, setOpen] = React.useState(false);
 <>
   <Button onClick={() => setOpen(true)}>Open Dialog</Button>

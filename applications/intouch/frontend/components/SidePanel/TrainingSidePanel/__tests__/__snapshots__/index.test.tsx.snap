@@ -13,7 +13,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-116 TextField-leftAdornment-117 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -50,10 +50,10 @@ exports[`TrainingSidePanel component render no status text when status is missin
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-119 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27"
+                  class="PrivateNotchedOutline-legendLabelled-121"
                 >
                   <span>
                     search.inputLabel
@@ -74,7 +74,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-123 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -92,7 +92,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-123 Chip-default-124 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -110,7 +110,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-123 Chip-default-124 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -128,7 +128,7 @@ exports[`TrainingSidePanel component render no status text when status is missin
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-123 Chip-default-124 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -159,19 +159,22 @@ exports[`TrainingSidePanel component render no status text when status is missin
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-126 MuiTypography-h6"
+                data-testid="typography"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-126 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-126 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   
                 </p>
@@ -215,313 +218,7 @@ exports[`TrainingSidePanel component renders correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-              data-shrink="false"
-              for="filter"
-              id="filter-label"
-            >
-              search.inputLabel
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
-                id="filter"
-                name="filter"
-                type="text"
-                value=""
-              />
-              <div
-                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                  />
-                </svg>
-              </div>
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-3"
-                >
-                  <span>
-                    search.inputLabel
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
-          </div>
-        </nav>
-        <div
-          class="filterButtons"
-        >
-          <span>
-            Show me
-            :
-          </span>
-          <div
-            class="filterButton"
-          >
-            <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                filter.labels.all
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </div>
-          <div
-            class="filterButton"
-          >
-            <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                certifications.flat
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </div>
-          <div
-            class="filterButton"
-          >
-            <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                certifications.pitched
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </div>
-          <div
-            class="filterButton"
-          >
-            <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiChip-label"
-              >
-                certifications.other
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="results"
-      >
-        <div
-          data-testid="filterResult"
-        >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
-          >
-            <div
-              class="MuiCardContent-root main"
-            >
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Flat Course
-              </h6>
-              <div>
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                  style="text-transform: capitalize;"
-                >
-                  type.undefined
-                </p>
-                <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
-                >
-                  <svg
-                    class="technologyIcon"
-                  />
-                  enrolled
-                </p>
-              </div>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-                focusable="false"
-                style="font-size: 36px;"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
-            </div>
-            <span
-              class="MuiCardActionArea-focusHighlight"
-            />
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
-        <div
-          data-testid="filterResult"
-        >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
-          >
-            <div
-              class="MuiCardContent-root main"
-            >
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Pitch Course
-              </h6>
-              <div>
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                  style="text-transform: capitalize;"
-                >
-                  type.undefined
-                </p>
-                <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
-                >
-                  enrolled
-                </p>
-              </div>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-                focusable="false"
-                style="font-size: 36px;"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
-            </div>
-            <span
-              class="MuiCardActionArea-focusHighlight"
-            />
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
-        <div
-          data-testid="filterResult"
-        >
-          <button
-            class="MuiButtonBase-root MuiCardActionArea-root"
-            tabindex="0"
-            type="button"
-          >
-            <div
-              class="MuiCardContent-root main"
-            >
-              <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
-              >
-                Other Course
-              </h6>
-              <div>
-                <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
-                  style="text-transform: capitalize;"
-                >
-                  type.undefined
-                </p>
-                <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
-                >
-                  <svg
-                    class="technologyIcon"
-                  />
-                  enrolled
-                </p>
-              </div>
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
-                focusable="false"
-                style="font-size: 36px;"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-                />
-              </svg>
-            </div>
-            <span
-              class="MuiCardActionArea-focusHighlight"
-            />
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TrainingSidePanel component renders correctly when no courseCatalog is passed 1`] = `
-<div>
-  <div
-    class="main"
-  >
-    <div
-      class="sidePanel"
-    >
-      <div
-        class="filters"
-      >
-        <nav>
-          <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-2 TextField-leftAdornment-3 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -582,7 +279,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -600,7 +297,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 Chip-default-10 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -618,7 +315,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 Chip-default-10 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -636,7 +333,7 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-9 Chip-default-10 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -652,17 +349,178 @@ exports[`TrainingSidePanel component renders correctly when no courseCatalog is 
           </div>
         </div>
       </div>
-      <h5
-        class="MuiTypography-root noResult Typography MuiTypography-h5"
+      <div
+        class="results"
       >
-        fallback.noResults
-      </h5>
+        <div
+          data-testid="filterResult"
+        >
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography-root-12 MuiTypography-h6"
+                data-testid="typography"
+              >
+                Flat Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  enrolled
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          data-testid="filterResult"
+        >
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography-root-12 MuiTypography-h6"
+                data-testid="typography"
+              >
+                Pitch Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                >
+                  enrolled
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          data-testid="filterResult"
+        >
+          <button
+            class="MuiButtonBase-root MuiCardActionArea-root"
+            tabindex="0"
+            type="button"
+          >
+            <div
+              class="MuiCardContent-root main"
+            >
+              <h6
+                class="MuiTypography-root title Typography-root-12 MuiTypography-h6"
+                data-testid="typography"
+              >
+                Other Course
+              </h6>
+              <div>
+                <p
+                  class="MuiTypography-root Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                  style="text-transform: capitalize;"
+                >
+                  type.undefined
+                </p>
+                <p
+                  class="MuiTypography-root icon Typography-root-12 MuiTypography-body1"
+                  data-testid="typography"
+                >
+                  <svg
+                    class="technologyIcon"
+                  />
+                  enrolled
+                </p>
+              </div>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                focusable="false"
+                style="font-size: 36px;"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                />
+              </svg>
+            </div>
+            <span
+              class="MuiCardActionArea-focusHighlight"
+            />
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`TrainingSidePanel component renders correctly when no technology is passed 1`] = `
+exports[`TrainingSidePanel component renders correctly when no courseCatalog is passed 1`] = `
 <div>
   <div
     class="main"
@@ -675,7 +533,7 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-21 TextField-leftAdornment-22 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -712,10 +570,10 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-24 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-11"
+                  class="PrivateNotchedOutline-legendLabelled-26"
                 >
                   <span>
                     search.inputLabel
@@ -736,7 +594,7 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-28 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -754,7 +612,7 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-28 Chip-default-29 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -772,7 +630,7 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-28 Chip-default-29 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -790,7 +648,162 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-28 Chip-default-29 MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                certifications.other
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5
+        class="MuiTypography-root noResult Typography-root-31 MuiTypography-h5"
+        data-testid="typography"
+      >
+        fallback.noResults
+      </h5>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TrainingSidePanel component renders correctly when no technology is passed 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="sidePanel"
+    >
+      <div
+        class="filters"
+      >
+        <nav>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField-root-40 TextField-leftAdornment-41 MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+              data-shrink="false"
+              for="filter"
+              id="filter-label"
+            >
+              search.inputLabel
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                id="filter"
+                name="filter"
+                type="text"
+                value=""
+              />
+              <div
+                class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>
+              </div>
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-43 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-45"
+                >
+                  <span>
+                    search.inputLabel
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </nav>
+        <div
+          class="filterButtons"
+        >
+          <span>
+            Show me
+            :
+          </span>
+          <div
+            class="filterButton"
+          >
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip-root-47 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                filter.labels.all
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
+          >
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip-root-47 Chip-default-48 MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                certifications.flat
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
+          >
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip-root-47 Chip-default-48 MuiChip-clickable"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiChip-label"
+              >
+                certifications.pitched
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
+          >
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip-root-47 Chip-default-48 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -821,19 +834,22 @@ exports[`TrainingSidePanel component renders correctly when no technology is pas
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-50 MuiTypography-h6"
+                data-testid="typography"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-50 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-50 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   
                 </p>
@@ -877,7 +893,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-59 TextField-leftAdornment-60 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -914,10 +930,10 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-62 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-15"
+                  class="PrivateNotchedOutline-legendLabelled-64"
                 >
                   <span>
                     search.inputLabel
@@ -938,7 +954,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-66 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -956,7 +972,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-66 Chip-default-67 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -974,7 +990,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-66 Chip-default-67 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -992,7 +1008,7 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-66 Chip-default-67 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1023,19 +1039,22 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-69 MuiTypography-h6"
+                data-testid="typography"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"
@@ -1075,19 +1094,22 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-69 MuiTypography-h6"
+                data-testid="typography"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   enrolled
                 </p>
@@ -1124,19 +1146,22 @@ exports[`TrainingSidePanel component run filter correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-69 MuiTypography-h6"
+                data-testid="typography"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-69 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"
@@ -1183,7 +1208,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-97 TextField-leftAdornment-98 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1220,10 +1245,10 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-100 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-23"
+                  class="PrivateNotchedOutline-legendLabelled-102"
                 >
                   <span>
                     search.inputLabel
@@ -1244,7 +1269,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-104 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1262,7 +1287,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-104 Chip-default-105 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1280,7 +1305,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-104 Chip-default-105 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1298,7 +1323,7 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-104 Chip-default-105 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1329,19 +1354,22 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-107 MuiTypography-h6"
+                data-testid="typography"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"
@@ -1381,19 +1409,22 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-107 MuiTypography-h6"
+                data-testid="typography"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   enrolled
                 </p>
@@ -1430,19 +1461,22 @@ exports[`TrainingSidePanel component run onCourseSelected correctly when select 
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-107 MuiTypography-h6"
+                data-testid="typography"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-107 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"
@@ -1489,7 +1523,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
       >
         <nav>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-78 TextField-leftAdornment-79 MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1526,10 +1560,10 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-81 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-19"
+                  class="PrivateNotchedOutline-legendLabelled-83"
                 >
                   <span>
                     search.inputLabel
@@ -1550,7 +1584,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-85 MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1568,7 +1602,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-85 Chip-default-86 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1586,7 +1620,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-85 Chip-default-86 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1604,7 +1638,7 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
             class="filterButton"
           >
             <div
-              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              class="MuiButtonBase-root MuiChip-root Chip-root-85 Chip-default-86 MuiChip-clickable"
               role="button"
               tabindex="0"
             >
@@ -1635,19 +1669,22 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-88 MuiTypography-h6"
+                data-testid="typography"
               >
                 Flat Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"
@@ -1687,19 +1724,22 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-88 MuiTypography-h6"
+                data-testid="typography"
               >
                 Pitch Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   enrolled
                 </p>
@@ -1736,19 +1776,22 @@ exports[`TrainingSidePanel component run search correctly 1`] = `
               class="MuiCardContent-root main"
             >
               <h6
-                class="MuiTypography-root title Typography MuiTypography-h6"
+                class="MuiTypography-root title Typography-root-88 MuiTypography-h6"
+                data-testid="typography"
               >
                 Other Course
               </h6>
               <div>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1"
+                  class="MuiTypography-root Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                   style="text-transform: capitalize;"
                 >
                   type.undefined
                 </p>
                 <p
-                  class="MuiTypography-root icon Typography MuiTypography-body1"
+                  class="MuiTypography-root icon Typography-root-88 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   <svg
                     class="technologyIcon"

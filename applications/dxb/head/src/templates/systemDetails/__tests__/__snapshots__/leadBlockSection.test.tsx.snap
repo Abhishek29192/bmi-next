@@ -3,52 +3,53 @@
 exports[`LeadBlockSection tests When user navigates with selected systems query string should render back to your selection button 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section Section--white"
+    class="LeadBlockSection Section-root-167 Section-white-171"
   >
     <div
-      class="Container"
+      class="Container-root-175"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root LeadBlock-root-177 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-179"
             >
               <svg
                 class="brandLogo"
               />
             </div>
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-179"
             >
               <h1
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+                class="MuiTypography-root Typography-root-182 Typography-underline-184 MuiTypography-h1"
+                data-testid="typography"
               >
                 lead Block section
               </h1>
             </div>
             <div
-              class="ctaContainer LeadBlockContentSection"
+              class="ctaContainer LeadBlock-leadBlockContentSection-179"
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 backToYourSelectionBtn MuiButton-textPrimary MuiButton-textSizeLarge MuiButton-sizeLarge"
+                class="MuiButtonBase-root MuiButton-root Button-root-190 MuiButton-text Button-text-191 backToYourSelectionBtn MuiButton-textPrimary MuiButton-textSizeLarge MuiButton-sizeLarge"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: sdp.leadBlock.backToYourSelection\\",\\"action\\":\\"system-configurator-page?referer=sys_details\\"}"
                 href="system-configurator-page?referer=sys_details"
                 rel="noopener noreferrer"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-64"
+                  class="MuiButton-label Button-label-193"
                 >
                   <span
-                    class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeLarge"
+                    class="MuiButton-startIcon Button-startIcon-194 MuiButton-iconSizeLarge"
                   >
                     <svg
                       aria-hidden="true"
@@ -68,13 +69,13 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
                 />
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-190 MuiButton-contained Button-contained-192 quotationBtn MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-64"
+                  class="MuiButton-label Button-label-193"
                 >
                   cta label
                   <span
@@ -108,47 +109,48 @@ exports[`LeadBlockSection tests When user navigates with selected systems query 
 exports[`LeadBlockSection tests should not render systemAttributes Card with empty uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section Section--white"
+    class="LeadBlockSection Section-root-124 Section-white-128"
   >
     <div
-      class="Container"
+      class="Container-root-132"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root LeadBlock-root-134 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-136"
             >
               <svg
                 class="brandLogo"
               />
             </div>
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-136"
             >
               <h1
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+                class="MuiTypography-root Typography-root-139 Typography-underline-141 MuiTypography-h1"
+                data-testid="typography"
               >
                 lead Block section
               </h1>
             </div>
             <div
-              class="ctaContainer LeadBlockContentSection"
+              class="ctaContainer LeadBlock-leadBlockContentSection-136"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-147 MuiButton-contained Button-contained-149 quotationBtn MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-44"
+                  class="MuiButton-label Button-label-150"
                 >
                   cta label
                   <span
@@ -182,47 +184,48 @@ exports[`LeadBlockSection tests should not render systemAttributes Card with emp
 exports[`LeadBlockSection tests should render 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section Section--white"
+    class="LeadBlockSection Section-root-1 Section-white-5"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root LeadBlock-root-11 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-13"
             >
               <svg
                 class="brandLogo"
               />
             </div>
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-13"
             >
               <h1
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+                class="MuiTypography-root Typography-root-16 Typography-underline-18 MuiTypography-h1"
+                data-testid="typography"
               >
                 lead Block section
               </h1>
             </div>
             <div
-              class="ctaContainer LeadBlockContentSection"
+              class="ctaContainer LeadBlock-leadBlockContentSection-13"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 quotationBtn MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-4"
+                  class="MuiButton-label Button-label-27"
                 >
                   cta label
                   <span
@@ -256,47 +259,48 @@ exports[`LeadBlockSection tests should render 1`] = `
 exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`] = `
 <div>
   <div
-    class="LeadBlockSection Section Section--white"
+    class="LeadBlockSection Section-root-45 Section-white-49"
   >
     <div
-      class="Container"
+      class="Container-root-53"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root LeadBlock-root-55 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-57"
             >
               <svg
                 class="brandLogo"
               />
             </div>
             <div
-              class="LeadBlockContentSection"
+              class="LeadBlock-leadBlockContentSection-57"
             >
               <h1
-                class="MuiTypography-root Typography Typography--underline MuiTypography-h1"
+                class="MuiTypography-root Typography-root-60 Typography-underline-62 MuiTypography-h1"
+                data-testid="typography"
               >
                 lead Block section
               </h1>
             </div>
             <div
-              class="ctaContainer LeadBlockContentSection"
+              class="ctaContainer LeadBlock-leadBlockContentSection-57"
             >
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 quotationBtn MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root Button-root-68 MuiButton-contained Button-contained-70 quotationBtn MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"cta label\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-24"
+                  class="MuiButton-label Button-label-71"
                 >
                   cta label
                   <span
@@ -325,29 +329,29 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
             data-testid="system-attributes-card"
           >
             <div
-              class="ColorPair ColorPair--pearl"
+              class="ColorPair-root-92 ColorPair-pearl-94"
             >
               <div
-                class="PostItCard"
+                class="PostItCard-root-88"
               >
                 <div
-                  class="section"
+                  class="PostItCard-section-89"
                 >
                   <div
                     class="iconList"
                   >
                     <ul
-                      class="IconList"
+                      class="IconList-root-118"
                     >
                       <li
-                        class="ListItem ListItem--isCompact"
+                        class="IconList-listItem-119 IconList-isCompact-120"
                       >
                         <div
-                          class="icon"
+                          class="IconList-icon-121"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root BlueCheckIcon-root-44"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -357,24 +361,25 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                           </svg>
                         </div>
                         <div
-                          class="content"
+                          class="IconList-content-122"
                         >
                           <p
-                            class="MuiTypography-root title Typography MuiTypography-body1"
+                            class="MuiTypography-root Typography-root-60 MuiTypography-body1"
+                            data-testid="typography"
                           >
                             feature 1
                           </p>
                         </div>
                       </li>
                       <li
-                        class="ListItem ListItem--isCompact"
+                        class="IconList-listItem-119 IconList-isCompact-120"
                       >
                         <div
-                          class="icon"
+                          class="IconList-icon-121"
                         >
                           <svg
                             aria-hidden="true"
-                            class="MuiSvgIcon-root"
+                            class="MuiSvgIcon-root BlueCheckIcon-root-44"
                             focusable="false"
                             viewBox="0 0 24 24"
                           >
@@ -384,10 +389,11 @@ exports[`LeadBlockSection tests should render with uniqueSellingPropositions 1`]
                           </svg>
                         </div>
                         <div
-                          class="content"
+                          class="IconList-content-122"
                         >
                           <p
-                            class="MuiTypography-root title Typography MuiTypography-body1"
+                            class="MuiTypography-root Typography-root-60 MuiTypography-body1"
+                            data-testid="typography"
                           >
                             feature 2
                           </p>

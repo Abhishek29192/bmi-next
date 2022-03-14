@@ -1,6 +1,7 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import EqualHeights from "../EqualHeights";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const mockElements = (shouldDisableBoxSizing = true) => (
   <EqualHeights.Consumer shouldDisableBoxSizing={shouldDisableBoxSizing}>
@@ -48,7 +49,7 @@ const mockElements = (shouldDisableBoxSizing = true) => (
 describe("EqualHeights component", () => {
   describe("renders correctly", () => {
     it("should set equal height auto to added elements", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <EqualHeights>{mockElements(true)}</EqualHeights>
       );
 
@@ -71,7 +72,7 @@ describe("EqualHeights component", () => {
           }
         }
       });
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <EqualHeights>{mockElements(false)}</EqualHeights>
       );
       expect(container).toMatchSnapshot();
@@ -80,7 +81,7 @@ describe("EqualHeights component", () => {
 
   describe("test EqualHeights.Consumer without Provider", () => {
     it("should call addRef method from default context", () => {
-      const { container } = render(<>{mockElements()}</>);
+      const { container } = renderWithThemeProvider(<>{mockElements()}</>);
       fireEvent.click(screen.getByRole("button"));
       expect(container).toMatchSnapshot();
     });

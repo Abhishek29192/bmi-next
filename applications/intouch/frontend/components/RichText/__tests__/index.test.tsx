@@ -1,6 +1,7 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
+import { BLOCKS, Document, INLINES } from "@contentful/rich-text-types";
 import { render } from "@testing-library/react";
-import { BLOCKS, INLINES, Document } from "@contentful/rich-text-types";
+import React from "react";
 import { RichText } from "..";
 
 const mockDocument: Document = {
@@ -126,12 +127,18 @@ const links: any = {
 
 describe("RichText component", () => {
   it("falls back with empty data", () => {
-    const { container } = render(<RichText content={null} />);
+    const { container } = render(
+      <ThemeProvider>
+        <RichText content={null} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
   it("check existing data from mock", () => {
     const { container } = render(
-      <RichText content={mockDocument} links={links} />
+      <ThemeProvider>
+        <RichText content={mockDocument} links={links} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

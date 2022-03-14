@@ -3,7 +3,7 @@
 exports[`ControlledTextField component renders a hybrid variant 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-10"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
@@ -32,7 +32,7 @@ exports[`ControlledTextField component renders a hybrid variant 1`] = `
 exports[`ControlledTextField component renders as textarea 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-22"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -62,10 +62,10 @@ exports[`ControlledTextField component renders as textarea 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-11"
+          class="PrivateNotchedOutline-legendLabelled-27"
         >
           <span>
             Email address
@@ -80,7 +80,7 @@ exports[`ControlledTextField component renders as textarea 1`] = `
 exports[`ControlledTextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-2"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -99,47 +99,6 @@ exports[`ControlledTextField component renders correctly 1`] = `
         id="email"
         name="Email"
         placeholder="e.g. lorem@ipsum.com"
-        type="text"
-        value=""
-      />
-      <fieldset
-        aria-hidden="true"
-        class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-      >
-        <legend
-          class="PrivateNotchedOutline-legendLabelled-3"
-        >
-          <span>
-            Email address
-          </span>
-        </legend>
-      </fieldset>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ControlledTextField component renders with an extra class 1`] = `
-<div>
-  <div
-    class="MuiFormControl-root MuiTextField-root TextField test"
-  >
-    <label
-      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
-      data-shrink="false"
-      for="email"
-      id="email-label"
-    >
-      Email address
-    </label>
-    <div
-      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-    >
-      <input
-        aria-invalid="false"
-        class="MuiInputBase-input MuiOutlinedInput-input"
-        id="email"
-        name="Email"
         type="text"
         value=""
       />
@@ -160,10 +119,51 @@ exports[`ControlledTextField component renders with an extra class 1`] = `
 </div>
 `;
 
+exports[`ControlledTextField component renders with an extra class 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root TextField-root-14 test"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input"
+        id="email"
+        name="Email"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-19"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ControlledTextField component renders with left adornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment"
+    class="MuiFormControl-root MuiTextField-root TextField-root-30 TextField-leftAdornment-31"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -197,10 +197,10 @@ exports[`ControlledTextField component renders with left adornment 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-15"
+          class="PrivateNotchedOutline-legendLabelled-35"
         >
           <span>
             nickname
@@ -220,7 +220,7 @@ exports[`ControlledTextField component renders with left adornment 1`] = `
 exports[`ControlledTextField component renders with onChange 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-46"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
@@ -240,10 +240,10 @@ exports[`ControlledTextField component renders with onChange 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-23 PrivateNotchedOutline-legendNotched-24"
+          class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
         >
           <span>
             nickname
@@ -263,7 +263,7 @@ exports[`ControlledTextField component renders with onChange 1`] = `
 exports[`ControlledTextField component renders with right adornment 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-38"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -297,10 +297,10 @@ exports[`ControlledTextField component renders with right adornment 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-41 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-19"
+          class="PrivateNotchedOutline-legendLabelled-43"
         >
           <span>
             nickname
@@ -320,7 +320,7 @@ exports[`ControlledTextField component renders with right adornment 1`] = `
 exports[`TextField component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField"
+    class="MuiFormControl-root MuiTextField-root TextField-root-54"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -344,10 +344,10 @@ exports[`TextField component renders correctly 1`] = `
       />
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-27"
+          class="PrivateNotchedOutline-legendLabelled-59"
         >
           <span>
             Email address
@@ -362,7 +362,7 @@ exports[`TextField component renders correctly 1`] = `
 exports[`TextField component renders with error 1`] = `
 <div>
   <div
-    class="MuiFormControl-root MuiTextField-root TextField TextField--error"
+    class="MuiFormControl-root MuiTextField-root TextField-root-62 TextField-textFieldError-64"
   >
     <label
       class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
@@ -385,7 +385,7 @@ exports[`TextField component renders with error 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root Error"
+          class="MuiSvgIcon-root TextField-error-61"
           focusable="false"
           style="color: red;"
           viewBox="0 0 24 24"
@@ -397,10 +397,10 @@ exports[`TextField component renders with error 1`] = `
       </div>
       <fieldset
         aria-hidden="true"
-        class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
+        class="PrivateNotchedOutline-root-65 MuiOutlinedInput-notchedOutline"
       >
         <legend
-          class="PrivateNotchedOutline-legendLabelled-31"
+          class="PrivateNotchedOutline-legendLabelled-67"
         >
           <span>
             nickname

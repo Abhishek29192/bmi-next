@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import TeamList, { Data } from "../TeamList";
@@ -45,7 +46,11 @@ describe("TeamList component", () => {
       }
     ];
 
-    const { container } = render(<TeamList data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <TeamList data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -395,7 +400,11 @@ describe("TeamList component", () => {
       }
     ];
 
-    const { container, getByText } = render(<TeamList data={data} />);
+    const { container, getByText } = render(
+      <ThemeProvider>
+        <TeamList data={data} />
+      </ThemeProvider>
+    );
 
     fireEvent.click(getByText("MC: global.showMore"));
 
@@ -460,14 +469,22 @@ describe("TeamList component", () => {
       }
     ];
 
-    const { container } = render(<TeamList data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <TeamList data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("renders correctly when incomplete", () => {
     const data = [{}] as Data;
 
-    const { container } = render(<TeamList data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <TeamList data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

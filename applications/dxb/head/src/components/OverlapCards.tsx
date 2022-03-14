@@ -1,17 +1,15 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Grid } from "@bmi/components";
-import { CTACard } from "@bmi/components";
-import { Container } from "@bmi/components";
+import { Container, CTACard, Grid } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
+import { graphql } from "gatsby";
+import React from "react";
 import withGTM from "../utils/google-tag-manager";
-import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
-import styles from "./styles/OverlapCards.module.scss";
-import { Data as PromoData } from "./Promo";
-import { Data as PageInfoData } from "./PageInfo";
 import { getCTA } from "./Link";
+import { Data as PageInfoData } from "./PageInfo";
+import { Data as PromoData } from "./Promo";
 import { useSiteContext } from "./Site";
+import styles from "./styles/OverlapCards.module.scss";
+import { renderVideo } from "./Video";
 
 type Card =
   | Pick<

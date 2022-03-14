@@ -1,11 +1,12 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import CardInput from "../CardInput";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 
 describe("CardInput component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardInput
         name="tileType"
         value="Aerodek Classic"
@@ -20,7 +21,7 @@ describe("CardInput component", () => {
   });
 
   it("renders as checkbox", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardInput
         type="checkbox"
         name="tileType"
@@ -38,7 +39,7 @@ describe("CardInput component", () => {
   it("calls onChange", () => {
     const handleOnChange = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardInput
         name="tileType"
         value="Aerodek Classic"

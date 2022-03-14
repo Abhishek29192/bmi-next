@@ -1,11 +1,16 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { FilterButton } from "..";
+import { ThemeProvider } from "@bmi/components";
 import "@testing-library/jest-dom/extend-expect";
+import { fireEvent, render } from "@testing-library/react";
+import React from "react";
+import { FilterButton } from "..";
 
 describe("FilterButton Component", () => {
   it("renders correctly", () => {
-    const { container } = render(<FilterButton label="Filter Button" />);
+    const { container } = render(
+      <ThemeProvider>
+        <FilterButton label="Filter Button" />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
   });
@@ -13,7 +18,9 @@ describe("FilterButton Component", () => {
   it("run onclick props function correclty", () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <FilterButton label="Filter Button" onClick={onClick} />
+      <ThemeProvider>
+        <FilterButton label="Filter Button" onClick={onClick} />
+      </ThemeProvider>
     );
 
     const filterbutton = getByText("Filter Button");
@@ -23,12 +30,12 @@ describe("FilterButton Component", () => {
   });
 
   it("show selected chip style if isActive props is true", () => {
-    const { container, getByRole } = render(
-      <FilterButton label="Filter Button" isActive={true} />
+    const { container } = render(
+      <ThemeProvider>
+        <FilterButton label="Filter Button" isActive={true} />
+      </ThemeProvider>
     );
-    const filterbutton = getByRole("button");
 
     expect(container).toMatchSnapshot();
-    expect(filterbutton).toHaveClass("Chip--theme-pearl");
   });
 });

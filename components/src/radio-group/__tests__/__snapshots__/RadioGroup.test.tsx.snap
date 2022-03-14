@@ -3,28 +3,28 @@
 exports[`RadioGroup component renders correctly 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-root-1"
   >
     <div
-      class="container"
+      class="RadioGroup-container-2"
     >
       <div
-        class="RadioButton item"
+        class="RadioButton-root-4 RadioGroup-item-3"
       >
         <input
-          class="input"
+          class="RadioButton-input-6"
           id="radio-deckType-label"
           name="deckType"
           type="radio"
           value="label"
         />
         <label
-          class="label"
+          class="RadioButton-label-7"
           for="radio-deckType-label"
         >
           <div
             aria-disabled="false"
-            class="MuiButtonBase-root text"
+            class="MuiButtonBase-root RadioButton-text-8"
             role="button"
             tabindex="-1"
           >
@@ -48,28 +48,28 @@ exports[`RadioGroup component renders correctly 1`] = `
 exports[`RadioGroup component renders correctly with className prop 1`] = `
 <div>
   <div
-    class="RadioGroup name"
+    class="RadioGroup-root-17 name"
   >
     <div
-      class="container"
+      class="RadioGroup-container-18"
     >
       <div
-        class="RadioButton item"
+        class="RadioButton-root-20 RadioGroup-item-19"
       >
         <input
-          class="input"
+          class="RadioButton-input-22"
           id="radio-deckType-label"
           name="deckType"
           type="radio"
           value="label"
         />
         <label
-          class="label"
+          class="RadioButton-label-23"
           for="radio-deckType-label"
         >
           <div
             aria-disabled="false"
-            class="MuiButtonBase-root text"
+            class="MuiButtonBase-root RadioButton-text-24"
             role="button"
             tabindex="-1"
           >
@@ -83,22 +83,22 @@ exports[`RadioGroup component renders correctly with className prop 1`] = `
         </label>
       </div>
       <div
-        class="RadioButton item"
+        class="RadioButton-root-20 RadioGroup-item-19"
       >
         <input
-          class="input"
+          class="RadioButton-input-22"
           id="radio-deckType-label"
           name="deckType"
           type="radio"
           value="label"
         />
         <label
-          class="label"
+          class="RadioButton-label-23"
           for="radio-deckType-label"
         >
           <div
             aria-disabled="false"
-            class="MuiButtonBase-root text"
+            class="MuiButtonBase-root RadioButton-text-24"
             role="button"
             tabindex="-1"
           >
@@ -119,28 +119,28 @@ exports[`RadioGroup component renders correctly with className prop 1`] = `
 exports[`RadioGroup component renders correctly with defaultValue prop 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-root-25"
   >
     <div
-      class="container"
+      class="RadioGroup-container-26"
     >
       <div
-        class="RadioButton item"
+        class="RadioButton-root-28 RadioGroup-item-27"
       >
         <input
-          class="input"
+          class="RadioButton-input-30"
           id="radio-deckType-label"
           name="deckType"
           type="radio"
           value="label"
         />
         <label
-          class="label"
+          class="RadioButton-label-31"
           for="radio-deckType-label"
         >
           <div
             aria-disabled="false"
-            class="MuiButtonBase-root text"
+            class="MuiButtonBase-root RadioButton-text-32"
             role="button"
             tabindex="-1"
           >
@@ -154,22 +154,22 @@ exports[`RadioGroup component renders correctly with defaultValue prop 1`] = `
         </label>
       </div>
       <div
-        class="RadioButton item"
+        class="RadioButton-root-28 RadioGroup-item-27"
       >
         <input
-          class="input"
+          class="RadioButton-input-30"
           id="radio-deckType-label"
           name="deckType"
           type="radio"
           value="label"
         />
         <label
-          class="label"
+          class="RadioButton-label-31"
           for="radio-deckType-label"
         >
           <div
             aria-disabled="false"
-            class="MuiButtonBase-root text"
+            class="MuiButtonBase-root RadioButton-text-32"
             role="button"
             tabindex="-1"
           >

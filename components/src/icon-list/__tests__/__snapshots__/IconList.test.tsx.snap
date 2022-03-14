@@ -3,13 +3,13 @@
 exports[`IconList component renders compact list correctly 1`] = `
 <div>
   <ul
-    class="IconList"
+    class="IconList-root-43"
   >
     <li
-      class="ListItem ListItem--isCompact"
+      class="IconList-listItem-44 IconList-isCompact-45"
     >
       <div
-        class="icon"
+        class="IconList-icon-46"
       >
         <svg
           aria-hidden="true"
@@ -23,20 +23,21 @@ exports[`IconList component renders compact list correctly 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-47"
       >
         <p
-          class="MuiTypography-root title Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-49 MuiTypography-body1"
+          data-testid="typography"
         >
           Title 1
         </p>
       </div>
     </li>
     <li
-      class="ListItem ListItem--isCompact"
+      class="IconList-listItem-44 IconList-isCompact-45"
     >
       <div
-        class="icon"
+        class="IconList-icon-46"
       >
         <svg
           aria-hidden="true"
@@ -50,20 +51,21 @@ exports[`IconList component renders compact list correctly 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-47"
       >
         <p
-          class="MuiTypography-root title Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-49 MuiTypography-body1"
+          data-testid="typography"
         >
           Title 2
         </p>
       </div>
     </li>
     <li
-      class="ListItem ListItem--isCompact"
+      class="IconList-listItem-44 IconList-isCompact-45"
     >
       <div
-        class="icon"
+        class="IconList-icon-46"
       >
         <svg
           aria-hidden="true"
@@ -77,10 +79,11 @@ exports[`IconList component renders compact list correctly 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-47"
       >
         <p
-          class="MuiTypography-root title Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-49 MuiTypography-body1"
+          data-testid="typography"
         >
           Title 3
         </p>
@@ -93,13 +96,13 @@ exports[`IconList component renders compact list correctly 1`] = `
 exports[`IconList component renders correctly with custom component 1`] = `
 <div>
   <ul
-    class="IconList"
+    class="IconList-root-29"
   >
     <li
-      class="ListItem"
+      class="IconList-listItem-30"
     >
       <div
-        class="icon"
+        class="IconList-icon-32"
       >
         <svg
           aria-hidden="true"
@@ -113,15 +116,16 @@ exports[`IconList component renders correctly with custom component 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-33"
       >
         <span
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-35 MuiTypography-h6"
+          data-testid="typography"
         >
           Title
         </span>
         <span
-          class="description"
+          class="IconList-description-34"
         >
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
         </span>
@@ -134,13 +138,13 @@ exports[`IconList component renders correctly with custom component 1`] = `
 exports[`IconList component renders correctly with default icon 1`] = `
 <div>
   <ul
-    class="IconList"
+    class="IconList-root-1"
   >
     <li
-      class="ListItem"
+      class="IconList-listItem-2"
     >
       <div
-        class="icon"
+        class="IconList-icon-4"
       >
         <svg
           aria-hidden="true"
@@ -154,15 +158,16 @@ exports[`IconList component renders correctly with default icon 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-5"
       >
         <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-7 MuiTypography-h6"
+          data-testid="typography"
         >
           Title
         </h6>
         <span
-          class="description"
+          class="IconList-description-6"
         >
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui quas rem. Animi doloremque veniam numquam at deleniti quas fuga, similique minus magni cum nihil, in sed neque, tempore adipisci.
         </span>
@@ -175,13 +180,13 @@ exports[`IconList component renders correctly with default icon 1`] = `
 exports[`IconList component renders correctly with multiple children 1`] = `
 <div>
   <ul
-    class="IconList"
+    class="IconList-root-15"
   >
     <li
-      class="ListItem"
+      class="IconList-listItem-16"
     >
       <div
-        class="icon"
+        class="IconList-icon-18"
       >
         <svg
           aria-hidden="true"
@@ -195,25 +200,26 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-19"
       >
         <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+          data-testid="typography"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
         <span
-          class="description"
+          class="IconList-description-20"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
         </span>
       </div>
     </li>
     <li
-      class="ListItem"
+      class="IconList-listItem-16"
     >
       <div
-        class="icon"
+        class="IconList-icon-18"
       >
         <svg
           aria-hidden="true"
@@ -227,25 +233,26 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-19"
       >
         <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+          data-testid="typography"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
         <span
-          class="description"
+          class="IconList-description-20"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </span>
       </div>
     </li>
     <li
-      class="ListItem"
+      class="IconList-listItem-16"
     >
       <div
-        class="icon"
+        class="IconList-icon-18"
       >
         <svg
           aria-hidden="true"
@@ -259,25 +266,26 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-19"
       >
         <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+          data-testid="typography"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
         <span
-          class="description"
+          class="IconList-description-20"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est esse itaque consequatur laboriosam nisi perspiciatis, excepturi eaque delectus rerum maxime vitae minus error ipsam suscipit totam ab voluptates accusamus quia.
         </span>
       </div>
     </li>
     <li
-      class="ListItem"
+      class="IconList-listItem-16"
     >
       <div
-        class="icon"
+        class="IconList-icon-18"
       >
         <svg
           aria-hidden="true"
@@ -291,15 +299,16 @@ exports[`IconList component renders correctly with multiple children 1`] = `
         </svg>
       </div>
       <div
-        class="content"
+        class="IconList-content-19"
       >
         <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-21 MuiTypography-h6"
+          data-testid="typography"
         >
           BMI Group sells to dealers, as well as professional customers.
         </h6>
         <span
-          class="description"
+          class="IconList-description-20"
         >
           Lorem, ipsum dolor sit amet consectetur adipisicing elit.
         </span>

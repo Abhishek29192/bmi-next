@@ -1,11 +1,9 @@
-import React from "react";
-import classnames from "classnames";
-import { Icon } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import { Icon, Table, Typography } from "@bmi/components";
 import { Delete } from "@material-ui/icons";
+import classnames from "classnames";
+import React from "react";
 import UpDownSimpleNumericInput from "../up-down-simple-numeric-input/UpDownSimpleNumericInput";
-import styles from "./QuantityTable.module.scss";
+import { useStyles } from "./styles";
 
 type RowProps = {
   image: string;
@@ -62,25 +60,28 @@ const MediumHeader = ({
   externalProductCode,
   quantity,
   remove
-}: HeaderProps) => (
-  <Table.Row>
-    <Table.Cell className={styles.firstHeader}>
-      <Typography variant="h6">{title}</Typography>
-    </Table.Cell>
-    <Table.Cell className={styles.header}>
-      <Typography variant="h6">{packSize}</Typography>
-    </Table.Cell>
-    <Table.Cell className={styles.header}>
-      <Typography variant="h6">{externalProductCode}</Typography>
-    </Table.Cell>
-    <Table.Cell className={styles.header}>
-      <Typography variant="h6">{quantity}</Typography>
-    </Table.Cell>
-    <Table.Cell className={styles.header}>
-      <Typography variant="h6">{remove}</Typography>
-    </Table.Cell>
-  </Table.Row>
-);
+}: HeaderProps) => {
+  const classes = useStyles();
+  return (
+    <Table.Row>
+      <Table.Cell className={classes.firstHeader}>
+        <Typography variant="h6">{title}</Typography>
+      </Table.Cell>
+      <Table.Cell className={classes.header}>
+        <Typography variant="h6">{packSize}</Typography>
+      </Table.Cell>
+      <Table.Cell className={classes.header}>
+        <Typography variant="h6">{externalProductCode}</Typography>
+      </Table.Cell>
+      <Table.Cell className={classes.header}>
+        <Typography variant="h6">{quantity}</Typography>
+      </Table.Cell>
+      <Table.Cell className={classes.header}>
+        <Typography variant="h6">{remove}</Typography>
+      </Table.Cell>
+    </Table.Row>
+  );
+};
 
 const BuildSmallViewRows = ({
   onDelete,
@@ -89,37 +90,38 @@ const BuildSmallViewRows = ({
   packSize,
   externalProductCode
 }: BuildRowProps) => {
+  const classes = useStyles();
   return (
     <>
       {rows.map((row, iterator) => (
         <Table.Row
           key={row.externalProductCode}
-          className={classnames(iterator % 2 !== 0 && styles.greyBack)}
+          className={classnames(iterator % 2 !== 0 && classes.greyBack)}
         >
-          <Table.Cell className={styles.smallCell}>
-            <div className={styles.rowParent}>
-              <div className={styles.cellRow}>
-                <img src={row.image} className={styles.picture} />
-                <Typography className={styles.smallDescription}>
+          <Table.Cell className={classes.smallCell}>
+            <div>
+              <div className={classes.cellRow}>
+                <img src={row.image} className={classes.picture} />
+                <Typography className={classes.smallDescription}>
                   {row.description}
                 </Typography>
               </div>
-              <div className={styles.cellRow}>
+              <div className={classes.cellRow}>
                 <Typography variant="subtitle1">
                   {externalProductCode}:
                 </Typography>
-                <Typography className={styles.boldText}>
+                <Typography className={classes.boldText}>
                   {row.externalProductCode}
                 </Typography>
               </div>
-              <div className={styles.cellRow}>
+              <div className={classes.cellRow}>
                 <Typography variant="subtitle1">{packSize}:</Typography>
-                <Typography className={styles.boldText}>
+                <Typography className={classes.boldText}>
                   {row.packSize}
                 </Typography>
               </div>
-              <div className={classnames(styles.cellRow, styles.cellRowLast)}>
-                <div className={styles.iteratorCellSmall}>
+              <div className={classnames(classes.cellRow, classes.cellRowLast)}>
+                <div className={classes.iteratorCellSmall}>
                   <UpDownSimpleNumericInput
                     name={row.externalProductCode.toString()}
                     min={0}
@@ -130,7 +132,7 @@ const BuildSmallViewRows = ({
                   />
                 </div>
                 <Icon
-                  className={styles.icon}
+                  className={classnames(classes.icon, "icon")}
                   source={Delete}
                   onClick={() => onDelete(row.externalProductCode)}
                 />
@@ -148,31 +150,35 @@ const BuildMediumViewRows = ({
   onChangeQuantity,
   rows
 }: BuildRowProps) => {
+  const classes = useStyles();
   return (
     <>
       {rows.map((row, iterator) => (
         <Table.Row
           key={row.externalProductCode}
-          className={classnames(iterator % 2 !== 0 && styles.greyBack)}
+          className={classnames(iterator % 2 !== 0 && classes.greyBack)}
         >
           <Table.Cell>
-            <div className={styles.cellRow}>
-              <img src={row.image} className={styles.picture} />
-              <Typography className={styles.firstDescription}>
+            <div className={classes.cellRow}>
+              <img src={row.image} className={classes.picture} />
+              <Typography className={classes.firstDescription}>
                 {row.description}
               </Typography>
             </div>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={classes.mediumCell}>
             <Typography>{row.packSize}</Typography>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={classes.mediumCell}>
             <Typography>{row.externalProductCode}</Typography>
           </Table.Cell>
           <Table.Cell
-            className={classnames(styles.mediumCell, styles.iteratorCellMedium)}
+            className={classnames(
+              classes.mediumCell,
+              classes.iteratorCellMedium
+            )}
           >
-            <div className={styles.iteratorCellMedium}>
+            <div className={classes.iteratorCellMedium}>
               <UpDownSimpleNumericInput
                 name={row.externalProductCode.toString()}
                 min={0}
@@ -183,9 +189,9 @@ const BuildMediumViewRows = ({
               />
             </div>
           </Table.Cell>
-          <Table.Cell className={styles.mediumCell}>
+          <Table.Cell className={classes.mediumCell}>
             <Icon
-              className={styles.icon}
+              className={classnames(classes.icon, "icon")}
               source={Delete}
               onClick={() => onDelete(row.externalProductCode)}
             />
@@ -206,9 +212,10 @@ const QuantityTable = ({
   quantity,
   remove
 }: Props) => {
+  const classes = useStyles();
   return (
-    <div className={styles.QuantityTable}>
-      <Table className={styles.displayIfSmall}>
+    <div className={classes.root}>
+      <Table className={classes.displayIfSmall}>
         <Table.Head>
           <SmallHeader title={title} />
         </Table.Head>
@@ -224,7 +231,7 @@ const QuantityTable = ({
           />
         </Table.Body>
       </Table>
-      <Table className={styles.displayIfMedium}>
+      <Table className={classes.displayIfMedium}>
         <Table.Head>
           <MediumHeader
             title={title}

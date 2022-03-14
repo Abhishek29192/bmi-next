@@ -9,7 +9,8 @@ exports[`CertificationsCard matches snapshot 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography MuiTypography-h4"
+        class="MuiTypography-root Typography-root-33 MuiTypography-h4"
+        data-testid="typography"
         style="margin-bottom: 1.5rem; font-size: 1.2rem;"
       >
         BMI Certifications
@@ -25,7 +26,8 @@ exports[`CertificationsCard matches snapshot 1`] = `
             class="certificationsItemIcon"
           />
           <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
+            class="MuiTypography-root Typography-root-33 MuiTypography-h6"
+            data-testid="typography"
             style="margin-top: 0.5rem;"
           >
             certifications.pitched
@@ -39,7 +41,8 @@ exports[`CertificationsCard matches snapshot 1`] = `
             class="certificationsItemIcon"
           />
           <h6
-            class="MuiTypography-root Typography MuiTypography-h6"
+            class="MuiTypography-root Typography-root-33 MuiTypography-h6"
+            data-testid="typography"
             style="margin-top: 0.5rem;"
           >
             certifications.flat

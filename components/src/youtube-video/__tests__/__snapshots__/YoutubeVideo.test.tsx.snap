@@ -8,30 +8,31 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 1`] 
     aria-hidden="true"
   >
     <div
-      class="YoutubeVideo"
+      class="YoutubeVideo-root-358"
       data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
       data-testid="youtube-dialog-wrapper"
     >
       <button
         aria-label="test video"
-        class="thumbnail"
+        class="YoutubeVideo-thumbnail-360"
         data-testid="thumbnail"
         type="button"
       >
         <img
           alt="test video"
-          class="preview-image"
+          class="YoutubeVideo-previewImage-359"
+          data-testid="youtube-preview-image"
           src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
         />
         <span
-          class="AlternativeContent"
+          class="AlternativeContent-root-369"
         >
           test video
         </span>
         <div
           aria-disabled="false"
           aria-label="test video"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-381 iconButton IconButton-medium-387 IconButton-contained-382 YoutubeVideo-playButton-362"
           data-testid="thumbnail-button"
           role="button"
           tabindex="0"
@@ -70,16 +71,16 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 1`] 
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl"
+      class="ContainerDialog-root-390 ContainerDialog-bg-white-395 ContainerDialog-width-xl-401"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="ContainerDialog-header-391"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-381 iconButton IconButton-medium-387 IconButton-text-383 ContainerDialog-iconButton-392"
           tabindex="0"
           type="button"
         >
@@ -103,7 +104,7 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 1`] 
         </button>
       </div>
       <div
-        class="content"
+        class="ContainerDialog-content-393"
       >
         <div
           style="height: 100%; display: flex;"
@@ -124,30 +125,31 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 2`] 
 >
   <div>
     <div
-      class="YoutubeVideo"
+      class="YoutubeVideo-root-358"
       data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
       data-testid="youtube-dialog-wrapper"
     >
       <button
         aria-label="test video"
-        class="thumbnail"
+        class="YoutubeVideo-thumbnail-360"
         data-testid="thumbnail"
         type="button"
       >
         <img
           alt="test video"
-          class="preview-image"
+          class="YoutubeVideo-previewImage-359"
+          data-testid="youtube-preview-image"
           src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
         />
         <span
-          class="AlternativeContent"
+          class="AlternativeContent-root-369"
         >
           test video
         </span>
         <div
           aria-disabled="false"
           aria-label="test video"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-contained-153 play-button"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-381 iconButton IconButton-medium-387 IconButton-contained-382 YoutubeVideo-playButton-362"
           data-testid="thumbnail-button"
           role="button"
           tabindex="0"
@@ -183,16 +185,16 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 2`] 
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-xl"
+      class="ContainerDialog-root-390 ContainerDialog-bg-white-395 ContainerDialog-width-xl-401"
       style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="ContainerDialog-header-391"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-381 iconButton IconButton-medium-387 IconButton-text-383 ContainerDialog-iconButton-392"
           tabindex="0"
           type="button"
         >
@@ -216,7 +218,7 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 2`] 
         </button>
       </div>
       <div
-        class="content"
+        class="ContainerDialog-content-393"
       >
         <div
           style="height: 100%; display: flex;"
@@ -234,30 +236,31 @@ exports[`YoutubeVideo component DialogVideo opens and close dialog on click 2`] 
 exports[`YoutubeVideo component DialogVideo renders with dimensions correctly 1`] = `
 <div>
   <div
-    class="YoutubeVideo"
+    class="YoutubeVideo-root-402"
     data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
     data-testid="youtube-dialog-wrapper"
   >
     <button
       aria-label="test video"
-      class="thumbnail"
+      class="YoutubeVideo-thumbnail-404"
       data-testid="thumbnail"
       type="button"
     >
       <img
         alt="test video"
-        class="preview-image"
+        class="YoutubeVideo-previewImage-403"
+        data-testid="youtube-preview-image"
         src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
       <span
-        class="AlternativeContent"
+        class="AlternativeContent-root-413"
       >
         test video
       </span>
       <div
         aria-disabled="false"
         aria-label="test video"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-contained-173 play-button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-425 iconButton IconButton-medium-431 IconButton-contained-426 YoutubeVideo-playButton-406"
         data-testid="thumbnail-button"
         role="button"
         tabindex="0"
@@ -288,30 +291,31 @@ exports[`YoutubeVideo component DialogVideo renders with dimensions correctly 1`
 exports[`YoutubeVideo component DialogVideo shold render ReactPlayer with currect height 1`] = `
 <div>
   <div
-    class="YoutubeVideo"
+    class="YoutubeVideo-root-490"
     data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
     data-testid="youtube-dialog-wrapper"
   >
     <button
       aria-label="test video"
-      class="thumbnail"
+      class="YoutubeVideo-thumbnail-492"
       data-testid="thumbnail"
       type="button"
     >
       <img
         alt="test video"
-        class="preview-image"
+        class="YoutubeVideo-previewImage-491"
+        data-testid="youtube-preview-image"
         src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
       <span
-        class="AlternativeContent"
+        class="AlternativeContent-root-501"
       >
         test video
       </span>
       <div
         aria-disabled="false"
         aria-label="test video"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-contained-213 play-button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-513 iconButton IconButton-medium-519 IconButton-contained-514 YoutubeVideo-playButton-494"
         data-testid="thumbnail-button"
         role="button"
         tabindex="0"
@@ -342,30 +346,31 @@ exports[`YoutubeVideo component DialogVideo shold render ReactPlayer with currec
 exports[`YoutubeVideo component DialogVideo should use fallback height if it can't get height from dimensions 1`] = `
 <div>
   <div
-    class="YoutubeVideo"
+    class="YoutubeVideo-root-446"
     data-gtm="{\\"id\\":\\"test-id\\",\\"label\\":\\"test-label\\",\\"action\\":\\"Play\\"}"
     data-testid="youtube-dialog-wrapper"
   >
     <button
       aria-label="test video"
-      class="thumbnail"
+      class="YoutubeVideo-thumbnail-448"
       data-testid="thumbnail"
       type="button"
     >
       <img
         alt="test video"
-        class="preview-image"
+        class="YoutubeVideo-previewImage-447"
+        data-testid="youtube-preview-image"
         src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
       <span
-        class="AlternativeContent"
+        class="AlternativeContent-root-457"
       >
         test video
       </span>
       <div
         aria-disabled="false"
         aria-label="test video"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-192 iconButtonStyles-medium-198 iconButtonStyles-contained-193 play-button"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-469 iconButton IconButton-medium-475 IconButton-contained-470 YoutubeVideo-playButton-450"
         data-testid="thumbnail-button"
         role="button"
         tabindex="0"

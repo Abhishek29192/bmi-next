@@ -1,10 +1,10 @@
-import React from "react";
 import { fireEvent, screen } from "@testing-library/react";
+import React from "react";
 import { CompaniesSidePanel } from "..";
-import { render } from "../../../../../lib/tests/utils";
-import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
-import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
 import { GetCompaniesByMarketQuery } from "../../../../../graphql/generated/operations";
+import AccountContextWrapper from "../../../../../lib/tests/fixtures/account";
+import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
+import { renderWithThemeProvider } from "../../../../../lib/tests/utils";
 
 describe("CompaniesSidePanel component", () => {
   const emptyNodes = {
@@ -29,7 +29,7 @@ describe("CompaniesSidePanel component", () => {
     companyFactory({ id: 2, name: "Z company", isProfileComplete: false })
   ];
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <I18nProvider>
         <AccountContextWrapper>
           <CompaniesSidePanel companies={companies} />
@@ -45,21 +45,23 @@ describe("CompaniesSidePanel component", () => {
     ).toHaveTextContent("search.profileIncomplete");
   });
   it("check order onclick behavior", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <I18nProvider>
         <AccountContextWrapper>
           <CompaniesSidePanel companies={companies} />
         </AccountContextWrapper>
       </I18nProvider>
     );
-    const orderListButtons = container.querySelectorAll(".filterButton .Chip");
+    const orderListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(orderListButtons[1]);
     expect(
       screen.getAllByTestId("companyCard")[0].querySelector("button")
     ).toHaveTextContent("A company");
   });
   it("change filter correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <I18nProvider>
         <AccountContextWrapper>
           <CompaniesSidePanel companies={companies} />
@@ -82,14 +84,16 @@ describe("CompaniesSidePanel component", () => {
       companyFactory({ id: 3, name: null }),
       companyFactory({ id: 4, name: "A company" })
     ];
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <I18nProvider>
         <AccountContextWrapper>
           <CompaniesSidePanel companies={companies} />
         </AccountContextWrapper>
       </I18nProvider>
     );
-    const orderListButtons = container.querySelectorAll(".filterButton .Chip");
+    const orderListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(orderListButtons[0]);
 
     expect(screen.getAllByTestId("companyCard").length).toBe(4);
@@ -108,14 +112,16 @@ describe("CompaniesSidePanel component", () => {
       companyFactory({ name: "B company", updatedAt: "2021-12-1" }),
       companyFactory({ name: "C company", updatedAt: "2021-12-4" })
     ];
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <I18nProvider>
         <AccountContextWrapper>
           <CompaniesSidePanel companies={companies} />
         </AccountContextWrapper>
       </I18nProvider>
     );
-    const orderListButtons = container.querySelectorAll(".filterButton .Chip");
+    const orderListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(orderListButtons[1]);
 
     expect(screen.getAllByTestId("companyCard").length).toBe(4);

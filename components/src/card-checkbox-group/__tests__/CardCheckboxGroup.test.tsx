@@ -1,12 +1,13 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import CardCheckboxGroup from "../CardCheckboxGroup";
 import demoFormattedImage from "./images/demo-product-format.jpg";
 import demoImage from "./images/demo-product.jpg";
 
 describe("CardCheckboxGroup component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardCheckboxGroup name="tileType">
         <CardCheckboxGroup.Item
           value="Zanda Arktis"
@@ -32,7 +33,7 @@ describe("CardCheckboxGroup component", () => {
   });
 
   it("renders with initial value", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardCheckboxGroup name="tileType" defaultValue={["Zanda Arktis"]}>
         <CardCheckboxGroup.Item
           value="Zanda Arktis"
@@ -59,7 +60,7 @@ describe("CardCheckboxGroup component", () => {
 
   it("renders with none label string", () => {
     const onChange = jest.fn();
-    render(
+    renderWithThemeProvider(
       <CardCheckboxGroup
         name="tileType"
         noneLabel="none label"
@@ -91,7 +92,7 @@ describe("CardCheckboxGroup component", () => {
 
   it("calls onChange with null", () => {
     const onChange = jest.fn();
-    render(
+    renderWithThemeProvider(
       <CardCheckboxGroup
         name="tileType"
         noneLabel="none label"
@@ -117,7 +118,7 @@ describe("CardCheckboxGroup component", () => {
   it("calls onChange", () => {
     const handleOnChange = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <CardCheckboxGroup name="tileType" onChange={handleOnChange}>
         <CardCheckboxGroup.Item
           value="Zanda Arktis"
@@ -147,7 +148,7 @@ describe("CardCheckboxGroup component", () => {
   });
 
   it("not an radio item element", () => {
-    render(
+    renderWithThemeProvider(
       <CardCheckboxGroup name="tileType">
         <article>test one</article>
         <article>test two</article>

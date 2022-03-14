@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import { createMockSiteData } from "../../../test/mockSiteData";
@@ -46,7 +47,11 @@ data.contentfulSite.resources = {
 
 describe("IEDialog component", () => {
   it("renders correctly", () => {
-    const { baseElement } = render(<IEDialog data={data} />);
+    const { baseElement } = render(
+      <ThemeProvider>
+        <IEDialog data={data} />
+      </ThemeProvider>
+    );
 
     expect(baseElement).toMatchSnapshot();
   });

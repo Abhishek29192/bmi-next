@@ -1,25 +1,26 @@
-import React, { Dispatch } from "react";
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent } from "@testing-library/react";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
+import { default as React, Dispatch } from "react";
 import { ProjectSidePanel } from "..";
-import {
-  render,
-  renderWithUserProvider,
-  screen,
-  createMockRouter
-} from "../../../lib/tests/utils";
-import I18nProvider from "../../../lib/tests/fixtures/i18n";
-import AccountContextWrapper from "../../../lib/tests/fixtures/account";
-import ApolloProvider from "../../../lib/tests/fixtures/apollo";
-import MarketProvider from "../../../lib/tests/fixtures/market";
 import { GetProjectsQuery } from "../../../graphql/generated/operations";
 import { generateAccount } from "../../../lib/tests/factories/account";
-import { generateMarketContext } from "../../../lib/tests/factories/market";
 import { generateGuarantee } from "../../../lib/tests/factories/guarantee";
+import { generateMarketContext } from "../../../lib/tests/factories/market";
 import {
   generateProject,
   projectFactory
 } from "../../../lib/tests/factories/project";
+import AccountContextWrapper from "../../../lib/tests/fixtures/account";
+import ApolloProvider from "../../../lib/tests/fixtures/apollo";
+import I18nProvider from "../../../lib/tests/fixtures/i18n";
+import MarketProvider from "../../../lib/tests/fixtures/market";
+import {
+  createMockRouter,
+  render,
+  renderWithUserProvider,
+  screen
+} from "../../../lib/tests/utils";
 
 describe("ProjectSidePanel component", () => {
   it("renders correctly", () => {
@@ -49,16 +50,18 @@ describe("ProjectSidePanel component", () => {
     Date.now = jest.fn(() => Date.parse("2019-01-02"));
 
     const { container } = render(
-      <I18nProvider>
-        <AccountContextWrapper>
-          <RouterContext.Provider value={createMockRouter({})}>
-            <ProjectSidePanel
-              onProjectSelected={() => ({})}
-              projects={projects}
-            />
-          </RouterContext.Provider>
-        </AccountContextWrapper>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <AccountContextWrapper>
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -108,16 +111,18 @@ describe("ProjectSidePanel component", () => {
     Date.now = jest.fn(() => Date.parse("2020-01-01"));
 
     const { container } = render(
-      <I18nProvider>
-        <AccountContextWrapper>
-          <RouterContext.Provider value={createMockRouter({})}>
-            <ProjectSidePanel
-              onProjectSelected={() => ({})}
-              projects={projects}
-            />
-          </RouterContext.Provider>
-        </AccountContextWrapper>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <AccountContextWrapper>
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -158,7 +163,9 @@ describe("ProjectSidePanel component", () => {
       .getAllByTestId("projectCard")[0]
       .querySelector("button");
     fireEvent.click(listButton);
-    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    const filterListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(filterListButtons[5]);
     fireEvent.change(container.querySelector("#filter"), {
       target: { value: "ale" }
@@ -198,7 +205,9 @@ describe("ProjectSidePanel component", () => {
         </MarketProvider>
       </ApolloProvider>
     );
-    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    const filterListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(filterListButtons[2]);
     expect(screen.queryByText("fallback.noResults")).toBeFalsy();
     fireEvent.click(filterListButtons[3]);
@@ -238,7 +247,9 @@ describe("ProjectSidePanel component", () => {
         </MarketProvider>
       </ApolloProvider>
     );
-    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    const filterListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(filterListButtons[5]);
     expect(screen.queryByText("fallback.noResults")).toBeTruthy();
   });
@@ -267,7 +278,9 @@ describe("ProjectSidePanel component", () => {
     const closeTags = screen.getAllByRole("button")[0].querySelector("svg");
     fireEvent.click(closeTags);
     expect(closeTags).not.toBeVisible();
-    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    const filterListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(filterListButtons[1]);
     expect(screen.queryByText("fallback.noResults")).toBeTruthy();
   });
@@ -306,7 +319,9 @@ describe("ProjectSidePanel component", () => {
       </ApolloProvider>
     );
 
-    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    const filterListButtons = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
     fireEvent.click(filterListButtons[2]);
     expect(screen.queryByText("fallback.noResults")).toBeFalsy();
   });

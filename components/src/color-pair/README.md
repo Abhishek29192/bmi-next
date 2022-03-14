@@ -32,7 +32,7 @@ const colorBoxStyle = {
 You can pass a `markupComponent` that accepts any `ElementType`.
 
 ```jsx
-<ColorPair markupComponent="span" theme="magenta-400">
+<ColorPair markupComponent="span" theme="magenta400">
   I'm inside a span
 </ColorPair>
 ```
@@ -51,7 +51,7 @@ const Section = ({ children, ...rest }) => (
 );
 const SectionWithColorPair = withColorPair(Section);
 
-<SectionWithColorPair theme="purple-400">
+<SectionWithColorPair theme="purple400">
   Section with ColorPair!
 </SectionWithColorPair>;
 ```

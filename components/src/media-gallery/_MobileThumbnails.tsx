@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import React, { useEffect, useRef, useState } from "react";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
-import styles from "./MediaGallery.module.scss";
+import { useThumbnailStyles } from "./styles";
 import { ThumbnailsProps } from "./types";
 
 const THUMBNAIL_WIDTH = 86;
@@ -13,6 +13,7 @@ const Thumbnails = ({
   openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
 }: ThumbnailsProps) => {
+  const classes = useThumbnailStyles();
   let debouncer: NodeJS.Timeout;
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [visibleGradients, setVisibleGradients] = useState<{
@@ -53,19 +54,21 @@ const Thumbnails = ({
   return (
     <div
       className={classnames(
-        styles["thumbnails"],
-        styles["thumbnails--touch"],
-        visibleGradients.left && styles["thumbnails--left-gradient"],
-        visibleGradients.right && styles["thumbnails--right-gradient"]
+        classes.root,
+        classes.touch,
+        visibleGradients.left && classes.leftGradient,
+        visibleGradients.right && classes.rightGradient
       )}
       onScroll={handleOnScroll}
+      data-testid={"thumbnails-root"}
     >
       <div
-        className={styles["scroller"]}
+        className={classes.scroller}
         ref={thumbnailsRef}
         style={{
           width: `${mediaData.length * THUMBNAIL_WIDTH}px`
         }}
+        data-testid={"thumbnail-scroller"}
       >
         {mediaData.map(
           (
@@ -79,7 +82,7 @@ const Thumbnails = ({
                 imageSource={thumbnail}
                 state={activeImageIndex === index ? "selected" : "enabled"}
                 onClick={(e: Event) => onThumbnailClick(e, index)}
-                className={styles["thumbnail"]}
+                className={classes.thumbnail}
                 size="large"
                 altText={altText}
                 isVideo={isVideo}
@@ -87,6 +90,7 @@ const Thumbnails = ({
                   openYoutubeVideo && openYoutubeVideo(e, index)
                 }
                 visualiserParameters={visualiserParameters}
+                data-testid="default-thumbnail"
               />
             );
           }

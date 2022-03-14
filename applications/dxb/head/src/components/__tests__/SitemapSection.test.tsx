@@ -1,7 +1,8 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
+import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
 import SitemapSection from "../SitemapSection";
-import { DataTypeEnum, NavigationData, Data as LinkData } from "../Link";
 
 describe("SitemapSection component", () => {
   it("renders correctly", () => {
@@ -55,7 +56,11 @@ describe("SitemapSection component", () => {
       ]
     };
 
-    const { container } = render(<SitemapSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <SitemapSection data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -154,7 +159,11 @@ describe("SitemapSection component", () => {
       ]
     };
 
-    const { container } = render(<SitemapSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <SitemapSection data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -218,7 +227,11 @@ describe("SitemapSection component", () => {
       ]
     };
 
-    const { container } = render(<SitemapSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <SitemapSection data={data} />
+      </ThemeProvider>
+    );
     const linkResult = container.querySelectorAll("a");
     expect(linkResult).toHaveLength(3);
   });
@@ -228,7 +241,11 @@ describe("SitemapSection component", () => {
       __typename: "ContentfulNavigation"
     } as NavigationData;
 
-    const { container } = render(<SitemapSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <SitemapSection data={data} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

@@ -3,10 +3,10 @@
 exports[`Carousel component doesn't render controls when scroll is finite and pages per slides = total slides 1`] = `
 <div>
   <div
-    class="wrapper wrapper--with-gutter"
+    class="Carousel-wrapper-269 Carousel-wrapperGutter-270"
   >
     <div
-      class="Carousel Carousel--opacity Carousel--with-gutter"
+      class="Carousel-root-265 Carousel-opacity-272 Carousel-carouselGutter-267"
       data-testid="carousel"
     >
       <div
@@ -23,22 +23,25 @@ exports[`Carousel component doesn't render controls when scroll is finite and pa
             style="width: 100%; flex-shrink: 0; overflow: auto;"
           >
             <div
-              class="page"
+              class="Carousel-page-268"
             >
               <div
-                class="slide"
+                class="Carousel-slide-266"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 First slide
               </div>
               <div
-                class="slide"
+                class="Carousel-slide-266"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 Second slide
               </div>
               <div
-                class="slide"
+                class="Carousel-slide-266"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 Third slide
@@ -70,10 +73,10 @@ exports[`Carousel component navigates to next page 1`] = `
                 aria-hidden=\\"false\\"
                 class=\\"Carousel__slide--global\\"
                 data-swipeable=\\"true\\"
-@@ -25,11 +25,11 @@
-                >
+@@ -26,11 +26,11 @@
                   <div
-                    class=\\"slide\\"
+                    class=\\"Carousel-slide-48\\"
+                    data-test-class-name=\\"slide\\"
                     style=\\"width: 100%;\\"
                   >
 -                   First slide
@@ -83,22 +86,22 @@ exports[`Carousel component navigates to next page 1`] = `
               </div>
             </div>
           </div>
-@@ -66,16 +66,21 @@
+@@ -67,16 +67,21 @@
           >
             <span
-              class=\\"sliding-slot\\"
+              class=\\"SlideControls-slidingSlot-61\\"
             >
               <span
--               class=\\"numbers\\"
-+               class=\\"numbers numbers--up\\"
+-               class=\\"SlideControls-numbers-64\\"
++               class=\\"SlideControls-numbers-64 SlideControls-up-65\\"
 +             >
 +               <span
-+                 class=\\"number\\"
++                 class=\\"SlideControls-number-69\\"
                 >
 +                 01
 +               </span>
                 <span
-                  class=\\"number number--active\\"
+                  class=\\"SlideControls-number-69 SlideControls-active-68\\"
                 >
 -                 01
 +                 02
@@ -106,7 +109,7 @@ exports[`Carousel component navigates to next page 1`] = `
               </span>
             </span>
             <span
-              class=\\"total\\""
+              class=\\"SlideControls-total-67\\""
 `;
 
 exports[`Carousel component navigates to previous page 1`] = `
@@ -127,10 +130,10 @@ exports[`Carousel component navigates to previous page 1`] = `
                 aria-hidden=\\"false\\"
                 class=\\"Carousel__slide--global\\"
                 data-swipeable=\\"true\\"
-@@ -25,11 +25,11 @@
-                >
+@@ -26,11 +26,11 @@
                   <div
-                    class=\\"slide\\"
+                    class=\\"Carousel-slide-94\\"
+                    data-test-class-name=\\"slide\\"
                     style=\\"width: 100%;\\"
                   >
 -                   First slide
@@ -140,22 +143,22 @@ exports[`Carousel component navigates to previous page 1`] = `
               </div>
             </div>
           </div>
-@@ -66,14 +66,19 @@
+@@ -67,14 +67,19 @@
           >
             <span
-              class=\\"sliding-slot\\"
+              class=\\"SlideControls-slidingSlot-107\\"
             >
               <span
--               class=\\"numbers\\"
-+               class=\\"numbers numbers--down\\"
+-               class=\\"SlideControls-numbers-110\\"
++               class=\\"SlideControls-numbers-110 SlideControls-down-112\\"
               >
                 <span
-                  class=\\"number number--active\\"
+                  class=\\"SlideControls-number-115 SlideControls-active-114\\"
 +               >
 +                 03
 +               </span>
 +               <span
-+                 class=\\"number\\"
++                 class=\\"SlideControls-number-115\\"
                 >
                   01
                 </span>
@@ -166,10 +169,10 @@ exports[`Carousel component navigates to previous page 1`] = `
 exports[`Carousel component renders correctly 1`] = `
 <div>
   <div
-    class="wrapper"
+    class="Carousel-wrapper-5"
   >
     <div
-      class="Carousel"
+      class="Carousel-root-1"
       data-testid="carousel"
     >
       <div
@@ -186,10 +189,11 @@ exports[`Carousel component renders correctly 1`] = `
             style="width: 100%; flex-shrink: 0; overflow: auto;"
           >
             <div
-              class="page"
+              class="Carousel-page-4"
             >
               <div
-                class="slide"
+                class="Carousel-slide-2"
+                data-test-class-name="slide"
                 style="width: 100%;"
               >
                 First slide
@@ -200,11 +204,11 @@ exports[`Carousel component renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="SlideControls"
+      class="SlideControls-root-11"
     >
       <button
         aria-label="previous"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-38 iconButton IconButton-medium-44 IconButton-text-40"
         tabindex="0"
         type="button"
       >
@@ -213,7 +217,7 @@ exports[`Carousel component renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root chevron"
+            class="MuiSvgIcon-root SlideControls-chevron-17"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -227,30 +231,30 @@ exports[`Carousel component renders correctly 1`] = `
         />
       </button>
       <span
-        class="middle-container"
+        class="SlideControls-middleContainer-16"
       >
         <span
-          class="sliding-slot"
+          class="SlideControls-slidingSlot-15"
         >
           <span
-            class="numbers"
+            class="SlideControls-numbers-18"
           >
             <span
-              class="number number--active"
+              class="SlideControls-number-23 SlideControls-active-22"
             >
               01
             </span>
           </span>
         </span>
         <span
-          class="total"
+          class="SlideControls-total-21"
         >
           03
         </span>
       </span>
       <button
         aria-label="next"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+        class="MuiButtonBase-root MuiIconButton-root IconButton-root-38 iconButton IconButton-medium-44 IconButton-text-40"
         tabindex="0"
         type="button"
       >
@@ -259,7 +263,7 @@ exports[`Carousel component renders correctly 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root chevron"
+            class="MuiSvgIcon-root SlideControls-chevron-17"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -280,10 +284,10 @@ exports[`Carousel component renders correctly 1`] = `
 exports[`Carousel component renders correctly with arrow controls 1`] = `
 <div>
   <div
-    class="wrapper"
+    class="Carousel-wrapper-235"
   >
     <div
-      class="Carousel Carousel--opacity"
+      class="Carousel-root-231 Carousel-opacity-238"
       data-testid="carousel"
     >
       <div
@@ -300,22 +304,25 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
             style="width: 100%; flex-shrink: 0; overflow: auto;"
           >
             <div
-              class="page"
+              class="Carousel-page-234"
             >
               <div
-                class="slide"
+                class="Carousel-slide-232"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 First slide
               </div>
               <div
-                class="slide"
+                class="Carousel-slide-232"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 Second slide
               </div>
               <div
-                class="slide"
+                class="Carousel-slide-232"
+                data-test-class-name="slide"
                 style="width: 33.333333333333336%;"
               >
                 Third slide
@@ -327,7 +334,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
     </div>
     <button
       aria-label="Move left"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--left"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-256 iconButton IconButton-medium-262 IconButton-contained-257 ArrowControl-root-241 ArrowControl-left-242"
       tabindex="0"
       type="button"
     >
@@ -336,7 +343,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root ArrowControl-chevron-244"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -351,7 +358,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
     </button>
     <button
       aria-label="Move right"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-112 iconButtonStyles-medium-118 iconButtonStyles-contained-113 ArrowControl ArrowControl--right"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-256 iconButton IconButton-medium-262 IconButton-contained-257 ArrowControl-root-241 ArrowControl-right-243"
       tabindex="0"
       type="button"
     >
@@ -360,7 +367,7 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root chevron"
+          class="MuiSvgIcon-root ArrowControl-chevron-244"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -376,8 +383,6 @@ exports[`Carousel component renders correctly with arrow controls 1`] = `
   </div>
 </div>
 `;
-
-exports[`Carousel component triggers an onPageChange event 1`] = `Array []`;
 
 exports[`Carousel component works when controlled 1`] = `
 "Snapshot Diff:
@@ -397,10 +402,10 @@ exports[`Carousel component works when controlled 1`] = `
               aria-hidden=\\"false\\"
               class=\\"Carousel__slide--global\\"
               data-swipeable=\\"true\\"
-@@ -24,11 +24,11 @@
-              >
+@@ -25,11 +25,11 @@
                 <div
-                  class=\\"slide\\"
+                  class=\\"Carousel-slide-140\\"
+                  data-test-class-name=\\"slide\\"
                   style=\\"width: 100%;\\"
                 >
 -                 First slide
@@ -410,22 +415,22 @@ exports[`Carousel component works when controlled 1`] = `
             </div>
           </div>
         </div>
-@@ -65,16 +65,21 @@
+@@ -66,16 +66,21 @@
         >
           <span
-            class=\\"sliding-slot\\"
+            class=\\"SlideControls-slidingSlot-153\\"
           >
             <span
--             class=\\"numbers\\"
-+             class=\\"numbers numbers--up\\"
+-             class=\\"SlideControls-numbers-156\\"
++             class=\\"SlideControls-numbers-156 SlideControls-up-157\\"
 +           >
 +             <span
-+               class=\\"number\\"
++               class=\\"SlideControls-number-161\\"
               >
 +               01
 +             </span>
               <span
-                class=\\"number number--active\\"
+                class=\\"SlideControls-number-161 SlideControls-active-160\\"
               >
 -               01
 +               02
@@ -433,5 +438,5 @@ exports[`Carousel component works when controlled 1`] = `
             </span>
           </span>
           <span
-            class=\\"total\\""
+            class=\\"SlideControls-total-159\\""
 `;

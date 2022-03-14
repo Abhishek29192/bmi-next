@@ -79,7 +79,7 @@ const IntegratedSignupBlock = ({
         title={title}
         description={description?.description}
         inputCallToAction={signupLabel}
-        theme={theme || "blue-800"}
+        theme={theme || "blue800"}
         buttonComponent={(props: ButtonProps) => (
           <GTMButton
             gtm={{

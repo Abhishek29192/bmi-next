@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import Dialog from "../Dialog";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Dialog component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Dialog open onCloseClick={console.log}>
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
@@ -15,7 +15,7 @@ describe("Dialog component", () => {
   });
 
   it("renders without confirm label", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Dialog open onCloseClick={console.log}>
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
@@ -26,7 +26,7 @@ describe("Dialog component", () => {
   });
 
   it("renders without close icon", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Dialog>
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
@@ -36,7 +36,7 @@ describe("Dialog component", () => {
   });
 
   it("renders closed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Dialog onCloseClick={console.log}>
         <Dialog.Title hasUnderline>Heading</Dialog.Title>
         <Dialog.Content>Some content</Dialog.Content>
@@ -47,7 +47,7 @@ describe("Dialog component", () => {
   });
 
   it("renders without a heading", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Dialog open onCloseClick={console.log}>
         <Dialog.Content>Some content</Dialog.Content>
         <Dialog.Actions confirmLabel={"Close"} />
@@ -67,7 +67,7 @@ describe("Dialog component", () => {
     const onConfirmClick = jest.fn();
     const onCancelClick = jest.fn();
 
-    const { container, getByLabelText, getByText } = render(
+    const { container, getByLabelText, getByText } = renderWithThemeProvider(
       <Dialog
         open
         onCloseClick={onCloseClick}

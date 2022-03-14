@@ -1,14 +1,18 @@
+import { within } from "@testing-library/react";
 import React from "react";
-import { render, within } from "@testing-library/react";
-import SelectGuaranteesTemplate from "../SelectGuaranteesTemplate";
-import { generateProject } from "../../../../lib/tests/factories/project";
-import { generateProduct } from "../../../../lib/tests/factories/product";
+import { useMarketContext } from "../../../../context/MarketContext";
 import { projectMembers } from "../../../../fixtures/projectMembers";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
+import { generateProduct } from "../../../../lib/tests/factories/product";
+import { generateProject } from "../../../../lib/tests/factories/project";
 import Apollo from "../../../../lib/tests/fixtures/apollo";
 import I18nProvider from "../../../../lib/tests/fixtures/i18n";
-import { fireEvent, screen } from "../../../../lib/tests/utils";
-import { useMarketContext } from "../../../../context/MarketContext";
+import {
+  fireEvent,
+  renderWithThemeProvider,
+  screen
+} from "../../../../lib/tests/utils";
+import SelectGuaranteesTemplate from "../SelectGuaranteesTemplate";
 
 const useWizardContextSpy = jest.fn();
 jest.mock("../../WizardContext", () => ({
@@ -107,7 +111,7 @@ describe("SelectGuaranteesTemplate", () => {
       previousStep: 0,
       data: mockData
     });
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Apollo>
         <I18nProvider>
           <SelectGuaranteesTemplate />
@@ -130,7 +134,7 @@ describe("SelectGuaranteesTemplate", () => {
       previousStep: 1,
       data: mockData
     });
-    render(
+    renderWithThemeProvider(
       <Apollo>
         <I18nProvider>
           <SelectGuaranteesTemplate />

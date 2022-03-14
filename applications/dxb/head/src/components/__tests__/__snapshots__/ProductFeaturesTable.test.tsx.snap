@@ -5,7 +5,7 @@ exports[`ProductFeaturesTable component Renders correctly When no features provi
   <div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-odd-color Table--no-border"
+        class="MuiTable-root Table-root-1 Table-oddColor-4 Table-noBorder-2"
       >
         <tbody
           class="MuiTableBody-root"
@@ -21,7 +21,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
   <div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-odd-color Table--no-border"
+        class="MuiTable-root Table-root-13 Table-oddColor-16 Table-noBorder-14"
       >
         <tbody
           class="MuiTableBody-root"
@@ -66,7 +66,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
   <div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-odd-color"
+        class="MuiTable-root Table-root-25 Table-oddColor-28"
       >
         <tbody
           class="MuiTableBody-root"
@@ -111,7 +111,7 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
   <div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-even-color Table--no-border"
+        class="MuiTable-root Table-root-75 Table-evenColor-77 Table-noBorder-76"
       >
         <tbody
           class="MuiTableBody-root"
@@ -156,10 +156,10 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
   <div>
     <div>
       <table
-        class="MuiTable-root Table Table--row-odd-color"
+        class="MuiTable-root Table-root-37 Table-oddColor-40"
       >
         <thead
-          class="MuiTableHead-root ColorPair ColorPair--pearl"
+          class="MuiTableHead-root ColorPair-root-49 ColorPair-pearl-51"
         >
           <div>
             Header Row

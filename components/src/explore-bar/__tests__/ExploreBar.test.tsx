@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import ExploreBar from "../ExploreBar";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ExploreBar component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExploreBar
         heading="Explore:"
         links={[
@@ -15,7 +15,7 @@ describe("ExploreBar component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with multiple links", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExploreBar
         heading="Explore:"
         links={[
@@ -38,7 +38,7 @@ describe("ExploreBar component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders with different heading", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExploreBar
         heading="Hello world"
         links={[
@@ -56,7 +56,7 @@ describe("ExploreBar component", () => {
     ));
     Link.displayName = "Link";
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ExploreBar
         heading="Hello world"
         links={[

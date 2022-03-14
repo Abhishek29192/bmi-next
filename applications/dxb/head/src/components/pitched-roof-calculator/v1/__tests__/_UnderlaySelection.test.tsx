@@ -1,6 +1,6 @@
-import React from "react";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import { FormContext } from "@bmi/components";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/data.json";
@@ -20,22 +20,24 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <UnderlaySelection
-            selected={undefined}
-            dimensions={dimensionsSample}
-            options={data.underlays}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <UnderlaySelection
+              selected={undefined}
+              dimensions={dimensionsSample}
+              options={data.underlays}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -47,22 +49,24 @@ describe("PitchedRoofCalculator UnderlaySelection component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <UnderlaySelection
-            selected={undefined}
-            dimensions={dimensionsSample}
-            options={[]}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <UnderlaySelection
+              selected={undefined}
+              dimensions={dimensionsSample}
+              options={[]}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();

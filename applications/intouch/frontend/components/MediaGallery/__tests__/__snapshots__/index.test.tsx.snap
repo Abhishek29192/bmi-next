@@ -16,7 +16,6 @@ exports[`MediaGallery should download fileUrl 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -30,19 +29,19 @@ exports[`MediaGallery should download fileUrl 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-573 ColorPair-white-574"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-152"
+        class="Dialog-root-559 Dialog-bg-white-566 Dialog-width-lg-571 modal makeStyles-paper-558"
       >
         <div
-          class="header"
+          class="Dialog-header-560"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-164 iconButtonStyles-medium-170 iconButtonStyles-text-166 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-610 iconButton IconButton-medium-616 IconButton-text-612 Dialog-iconButton-562"
             tabindex="0"
             type="button"
           >
@@ -66,10 +65,10 @@ exports[`MediaGallery should download fileUrl 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-623"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-619 Carousel-swipable-628"
             data-testid="carousel"
           >
             <div
@@ -86,10 +85,11 @@ exports[`MediaGallery should download fileUrl 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-622"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-620 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -97,21 +97,22 @@ exports[`MediaGallery should download fileUrl 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-629 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title-2
                           </h6>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-153 MuiButton-contained buttonStyles-contained-155 MuiButton-containedPrimary"
+                            class="MuiButtonBase-root MuiButton-root Button-root-599 MuiButton-contained Button-contained-601 MuiButton-containedPrimary"
                             data-testid="download-button"
                             tabindex="0"
                             type="button"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-156"
+                              class="MuiButton-label Button-label-602"
                             >
                               <span
-                                class="MuiButton-startIcon buttonStyles-startIcon-157 MuiButton-iconSizeMedium"
+                                class="MuiButton-startIcon Button-startIcon-603 MuiButton-iconSizeMedium"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -145,7 +146,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-164 iconButtonStyles-medium-170 iconButtonStyles-text-166 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-610 iconButton IconButton-medium-616 IconButton-text-612 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -169,7 +170,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-164 iconButtonStyles-medium-170 iconButtonStyles-text-166 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-610 iconButton IconButton-medium-616 IconButton-text-612 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -210,7 +211,6 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -224,19 +224,19 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-174 ColorPair-white-175"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-43"
+        class="Dialog-root-160 Dialog-bg-white-167 Dialog-width-lg-172 modal makeStyles-paper-159"
       >
         <div
-          class="header"
+          class="Dialog-header-161"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-55 iconButtonStyles-medium-61 iconButtonStyles-text-57 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-211 iconButton IconButton-medium-217 IconButton-text-213 Dialog-iconButton-163"
             tabindex="0"
             type="button"
           >
@@ -260,10 +260,10 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-224"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-220 Carousel-swipable-229"
             data-testid="carousel"
           >
             <div
@@ -280,10 +280,11 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-223"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-221 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -291,21 +292,22 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-230 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title
                           </h6>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-44 MuiButton-contained buttonStyles-contained-46 MuiButton-containedPrimary"
+                            class="MuiButtonBase-root MuiButton-root Button-root-200 MuiButton-contained Button-contained-202 MuiButton-containedPrimary"
                             data-testid="download-button"
                             tabindex="0"
                             type="button"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-47"
+                              class="MuiButton-label Button-label-203"
                             >
                               <span
-                                class="MuiButton-startIcon buttonStyles-startIcon-48 MuiButton-iconSizeMedium"
+                                class="MuiButton-startIcon Button-startIcon-204 MuiButton-iconSizeMedium"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -338,7 +340,7 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-55 iconButtonStyles-medium-61 iconButtonStyles-text-57 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-211 iconButton IconButton-medium-217 IconButton-text-213 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -362,7 +364,7 @@ exports[`MediaGallery should preview as bmi icon if url is empty 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-55 iconButtonStyles-medium-61 iconButtonStyles-text-57 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-211 iconButton IconButton-medium-217 IconButton-text-213 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -403,7 +405,6 @@ exports[`MediaGallery should preview as url if any 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -417,19 +418,19 @@ exports[`MediaGallery should preview as url if any 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-95 ColorPair-white-96"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-22"
+        class="Dialog-root-81 Dialog-bg-white-88 Dialog-width-lg-93 modal makeStyles-paper-80"
       >
         <div
-          class="header"
+          class="Dialog-header-82"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-34 iconButtonStyles-medium-40 iconButtonStyles-text-36 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-132 iconButton IconButton-medium-138 IconButton-text-134 Dialog-iconButton-84"
             tabindex="0"
             type="button"
           >
@@ -453,10 +454,10 @@ exports[`MediaGallery should preview as url if any 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-145"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-141 Carousel-swipable-150"
             data-testid="carousel"
           >
             <div
@@ -473,10 +474,11 @@ exports[`MediaGallery should preview as url if any 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-144"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-142 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -484,21 +486,22 @@ exports[`MediaGallery should preview as url if any 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-151 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title-2
                           </h6>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-contained buttonStyles-contained-25 MuiButton-containedPrimary"
+                            class="MuiButtonBase-root MuiButton-root Button-root-121 MuiButton-contained Button-contained-123 MuiButton-containedPrimary"
                             data-testid="download-button"
                             tabindex="0"
                             type="button"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-26"
+                              class="MuiButton-label Button-label-124"
                             >
                               <span
-                                class="MuiButton-startIcon buttonStyles-startIcon-27 MuiButton-iconSizeMedium"
+                                class="MuiButton-startIcon Button-startIcon-125 MuiButton-iconSizeMedium"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -532,7 +535,7 @@ exports[`MediaGallery should preview as url if any 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-34 iconButtonStyles-medium-40 iconButtonStyles-text-36 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-132 iconButton IconButton-medium-138 IconButton-text-134 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -556,7 +559,7 @@ exports[`MediaGallery should preview as url if any 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-34 iconButtonStyles-medium-40 iconButtonStyles-text-36 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-132 iconButton IconButton-medium-138 IconButton-text-134 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -597,7 +600,6 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -611,19 +613,19 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-253 ColorPair-white-254"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-64"
+        class="Dialog-root-239 Dialog-bg-white-246 Dialog-width-lg-251 modal makeStyles-paper-238"
       >
         <div
-          class="header"
+          class="Dialog-header-240"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-76 iconButtonStyles-medium-82 iconButtonStyles-text-78 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-290 iconButton IconButton-medium-296 IconButton-text-292 Dialog-iconButton-242"
             tabindex="0"
             type="button"
           >
@@ -647,10 +649,10 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-303"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-299 Carousel-swipable-308"
             data-testid="carousel"
           >
             <div
@@ -667,10 +669,11 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-302"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-300 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -678,7 +681,8 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-309 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title-3
                           </h6>
@@ -705,7 +709,7 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-76 iconButtonStyles-medium-82 iconButtonStyles-text-78 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-290 iconButton IconButton-medium-296 IconButton-text-292 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -729,7 +733,7 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-76 iconButtonStyles-medium-82 iconButtonStyles-text-78 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-290 iconButton IconButton-medium-296 IconButton-text-292 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -770,7 +774,6 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -784,19 +787,19 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-332 ColorPair-white-333"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-85"
+        class="Dialog-root-318 Dialog-bg-white-325 Dialog-width-lg-330 modal makeStyles-paper-317"
       >
         <div
-          class="header"
+          class="Dialog-header-319"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-369 iconButton IconButton-medium-375 IconButton-text-371 Dialog-iconButton-321"
             tabindex="0"
             type="button"
           >
@@ -820,10 +823,10 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-382"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-378 Carousel-swipable-387"
             data-testid="carousel"
           >
             <div
@@ -840,10 +843,11 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-381"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-379 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -851,7 +855,8 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-388 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title-3
                           </h6>
@@ -886,7 +891,7 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-369 iconButton IconButton-medium-375 IconButton-text-371 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -910,7 +915,7 @@ exports[`MediaGallery should preview as vimeo if type vimeo with mediaItem class
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-369 iconButton IconButton-medium-375 IconButton-text-371 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -951,7 +956,6 @@ exports[`MediaGallery should render component 1`] = `
     aria-hidden="true"
   />
   <div
-    class=""
     role="presentation"
     style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
   >
@@ -965,19 +969,19 @@ exports[`MediaGallery should render component 1`] = `
       tabindex="0"
     />
     <div
-      class="ColorPair ColorPair--white"
+      class="ColorPair-root-16 ColorPair-white-17"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-1"
+        class="Dialog-root-2 Dialog-bg-white-9 Dialog-width-lg-14 modal makeStyles-paper-1"
       >
         <div
-          class="header"
+          class="Dialog-header-3"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-13 iconButtonStyles-medium-19 iconButtonStyles-text-15 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-53 iconButton IconButton-medium-59 IconButton-text-55 Dialog-iconButton-5"
             tabindex="0"
             type="button"
           >
@@ -1001,10 +1005,10 @@ exports[`MediaGallery should render component 1`] = `
           </button>
         </div>
         <div
-          class="wrapper"
+          class="Carousel-wrapper-66"
         >
           <div
-            class="Carousel Carousel--swipable"
+            class="Carousel-root-62 Carousel-swipable-71"
             data-testid="carousel"
           >
             <div
@@ -1021,10 +1025,11 @@ exports[`MediaGallery should render component 1`] = `
                   style="width: 100%; flex-shrink: 0; overflow: auto;"
                 >
                   <div
-                    class="page"
+                    class="Carousel-page-65"
                   >
                     <div
-                      class="slide slide"
+                      class="Carousel-slide-63 slide"
+                      data-test-class-name="slide"
                       style="width: 100%;"
                     >
                       <div>
@@ -1032,21 +1037,22 @@ exports[`MediaGallery should render component 1`] = `
                           class="mediaHeader"
                         >
                           <h6
-                            class="MuiTypography-root mediaTitle Typography MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            class="MuiTypography-root mediaTitle Typography-root-72 MuiTypography-subtitle2 MuiTypography-displayBlock"
+                            data-testid="typography"
                           >
                             test-title
                           </h6>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-2 MuiButton-contained buttonStyles-contained-4 MuiButton-containedPrimary"
+                            class="MuiButtonBase-root MuiButton-root Button-root-42 MuiButton-contained Button-contained-44 MuiButton-containedPrimary"
                             data-testid="download-button"
                             tabindex="0"
                             type="button"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-5"
+                              class="MuiButton-label Button-label-45"
                             >
                               <span
-                                class="MuiButton-startIcon buttonStyles-startIcon-6 MuiButton-iconSizeMedium"
+                                class="MuiButton-startIcon Button-startIcon-46 MuiButton-iconSizeMedium"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -1079,7 +1085,7 @@ exports[`MediaGallery should render component 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-13 iconButtonStyles-medium-19 iconButtonStyles-text-15 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-53 iconButton IconButton-medium-59 IconButton-text-55 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -1103,7 +1109,7 @@ exports[`MediaGallery should render component 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-13 iconButtonStyles-medium-19 iconButtonStyles-text-15 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-53 iconButton IconButton-medium-59 IconButton-text-55 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"

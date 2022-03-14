@@ -1,9 +1,9 @@
 import classnames from "classnames";
 import React, { useMemo, useState } from "react";
-import CardInput, { Props as CardInputProps } from "../card-input/CardInput";
-import withFormControl from "../form/withFormControl";
-import Grid from "../grid/Grid";
-import styles from "./CardCheckboxGroup.module.scss";
+import CardInput, { CardInputProps } from "../card-input";
+import { withFormControl } from "../form";
+import Grid from "../grid";
+import { useStyles } from "./styles";
 
 export type Props = {
   name: string;
@@ -45,6 +45,7 @@ const CardCheckboxGroup = ({
   const [selected, setSelected] = useState<Record<string, boolean>>(() =>
     defaultValue ? toBooleanObject(defaultValue) : {}
   );
+  const classes = useStyles();
 
   const options = useMemo(
     () =>
@@ -85,7 +86,7 @@ const CardCheckboxGroup = ({
             // eslint-disable-next-line security/detect-object-injection
             checked: Boolean(selected[value]),
             onChange: handleOnChange,
-            className: classnames(styles["item"], className)
+            className: classnames(classes.item, className)
           });
         }
 
@@ -99,7 +100,7 @@ const CardCheckboxGroup = ({
   );
 
   return (
-    <div className={classnames(styles["CardCheckboxGroup"], className)}>
+    <div className={classnames(classes.root, className)}>
       <Grid container spacing={2} className={gridContainerClassName}>
         {items}
         {noneLabel ? (

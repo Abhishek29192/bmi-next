@@ -28,7 +28,7 @@ exports[`CalculatorModal component renders closed 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-45 Container-fullWidth-46"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -43,7 +43,7 @@ exports[`CalculatorModal component renders closed 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-58 iconButton IconButton-medium-64 IconButton-text-60 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -72,7 +72,7 @@ exports[`CalculatorModal component renders closed 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-45"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -118,7 +118,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-1 Container-fullWidth-2"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -133,7 +133,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-14 iconButton IconButton-medium-20 IconButton-text-16 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -162,7 +162,7 @@ exports[`CalculatorModal component renders correctly 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-1"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -209,7 +209,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-177 Container-fullWidth-178"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -222,7 +222,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-172 iconButtonStyles-medium-178 iconButtonStyles-text-174 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-190 iconButton IconButton-medium-196 IconButton-text-192 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -251,7 +251,7 @@ exports[`CalculatorModal component renders with ariaDescribedby props 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-177"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -298,7 +298,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-155 Container-fullWidth-156"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -311,7 +311,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-168 iconButton IconButton-medium-174 IconButton-text-170 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -340,7 +340,7 @@ exports[`CalculatorModal component renders with ariaLabelledby props 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-155"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -387,7 +387,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-133 Container-fullWidth-134"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -400,7 +400,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-146 iconButton IconButton-medium-152 IconButton-text-148 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -429,7 +429,7 @@ exports[`CalculatorModal component renders with backdropProps 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-133"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -475,7 +475,7 @@ exports[`CalculatorModal component renders with className 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-199 Container-fullWidth-200"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -488,7 +488,7 @@ exports[`CalculatorModal component renders with className 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-192 iconButtonStyles-medium-198 iconButtonStyles-text-194 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-212 iconButton IconButton-medium-218 IconButton-text-214 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -517,7 +517,7 @@ exports[`CalculatorModal component renders with className 1`] = `
         class="content custom-class-name"
       >
         <div
-          class="Container"
+          class="Container-root-199"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -563,7 +563,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-221 Container-fullWidth-222"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -576,7 +576,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
             />
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-212 iconButtonStyles-medium-218 iconButtonStyles-text-214 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-234 iconButton IconButton-medium-240 IconButton-text-236 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -605,7 +605,7 @@ exports[`CalculatorModal component renders with disablePortal 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-221"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -651,7 +651,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
         class="header pearl"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-89 Container-fullWidth-90"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -666,7 +666,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-102 iconButton IconButton-medium-108 IconButton-text-104 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -695,7 +695,7 @@ exports[`CalculatorModal component renders with no logo 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-89"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -741,7 +741,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         class="header white"
       >
         <div
-          class="Container Container--full-width"
+          class="Container-root-23 Container-fullWidth-24"
         >
           <div
             class="MuiContainer-root headerContainer MuiContainer-maxWidthXl"
@@ -756,7 +756,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
             </div>
             <button
               aria-label="Close"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 headerSide iconButton"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-36 iconButton IconButton-medium-42 IconButton-text-38 headerSide iconButton"
               tabindex="0"
               type="button"
             >
@@ -785,7 +785,7 @@ exports[`CalculatorModal component renders with pearl background 1`] = `
         class="content"
       >
         <div
-          class="Container"
+          class="Container-root-23"
         >
           <div
             class="MuiContainer-root MuiContainer-maxWidthXl"

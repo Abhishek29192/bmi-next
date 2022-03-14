@@ -1,11 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import RadioButton from "../../radio-button/RadioButton";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import RadioGroup from "../RadioGroup";
 
 describe("RadioGroup component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioGroup name="deckType">
         <RadioButton value="label">
           <span>Combustible (timber/plywood)</span>
@@ -18,7 +18,7 @@ describe("RadioGroup component", () => {
 
   it("execute onChange correctly", () => {
     const handleOnChange = jest.fn();
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioGroup name="deckType" onChange={handleOnChange}>
         <RadioButton value="label">
           <span>Combustible (timber/plywood)</span>
@@ -35,7 +35,7 @@ describe("RadioGroup component", () => {
   });
 
   it("renders correctly with className prop", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioGroup className="name" name="deckType">
         <RadioButton value="label">
           <span>Combustible (timber/plywood)</span>
@@ -50,7 +50,7 @@ describe("RadioGroup component", () => {
   });
 
   it("renders correctly with defaultValue prop", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <RadioGroup defaultValue="defaultValue" name="deckType">
         <RadioButton value="label">
           <span>Combustible (timber/plywood)</span>

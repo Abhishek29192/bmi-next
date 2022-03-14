@@ -6,24 +6,25 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
     class="SampleBasketSectionProducts"
   >
     <button
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      class="MuiButtonBase-root OverviewCard-root-1 OverviewCard-clickable-4 product-wrapper"
       tabindex="0"
       type="button"
     >
       <img
         alt="sample-1"
-        class="product-image header-picture Media"
+        class="product-image OverviewCard-headerPicture-7 Media-root-16"
         src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
-        class="body"
+        class="OverviewCard-body-8"
       >
         <h4
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+          class="MuiTypography-root OverviewCard-title-9 OverviewCard-noBrandLogo-10 Typography-root-18 MuiTypography-h4"
+          data-testid="typography"
         />
         <div
-          class="children text children--without-margin"
+          class="OverviewCard-children-12 OverviewCard-text-11 OverviewCard-withoutMargin-13"
         >
           <div
             class="product"
@@ -32,19 +33,22 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
               class="product-description"
             >
               <p
-                class="MuiTypography-root product-title Typography MuiTypography-body1"
+                class="MuiTypography-root product-title Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 sample-1
               </p>
               <p
-                class="MuiTypography-root product-color Typography MuiTypography-body1"
+                class="MuiTypography-root product-color Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               />
               <p
-                class="MuiTypography-root product-size Typography MuiTypography-body1"
+                class="MuiTypography-root product-size Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               />
             </div>
             <button
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-37 iconButton IconButton-medium-43 product-button"
               tabindex="0"
               type="button"
             >
@@ -74,24 +78,25 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      class="MuiButtonBase-root OverviewCard-root-1 OverviewCard-clickable-4 product-wrapper"
       tabindex="0"
       type="button"
     >
       <img
         alt="sample-2"
-        class="product-image header-picture Media"
+        class="product-image OverviewCard-headerPicture-7 Media-root-16"
         src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
-        class="body"
+        class="OverviewCard-body-8"
       >
         <h4
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+          class="MuiTypography-root OverviewCard-title-9 OverviewCard-noBrandLogo-10 Typography-root-18 MuiTypography-h4"
+          data-testid="typography"
         />
         <div
-          class="children text children--without-margin"
+          class="OverviewCard-children-12 OverviewCard-text-11 OverviewCard-withoutMargin-13"
         >
           <div
             class="product"
@@ -100,23 +105,26 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
               class="product-description"
             >
               <p
-                class="MuiTypography-root product-title Typography MuiTypography-body1"
+                class="MuiTypography-root product-title Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 sample-2
               </p>
               <p
-                class="MuiTypography-root product-color Typography MuiTypography-body1"
+                class="MuiTypography-root product-color Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 Red | Matte
               </p>
               <p
-                class="MuiTypography-root product-size Typography MuiTypography-body1"
+                class="MuiTypography-root product-size Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 10x20x30 mm
               </p>
             </div>
             <button
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-37 iconButton IconButton-medium-43 product-button"
               tabindex="0"
               type="button"
             >
@@ -146,24 +154,25 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
       />
     </button>
     <button
-      class="MuiButtonBase-root OverviewCard OverviewCard--clickable product-wrapper"
+      class="MuiButtonBase-root OverviewCard-root-1 OverviewCard-clickable-4 product-wrapper"
       tabindex="0"
       type="button"
     >
       <img
         alt="sample-3"
-        class="product-image header-picture Media"
+        class="product-image OverviewCard-headerPicture-7 Media-root-16"
         src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
-        class="body"
+        class="OverviewCard-body-8"
       >
         <h4
-          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+          class="MuiTypography-root OverviewCard-title-9 OverviewCard-noBrandLogo-10 Typography-root-18 MuiTypography-h4"
+          data-testid="typography"
         />
         <div
-          class="children text children--without-margin"
+          class="OverviewCard-children-12 OverviewCard-text-11 OverviewCard-withoutMargin-13"
         >
           <div
             class="product"
@@ -172,21 +181,24 @@ exports[`SampleBasketSectionProducts component render correctly on mobile device
               class="product-description"
             >
               <p
-                class="MuiTypography-root product-title Typography MuiTypography-body1"
+                class="MuiTypography-root product-title Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 sample-3
               </p>
               <p
-                class="MuiTypography-root product-color Typography MuiTypography-body1"
+                class="MuiTypography-root product-color Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               >
                 Black
               </p>
               <p
-                class="MuiTypography-root product-size Typography MuiTypography-body1"
+                class="MuiTypography-root product-size Typography-root-18 MuiTypography-body1"
+                data-testid="typography"
               />
             </div>
             <button
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 product-button"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-37 iconButton IconButton-medium-43 product-button"
               tabindex="0"
               type="button"
             >

@@ -1,7 +1,7 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import axios from "axios";
 import FileComponent from "../_File";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 jest.mock("axios");
 
@@ -36,7 +36,7 @@ describe("Upload component", () => {
   });
 
   it("renders correctly", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <FileComponent
         file={createFile()}
         uri={uri}
@@ -58,9 +58,10 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
     const file = createFile();
 
     const headers = {
@@ -68,7 +69,7 @@ describe("Upload component", () => {
       "content-type": "image/gif"
     };
 
-    render(
+    renderWithThemeProvider(
       <FileComponent
         file={file}
         uri={uri}
@@ -96,7 +97,7 @@ describe("Upload component", () => {
 
     axios.CancelToken.source = jest.fn().mockReturnValue({ token: "this" });
 
-    render(
+    renderWithThemeProvider(
       <FileComponent
         file={createFile()}
         uri={uri}
@@ -120,11 +121,12 @@ describe("Upload component", () => {
       })
     );
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
-    render(
+    renderWithThemeProvider(
       <FileComponent
         file={createFile()}
         uri={uri}
@@ -146,13 +148,14 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
     const validation = () => "valid";
 
-    render(
+    renderWithThemeProvider(
       <FileComponent
         file={createFile()}
         validation={validation}
@@ -169,7 +172,7 @@ describe("Upload component", () => {
   it("should call onRequest function if it is populated", async () => {
     const onRequest = jest.fn();
 
-    render(
+    renderWithThemeProvider(
       <FileComponent
         file={createFile()}
         onRequest={onRequest}
@@ -184,7 +187,7 @@ describe("Upload component", () => {
   });
 
   it("renders correctly with large file size", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <FileComponent
         file={createFile({ type: "image/png", size: 12345593094 })}
         uri={uri}
@@ -205,11 +208,12 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <FileComponent
         file={createFile({ type: "pdf" })}
         uri="https://run.mocky.io/v3/c5a04537-f12b-4fa4-82ea-71711db77ffb"

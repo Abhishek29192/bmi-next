@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import AlternativeContent from "../AlternativeContent";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("AlternativeContent component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <AlternativeContent>Lorem Ipsum</AlternativeContent>
     );
     expect(container).toMatchSnapshot();

@@ -1,11 +1,11 @@
-import React from "react";
-import classnames from "classnames";
 import { GridProps } from "@material-ui/core";
+import classnames from "classnames";
+import React from "react";
 import { Colors } from "../color-pair/ColorPair";
 import Grid from "../grid/Grid";
 import PostItCard from "../post-it-card/PostItCard";
 import Typography, { Props as TypographyProps } from "../typography/Typography";
-import styles from "./LeadBlock.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   className?: string;
@@ -20,29 +20,26 @@ type CardProps = {
 
 const LeadBlockContent = ({ className, children }: Props) => {
   return (
-    <Grid
-      className={classnames(className, styles["LeadBlockContent"])}
-      item
-      lg={8}
-      xs={12}
-    >
+    <Grid className={className} item lg={8} xs={12}>
       {children}
     </Grid>
   );
 };
 
 const LeadBlockContentSection = ({ className, children }: Props) => {
+  const classes = useStyles();
   return (
-    <div className={classnames(className, styles["LeadBlockContentSection"])}>
+    <div className={classnames(className, classes.leadBlockContentSection)}>
       {children}
     </div>
   );
 };
 
 const LeadBlockContentHeading = ({ children, ...rest }: TypographyProps) => {
+  const classes = useStyles();
   return (
     <Typography
-      className={styles["LeadBlockContentHeading"]}
+      className={classes.leadBlockContentHeading}
       variant="h5"
       {...rest}
     >
@@ -60,9 +57,10 @@ const LeadBlockCard = ({ children, theme = "pearl", ...rest }: CardProps) => {
 };
 
 const LeadBlock = ({ className, children, ...rest }: Props & GridProps) => {
+  const classes = useStyles();
   return (
     <Grid
-      className={classnames(className, styles["LeadBlock"])}
+      className={classnames(className, classes.root)}
       container
       spacing={3}
       {...rest}

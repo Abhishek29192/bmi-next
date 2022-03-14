@@ -3,28 +3,27 @@
 exports[`CompanyDetails component renders all types of details 1`] = `
 <div>
   <div
-    class="CompanyDetails"
+    class="CompanyDetails-root-37"
   >
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root CompanyDetails-title-38 Typography-root-51 MuiTypography-h5"
+      data-testid="typography"
     >
       Name of the company
     </h5>
-    <div
-      class="scrollbar"
-    >
+    <div>
       <dl
-        class="list"
+        class="CompanyDetails-list-39"
       >
         <address
-          class="row"
+          class="CompanyDetails-row-42 CompanyDetails-address-41"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -33,26 +32,27 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Address
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             full address
           </dd>
         </address>
         <address
-          class="row"
+          class="CompanyDetails-row-42 CompanyDetails-address-41"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -61,13 +61,14 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Address
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <b>
               full address
@@ -75,26 +76,26 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </dd>
         </address>
         <address
-          class="row"
+          class="CompanyDetails-row-42 CompanyDetails-address-41"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           />
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             full address
           </dd>
         </address>
         <address
-          class="row"
+          class="CompanyDetails-row-42 CompanyDetails-address-41"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -103,44 +104,46 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Address
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             full address
           </dd>
         </address>
         <address
-          class="row"
+          class="CompanyDetails-row-42 CompanyDetails-address-41"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="MuiTypography-root label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Address
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             full address
           </dd>
         </address>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -149,28 +152,29 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Distance
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             12.56km
           </dd>
         </div>
         <div
-          class="row, row--cta"
+          class="CompanyDetails-row-42, CompanyDetails-cta-43"
         >
           <a
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 cta-button MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-59 MuiButton-contained Button-contained-61 CompanyDetails-button-48 MuiButton-containedPrimary"
             href="https://google.com"
             tabindex="0"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-62"
             >
               Get directions
             </span>
@@ -180,14 +184,14 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </a>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -196,16 +200,17 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Telephone
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover CompanyDetails-link-50 AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
               href="tel:000000000000"
             >
               <span>
@@ -215,14 +220,14 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -231,16 +236,17 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Email
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover CompanyDetails-link-50 AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
               href="mailto:hello@roofingcompany.com"
             >
               <span>
@@ -250,14 +256,14 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root icon"
+              class="MuiSvgIcon-root CompanyDetails-icon-44"
               focusable="false"
               viewBox="0 0 24 24"
             >
@@ -266,16 +272,17 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               />
             </svg>
             <span
-              class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 CompanyDetails-accessibilityLabel-49 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Website
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <a
-              class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover CompanyDetails-link-50 AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
               href="https://roofingcompany.com"
             >
               <span>
@@ -285,19 +292,20 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="MuiTypography-root label Typography MuiTypography-body1"
+              class="MuiTypography-root CompanyDetails-label-47 Typography-root-51 MuiTypography-body1"
+              data-testid="typography"
             >
               Type of roof
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <b>
               Flat
@@ -305,94 +313,94 @@ exports[`CompanyDetails component renders all types of details 1`] = `
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="label"
+              class="CompanyDetails-label-47"
             >
               BMI RoofPro Level
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <svg
-              class="roofProLevelIcon"
+              class="CompanyDetails-roofProLevelIcon-40"
             />
             <span
-              class="accessibility-label"
+              class="CompanyDetails-accessibilityLabel-49"
             >
               expert
             </span>
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="label"
+              class="CompanyDetails-label-47"
             >
               BMI RoofPro Level
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <svg
-              class="roofProLevelIcon"
+              class="CompanyDetails-roofProLevelIcon-40"
             />
             <span
-              class="accessibility-label"
+              class="CompanyDetails-accessibilityLabel-49"
             >
               elite
             </span>
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="label"
+              class="CompanyDetails-label-47"
             >
               BMI RoofPro Level
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <svg
-              class="roofProLevelIcon"
+              class="CompanyDetails-roofProLevelIcon-40"
             />
             <span
-              class="accessibility-label"
+              class="CompanyDetails-accessibilityLabel-49"
             >
               partner
             </span>
           </dd>
         </div>
         <div
-          class="row"
+          class="CompanyDetails-row-42"
         >
           <dt
-            class="term"
+            class="CompanyDetails-term-45"
           >
             <span
-              class="label"
+              class="CompanyDetails-label-47"
             >
               BMI RoofPro Level
             </span>
           </dt>
           <dd
-            class="description"
+            class="CompanyDetails-description-46"
           >
             <pre
               style="color: rgb(214, 0, 28);"
@@ -402,7 +410,7 @@ exports[`CompanyDetails component renders all types of details 1`] = `
               " does not exist
             </pre>
             <span
-              class="accessibility-label"
+              class="CompanyDetails-accessibilityLabel-49"
             >
               invalid-level
             </span>
@@ -420,16 +428,15 @@ exports[`CompanyDetails component renders all types of details 1`] = `
 exports[`CompanyDetails component renders with no details 1`] = `
 <div>
   <div
-    class="CompanyDetails"
+    class="CompanyDetails-root-1"
   >
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root CompanyDetails-title-2 Typography-root-15 MuiTypography-h5"
+      data-testid="typography"
     >
       Name of the company
     </h5>
-    <div
-      class="scrollbar"
-    >
+    <div>
       <p>
         Summary
       </p>
@@ -440,11 +447,9 @@ exports[`CompanyDetails component renders with no details 1`] = `
 
 exports[`CompanyDetails component renders with no details and no name 1`] = `
 <div
-  class="CompanyDetails"
+  class="CompanyDetails-root-23"
 >
-  <div
-    class="scrollbar"
-  >
+  <div>
     <p>
       Summary
     </p>

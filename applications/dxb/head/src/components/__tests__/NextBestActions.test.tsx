@@ -1,11 +1,12 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
-import NextBestActions from "../NextBestActions";
-import { TagData } from "../Tag";
-import { Data as PageInfoData } from "../PageInfo";
 import { Data as LinkData, DataTypeEnum } from "../Link";
+import NextBestActions from "../NextBestActions";
+import { Data as PageInfoData } from "../PageInfo";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
+import { TagData } from "../Tag";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const testTag1: TagData = { type: "Group", title: "Badgers" };
@@ -70,36 +71,46 @@ const card3: PromoData = {
 describe("NextBestActions component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <SiteContextProvider value={getMockSiteContext()}>
-        <NextBestActions data={[card1, card2]} />
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getMockSiteContext()}>
+          <NextBestActions data={[card1, card2]} />
+        </SiteContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with no promo cta", () => {
     const { container } = render(
-      <SiteContextProvider value={getMockSiteContext()}>
-        <NextBestActions data={[{ ...card2, cta: null }]} />
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getMockSiteContext()}>
+          <NextBestActions data={[{ ...card2, cta: null }]} />
+        </SiteContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with no promo cta label", () => {
     const { container } = render(
-      <SiteContextProvider value={getMockSiteContext()}>
-        <NextBestActions data={[{ ...card2, cta: { ...cta, label: null } }]} />
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getMockSiteContext()}>
+          <NextBestActions
+            data={[{ ...card2, cta: { ...cta, label: null } }]}
+          />
+        </SiteContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders name with no title", () => {
     const { container } = render(
-      <SiteContextProvider value={getMockSiteContext()}>
-        <NextBestActions data={[card3]} />
-      </SiteContextProvider>
+      <ThemeProvider>
+        <SiteContextProvider value={getMockSiteContext()}>
+          <NextBestActions data={[card3]} />
+        </SiteContextProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

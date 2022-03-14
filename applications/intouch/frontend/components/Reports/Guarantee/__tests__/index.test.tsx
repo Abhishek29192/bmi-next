@@ -1,6 +1,6 @@
 import React from "react";
-import { renderAsReal, screen } from "../../../../lib/tests/utils";
 import GuaranteeReport from "..";
+import { renderAsReal, screen } from "../../../../lib/tests/utils";
 
 const mockGetGuaranteesReport = jest.fn();
 const mockOnCompleted = jest.fn();

@@ -1,11 +1,12 @@
 import React from "react";
-import { render, fireEvent, createEvent } from "@testing-library/react";
+import { createEvent, fireEvent } from "@testing-library/react";
 import YoutubeVideo from "../../youtube-video/YoutubeVideo";
 import Media from "../Media";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Media component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media>
         <img />
       </Media>
@@ -14,7 +15,7 @@ describe("Media component", () => {
   });
 
   it("renders correctly with className", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media className="test">
         <img />
       </Media>
@@ -23,12 +24,12 @@ describe("Media component", () => {
   });
 
   it("returns null if has no children", () => {
-    const { container } = render(<Media />);
+    const { container } = renderWithThemeProvider(<Media />);
     expect(container.firstChild).toBe(null);
   });
 
   it("renders correctly if child is not img or YoutubeVideo", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media>
         <p>text</p>
       </Media>
@@ -37,7 +38,7 @@ describe("Media component", () => {
   });
 
   it("renders correctly if size is not cover", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media size="contain">
         <img />
       </Media>
@@ -46,7 +47,7 @@ describe("Media component", () => {
   });
 
   it("renders correctly if child youtube video", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media size="contain">
         <YoutubeVideo
           label="label"
@@ -61,7 +62,7 @@ describe("Media component", () => {
   });
 
   it("should prevent drag event if child.type is img and isDragEnabled is false", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media isDragEnabled={false}>
         <img />
       </Media>
@@ -76,7 +77,7 @@ describe("Media component", () => {
   });
 
   it("should prevent drag event if child.type is img and isDragEnabled is undefined", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media>
         <img />
       </Media>
@@ -91,7 +92,7 @@ describe("Media component", () => {
   });
 
   it("should not prevent drag event if child.type is img and isDragEnabled is true", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Media isDragEnabled>
         <img />
       </Media>

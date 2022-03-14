@@ -1,6 +1,6 @@
-import React from "react";
+import { FormContext, ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import { FormContext } from "@bmi/components";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/data.json";
@@ -13,22 +13,24 @@ describe("PitchedRoofCalculator Guttering component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Guttering
-            selections={{}}
-            gutters={data.gutters as any}
-            gutterHooks={data.gutterHooks as any}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Guttering
+              selections={{}}
+              gutters={data.gutters as any}
+              gutterHooks={data.gutterHooks as any}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -46,22 +48,24 @@ describe("PitchedRoofCalculator Guttering component", () => {
     };
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values
-          }}
-        >
-          <Guttering
-            selections={values}
-            gutters={data.gutters as any}
-            gutterHooks={data.gutterHooks as any}
-          />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values
+            }}
+          >
+            <Guttering
+              selections={values}
+              gutters={data.gutters as any}
+              gutterHooks={data.gutterHooks as any}
+            />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -73,18 +77,20 @@ describe("PitchedRoofCalculator Guttering component", () => {
     const submitButtonDisabled = false;
 
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <FormContext.Provider
-          value={{
-            updateFormState,
-            hasBeenSubmitted,
-            submitButtonDisabled,
-            values: {}
-          }}
-        >
-          <Guttering selections={{}} gutters={[]} gutterHooks={[]} />
-        </FormContext.Provider>
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <FormContext.Provider
+            value={{
+              updateFormState,
+              hasBeenSubmitted,
+              submitButtonDisabled,
+              values: {}
+            }}
+          >
+            <Guttering selections={{}} gutters={[]} gutterHooks={[]} />
+          </FormContext.Provider>
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();

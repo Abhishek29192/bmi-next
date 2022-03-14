@@ -1,10 +1,10 @@
-import React, { ChangeEvent, ReactNode } from "react";
 import { Typography } from "@bmi/components";
 import Accordion, { AccordionProps } from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import styles from "./ConfiguratorPanel.module.scss";
+import React, { ChangeEvent, ReactNode } from "react";
+import { useStyles } from "./styles";
 
 export type ConfiguratorPanelProps = {
   title: string;
@@ -30,30 +30,31 @@ const ConfiguratorPanel = (
   }: ConfiguratorPanelProps,
   forwardedRef?: React.Ref<HTMLDivElement>
 ) => {
+  const classes = useStyles();
   return (
-    <div ref={forwardedRef} className={styles["ConfiguratorPanel"]}>
+    <div ref={forwardedRef} className={classes.root}>
       <Accordion
         square
-        className={styles["panel"]}
+        className={classes.panel}
         elevation={0}
         expanded={isExpanded}
         onChange={handleOnChange}
         {...rest}
       >
         <AccordionSummary
-          className={styles["summary"]}
+          className={classes.summary}
           expandIcon={<ExpandMoreIcon />}
         >
           <Typography
             color="inherit"
             component="h3"
             variant="h3"
-            className={styles["title"]}
+            className={classes.title}
           >
             {selectedOptionTitle ? (
               <>
                 {`${title}: `}
-                <span className={styles["selected-title"]}>
+                <span className={classes.selectedTitle}>
                   {selectedOptionTitle}
                 </span>
               </>
@@ -62,8 +63,8 @@ const ConfiguratorPanel = (
             )}
           </Typography>
         </AccordionSummary>
-        <AccordionDetails className={styles["details"]}>
-          {children && <div className={styles["content"]}>{children}</div>}
+        <AccordionDetails className={classes.details}>
+          {children && <div className={classes.content}>{children}</div>}
           {options}
         </AccordionDetails>
       </Accordion>

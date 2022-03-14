@@ -1,12 +1,7 @@
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor
-} from "@testing-library/react";
+import { act, cleanup, fireEvent, waitFor } from "@testing-library/react";
 import React, { Dispatch } from "react";
 import BuildIcon from "test.svg";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import ExpandableCard from "../ExpandableCard";
 
 afterEach(cleanup);
@@ -24,18 +19,20 @@ describe("ExpandableCard component", () => {
   });
 
   it("Should render the ExpandedCard expanded", () => {
-    const container = render(<ExpandableCard {...props} isExpanded />);
+    const container = renderWithThemeProvider(
+      <ExpandableCard {...props} isExpanded />
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("Should render the ExpandedCard not expanded", () => {
-    const container = render(<ExpandableCard {...props} />);
+    const container = renderWithThemeProvider(<ExpandableCard {...props} />);
     expect(container).toMatchSnapshot();
   });
 
   it("should render close button if the onCloseClick prop is provided", () => {
     const onCloseClickMock = jest.fn();
-    const { getByRole, rerender, queryByRole } = render(
+    const { getByRole, rerender, queryByRole } = renderWithThemeProvider(
       <ExpandableCard
         {...props}
         onCloseClick={onCloseClickMock}
@@ -55,7 +52,7 @@ describe("ExpandableCard component", () => {
   });
 
   it("should render ExpandableCard with footer if the footer prop is provided", () => {
-    const { getByText, rerender, queryByText } = render(
+    const { getByText, rerender, queryByText } = renderWithThemeProvider(
       <ExpandableCard {...props} footer="Test Footer" />
     );
     const footer = getByText(/test footer/i);
@@ -72,7 +69,7 @@ describe("ExpandableCard component", () => {
   it("should call onClick on a Card click", async () => {
     const onClickMock = jest.fn();
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <ExpandableCard {...props} onClick={onClickMock} />
     );
 
@@ -86,7 +83,7 @@ describe("ExpandableCard component", () => {
   it("should call onCloseClick on a close button click", async () => {
     const onCloseClickMock = jest.fn();
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <ExpandableCard
         {...props}
         onCloseClick={onCloseClickMock}
@@ -102,7 +99,7 @@ describe("ExpandableCard component", () => {
   });
 
   it("it expands the card when changing isExpanded", () => {
-    const { container, rerender, getByText } = render(
+    const { container, rerender, getByText } = renderWithThemeProvider(
       <ExpandableCard {...props} isExpanded={false} />
     );
 
@@ -128,7 +125,7 @@ describe("ExpandableCard component", () => {
   it("it triggers an onAnimationEnd event", () => {
     const onAnimationEnd = jest.fn();
 
-    const { rerender, getByText } = render(
+    const { rerender, getByText } = renderWithThemeProvider(
       <ExpandableCard
         {...props}
         isExpanded={false}
@@ -179,7 +176,7 @@ describe("ExpandableCard component", () => {
     ];
 
     it("it renders a list of cards", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <ExpandableCard.List
           items={items.filter(({ isExpanded }) => !isExpanded)}
         />
@@ -189,13 +186,15 @@ describe("ExpandableCard component", () => {
     });
 
     it("renders with one card expanded", () => {
-      const { container } = render(<ExpandableCard.List items={items} />);
+      const { container } = renderWithThemeProvider(
+        <ExpandableCard.List items={items} />
+      );
 
       expect(container).toMatchSnapshot();
     });
 
     it("handles multiple cards expanded by default", () => {
-      const { container } = render(
+      const { container } = renderWithThemeProvider(
         <ExpandableCard.List
           items={[
             ...items,
@@ -213,7 +212,7 @@ describe("ExpandableCard component", () => {
     });
 
     it("sets the clicked card to expanded", () => {
-      const { container, getByText } = render(
+      const { container, getByText } = renderWithThemeProvider(
         <ExpandableCard.List items={items} />
       );
 
@@ -223,7 +222,7 @@ describe("ExpandableCard component", () => {
     });
 
     it("doesn't re-expand an expanded card", () => {
-      const { container, getByText } = render(
+      const { container, getByText } = renderWithThemeProvider(
         <ExpandableCard.List items={items} />
       );
 
@@ -234,7 +233,7 @@ describe("ExpandableCard component", () => {
 
     it("closes the opened card", () => {
       const closeLabel = "Close me";
-      const { container, getByLabelText } = render(
+      const { container, getByLabelText } = renderWithThemeProvider(
         <ExpandableCard.List
           items={[
             {
@@ -262,7 +261,9 @@ describe("ExpandableCard component", () => {
       .spyOn(React, "useState")
       .mockImplementation(useStateMock as () => [unknown, Dispatch<unknown>]);
 
-    const container = render(<ExpandableCard {...props} isExpanded />);
+    const container = renderWithThemeProvider(
+      <ExpandableCard {...props} isExpanded />
+    );
 
     act(() => {
       window.innerWidth = 500;

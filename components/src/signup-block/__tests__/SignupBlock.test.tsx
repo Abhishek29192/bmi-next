@@ -1,6 +1,7 @@
-import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
+import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import SignupBlock from "../SignupBlock";
 
 const createMatchMedia = (width: number) => {
@@ -13,7 +14,7 @@ const createMatchMedia = (width: number) => {
 };
 describe("SignupBlock component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SignupBlock
         title="Lorem ipsum"
         description="Lorem ipsum sit dolor amet"
@@ -25,7 +26,7 @@ describe("SignupBlock component", () => {
 
   it("onSubmit works", async () => {
     const onSubmit = jest.fn();
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <SignupBlock
         title="Lorem ipsum"
         description="Lorem ipsum sit dolor amet"
@@ -39,7 +40,7 @@ describe("SignupBlock component", () => {
   });
 
   it("renders correctly if buttonComponent is passed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SignupBlock
         title="Lorem ipsum"
         description="Lorem ipsum sit dolor amet"
@@ -51,7 +52,7 @@ describe("SignupBlock component", () => {
   });
   it("renders correctly for large screen", () => {
     window.matchMedia = createMatchMedia(1025);
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <SignupBlock
         title="Lorem ipsum"
         description="Lorem ipsum sit dolor amet"

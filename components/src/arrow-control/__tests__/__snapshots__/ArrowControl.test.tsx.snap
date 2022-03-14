@@ -4,7 +4,7 @@ exports[`ArrowControl component renders correctly 1`] = `
 <div>
   <button
     aria-label="Move left"
-    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 ArrowControl ArrowControl--left"
+    class="MuiButtonBase-root MuiIconButton-root IconButton-root-16 iconButton IconButton-medium-22 IconButton-contained-17 ArrowControl-root-1 ArrowControl-left-2"
     tabindex="0"
     type="button"
   >
@@ -13,7 +13,7 @@ exports[`ArrowControl component renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root chevron"
+        class="MuiSvgIcon-root ArrowControl-chevron-4"
         focusable="false"
         viewBox="0 0 24 24"
       >

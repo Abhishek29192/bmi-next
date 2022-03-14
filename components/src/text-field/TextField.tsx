@@ -7,7 +7,7 @@ import { ErrorRounded } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { ChangeEvent } from "react";
 import withFormControl from "../form/withFormControl";
-import styles from "./TextField.module.scss";
+import { useStyles } from "./styles";
 
 type AdornmentProps =
   | {
@@ -44,6 +44,7 @@ export const TextField = ({
   isRequired,
   ...props
 }: Props) => {
+  const classes = useStyles();
   const hasAdornment = error || leftAdornment || rightAdornment;
   const inputProps = hasAdornment
     ? {
@@ -52,7 +53,7 @@ export const TextField = ({
             {error ? (
               <ErrorRounded
                 style={{ color: "red" }}
-                className={styles["Error"]}
+                className={classes.error}
               />
             ) : null}
             {leftAdornment}
@@ -78,10 +79,10 @@ export const TextField = ({
       onChange={handleChange}
       variant={variant === "hybrid" ? "filled" : "outlined"}
       className={classnames(
-        styles["TextField"],
-        { [styles["TextField--leftAdornment"]!]: leftAdornment },
+        classes.root,
+        { [classes.leftAdornment]: leftAdornment },
         {
-          [styles["TextField--error"]!]: error
+          [classes.textFieldError]: error
         },
         className
       )}

@@ -6,21 +6,23 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-44 form Form-rightAlignButton-45"
       >
         <p
-          class="MuiTypography-root sectionDescription Typography MuiTypography-body1"
+          class="MuiTypography-root sectionDescription Typography-root-49 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerDetails.edit.description
         </p>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-49 MuiTypography-h5"
+              data-testid="typography"
             >
               buildingOwnerDetails.edit.sections.contactDetails.title
             </h5>
@@ -29,7 +31,8 @@ Object {
             class="MuiGrid-root sectionRequiredInformation MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-49 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -37,7 +40,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -57,10 +60,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerCompany
@@ -70,7 +73,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -98,10 +101,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerFirstname
@@ -112,7 +115,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -140,10 +143,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerLastname
@@ -154,7 +157,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -182,10 +185,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerMail
@@ -196,12 +199,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-49 MuiTypography-h5"
+          data-testid="typography"
         >
           buildingOwnerDetails.edit.sections.buildingOwnerAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -229,10 +233,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.firstLine
@@ -243,7 +247,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -263,10 +267,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.secondLine
@@ -276,7 +280,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -304,10 +308,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.town
@@ -318,13 +322,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -352,10 +356,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-27"
+                    class="PrivateNotchedOutline-legendLabelled-65"
                   >
                     <span>
                       buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.postcode
@@ -368,7 +372,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -388,10 +392,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.region
@@ -401,7 +405,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -429,10 +433,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-65"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.country
@@ -443,16 +447,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-47"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-67 MuiButton-contained Button-contained-69 Form-button-46 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-32"
+              class="MuiButton-label Button-label-70"
             >
               buildingOwnerDetails.edit.form.actions.submit
             </span>
@@ -463,21 +467,23 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-44 form Form-rightAlignButton-45"
     >
       <p
-        class="MuiTypography-root sectionDescription Typography MuiTypography-body1"
+        class="MuiTypography-root sectionDescription Typography-root-49 MuiTypography-body1"
+        data-testid="typography"
       >
         buildingOwnerDetails.edit.description
       </p>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-49 MuiTypography-h5"
+            data-testid="typography"
           >
             buildingOwnerDetails.edit.sections.contactDetails.title
           </h5>
@@ -486,7 +492,8 @@ Object {
           class="MuiGrid-root sectionRequiredInformation MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-49 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -494,7 +501,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -514,10 +521,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerCompany
@@ -527,7 +534,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -555,10 +562,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerFirstname
@@ -569,7 +576,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -597,10 +604,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerLastname
@@ -611,7 +618,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -639,10 +646,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerMail
@@ -653,12 +660,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-49 MuiTypography-h5"
+        data-testid="typography"
       >
         buildingOwnerDetails.edit.sections.buildingOwnerAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -686,10 +694,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.firstLine
@@ -700,7 +708,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -720,10 +728,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.secondLine
@@ -733,7 +741,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -761,10 +769,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.town
@@ -775,13 +783,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -809,10 +817,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27"
+                  class="PrivateNotchedOutline-legendLabelled-65"
                 >
                   <span>
                     buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.postcode
@@ -825,7 +833,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -845,10 +853,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.region
@@ -858,7 +866,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-60 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -886,10 +894,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-65"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.country
@@ -900,16 +908,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-47"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-67 MuiButton-contained Button-contained-69 Form-button-46 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-32"
+            class="MuiButton-label Button-label-70"
           >
             buildingOwnerDetails.edit.form.actions.submit
           </span>
@@ -977,21 +985,23 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-1 form Form-rightAlignButton-2"
       >
         <p
-          class="MuiTypography-root sectionDescription Typography MuiTypography-body1"
+          class="MuiTypography-root sectionDescription Typography-root-6 MuiTypography-body1"
+          data-testid="typography"
         >
           buildingOwnerDetails.edit.description
         </p>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-14 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-6 MuiTypography-h5"
+              data-testid="typography"
             >
               buildingOwnerDetails.edit.sections.contactDetails.title
             </h5>
@@ -1000,7 +1010,8 @@ Object {
             class="MuiGrid-root sectionRequiredInformation MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-6 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -1008,7 +1019,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1028,10 +1039,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerCompany
@@ -1041,7 +1052,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1069,10 +1080,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerFirstname
@@ -1083,7 +1094,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1111,10 +1122,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerLastname
@@ -1125,7 +1136,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1153,10 +1164,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerMail
@@ -1167,12 +1178,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-6 MuiTypography-h5"
+          data-testid="typography"
         >
           buildingOwnerDetails.edit.sections.buildingOwnerAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1200,10 +1212,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.firstLine
@@ -1214,7 +1226,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1234,10 +1246,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.secondLine
@@ -1247,7 +1259,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1275,10 +1287,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.town
@@ -1289,13 +1301,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-14 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1323,10 +1335,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-3"
+                    class="PrivateNotchedOutline-legendLabelled-22"
                   >
                     <span>
                       buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.postcode
@@ -1339,7 +1351,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1359,10 +1371,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.region
@@ -1372,7 +1384,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1400,10 +1412,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.country
@@ -1414,16 +1426,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-4"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 Form-button-3 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-8"
+              class="MuiButton-label Button-label-27"
             >
               buildingOwnerDetails.edit.form.actions.submit
             </span>
@@ -1434,21 +1446,23 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-1 form Form-rightAlignButton-2"
     >
       <p
-        class="MuiTypography-root sectionDescription Typography MuiTypography-body1"
+        class="MuiTypography-root sectionDescription Typography-root-6 MuiTypography-body1"
+        data-testid="typography"
       >
         buildingOwnerDetails.edit.description
       </p>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-14 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-6 MuiTypography-h5"
+            data-testid="typography"
           >
             buildingOwnerDetails.edit.sections.contactDetails.title
           </h5>
@@ -1457,7 +1471,8 @@ Object {
           class="MuiGrid-root sectionRequiredInformation MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-6 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -1465,7 +1480,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1485,10 +1500,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerCompany
@@ -1498,7 +1513,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1526,10 +1541,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerFirstname
@@ -1540,7 +1555,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1568,10 +1583,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerLastname
@@ -1582,7 +1597,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1610,10 +1625,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerMail
@@ -1624,12 +1639,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-6 MuiTypography-h5"
+        data-testid="typography"
       >
         buildingOwnerDetails.edit.sections.buildingOwnerAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1657,10 +1673,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.firstLine
@@ -1671,7 +1687,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1691,10 +1707,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.secondLine
@@ -1704,7 +1720,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1732,10 +1748,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.town
@@ -1746,13 +1762,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-14 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1780,10 +1796,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3"
+                  class="PrivateNotchedOutline-legendLabelled-22"
                 >
                   <span>
                     buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.postcode
@@ -1796,7 +1812,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1816,10 +1832,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.region
@@ -1829,7 +1845,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1857,10 +1873,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 buildingOwnerDetails.edit.form.fields.buildingOwnerAddress.country
@@ -1871,16 +1887,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-4"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-24 MuiButton-contained Button-contained-26 Form-button-3 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-8"
+            class="MuiButton-label Button-label-27"
           >
             buildingOwnerDetails.edit.form.actions.submit
           </span>

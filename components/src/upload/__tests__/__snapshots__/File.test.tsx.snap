@@ -3,12 +3,12 @@
 exports[`Upload component renders correctly 1`] = `
 <div>
   <div
-    class="file"
+    class="Upload-file-13"
     data-testid="test-file"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root file-display"
+      class="MuiSvgIcon-root Upload-fileDisplay-16"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -17,22 +17,24 @@ exports[`Upload component renders correctly 1`] = `
       />
     </svg>
     <div
-      class="file-info-wrapper"
+      class="Upload-fileInfoWrapper-19"
     >
       <p
-        class="MuiTypography-root filename Typography MuiTypography-body1"
+        class="MuiTypography-root Upload-filename-14 Typography-root-21 MuiTypography-body1"
+        data-testid="typography"
       >
         something
       </p>
       <p
-        class="MuiTypography-root error Typography MuiTypography-body1"
+        class="MuiTypography-root Upload-error-17 Typography-root-21 MuiTypography-body1"
+        data-testid="typography"
       >
         Upload failed
       </p>
     </div>
     <button
       aria-label="Remove file"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 delete-icon"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-40 iconButton IconButton-medium-46 IconButton-text-42 Upload-deleteIcon-18"
       data-testid="file-delete"
       tabindex="0"
       type="button"
@@ -62,12 +64,12 @@ exports[`Upload component renders correctly 1`] = `
 exports[`Upload component renders correctly if an error recieved in API response 1`] = `
 <div>
   <div
-    class="file"
+    class="Upload-file-349"
     data-testid="test-file"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root file-display"
+      class="MuiSvgIcon-root Upload-fileDisplay-352"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -76,15 +78,16 @@ exports[`Upload component renders correctly if an error recieved in API response
       />
     </svg>
     <div
-      class="file-info-wrapper"
+      class="Upload-fileInfoWrapper-355"
     >
       <p
-        class="MuiTypography-root filename Typography MuiTypography-body1"
+        class="MuiTypography-root Upload-filename-350 Typography-root-357 MuiTypography-body1"
+        data-testid="typography"
       >
         something
       </p>
       <div
-        class="progress"
+        class="Upload-progress-356"
       >
         <div
           class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
@@ -101,7 +104,7 @@ exports[`Upload component renders correctly if an error recieved in API response
     </div>
     <button
       aria-label="Remove file"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-152 iconButtonStyles-medium-158 iconButtonStyles-text-154 delete-icon"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-376 iconButton IconButton-medium-382 IconButton-text-378 Upload-deleteIcon-354"
       data-testid="file-delete"
       tabindex="0"
       type="button"
@@ -131,24 +134,25 @@ exports[`Upload component renders correctly if an error recieved in API response
 exports[`Upload component renders correctly with large file size 1`] = `
 <div>
   <div
-    class="file"
+    class="Upload-file-301"
     data-testid="test-file"
   >
     <img
       alt="something"
-      class="file-display"
+      class="Upload-fileDisplay-304"
       src="url"
     />
     <div
-      class="file-info-wrapper"
+      class="Upload-fileInfoWrapper-307"
     >
       <p
-        class="MuiTypography-root filename Typography MuiTypography-body1"
+        class="MuiTypography-root Upload-filename-302 Typography-root-309 MuiTypography-body1"
+        data-testid="typography"
       >
         something
       </p>
       <div
-        class="progress"
+        class="Upload-progress-308"
       >
         <div
           class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate"
@@ -165,7 +169,7 @@ exports[`Upload component renders correctly with large file size 1`] = `
     </div>
     <button
       aria-label="Remove file"
-      class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-text-134 delete-icon"
+      class="MuiButtonBase-root MuiIconButton-root IconButton-root-328 iconButton IconButton-medium-334 IconButton-text-330 Upload-deleteIcon-306"
       data-testid="file-delete"
       tabindex="0"
       type="button"

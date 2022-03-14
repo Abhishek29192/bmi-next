@@ -3,37 +3,38 @@
 exports[`RewardSummary render correctly 1`] = `
 <div>
   <div
-    class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     data-testid="reward-system-form"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-10"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-10"
         >
           <h4
-            class="MuiTypography-root Typography MuiTypography-h4"
+            class="MuiTypography-root Typography-root-3 MuiTypography-h4"
+            data-testid="typography"
             style="margin-bottom: 15px;"
           >
             Reward System
           </h4>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-2"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-2"
           style="text-align: right;"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-11 MuiButton-contained Button-contained-13 MuiButton-containedPrimary"
             data-testid="reward-category-btn-edit"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-14"
             >
               edit
             </span>
@@ -45,10 +46,11 @@ exports[`RewardSummary render correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6"
+        class="MuiTypography-root Typography-root-3 MuiTypography-h6"
+        data-testid="typography"
       >
         Reward System Enabled
       </h6>
@@ -57,10 +59,11 @@ exports[`RewardSummary render correctly 1`] = `
       </div>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+      class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-h6"
+        class="MuiTypography-root Typography-root-3 MuiTypography-h6"
+        data-testid="typography"
       >
         Reward Effective Date
       </h6>

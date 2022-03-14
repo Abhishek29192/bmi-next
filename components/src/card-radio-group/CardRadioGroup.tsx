@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import CardInput, { Props as CardInputProps } from "../card-input/CardInput";
 import withFormControl from "../form/withFormControl";
 import Grid from "../grid/Grid";
-import styles from "./CardRadioGroup.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = {
   name: string;
@@ -30,6 +30,7 @@ const CardRadioGroup = ({
   gridContainerClassName
 }: Props) => {
   const [selected, setSelected] = useState(defaultValue);
+  const classes = useStyles();
   const items = useMemo(
     () =>
       React.Children.map(children, (child) => {
@@ -48,7 +49,7 @@ const CardRadioGroup = ({
             name,
             checked: value === selected,
             onChange: handleOnChange,
-            className: classnames(styles["item"], className)
+            className: classnames(classes.item, className)
           });
         }
 
@@ -66,7 +67,7 @@ const CardRadioGroup = ({
   }, [clean]);
 
   return (
-    <div className={classnames(styles["CardRadioGroup"], className)}>
+    <div className={classnames(classes.root, className)}>
       <Grid container spacing={2} className={gridContainerClassName}>
         {items}
       </Grid>

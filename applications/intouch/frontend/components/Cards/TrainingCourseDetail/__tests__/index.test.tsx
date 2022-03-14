@@ -1,6 +1,7 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import { ThemeProvider } from "@bmi/components";
 import { Course, CourseEnrollmentsConnection } from "@bmi/intouch-api-types";
+import { render, screen } from "@testing-library/react";
+import React from "react";
 import { TrainingCourseDetail } from "..";
 import I18nextProvider from "../../../../lib/tests/fixtures/i18n";
 
@@ -48,9 +49,11 @@ const courseWithEnrollments: Course = {
 describe("TrainingCourseDetail component", () => {
   it("links to SSO without query params if there are no enrollments", () => {
     render(
-      <I18nextProvider>
-        <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
-      </I18nextProvider>
+      <ThemeProvider>
+        <I18nextProvider>
+          <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
+        </I18nextProvider>
+      </ThemeProvider>
     );
     expect(screen.getByText("viewTraining").closest("a").href).toEqual(
       "http://localhost/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
@@ -59,12 +62,14 @@ describe("TrainingCourseDetail component", () => {
 
   it("uses enrollment url to SSO without query params if there are no enrollments", () => {
     render(
-      <I18nextProvider>
-        <TrainingCourseDetail
-          course={courseWithEnrollments}
-          lmsUrl="/api/docebo-sso"
-        />
-      </I18nextProvider>
+      <ThemeProvider>
+        <I18nextProvider>
+          <TrainingCourseDetail
+            course={courseWithEnrollments}
+            lmsUrl="/api/docebo-sso"
+          />
+        </I18nextProvider>
+      </ThemeProvider>
     );
     expect(screen.getByText("viewTraining").closest("a").href).toEqual(
       "http://localhost/api/docebo-sso?path=https://intouch.test.com/test-course"
@@ -74,21 +79,25 @@ describe("TrainingCourseDetail component", () => {
   describe("snapshots", () => {
     it("no enrollments", () => {
       const { container } = render(
-        <I18nextProvider>
-          <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
-        </I18nextProvider>
+        <ThemeProvider>
+          <I18nextProvider>
+            <TrainingCourseDetail course={course} lmsUrl="/api/docebo-sso" />
+          </I18nextProvider>
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
 
     it("with enrollment", () => {
       const { container } = render(
-        <I18nextProvider>
-          <TrainingCourseDetail
-            course={courseWithEnrollments}
-            lmsUrl="/api/docebo-sso"
-          />
-        </I18nextProvider>
+        <ThemeProvider>
+          <I18nextProvider>
+            <TrainingCourseDetail
+              course={courseWithEnrollments}
+              lmsUrl="/api/docebo-sso"
+            />
+          </I18nextProvider>
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });

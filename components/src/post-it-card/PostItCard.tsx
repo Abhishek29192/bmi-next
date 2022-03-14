@@ -1,7 +1,7 @@
 import React from "react";
 import ColorPair, { Colors } from "../color-pair/ColorPair";
 import Typography, { Props as TypographyProps } from "../typography/Typography";
-import styles from "./PostItCard.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   theme?: Colors;
@@ -17,21 +17,25 @@ const PostItCardHeading = ({ children, ...rest }: TypographyProps) => {
 };
 
 const PostItCardSection = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["section"]}>{children}</div>;
+  const classes = useStyles();
+  return <div className={classes.section}>{children}</div>;
 };
 
 const PostItCardContent = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["content"]}>{children}</div>;
+  const classes = useStyles();
+  return <div className={classes.content}>{children}</div>;
 };
 
 const PostItCardAction = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles["action"]}>{children}</div>;
+  const classes = useStyles();
+  return <div className={classes.action}>{children}</div>;
 };
 
 const PostItCard = ({ theme = "pearl", children }: Props) => {
+  const classes = useStyles();
   return (
     <ColorPair theme={theme}>
-      <div className={styles["PostItCard"]}>{children}</div>
+      <div className={classes.root}>{children}</div>
     </ColorPair>
   );
 };

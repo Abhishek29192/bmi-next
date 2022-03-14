@@ -1,30 +1,40 @@
-import React from "react";
-import { render } from "@testing-library/react";
+import { ThemeProvider } from "@bmi/components";
 import "@testing-library/jest-dom/extend-expect";
+import { render } from "@testing-library/react";
 import { NextRouter } from "next/router";
-import I18nextProvider from "./fixtures/i18n";
-import UserProvider from "./fixtures/user";
-import AccountProvider from "./fixtures/account";
-import MarketProvider from "./fixtures/market";
+import React from "react";
 import { generateAccount } from "./factories/account";
 import { generateMarketContext } from "./factories/market";
+import {
+  default as AccountContextWrapper,
+  default as AccountProvider
+} from "./fixtures/account";
 import ApolloProvider from "./fixtures/apollo";
-import MarketContextWrapper from "./fixtures/market";
-import AccountContextWrapper from "./fixtures/account";
+import I18nextProvider from "./fixtures/i18n";
+import {
+  default as MarketContextWrapper,
+  default as MarketProvider
+} from "./fixtures/market";
+import UserProvider from "./fixtures/user";
 
 export * from "@testing-library/react";
 
+// TODO: Copied from common components, so export instead?
+export const renderWithThemeProvider = (
+  children: React.ReactElement
+): ReturnType<typeof render> => render(children, { wrapper: ThemeProvider });
+
 export const renderWithI18NProvider = (Component: JSX.Element) =>
-  render(<I18nextProvider>{Component}</I18nextProvider>);
+  renderWithThemeProvider(<I18nextProvider>{Component}</I18nextProvider>);
 
 export const renderWithUserProvider = (Component: JSX.Element) =>
-  render(
+  renderWithThemeProvider(
     <I18nextProvider>
       <UserProvider>{Component}</UserProvider>
     </I18nextProvider>
   );
 export const renderWithAllProviders = (Component: JSX.Element) =>
-  render(
+  renderWithThemeProvider(
     <I18nextProvider>
       <UserProvider>
         <ApolloProvider>
@@ -38,7 +48,7 @@ export const renderWithAllProviders = (Component: JSX.Element) =>
 export const renderAsReal =
   ({ account = {}, market = {} } = {}) =>
   (Component: JSX.Element) =>
-    render(
+    renderWithThemeProvider(
       <I18nextProvider>
         <UserProvider>
           <MarketProvider market={generateMarketContext(market)}>

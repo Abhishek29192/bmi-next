@@ -22,7 +22,8 @@ exports[`WizardProductDetailCard should render 1`] = `
       class="MuiCardContent-root"
     >
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography-root-1 MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+        data-testid="typography"
       >
         description
       </h6>
@@ -31,12 +32,14 @@ exports[`WizardProductDetailCard should render 1`] = `
       class="footer"
     >
       <span
-        class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+        class="MuiTypography-root footer__inner Typography-root-1 MuiTypography-caption"
+        data-testid="typography"
       >
         brand
       </span>
       <span
-        class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+        class="MuiTypography-root footer__inner Typography-root-1 MuiTypography-caption"
+        data-testid="typography"
       >
         family
       </span>

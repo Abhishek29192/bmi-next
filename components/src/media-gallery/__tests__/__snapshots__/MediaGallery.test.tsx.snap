@@ -3,23 +3,24 @@
 exports[`MediaGallery component renders correctly with full data 1`] = `
 <div>
   <div
-    class="MediaGallery"
+    class="MediaGallery-root-1"
   >
     <div
-      class="image-wrapper"
+      class="MediaGallery-imageWrapper-2"
     >
       <img
-        class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+        class="MediaGallery-mainImageWrapper-5 MediaGallery-mainImageWrapperdefault-7 Media-root-13 Media-contain-14"
         src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
       />
       <div
-        class="caption"
+        class="MediaGallery-caption-3"
       >
         <p
-          class="MuiTypography-root caption-text Typography MuiTypography-h6"
+          class="MuiTypography-root MediaGallery-captionText-4 Typography-root-15 MuiTypography-h6"
+          data-testid="typography"
         >
           <span
-            class="LinesEllipsis  Truncate"
+            class="LinesEllipsis  Truncate-root-23"
           >
             This is image caption
             <wbr />
@@ -28,17 +29,19 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="thumbnails"
+      class="Thumbnails-root-24"
+      data-testid="thumbnails-root"
     >
       <button
         aria-label="Scroll left"
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-25 Thumbnails-thumbScrollerLeft-26 ThumbScrollerButton-root-34 ThumbScrollerButton-left-35"
+        data-testid="thumbnail-scroller-left"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-37"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -52,13 +55,14 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
       </button>
       <button
         aria-label="Scroll right"
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-25 Thumbnails-thumbScrollerRight-27 Thumbnails-thumbScrollerHidden-28 ThumbScrollerButton-root-34 ThumbScrollerButton-right-36"
+        data-testid="thumbnail-scroller-right"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-37"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -71,28 +75,31 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
         />
       </button>
       <div
-        class="scroller"
+        class="Thumbnails-scroller-29"
+        data-testid="thumbnail-scroller"
         style="margin-right: 0%;"
       >
         <button
-          aria-label="test alt text"
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          class="MuiButtonBase-root Thumbnails-thumbnail-30 Thumbnail-root-38 Thumbnail-selected-40 Thumbnail-large-41 Thumbnail-selected-40"
+          data-testid="default-thumbnail"
           tabindex="0"
           type="button"
         >
           <img
-            class="Media"
+            class="Media-root-13"
             src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
           />
         </button>
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root Thumbnails-thumbnail-30 Thumbnail-root-38 Thumbnail-large-41"
+          data-testid="default-thumbnail"
           tabindex="0"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
+            class="MuiSvgIcon-root Thumbnail-playIcon-43"
+            data-testid="thumbnail-play-icon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -112,15 +119,13 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
 
 exports[`MediaGallery component renders correctly with no data 1`] = `<div />`;
 
-exports[`MediaGallery component renders correctly with no media 1`] = `<div />`;
-
 exports[`MediaGallery component renders correctly with no media data 1`] = `
 <div>
   <div
-    class="MediaGallery"
+    class="MediaGallery-root-57"
   >
     <div
-      class="image-wrapper"
+      class="MediaGallery-imageWrapper-58"
     />
   </div>
 </div>
@@ -129,38 +134,39 @@ exports[`MediaGallery component renders correctly with no media data 1`] = `
 exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
 <div>
   <div
-    class="MediaGallery"
+    class="MediaGallery-root-69"
   >
     <div
-      class="image-wrapper"
+      class="MediaGallery-imageWrapper-70"
     >
       <div
-        class="main-image-wrapper main-image-wrapper--default Media Media--contain"
+        class="MediaGallery-mainImageWrapper-73 MediaGallery-mainImageWrapperdefault-75 Media-root-81 Media-contain-82"
       >
         <div
-          class="YoutubeVideo"
+          class="YoutubeVideo-root-83"
           data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="test video 2"
-            class="thumbnail"
+            class="YoutubeVideo-thumbnail-85"
             data-testid="thumbnail"
             type="button"
           >
             <img
               alt="test video 2"
-              class="preview-image"
+              class="YoutubeVideo-previewImage-84"
+              data-testid="youtube-preview-image"
               src="https://i.ytimg.com/vi/A-RfHC91Awc/maxresdefault.jpg"
             />
             <span
-              class="AlternativeContent"
+              class="AlternativeContent-root-94"
             >
               test video 2
             </span>
             <div
               aria-disabled="false"
               aria-label="test video 2"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-106 iconButton IconButton-medium-112 IconButton-contained-107 YoutubeVideo-playButton-87"
               data-testid="thumbnail-button"
               role="button"
               tabindex="0"
@@ -187,13 +193,14 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
         </div>
       </div>
       <div
-        class="caption"
+        class="MediaGallery-caption-71"
       >
         <p
-          class="MuiTypography-root caption-text Typography MuiTypography-h6"
+          class="MuiTypography-root MediaGallery-captionText-72 Typography-root-148 MuiTypography-h6"
+          data-testid="typography"
         >
           <span
-            class="LinesEllipsis  Truncate"
+            class="LinesEllipsis  Truncate-root-156"
           >
             This is videos caption  2
             <wbr />
@@ -202,17 +209,19 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
       </div>
     </div>
     <div
-      class="thumbnails"
+      class="Thumbnails-root-127"
+      data-testid="thumbnails-root"
     >
       <button
         aria-label="Scroll left"
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-128 Thumbnails-thumbScrollerLeft-129 ThumbScrollerButton-root-137 ThumbScrollerButton-left-138"
+        data-testid="thumbnail-scroller-left"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-140"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -226,13 +235,14 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
       </button>
       <button
         aria-label="Scroll right"
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-128 Thumbnails-thumbScrollerRight-130 Thumbnails-thumbScrollerHidden-131 ThumbScrollerButton-root-137 ThumbScrollerButton-right-139"
+        data-testid="thumbnail-scroller-right"
         tabindex="-1"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root icon"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-140"
           focusable="false"
           viewBox="0 0 24 24"
         >
@@ -245,18 +255,21 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
         />
       </button>
       <div
-        class="scroller"
+        class="Thumbnails-scroller-132"
+        data-testid="thumbnail-scroller"
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root Thumbnails-thumbnail-133 Thumbnail-root-141 Thumbnail-large-144"
+          data-testid="default-thumbnail"
           style="background-image: url(https://thumbnail1.jpg);"
           tabindex="0"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
+            class="MuiSvgIcon-root Thumbnail-playIcon-146"
+            data-testid="thumbnail-play-icon"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -269,20 +282,189 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
           />
         </button>
         <button
-          aria-label="test alt text 2"
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          class="MuiButtonBase-root Thumbnails-thumbnail-133 Thumbnail-root-141 Thumbnail-selected-143 Thumbnail-large-144 Thumbnail-selected-143"
+          data-testid="default-thumbnail"
           style="background-image: url(https://thumbnail2.jpg);"
           tabindex="0"
           type="button"
         >
           <span
-            class="accessibility-text"
+            class="Thumbnail-accessibilityText-145"
           >
             test alt text 2
           </span>
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
+            class="MuiSvgIcon-root Thumbnail-playIcon-146"
+            data-testid="thumbnail-play-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MediaGallery component test click on play icon 1`] = `
+<div
+  aria-hidden="true"
+>
+  <div
+    class="MediaGallery-root-157"
+  >
+    <div
+      class="MediaGallery-imageWrapper-158"
+    >
+      <div
+        class="MediaGallery-mainImageWrapper-161 MediaGallery-mainImageWrapperdefault-163 Media-root-169 Media-contain-170"
+      >
+        <div
+          class="YoutubeVideo-root-201"
+          data-testid="youtube-dialog-wrapper"
+        >
+          <button
+            aria-label="test video"
+            class="YoutubeVideo-thumbnail-203"
+            data-testid="thumbnail"
+            type="button"
+          >
+            <img
+              alt="test video"
+              class="YoutubeVideo-previewImage-202"
+              data-testid="youtube-preview-image"
+              src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+            />
+            <span
+              class="AlternativeContent-root-212"
+            >
+              test video
+            </span>
+            <div
+              aria-disabled="false"
+              aria-label="test video"
+              class="MuiButtonBase-root MuiIconButton-root IconButton-root-224 iconButton IconButton-medium-230 IconButton-contained-225 YoutubeVideo-playButton-205"
+              data-testid="thumbnail-button"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8 5v14l11-7z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="MediaGallery-caption-159"
+      >
+        <p
+          class="MuiTypography-root MediaGallery-captionText-160 Typography-root-171 MuiTypography-h6"
+          data-testid="typography"
+        >
+          <span
+            class="LinesEllipsis  Truncate-root-179"
+          >
+            This is videos caption
+            <wbr />
+          </span>
+        </p>
+      </div>
+    </div>
+    <div
+      class="Thumbnails-root-180"
+      data-testid="thumbnails-root"
+    >
+      <button
+        aria-label="Scroll left"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-181 Thumbnails-thumbScrollerLeft-182 ThumbScrollerButton-root-190 ThumbScrollerButton-left-191"
+        data-testid="thumbnail-scroller-left"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-193"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        aria-label="Scroll right"
+        class="MuiButtonBase-root Thumbnails-thumbScroller-181 Thumbnails-thumbScrollerRight-183 Thumbnails-thumbScrollerHidden-184 ThumbScrollerButton-root-190 ThumbScrollerButton-right-192"
+        data-testid="thumbnail-scroller-right"
+        tabindex="-1"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root ThumbScrollerButton-icon-193"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+      <div
+        class="Thumbnails-scroller-185"
+        data-testid="thumbnail-scroller"
+        style="margin-right: 0%;"
+      >
+        <button
+          class="MuiButtonBase-root Thumbnails-thumbnail-186 Thumbnail-root-194 Thumbnail-large-197"
+          data-testid="default-thumbnail"
+          tabindex="0"
+          type="button"
+        >
+          <img
+            class="Media-root-169"
+            src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+          />
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
+          class="MuiButtonBase-root Thumbnails-thumbnail-186 Thumbnail-root-194 Thumbnail-selected-196 Thumbnail-large-197 Thumbnail-selected-196"
+          data-testid="default-thumbnail"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root Thumbnail-playIcon-199"
+            data-testid="thumbnail-play-icon"
             focusable="false"
             viewBox="0 0 24 24"
           >

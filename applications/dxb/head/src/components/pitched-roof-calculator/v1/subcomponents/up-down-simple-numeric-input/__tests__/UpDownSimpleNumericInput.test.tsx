@@ -1,23 +1,28 @@
+import { ThemeProvider } from "@bmi/components";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import UpDownSimpleNumericInput from "../UpDownSimpleNumericInput";
 
 describe("UpDownSimpleNumericInput component", () => {
   it("renders correctly", () => {
     const onInputMock = jest.fn();
     const { container } = render(
-      <UpDownSimpleNumericInput name="Counter" onChange={onInputMock} />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput name="Counter" onChange={onInputMock} />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders variant with buttons on the side", () => {
     const onInputMock = jest.fn();
     const { container } = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        buttonPlacement="right"
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          buttonPlacement="right"
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -25,11 +30,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
     const { container } = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        step={stepValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          step={stepValue}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -37,11 +44,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        step={stepValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          step={stepValue}
+        />
+      </ThemeProvider>
     );
     const buttonUp = wrapper.container.querySelector("[aria-label='Up']");
     if (buttonUp) {
@@ -53,11 +62,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        step={stepValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          step={stepValue}
+        />
+      </ThemeProvider>
     );
     const buttonDown = wrapper.container.querySelector("[aria-label='Down']");
     if (buttonDown) {
@@ -69,11 +80,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        step={stepValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          step={stepValue}
+        />
+      </ThemeProvider>
     );
     const input = wrapper.container.querySelector("input[value='0']");
     if (input) {
@@ -85,11 +98,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const stepValue = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        step={stepValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          step={stepValue}
+        />
+      </ThemeProvider>
     );
     const input = wrapper.container.querySelector("input[value='0']");
     if (input) {
@@ -101,11 +116,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const min = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        min={min}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          min={min}
+        />
+      </ThemeProvider>
     );
     const input = wrapper.container.querySelector("input[value='5']");
     if (input) {
@@ -117,11 +134,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const max = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        max={max}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          max={max}
+        />
+      </ThemeProvider>
     );
     const input = wrapper.container.querySelector("input[value='0']");
     if (input) {
@@ -133,11 +152,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const defaultValue = 5;
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        defaultValue={defaultValue}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          defaultValue={defaultValue}
+        />
+      </ThemeProvider>
     );
     const input = wrapper.container.querySelector("input[value='5']");
     expect(input).toBeDefined();
@@ -146,11 +167,13 @@ describe("UpDownSimpleNumericInput component", () => {
     const onInputMock = jest.fn();
     const lockBreakpoint = "md";
     const wrapper = render(
-      <UpDownSimpleNumericInput
-        name="Counter"
-        onChange={onInputMock}
-        lockBreakpoint={lockBreakpoint}
-      />
+      <ThemeProvider>
+        <UpDownSimpleNumericInput
+          name="Counter"
+          onChange={onInputMock}
+          lockBreakpoint={lockBreakpoint}
+        />
+      </ThemeProvider>
     );
     const buttonsHolder = wrapper.container.querySelector(
       `div.UpDownSimpleNumericInput--locked-${lockBreakpoint}`

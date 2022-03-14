@@ -1,24 +1,24 @@
-import React from "react";
 import { fireEvent } from "@testing-library/react";
-import TrainingPage, { getServerSideProps } from "../../pages/training";
+import React from "react";
 import {
-  TrainingQuery,
-  GetGlobalDataQuery
+  GetGlobalDataQuery,
+  TrainingQuery
 } from "../../graphql/generated/operations";
+import {
+  getServerPageDoceboTiersByMarketId,
+  getServerPageTraining
+} from "../../graphql/generated/page";
+import { generateDoceboTier } from "../../lib/tests/factories/doceboTier";
 import { generateGlobalPageData } from "../../lib/tests/factories/globalPageData";
 import {
+  generateCourse,
   generateTrainingContentCollection,
-  generateTrainingCourseCatalogues,
-  generateCourse
+  generateTrainingCourseCatalogues
 } from "../../lib/tests/factories/training";
-import { generateDoceboTier } from "../../lib/tests/factories/doceboTier";
-import { renderWithUserProvider } from "../../lib/tests/utils";
 import AccountContextWrapper from "../../lib/tests/fixtures/account";
 import ApolloProvider from "../../lib/tests/fixtures/apollo";
-import {
-  getServerPageTraining,
-  getServerPageDoceboTiersByMarketId
-} from "../../graphql/generated/page";
+import { renderWithUserProvider } from "../../lib/tests/utils";
+import TrainingPage, { getServerSideProps } from "../../pages/training";
 
 jest.mock("next/router", () => {
   const original = jest.requireActual("next/router");
@@ -395,7 +395,9 @@ describe("Training Page", () => {
         </AccountContextWrapper>
       </ApolloProvider>
     );
-    const filterButton = container.querySelectorAll(".filterButton .Chip");
+    const filterButton = container.querySelectorAll(
+      ".filterButton [class*=Chip-root]"
+    );
 
     fireEvent.click(filterButton[1]);
     expect(queryByTestId("courseDescription")).toBeFalsy();

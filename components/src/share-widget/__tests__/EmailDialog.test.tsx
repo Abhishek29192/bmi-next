@@ -1,5 +1,6 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import EmailDialog from "../_EmailDialog";
 
 const windowOpen = jest.fn();
@@ -9,7 +10,7 @@ Object.defineProperty(window, "open", {
 
 describe("EmailDialog component", () => {
   it("renders correctly", () => {
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <EmailDialog open={true} setOpen={() => {}} />
     );
     expect(getByText("Recipient's email address")).toBeInTheDocument();
@@ -18,7 +19,7 @@ describe("EmailDialog component", () => {
     expect(getByText("Send to email")).toBeInTheDocument();
   });
   it("submit form correctly", () => {
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <EmailDialog open={true} setOpen={() => {}} />
     );
     const br = "%0D%0A";
@@ -37,7 +38,7 @@ describe("EmailDialog component", () => {
     );
   });
   it("validate email correctly", () => {
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <EmailDialog open={true} setOpen={() => {}} />
     );
 
@@ -49,7 +50,7 @@ describe("EmailDialog component", () => {
   });
 
   it("should close dialog on cancel click ", () => {
-    const { getByText, container } = render(
+    const { getByText, container } = renderWithThemeProvider(
       <EmailDialog open={true} setOpen={() => {}} />
     );
 
@@ -59,7 +60,7 @@ describe("EmailDialog component", () => {
     expect(container.childElementCount).toBe(0);
   });
   it("should close dialog on close click ", () => {
-    const { getByLabelText, container } = render(
+    const { getByLabelText, container } = renderWithThemeProvider(
       <EmailDialog open={true} setOpen={() => {}} />
     );
 

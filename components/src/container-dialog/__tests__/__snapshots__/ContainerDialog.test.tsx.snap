@@ -22,16 +22,16 @@ exports[`ContainerDialog component renders correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-pearl ContainerDialog--width-lg ContainerDialog--allowOverflow test-className"
+      class="ContainerDialog-root-1 ContainerDialog-bg-pearl-7 ContainerDialog-width-lg-11 ContainerDialog-allowOverflow-5 test-className"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="ContainerDialog-header-2"
       >
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-24 iconButton IconButton-medium-30 IconButton-text-26 ContainerDialog-iconButton-3"
           tabindex="0"
           type="button"
         >
@@ -55,7 +55,7 @@ exports[`ContainerDialog component renders correctly 1`] = `
         </button>
       </div>
       <div
-        class="content"
+        class="ContainerDialog-content-4"
       >
         <div>
           Some content
@@ -98,17 +98,17 @@ exports[`ContainerDialog component renders correctly with Header child 1`] = `
       tabindex="0"
     />
     <div
-      class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-md"
+      class="ContainerDialog-root-77 ContainerDialog-bg-white-82 ContainerDialog-width-md-86"
       style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       tabindex="-1"
     >
       <div
-        class="header"
+        class="ContainerDialog-header-78"
       >
         Header
         <button
           aria-label="Close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54 iconButton"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-100 iconButton IconButton-medium-106 IconButton-text-102 ContainerDialog-iconButton-79"
           tabindex="0"
           type="button"
         >
@@ -132,7 +132,7 @@ exports[`ContainerDialog component renders correctly with Header child 1`] = `
         </button>
       </div>
       <div
-        class="content"
+        class="ContainerDialog-content-80"
       />
     </div>
     <div
@@ -163,16 +163,16 @@ exports[`ContainerDialog component renders correctly with disabledPortal 1`] = `
         tabindex="0"
       />
       <div
-        class="ContainerDialog ContainerDialog--bg-white ContainerDialog--width-md"
+        class="ContainerDialog-root-33 ContainerDialog-bg-white-38 ContainerDialog-width-md-42"
         style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
         tabindex="-1"
       >
         <div
-          class="header"
+          class="ContainerDialog-header-34"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root IconButton-root-56 iconButton IconButton-medium-62 IconButton-text-58 ContainerDialog-iconButton-35"
             tabindex="0"
             type="button"
           >
@@ -196,7 +196,7 @@ exports[`ContainerDialog component renders correctly with disabledPortal 1`] = `
           </button>
         </div>
         <div
-          class="content"
+          class="ContainerDialog-content-36"
         >
           <div>
             Some content

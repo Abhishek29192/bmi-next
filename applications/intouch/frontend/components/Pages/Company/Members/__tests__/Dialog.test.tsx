@@ -1,7 +1,8 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
-import { fireEvent, render, screen } from "../../../../../lib/tests/utils";
 import ApolloProvider from "../../../../../lib/tests/fixtures/apollo";
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
+import { fireEvent, render, screen } from "../../../../../lib/tests/utils";
 import InvitationDialog from "../Dialog";
 import styles from "../styles.module.scss";
 
@@ -33,30 +34,34 @@ describe("InvitationDialog Component", () => {
 
   it("should not show Invitation dialog", () => {
     render(
-      <I18nProvider>
-        <ApolloProvider>
-          <InvitationDialog
-            styles={styles}
-            dialogOpen={false}
-            onCloseClick={closeMock}
-          />
-        </ApolloProvider>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <ApolloProvider>
+            <InvitationDialog
+              styles={styles}
+              dialogOpen={false}
+              onCloseClick={closeMock}
+            />
+          </ApolloProvider>
+        </I18nProvider>
+      </ThemeProvider>
     );
     expect(screen.queryByTestId("invite-dialog-submit")).toBeNull();
   });
 
   it("should call invite mock with desired params", () => {
     render(
-      <I18nProvider>
-        <ApolloProvider>
-          <InvitationDialog
-            styles={styles}
-            dialogOpen={true}
-            onCloseClick={closeMock}
-          />
-        </ApolloProvider>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <ApolloProvider>
+            <InvitationDialog
+              styles={styles}
+              dialogOpen={true}
+              onCloseClick={closeMock}
+            />
+          </ApolloProvider>
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     const submit = screen.getByTestId("invite-dialog-submit");
@@ -76,15 +81,17 @@ describe("InvitationDialog Component", () => {
 
   it("modal should disappear on close", () => {
     render(
-      <I18nProvider>
-        <ApolloProvider>
-          <InvitationDialog
-            styles={styles}
-            dialogOpen={true}
-            onCloseClick={closeMock}
-          />
-        </ApolloProvider>
-      </I18nProvider>
+      <ThemeProvider>
+        <I18nProvider>
+          <ApolloProvider>
+            <InvitationDialog
+              styles={styles}
+              dialogOpen={true}
+              onCloseClick={closeMock}
+            />
+          </ApolloProvider>
+        </I18nProvider>
+      </ThemeProvider>
     );
 
     const emails = screen.getByTestId("emails");

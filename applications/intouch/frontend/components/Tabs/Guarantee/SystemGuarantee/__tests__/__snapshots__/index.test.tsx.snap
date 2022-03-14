@@ -9,14 +9,16 @@ exports[`SystemGuarantee Component renders correctly 1`] = `
       class="body__title"
     >
       <h2
-        class="MuiTypography-root Typography MuiTypography-h6"
+        class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+        data-testid="typography"
       >
         BMI-NO-PROD-001
       </h2>
     </div>
     <div>
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2"
+        class="MuiTypography-root Typography-root-1 MuiTypography-subtitle2"
+        data-testid="typography"
       />
     </div>
   </div>
@@ -32,14 +34,16 @@ exports[`SystemGuarantee Component renders correctly with download button 1`] = 
       class="body__title"
     >
       <h2
-        class="MuiTypography-root Typography MuiTypography-h6"
+        class="MuiTypography-root Typography-root-9 MuiTypography-h6"
+        data-testid="typography"
       >
         BMI-NO-PROD-001
       </h2>
     </div>
     <div>
       <h6
-        class="MuiTypography-root Typography MuiTypography-subtitle2"
+        class="MuiTypography-root Typography-root-9 MuiTypography-subtitle2"
+        data-testid="typography"
       />
     </div>
     <div
@@ -47,17 +51,17 @@ exports[`SystemGuarantee Component renders correctly with download button 1`] = 
     >
       <a
         aria-disabled="false"
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-17 MuiButton-outlined MuiButton-outlinedPrimary"
         href="signed-url"
         rel="noopener noreferrer"
         tabindex="0"
         target="_blank"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-20"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon Button-startIcon-21 MuiButton-iconSizeMedium"
           >
             <svg
               class="body__logo"

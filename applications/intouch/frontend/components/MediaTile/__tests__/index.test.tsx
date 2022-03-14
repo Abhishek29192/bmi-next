@@ -1,8 +1,9 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
-import { render, screen, fireEvent } from "../../../lib/tests/utils";
+import { MediaTile } from "../";
 import { MediaItem } from "../../../lib/media/types";
 import { META_TYPES } from "../../../lib/media/utils";
-import { MediaTile } from "../";
+import { fireEvent, render, screen } from "../../../lib/tests/utils";
 import { generateAccount } from "../../../lib/tests/factories/account";
 
 const onMediaItemClickMock = jest.fn();
@@ -55,12 +56,14 @@ describe("MediaTile", () => {
   it("render mediaFolder correctly", async () => {
     const initialProps = mediaFolder();
     const { container } = render(
-      <MediaTile
-        mediaItem={initialProps}
-        onMediaItemClick={onMediaItemClickMock}
-        account={account}
-        merchandiseSso={true}
-      />
+      <ThemeProvider>
+        <MediaTile
+          mediaItem={initialProps}
+          onMediaItemClick={onMediaItemClickMock}
+          account={account}
+          merchandiseSso={true}
+        />
+      </ThemeProvider>
     );
 
     expect(screen.getByText("mediaFolder")).toBeTruthy();
@@ -74,12 +77,14 @@ describe("MediaTile", () => {
   it("render mediaTool correctly", async () => {
     const initialProps = mediaTool();
     const { container } = render(
-      <MediaTile
-        mediaItem={initialProps}
-        onMediaItemClick={onMediaItemClickMock}
-        account={account}
-        merchandiseSso={true}
-      />
+      <ThemeProvider>
+        <MediaTile
+          mediaItem={initialProps}
+          onMediaItemClick={onMediaItemClickMock}
+          account={account}
+          merchandiseSso={true}
+        />
+      </ThemeProvider>
     );
 
     expect(screen.getByText("mediaTool")).toBeTruthy();
@@ -99,12 +104,14 @@ describe("MediaTile", () => {
     it("name", async () => {
       const initialProps = mediaFolder();
       render(
-        <MediaTile
-          mediaItem={initialProps}
-          onMediaItemClick={onMediaItemClickMock}
-          account={account}
-          merchandiseSso={true}
-        />
+        <ThemeProvider>
+          <MediaTile
+            mediaItem={initialProps}
+            onMediaItemClick={onMediaItemClickMock}
+            account={account}
+            merchandiseSso={true}
+          />
+        </ThemeProvider>
       );
       fireEvent.click(screen.getByText("mediaFolder"));
 
@@ -114,12 +121,14 @@ describe("MediaTile", () => {
     it("description", async () => {
       const initialProps = mediaFolder();
       render(
-        <MediaTile
-          mediaItem={initialProps}
-          onMediaItemClick={onMediaItemClickMock}
-          account={account}
-          merchandiseSso={true}
-        />
+        <ThemeProvider>
+          <MediaTile
+            mediaItem={initialProps}
+            onMediaItemClick={onMediaItemClickMock}
+            account={account}
+            merchandiseSso={true}
+          />
+        </ThemeProvider>
       );
       fireEvent.click(screen.getByText(`contentTypes.${META_TYPES.FOLDER}`));
 
@@ -128,12 +137,14 @@ describe("MediaTile", () => {
 
     it("check merchandise cta for SUPER_ADMIN", async () => {
       render(
-        <MediaTile
-          mediaItem={SsoMediaTool}
-          onMediaItemClick={onMediaItemClickMock}
-          account={account}
-          merchandiseSso={true}
-        />
+        <ThemeProvider>
+          <MediaTile
+            mediaItem={SsoMediaTool}
+            onMediaItemClick={onMediaItemClickMock}
+            account={account}
+            merchandiseSso={true}
+          />
+        </ThemeProvider>
       );
 
       expect(screen.getByText("mediaTool")).toBeTruthy();
@@ -141,12 +152,14 @@ describe("MediaTile", () => {
 
     it("check merchandise cta for INSTALLER", async () => {
       render(
-        <MediaTile
-          mediaItem={SsoMediaTool}
-          onMediaItemClick={onMediaItemClickMock}
-          account={generateAccount({ role: "INSTALLER" })}
-          merchandiseSso={true}
-        />
+        <ThemeProvider>
+          <MediaTile
+            mediaItem={SsoMediaTool}
+            onMediaItemClick={onMediaItemClickMock}
+            account={generateAccount({ role: "INSTALLER" })}
+            merchandiseSso={true}
+          />
+        </ThemeProvider>
       );
 
       expect(screen.getByText("mediaTool")).toBeTruthy();

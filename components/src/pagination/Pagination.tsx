@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from "react";
-import classnames from "classnames";
-import { Pagination as MuiPagination, PaginationProps } from "@material-ui/lab";
-import { PaginationItem } from "@material-ui/lab";
 import useDimensions, { DimensionObject } from "@bmi-digital/use-dimensions";
-import Icon from "../icon";
+import {
+  Pagination as MuiPagination,
+  PaginationItem,
+  PaginationProps
+} from "@material-ui/lab";
+import classnames from "classnames";
+import React, { useEffect, useState } from "react";
 import Button from "../button/Button";
-import DoubleLeftArrow from "../pagination/svgs/arrow-left-double.svg";
-import DoubleRightArrow from "../pagination/svgs/arrow-right-double.svg";
-import Ellipsis from "../pagination/svgs/ellipsis.svg";
-import styles from "./Pagination.module.scss";
+import Icon from "../icon";
+import { useStyles } from "./styles";
+import DoubleLeftArrow from "./svgs/arrow-left-double.svg";
+import DoubleRightArrow from "./svgs/arrow-right-double.svg";
+import Ellipsis from "./svgs/ellipsis.svg";
 
 const MAX_ITEM_COUNT = 11;
 
 const Pagination = (props: { page: number } & PaginationProps) => {
+  const classes = useStyles();
   const [maxAvailablePageSpaces, setMaxAvailablePageSpaces] =
     useState(MAX_ITEM_COUNT);
 
@@ -85,7 +89,7 @@ const Pagination = (props: { page: number } & PaginationProps) => {
           return (
             <div
               className={classnames(
-                styles["PaginationItem"],
+                classes.root,
                 "MuiPaginationItem-root",
                 "MuiPaginationItem-ellipsis",
                 {
@@ -103,8 +107,8 @@ const Pagination = (props: { page: number } & PaginationProps) => {
             <Button
               isIconButton
               className={classnames(
-                styles["PaginationItem"],
-                styles[`PaginationItem--${item.type}`],
+                classes.root,
+                classes[item.type],
                 "MuiPaginationItem-root",
                 "MuiPaginationItem-page",
                 {
@@ -124,7 +128,14 @@ const Pagination = (props: { page: number } & PaginationProps) => {
         }
 
         return (
-          <PaginationItem className={styles["PaginationItem"]} {...item} />
+          <PaginationItem
+            className={classnames(
+              classes.root,
+              "MuiPaginationItem-root",
+              "MuiPaginationItem-textPrimary"
+            )}
+            {...item}
+          />
         );
       }}
       // NOTE: material UI has a bug and unfortunately setting boundaryCount = 0 will not behave as expected

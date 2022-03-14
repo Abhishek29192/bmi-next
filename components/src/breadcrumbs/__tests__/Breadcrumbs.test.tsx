@@ -1,7 +1,7 @@
 import React from "react";
 import mediaQuery from "css-mediaquery";
-import { render } from "@testing-library/react";
 import Breadcrumbs from "../Breadcrumbs";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const createMatchMedia = (width: unknown) => {
   return (query: string): MediaQueryList =>
@@ -14,7 +14,7 @@ const createMatchMedia = (width: unknown) => {
 
 describe("Breadcrumbs component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
@@ -33,7 +33,7 @@ describe("Breadcrumbs component", () => {
   });
 
   it("renders correctly only one item", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
@@ -44,7 +44,7 @@ describe("Breadcrumbs component", () => {
   });
 
   it("renders dark themed correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs isDarkThemed>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
@@ -65,7 +65,7 @@ describe("Breadcrumbs component", () => {
   it("renders on a small breakpoint", () => {
     window.matchMedia = createMatchMedia(600);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs isDarkThemed>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
@@ -86,7 +86,7 @@ describe("Breadcrumbs component", () => {
   it("renders on a large breakpoint", () => {
     window.matchMedia = createMatchMedia(1280);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs isDarkThemed>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group
@@ -107,7 +107,7 @@ describe("Breadcrumbs component", () => {
   it("renders correctly more than 5 items - small screens", () => {
     window.matchMedia = createMatchMedia(600);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Breadcrumbs>
         <Breadcrumbs.Item action={{ model: "htmlLink", href: "/" }}>
           BMI Group

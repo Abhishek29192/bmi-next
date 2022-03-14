@@ -3,23 +3,24 @@
 exports[`AlertBanner component renders correctly 1`] = `
 <div>
   <div
-    class="Alert Alert--success ColorPair ColorPair--white"
+    class="AlertBanner-root-1 AlertBanner-success-3 ColorPair-root-8 ColorPair-white-9"
   >
     <div
-      class="actions"
+      class="AlertBanner-actions-5"
     />
     <div
-      class="Container"
+      class="Container-root-34"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+          class="MuiTypography-root AlertBanner-title-6 Typography-root-36 MuiTypography-h5"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root AlertBanner-icon-7"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -39,24 +40,25 @@ exports[`AlertBanner component renders correctly 1`] = `
 exports[`AlertBanner component renders correctly with a sticky position 1`] = `
 <div>
   <div
-    class="Alert Alert--sticky ColorPair ColorPair--alert"
+    class="AlertBanner-root-130 AlertBanner-sticky-131 ColorPair-root-137 ColorPair-alert-145"
     style="top: 100px;"
   >
     <div
-      class="actions"
+      class="AlertBanner-actions-134"
     />
     <div
-      class="Container"
+      class="Container-root-163"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+          class="MuiTypography-root AlertBanner-title-135 Typography-root-165 MuiTypography-h5"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root AlertBanner-icon-136"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -76,23 +78,24 @@ exports[`AlertBanner component renders correctly with a sticky position 1`] = `
 exports[`AlertBanner component renders correctly with a warning severity 1`] = `
 <div>
   <div
-    class="Alert ColorPair ColorPair--alert"
+    class="AlertBanner-root-44 ColorPair-root-51 ColorPair-alert-59"
   >
     <div
-      class="actions"
+      class="AlertBanner-actions-48"
     />
     <div
-      class="Container"
+      class="Container-root-77"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+          class="MuiTypography-root AlertBanner-title-49 Typography-root-79 MuiTypography-h5"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root AlertBanner-icon-50"
             focusable="false"
             viewBox="0 0 24 24"
           >
@@ -112,27 +115,28 @@ exports[`AlertBanner component renders correctly with a warning severity 1`] = `
 exports[`AlertBanner component renders correctly with an action 1`] = `
 <div>
   <div
-    class="Alert ColorPair ColorPair--alert"
+    class="AlertBanner-root-87 ColorPair-root-94 ColorPair-alert-102"
   >
     <div
-      class="actions"
+      class="AlertBanner-actions-91"
     >
       <span>
         Some action here
       </span>
     </div>
     <div
-      class="Container"
+      class="Container-root-120"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h5
-          class="MuiTypography-root title Typography MuiTypography-h5"
+          class="MuiTypography-root AlertBanner-title-92 Typography-root-122 MuiTypography-h5"
+          data-testid="typography"
         >
           <svg
             aria-hidden="true"
-            class="MuiSvgIcon-root icon"
+            class="MuiSvgIcon-root AlertBanner-icon-93"
             focusable="false"
             viewBox="0 0 24 24"
           >

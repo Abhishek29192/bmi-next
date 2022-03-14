@@ -46,45 +46,46 @@ Array [
 exports[`OverviewCard component removes clickable class when the area is none 1`] = `
 <div>
   <div
-    class="OverviewCard"
+    class="OverviewCard-root-256"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-262 Media-root-271"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-263"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-260 OverviewCard-negative-261"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-264 Typography-root-273 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-267 OverviewCard-text-266"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-269"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-281 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-84"
+            class="MuiButton-label Button-label-284"
           >
             Go to this
           </span>
@@ -101,28 +102,29 @@ exports[`OverviewCard component removes clickable class when the area is none 1`
 exports[`OverviewCard component renders as a flat card 1`] = `
 <div>
   <div
-    class="OverviewCard OverviewCard--flat"
+    class="OverviewCard-root-166 OverviewCard-flat-168"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-172 Media-root-181"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-173"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-170 OverviewCard-negative-171"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-174 Typography-root-183 MuiTypography-h4"
+        data-testid="typography"
       >
         <button
-          class="MuiButtonBase-root clickable"
+          class="MuiButtonBase-root OverviewCard-clickableArea-180"
           tabindex="0"
           type="button"
         >
@@ -133,21 +135,21 @@ exports[`OverviewCard component renders as a flat card 1`] = `
         </button>
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-177 OverviewCard-text-176"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-179"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-191 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-44"
+            class="MuiButton-label Button-label-194"
           >
             Go to this
           </span>
@@ -164,46 +166,47 @@ exports[`OverviewCard component renders as a flat card 1`] = `
 exports[`OverviewCard component renders correctly 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-1 OverviewCard-clickable-4"
     tabindex="0"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-7 Media-root-16"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-8"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-5 OverviewCard-negative-6"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-9 Typography-root-18 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-12 OverviewCard-text-11"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-14"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-26 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-4"
+            class="MuiButton-label Button-label-29"
           >
             Go to this
           </span>
@@ -223,46 +226,47 @@ exports[`OverviewCard component renders correctly 1`] = `
 exports[`OverviewCard component renders correctly if clickableArea === body 1`] = `
 <div>
   <div
-    class="OverviewCard OverviewCard--clickable"
+    class="OverviewCard-root-301 OverviewCard-clickable-304"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-307 Media-root-316"
       src="path-to-image"
     />
     <button
-      class="MuiButtonBase-root body"
+      class="MuiButtonBase-root OverviewCard-body-308"
       tabindex="0"
       type="button"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-305 OverviewCard-negative-306"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-309 Typography-root-318 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-312 OverviewCard-text-311"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-314"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-326 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-104"
+            class="MuiButton-label Button-label-329"
           >
             Go to this
           </span>
@@ -282,46 +286,47 @@ exports[`OverviewCard component renders correctly if clickableArea === body 1`] 
 exports[`OverviewCard component renders correctly if hasChildrenWithoutMargin  === true 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-391 OverviewCard-clickable-394"
     tabindex="0"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-397 Media-root-406"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-398"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-395 OverviewCard-negative-396"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-399 Typography-root-408 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text children--without-margin"
+        class="OverviewCard-children-402 OverviewCard-text-401 OverviewCard-withoutMargin-403"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-404"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-416 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-144"
+            class="MuiButton-label Button-label-419"
           >
             Go to this
           </span>
@@ -341,47 +346,48 @@ exports[`OverviewCard component renders correctly if hasChildrenWithoutMargin  =
 exports[`OverviewCard component renders correctly if imageSize === contain 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-436 OverviewCard-clickable-439"
     imagesource="imageSource"
     tabindex="0"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media Media--contain"
+      class="OverviewCard-headerPicture-442 Media-root-451 Media-contain-452"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-443"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-440 OverviewCard-negative-441"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-444 Typography-root-453 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-447 OverviewCard-text-446"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-449"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-461 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-164"
+            class="MuiButton-label Button-label-464"
           >
             Go to this
           </span>
@@ -401,49 +407,51 @@ exports[`OverviewCard component renders correctly if imageSize === contain 1`] =
 exports[`OverviewCard component renders correctly if moreOptionsAvailable === true 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-346 OverviewCard-clickable-349"
     tabindex="0"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media"
+      class="OverviewCard-headerPicture-352 Media-root-361"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-353"
     >
       <div
-        class="brand-logo brand-logo--negative"
+        class="OverviewCard-brandLogo-350 OverviewCard-negative-351"
       >
         <svg
           preserveAspectRatio="xMinYMin"
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-354 Typography-root-363 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <h5
-        class="MuiTypography-root text Typography MuiTypography-h5"
+        class="MuiTypography-root OverviewCard-text-356 Typography-root-363 MuiTypography-h5"
+        data-testid="typography"
       />
       <div
-        class="children text"
+        class="OverviewCard-children-357 OverviewCard-text-356"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-359"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-371 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-124"
+            class="MuiButton-label Button-label-374"
           >
             Go to this
           </span>
@@ -463,25 +471,27 @@ exports[`OverviewCard component renders correctly if moreOptionsAvailable === tr
 exports[`OverviewCard component renders correctly with a subtitle 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-116 OverviewCard-clickable-119"
     tabindex="0"
     type="button"
   >
     <div
-      class="body"
+      class="OverviewCard-body-123"
     >
       <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-124 OverviewCard-noBrandLogo-125 Typography-root-133 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <h5
-        class="MuiTypography-root text Typography MuiTypography-h5"
+        class="MuiTypography-root OverviewCard-text-126 Typography-root-133 MuiTypography-h5"
+        data-testid="typography"
       >
         Subtitle
       </h5>
       <div
-        class="children text"
+        class="OverviewCard-children-127 OverviewCard-text-126"
       >
         We do the things
       </div>
@@ -496,25 +506,26 @@ exports[`OverviewCard component renders correctly with a subtitle 1`] = `
 exports[`OverviewCard component renders correctly with contain image 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-141 OverviewCard-clickable-144"
     tabindex="0"
     type="button"
   >
     <img
       alt="Lorem ipsum"
-      class="header-picture Media Media--contain"
+      class="OverviewCard-headerPicture-147 Media-root-156 Media-contain-157"
       src="path-to-image"
     />
     <div
-      class="body"
+      class="OverviewCard-body-148"
     >
       <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-149 OverviewCard-noBrandLogo-150 Typography-root-158 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-152 OverviewCard-text-151"
       >
         We do the things
       </div>
@@ -529,20 +540,21 @@ exports[`OverviewCard component renders correctly with contain image 1`] = `
 exports[`OverviewCard component renders correctly without optional props 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-91 OverviewCard-clickable-94"
     tabindex="0"
     type="button"
   >
     <div
-      class="body"
+      class="OverviewCard-body-98"
     >
       <h4
-        class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-99 OverviewCard-noBrandLogo-100 Typography-root-108 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-102 OverviewCard-text-101"
       >
         We do the things
       </div>
@@ -557,15 +569,15 @@ exports[`OverviewCard component renders correctly without optional props 1`] = `
 exports[`OverviewCard component renders with a string brandImageSource prop 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+    class="MuiButtonBase-root OverviewCard-root-46 OverviewCard-clickable-49"
     tabindex="0"
     type="button"
   >
     <div
-      class="body"
+      class="OverviewCard-body-53"
     >
       <div
-        class="brand-logo"
+        class="OverviewCard-brandLogo-50"
       >
         <img
           alt=""
@@ -573,26 +585,27 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
         />
       </div>
       <h4
-        class="MuiTypography-root title Typography MuiTypography-h4"
+        class="MuiTypography-root OverviewCard-title-54 Typography-root-63 MuiTypography-h4"
+        data-testid="typography"
       >
         Heading
       </h4>
       <div
-        class="children text"
+        class="OverviewCard-children-57 OverviewCard-text-56"
       >
         We do the things
       </div>
       <div
-        class="footer"
+        class="OverviewCard-footer-59"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root Button-root-71 MuiButton-outlined MuiButton-outlinedPrimary"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-24"
+            class="MuiButton-label Button-label-74"
           >
             Go to this
           </span>

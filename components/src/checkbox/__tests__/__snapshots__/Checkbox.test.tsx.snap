@@ -3,20 +3,20 @@
 exports[`Checkbox component renders correctly 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Checkbox"
+    class="MuiFormControl-root Checkbox-root-1"
   >
     <label
       class="MuiFormControlLabel-root"
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-3 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
       >
         <span
           class="MuiIconButton-label"
         >
           <input
-            class="PrivateSwitchBase-input-4"
+            class="PrivateSwitchBase-input-6"
             data-indeterminate="false"
             name="Test checkbox"
             type="checkbox"
@@ -47,20 +47,20 @@ exports[`Checkbox component renders correctly 1`] = `
 
 exports[`Checkbox component renders custom error 1`] = `
 <div
-  class="MuiFormControl-root Checkbox"
+  class="MuiFormControl-root Checkbox-root-43"
 >
   <label
     class="MuiFormControlLabel-root"
   >
     <span
       aria-disabled="false"
-      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-29 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-45 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
     >
       <span
         class="MuiIconButton-label"
       >
         <input
-          class="PrivateSwitchBase-input-32"
+          class="PrivateSwitchBase-input-48"
           data-indeterminate="false"
           type="checkbox"
           value=""
@@ -95,24 +95,24 @@ exports[`Checkbox component renders custom error 1`] = `
 exports[`Checkbox component renders error 1`] = `
 <div>
   <div
-    class="Checkbox--asterisks_decorator"
+    class="Checkbox-asterisksDecorator-38"
   >
     <div
-      class="MuiFormControl-root Checkbox"
+      class="MuiFormControl-root Checkbox-root-37"
     >
       <label
         class="MuiFormControlLabel-root Mui-disabled"
       >
         <span
           aria-disabled="true"
-          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-25 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-27 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-39 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-41 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
           tabindex="-1"
         >
           <span
             class="MuiIconButton-label"
           >
             <input
-              class="PrivateSwitchBase-input-28"
+              class="PrivateSwitchBase-input-42"
               data-indeterminate="false"
               disabled=""
               name="Test checkbox"
@@ -150,21 +150,21 @@ exports[`Checkbox component renders error 1`] = `
 exports[`Checkbox component renders with additional props 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Checkbox"
+    class="MuiFormControl-root Checkbox-root-7"
   >
     <label
       class="MuiFormControlLabel-root"
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary test-classname MuiIconButton-colorPrimary"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiCheckbox-root MuiCheckbox-colorPrimary test-classname MuiIconButton-colorPrimary"
         data-testid="test-id"
       >
         <span
           class="MuiIconButton-label"
         >
           <input
-            class="PrivateSwitchBase-input-8"
+            class="PrivateSwitchBase-input-12"
             data-indeterminate="false"
             name="Test checkbox"
             type="checkbox"
@@ -196,21 +196,21 @@ exports[`Checkbox component renders with additional props 1`] = `
 exports[`Checkbox component renders with disabled state 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Checkbox"
+    class="MuiFormControl-root Checkbox-root-19"
   >
     <label
       class="MuiFormControlLabel-root Mui-disabled"
     >
       <span
         aria-disabled="true"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-13 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-15 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-disabled-23 Mui-disabled MuiIconButton-colorPrimary Mui-disabled Mui-disabled"
         tabindex="-1"
       >
         <span
           class="MuiIconButton-label"
         >
           <input
-            class="PrivateSwitchBase-input-16"
+            class="PrivateSwitchBase-input-24"
             data-indeterminate="false"
             disabled=""
             name="Test checkbox"
@@ -242,20 +242,20 @@ exports[`Checkbox component renders with disabled state 1`] = `
 exports[`Checkbox component renders with label 1`] = `
 <div>
   <div
-    class="MuiFormControl-root Checkbox"
+    class="MuiFormControl-root Checkbox-root-13"
   >
     <label
       class="MuiFormControlLabel-root"
     >
       <span
         aria-disabled="false"
-        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-15 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
       >
         <span
           class="MuiIconButton-label"
         >
           <input
-            class="PrivateSwitchBase-input-12"
+            class="PrivateSwitchBase-input-18"
             data-indeterminate="false"
             name="Test checkbox"
             type="checkbox"

@@ -4,7 +4,7 @@ exports[`FilterInput Component renders correctly 1`] = `
 <div>
   <nav>
     <div
-      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root TextField-root-2 TextField-leftAdornment-3 MuiFormControl-fullWidth"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -41,10 +41,10 @@ exports[`FilterInput Component renders correctly 1`] = `
         </div>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-7"
           >
             <span>
               Filter Input

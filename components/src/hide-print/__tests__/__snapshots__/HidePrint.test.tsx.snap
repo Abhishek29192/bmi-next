@@ -3,7 +3,7 @@
 exports[`HidePrint component renders correctly 1`] = `
 <div>
   <div
-    class="HidePrint"
+    class="HidePrint-root-1"
   >
     Lorem Ipsum
   </div>
@@ -13,7 +13,7 @@ exports[`HidePrint component renders correctly 1`] = `
 exports[`HidePrint component renders with custom className 1`] = `
 <div>
   <div
-    class="test HidePrint"
+    class="test HidePrint-root-3"
   >
     Lorem Ipsum
   </div>
@@ -23,7 +23,7 @@ exports[`HidePrint component renders with custom className 1`] = `
 exports[`HidePrint component renders with custom component 1`] = `
 <div>
   <span
-    class="HidePrint"
+    class="HidePrint-root-2"
   >
     Lorem Ipsum
   </span>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
 import { ExpandLess } from "@material-ui/icons";
 import classnames from "classnames";
-import Button from "../button/Button";
-import Icon from "../icon/Icon";
-import styles from "./BackToTop.module.scss";
+import React, { useEffect, useState } from "react";
+import Button from "../button";
+import Icon from "../icon";
+import { useStyles } from "./styles";
 
 type Props = {
   accessibilityLabel: string;
@@ -11,11 +11,12 @@ type Props = {
 };
 
 const BackToTop = ({ accessibilityLabel, className }: Props) => {
+  const classes = useStyles();
+  const [isVisible, setIsVisible] = useState(false);
+
   if (typeof window === "undefined") {
     return null;
   }
-
-  const [isVisible, setIsVisible] = useState(false);
 
   const setScroll = () => {
     let newIsVisible = false;
@@ -29,6 +30,7 @@ const BackToTop = ({ accessibilityLabel, className }: Props) => {
     function watchScroll() {
       window.addEventListener("scroll", setScroll, true);
     }
+
     watchScroll();
     return () => {
       window.removeEventListener("scroll", setScroll, true);
@@ -36,9 +38,11 @@ const BackToTop = ({ accessibilityLabel, className }: Props) => {
   }, []);
   return (
     <div
-      className={classnames(className, styles["BackToTop"], {
-        [styles["BackToTop--hidden"]!]: !isVisible
-      })}
+      className={classnames(
+        className,
+        classes.root,
+        !isVisible && classes.hidden
+      )}
     >
       <Button
         aria-label={accessibilityLabel}
@@ -47,9 +51,9 @@ const BackToTop = ({ accessibilityLabel, className }: Props) => {
         onClick={() => {
           window.scrollTo({ top: 0 });
         }}
-        className={styles["button"]}
+        className={classes.button}
       >
-        <Icon source={ExpandLess} className={styles["icon"]} />
+        <Icon source={ExpandLess} className={classes.icon} />
       </Button>
     </div>
   );

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
 import { DataTypeEnum } from "../../components/Link";
 import { Data as OverlapCardData } from "../../components/OverlapCards";
@@ -322,31 +323,47 @@ describe("Home Page Template", () => {
     isGatsbyDisabledElasticSearch = false;
 
     const { container, getByTestId, getByText } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector("header")).toBeInTheDocument();
-    expect(container.querySelector(".Footer")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Footer-root]")).toBeInTheDocument();
     expect(getByTestId("brand-colors-provider")).toBeInTheDocument();
-    expect(container.querySelector(".Hero")).toBeInTheDocument();
+    expect(container.querySelector("[class*=Hero-root]")).toBeInTheDocument();
     expect(
-      container.querySelector(".Hero .Breadcrumbs")
+      container.querySelector("[class*=Hero-root] [class*=Breadcrumbs-root]")
     ).not.toBeInTheDocument();
     expect(
-      container.querySelectorAll(".container .wrapper .slide").length
+      container.querySelectorAll(
+        "[class*=Hero-container] [class*=Carousel-wrapper] [class*=Carousel-slide]"
+      ).length
     ).toBe(1);
-    expect(container.querySelectorAll(".image-carousel .slide").length).toBe(1);
-    expect(container.querySelector(".Search")).toBeInTheDocument();
+    expect(
+      container.querySelectorAll(
+        "[class*=Hero-imageCarousel] [class*=Carousel-slide]"
+      ).length
+    ).toBe(1);
+    expect(container.querySelector("[class*=Search-root]")).toBeInTheDocument();
     expect(getByText(slide.title)).toBeInTheDocument();
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
-    expect(container.querySelectorAll(".OverlapCards .Grid .item").length).toBe(
-      3
-    );
+    expect(
+      container.querySelectorAll(
+        ".OverlapCards .MuiGrid-container [class*=Grid-item]"
+      ).length
+    ).toBe(3);
     expect(container.querySelector(".Brands")).toBeInTheDocument();
-    expect(container.querySelectorAll(".Brands .Grid").length).toBe(1);
-    expect(container.querySelectorAll(".Section:not(.Brands)").length).toBe(1);
+    expect(
+      container.querySelectorAll(".Brands .MuiGrid-container").length
+    ).toBe(1);
+    expect(
+      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
+    ).toBe(1);
     expect(container.querySelector(".WelcomeDialog")).not.toBeInTheDocument();
-    expect(container.querySelector(".Hero .YoutubeVideo")).toBeInTheDocument();
+    expect(
+      container.querySelector("[class*=Hero-root] [class*=YoutubeVideo-root]")
+    ).toBeInTheDocument();
   });
 
   it("render slide with not ContentfulPromo __typename and featureMedia data", () => {
@@ -400,11 +417,13 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.spaBrands = [];
 
     const { container, getByAltText } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(
-      container.querySelector(".Hero .YoutubeVideo")
+      container.querySelector("[class*=Hero-root] [class*=YoutubeVideo-root]")
     ).not.toBeInTheDocument();
     expect(getByAltText("Lorem ipsum ContentfulImage")).toBeInTheDocument();
   });
@@ -414,7 +433,9 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.spaBrands = [];
 
     const { container, getByText } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector(".Brands")).toBeInTheDocument();
@@ -428,7 +449,9 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.spaBrands = spaBrandsData;
 
     const { container, getByText } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector(".Brands")).toBeInTheDocument();
@@ -442,7 +465,9 @@ describe("Home Page Template", () => {
     data.contentfulHomePage.brands = [];
 
     const { container } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector(".Brands")).not.toBeInTheDocument();
@@ -450,20 +475,26 @@ describe("Home Page Template", () => {
 
   it("render page with overlapCardsData", () => {
     const { container } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector(".OverlapCards")).toBeInTheDocument();
-    expect(container.querySelectorAll(".OverlapCards .Grid .item").length).toBe(
-      3
-    );
+    expect(
+      container.querySelectorAll(
+        ".OverlapCards .MuiGrid-container [class*=Grid-item]"
+      ).length
+    ).toBe(3);
   });
 
   it("render page without overlapCardsData", () => {
     data.contentfulHomePage.overlapCards = null;
 
     const { container } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
     expect(container.querySelector(".OverlapCards")).not.toBeInTheDocument();
@@ -471,10 +502,14 @@ describe("Home Page Template", () => {
 
   it("render page with sections", () => {
     const { container } = renderWithRouter(
-      <HomePage data={data} pageContext={null} />
+      <ThemeProvider>
+        <HomePage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
-    expect(container.querySelectorAll(".Section:not(.Brands)").length).toBe(1);
+    expect(
+      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
+    ).toBe(1);
   });
 
   it("render page without sections", () => {
@@ -484,6 +519,8 @@ describe("Home Page Template", () => {
       <HomePage data={data} pageContext={null} />
     );
 
-    expect(container.querySelectorAll(".Section:not(.Brands)").length).toBe(0);
+    expect(
+      container.querySelectorAll("[class*=Section-root]:not(.Brands)").length
+    ).toBe(0);
   });
 });

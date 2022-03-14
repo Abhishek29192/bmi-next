@@ -1,12 +1,12 @@
-import React from "react";
-import classnames from "classnames";
 import { SVGImport } from "@bmi-digital/svg-import";
-import { LocationOn, Phone, Mail } from "@material-ui/icons";
+import { LocationOn, Mail, Phone } from "@material-ui/icons";
+import classnames from "classnames";
+import React from "react";
 import DefaultAnchorLink from "../anchor-link/AnchorLink";
 import { ClickableAction } from "../clickable/Clickable";
-import Typography from "../typography/Typography";
 import Icon from "../icon";
-import styles from "./LocationCard.module.scss";
+import Typography from "../typography/Typography";
+import { useStyles } from "./styles";
 
 type DetailType = "address" | "phone" | "email";
 
@@ -33,15 +33,11 @@ const LocationCard = ({
   footNote,
   isFlat
 }: Props): React.ReactElement => {
+  const classes = useStyles();
   return (
-    <address
-      className={classnames(
-        styles["LocationCard"],
-        isFlat && styles["LocationCard--flat"]
-      )}
-    >
+    <address className={classnames(classes.root, isFlat && classes.flat)}>
       <Typography variant="h5">{title}</Typography>
-      <dl className={styles["list"]}>
+      <dl className={classes.list}>
         {details?.map((detail, index) => (
           <LocationItem
             key={index}
@@ -50,7 +46,7 @@ const LocationCard = ({
           />
         ))}
       </dl>
-      <div className={styles["foot-note"]}>{footNote}</div>
+      <div className={classes.footNote}>{footNote}</div>
     </address>
   );
 };
@@ -64,6 +60,7 @@ export const LocationItem = ({
   label,
   type
 }: DetailProps): React.ReactElement => {
+  const classes = useStyles();
   const typeToIconMap: Record<DetailType, SVGImport> = {
     address: LocationOn,
     phone: Phone,
@@ -72,14 +69,14 @@ export const LocationItem = ({
 
   return (
     <>
-      <dt className={styles["term"]}>
+      <dt className={classes.term}>
         {/* eslint-disable-next-line security/detect-object-injection */}
-        <Icon source={typeToIconMap[type]} className={styles["icon"]} />
-        <Typography className={styles["label"]}>{label}</Typography>
+        <Icon source={typeToIconMap[type]} className={classes.icon} />
+        <Typography className={classes.label}>{label}</Typography>
       </dt>
-      <dd className={styles["description"]}>
+      <dd className={classes.description}>
         {action ? (
-          <AnchorLink action={action} className={styles["link"]}>
+          <AnchorLink action={action} className={classes.link}>
             {text}
           </AnchorLink>
         ) : (

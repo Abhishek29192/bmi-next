@@ -6,25 +6,27 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-52 form Form-rightAlignButton-53"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h5"
+              data-testid="typography"
             >
               addProject.dialog.sections.projectDetails.title
             </h5>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-59 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -32,7 +34,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -61,10 +63,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
               >
                 <span>
                   addProject.dialog.form.fields.name
@@ -78,27 +80,28 @@ Object {
           class="input"
         >
           <h6
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+            class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h6"
+            data-testid="typography"
           >
             addProject.dialog.form.fields.technology
           </h6>
           <div
-            class="RadioGroup input"
+            class="RadioGroup-root-75 input"
           >
             <div
-              class="container"
+              class="RadioGroup-container-76"
             >
               <div
                 class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton RadioButton--disabled"
+                    class="RadioButton-root-78 RadioButton-disabled-79"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-80"
                       disabled=""
                       id="radio-technology-PITCHED"
                       name="technology"
@@ -106,12 +109,12 @@ Object {
                       value="PITCHED"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-81"
                       for="radio-technology-PITCHED"
                     >
                       <div
                         aria-disabled="true"
-                        class="MuiButtonBase-root text Mui-disabled"
+                        class="MuiButtonBase-root RadioButton-text-82 Mui-disabled"
                         role="button"
                         tabindex="-1"
                       >
@@ -123,19 +126,20 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-59 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.PITCHED
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton RadioButton--disabled"
+                    class="RadioButton-root-78 RadioButton-disabled-79"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-80"
                       disabled=""
                       id="radio-technology-FLAT"
                       name="technology"
@@ -143,12 +147,12 @@ Object {
                       value="FLAT"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-81"
                       for="radio-technology-FLAT"
                     >
                       <div
                         aria-disabled="true"
-                        class="MuiButtonBase-root text Mui-disabled"
+                        class="MuiButtonBase-root RadioButton-text-82 Mui-disabled"
                         role="button"
                         tabindex="-1"
                       >
@@ -161,7 +165,8 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-59 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.FLAT
                   </div>
@@ -171,7 +176,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -202,10 +207,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.roofArea
@@ -216,7 +221,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -236,10 +241,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.description
@@ -249,18 +254,19 @@ Object {
           </div>
         </div>
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.sections.dates.title
         </h6>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-sm-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -289,10 +295,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                    class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                   >
                     <span>
                       addProject.dialog.form.fields.startDate
@@ -303,7 +309,7 @@ Object {
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -332,10 +338,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                    class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                   >
                     <span>
                       addProject.dialog.form.fields.endDate
@@ -348,12 +354,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h5"
+          data-testid="typography"
         >
           addProject.dialog.sections.siteAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -382,10 +389,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.firstLine
@@ -396,7 +403,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -417,10 +424,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.secondLine
@@ -430,7 +437,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -459,10 +466,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.town
@@ -473,13 +480,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -508,10 +515,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                    class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                   >
                     <span>
                       addProject.dialog.form.fields.siteAddress.postcode
@@ -524,7 +531,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -545,10 +552,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27"
+                class="PrivateNotchedOutline-legendLabelled-73"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.region
@@ -558,7 +565,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -587,10 +594,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.country
@@ -601,16 +608,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-55"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-83 MuiButton-contained Button-contained-85 Form-button-54 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-32"
+              class="MuiButton-label Button-label-86"
             >
               addProject.dialog.form.actions.submit
             </span>
@@ -621,25 +628,27 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-52 form Form-rightAlignButton-53"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h5"
+            data-testid="typography"
           >
             addProject.dialog.sections.projectDetails.title
           </h5>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-59 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -647,7 +656,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -676,10 +685,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+              class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
             >
               <span>
                 addProject.dialog.form.fields.name
@@ -693,27 +702,28 @@ Object {
         class="input"
       >
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.form.fields.technology
         </h6>
         <div
-          class="RadioGroup input"
+          class="RadioGroup-root-75 input"
         >
           <div
-            class="container"
+            class="RadioGroup-container-76"
           >
             <div
               class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton RadioButton--disabled"
+                  class="RadioButton-root-78 RadioButton-disabled-79"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-80"
                     disabled=""
                     id="radio-technology-PITCHED"
                     name="technology"
@@ -721,12 +731,12 @@ Object {
                     value="PITCHED"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-81"
                     for="radio-technology-PITCHED"
                   >
                     <div
                       aria-disabled="true"
-                      class="MuiButtonBase-root text Mui-disabled"
+                      class="MuiButtonBase-root RadioButton-text-82 Mui-disabled"
                       role="button"
                       tabindex="-1"
                     >
@@ -738,19 +748,20 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-59 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.PITCHED
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton RadioButton--disabled"
+                  class="RadioButton-root-78 RadioButton-disabled-79"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-80"
                     disabled=""
                     id="radio-technology-FLAT"
                     name="technology"
@@ -758,12 +769,12 @@ Object {
                     value="FLAT"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-81"
                     for="radio-technology-FLAT"
                   >
                     <div
                       aria-disabled="true"
-                      class="MuiButtonBase-root text Mui-disabled"
+                      class="MuiButtonBase-root RadioButton-text-82 Mui-disabled"
                       role="button"
                       tabindex="-1"
                     >
@@ -776,7 +787,8 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-59 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.FLAT
                 </div>
@@ -786,7 +798,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -817,10 +829,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.roofArea
@@ -831,7 +843,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -851,10 +863,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.description
@@ -864,18 +876,19 @@ Object {
         </div>
       </div>
       <h6
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h6"
+        data-testid="typography"
       >
         addProject.dialog.sections.dates.title
       </h6>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-sm-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -904,10 +917,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                 >
                   <span>
                     addProject.dialog.form.fields.startDate
@@ -918,7 +931,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -947,10 +960,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                 >
                   <span>
                     addProject.dialog.form.fields.endDate
@@ -963,12 +976,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-59 MuiTypography-h5"
+        data-testid="typography"
       >
         addProject.dialog.sections.siteAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -997,10 +1011,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.firstLine
@@ -1011,7 +1025,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -1032,10 +1046,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.secondLine
@@ -1045,7 +1059,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -1074,10 +1088,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.town
@@ -1088,13 +1102,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-57 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -1123,10 +1137,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
                 >
                   <span>
                     addProject.dialog.form.fields.siteAddress.postcode
@@ -1139,7 +1153,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
@@ -1160,10 +1174,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27"
+              class="PrivateNotchedOutline-legendLabelled-73"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.region
@@ -1173,7 +1187,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-68 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
@@ -1202,10 +1216,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-71 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+              class="PrivateNotchedOutline-legendLabelled-73 PrivateNotchedOutline-legendNotched-74"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.country
@@ -1216,16 +1230,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-55"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-83 MuiButton-contained Button-contained-85 Form-button-54 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-32"
+            class="MuiButton-label Button-label-86"
           >
             addProject.dialog.form.actions.submit
           </span>
@@ -1293,25 +1307,27 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-103 form Form-rightAlignButton-104"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h5"
+              data-testid="typography"
             >
               addProject.dialog.sections.projectDetails.title
             </h5>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-110 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -1319,7 +1335,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1347,10 +1363,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
               >
                 <span>
                   addProject.dialog.form.fields.name
@@ -1364,39 +1380,40 @@ Object {
           class="input"
         >
           <h6
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+            class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h6"
+            data-testid="typography"
           >
             addProject.dialog.form.fields.technology
           </h6>
           <div
-            class="RadioGroup input"
+            class="RadioGroup-root-126 input"
           >
             <div
-              class="container"
+              class="RadioGroup-container-127"
             >
               <div
                 class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton"
+                    class="RadioButton-root-129"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-131"
                       id="radio-technology-PITCHED"
                       name="technology"
                       type="radio"
                       value="PITCHED"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-132"
                       for="radio-technology-PITCHED"
                     >
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root text"
+                        class="MuiButtonBase-root RadioButton-text-133"
                         role="button"
                         tabindex="-1"
                       >
@@ -1411,31 +1428,32 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-110 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.PITCHED
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton"
+                    class="RadioButton-root-129"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-131"
                       id="radio-technology-FLAT"
                       name="technology"
                       type="radio"
                       value="FLAT"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-132"
                       for="radio-technology-FLAT"
                     >
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root text"
+                        class="MuiButtonBase-root RadioButton-text-133"
                         role="button"
                         tabindex="-1"
                       >
@@ -1451,7 +1469,8 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-110 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.FLAT
                   </div>
@@ -1461,7 +1480,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1491,10 +1510,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.roofArea
@@ -1505,7 +1524,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1524,10 +1543,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.description
@@ -1537,18 +1556,19 @@ Object {
           </div>
         </div>
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.sections.dates.title
         </h6>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-sm-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1576,10 +1596,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                    class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                   >
                     <span>
                       addProject.dialog.form.fields.startDate
@@ -1590,7 +1610,7 @@ Object {
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1618,10 +1638,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                    class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                   >
                     <span>
                       addProject.dialog.form.fields.endDate
@@ -1634,12 +1654,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h5"
+          data-testid="typography"
         >
           addProject.dialog.sections.siteAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1667,10 +1688,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.firstLine
@@ -1681,7 +1702,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1701,10 +1722,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.secondLine
@@ -1714,7 +1735,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -1742,10 +1763,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.town
@@ -1756,13 +1777,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1790,10 +1811,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                    class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                   >
                     <span>
                       addProject.dialog.form.fields.siteAddress.postcode
@@ -1806,7 +1827,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -1826,10 +1847,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51"
+                class="PrivateNotchedOutline-legendLabelled-124"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.region
@@ -1839,7 +1860,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1867,10 +1888,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.country
@@ -1881,16 +1902,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-106"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-55 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-134 MuiButton-contained Button-contained-136 Form-button-105 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-56"
+              class="MuiButton-label Button-label-137"
             >
               addProject.dialog.form.actions.submit
             </span>
@@ -1901,25 +1922,27 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-103 form Form-rightAlignButton-104"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h5"
+            data-testid="typography"
           >
             addProject.dialog.sections.projectDetails.title
           </h5>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-110 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -1927,7 +1950,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -1955,10 +1978,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+              class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
             >
               <span>
                 addProject.dialog.form.fields.name
@@ -1972,39 +1995,40 @@ Object {
         class="input"
       >
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.form.fields.technology
         </h6>
         <div
-          class="RadioGroup input"
+          class="RadioGroup-root-126 input"
         >
           <div
-            class="container"
+            class="RadioGroup-container-127"
           >
             <div
               class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton"
+                  class="RadioButton-root-129"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-131"
                     id="radio-technology-PITCHED"
                     name="technology"
                     type="radio"
                     value="PITCHED"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-132"
                     for="radio-technology-PITCHED"
                   >
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root text"
+                      class="MuiButtonBase-root RadioButton-text-133"
                       role="button"
                       tabindex="-1"
                     >
@@ -2019,31 +2043,32 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-110 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.PITCHED
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton"
+                  class="RadioButton-root-129"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-131"
                     id="radio-technology-FLAT"
                     name="technology"
                     type="radio"
                     value="FLAT"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-132"
                     for="radio-technology-FLAT"
                   >
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root text"
+                      class="MuiButtonBase-root RadioButton-text-133"
                       role="button"
                       tabindex="-1"
                     >
@@ -2059,7 +2084,8 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-110 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.FLAT
                 </div>
@@ -2069,7 +2095,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2099,10 +2125,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.roofArea
@@ -2113,7 +2139,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -2132,10 +2158,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.description
@@ -2145,18 +2171,19 @@ Object {
         </div>
       </div>
       <h6
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h6"
+        data-testid="typography"
       >
         addProject.dialog.sections.dates.title
       </h6>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-sm-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -2184,10 +2211,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                 >
                   <span>
                     addProject.dialog.form.fields.startDate
@@ -2198,7 +2225,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -2226,10 +2253,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                 >
                   <span>
                     addProject.dialog.form.fields.endDate
@@ -2242,12 +2269,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-110 MuiTypography-h5"
+        data-testid="typography"
       >
         addProject.dialog.sections.siteAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2275,10 +2303,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.firstLine
@@ -2289,7 +2317,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -2309,10 +2337,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.secondLine
@@ -2322,7 +2350,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2350,10 +2378,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.town
@@ -2364,13 +2392,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-108 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -2398,10 +2426,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
                 >
                   <span>
                     addProject.dialog.form.fields.siteAddress.postcode
@@ -2414,7 +2442,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -2434,10 +2462,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51"
+              class="PrivateNotchedOutline-legendLabelled-124"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.region
@@ -2447,7 +2475,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-119 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -2475,10 +2503,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-122 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+              class="PrivateNotchedOutline-legendLabelled-124 PrivateNotchedOutline-legendNotched-125"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.country
@@ -2489,16 +2517,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-106"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-55 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-134 MuiButton-contained Button-contained-136 Form-button-105 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-56"
+            class="MuiButton-label Button-label-137"
           >
             addProject.dialog.form.actions.submit
           </span>
@@ -2566,25 +2594,27 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-154 form Form-rightAlignButton-155"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h5"
+              data-testid="typography"
             >
               addProject.dialog.sections.projectDetails.title
             </h5>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-161 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -2592,7 +2622,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2620,10 +2650,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.name
@@ -2637,39 +2667,40 @@ Object {
           class="input"
         >
           <h6
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+            class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h6"
+            data-testid="typography"
           >
             addProject.dialog.form.fields.technology
           </h6>
           <div
-            class="RadioGroup input"
+            class="RadioGroup-root-177 input"
           >
             <div
-              class="container"
+              class="RadioGroup-container-178"
             >
               <div
                 class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton"
+                    class="RadioButton-root-180"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-182"
                       id="radio-technology-PITCHED"
                       name="technology"
                       type="radio"
                       value="PITCHED"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-183"
                       for="radio-technology-PITCHED"
                     >
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root text"
+                        class="MuiButtonBase-root RadioButton-text-184"
                         role="button"
                         tabindex="-1"
                       >
@@ -2684,31 +2715,32 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-161 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.PITCHED
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton"
+                    class="RadioButton-root-180"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-182"
                       id="radio-technology-FLAT"
                       name="technology"
                       type="radio"
                       value="FLAT"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-183"
                       for="radio-technology-FLAT"
                     >
                       <div
                         aria-disabled="false"
-                        class="MuiButtonBase-root text"
+                        class="MuiButtonBase-root RadioButton-text-184"
                         role="button"
                         tabindex="-1"
                       >
@@ -2724,7 +2756,8 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-161 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.FLAT
                   </div>
@@ -2734,7 +2767,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2764,10 +2797,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.roofArea
@@ -2778,7 +2811,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -2797,10 +2830,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.description
@@ -2810,18 +2843,19 @@ Object {
           </div>
         </div>
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.sections.dates.title
         </h6>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-sm-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
@@ -2849,10 +2883,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                    class="PrivateNotchedOutline-legendLabelled-175 PrivateNotchedOutline-legendNotched-176"
                   >
                     <span>
                       addProject.dialog.form.fields.startDate
@@ -2863,7 +2897,7 @@ Object {
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
@@ -2891,10 +2925,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                    class="PrivateNotchedOutline-legendLabelled-175 PrivateNotchedOutline-legendNotched-176"
                   >
                     <span>
                       addProject.dialog.form.fields.endDate
@@ -2907,12 +2941,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h5"
+          data-testid="typography"
         >
           addProject.dialog.sections.siteAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -2940,10 +2975,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.firstLine
@@ -2954,7 +2989,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -2974,10 +3009,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.secondLine
@@ -2987,7 +3022,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3015,10 +3050,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.town
@@ -3029,13 +3064,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3063,10 +3098,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-75"
+                    class="PrivateNotchedOutline-legendLabelled-175"
                   >
                     <span>
                       addProject.dialog.form.fields.siteAddress.postcode
@@ -3079,7 +3114,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -3099,10 +3134,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.region
@@ -3112,7 +3147,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3140,10 +3175,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-75"
+                class="PrivateNotchedOutline-legendLabelled-175"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.country
@@ -3154,16 +3189,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-157"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-185 MuiButton-contained Button-contained-187 Form-button-156 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-80"
+              class="MuiButton-label Button-label-188"
             >
               addProject.dialog.form.actions.submit
             </span>
@@ -3174,25 +3209,27 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-154 form Form-rightAlignButton-155"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h5"
+            data-testid="typography"
           >
             addProject.dialog.sections.projectDetails.title
           </h5>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-161 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -3200,7 +3237,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3228,10 +3265,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.name
@@ -3245,39 +3282,40 @@ Object {
         class="input"
       >
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.form.fields.technology
         </h6>
         <div
-          class="RadioGroup input"
+          class="RadioGroup-root-177 input"
         >
           <div
-            class="container"
+            class="RadioGroup-container-178"
           >
             <div
               class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton"
+                  class="RadioButton-root-180"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-182"
                     id="radio-technology-PITCHED"
                     name="technology"
                     type="radio"
                     value="PITCHED"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-183"
                     for="radio-technology-PITCHED"
                   >
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root text"
+                      class="MuiButtonBase-root RadioButton-text-184"
                       role="button"
                       tabindex="-1"
                     >
@@ -3292,31 +3330,32 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-161 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.PITCHED
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton"
+                  class="RadioButton-root-180"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-182"
                     id="radio-technology-FLAT"
                     name="technology"
                     type="radio"
                     value="FLAT"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-183"
                     for="radio-technology-FLAT"
                   >
                     <div
                       aria-disabled="false"
-                      class="MuiButtonBase-root text"
+                      class="MuiButtonBase-root RadioButton-text-184"
                       role="button"
                       tabindex="-1"
                     >
@@ -3332,7 +3371,8 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-161 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.FLAT
                 </div>
@@ -3342,7 +3382,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3372,10 +3412,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.roofArea
@@ -3386,7 +3426,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -3405,10 +3445,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.description
@@ -3418,18 +3458,19 @@ Object {
         </div>
       </div>
       <h6
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h6"
+        data-testid="typography"
       >
         addProject.dialog.sections.dates.title
       </h6>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-sm-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
@@ -3457,10 +3498,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                  class="PrivateNotchedOutline-legendLabelled-175 PrivateNotchedOutline-legendNotched-176"
                 >
                   <span>
                     addProject.dialog.form.fields.startDate
@@ -3471,7 +3512,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
@@ -3499,10 +3540,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                  class="PrivateNotchedOutline-legendLabelled-175 PrivateNotchedOutline-legendNotched-176"
                 >
                   <span>
                     addProject.dialog.form.fields.endDate
@@ -3515,12 +3556,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-161 MuiTypography-h5"
+        data-testid="typography"
       >
         addProject.dialog.sections.siteAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3548,10 +3590,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.firstLine
@@ -3562,7 +3604,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -3582,10 +3624,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.secondLine
@@ -3595,7 +3637,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3623,10 +3665,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.town
@@ -3637,13 +3679,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-159 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3671,10 +3713,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-75"
+                  class="PrivateNotchedOutline-legendLabelled-175"
                 >
                   <span>
                     addProject.dialog.form.fields.siteAddress.postcode
@@ -3687,7 +3729,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -3707,10 +3749,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.region
@@ -3720,7 +3762,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-170 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -3748,10 +3790,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-173 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-75"
+              class="PrivateNotchedOutline-legendLabelled-175"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.country
@@ -3762,16 +3804,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-157"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-185 MuiButton-contained Button-contained-187 Form-button-156 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-80"
+            class="MuiButton-label Button-label-188"
           >
             addProject.dialog.form.actions.submit
           </span>
@@ -3839,25 +3881,27 @@ Object {
   "baseElement": <body>
     <div>
       <form
-        class="Form form Form--rightAlignButton"
+        class="Form-root-1 form Form-rightAlignButton-2"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <h5
-              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+              class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h5"
+              data-testid="typography"
             >
               addProject.dialog.sections.projectDetails.title
             </h5>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
           >
             <p
-              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+              class="MuiTypography-root requiredInformation Typography-root-8 MuiTypography-body1"
+              data-testid="typography"
             >
               * 
               requiredInformation
@@ -3865,7 +3909,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -3893,10 +3937,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
               >
                 <span>
                   addProject.dialog.form.fields.name
@@ -3910,27 +3954,28 @@ Object {
           class="input"
         >
           <h6
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+            class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h6"
+            data-testid="typography"
           >
             addProject.dialog.form.fields.technology
           </h6>
           <div
-            class="RadioGroup input"
+            class="RadioGroup-root-24 input"
           >
             <div
-              class="container"
+              class="RadioGroup-container-25"
             >
               <div
                 class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
               >
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton RadioButton--disabled"
+                    class="RadioButton-root-27 RadioButton-disabled-28"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-29"
                       disabled=""
                       id="radio-technology-PITCHED"
                       name="technology"
@@ -3938,12 +3983,12 @@ Object {
                       value="PITCHED"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-30"
                       for="radio-technology-PITCHED"
                     >
                       <div
                         aria-disabled="true"
-                        class="MuiButtonBase-root text Mui-disabled"
+                        class="MuiButtonBase-root RadioButton-text-31 Mui-disabled"
                         role="button"
                         tabindex="-1"
                       >
@@ -3955,19 +4000,20 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-8 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.PITCHED
                   </div>
                 </div>
                 <div
-                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                  class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-md-6"
                 >
                   <div
-                    class="RadioButton RadioButton--disabled"
+                    class="RadioButton-root-27 RadioButton-disabled-28"
                   >
                     <input
-                      class="input"
+                      class="RadioButton-input-29"
                       disabled=""
                       id="radio-technology-FLAT"
                       name="technology"
@@ -3975,12 +4021,12 @@ Object {
                       value="FLAT"
                     />
                     <label
-                      class="label"
+                      class="RadioButton-label-30"
                       for="radio-technology-FLAT"
                     >
                       <div
                         aria-disabled="true"
-                        class="MuiButtonBase-root text Mui-disabled"
+                        class="MuiButtonBase-root RadioButton-text-31 Mui-disabled"
                         role="button"
                         tabindex="-1"
                       >
@@ -3993,7 +4039,8 @@ Object {
                     </label>
                   </div>
                   <div
-                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                    class="MuiTypography-root technologyCaption Typography-root-8 MuiTypography-caption"
+                    data-testid="typography"
                   >
                     addProject.dialog.form.hints.technology.FLAT
                   </div>
@@ -4003,7 +4050,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4033,10 +4080,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.roofArea
@@ -4047,7 +4094,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4066,10 +4113,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.description
@@ -4079,18 +4126,19 @@ Object {
           </div>
         </div>
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.sections.dates.title
         </h6>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-sm-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4118,10 +4166,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                    class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                   >
                     <span>
                       addProject.dialog.form.fields.startDate
@@ -4132,7 +4180,7 @@ Object {
               </div>
             </div>
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4160,10 +4208,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                    class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                   >
                     <span>
                       addProject.dialog.form.fields.endDate
@@ -4176,12 +4224,13 @@ Object {
           </div>
         </div>
         <h5
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h5"
+          data-testid="typography"
         >
           addProject.dialog.sections.siteAddress.title
         </h5>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4209,10 +4258,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.firstLine
@@ -4223,7 +4272,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4243,10 +4292,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.secondLine
@@ -4256,7 +4305,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4284,10 +4333,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.town
@@ -4298,13 +4347,13 @@ Object {
           </div>
         </div>
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+            class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-lg-6"
           >
             <div
-              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+              class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
             >
               <label
                 class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4332,10 +4381,10 @@ Object {
                 />
                 <fieldset
                   aria-hidden="true"
-                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                  class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
                 >
                   <legend
-                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                    class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                   >
                     <span>
                       addProject.dialog.form.fields.siteAddress.postcode
@@ -4348,7 +4397,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4368,10 +4417,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3"
+                class="PrivateNotchedOutline-legendLabelled-22"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.region
@@ -4381,7 +4430,7 @@ Object {
           </div>
         </div>
         <div
-          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4409,10 +4458,10 @@ Object {
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
             >
               <legend
-                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
               >
                 <span>
                   addProject.dialog.form.fields.siteAddress.country
@@ -4423,16 +4472,16 @@ Object {
           </div>
         </div>
         <div
-          class="ButtonWrapper"
+          class="Form-buttonWrapper-4"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            class="MuiButtonBase-root MuiButton-root Button-root-32 MuiButton-contained Button-contained-34 Form-button-3 MuiButton-containedPrimary Mui-disabled Mui-disabled"
             disabled=""
             tabindex="-1"
             type="submit"
           >
             <span
-              class="MuiButton-label buttonStyles-label-8"
+              class="MuiButton-label Button-label-35"
             >
               addProject.dialog.form.actions.submit
             </span>
@@ -4443,25 +4492,27 @@ Object {
   </body>,
   "container": <div>
     <form
-      class="Form form Form--rightAlignButton"
+      class="Form-root-1 form Form-rightAlignButton-2"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <h5
-            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h5"
+            data-testid="typography"
           >
             addProject.dialog.sections.projectDetails.title
           </h5>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
         >
           <p
-            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            class="MuiTypography-root requiredInformation Typography-root-8 MuiTypography-body1"
+            data-testid="typography"
           >
             * 
             requiredInformation
@@ -4469,7 +4520,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4497,10 +4548,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
             >
               <span>
                 addProject.dialog.form.fields.name
@@ -4514,27 +4565,28 @@ Object {
         class="input"
       >
         <h6
-          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h6"
+          data-testid="typography"
         >
           addProject.dialog.form.fields.technology
         </h6>
         <div
-          class="RadioGroup input"
+          class="RadioGroup-root-24 input"
         >
           <div
-            class="container"
+            class="RadioGroup-container-25"
           >
             <div
               class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton RadioButton--disabled"
+                  class="RadioButton-root-27 RadioButton-disabled-28"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-29"
                     disabled=""
                     id="radio-technology-PITCHED"
                     name="technology"
@@ -4542,12 +4594,12 @@ Object {
                     value="PITCHED"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-30"
                     for="radio-technology-PITCHED"
                   >
                     <div
                       aria-disabled="true"
-                      class="MuiButtonBase-root text Mui-disabled"
+                      class="MuiButtonBase-root RadioButton-text-31 Mui-disabled"
                       role="button"
                       tabindex="-1"
                     >
@@ -4559,19 +4611,20 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-8 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.PITCHED
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-md-6"
               >
                 <div
-                  class="RadioButton RadioButton--disabled"
+                  class="RadioButton-root-27 RadioButton-disabled-28"
                 >
                   <input
-                    class="input"
+                    class="RadioButton-input-29"
                     disabled=""
                     id="radio-technology-FLAT"
                     name="technology"
@@ -4579,12 +4632,12 @@ Object {
                     value="FLAT"
                   />
                   <label
-                    class="label"
+                    class="RadioButton-label-30"
                     for="radio-technology-FLAT"
                   >
                     <div
                       aria-disabled="true"
-                      class="MuiButtonBase-root text Mui-disabled"
+                      class="MuiButtonBase-root RadioButton-text-31 Mui-disabled"
                       role="button"
                       tabindex="-1"
                     >
@@ -4597,7 +4650,8 @@ Object {
                   </label>
                 </div>
                 <div
-                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  class="MuiTypography-root technologyCaption Typography-root-8 MuiTypography-caption"
+                  data-testid="typography"
                 >
                   addProject.dialog.form.hints.technology.FLAT
                 </div>
@@ -4607,7 +4661,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4637,10 +4691,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.roofArea
@@ -4651,7 +4705,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4670,10 +4724,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.description
@@ -4683,18 +4737,19 @@ Object {
         </div>
       </div>
       <h6
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h6"
+        data-testid="typography"
       >
         addProject.dialog.sections.dates.title
       </h6>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-sm-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4722,10 +4777,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                 >
                   <span>
                     addProject.dialog.form.fields.startDate
@@ -4736,7 +4791,7 @@ Object {
             </div>
           </div>
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4764,10 +4819,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                 >
                   <span>
                     addProject.dialog.form.fields.endDate
@@ -4780,12 +4835,13 @@ Object {
         </div>
       </div>
       <h5
-        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        class="MuiTypography-root sectionTitle Typography-root-8 MuiTypography-h5"
+        data-testid="typography"
       >
         addProject.dialog.sections.siteAddress.title
       </h5>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4813,10 +4869,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.firstLine
@@ -4827,7 +4883,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4847,10 +4903,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.secondLine
@@ -4860,7 +4916,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
@@ -4888,10 +4944,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.town
@@ -4902,13 +4958,13 @@ Object {
         </div>
       </div>
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          class="MuiGrid-root Grid-item-6 MuiGrid-item MuiGrid-grid-lg-6"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
           >
             <label
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -4936,10 +4992,10 @@ Object {
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
                 >
                   <span>
                     addProject.dialog.form.fields.siteAddress.postcode
@@ -4952,7 +5008,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -4972,10 +5028,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3"
+              class="PrivateNotchedOutline-legendLabelled-22"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.region
@@ -4985,7 +5041,7 @@ Object {
         </div>
       </div>
       <div
-        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        class="MuiFormControl-root MuiTextField-root TextField-root-17 input MuiFormControl-fullWidth"
       >
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
@@ -5013,10 +5069,10 @@ Object {
           />
           <fieldset
             aria-hidden="true"
-            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            class="PrivateNotchedOutline-root-20 MuiOutlinedInput-notchedOutline"
           >
             <legend
-              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              class="PrivateNotchedOutline-legendLabelled-22 PrivateNotchedOutline-legendNotched-23"
             >
               <span>
                 addProject.dialog.form.fields.siteAddress.country
@@ -5027,16 +5083,16 @@ Object {
         </div>
       </div>
       <div
-        class="ButtonWrapper"
+        class="Form-buttonWrapper-4"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiButton-root Button-root-32 MuiButton-contained Button-contained-34 Form-button-3 MuiButton-containedPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="submit"
         >
           <span
-            class="MuiButton-label buttonStyles-label-8"
+            class="MuiButton-label Button-label-35"
           >
             addProject.dialog.form.actions.submit
           </span>

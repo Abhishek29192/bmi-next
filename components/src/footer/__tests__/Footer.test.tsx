@@ -1,6 +1,5 @@
 import React from "react";
 import mediaQuery from "css-mediaquery";
-import { render } from "@testing-library/react";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/Mail";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -8,6 +7,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Footer from "../Footer";
 import BmiIcon from "../svgs/BMI.svg";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const createMatchMedia = (width?: unknown) => {
   return (query: string): MediaQueryList =>
@@ -140,7 +140,7 @@ const secondaryNavigation = [
 
 describe("Footer component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Footer
         mainNavigation={mainNavigation}
         secondaryNavigation={secondaryNavigation}
@@ -152,7 +152,7 @@ describe("Footer component", () => {
   it("renders in a bigger breakpoint", () => {
     window.matchMedia = createMatchMedia(1280);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Footer
         mainNavigation={mainNavigation}
         secondaryNavigation={secondaryNavigation}

@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import MasonryGrid from "../MasonryGrid";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("MasonryGrid component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <MasonryGrid>
         <div>ONE</div>
         <div>TWO</div>

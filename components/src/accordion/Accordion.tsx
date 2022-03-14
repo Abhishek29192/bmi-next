@@ -1,82 +1,14 @@
 import {
   Accordion as MaterialAccordion,
+  AccordionDetails as MaterialAccordionDetails,
   AccordionProps as MaterialAccordionProps,
-  AccordionDetails as MaterialAccordionDetails
-} from "@material-ui/core";
-import {
   AccordionSummary as MaterialAccordionSummary,
   AccordionSummaryProps as MaterialSummaryProps
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import React, { useState } from "react";
 import classnames from "classnames";
-import { makeStyles } from "@material-ui/core";
-import variables from "./Accordion.module.scss";
-
-export const useAccordionStyles = makeStyles(
-  () => {
-    return {
-      root: {
-        "& .MuiAccordionSummary-root.Mui-expanded": {
-          minHeight: "48px"
-        },
-        "& .MuiAccordion-root.Mui-expanded": {
-          margin: "0px",
-          minHeight: "48px"
-        },
-        "& .Mui-expanded": {
-          margin: "0px"
-        }
-      },
-      item: {
-        backgroundColor: variables["color-pearl"],
-        border: "1px",
-        borderStyle: "solid",
-        borderColor: variables["color-storm"],
-        "&:nth-child(n+2)": {
-          borderTop: "0px"
-        },
-        "& + .item": {
-          borderTop: "none",
-          marginTop: "-1px"
-        },
-        "&:last-of-type .details": {
-          borderBottomLeftRadius: "4px",
-          borderBottomRightRadius: "4px"
-        }
-      },
-      details: (prop: { noInnerPadding?: boolean }) => {
-        return {
-          backgroundColor: variables["color-white"],
-          borderTop: "1px",
-          borderTopStyle: "solid",
-          borderTopColor: variables["color-storm"],
-          padding: prop && prop.noInnerPadding ? "0px" : "8px 16px 16px"
-        };
-      },
-      "no-inner-padding": {
-        "& .MuiAccordionDetails-root": {
-          padding: 0
-        }
-      },
-      summaryRoot: {
-        minHeight: "48px",
-        "& [class*='MuiIconButton-edgeEnd']": {
-          marginRight: "-12px"
-        },
-        "&:nth-child(1)": {
-          minHeight: "48px"
-        }
-      },
-      summaryExpanded: {
-        minHeight: "revert",
-        margin: "0"
-      },
-      summaryContent: {}
-    };
-  },
-  { classNamePrefix: "accordionStyles" }
-);
+import React, { useState } from "react";
+import { useStyles } from "./styles";
 
 type AccordionItemProps = MaterialAccordionProps & {
   isExpanded?: boolean;
@@ -98,14 +30,14 @@ const Accordion = ({ children, isRadio, noInnerPadding }: AccordionProps) => {
   const firstDefaultExpanded = React.Children.toArray(children).findIndex(
     (child) => React.isValidElement(child) && child.props.defaultExpanded
   );
-  const classes = useAccordionStyles({ noInnerPadding });
+  const classes = useStyles({ noInnerPadding });
   const [expanded, setExpanded] = useState<number>(firstDefaultExpanded + 1);
 
   return (
     <div
       className={classnames(
         classes.root,
-        noInnerPadding && classes["no-inner-padding"]
+        noInnerPadding && classes.noInnerPadding
       )}
     >
       {React.Children.map(children, (child, index) => {
@@ -136,7 +68,7 @@ const AccordionItem = ({
   setExpanded,
   ...props
 }: AccordionItemProps) => {
-  const classes = useAccordionStyles({});
+  const classes = useStyles({});
   const handleChange = (
     event: React.ChangeEvent<Record<string, unknown>>,
     expandedState: boolean
@@ -173,7 +105,7 @@ const AccordionSummary = ({
   noInnerPadding,
   ...other
 }: AccordionSummaryProps) => {
-  const classes = useAccordionStyles({ noInnerPadding });
+  const classes = useStyles({ noInnerPadding });
   return (
     <MaterialAccordionSummary
       expandIcon={expandIcon}
@@ -194,7 +126,7 @@ const AccordionDetails = ({
   noInnerPadding,
   ...other
 }: AccordionSummaryProps) => {
-  const classes = useAccordionStyles({ noInnerPadding });
+  const classes = useStyles({ noInnerPadding });
   return (
     <MaterialAccordionDetails className={classes.details} {...other}>
       {children}

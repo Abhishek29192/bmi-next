@@ -10,7 +10,8 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-57 Typography-underline-59 MuiTypography-h4"
+        data-testid="typography"
       >
         GCP roofing methodology
       </h4>
@@ -28,7 +29,8 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
               type.classroom
             </div>
             <p
-              class="MuiTypography-root tech Typography MuiTypography-body1"
+              class="MuiTypography-root tech Typography-root-57 MuiTypography-body1"
+              data-testid="typography"
             >
               <svg
                 class="technologyIcon"
@@ -39,7 +41,8 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
               class="status"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-57 MuiTypography-body1"
+                data-testid="typography"
               />
             </div>
           </div>
@@ -48,17 +51,17 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-outlined MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-65 MuiButton-outlined MuiButton-outlinedPrimary"
               href="/api/docebo-sso?path=/learn/course/internal/view/classroom/125/slug"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-label buttonStyles-label-44"
+                class="MuiButton-label Button-label-68"
               >
                 <span
-                  class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+                  class="MuiButton-startIcon Button-startIcon-69 MuiButton-iconSizeMedium"
                 >
                   <svg
                     aria-hidden="true"
@@ -84,12 +87,14 @@ exports[`TrainingCourseDetail component snapshots no enrollments 1`] = `
         class="body"
       >
         <h5
-          class="MuiTypography-root Typography MuiTypography-h5"
+          class="MuiTypography-root Typography-root-57 MuiTypography-h5"
+          data-testid="typography"
         >
           Description
         </h5>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-57 MuiTypography-body1"
+          data-testid="typography"
         >
           GCP roofing methodology description
         </div>
@@ -109,7 +114,8 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
       class="MuiCardContent-root"
     >
       <h4
-        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+        class="MuiTypography-root Typography-root-85 Typography-underline-87 MuiTypography-h4"
+        data-testid="typography"
       >
         GCP roofing methodology
       </h4>
@@ -127,7 +133,8 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
               type.classroom
             </div>
             <p
-              class="MuiTypography-root tech Typography MuiTypography-body1"
+              class="MuiTypography-root tech Typography-root-85 MuiTypography-body1"
+              data-testid="typography"
             >
               <svg
                 class="technologyIcon"
@@ -138,7 +145,8 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
               class="status"
             >
               <p
-                class="MuiTypography-root Typography MuiTypography-body1"
+                class="MuiTypography-root Typography-root-85 MuiTypography-body1"
+                data-testid="typography"
               />
             </div>
           </div>
@@ -147,17 +155,17 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
           >
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-outlined MuiButton-outlinedPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-93 MuiButton-outlined MuiButton-outlinedPrimary"
               href="/api/docebo-sso?path=https://intouch.test.com/test-course"
               rel="noopener noreferrer"
               tabindex="0"
               target="_blank"
             >
               <span
-                class="MuiButton-label buttonStyles-label-64"
+                class="MuiButton-label Button-label-96"
               >
                 <span
-                  class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+                  class="MuiButton-startIcon Button-startIcon-97 MuiButton-iconSizeMedium"
                 >
                   <svg
                     aria-hidden="true"
@@ -183,12 +191,14 @@ exports[`TrainingCourseDetail component snapshots with enrollment 1`] = `
         class="body"
       >
         <h5
-          class="MuiTypography-root Typography MuiTypography-h5"
+          class="MuiTypography-root Typography-root-85 MuiTypography-h5"
+          data-testid="typography"
         >
           Description
         </h5>
         <div
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-85 MuiTypography-body1"
+          data-testid="typography"
         >
           GCP roofing methodology description
         </div>

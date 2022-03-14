@@ -4,7 +4,7 @@ exports[`SelectGuarantee should render correct 1`] = `
 <div>
   <div>
     <div
-      class="Tooltip"
+      class="ToggleCard-root-44"
       style="padding: 5px;"
       title="guarantee_tab.apply_guarantee.message.guarantee_exists_error"
     >
@@ -24,12 +24,14 @@ exports[`SelectGuarantee should render correct 1`] = `
             class="text"
           >
             <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
+              class="MuiTypography-root title Typography-root-36 MuiTypography-h5"
+              data-testid="typography"
             >
               test
             </h5>
             <h6
-              class="MuiTypography-root Typography MuiTypography-subtitle2"
+              class="MuiTypography-root Typography-root-36 MuiTypography-subtitle2"
+              data-testid="typography"
             >
               test
             </h6>

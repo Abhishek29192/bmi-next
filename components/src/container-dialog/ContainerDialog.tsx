@@ -2,9 +2,9 @@ import { Fade, Modal, ModalProps } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { isValidElement, useContext, useMemo } from "react";
-import Button from "../button/Button";
-import { DialogClassNameContext } from "../dialog/context";
-import styles from "./ContainerDialog.module.scss";
+import Button from "../button";
+import { DialogClassNameContext } from "../dialog";
+import { useStyles } from "./styles";
 
 type Props = {
   open?: boolean;
@@ -37,6 +37,7 @@ const ContainerDialog = ({
   containerClassName,
   disablePortal
 }: Props) => {
+  const classes = useStyles();
   const modalClassName = useContext(DialogClassNameContext);
   const [header, content] = useMemo(() => {
     const deconstructedChildren = React.Children.toArray(children).reduce<
@@ -76,17 +77,15 @@ const ContainerDialog = ({
       <Fade in={open}>
         <div
           className={classnames(
-            styles["ContainerDialog"],
-            styles[`ContainerDialog--bg-${color}`],
-            styles[`ContainerDialog--width-${maxWidth}`],
-            {
-              [styles[`ContainerDialog--allowOverflow`]!]: allowOverflow
-            },
+            classes.root,
+            classes[`bg-${color}`],
+            classes[`width-${maxWidth}`],
+            allowOverflow && classes.allowOverflow,
             className
           )}
         >
           {header ? header : <Header onCloseClick={onCloseClick} />}
-          <div className={classnames(containerClassName, styles["content"])}>
+          <div className={classnames(containerClassName, classes.content)}>
             {content}
           </div>
         </div>
@@ -106,13 +105,15 @@ const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
     { onCloseClick, children, className }: HeaderProps,
     ref: React.LegacyRef<HTMLDivElement>
   ) => {
+    const classes = useStyles();
+
     return (
-      <div className={classnames(styles["header"], className)} ref={ref}>
+      <div className={classnames(classes.header, className)} ref={ref}>
         {children}
         <Button
           isIconButton
           variant="text"
-          className={styles["iconButton"]}
+          className={classes.iconButton}
           onClick={onCloseClick}
           accessibilityLabel={"Close"} // TODO: localise
         >

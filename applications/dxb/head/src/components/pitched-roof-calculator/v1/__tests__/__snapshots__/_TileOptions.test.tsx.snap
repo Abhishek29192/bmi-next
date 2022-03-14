@@ -10,50 +10,53 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           Select verge detail
         </h6>
         <p
-          class="MuiTypography-root help Typography MuiTypography-body2"
+          class="MuiTypography-root help Typography-root-1 MuiTypography-body2"
+          data-testid="typography"
         >
           These are the available tile options for your tile product selection.
         </p>
       </div>
       <div
-        class="CardRadioGroup"
+        class="CardRadioGroup-root-9"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardRadioGroup-item-10"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="verge"
                   type="radio"
                   value="Verge Metal Flush"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Verge Metal Flush
                     </h6>
@@ -66,33 +69,34 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardRadioGroup-item-10"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="verge"
                   type="radio"
                   value="Verge Tile"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Verge Tile
                     </h6>
@@ -105,29 +109,30 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardRadioGroup-item-10"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="verge"
                   type="radio"
                   value="none"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <h6
-                      class="MuiTypography-root title title--only Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 ToggleCard-only-19 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       None
                     </h6>
@@ -149,55 +154,59 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           Select ridge detail
         </h6>
         <p
-          class="MuiTypography-root help Typography MuiTypography-body2"
+          class="MuiTypography-root help Typography-root-1 MuiTypography-body2"
+          data-testid="typography"
         >
           Select ridge detail description
         </p>
       </div>
       <div
-        class="CardRadioGroup"
+        class="CardRadioGroup-root-9"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardRadioGroup-item-10"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="ridge"
                   type="radio"
                   value="46035761"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Zanda_Protector_ridge tile black
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-paragraph-20 Typography-root-1 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       Nobb: 
                       <strong>
@@ -213,38 +222,40 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardRadioGroup-item-10"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="ridge"
                   type="radio"
                   value="46035001"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Zanda_Protector_ridge sample metal flush black
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-paragraph-20 Typography-root-1 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       Nobb: 
                       <strong>
@@ -269,50 +280,53 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
         class="head"
       >
         <h6
-          class="MuiTypography-root Typography MuiTypography-h6"
+          class="MuiTypography-root Typography-root-1 MuiTypography-h6"
+          data-testid="typography"
         >
           Select ventilation hood items
         </h6>
       </div>
       <div
-        class="CardCheckboxGroup"
+        class="CardCheckboxGroup-root-24"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardCheckboxGroup-item-25"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="ventilation"
                   type="checkbox"
                   value="100456781"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Ventilation Hood 1
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-paragraph-20 Typography-root-1 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       Nobb: 
                       <strong>
@@ -328,38 +342,40 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput item"
+              class="CardInput-root-13 CardCheckboxGroup-item-25"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   name="ventilation"
                   type="checkbox"
                   value="100456782"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <div
-                      class="image"
+                      class="ToggleCard-image-21"
                       style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg);"
                     />
                     <h6
-                      class="MuiTypography-root title Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       Ventilation Hood 2
                     </h6>
                     <p
-                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                      class="MuiTypography-root ToggleCard-paragraph-20 Typography-root-1 MuiTypography-body1"
+                      data-testid="typography"
                     >
                       Nobb: 
                       <strong>
@@ -375,28 +391,29 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
           >
             <div
-              class="CardInput"
+              class="CardInput-root-13"
             >
               <label>
                 <input
-                  class="input"
+                  class="CardInput-input-14"
                   type="checkbox"
                   value="none"
                 />
                 <div
                   aria-disabled="false"
-                  class="MuiButtonBase-root ToggleCard card"
+                  class="MuiButtonBase-root ToggleCard-root-16 CardInput-card-15"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                    class="MuiPaper-root MuiCard-root ToggleCard-body-17 MuiPaper-elevation1 MuiPaper-rounded"
                   >
                     <h6
-                      class="MuiTypography-root title title--only Typography MuiTypography-h6"
+                      class="MuiTypography-root ToggleCard-title-18 ToggleCard-only-19 Typography-root-1 MuiTypography-h6"
+                      data-testid="typography"
                     >
                       None
                     </h6>

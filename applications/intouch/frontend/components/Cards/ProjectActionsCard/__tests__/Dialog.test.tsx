@@ -1,5 +1,6 @@
+import { ThemeProvider } from "@bmi/components";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import Dialog from "../Dialog";
 import { renderWithUserProvider } from "../../../../lib/tests/utils";
 import AccountProvider from "../../../../lib/tests/fixtures/account";
@@ -22,7 +23,11 @@ describe("Dialog", () => {
   });
 
   it("render correctly", async () => {
-    render(<Dialog {...generateInitialProp({ open: true })} />);
+    render(
+      <ThemeProvider>
+        <Dialog {...generateInitialProp({ open: true })} />
+      </ThemeProvider>
+    );
 
     await waitFor(() => {
       expect(screen.getByText("title")).toBeTruthy();
@@ -33,7 +38,11 @@ describe("Dialog", () => {
   });
 
   it("render empty div when open is false ", async () => {
-    render(<Dialog {...generateInitialProp({ open: false })} />);
+    render(
+      <ThemeProvider>
+        <Dialog {...generateInitialProp({ open: false })} />
+      </ThemeProvider>
+    );
 
     await waitFor(() => {
       expect(screen.queryByText("title")).toBeFalsy();
@@ -42,7 +51,11 @@ describe("Dialog", () => {
   });
 
   it("run onConfirm when click on confirm button ", async () => {
-    render(<Dialog {...generateInitialProp({ open: true })} />);
+    render(
+      <ThemeProvider>
+        <Dialog {...generateInitialProp({ open: true })} />
+      </ThemeProvider>
+    );
 
     const confirmButton = screen.getByText("projectActions.cta.confirm");
     fireEvent.click(confirmButton);
@@ -51,7 +64,11 @@ describe("Dialog", () => {
   });
 
   it("run onCancel when click on cancel button", async () => {
-    render(<Dialog {...generateInitialProp({ open: true })} />);
+    render(
+      <ThemeProvider>
+        <Dialog {...generateInitialProp({ open: true })} />
+      </ThemeProvider>
+    );
 
     const cancelButton = screen.getByText("projectActions.cta.cancel");
     fireEvent.click(cancelButton);

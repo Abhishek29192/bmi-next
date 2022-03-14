@@ -1,10 +1,11 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import Filters, { Filter as ProductFilter } from "../Filters";
 
 describe("Filters component", () => {
   it("renders correctly", () => {
-    const { container } = render(<Filters filters={[]} />);
+    const { container } = renderWithThemeProvider(<Filters filters={[]} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -42,7 +43,9 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(<Filters filters={filters} />);
+    const { container } = renderWithThemeProvider(
+      <Filters filters={filters} />
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -66,7 +69,9 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(<Filters filters={filters} />);
+    const { container } = renderWithThemeProvider(
+      <Filters filters={filters} />
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -91,7 +96,9 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(<Filters filters={filters} />);
+    const { container } = renderWithThemeProvider(
+      <Filters filters={filters} />
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -121,7 +128,7 @@ describe("Filters component", () => {
     ];
     const onChange = jest.fn();
 
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithThemeProvider(
       <Filters filters={filters} onChange={onChange} />
     );
     fireEvent.click(getByLabelText(filters[0].options[0].label));
@@ -149,7 +156,9 @@ describe("Filters component", () => {
       }
     ];
 
-    const { container } = render(<Filters filters={filters} />);
+    const { container } = renderWithThemeProvider(
+      <Filters filters={filters} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

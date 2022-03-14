@@ -1,9 +1,10 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import {
   createPimProductDocument,
   PimProductDocument
 } from "@bmi/elasticsearch-types";
+import { render } from "@testing-library/react";
+import React from "react";
 import fileIconsMap from "../../../../components/FileIconsMap";
 import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
 import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
@@ -19,11 +20,13 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <DesktopDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <DesktopDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();
@@ -42,11 +45,13 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <DesktopDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <DesktopDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();
@@ -60,11 +65,13 @@ describe("DesktopDocumentTechnicalTableResults component", () => {
       ];
 
       const wrapper = render(
-        <DesktopDocumentTechnicalTableResults
-          documentsByProduct={documentsByProduct}
-          assetTypes={assetTypes}
-          fileIconsMap={fileIconsMap}
-        />
+        <ThemeProvider>
+          <DesktopDocumentTechnicalTableResults
+            documentsByProduct={documentsByProduct}
+            assetTypes={assetTypes}
+            fileIconsMap={fileIconsMap}
+          />
+        </ThemeProvider>
       );
 
       expect(wrapper.baseElement).toMatchSnapshot();

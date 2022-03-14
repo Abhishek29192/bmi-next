@@ -3,34 +3,34 @@
 exports[`TechnologyInput should render correctly 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-root-1"
   >
     <div
-      class="container"
+      class="RadioGroup-container-2"
     >
       <div
         class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-item-4 MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton"
+            class="RadioButton-root-6"
           >
             <input
-              class="input"
+              class="RadioButton-input-8"
               id="radio-technology-PITCHED"
               name="technology"
               type="radio"
               value="PITCHED"
             />
             <label
-              class="label"
+              class="RadioButton-label-9"
               for="radio-technology-PITCHED"
             >
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root text"
+                class="MuiButtonBase-root RadioButton-text-10"
                 role="button"
                 tabindex="-1"
               >
@@ -45,31 +45,32 @@ exports[`TechnologyInput should render correctly 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-root-11 MuiTypography-caption"
+            data-testid="typography"
           >
             addProject.dialog.form.hints.technology.PITCHED
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-item-4 MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton"
+            class="RadioButton-root-6"
           >
             <input
-              class="input"
+              class="RadioButton-input-8"
               id="radio-technology-FLAT"
               name="technology"
               type="radio"
               value="FLAT"
             />
             <label
-              class="label"
+              class="RadioButton-label-9"
               for="radio-technology-FLAT"
             >
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root text"
+                class="MuiButtonBase-root RadioButton-text-10"
                 role="button"
                 tabindex="-1"
               >
@@ -85,7 +86,8 @@ exports[`TechnologyInput should render correctly 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-root-11 MuiTypography-caption"
+            data-testid="typography"
           >
             addProject.dialog.form.hints.technology.FLAT
           </div>
@@ -99,22 +101,22 @@ exports[`TechnologyInput should render correctly 1`] = `
 exports[`TechnologyInput should render disabled 1`] = `
 <div>
   <div
-    class="RadioGroup"
+    class="RadioGroup-root-19"
   >
     <div
-      class="container"
+      class="RadioGroup-container-20"
     >
       <div
         class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-item-22 MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton RadioButton--disabled"
+            class="RadioButton-root-24 RadioButton-disabled-25"
           >
             <input
-              class="input"
+              class="RadioButton-input-26"
               disabled=""
               id="radio-technology-PITCHED"
               name="technology"
@@ -122,12 +124,12 @@ exports[`TechnologyInput should render disabled 1`] = `
               value="PITCHED"
             />
             <label
-              class="label"
+              class="RadioButton-label-27"
               for="radio-technology-PITCHED"
             >
               <div
                 aria-disabled="true"
-                class="MuiButtonBase-root text Mui-disabled"
+                class="MuiButtonBase-root RadioButton-text-28 Mui-disabled"
                 role="button"
                 tabindex="-1"
               >
@@ -139,19 +141,20 @@ exports[`TechnologyInput should render disabled 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-root-29 MuiTypography-caption"
+            data-testid="typography"
           >
             addProject.dialog.form.hints.technology.PITCHED
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+          class="MuiGrid-root Grid-item-22 MuiGrid-item MuiGrid-grid-md-6"
         >
           <div
-            class="RadioButton RadioButton--disabled"
+            class="RadioButton-root-24 RadioButton-disabled-25"
           >
             <input
-              class="input"
+              class="RadioButton-input-26"
               disabled=""
               id="radio-technology-FLAT"
               name="technology"
@@ -159,12 +162,12 @@ exports[`TechnologyInput should render disabled 1`] = `
               value="FLAT"
             />
             <label
-              class="label"
+              class="RadioButton-label-27"
               for="radio-technology-FLAT"
             >
               <div
                 aria-disabled="true"
-                class="MuiButtonBase-root text Mui-disabled"
+                class="MuiButtonBase-root RadioButton-text-28 Mui-disabled"
                 role="button"
                 tabindex="-1"
               >
@@ -177,7 +180,8 @@ exports[`TechnologyInput should render disabled 1`] = `
             </label>
           </div>
           <div
-            class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+            class="MuiTypography-root technologyCaption Typography-root-29 MuiTypography-caption"
+            data-testid="typography"
           >
             addProject.dialog.form.hints.technology.FLAT
           </div>

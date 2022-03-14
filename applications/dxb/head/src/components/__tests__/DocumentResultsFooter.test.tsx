@@ -1,4 +1,4 @@
-import { DownloadListContext } from "@bmi/components";
+import { DownloadListContext, ThemeProvider } from "@bmi/components";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import MockDate from "mockdate";
 import React from "react";
@@ -66,23 +66,25 @@ describe("DocumentResultsFooter component", () => {
   it("renders correctly", () => {
     const handlePageChange = jest.fn();
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 4,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 4,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -94,23 +96,25 @@ describe("DocumentResultsFooter component", () => {
       name2: [createPimDocument({ id: "pim-document-id" })]
     };
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list: customList,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 2,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list: customList,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 2,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -118,24 +122,26 @@ describe("DocumentResultsFooter component", () => {
   it("renders correctly if onDownloadClick not passed", () => {
     const handlePageChange = jest.fn();
     const { container } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 4,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-          isDownloadButton={false}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 4,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+            isDownloadButton={false}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -144,23 +150,25 @@ describe("DocumentResultsFooter component", () => {
     const handleDownloadClickMock = jest.fn();
     const handlePageChange = jest.fn();
     const { findByText } = render(
-      <DownloadListContext.Provider
-        value={{
-          list,
-          updateList: jest.fn(),
-          resetList: jest.fn(),
-          count: 3,
-          remainingSize: Infinity,
-          isLoading: false,
-          setIsLoading: jest.fn()
-        }}
-      >
-        <DocumentResultsFooter
-          page={1}
-          count={1}
-          onPageChange={handlePageChange}
-        />
-      </DownloadListContext.Provider>
+      <ThemeProvider>
+        <DownloadListContext.Provider
+          value={{
+            list,
+            updateList: jest.fn(),
+            resetList: jest.fn(),
+            count: 3,
+            remainingSize: Infinity,
+            isLoading: false,
+            setIsLoading: jest.fn()
+          }}
+        >
+          <DocumentResultsFooter
+            page={1}
+            count={1}
+            onPageChange={handlePageChange}
+          />
+        </DownloadListContext.Provider>
+      </ThemeProvider>
     );
 
     executeRecaptcha.mockReturnValue("token");

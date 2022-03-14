@@ -1,6 +1,7 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
-import ProjectCopyActionDialog from "../Dialog";
 import { renderAsDeep, screen } from "../../../../../lib/tests/utils";
+import ProjectCopyActionDialog from "../Dialog";
 
 const mockConfirm = jest.fn();
 const mockCancel = jest.fn();
@@ -8,11 +9,13 @@ const mockCancel = jest.fn();
 describe("ProjectCopyActionDialog Component", () => {
   it("renders correctly", () => {
     renderAsDeep({ account: { role: "SUPER_ADMIN" } })(
-      <ProjectCopyActionDialog
-        isOpen={true}
-        onConfirm={mockConfirm}
-        onCancel={mockCancel}
-      />
+      <ThemeProvider>
+        <ProjectCopyActionDialog
+          isOpen={true}
+          onConfirm={mockConfirm}
+          onCancel={mockCancel}
+        />
+      </ThemeProvider>
     );
     const dialogContent = screen.getByText("copyDialog.content");
     expect(dialogContent).toBeVisible();

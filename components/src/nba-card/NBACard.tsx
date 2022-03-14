@@ -1,10 +1,10 @@
-import React from "react";
-import classnames from "classnames";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import classnames from "classnames";
+import React from "react";
 import { withClickable } from "../clickable/Clickable";
 import ColorPair, { Colors } from "../color-pair/ColorPair";
 import Typography from "../typography/Typography";
-import styles from "./NBACard.module.scss";
+import { useStyles } from "./styles";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {
   theme: Colors;
@@ -26,24 +26,23 @@ const NBACard = ({
   isClickable = true,
   ...rest
 }: Props) => {
+  const classes = useStyles();
   return (
     <ColorPair
       markupComponent={isClickable ? Button : "div"}
       className={classnames(
-        styles["NBACard"],
-        {
-          [`${styles["NBACard--clickable"]}`]: isClickable
-        },
+        classes.root,
+        isClickable && classes.clickable,
         className
       )}
       {...rest}
       theme={theme}
     >
-      <Typography className={styles["title"]} variant="h4">
+      <Typography className={classes.title} variant="h4">
         {title}
       </Typography>
-      <div className={styles["body"]}>{children}</div>
-      {footer && <div className={styles["footer"]}>{footer}</div>}
+      <div className={classes.body}>{children}</div>
+      {footer && <div className={classes.footer}>{footer}</div>}
     </ColorPair>
   );
 };

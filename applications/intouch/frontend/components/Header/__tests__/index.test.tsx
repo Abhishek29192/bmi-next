@@ -1,7 +1,8 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
 import { Header } from "../";
-import { renderAsDeep, screen, fireEvent, act } from "../../../lib/tests/utils";
 import { generateTierBenefitItem } from "../../../lib/tests/factories/contentful/tierBenefitCollection";
+import { act, fireEvent, renderAsDeep, screen } from "../../../lib/tests/utils";
 
 const useGetTierBenefitQuerySpy = jest.fn();
 const updateNotificationsSpy = jest.fn();
@@ -72,7 +73,11 @@ describe("Header Component", () => {
     const props = initialProps();
     const { container } = renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     //upperHeader
     expect(screen.queryByText(props.contactUsLink.label)).toBeTruthy();
@@ -98,7 +103,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     const { container } = renderAsDeep({
       account: { role: "SUPER_ADMIN", account: { id: 1 } }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     const notificationButton = container.querySelector(".notificationsIcon");
     await fireEvent.click(notificationButton);
@@ -120,7 +129,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     const { container } = renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     const notificationButton = container.querySelector(".notificationsIcon");
     await fireEvent.click(notificationButton);
@@ -136,7 +149,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     await act(() => {
       window.innerWidth = 500;
@@ -154,7 +171,11 @@ describe("Header Component", () => {
         hasCompany: true,
         companyStatus: "DEACTIVATED"
       }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     expect(screen.queryByText("deactivatedCompany")).toBeTruthy();
   });
@@ -166,7 +187,11 @@ describe("Header Component", () => {
         role: "INSTALLER",
         hasCompany: false
       }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     expect(screen.queryByText("deactivatedCompany")).toBeFalsy();
   });
@@ -175,7 +200,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     const { container } = renderAsDeep({
       account: { role: "AUDITOR" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     expect(container.querySelector("#notifications-panel-toggle")).toBeFalsy();
     expect(container.querySelector(".notificationsIcon")).toBeFalsy();
@@ -185,7 +214,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     const { container } = renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     const button = container.querySelector("#mobile-navigation-panel-toggle");
     await fireEvent.click(button);
@@ -197,7 +230,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), notifications: [] };
     const { container } = renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     const button = container.querySelector("#tablet-navigation-panel-toggle");
     await fireEvent.click(button);
@@ -209,7 +246,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), contactUsLink: null };
     renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     expect(screen.queryByTestId("contact-us-link")).toBeFalsy();
   });
@@ -218,7 +259,11 @@ describe("Header Component", () => {
     const props = { ...initialProps(), globalExternalLink: null };
     renderAsDeep({
       account: { role: "SUPER_ADMIN" }
-    })(<Header {...props} />);
+    })(
+      <ThemeProvider>
+        <Header {...props} />
+      </ThemeProvider>
+    );
 
     expect(screen.queryByTestId("global-external-link")).toBeFalsy();
   });

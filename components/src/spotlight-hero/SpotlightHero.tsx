@@ -1,9 +1,9 @@
-import React from "react";
 import classnames from "classnames";
+import React from "react";
 import Container from "../container/Container";
 import Media, { AcceptedNode } from "../media/Media";
 import Typography from "../typography/Typography";
-import styles from "./SpotlightHero.module.scss";
+import { useStyles } from "./styles";
 
 type BackgroundColor = "cyan" | "teal" | "blue" | "charcoal";
 
@@ -38,35 +38,33 @@ const SpotlightHero = ({
   cta,
   isHeroKeyLine
 }: Props) => {
+  const classes = useStyles();
   return (
     <div
       data-testid="spotLightHero"
-      className={classnames(
-        styles["SpotlightHero"],
-        isHeroKeyLine && styles["SpotlightHero--keyline"]
-      )}
+      className={classnames(classes.root, isHeroKeyLine && classes.keyline)}
     >
-      <div className={styles["header"]}>
-        <Container className={styles["header-container"]}>
+      <div className={classes.header}>
+        <Container className={classes.headerContainer}>
           {breadcrumbs && (
-            <div className={styles["breadcrumbs"]}>{breadcrumbs}</div>
+            <div className={classes.breadcrumbs}>{breadcrumbs}</div>
           )}
           <Typography
             variant="h1"
             hasUnderline
             hasDarkBackground
-            className={styles["title"]}
+            className={classes.title}
           >
             {title}
           </Typography>
         </Container>
       </div>
       <Container>
-        <div className={styles["content"]}>
-          <div className={styles["text"]}>{children}</div>
+        <div className={classes.content}>
+          <div className={classes.text}>{children}</div>
           {React.isValidElement(cta) &&
             React.cloneElement(cta, {
-              className: styles["cta"],
+              className: classes.cta,
               variant: "outlined",
               hasDarkBackground: true
             })}
@@ -74,11 +72,11 @@ const SpotlightHero = ({
       </Container>
       <div
         className={classnames(
-          styles["overlay"],
-          styles[`overlay--${backgroundColor}`]
+          classes.overlay,
+          classes[backgroundColor as BackgroundColor]
         )}
       >
-        <Media className={styles["image"]}>{renderMedia(media)}</Media>
+        <Media className={classes.image}>{renderMedia(media)}</Media>
       </div>
     </div>
   );

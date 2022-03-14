@@ -6,12 +6,14 @@ exports[`RichText component check existing data from mock 1`] = `
     class="main"
   >
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-root-1 MuiTypography-body1 MuiTypography-gutterBottom"
+      data-testid="typography"
     >
       test text
     </p>
     <h2
-      class="MuiTypography-root title Typography MuiTypography-h2"
+      class="MuiTypography-root title Typography-root-1 MuiTypography-h2"
+      data-testid="typography"
     >
       Heading 2
     </h2>
@@ -22,22 +24,26 @@ exports[`RichText component check existing data from mock 1`] = `
        
     </div>
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h3"
+      class="MuiTypography-root title Typography-root-1 MuiTypography-h3"
+      data-testid="typography"
     >
       Heading 3
     </h3>
     <h4
-      class="MuiTypography-root title Typography MuiTypography-h4"
+      class="MuiTypography-root title Typography-root-1 MuiTypography-h4"
+      data-testid="typography"
     >
       Heading 4
     </h4>
     <h5
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root title Typography-root-1 MuiTypography-h5"
+      data-testid="typography"
     >
       Heading 5
     </h5>
     <h6
-      class="MuiTypography-root title Typography MuiTypography-h6"
+      class="MuiTypography-root title Typography-root-1 MuiTypography-h6"
+      data-testid="typography"
     >
       Heading 6
     </h6>
@@ -49,7 +55,8 @@ exports[`RichText component check existing data from mock 1`] = `
       width="2372"
     />
     <p
-      class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+      class="MuiTypography-root Typography-root-1 MuiTypography-body1 MuiTypography-gutterBottom"
+      data-testid="typography"
     >
       Paragraph 
       <strong>

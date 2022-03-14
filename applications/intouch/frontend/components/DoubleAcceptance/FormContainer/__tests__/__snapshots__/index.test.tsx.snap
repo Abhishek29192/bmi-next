@@ -6,19 +6,20 @@ exports[`FormContainer render correctly 1`] = `
     class="container"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+          class="MuiTypography-root Typography-root-3 Typography-underline-5 MuiTypography-h4"
+          data-testid="typography"
         >
           title
         </h4>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+        class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
       >
         <div>
           <div>
@@ -31,13 +32,14 @@ exports[`FormContainer render correctly 1`] = `
       class="body"
     >
       <div
-        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
       >
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <h4
-            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+            class="MuiTypography-root subtitle Typography-root-3 MuiTypography-h4"
+            data-testid="typography"
           >
             warrantyPeriod
           </h4>
@@ -46,10 +48,11 @@ exports[`FormContainer render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <h4
-            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+            class="MuiTypography-root subtitle Typography-root-3 MuiTypography-h4"
+            data-testid="typography"
           >
             guaranteeScope
           </h4>
@@ -58,10 +61,11 @@ exports[`FormContainer render correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+          class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
         >
           <h4
-            class="MuiTypography-root subtitle Typography MuiTypography-h4"
+            class="MuiTypography-root subtitle Typography-root-3 MuiTypography-h4"
+            data-testid="typography"
           >
             guaranteeConditions
           </h4>
@@ -85,31 +89,31 @@ exports[`FormContainer render correctly 1`] = `
         </div>
       </div>
       <form
-        class="Form Form--rightAlignButton"
+        class="Form-root-11 Form-rightAlignButton-12"
         data-testid="double-acceptance-form"
         id="double-acceptance-form"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MuiFormControl-root Checkbox"
+              class="MuiFormControl-root Checkbox-root-16"
             >
               <label
                 class="MuiFormControlLabel-root"
               >
                 <span
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-18 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                 >
                   <span
                     class="MuiIconButton-label"
                   >
                     <input
-                      class="PrivateSwitchBase-input-4"
+                      class="PrivateSwitchBase-input-21"
                       data-indeterminate="false"
                       name="acknowledge"
                       type="checkbox"
@@ -139,16 +143,16 @@ exports[`FormContainer render correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
             >
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
+                class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-6"
               >
                 <div
-                  class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                  class="MuiFormControl-root MuiTextField-root TextField-root-23 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -177,10 +181,10 @@ exports[`FormContainer render correctly 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-26 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-7"
+                        class="PrivateNotchedOutline-legendLabelled-28"
                       >
                         <span>
                           form.fields.firstname.label
@@ -192,10 +196,10 @@ exports[`FormContainer render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6"
+                class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-6"
               >
                 <div
-                  class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+                  class="MuiFormControl-root MuiTextField-root TextField-root-23 MuiFormControl-fullWidth"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
@@ -224,10 +228,10 @@ exports[`FormContainer render correctly 1`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-26 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-7"
+                        class="PrivateNotchedOutline-legendLabelled-28"
                       >
                         <span>
                           form.fields.lastname.label

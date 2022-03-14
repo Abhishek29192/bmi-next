@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { LocationProvider } from "@reach/router";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
@@ -58,9 +59,11 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const { container } = renderWithRouter(
-      <LocationProvider>
-        <ServiceLocatorSection data={data} />
-      </LocationProvider>
+      <ThemeProvider>
+        <LocationProvider>
+          <ServiceLocatorSection data={data} />
+        </LocationProvider>
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -81,9 +84,11 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <LocationProvider>
-          <ServiceLocatorSection data={data} />
-        </LocationProvider>
+        <ThemeProvider>
+          <LocationProvider>
+            <ServiceLocatorSection data={data} />
+          </LocationProvider>
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -103,7 +108,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -129,7 +136,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -156,7 +165,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -181,7 +192,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -216,7 +229,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -254,7 +269,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -298,7 +315,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -330,7 +349,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -362,7 +383,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -405,7 +428,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -442,7 +467,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -483,7 +510,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       expect(container).toMatchSnapshot();
     });
@@ -509,7 +538,11 @@ describe("ServiceLocatorSection component", () => {
         )
       };
 
-      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const wrapper = renderWithRouter(
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
+      );
 
       const paginationButton = wrapper.getByRole("button", {
         name: `Go to page 2`
@@ -540,7 +573,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, {
@@ -576,7 +613,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const nameInput = wrapper.container.querySelector("#company-autocomplete");
 
     fireEvent.change(nameInput, { target: { value: "r" } });
@@ -606,7 +647,9 @@ describe("ServiceLocatorSection component", () => {
     };
 
     const { container, findByRole } = renderWithRouter(
-      <ServiceLocatorSection data={data} />
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
     );
     const nameInput = container.querySelector("#company-autocomplete");
 
@@ -648,7 +691,9 @@ describe("ServiceLocatorSection component", () => {
       configurable: true
     });
     const { container } = renderWithRouter(
-      <ServiceLocatorSection data={data} />
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
     );
     const nameInput = container.querySelector("#company-autocomplete");
 
@@ -690,7 +735,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     const geolocationButton = wrapper.getByRole("button", {
       name: `MC: findARoofer.geolocationButton`
@@ -723,7 +772,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick(roofer2);
@@ -746,7 +799,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     expect(wrapper.container).toMatchSnapshot();
@@ -766,7 +823,11 @@ describe("ServiceLocatorSection component", () => {
       services: [createService({ name: "roofer 1" })]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const rooferButton = wrapper.getByText("roofer 1");
     rooferButton.click();
     rooferButton.click();
@@ -809,7 +870,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Flat Roof`
     });
@@ -850,7 +915,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Country Offices`
     });
@@ -894,7 +963,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Merchant type 2`
     });
@@ -931,7 +1004,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton = wrapper.getByRole("button", {
       name: `Flat Roof`
     });
@@ -990,7 +1067,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const chipButton1 = wrapper.getByRole("button", {
       name: `Flat Roof 1`
     });
@@ -1045,9 +1126,14 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />, {
-      route: "/something/?chip=Pitched+roof"
-    });
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>,
+      {
+        route: "/something/?chip=Pitched+roof"
+      }
+    );
     expect(wrapper.queryByText("roofer 1")).toBeTruthy();
     expect(wrapper.queryByText("roofer 2")).toBeFalsy();
   });
@@ -1081,7 +1167,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     expect(wrapper.container).toMatchSnapshot();
   });
 
@@ -1129,7 +1219,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     expect(wrapper.container).toMatchSnapshot();
   });
 
@@ -1164,7 +1258,11 @@ describe("ServiceLocatorSection component", () => {
       ]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
     const input = wrapper.getByLabelText("MC: findARoofer.companyFieldLabel");
 
     expect(wrapper.getAllByText("roofer 1")).toHaveLength(1);
@@ -1196,7 +1294,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+    const wrapper = renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick("MC: global.close");
@@ -1238,7 +1340,11 @@ describe("ServiceLocatorSection component", () => {
 
     it("should show result list after searched by name/company", async () => {
       const { queryByText, container, getAllByText, getByTitle } =
-        renderWithRouter(<ServiceLocatorSection data={data} />);
+        renderWithRouter(
+          <ThemeProvider>
+            <ServiceLocatorSection data={data} />
+          </ThemeProvider>
+        );
 
       expect(queryByText(roofer1.name)).toBeFalsy();
       expect(queryByText(roofer2.name)).toBeFalsy();
@@ -1261,7 +1367,9 @@ describe("ServiceLocatorSection component", () => {
 
     it("should show result list after filtered by chip filter", () => {
       const { queryByText, getByRole, getAllByText } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
 
       expect(queryByText(roofer1.name)).toBeFalsy();
@@ -1278,7 +1386,11 @@ describe("ServiceLocatorSection component", () => {
     });
 
     it("should not render results list panel on page load if selected chips do not exist in query params", () => {
-      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+      const wrapper = renderWithRouter(
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
+      );
       const text = wrapper.queryByText("MC: findARoofer.listLabel");
       expect(
         wrapper.container.querySelector(".tabs .tab-panel .list")
@@ -1307,7 +1419,9 @@ describe("ServiceLocatorSection component", () => {
       };
 
       const { findByLabelText, container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
       const googleAutoCompleteInput = await findByLabelText(
         "MC: findARoofer.locationFieldLabel"
@@ -1400,7 +1514,9 @@ describe("ServiceLocatorSection component", () => {
         ]
       };
       const { findByRole, container } = renderWithRouter(
-        <ServiceLocatorSection data={data} />
+        <ThemeProvider>
+          <ServiceLocatorSection data={data} />
+        </ThemeProvider>
       );
 
       const googleAutoCompleteInput = (await screen.findByRole("textbox", {
@@ -1451,7 +1567,11 @@ describe("ServiceLocatorSection component", () => {
       services: [roofer1, roofer2]
     };
 
-    renderWithRouter(<ServiceLocatorSection data={data} />);
+    renderWithRouter(
+      <ThemeProvider>
+        <ServiceLocatorSection data={data} />
+      </ThemeProvider>
+    );
 
     act(() => {
       callMarkerOnClick(roofer2);

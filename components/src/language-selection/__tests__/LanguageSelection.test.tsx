@@ -1,16 +1,19 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import React from "react";
-import languages from "../languages";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import LanguageSelection from "../LanguageSelection";
+import languages from "./languages";
 
 describe("LanguageSelection component", () => {
   it("renders correctly", () => {
-    const { container } = render(<LanguageSelection languages={languages} />);
+    const { container } = renderWithThemeProvider(
+      <LanguageSelection languages={languages} />
+    );
     expect(container).toMatchSnapshot();
   });
 
   it("accepts introduction text", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LanguageSelection
         introduction={<p>Introduction</p>}
         languages={languages}
@@ -20,7 +23,7 @@ describe("LanguageSelection component", () => {
   });
 
   it("accepts a url to the icon", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LanguageSelection
         introduction={<p>Introduction</p>}
         languages={[
@@ -46,7 +49,7 @@ describe("LanguageSelection component", () => {
   });
 
   it("renders correctly if forceMobile", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <LanguageSelection
         introduction={<p>Introduction</p>}
         forceMobile
@@ -74,7 +77,7 @@ describe("LanguageSelection component", () => {
 
   it("push analytics on click", () => {
     const onCountrySelection = jest.fn();
-    const { getByText } = render(
+    const { getByText } = renderWithThemeProvider(
       <LanguageSelection
         languages={languages}
         onCountrySelection={onCountrySelection}

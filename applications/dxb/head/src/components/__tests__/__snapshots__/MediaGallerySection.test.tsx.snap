@@ -3,37 +3,38 @@
 exports[`MediaGallerySection component renders correctly 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section Section--alabaster"
+    class="MediaGallerySection Section-root-1 Section-alabaster-3"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <h2
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root Typography-root-13 Typography-underline-15 MuiTypography-h2"
+              data-testid="typography"
             >
               Lorem ipsum
             </h2>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-item-11 MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MediaGallery"
+              class="MediaGallery-root-21"
             >
               <div
-                class="image-wrapper"
+                class="MediaGallery-imageWrapper-22"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapper-25 MediaGallery-mainImageWrapperCover-26 MediaGallery-mainImageWrapperdefault-27 Media-root-33"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >
@@ -81,17 +82,19 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="thumbnails"
+                class="Thumbnails-root-35"
+                data-testid="thumbnails-root"
               >
                 <button
                   aria-label="Scroll left"
-                  class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+                  class="MuiButtonBase-root Thumbnails-thumbScroller-36 Thumbnails-thumbScrollerLeft-37 ThumbScrollerButton-root-45 ThumbScrollerButton-left-46"
+                  data-testid="thumbnail-scroller-left"
                   tabindex="-1"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
+                    class="MuiSvgIcon-root ThumbScrollerButton-icon-48"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -105,13 +108,14 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 </button>
                 <button
                   aria-label="Scroll right"
-                  class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+                  class="MuiButtonBase-root Thumbnails-thumbScroller-36 Thumbnails-thumbScrollerRight-38 Thumbnails-thumbScrollerHidden-39 ThumbScrollerButton-root-45 ThumbScrollerButton-right-47"
+                  data-testid="thumbnail-scroller-right"
                   tabindex="-1"
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    class="MuiSvgIcon-root icon"
+                    class="MuiSvgIcon-root ThumbScrollerButton-icon-48"
                     focusable="false"
                     viewBox="0 0 24 24"
                   >
@@ -124,18 +128,19 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   />
                 </button>
                 <div
-                  class="scroller"
+                  class="Thumbnails-scroller-40"
+                  data-testid="thumbnail-scroller"
                   style="margin-right: 0%;"
                 >
                   <button
-                    aria-label="Lorem ipsum image alt text"
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                    class="MuiButtonBase-root Thumbnails-thumbnail-41 Thumbnail-root-49 Thumbnail-selected-51 Thumbnail-large-52 Thumbnail-selected-51"
                     data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum image alt text\\",\\"action\\":\\"//image.asset.jpg\\"}"
+                    data-testid="default-thumbnail"
                     tabindex="0"
                     type="button"
                   >
                     <div
-                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media"
+                      class="gatsby-image-wrapper gatsby-image-wrapper-constrained Media-root-33"
                       data-gatsby-image-wrapper=""
                       style="overflow: hidden; display: inline-block; vertical-align: top;"
                     >
@@ -183,21 +188,22 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     </div>
                   </button>
                   <button
-                    aria-label="Lorem ipsum video label"
-                    class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                    class="MuiButtonBase-root Thumbnails-thumbnail-41 Thumbnail-root-49 Thumbnail-large-52"
                     data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum video label\\",\\"action\\":\\"//video-image.asset.jpg\\"}"
+                    data-testid="default-thumbnail"
                     style="background-image: url(//video-image.asset.jpg);"
                     tabindex="0"
                     type="button"
                   >
                     <span
-                      class="accessibility-text"
+                      class="Thumbnail-accessibilityText-53"
                     >
                       Lorem ipsum video label
                     </span>
                     <svg
                       aria-hidden="true"
-                      class="MuiSvgIcon-root play-icon"
+                      class="MuiSvgIcon-root Thumbnail-playIcon-54"
+                      data-testid="thumbnail-play-icon"
                       focusable="false"
                       viewBox="0 0 24 24"
                     >
@@ -223,22 +229,23 @@ exports[`MediaGallerySection component renders correctly 1`] = `
 exports[`MediaGallerySection component renders correctly with long description 1`] = `
 <div>
   <div
-    class="MediaGallerySection Section Section--alabaster"
+    class="MediaGallerySection Section-root-56 Section-alabaster-58"
   >
     <div
-      class="Container"
+      class="Container-root-64"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+            class="MuiGrid-root Grid-item-66 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
           >
             <h2
-              class="MuiTypography-root Typography Typography--underline MuiTypography-h2"
+              class="MuiTypography-root Typography-root-68 Typography-underline-70 MuiTypography-h2"
+              data-testid="typography"
             >
               Lorem ipsum
             </h2>
@@ -246,15 +253,17 @@ exports[`MediaGallerySection component renders correctly with long description 1
               class="description"
             >
               <div
-                class="RichText"
+                class="RichText-root-76"
               >
                 <h2
-                  class="MuiTypography-root title Typography MuiTypography-h2"
+                  class="MuiTypography-root RichText-title-77 Typography-root-68 MuiTypography-h2"
+                  data-testid="typography"
                 >
                   Heading 2
                 </h2>
                 <p
-                  class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+                  class="MuiTypography-root Typography-root-68 MuiTypography-body1 MuiTypography-gutterBottom"
+                  data-testid="typography"
                 >
                   this is a test paragraph
                 </p>
@@ -262,16 +271,16 @@ exports[`MediaGallerySection component renders correctly with long description 1
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+            class="MuiGrid-root Grid-item-66 MuiGrid-item MuiGrid-grid-xs-12"
           >
             <div
-              class="MediaGallery"
+              class="MediaGallery-root-78"
             >
               <div
-                class="image-wrapper"
+                class="MediaGallery-imageWrapper-79"
               >
                 <div
-                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
+                  class="gatsby-image-wrapper gatsby-image-wrapper-constrained MediaGallery-mainImageWrapper-82 MediaGallery-mainImageWrapperCover-83 MediaGallery-mainImageWrapperdefault-84 Media-root-90"
                   data-gatsby-image-wrapper=""
                   style="overflow: hidden; display: inline-block; vertical-align: top;"
                 >

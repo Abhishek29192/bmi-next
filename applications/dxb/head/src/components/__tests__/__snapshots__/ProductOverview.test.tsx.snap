@@ -6,29 +6,30 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
     class="ProductOverview"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root Grid-item-44 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="MediaGallery"
+          class="MediaGallery-root-46"
         >
           <div
-            class="image-wrapper"
+            class="MediaGallery-imageWrapper-47"
           >
             <img
-              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+              class="MediaGallery-mainImageWrapper-50 MediaGallery-mainImageWrappershort-53 Media-root-85 Media-contain-86"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
-              class="caption"
+              class="MediaGallery-caption-48"
             >
               <p
-                class="MuiTypography-root caption-text Typography MuiTypography-h6"
+                class="MuiTypography-root MediaGallery-captionText-49 Typography-root-71 MuiTypography-h6"
+                data-testid="typography"
               >
                 <span
-                  class="LinesEllipsis  Truncate"
+                  class="LinesEllipsis  Truncate-root-87"
                 >
                   This is image caption
                   <wbr />
@@ -37,17 +38,19 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="thumbnails"
+            class="Thumbnails-root-88"
+            data-testid="thumbnails-root"
           >
             <button
               aria-label="Scroll left"
-              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+              class="MuiButtonBase-root Thumbnails-thumbScroller-89 Thumbnails-thumbScrollerLeft-90 ThumbScrollerButton-root-98 ThumbScrollerButton-left-99"
+              data-testid="thumbnail-scroller-left"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root ThumbScrollerButton-icon-101"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -61,13 +64,14 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
             </button>
             <button
               aria-label="Scroll right"
-              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+              class="MuiButtonBase-root Thumbnails-thumbScroller-89 Thumbnails-thumbScrollerRight-91 Thumbnails-thumbScrollerHidden-92 ThumbScrollerButton-root-98 ThumbScrollerButton-right-100"
+              data-testid="thumbnail-scroller-right"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root ThumbScrollerButton-icon-101"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -80,30 +84,31 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
               />
             </button>
             <div
-              class="scroller"
+              class="Thumbnails-scroller-93"
+              data-testid="thumbnail-scroller"
               style="margin-right: 0%;"
             >
               <button
-                aria-label="test alt text"
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-94 Thumbnail-root-102 Thumbnail-selected-104 Thumbnail-large-105 Thumbnail-selected-104"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class="Media"
+                  class="Media-root-85"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
               </button>
               <button
-                aria-label="test alt text 1"
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-94 Thumbnail-root-102 Thumbnail-large-105"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class="Media"
+                  class="Media-root-85"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
                 <span
@@ -111,14 +116,16 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-94 Thumbnail-root-102 Thumbnail-large-105"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root play-icon"
+                  class="MuiSvgIcon-root Thumbnail-playIcon-107"
+                  data-testid="thumbnail-play-icon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -135,18 +142,19 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+        class="MuiGrid-root Grid-item-44 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
         <div
-          class="ProductOverview"
+          class="ProductOverviewPane-root-58"
         >
           <h1
-            class="MuiTypography-root heading Typography MuiTypography-h3"
+            class="MuiTypography-root ProductOverviewPane-heading-60 Typography-root-71 MuiTypography-h3"
+            data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="attributes"
+            class="ProductOverviewPane-attributes-61"
           />
           <div>
             block
@@ -156,11 +164,12 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </p>
         </div>
         <p
-          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
+          class="MuiTypography-root keyAssetTypesDownload Typography-root-71 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -171,7 +180,7 @@ exports[`ProductOverview component renders correctly with Recaptcha 1`] = `
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-79 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"
@@ -194,29 +203,30 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
     class="ProductOverview"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root Grid-item-109 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="MediaGallery"
+          class="MediaGallery-root-111"
         >
           <div
-            class="image-wrapper"
+            class="MediaGallery-imageWrapper-112"
           >
             <img
-              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+              class="MediaGallery-mainImageWrapper-115 MediaGallery-mainImageWrappershort-118 Media-root-144 Media-contain-145"
               src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
             />
             <div
-              class="caption"
+              class="MediaGallery-caption-113"
             >
               <p
-                class="MuiTypography-root caption-text Typography MuiTypography-h6"
+                class="MuiTypography-root MediaGallery-captionText-114 Typography-root-136 MuiTypography-h6"
+                data-testid="typography"
               >
                 <span
-                  class="LinesEllipsis  Truncate"
+                  class="LinesEllipsis  Truncate-root-146"
                 >
                   This is image caption
                   <wbr />
@@ -225,17 +235,19 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             </div>
           </div>
           <div
-            class="thumbnails"
+            class="Thumbnails-root-147"
+            data-testid="thumbnails-root"
           >
             <button
               aria-label="Scroll left"
-              class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+              class="MuiButtonBase-root Thumbnails-thumbScroller-148 Thumbnails-thumbScrollerLeft-149 ThumbScrollerButton-root-157 ThumbScrollerButton-left-158"
+              data-testid="thumbnail-scroller-left"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root ThumbScrollerButton-icon-160"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -249,13 +261,14 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
             </button>
             <button
               aria-label="Scroll right"
-              class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+              class="MuiButtonBase-root Thumbnails-thumbScroller-148 Thumbnails-thumbScrollerRight-150 Thumbnails-thumbScrollerHidden-151 ThumbScrollerButton-root-157 ThumbScrollerButton-right-159"
+              data-testid="thumbnail-scroller-right"
               tabindex="-1"
               type="button"
             >
               <svg
                 aria-hidden="true"
-                class="MuiSvgIcon-root icon"
+                class="MuiSvgIcon-root ThumbScrollerButton-icon-160"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
@@ -268,30 +281,31 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
               />
             </button>
             <div
-              class="scroller"
+              class="Thumbnails-scroller-152"
+              data-testid="thumbnail-scroller"
               style="margin-right: 0%;"
             >
               <button
-                aria-label="test alt text"
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-153 Thumbnail-root-161 Thumbnail-selected-163 Thumbnail-large-164 Thumbnail-selected-163"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class="Media"
+                  class="Media-root-144"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
               </button>
               <button
-                aria-label="test alt text 1"
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-153 Thumbnail-root-161 Thumbnail-large-164"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <img
-                  class="Media"
+                  class="Media-root-144"
                   src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
                 />
                 <span
@@ -299,14 +313,16 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
                 />
               </button>
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                class="MuiButtonBase-root Thumbnails-thumbnail-153 Thumbnail-root-161 Thumbnail-large-164"
                 data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
+                data-testid="default-thumbnail"
                 tabindex="0"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root play-icon"
+                  class="MuiSvgIcon-root Thumbnail-playIcon-166"
+                  data-testid="thumbnail-play-icon"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -323,18 +339,19 @@ exports[`ProductOverview component renders correctly without Recaptcha 1`] = `
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+        class="MuiGrid-root Grid-item-109 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
         <div
-          class="ProductOverview"
+          class="ProductOverviewPane-root-123"
         >
           <h1
-            class="MuiTypography-root heading Typography MuiTypography-h3"
+            class="MuiTypography-root ProductOverviewPane-heading-125 Typography-root-136 MuiTypography-h3"
+            data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="attributes"
+            class="ProductOverviewPane-attributes-126"
           />
           <div>
             block
@@ -355,36 +372,37 @@ exports[`ProductOverview component renders with default image if there are no im
     class="ProductOverview"
   >
     <div
-      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
     >
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
+        class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-8"
       >
         <div
-          class="MediaGallery"
+          class="MediaGallery-root-3"
         >
           <div
-            class="image-wrapper"
+            class="MediaGallery-imageWrapper-4"
           >
             <svg
-              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+              class="MediaGallery-mainImageWrapper-7 MediaGallery-mainImageWrappershort-10 Media-root-42 Media-contain-43"
             />
           </div>
         </div>
       </div>
       <div
-        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
+        class="MuiGrid-root Grid-item-1 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12 MuiGrid-grid-lg-4"
       >
         <div
-          class="ProductOverview"
+          class="ProductOverviewPane-root-15"
         >
           <h1
-            class="MuiTypography-root heading Typography MuiTypography-h3"
+            class="MuiTypography-root ProductOverviewPane-heading-17 Typography-root-28 MuiTypography-h3"
+            data-testid="typography"
           >
             name
           </h1>
           <ul
-            class="attributes"
+            class="ProductOverviewPane-attributes-18"
           />
           <div>
             block
@@ -394,11 +412,12 @@ exports[`ProductOverview component renders with default image if there are no im
           </p>
         </div>
         <p
-          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
+          class="MuiTypography-root keyAssetTypesDownload Typography-root-28 MuiTypography-body1"
+          data-testid="typography"
         >
           This site is protected by reCAPTCHA and the Google 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-36 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/privacy"
             rel="noreferrer noopener"
             target="_blank"
@@ -409,7 +428,7 @@ exports[`ProductOverview component renders with default image if there are no im
           </a>
            and 
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-36 Anchorlink MuiTypography-colorPrimary"
             href="https://policies.google.com/terms"
             rel="noreferrer noopener"
             target="_blank"

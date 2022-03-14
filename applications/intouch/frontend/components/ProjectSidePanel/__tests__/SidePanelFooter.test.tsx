@@ -1,7 +1,8 @@
+import { ThemeProvider } from "@bmi/components";
 import React from "react";
-import { renderAsDeep, screen, fireEvent } from "../../../lib/tests/utils";
-import SidePanelFooter from "../SidePanelFooter";
 import { generateAccount } from "../../../lib/tests/factories/account";
+import { fireEvent, renderAsDeep, screen } from "../../../lib/tests/utils";
+import SidePanelFooter from "../SidePanelFooter";
 
 const findAccountCompanySpy = jest.fn().mockImplementation(() => ({ id: "1" }));
 jest.mock("../../../lib/account", () => ({
@@ -15,7 +16,9 @@ describe("SidePanelFooter", () => {
 
   it("render correctly", () => {
     renderAsDeep({ account: generateAccount({ role: "SUPER_ADMIN" }) })(
-      <SidePanelFooter projectLength={1} guaranteeLength={1} />
+      <ThemeProvider>
+        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+      </ThemeProvider>
     );
 
     expect(
@@ -39,7 +42,11 @@ describe("SidePanelFooter", () => {
     it("open dialog when butto being clicked", () => {
       const { baseElement } = renderAsDeep({
         account: generateAccount({ role: "SUPER_ADMIN" })
-      })(<SidePanelFooter projectLength={1} guaranteeLength={1} />);
+      })(
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
+      );
 
       const button = screen.queryByTestId("project-side-panel-footer-button");
       fireEvent.click(button);
@@ -52,7 +59,9 @@ describe("SidePanelFooter", () => {
 
     it("hidden when account fails access control rule", () => {
       renderAsDeep({ account: generateAccount({ role: "INSTALLER" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(
@@ -63,7 +72,9 @@ describe("SidePanelFooter", () => {
     it("return null when account has no company", () => {
       findAccountCompanySpy.mockReturnValueOnce(null);
       renderAsDeep({ account: generateAccount({ role: "INSTALLER" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(
@@ -75,7 +86,9 @@ describe("SidePanelFooter", () => {
   describe("Project Report", () => {
     it("button disabled if project length is 0", () => {
       renderAsDeep({ account: generateAccount({ role: "SUPER_ADMIN" }) })(
-        <SidePanelFooter projectLength={0} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={0} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(
@@ -85,7 +98,9 @@ describe("SidePanelFooter", () => {
 
     it("download button hidden if account fails access control rule", () => {
       renderAsDeep({ account: generateAccount({ role: "INSTALLER" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(screen.queryByTestId("export-project-report-button")).toBeFalsy();
@@ -95,7 +110,9 @@ describe("SidePanelFooter", () => {
   describe("Guarantee Report", () => {
     it("button disabled if project length is 0", () => {
       renderAsDeep({ account: generateAccount({ role: "SUPER_ADMIN" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={0} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={0} />
+        </ThemeProvider>
       );
 
       expect(
@@ -105,7 +122,9 @@ describe("SidePanelFooter", () => {
 
     it("download button hidden if account fails access control rule", () => {
       renderAsDeep({ account: generateAccount({ role: "INSTALLER" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(
@@ -117,7 +136,9 @@ describe("SidePanelFooter", () => {
   describe("Upload Report", () => {
     it("button disabled if project length is 0", () => {
       renderAsDeep({ account: generateAccount({ role: "SUPER_ADMIN" }) })(
-        <SidePanelFooter projectLength={0} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={0} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(
@@ -127,7 +148,9 @@ describe("SidePanelFooter", () => {
 
     it("download button hidden if account fails access control rule", () => {
       renderAsDeep({ account: generateAccount({ role: "INSTALLER" }) })(
-        <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        <ThemeProvider>
+          <SidePanelFooter projectLength={1} guaranteeLength={1} />
+        </ThemeProvider>
       );
 
       expect(screen.queryByTestId("export-upload-report-button")).toBeFalsy();

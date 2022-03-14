@@ -1,14 +1,15 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import {
   createContentfulDocument,
   createPimProductDocument
 } from "@bmi/elasticsearch-types";
+import { render } from "@testing-library/react";
+import React from "react";
+import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 import DocumentResults, {
   DocumentResultData,
   Format
 } from "../DocumentResults";
-import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
 
 describe("DocumentResults component", () => {
   let inputDataItems: DocumentResultData[];
@@ -35,11 +36,13 @@ describe("DocumentResults component", () => {
       createAssetType({ code: pimDocument.assetType.code })
     ];
     const { container } = render(
-      <DocumentResults
-        data={[contentfulDocument, pimDocument]}
-        format="simpleTable"
-        assetTypes={assetTypes}
-      />
+      <ThemeProvider>
+        <DocumentResults
+          data={[contentfulDocument, pimDocument]}
+          format="simpleTable"
+          assetTypes={assetTypes}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -54,11 +57,13 @@ describe("DocumentResults component", () => {
     const format = "invalid" as Format;
     expect(() => {
       render(
-        <DocumentResults
-          data={inputDataItems}
-          format={format}
-          assetTypes={assetTypes}
-        />
+        <ThemeProvider>
+          <DocumentResults
+            data={inputDataItems}
+            format={format}
+            assetTypes={assetTypes}
+          />
+        </ThemeProvider>
       );
     }).toThrowError();
   });
@@ -67,11 +72,13 @@ describe("DocumentResults component", () => {
     const pimDocument = createPimProductDocument();
     const assetTypes = [createAssetType({ code: pimDocument.assetType.code })];
     const { container } = render(
-      <DocumentResults
-        data={[pimDocument]}
-        format="technicalTable"
-        assetTypes={assetTypes}
-      />
+      <ThemeProvider>
+        <DocumentResults
+          data={[pimDocument]}
+          format="technicalTable"
+          assetTypes={assetTypes}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });
@@ -82,11 +89,13 @@ describe("DocumentResults component", () => {
       createAssetType({ code: contentfulDocument.assetType.code })
     ];
     const { container } = render(
-      <DocumentResults
-        data={[contentfulDocument]}
-        format="cards"
-        assetTypes={assetTypes}
-      />
+      <ThemeProvider>
+        <DocumentResults
+          data={[contentfulDocument]}
+          format="cards"
+          assetTypes={assetTypes}
+        />
+      </ThemeProvider>
     );
     expect(container).toMatchSnapshot();
   });

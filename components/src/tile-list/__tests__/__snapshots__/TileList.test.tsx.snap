@@ -3,11 +3,11 @@
 exports[`TileList component render correctly when onClick is defined 1`] = `
 <div>
   <div
-    class="MuiPaper-root MuiCard-root Tile Tile--clickable MuiPaper-elevation1 MuiPaper-rounded"
+    class="MuiPaper-root MuiCard-root TileList-tile-85 TileList-clickable-86 MuiPaper-elevation1 MuiPaper-rounded"
   >
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root icon"
+      class="MuiSvgIcon-root TileList-icon-88"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -16,10 +16,11 @@ exports[`TileList component render correctly when onClick is defined 1`] = `
       />
     </svg>
     <div
-      class="description"
+      class="TileList-description-87"
     >
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-89 MuiTypography-body1"
+        data-testid="typography"
       >
         Text 1
       </p>
@@ -31,14 +32,14 @@ exports[`TileList component render correctly when onClick is defined 1`] = `
 exports[`TileList component renders correctly 1`] = `
 <div>
   <div
-    class="wrapper"
+    class="TileList-wrapper-2"
   >
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-6"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -47,21 +48,22 @@ exports[`TileList component renders correctly 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-5"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-7 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 1
         </p>
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-3 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-6"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -70,10 +72,11 @@ exports[`TileList component renders correctly 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-5"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-7 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 2
         </p>
@@ -86,14 +89,14 @@ exports[`TileList component renders correctly 1`] = `
 exports[`TileList component renders correctly with pagination 1`] = `
 <div>
   <div
-    class="wrapper"
+    class="TileList-wrapper-16"
   >
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-17 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-20"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -102,21 +105,22 @@ exports[`TileList component renders correctly with pagination 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-19"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-21 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 1
         </p>
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-17 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-20"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -125,10 +129,11 @@ exports[`TileList component renders correctly with pagination 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-19"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-21 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 2
         </p>
@@ -136,15 +141,15 @@ exports[`TileList component renders correctly with pagination 1`] = `
     </div>
   </div>
   <div
-    class="button"
+    class="TileList-button-15"
   >
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
+      class="MuiButtonBase-root MuiButton-root Button-root-29 MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-4"
+        class="MuiButton-label Button-label-32"
       >
         Show More
       </span>
@@ -159,14 +164,14 @@ exports[`TileList component renders correctly with pagination 1`] = `
 exports[`TileList component shows more tiles on 'Show more' click 1`] = `
 <div>
   <div
-    class="wrapper"
+    class="TileList-wrapper-50"
   >
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-51 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-54"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -175,21 +180,22 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-53"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-55 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 1
         </p>
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-51 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-54"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -198,21 +204,22 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-53"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-55 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 2
         </p>
       </div>
     </div>
     <div
-      class="MuiPaper-root MuiCard-root Tile MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root TileList-tile-51 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root icon"
+        class="MuiSvgIcon-root TileList-icon-54"
         focusable="false"
         viewBox="0 0 24 24"
       >
@@ -221,10 +228,11 @@ exports[`TileList component shows more tiles on 'Show more' click 1`] = `
         />
       </svg>
       <div
-        class="description"
+        class="TileList-description-53"
       >
         <p
-          class="MuiTypography-root Typography MuiTypography-body1"
+          class="MuiTypography-root Typography-root-55 MuiTypography-body1"
+          data-testid="typography"
         >
           Text 3
         </p>

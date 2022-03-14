@@ -1,7 +1,7 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import IntegratedBreadcrumbs from "../Breadcrumbs";
-// import Breadcrumbs from "../components/breadcrumbs";
+import React from "react";
+import IntegratedBreadcrumbs from "../Breadcrumbs"; // import Breadcrumbs from "../components/breadcrumbs";
 
 describe("Breadcrumbs component", () => {
   it("renders correctly", () => {
@@ -18,7 +18,11 @@ describe("Breadcrumbs component", () => {
       }
     ];
 
-    const { container } = render(<IntegratedBreadcrumbs data={breadcrumbs} />);
+    const { container } = render(
+      <ThemeProvider>
+        <IntegratedBreadcrumbs data={breadcrumbs} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -31,7 +35,11 @@ describe("Breadcrumbs component", () => {
       }
     ];
 
-    const { container } = render(<IntegratedBreadcrumbs data={breadcrumbs} />);
+    const { container } = render(
+      <ThemeProvider>
+        <IntegratedBreadcrumbs data={breadcrumbs} />
+      </ThemeProvider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

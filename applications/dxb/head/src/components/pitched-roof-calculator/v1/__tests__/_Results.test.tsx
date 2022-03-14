@@ -1,13 +1,14 @@
-import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import mockConsole from "jest-mock-console";
+import { ThemeProvider } from "@bmi/components";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
-import data from "../../samples/data.json";
 import en from "../../samples/copy/en.json";
+import data from "../../samples/data.json";
+import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results from "../_Results";
-import { Measurements } from "../../types/roof";
 
 beforeAll(() => {
   mockConsole();
@@ -420,9 +421,11 @@ const resultsProps = {
 describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={jest.fn()} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} sendEmailAddress={jest.fn()} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -430,9 +433,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders with debugging mode on", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={jest.fn()} isDebugging />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} sendEmailAddress={jest.fn()} isDebugging />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -440,12 +445,14 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders with no guttering", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...{ ...resultsProps, guttering: {} }}
-          sendEmailAddress={jest.fn()}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...{ ...resultsProps, guttering: {} }}
+            sendEmailAddress={jest.fn()}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -453,15 +460,17 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders with main tile as verge", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...{
-            ...resultsProps,
-            tileOptions: { ...resultsProps.tileOptions, verge: "none" }
-          }}
-          sendEmailAddress={jest.fn()}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...{
+              ...resultsProps,
+              tileOptions: { ...resultsProps.tileOptions, verge: "none" }
+            }}
+            sendEmailAddress={jest.fn()}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -469,15 +478,17 @@ describe("PitchedRoofCalculator Results component", () => {
 
   it("renders with default ridge", () => {
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results
-          {...{
-            ...resultsProps,
-            tileOptions: { ...resultsProps.tileOptions, ridge: null }
-          }}
-          sendEmailAddress={jest.fn()}
-        />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results
+            {...{
+              ...resultsProps,
+              tileOptions: { ...resultsProps.tileOptions, ridge: null }
+            }}
+            sendEmailAddress={jest.fn()}
+          />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -498,9 +509,11 @@ describe("PitchedRoofCalculator Results component", () => {
 
     const sendEmailAddress = jest.fn();
     const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={sendEmailAddress} />
-      </MicroCopy.Provider>
+      <ThemeProvider>
+        <MicroCopy.Provider values={en}>
+          <Results {...resultsProps} sendEmailAddress={sendEmailAddress} />
+        </MicroCopy.Provider>
+      </ThemeProvider>
     );
 
     const nameInput = container.querySelector(`input[name="name"]`);

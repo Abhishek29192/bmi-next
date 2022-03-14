@@ -1,14 +1,17 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
-import Component from "../documentsLeadBlock";
+import React from "react";
 import createPimSystemDocument from "../../../__tests__/helpers/PimSystemDocumentHelper";
+import Component from "../documentsLeadBlock";
 
 const documents = [createPimSystemDocument()];
 
 describe("DocumentsLeadBlock tests", () => {
   it("should render correctly", () => {
     const { container, queryByText } = render(
-      <Component documents={documents} />
+      <ThemeProvider>
+        <Component documents={documents} />
+      </ThemeProvider>
     );
     const tableRows = container.querySelectorAll(".tableContainer tbody tr");
 

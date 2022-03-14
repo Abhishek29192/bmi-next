@@ -3,22 +3,23 @@
 exports[`ExpandableLinksTextCard component renders correctly 1`] = `
 <div>
   <div
-    class="ExpandableLinksTextCards"
+    class="ExpandableLinksTextCard-root-1"
   >
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root ExpandableLinksTextCard-title-2 Typography-root-8 MuiTypography-h5"
+      data-testid="typography"
     >
       Heading One
     </h3>
     <nav>
       <div
-        class="shown-links-container"
+        class="ExpandableLinksTextCard-shownLinksContainer-3"
       >
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-4"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-6 AnchorLink-root-16 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -27,10 +28,10 @@ exports[`ExpandableLinksTextCard component renders correctly 1`] = `
           </a>
         </div>
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-4"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-6 AnchorLink-root-16 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -39,10 +40,10 @@ exports[`ExpandableLinksTextCard component renders correctly 1`] = `
           </a>
         </div>
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-4"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-6 AnchorLink-root-16 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -52,7 +53,7 @@ exports[`ExpandableLinksTextCard component renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="hidden-links-container"
+        class="ExpandableLinksTextCard-hiddenLinksContainer-7"
       />
     </nav>
   </div>
@@ -62,22 +63,23 @@ exports[`ExpandableLinksTextCard component renders correctly 1`] = `
 exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`] = `
 <div>
   <div
-    class="ExpandableLinksTextCards"
+    class="ExpandableLinksTextCard-root-104"
   >
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root ExpandableLinksTextCard-title-105 Typography-root-111 MuiTypography-h5"
+      data-testid="typography"
     >
       Heading One
     </h3>
     <nav>
       <div
-        class="shown-links-container"
+        class="ExpandableLinksTextCard-shownLinksContainer-106"
       >
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-107"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-109 AnchorLink-root-119 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -86,10 +88,10 @@ exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`
           </a>
         </div>
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-107"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-109 AnchorLink-root-119 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -99,15 +101,15 @@ exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`
         </div>
       </div>
       <div
-        class="hidden-links-container"
+        class="ExpandableLinksTextCard-hiddenLinksContainer-110"
       >
         <div>
           <div>
             <div
-              class="link-wrapper"
+              class="ExpandableLinksTextCard-linkWrapper-107"
             >
               <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-109 AnchorLink-root-119 Anchorlink MuiTypography-colorPrimary"
                 href="/"
               >
                 <span>
@@ -117,12 +119,12 @@ exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-125 MuiButton-contained Button-contained-127 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-44"
+              class="MuiButton-label Button-label-128"
             >
               Close
             </span>
@@ -140,25 +142,26 @@ exports[`ExpandableLinksTextCard component renders correctly with closeButton 1`
 exports[`ExpandableLinksTextCard component renders correctly with download action model 1`] = `
 <div>
   <div
-    class="ExpandableLinksTextCards"
+    class="ExpandableLinksTextCard-root-63"
   >
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root ExpandableLinksTextCard-title-64 Typography-root-70 MuiTypography-h5"
+      data-testid="typography"
     >
       Heading One
     </h3>
     <nav>
       <div
-        class="shown-links-container"
+        class="ExpandableLinksTextCard-shownLinksContainer-65"
       >
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-66"
         >
           <svg
-            class="icon"
+            class="ExpandableLinksTextCard-icon-67"
           />
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-68 AnchorLink-root-78 Anchorlink MuiTypography-colorPrimary"
             href="/"
             rel="noopener noreferrer"
             target="_blank"
@@ -170,17 +173,17 @@ exports[`ExpandableLinksTextCard component renders correctly with download actio
         </div>
       </div>
       <div
-        class="hidden-links-container"
+        class="ExpandableLinksTextCard-hiddenLinksContainer-69"
       >
         <div>
           <div />
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-84 MuiButton-contained Button-contained-86 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-87"
             >
               Open
             </span>
@@ -198,22 +201,23 @@ exports[`ExpandableLinksTextCard component renders correctly with download actio
 exports[`ExpandableLinksTextCard component renders correctly with more than 3 links 1`] = `
 <div>
   <div
-    class="ExpandableLinksTextCards"
+    class="ExpandableLinksTextCard-root-22"
   >
     <h3
-      class="MuiTypography-root title Typography MuiTypography-h5"
+      class="MuiTypography-root ExpandableLinksTextCard-title-23 Typography-root-29 MuiTypography-h5"
+      data-testid="typography"
     >
       Heading One
     </h3>
     <nav>
       <div
-        class="shown-links-container"
+        class="ExpandableLinksTextCard-shownLinksContainer-24"
       >
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-25"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-27 AnchorLink-root-37 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -222,10 +226,10 @@ exports[`ExpandableLinksTextCard component renders correctly with more than 3 li
           </a>
         </div>
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-25"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-27 AnchorLink-root-37 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -234,10 +238,10 @@ exports[`ExpandableLinksTextCard component renders correctly with more than 3 li
           </a>
         </div>
         <div
-          class="link-wrapper"
+          class="ExpandableLinksTextCard-linkWrapper-25"
         >
           <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover ExpandableLinksTextCard-link-27 AnchorLink-root-37 Anchorlink MuiTypography-colorPrimary"
             href="/"
           >
             <span>
@@ -247,17 +251,17 @@ exports[`ExpandableLinksTextCard component renders correctly with more than 3 li
         </div>
       </div>
       <div
-        class="hidden-links-container"
+        class="ExpandableLinksTextCard-hiddenLinksContainer-28"
       >
         <div>
           <div />
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-43 MuiButton-contained Button-contained-45 MuiButton-containedPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-46"
             >
               Open
             </span>

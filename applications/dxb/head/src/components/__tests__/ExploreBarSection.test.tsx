@@ -1,5 +1,6 @@
-import React from "react";
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
+import React from "react";
 import ExploreBarSection, { Data } from "../ExploreBarSection";
 import { DataTypeEnum } from "../Link";
 
@@ -42,7 +43,11 @@ describe("ExploreBarSection component", () => {
       ]
     };
 
-    const { container } = render(<ExploreBarSection data={data} />);
+    const { container } = render(
+      <ThemeProvider>
+        <ExploreBarSection data={data} />
+      </ThemeProvider>
+    );
 
     expect(container).toMatchSnapshot();
   });

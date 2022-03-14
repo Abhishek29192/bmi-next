@@ -1,13 +1,15 @@
 import { SVGImport } from "@bmi-digital/svg-import";
 import { ChevronLeft, ChevronRight } from "@material-ui/icons";
 import classnames from "classnames";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DefaultButton, { ButtonProps } from "../button/Button";
 import { ClickableAction } from "../clickable/Clickable";
 import Icon from "../icon";
-import Typography from "../typography/Typography";
 import type { LanguageSelectionItem } from "../language-selection/LanguageSelection";
-import styles from "./Navigation.module.scss";
+import Typography from "../typography/Typography";
+import { useStyles } from "./styles";
+
+type Depth = 0 | 1 | 2 | 3 | 4;
 
 export type LinkList = {
   label: string;
@@ -29,7 +31,7 @@ type NavigationProps = {
   buttonComponent?: React.ComponentType<any>; // TODO
   promoButtonComponent?: React.ComponentType<any>; // TODO
   menu: readonly NavigationList[];
-  initialDepth?: number;
+  initialDepth?: Depth;
   initialValue?: number | boolean;
   setRootValue?: (value: number | boolean) => void;
   toggleLanguageSelection?: () => void;
@@ -37,7 +39,6 @@ type NavigationProps = {
   mainMenuTitleLabel?: string;
   mainMenuDefaultLabel?: string;
   language?: LanguageSelectionItem;
-  sizes?: string[];
 };
 
 const Navigation = ({
@@ -51,26 +52,19 @@ const Navigation = ({
   utilities,
   language,
   mainMenuTitleLabel,
-  mainMenuDefaultLabel,
-  sizes
+  mainMenuDefaultLabel
 }: NavigationProps) => {
-  const [depth, setDepth] = React.useState<number>(0);
+  const classes = useStyles();
+  const [depth, setDepth] = useState<Depth>(0);
 
-  React.useEffect(() => setDepth(initialDepth), [initialDepth]);
+  useEffect(() => setDepth(initialDepth), [initialDepth]);
 
   return (
-    <nav
-      className={classnames(
-        styles["Navigation"],
-        ...(sizes
-          ?.map((size) => styles[`Navigation--${size}`])
-          .filter(Boolean) || [])
-      )}
-    >
+    <nav className={classnames(classes.root)}>
       <NavigationList
         buttonComponent={buttonComponent}
         promoButtonComponent={promoButtonComponent}
-        className={styles[`Offset${depth * 100}`]}
+        className={classes[`offset${depth}`]}
         depth={0}
         initialValue={initialValue}
         isRoot={true}
@@ -93,13 +87,13 @@ type NavigationListProps = {
   buttonComponent?: React.ComponentType<any>; // TODO
   promoButtonComponent?: React.ComponentType<any>; // TODO
   className?: string;
-  depth: number;
+  depth: Depth;
   initialValue?: number | boolean;
   isFooter?: boolean;
   isRoot?: boolean;
   menu: readonly NavigationList[];
   parentHandleClick?: (newValue: number | boolean) => void;
-  setDepth: (depth: number) => void;
+  setDepth: (depth: Depth) => void;
   setRootValue?: (value: number | boolean) => void;
   show?: boolean;
   toggleLanguageSelection?: () => void;
@@ -129,11 +123,12 @@ const NavigationList = ({
   mainMenuDefaultLabel = "Main menu",
   language
 }: NavigationListProps) => {
-  const [value, setValue] = React.useState<number | boolean>(initialValue);
+  const classes = useStyles();
+  const [value, setValue] = useState<number | boolean>(initialValue);
 
   const Button = buttonComponent || DefaultButton;
 
-  React.useEffect(() => setValue(initialValue), [initialValue]);
+  useEffect(() => setValue(initialValue), [initialValue]);
 
   const handleClick = (newValue: number | boolean) => {
     if (newValue === false || value === newValue) {
@@ -143,7 +138,9 @@ const NavigationList = ({
       if (setRootValue) {
         setRootValue(newValue);
       }
-      setDepth(depth + 1);
+      if (depth < 4) {
+        setDepth((depth + 1) as Depth);
+      }
       setValue(newValue);
     }
   };
@@ -151,30 +148,30 @@ const NavigationList = ({
   return (
     <div
       className={classnames(
-        styles["NavigationList"],
+        classes.navigationList,
         isRoot && className,
-        isFooter && styles["NavigationList--footer"],
-        show && styles["NavigationList--show"]
+        isFooter && classes.footer,
+        show && classes.show
       )}
     >
       <ul>
         {parentHandleClick ? (
-          <li className={styles["BackNavigation"]} key={`menu-${depth}-back`}>
+          <li className={classes.backNavigation} key={`menu-${depth}-back`}>
             <NavigationListButton
               component={Button}
-              className={styles["BackButton"]}
-              startIcon={<ChevronLeft className={styles["chevronLeft"]} />}
+              className={classes.backButton}
+              startIcon={<ChevronLeft className={classes.chevronLeft} />}
               endIcon={false}
               onClick={() => parentHandleClick(false)}
             >
               {backLabel}
             </NavigationListButton>
-            <hr className={styles["Separator"]} />
+            <hr className={classes.separator} />
           </li>
         ) : (
           !isFooter && (
             <li key={`menu-${depth}-heading`}>
-              <Typography className={styles["MainMenuTitle"]} variant="h6">
+              <Typography className={classes.mainMenuTitle} variant="h6">
                 {mainMenuTitleLabel}
               </Typography>
             </li>
@@ -197,16 +194,16 @@ const NavigationList = ({
             key
           ) => [
             subMenu &&
-            (subMenu.length > 1 || subMenu[0]?.menu || depth !== 0) ? (
+            (subMenu.length > 1 ||
+              subMenu[0]?.menu ||
+              (depth !== 0 && depth < 4)) ? (
               <li key={`menu-${depth}-item-${key}`}>
                 <NavigationListButton
                   component={Button}
                   active={value === key}
                   accessibilityLabel={label}
-                  startIcon={
-                    icon && <Icon className={styles["icon"]} source={icon} />
-                  }
-                  endIcon={<ChevronRight className={styles["chevronRight"]} />}
+                  startIcon={icon && <Icon source={icon} />}
+                  endIcon={<ChevronRight className={classes.chevronRight} />}
                   onClick={() => handleClick(key)}
                 >
                   {isLabelHidden ? null : label}
@@ -216,14 +213,14 @@ const NavigationList = ({
                   backLabel={
                     menu[0].isHeading ? menu[0].label : mainMenuDefaultLabel
                   }
-                  depth={depth + 1}
+                  depth={(depth + 1) as Depth}
                   menu={subMenu}
                   show={value === key}
                   parentHandleClick={handleClick}
                   setDepth={setDepth}
                   mainMenuDefaultLabel={mainMenuDefaultLabel}
                 />
-                {hasSeparator && <hr className={styles["Separator"]} />}
+                {hasSeparator && <hr className={classes.separator} />}
               </li>
             ) : (
               <li key={`menu-${depth}-item-${key}`}>
@@ -231,7 +228,7 @@ const NavigationList = ({
                   if (isHeading) {
                     return (
                       <Typography
-                        className={styles["NavigationListType"]}
+                        className={classes.navigationListType}
                         variant="h6"
                       >
                         {label}
@@ -240,7 +237,7 @@ const NavigationList = ({
                   } else if (isParagraph) {
                     return (
                       <Typography
-                        className={styles["NavigationListType"]}
+                        className={classes.navigationListType}
                         variant="body1"
                       >
                         {label}
@@ -250,11 +247,7 @@ const NavigationList = ({
                     return React.isValidElement(image) ? (
                       image
                     ) : (
-                      <img
-                        alt={label}
-                        className={styles["Image"]}
-                        src={image}
-                      />
+                      <img alt={label} className={classes.image} src={image} />
                     );
                   } else {
                     let clickableAction = action;
@@ -269,16 +262,13 @@ const NavigationList = ({
                         action={clickableAction}
                         accessibilityLabel={label}
                         startIcon={
-                          icon &&
-                          isLabelHidden && (
-                            <Icon className={styles["icon"]} source={icon} />
-                          )
+                          icon && isLabelHidden && <Icon source={icon} />
                         }
                         endIcon={
                           icon &&
                           !isLabelHidden && (
-                            <span className={styles["icon-wrapper"]}>
-                              <Icon className={styles["icon"]} source={icon} />
+                            <span className={classes.iconWrapper}>
+                              <Icon source={icon} />
                             </span>
                           )
                         }
@@ -289,7 +279,7 @@ const NavigationList = ({
                     );
                   }
                 })()}
-                {hasSeparator && <hr className={styles["Separator"]} />}
+                {hasSeparator && <hr className={classes.separator} />}
               </li>
             ),
             footer && (
@@ -297,7 +287,7 @@ const NavigationList = ({
                 buttonComponent={
                   promoButtonComponent ? promoButtonComponent : Button
                 }
-                depth={depth + 1}
+                depth={(depth + 1) as Depth}
                 isFooter={true}
                 key={`menu-${depth}-navigation-list-${key}`}
                 menu={footer}
@@ -310,7 +300,7 @@ const NavigationList = ({
           ]
         )}
         {utilities && (
-          <ul className={styles["Utilities"]}>
+          <ul className={classes.utilities}>
             {utilities.map(({ label, action }, key) => (
               <li key={`mobile-utilities-link-${key}`}>
                 <NavigationListButton component={Button} action={action}>
@@ -324,17 +314,17 @@ const NavigationList = ({
           <li>
             <NavigationListButton
               component={Button}
-              endIcon={<ChevronRight className={styles["chevronRight"]} />}
+              endIcon={<ChevronRight className={classes.chevronRight} />}
               onClick={toggleLanguageSelection}
               accessibilityLabel={language.code.toUpperCase()}
             >
-              <span className={styles["LanguageButtonContent"]}>
+              <span className={classes.languageButtonContent}>
                 {language.icon &&
                   (typeof language.icon === "string" ? (
                     <img
                       width="20px"
                       height="16px"
-                      className={styles["LanguageIcon"]}
+                      className={classes.languageIcon}
                       src={language.icon}
                       alt={language.label}
                     />
@@ -343,7 +333,7 @@ const NavigationList = ({
                       width="20px"
                       height="16px"
                       source={language.icon}
-                      className={styles["LanguageIcon"]}
+                      className={classes.languageIcon}
                     />
                   ))}
                 {language.code.toUpperCase()}
@@ -372,24 +362,25 @@ export const NavigationListButton = ({
   className,
   target,
   ...rest
-}: NavigationListButtonProps) => (
-  <Component
-    className={classnames(
-      styles["NavigationListButton"],
-      className,
-      active && styles["NavigationListButton--active"]
-    )}
-    variant="text"
-    classes={{
-      outlinedPrimary: classnames(
-        !rest.isIconButton && styles["NavigationListButton--outline"]
-      )
-    }}
-    target={target}
-    {...rest}
-  >
-    {children}
-  </Component>
-);
+}: NavigationListButtonProps) => {
+  const classes = useStyles();
+  return (
+    <Component
+      className={classnames(
+        classes.navigationListButton,
+        className,
+        active && classes.active
+      )}
+      variant="text"
+      classes={{
+        outlinedPrimary: classnames(!rest.isIconButton && classes.outline)
+      }}
+      target={target}
+      {...rest}
+    >
+      {children}
+    </Component>
+  );
+};
 
 export default Navigation;

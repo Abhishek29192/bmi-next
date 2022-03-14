@@ -6,15 +6,15 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 GeolocationButton MuiButton-textPrimary"
+        class="MuiButtonBase-root MuiButton-root Button-root-2 MuiButton-text Button-text-3 GeolocationButton-root-1 MuiButton-textPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-4"
+          class="MuiButton-label Button-label-5"
         >
           <span
-            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+            class="MuiButton-startIcon Button-startIcon-6 MuiButton-iconSizeMedium"
           >
             <svg
               aria-hidden="true"
@@ -37,15 +37,15 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 GeolocationButton MuiButton-textPrimary"
+      class="MuiButtonBase-root MuiButton-root Button-root-2 MuiButton-text Button-text-3 GeolocationButton-root-1 MuiButton-textPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-4"
+        class="MuiButton-label Button-label-5"
       >
         <span
-          class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+          class="MuiButton-startIcon Button-startIcon-6 MuiButton-iconSizeMedium"
         >
           <svg
             aria-hidden="true"

@@ -3,27 +3,28 @@
 exports[`Navigation component expands submenu 1`] = `
 <div>
   <nav
-    class="Navigation Navigation--small"
+    class="Navigation-root-53"
   >
     <div
-      class="NavigationList Offset200 NavigationList--show"
+      class="Navigation-navigationList-59 Navigation-offset2-56 Navigation-show-61"
     >
       <ul>
         <li>
           <h6
-            class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
+            class="MuiTypography-root Navigation-mainMenuTitle-67 Typography-root-77 MuiTypography-h6"
+            data-testid="typography"
           >
             BMI Group
           </h6>
         </li>
         <li>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Products
               <span
@@ -31,7 +32,7 @@ exports[`Navigation component expands submenu 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevronRight"
+                  class="MuiSvgIcon-root Navigation-chevronRight-65"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -46,26 +47,26 @@ exports[`Navigation component expands submenu 1`] = `
             />
           </button>
           <div
-            class="NavigationList"
+            class="Navigation-navigationList-59"
           >
             <ul>
               <li
-                class="BackNavigation"
+                class="Navigation-backNavigation-62"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronLeft"
+                        class="MuiSvgIcon-root Navigation-chevronLeft-64"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -81,31 +82,33 @@ exports[`Navigation component expands submenu 1`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <h6
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Products by type
                 </h6>
               </li>
               <li>
                 <p
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   This is a paragraph
                 </p>
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton NavigationListButton--active MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-active-75 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Roof Top Item
                     <span
@@ -113,7 +116,7 @@ exports[`Navigation component expands submenu 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronRight"
+                        class="MuiSvgIcon-root Navigation-chevronRight-65"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -128,26 +131,26 @@ exports[`Navigation component expands submenu 1`] = `
                   />
                 </button>
                 <div
-                  class="NavigationList NavigationList--show"
+                  class="Navigation-navigationList-59 Navigation-show-61"
                 >
                   <ul>
                     <li
-                      class="BackNavigation"
+                      class="Navigation-backNavigation-62"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                            class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronLeft"
+                              class="MuiSvgIcon-root Navigation-chevronLeft-64"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -163,12 +166,13 @@ exports[`Navigation component expands submenu 1`] = `
                         />
                       </button>
                       <hr
-                        class="Separator"
+                        class="Navigation-separator-66"
                       />
                     </li>
                     <li>
                       <h6
-                        class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                        class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                        data-testid="typography"
                       >
                         Roof
                       </h6>
@@ -176,18 +180,18 @@ exports[`Navigation component expands submenu 1`] = `
                     <li>
                       <img
                         alt="Some image"
-                        class="Image"
+                        class="Navigation-image-69"
                         src="http://some/image.png"
                       />
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Tiles
                           <span
@@ -195,7 +199,7 @@ exports[`Navigation component expands submenu 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronRight"
+                              class="MuiSvgIcon-root Navigation-chevronRight-65"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -210,26 +214,26 @@ exports[`Navigation component expands submenu 1`] = `
                         />
                       </button>
                       <div
-                        class="NavigationList"
+                        class="Navigation-navigationList-59"
                       >
                         <ul>
                           <li
-                            class="BackNavigation"
+                            class="Navigation-backNavigation-62"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                               tabindex="0"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 <span
-                                  class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                                  class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root chevronLeft"
+                                    class="MuiSvgIcon-root Navigation-chevronLeft-64"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -245,25 +249,26 @@ exports[`Navigation component expands submenu 1`] = `
                               />
                             </button>
                             <hr
-                              class="Separator"
+                              class="Navigation-separator-66"
                             />
                           </li>
                           <li>
                             <h6
-                              class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                              class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                              data-testid="typography"
                             >
                               Tiles
                             </h6>
                           </li>
                           <li>
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                               tabindex="0"
                               target="_blank"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 Tiles overview
                               </span>
@@ -277,13 +282,13 @@ exports[`Navigation component expands submenu 1`] = `
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         target="_blank"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Turf Roofs
                         </span>
@@ -297,24 +302,22 @@ exports[`Navigation component expands submenu 1`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     View all our products
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
                       <span
-                        class="icon-wrapper"
+                        class="Navigation-iconWrapper-70"
                       >
-                        <svg
-                          class="icon"
-                        />
+                        <svg />
                       </span>
                     </span>
                   </span>
@@ -323,18 +326,18 @@ exports[`Navigation component expands submenu 1`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Wall
                   </span>
@@ -346,7 +349,7 @@ exports[`Navigation component expands submenu 1`] = `
               <li>
                 <button
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
                   target="_blank"
@@ -354,7 +357,7 @@ exports[`Navigation component expands submenu 1`] = `
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Documentation
                   </span>
@@ -366,7 +369,7 @@ exports[`Navigation component expands submenu 1`] = `
         <li>
           <button
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
             role="button"
             tabindex="0"
             target="_blank"
@@ -374,24 +377,24 @@ exports[`Navigation component expands submenu 1`] = `
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Tiles
             </span>
           </button>
         </li>
         <ul
-          class="Utilities"
+          class="Navigation-utilities-71"
         >
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a stockist
               </span>
@@ -403,12 +406,12 @@ exports[`Navigation component expands submenu 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a roofer
               </span>
@@ -420,12 +423,12 @@ exports[`Navigation component expands submenu 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Partner portals
               </span>
@@ -444,27 +447,28 @@ exports[`Navigation component expands submenu 1`] = `
 exports[`Navigation component expands submenu 2`] = `
 <div>
   <nav
-    class="Navigation Navigation--small"
+    class="Navigation-root-53"
   >
     <div
-      class="NavigationList Offset0 NavigationList--show"
+      class="Navigation-navigationList-59 Navigation-offset0-54 Navigation-show-61"
     >
       <ul>
         <li>
           <h6
-            class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
+            class="MuiTypography-root Navigation-mainMenuTitle-67 Typography-root-77 MuiTypography-h6"
+            data-testid="typography"
           >
             BMI Group
           </h6>
         </li>
         <li>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Products
               <span
@@ -472,7 +476,7 @@ exports[`Navigation component expands submenu 2`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevronRight"
+                  class="MuiSvgIcon-root Navigation-chevronRight-65"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -487,26 +491,26 @@ exports[`Navigation component expands submenu 2`] = `
             />
           </button>
           <div
-            class="NavigationList"
+            class="Navigation-navigationList-59"
           >
             <ul>
               <li
-                class="BackNavigation"
+                class="Navigation-backNavigation-62"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronLeft"
+                        class="MuiSvgIcon-root Navigation-chevronLeft-64"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -522,31 +526,33 @@ exports[`Navigation component expands submenu 2`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <h6
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Products by type
                 </h6>
               </li>
               <li>
                 <p
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   This is a paragraph
                 </p>
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton NavigationListButton--active MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-active-75 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Roof Top Item
                     <span
@@ -554,7 +560,7 @@ exports[`Navigation component expands submenu 2`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronRight"
+                        class="MuiSvgIcon-root Navigation-chevronRight-65"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -569,26 +575,26 @@ exports[`Navigation component expands submenu 2`] = `
                   />
                 </button>
                 <div
-                  class="NavigationList NavigationList--show"
+                  class="Navigation-navigationList-59 Navigation-show-61"
                 >
                   <ul>
                     <li
-                      class="BackNavigation"
+                      class="Navigation-backNavigation-62"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                            class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronLeft"
+                              class="MuiSvgIcon-root Navigation-chevronLeft-64"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -604,12 +610,13 @@ exports[`Navigation component expands submenu 2`] = `
                         />
                       </button>
                       <hr
-                        class="Separator"
+                        class="Navigation-separator-66"
                       />
                     </li>
                     <li>
                       <h6
-                        class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                        class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                        data-testid="typography"
                       >
                         Roof
                       </h6>
@@ -617,18 +624,18 @@ exports[`Navigation component expands submenu 2`] = `
                     <li>
                       <img
                         alt="Some image"
-                        class="Image"
+                        class="Navigation-image-69"
                         src="http://some/image.png"
                       />
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Tiles
                           <span
@@ -636,7 +643,7 @@ exports[`Navigation component expands submenu 2`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronRight"
+                              class="MuiSvgIcon-root Navigation-chevronRight-65"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -651,26 +658,26 @@ exports[`Navigation component expands submenu 2`] = `
                         />
                       </button>
                       <div
-                        class="NavigationList"
+                        class="Navigation-navigationList-59"
                       >
                         <ul>
                           <li
-                            class="BackNavigation"
+                            class="Navigation-backNavigation-62"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                               tabindex="0"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 <span
-                                  class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                                  class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root chevronLeft"
+                                    class="MuiSvgIcon-root Navigation-chevronLeft-64"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -686,25 +693,26 @@ exports[`Navigation component expands submenu 2`] = `
                               />
                             </button>
                             <hr
-                              class="Separator"
+                              class="Navigation-separator-66"
                             />
                           </li>
                           <li>
                             <h6
-                              class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                              class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                              data-testid="typography"
                             >
                               Tiles
                             </h6>
                           </li>
                           <li>
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                               tabindex="0"
                               target="_blank"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 Tiles overview
                               </span>
@@ -718,13 +726,13 @@ exports[`Navigation component expands submenu 2`] = `
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         target="_blank"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Turf Roofs
                         </span>
@@ -738,24 +746,22 @@ exports[`Navigation component expands submenu 2`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     View all our products
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
                       <span
-                        class="icon-wrapper"
+                        class="Navigation-iconWrapper-70"
                       >
-                        <svg
-                          class="icon"
-                        />
+                        <svg />
                       </span>
                     </span>
                   </span>
@@ -764,18 +770,18 @@ exports[`Navigation component expands submenu 2`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Wall
                   </span>
@@ -787,7 +793,7 @@ exports[`Navigation component expands submenu 2`] = `
               <li>
                 <button
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
                   target="_blank"
@@ -795,7 +801,7 @@ exports[`Navigation component expands submenu 2`] = `
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Documentation
                   </span>
@@ -807,7 +813,7 @@ exports[`Navigation component expands submenu 2`] = `
         <li>
           <button
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
             role="button"
             tabindex="0"
             target="_blank"
@@ -815,24 +821,24 @@ exports[`Navigation component expands submenu 2`] = `
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Tiles
             </span>
           </button>
         </li>
         <ul
-          class="Utilities"
+          class="Navigation-utilities-71"
         >
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a stockist
               </span>
@@ -844,12 +850,12 @@ exports[`Navigation component expands submenu 2`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a roofer
               </span>
@@ -861,12 +867,12 @@ exports[`Navigation component expands submenu 2`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Partner portals
               </span>
@@ -885,27 +891,28 @@ exports[`Navigation component expands submenu 2`] = `
 exports[`Navigation component expands submenu 3`] = `
 <div>
   <nav
-    class="Navigation Navigation--small"
+    class="Navigation-root-53"
   >
     <div
-      class="NavigationList Offset100 NavigationList--show"
+      class="Navigation-navigationList-59 Navigation-offset1-55 Navigation-show-61"
     >
       <ul>
         <li>
           <h6
-            class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
+            class="MuiTypography-root Navigation-mainMenuTitle-67 Typography-root-77 MuiTypography-h6"
+            data-testid="typography"
           >
             BMI Group
           </h6>
         </li>
         <li>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton NavigationListButton--active MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-active-75 MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Products
               <span
@@ -913,7 +920,7 @@ exports[`Navigation component expands submenu 3`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevronRight"
+                  class="MuiSvgIcon-root Navigation-chevronRight-65"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -928,26 +935,26 @@ exports[`Navigation component expands submenu 3`] = `
             />
           </button>
           <div
-            class="NavigationList NavigationList--show"
+            class="Navigation-navigationList-59 Navigation-show-61"
           >
             <ul>
               <li
-                class="BackNavigation"
+                class="Navigation-backNavigation-62"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronLeft"
+                        class="MuiSvgIcon-root Navigation-chevronLeft-64"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -963,31 +970,33 @@ exports[`Navigation component expands submenu 3`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <h6
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Products by type
                 </h6>
               </li>
               <li>
                 <p
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   This is a paragraph
                 </p>
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton NavigationListButton--active MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-active-75 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Roof Top Item
                     <span
@@ -995,7 +1004,7 @@ exports[`Navigation component expands submenu 3`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronRight"
+                        class="MuiSvgIcon-root Navigation-chevronRight-65"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1010,26 +1019,26 @@ exports[`Navigation component expands submenu 3`] = `
                   />
                 </button>
                 <div
-                  class="NavigationList NavigationList--show"
+                  class="Navigation-navigationList-59 Navigation-show-61"
                 >
                   <ul>
                     <li
-                      class="BackNavigation"
+                      class="Navigation-backNavigation-62"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                            class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronLeft"
+                              class="MuiSvgIcon-root Navigation-chevronLeft-64"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1045,12 +1054,13 @@ exports[`Navigation component expands submenu 3`] = `
                         />
                       </button>
                       <hr
-                        class="Separator"
+                        class="Navigation-separator-66"
                       />
                     </li>
                     <li>
                       <h6
-                        class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                        class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                        data-testid="typography"
                       >
                         Roof
                       </h6>
@@ -1058,18 +1068,18 @@ exports[`Navigation component expands submenu 3`] = `
                     <li>
                       <img
                         alt="Some image"
-                        class="Image"
+                        class="Navigation-image-69"
                         src="http://some/image.png"
                       />
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Tiles
                           <span
@@ -1077,7 +1087,7 @@ exports[`Navigation component expands submenu 3`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronRight"
+                              class="MuiSvgIcon-root Navigation-chevronRight-65"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1092,26 +1102,26 @@ exports[`Navigation component expands submenu 3`] = `
                         />
                       </button>
                       <div
-                        class="NavigationList"
+                        class="Navigation-navigationList-59"
                       >
                         <ul>
                           <li
-                            class="BackNavigation"
+                            class="Navigation-backNavigation-62"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton BackButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 Navigation-backButton-63 MuiButton-textPrimary"
                               tabindex="0"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 <span
-                                  class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+                                  class="MuiButton-startIcon Button-startIcon-89 MuiButton-iconSizeMedium"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root chevronLeft"
+                                    class="MuiSvgIcon-root Navigation-chevronLeft-64"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -1127,25 +1137,26 @@ exports[`Navigation component expands submenu 3`] = `
                               />
                             </button>
                             <hr
-                              class="Separator"
+                              class="Navigation-separator-66"
                             />
                           </li>
                           <li>
                             <h6
-                              class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                              class="MuiTypography-root Navigation-navigationListType-68 Typography-root-77 MuiTypography-h6"
+                              data-testid="typography"
                             >
                               Tiles
                             </h6>
                           </li>
                           <li>
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                               tabindex="0"
                               target="_blank"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-24"
+                                class="MuiButton-label Button-label-88"
                               >
                                 Tiles overview
                               </span>
@@ -1159,13 +1170,13 @@ exports[`Navigation component expands submenu 3`] = `
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                         tabindex="0"
                         target="_blank"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-24"
+                          class="MuiButton-label Button-label-88"
                         >
                           Turf Roofs
                         </span>
@@ -1179,24 +1190,22 @@ exports[`Navigation component expands submenu 3`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     View all our products
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
                       <span
-                        class="icon-wrapper"
+                        class="Navigation-iconWrapper-70"
                       >
-                        <svg
-                          class="icon"
-                        />
+                        <svg />
                       </span>
                     </span>
                   </span>
@@ -1205,18 +1214,18 @@ exports[`Navigation component expands submenu 3`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-66"
                 />
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Wall
                   </span>
@@ -1228,7 +1237,7 @@ exports[`Navigation component expands submenu 3`] = `
               <li>
                 <button
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
                   target="_blank"
@@ -1236,7 +1245,7 @@ exports[`Navigation component expands submenu 3`] = `
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-24"
+                    class="MuiButton-label Button-label-88"
                   >
                     Documentation
                   </span>
@@ -1248,7 +1257,7 @@ exports[`Navigation component expands submenu 3`] = `
         <li>
           <button
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
             role="button"
             tabindex="0"
             target="_blank"
@@ -1256,24 +1265,24 @@ exports[`Navigation component expands submenu 3`] = `
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-24"
+              class="MuiButton-label Button-label-88"
             >
               Tiles
             </span>
           </button>
         </li>
         <ul
-          class="Utilities"
+          class="Navigation-utilities-71"
         >
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a stockist
               </span>
@@ -1285,12 +1294,12 @@ exports[`Navigation component expands submenu 3`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Find a roofer
               </span>
@@ -1302,12 +1311,12 @@ exports[`Navigation component expands submenu 3`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-85 MuiButton-text Button-text-86 Navigation-navigationListButton-74 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-24"
+                class="MuiButton-label Button-label-88"
               >
                 Partner portals
               </span>
@@ -1326,27 +1335,28 @@ exports[`Navigation component expands submenu 3`] = `
 exports[`Navigation component renders correctly 1`] = `
 <div>
   <nav
-    class="Navigation Navigation--small"
+    class="Navigation-root-1"
   >
     <div
-      class="NavigationList Offset0 NavigationList--show"
+      class="Navigation-navigationList-7 Navigation-offset0-2 Navigation-show-9"
     >
       <ul>
         <li>
           <h6
-            class="MuiTypography-root MainMenuTitle Typography MuiTypography-h6"
+            class="MuiTypography-root Navigation-mainMenuTitle-15 Typography-root-25 MuiTypography-h6"
+            data-testid="typography"
           >
             BMI Group
           </h6>
         </li>
         <li>
           <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
             tabindex="0"
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-36"
             >
               Products
               <span
@@ -1354,7 +1364,7 @@ exports[`Navigation component renders correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root chevronRight"
+                  class="MuiSvgIcon-root Navigation-chevronRight-13"
                   focusable="false"
                   viewBox="0 0 24 24"
                 >
@@ -1369,26 +1379,26 @@ exports[`Navigation component renders correctly 1`] = `
             />
           </button>
           <div
-            class="NavigationList"
+            class="Navigation-navigationList-7"
           >
             <ul>
               <li
-                class="BackNavigation"
+                class="Navigation-backNavigation-10"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 Navigation-backButton-11 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-36"
                   >
                     <span
-                      class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                      class="MuiButton-startIcon Button-startIcon-37 MuiButton-iconSizeMedium"
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronLeft"
+                        class="MuiSvgIcon-root Navigation-chevronLeft-12"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1404,31 +1414,33 @@ exports[`Navigation component renders correctly 1`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-14"
                 />
               </li>
               <li>
                 <h6
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                  class="MuiTypography-root Navigation-navigationListType-16 Typography-root-25 MuiTypography-h6"
+                  data-testid="typography"
                 >
                   Products by type
                 </h6>
               </li>
               <li>
                 <p
-                  class="MuiTypography-root NavigationListType Typography MuiTypography-body1"
+                  class="MuiTypography-root Navigation-navigationListType-16 Typography-root-25 MuiTypography-body1"
+                  data-testid="typography"
                 >
                   This is a paragraph
                 </p>
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-36"
                   >
                     Roof Top Item
                     <span
@@ -1436,7 +1448,7 @@ exports[`Navigation component renders correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="MuiSvgIcon-root chevronRight"
+                        class="MuiSvgIcon-root Navigation-chevronRight-13"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
@@ -1451,26 +1463,26 @@ exports[`Navigation component renders correctly 1`] = `
                   />
                 </button>
                 <div
-                  class="NavigationList"
+                  class="Navigation-navigationList-7"
                 >
                   <ul>
                     <li
-                      class="BackNavigation"
+                      class="Navigation-backNavigation-10"
                     >
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 Navigation-backButton-11 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-4"
+                          class="MuiButton-label Button-label-36"
                         >
                           <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                            class="MuiButton-startIcon Button-startIcon-37 MuiButton-iconSizeMedium"
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronLeft"
+                              class="MuiSvgIcon-root Navigation-chevronLeft-12"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1486,12 +1498,13 @@ exports[`Navigation component renders correctly 1`] = `
                         />
                       </button>
                       <hr
-                        class="Separator"
+                        class="Navigation-separator-14"
                       />
                     </li>
                     <li>
                       <h6
-                        class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                        class="MuiTypography-root Navigation-navigationListType-16 Typography-root-25 MuiTypography-h6"
+                        data-testid="typography"
                       >
                         Roof
                       </h6>
@@ -1499,18 +1512,18 @@ exports[`Navigation component renders correctly 1`] = `
                     <li>
                       <img
                         alt="Some image"
-                        class="Image"
+                        class="Navigation-image-17"
                         src="http://some/image.png"
                       />
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                         tabindex="0"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-4"
+                          class="MuiButton-label Button-label-36"
                         >
                           Tiles
                           <span
@@ -1518,7 +1531,7 @@ exports[`Navigation component renders correctly 1`] = `
                           >
                             <svg
                               aria-hidden="true"
-                              class="MuiSvgIcon-root chevronRight"
+                              class="MuiSvgIcon-root Navigation-chevronRight-13"
                               focusable="false"
                               viewBox="0 0 24 24"
                             >
@@ -1533,26 +1546,26 @@ exports[`Navigation component renders correctly 1`] = `
                         />
                       </button>
                       <div
-                        class="NavigationList"
+                        class="Navigation-navigationList-7"
                       >
                         <ul>
                           <li
-                            class="BackNavigation"
+                            class="Navigation-backNavigation-10"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton BackButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 Navigation-backButton-11 MuiButton-textPrimary"
                               tabindex="0"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-4"
+                                class="MuiButton-label Button-label-36"
                               >
                                 <span
-                                  class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+                                  class="MuiButton-startIcon Button-startIcon-37 MuiButton-iconSizeMedium"
                                 >
                                   <svg
                                     aria-hidden="true"
-                                    class="MuiSvgIcon-root chevronLeft"
+                                    class="MuiSvgIcon-root Navigation-chevronLeft-12"
                                     focusable="false"
                                     viewBox="0 0 24 24"
                                   >
@@ -1568,25 +1581,26 @@ exports[`Navigation component renders correctly 1`] = `
                               />
                             </button>
                             <hr
-                              class="Separator"
+                              class="Navigation-separator-14"
                             />
                           </li>
                           <li>
                             <h6
-                              class="MuiTypography-root NavigationListType Typography MuiTypography-h6"
+                              class="MuiTypography-root Navigation-navigationListType-16 Typography-root-25 MuiTypography-h6"
+                              data-testid="typography"
                             >
                               Tiles
                             </h6>
                           </li>
                           <li>
                             <button
-                              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                              class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                               tabindex="0"
                               target="_blank"
                               type="button"
                             >
                               <span
-                                class="MuiButton-label buttonStyles-label-4"
+                                class="MuiButton-label Button-label-36"
                               >
                                 Tiles overview
                               </span>
@@ -1600,13 +1614,13 @@ exports[`Navigation component renders correctly 1`] = `
                     </li>
                     <li>
                       <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                        class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                         tabindex="0"
                         target="_blank"
                         type="button"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-4"
+                          class="MuiButton-label Button-label-36"
                         >
                           Turf Roofs
                         </span>
@@ -1620,24 +1634,22 @@ exports[`Navigation component renders correctly 1`] = `
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-36"
                   >
                     View all our products
                     <span
                       class="MuiButton-endIcon MuiButton-iconSizeMedium"
                     >
                       <span
-                        class="icon-wrapper"
+                        class="Navigation-iconWrapper-18"
                       >
-                        <svg
-                          class="icon"
-                        />
+                        <svg />
                       </span>
                     </span>
                   </span>
@@ -1646,18 +1658,18 @@ exports[`Navigation component renders correctly 1`] = `
                   />
                 </button>
                 <hr
-                  class="Separator"
+                  class="Navigation-separator-14"
                 />
               </li>
               <li>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                   tabindex="0"
                   target="_blank"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-36"
                   >
                     Wall
                   </span>
@@ -1669,7 +1681,7 @@ exports[`Navigation component renders correctly 1`] = `
               <li>
                 <button
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
                   target="_blank"
@@ -1677,7 +1689,7 @@ exports[`Navigation component renders correctly 1`] = `
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-4"
+                    class="MuiButton-label Button-label-36"
                   >
                     Documentation
                   </span>
@@ -1692,7 +1704,7 @@ exports[`Navigation component renders correctly 1`] = `
         <li>
           <button
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+            class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
             role="button"
             tabindex="0"
             target="_blank"
@@ -1700,7 +1712,7 @@ exports[`Navigation component renders correctly 1`] = `
             type="button"
           >
             <span
-              class="MuiButton-label buttonStyles-label-4"
+              class="MuiButton-label Button-label-36"
             >
               Tiles
             </span>
@@ -1710,17 +1722,17 @@ exports[`Navigation component renders correctly 1`] = `
           </button>
         </li>
         <ul
-          class="Utilities"
+          class="Navigation-utilities-19"
         >
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-4"
+                class="MuiButton-label Button-label-36"
               >
                 Find a stockist
               </span>
@@ -1732,12 +1744,12 @@ exports[`Navigation component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-4"
+                class="MuiButton-label Button-label-36"
               >
                 Find a roofer
               </span>
@@ -1749,12 +1761,12 @@ exports[`Navigation component renders correctly 1`] = `
           <li>
             <a
               aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
+              class="MuiButtonBase-root MuiButton-root Button-root-33 MuiButton-text Button-text-34 Navigation-navigationListButton-22 MuiButton-textPrimary"
               href="#"
               tabindex="0"
             >
               <span
-                class="MuiButton-label buttonStyles-label-4"
+                class="MuiButton-label Button-label-36"
               >
                 Partner portals
               </span>

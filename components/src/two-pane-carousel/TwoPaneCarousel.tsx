@@ -1,8 +1,7 @@
+import { useMediaQuery, useTheme } from "@material-ui/core";
 import React from "react";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core";
+import { useStyles } from "./styles";
 import { Props } from "./types";
-import styles from "./TwoPaneCarousel.module.scss";
 import MobileTwoPaneCarousel from "./_MobileTwoPaneCarousel";
 import TabletTwoPaneCarousel from "./_TabletTwoPaneCarousel";
 
@@ -12,6 +11,7 @@ const TwoPaneCarousel = ({
 }: Props & { children?: React.ReactNode }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const classes = useStyles();
 
   const carousel = matches ? (
     <TabletTwoPaneCarousel {...props} />
@@ -20,9 +20,9 @@ const TwoPaneCarousel = ({
   );
 
   return (
-    <div className={styles["TwoPaneCarousel"]}>
+    <div className={classes.root}>
       {carousel}
-      {children && <div className={styles["wrapper"]}>{children}</div>}
+      {children && <div className={classes.wrapper}>{children}</div>}
     </div>
   );
 };

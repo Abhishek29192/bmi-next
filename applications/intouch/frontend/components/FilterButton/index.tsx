@@ -1,5 +1,5 @@
-import React from "react";
 import { Chip } from "@bmi/components";
+import React from "react";
 import styles from "./styles.module.scss";
 
 export type FilterButtonProps = {

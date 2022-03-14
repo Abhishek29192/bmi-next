@@ -3,30 +3,32 @@
 exports[`PromoSection component renders a two-thirds row 1`] = `
 <div>
   <div
-    class="PromoSection Section Section--white"
+    class="PromoSection-root-30 Section-root-37 Section-white-41"
   >
     <div
-      class="Container"
+      class="Container-root-45"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-36 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
+            class="MuiGrid-root Grid-item-47 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
           >
             <div
-              class="content"
+              class="PromoSection-content-33"
             >
               <h2
-                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                class="MuiTypography-root PromoSection-title-31 Typography-root-49 Typography-underline-51 MuiTypography-h2"
+                data-testid="typography"
               >
                 H2 Heading
               </h2>
               <h3
-                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                class="MuiTypography-root PromoSection-subtitle-32 Typography-root-49 MuiTypography-h3"
+                data-testid="typography"
               >
                 H2 Heading
               </h3>
@@ -34,11 +36,11 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
+            class="MuiGrid-root Grid-item-47 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
           >
             <img
               alt="Lorem ipsum"
-              class="image Media"
+              class="PromoSection-image-34 Media-root-57"
               src="path-to-image"
             />
           </div>
@@ -52,30 +54,32 @@ exports[`PromoSection component renders a two-thirds row 1`] = `
 exports[`PromoSection component renders correctly 1`] = `
 <div>
   <div
-    class="PromoSection Section Section--white"
+    class="PromoSection-root-1 Section-root-8 Section-white-12"
   >
     <div
-      class="Container"
+      class="Container-root-16"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-7 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-18 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-4"
             >
               <h2
-                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                class="MuiTypography-root PromoSection-title-2 Typography-root-20 Typography-underline-22 MuiTypography-h2"
+                data-testid="typography"
               >
                 H2 Heading
               </h2>
               <h3
-                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                class="MuiTypography-root PromoSection-subtitle-3 Typography-root-20 MuiTypography-h3"
+                data-testid="typography"
               >
                 H2 Heading
               </h3>
@@ -83,11 +87,11 @@ exports[`PromoSection component renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-18 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <img
               alt="Lorem ipsum"
-              class="image Media"
+              class="PromoSection-image-5 Media-root-28"
               src="path-to-image"
             />
           </div>
@@ -101,28 +105,28 @@ exports[`PromoSection component renders correctly 1`] = `
 exports[`PromoSection component renders correctly if no props passed 1`] = `
 <div>
   <div
-    class="PromoSection Section Section--white"
+    class="PromoSection-root-151 Section-root-158 Section-white-162"
   >
     <div
-      class="Container"
+      class="Container-root-166"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-157 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-168 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-154"
             >
               Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-168 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           />
         </div>
       </div>
@@ -134,25 +138,26 @@ exports[`PromoSection component renders correctly if no props passed 1`] = `
 exports[`PromoSection component renders correctly if title is react node 1`] = `
 <div>
   <div
-    class="PromoSection Section Section--white"
+    class="PromoSection-root-172 Section-root-179 Section-white-183"
   >
     <div
-      class="Container"
+      class="Container-root-187"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-178 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-189 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-175"
             >
               <h2
-                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                class="MuiTypography-root PromoSection-title-173 Typography-root-191 Typography-underline-193 MuiTypography-h2"
+                data-testid="typography"
               >
                 <span
                   class="test-title"
@@ -161,7 +166,8 @@ exports[`PromoSection component renders correctly if title is react node 1`] = `
                 </span>
               </h2>
               <h3
-                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                class="MuiTypography-root PromoSection-subtitle-174 Typography-root-191 MuiTypography-h3"
+                data-testid="typography"
               >
                 <span
                   class="test-title"
@@ -173,7 +179,7 @@ exports[`PromoSection component renders correctly if title is react node 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-189 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           />
         </div>
       </div>
@@ -185,30 +191,32 @@ exports[`PromoSection component renders correctly if title is react node 1`] = `
 exports[`PromoSection component renders reversed 1`] = `
 <div>
   <div
-    class="PromoSection PromoSection--reversed Section Section--white"
+    class="PromoSection-root-59 PromoSection-reversed-64 Section-root-66 Section-white-70"
   >
     <div
-      class="Container"
+      class="Container-root-74"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-65 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-76 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-62"
             >
               <h2
-                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+                class="MuiTypography-root PromoSection-title-60 Typography-root-78 Typography-underline-80 MuiTypography-h2"
+                data-testid="typography"
               >
                 H2 Heading
               </h2>
               <h3
-                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+                class="MuiTypography-root PromoSection-subtitle-61 Typography-root-78 MuiTypography-h3"
+                data-testid="typography"
               >
                 H2 Heading
               </h3>
@@ -216,11 +224,11 @@ exports[`PromoSection component renders reversed 1`] = `
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-76 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <img
               alt="Lorem ipsum"
-              class="image Media"
+              class="PromoSection-image-63 Media-root-86"
               src="path-to-image"
             />
           </div>
@@ -234,28 +242,28 @@ exports[`PromoSection component renders reversed 1`] = `
 exports[`PromoSection component renders with alabaster background 1`] = `
 <div>
   <div
-    class="test-class PromoSection Section Section--alabaster"
+    class="test-class PromoSection-root-130 Section-root-137 Section-alabaster-139"
   >
     <div
-      class="Container"
+      class="Container-root-145"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-136 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-147 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-133"
             >
               Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-147 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           />
         </div>
       </div>
@@ -267,28 +275,28 @@ exports[`PromoSection component renders with alabaster background 1`] = `
 exports[`PromoSection component renders with white background 1`] = `
 <div>
   <div
-    class="test-class PromoSection Section Section--white"
+    class="test-class PromoSection-root-109 Section-root-116 Section-white-120"
   >
     <div
-      class="Container"
+      class="Container-root-124"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-115 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-126 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-112"
             >
               Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-126 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           />
         </div>
       </div>
@@ -300,32 +308,32 @@ exports[`PromoSection component renders with white background 1`] = `
 exports[`PromoSection component renders without a title 1`] = `
 <div>
   <div
-    class="PromoSection Section Section--white"
+    class="PromoSection-root-88 Section-root-95 Section-white-99"
   >
     <div
-      class="Container"
+      class="Container-root-103"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <div
-          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+          class="MuiGrid-root PromoSection-grid-94 MuiGrid-container MuiGrid-spacing-xs-3"
         >
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-105 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <div
-              class="content"
+              class="PromoSection-content-91"
             >
               Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
             </div>
           </div>
           <div
-            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            class="MuiGrid-root Grid-item-105 MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
           >
             <img
               alt="Lorem ipsum"
-              class="image Media"
+              class="PromoSection-image-92 Media-root-107"
               src="path-to-image"
             />
           </div>

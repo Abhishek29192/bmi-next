@@ -1,9 +1,10 @@
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, waitFor } from "@testing-library/react";
 import mediaQuery from "css-mediaquery";
 import axios from "axios";
-import { FormContext } from "../../form/Form";
+import { FormContext } from "../../form";
 import Upload from "../Upload";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 jest.mock("axios");
 
@@ -34,7 +35,7 @@ describe("Upload component", () => {
     window.matchMedia = initialMatchMedia;
   });
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="default-upload"
         name="default-upload"
@@ -48,7 +49,7 @@ describe("Upload component", () => {
   });
 
   it("renders correctly with buttonLabel", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="default-upload"
         name="default-upload"
@@ -63,7 +64,7 @@ describe("Upload component", () => {
   });
 
   it("renders correctly with defaultExpanded", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="default-upload"
         name="default-upload"
@@ -78,7 +79,7 @@ describe("Upload component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with description", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="upload-with-description"
         name="upload-with-description"
@@ -93,7 +94,7 @@ describe("Upload component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with restricted file types", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="restricted-upload"
         name="restricted-upload"
@@ -116,12 +117,13 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
     const onChange = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Upload
         id="onchange-mock-upload"
         name="onchange-mock-upload"
@@ -146,7 +148,7 @@ describe("Upload component", () => {
 
   it("onChange handler is called if event.target.files is null", async () => {
     const onChange = jest.fn();
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Upload
         id="onchange-mock-upload"
         name="onchange-mock-upload"
@@ -176,9 +178,10 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
     const onChange = jest.fn();
     const id = "drop-upload";
@@ -186,7 +189,7 @@ describe("Upload component", () => {
 
     window.matchMedia = createMatchMedia(1280);
 
-    const { getByTestId, getByText } = render(
+    const { getByTestId, getByText } = renderWithThemeProvider(
       <Upload
         id={id}
         name={id}
@@ -236,9 +239,10 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
     const onChange = jest.fn();
     const id = "drop-upload";
@@ -246,7 +250,7 @@ describe("Upload component", () => {
 
     window.matchMedia = createMatchMedia(1280);
 
-    const { getByTestId, getByText } = render(
+    const { getByTestId, getByText } = renderWithThemeProvider(
       <Upload
         accept=".pdf"
         id={id}
@@ -297,9 +301,10 @@ describe("Upload component", () => {
       }
     });
 
-    axios.CancelToken.source = jest
-      .fn()
-      .mockReturnValue({ token: "this", cancel: () => {} });
+    axios.CancelToken.source = jest.fn().mockReturnValue({
+      token: "this",
+      cancel: () => {}
+    });
 
     const onChange = jest.fn();
     const id = "drop-upload";
@@ -307,7 +312,7 @@ describe("Upload component", () => {
 
     window.matchMedia = createMatchMedia(1280);
 
-    const { getByTestId, getByText } = render(
+    const { getByTestId, getByText } = renderWithThemeProvider(
       <Upload
         accept=".pdf"
         id={id}
@@ -351,7 +356,7 @@ describe("Upload component", () => {
   it("renders correctly on mobile", () => {
     window.matchMedia = createMatchMedia(500);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="mobile-upload"
         name="mobile-upload"
@@ -367,7 +372,7 @@ describe("Upload component", () => {
   });
   it("onFilesChange handler is called", async () => {
     const onFilesChange = jest.fn((files) => {});
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithThemeProvider(
       <Upload
         id="onFilesChange-mock-upload"
         name="onFilesChange-mock-upload"
@@ -391,7 +396,7 @@ describe("Upload component", () => {
   });
 
   it("render correctly with value", async () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Upload
         id="onFilesChange-mock-upload"
         name="onFilesChange-mock-upload"
@@ -409,7 +414,7 @@ describe("Upload component", () => {
   });
 
   it("render correctly with error", async () => {
-    const { container, getByTestId, rerender } = render(
+    const { container, getByTestId, rerender } = renderWithThemeProvider(
       <Upload
         isRequired
         fieldIsRequiredError="fieldIsRequiredError"

@@ -1,26 +1,28 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import ColorPair, {
   availableThemes,
-  withColorPair,
   ColorPairContext,
-  darkThemes
+  darkThemes,
+  withColorPair
 } from "../ColorPair";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ColorPair component", () => {
   it("renders correctly", () => {
-    const { container } = render(<ColorPair>Lorem ipsum</ColorPair>);
+    const { container } = renderWithThemeProvider(
+      <ColorPair>Lorem ipsum</ColorPair>
+    );
     expect(container).toMatchSnapshot();
   });
   it("renders with a theme", () => {
-    const { container } = render(
-      <ColorPair theme="teal-500">Lorem ipsum</ColorPair>
+    const { container } = renderWithThemeProvider(
+      <ColorPair theme="teal500">Lorem ipsum</ColorPair>
     );
     expect(container).toMatchSnapshot();
   });
   it("renders with a custom element", () => {
-    const { container } = render(
-      <ColorPair theme="teal-500" markupComponent="span">
+    const { container } = renderWithThemeProvider(
+      <ColorPair theme="teal500" markupComponent="span">
         Lorem ipsum
       </ColorPair>
     );
@@ -30,13 +32,13 @@ describe("ColorPair component", () => {
     const CustomComponent = withColorPair((props) => (
       <span className="custom-component" {...props} />
     ));
-    const { container } = render(
-      <CustomComponent theme="teal-500">Lorem ipsum</CustomComponent>
+    const { container } = renderWithThemeProvider(
+      <CustomComponent theme="teal500">Lorem ipsum</CustomComponent>
     );
     expect(container).toMatchSnapshot();
   });
   it("creates the right context value - light theme", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ColorPair theme="white">
         <ColorPairContext.Consumer>
           {({ type, theme }) => (
@@ -51,7 +53,7 @@ describe("ColorPair component", () => {
     expect(container).toMatchSnapshot();
   });
   it("creates the right context value - dark theme", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ColorPair theme="black">
         <ColorPairContext.Consumer>
           {({ type, theme }) => (
@@ -71,27 +73,27 @@ describe("ColorPair component", () => {
       "alabaster",
       "pearl",
       "storm",
-      "blue-100",
-      "magenta-100",
-      "aqua-100",
-      "orange-100",
+      "blue100",
+      "magenta100",
+      "aqua100",
+      "orange100",
       "alert",
       "black",
       "charcoal",
       "slate",
-      "blue-800",
-      "blue-900",
-      "teal-400",
-      "teal-500",
-      "magenta-400",
-      "magenta-500",
-      "purple-400",
-      "orange-500",
+      "blue800",
+      "blue900",
+      "teal400",
+      "teal500",
+      "magenta400",
+      "magenta500",
+      "purple400",
+      "orange500",
       "error",
-      "color-theme-secondary-1",
-      "color-theme-secondary-2",
-      "color-theme-secondary-3",
-      "color-theme-secondary-4"
+      "secondary1",
+      "secondary2",
+      "secondary3",
+      "secondary4"
     ]);
   });
   it("exports the correct dark themes", () => {
@@ -99,19 +101,19 @@ describe("ColorPair component", () => {
       "black",
       "charcoal",
       "slate",
-      "blue-800",
-      "blue-900",
-      "teal-400",
-      "teal-500",
-      "magenta-400",
-      "magenta-500",
-      "purple-400",
-      "orange-500",
+      "blue800",
+      "blue900",
+      "teal400",
+      "teal500",
+      "magenta400",
+      "magenta500",
+      "purple400",
+      "orange500",
       "error",
-      "color-theme-secondary-1",
-      "color-theme-secondary-2",
-      "color-theme-secondary-3",
-      "color-theme-secondary-4"
+      "secondary1",
+      "secondary2",
+      "secondary3",
+      "secondary4"
     ]);
   });
 });

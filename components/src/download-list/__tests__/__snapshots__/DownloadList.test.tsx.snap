@@ -3,12 +3,12 @@
 exports[`DownloadList component renders DownloadListButton properly without context 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-65 MuiButton-contained buttonStyles-contained-67 MuiButton-containedPrimary"
+    class="MuiButtonBase-root MuiButton-root Button-root-89 MuiButton-contained Button-contained-91 MuiButton-containedPrimary"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label buttonStyles-label-68"
+      class="MuiButton-label Button-label-92"
     >
       label
     </span>
@@ -25,14 +25,14 @@ exports[`DownloadList component renders DownloadListCheckbox properly without co
     class=""
   >
     <div
-      class="MuiFormControl-root Checkbox"
+      class="MuiFormControl-root Checkbox-root-83"
     >
       <label
         class="MuiFormControlLabel-root"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-85 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
           data-testid="testID"
         >
           <span
@@ -40,7 +40,7 @@ exports[`DownloadList component renders DownloadListCheckbox properly without co
           >
             <input
               aria-label="first checkbox"
-              class="PrivateSwitchBase-input-64"
+              class="PrivateSwitchBase-input-88"
               data-indeterminate="false"
               name="id-1"
               type="checkbox"
@@ -73,7 +73,7 @@ exports[`DownloadList component renders DownloadListCheckbox properly without co
 exports[`DownloadList component renders DownloadListClear properly without context 1`] = `
 <div>
   <a
-    class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+    class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-109 Anchorlink MuiTypography-colorPrimary"
     type="button"
   >
     <span>
@@ -89,21 +89,21 @@ exports[`DownloadList component renders correctly 1`] = `
     class=""
   >
     <div
-      class="MuiFormControl-root Checkbox"
+      class="MuiFormControl-root Checkbox-root-1"
     >
       <label
         class="MuiFormControlLabel-root"
       >
         <span
           aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-1 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+          class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-3 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
         >
           <span
             class="MuiIconButton-label"
           >
             <input
               aria-label="first checkbox"
-              class="PrivateSwitchBase-input-4"
+              class="PrivateSwitchBase-input-6"
               data-indeterminate="false"
               name="id-1"
               type="checkbox"

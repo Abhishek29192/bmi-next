@@ -8,7 +8,7 @@ exports[`Autocomplete component renders correctly 1`] = `
     role="combobox"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root TextField-root-4 MuiFormControl-fullWidth"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
@@ -89,10 +89,10 @@ exports[`Autocomplete component renders correctly 1`] = `
         </div>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-7 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-3"
+            class="PrivateNotchedOutline-legendLabelled-9"
           >
             <span>
               Search
@@ -108,10 +108,10 @@ exports[`Autocomplete component renders correctly 1`] = `
 exports[`Autocomplete component renders correctly with all data option component 1`] = `
 <div>
   <div
-    class="MuiGrid-root option MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root Autocomplete-option-21 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item"
+      class="MuiGrid-root Grid-item-23 MuiGrid-item"
     >
       <svg
         aria-hidden="true"
@@ -125,10 +125,11 @@ exports[`Autocomplete component renders correctly with all data option component
       </svg>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-true"
+      class="MuiGrid-root Grid-item-23 MuiGrid-item MuiGrid-grid-xs-true"
     >
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-25 MuiTypography-body1"
+        data-testid="typography"
       >
         t
         <mark>
@@ -139,7 +140,8 @@ exports[`Autocomplete component renders correctly with all data option component
         </mark>
       </p>
       <p
-        class="MuiTypography-root Typography body3 MuiTypography-body2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography-root-25 Typography-body3-26 MuiTypography-body2 MuiTypography-colorTextSecondary"
+        data-testid="typography"
       >
         secondaryText
       </p>
@@ -151,10 +153,10 @@ exports[`Autocomplete component renders correctly with all data option component
 exports[`Autocomplete component renders correctly with partial data option component 1`] = `
 <div>
   <div
-    class="MuiGrid-root option MuiGrid-container MuiGrid-spacing-xs-3"
+    class="MuiGrid-root Autocomplete-option-33 MuiGrid-container MuiGrid-spacing-xs-3"
   >
     <div
-      class="MuiGrid-root item MuiGrid-item"
+      class="MuiGrid-root Grid-item-35 MuiGrid-item"
     >
       <svg
         aria-hidden="true"
@@ -168,15 +170,17 @@ exports[`Autocomplete component renders correctly with partial data option compo
       </svg>
     </div>
     <div
-      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-true"
+      class="MuiGrid-root Grid-item-35 MuiGrid-item MuiGrid-grid-xs-true"
     >
       <p
-        class="MuiTypography-root Typography MuiTypography-body1"
+        class="MuiTypography-root Typography-root-37 MuiTypography-body1"
+        data-testid="typography"
       >
         text
       </p>
       <p
-        class="MuiTypography-root Typography body3 MuiTypography-body2 MuiTypography-colorTextSecondary"
+        class="MuiTypography-root Typography-root-37 Typography-body3-38 MuiTypography-body2 MuiTypography-colorTextSecondary"
+        data-testid="typography"
       >
         secondaryText
       </p>
@@ -193,7 +197,7 @@ exports[`Autocomplete component renders correctly with start icon 1`] = `
     role="combobox"
   >
     <div
-      class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+      class="MuiFormControl-root MuiTextField-root TextField-root-14 MuiFormControl-fullWidth"
     >
       <label
         class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined"
@@ -207,7 +211,7 @@ exports[`Autocomplete component renders correctly with start icon 1`] = `
         class="MuiInputBase-root MuiOutlinedInput-root MuiAutocomplete-inputRoot MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedStart MuiOutlinedInput-adornedStart MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
       >
         <svg
-          class="start-adornment-icon"
+          class="Autocomplete-startAdornmentIcon-12"
         />
         <input
           aria-autocomplete="list"
@@ -277,10 +281,10 @@ exports[`Autocomplete component renders correctly with start icon 1`] = `
         </div>
         <fieldset
           aria-hidden="true"
-          class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+          class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
         >
           <legend
-            class="PrivateNotchedOutline-legendLabelled-7 PrivateNotchedOutline-legendNotched-8"
+            class="PrivateNotchedOutline-legendLabelled-19 PrivateNotchedOutline-legendNotched-20"
           >
             <span>
               Search

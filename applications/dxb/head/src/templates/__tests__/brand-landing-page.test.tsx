@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { fireEvent } from "@testing-library/react";
 import React from "react";
 import { DataTypeEnum } from "../../components/Link";
@@ -95,22 +96,34 @@ describe("Brand Landing Page Template", () => {
 
   it("render correctly", () => {
     const { container, getByTestId } = renderWithRouter(
-      <BrandLandingPage data={data} pageContext={null} />
+      <ThemeProvider>
+        <BrandLandingPage data={data} pageContext={null} />
+      </ThemeProvider>
     );
 
-    expect(container).toMatchSnapshot();
     expect(container.querySelector("header")).toBeTruthy();
-    expect(container.querySelector(".Footer")).toBeTruthy();
+    expect(getByTestId("footer")).toBeTruthy();
     expect(getByTestId("brand-colors-provider")).toBeTruthy();
-    expect(container.querySelector(".Hero")).toBeTruthy();
-    expect(container.querySelector(".Hero .Breadcrumbs")).toBeTruthy();
-    expect(container.querySelectorAll(".slide").length).toBe(2);
+    expect(container.querySelector("[data-test-class-name=Hero]")).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim")
+      container.querySelector(
+        "[data-test-class-name=Hero] [aria-label=breadcrumbs]"
+      )
     ).toBeTruthy();
     expect(
-      container.querySelector(".Section--alabaster.Section--slim .Breadcrumbs")
+      container.querySelectorAll("[data-test-class-name=slide]").length
+    ).toBe(2);
+    expect(
+      container.querySelector(
+        "[class*='Section'][class*='alabaster'][class*='slim']"
+      )
     ).toBeTruthy();
+    expect(
+      container.querySelector(
+        "[class*='Section'][class*='alabaster'][class*='slim'] [aria-label=breadcrumbs]"
+      )
+    ).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 
   it("render overlapCards correctly", () => {
@@ -152,15 +165,20 @@ describe("Brand Landing Page Template", () => {
       }
     ];
     const { container } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
     expect(container.querySelector(".OverlapCards")).toBeTruthy();
-    expect(container.querySelectorAll(".OverlapCards .Card").length).toBe(2);
+    expect(
+      container.querySelectorAll(".OverlapCards [data-test-class-name=card]")
+        .length
+    ).toBe(2);
   });
 
   it("render sections correctly", () => {
@@ -173,10 +191,12 @@ describe("Brand Landing Page Template", () => {
       }
     ];
     const { container, getByText } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -227,10 +247,12 @@ describe("Brand Landing Page Template", () => {
       }
     };
     const { container } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -288,10 +310,12 @@ describe("Brand Landing Page Template", () => {
       }
     ];
     const { container } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -318,10 +342,12 @@ describe("Brand Landing Page Template", () => {
       }
     ];
     const { container, getByText, getByLabelText } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     const button = getByLabelText("next");
@@ -336,10 +362,12 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.slides = [{ ...slide, cta: null }];
     const { container, getByLabelText } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     const button = getByLabelText("next");
@@ -356,14 +384,20 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.description = null;
     const { container } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
-    expect(container.querySelectorAll(".Hero .text")[0].textContent).toBe("");
+    expect(
+      container.querySelectorAll(
+        "[class*='Hero'] [data-test-class-name=text]"
+      )[0].textContent
+    ).toBe("");
   });
   it("renders cta on firstSlide if not null", () => {
     const newData = {
@@ -386,10 +420,12 @@ describe("Brand Landing Page Template", () => {
       hubSpotCTAID: null
     };
     const { container, queryByText } = renderWithRouter(
-      <BrandLandingPage
-        data={newData}
-        pageContext={{ variantCodeToPathMap: {} }}
-      />
+      <ThemeProvider>
+        <BrandLandingPage
+          data={newData}
+          pageContext={{ variantCodeToPathMap: {} }}
+        />
+      </ThemeProvider>
     );
     expect(queryByText("firstSlideCTA")).not.toBeNull();
     expect(container).toMatchSnapshot();

@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { ThemeProvider } from "@bmi/components";
 import { render, screen } from "../../../lib/tests/utils";
 import { LinearProgress } from "../";
 
@@ -9,7 +10,9 @@ describe("LinearProgress", () => {
 
   it("render correctly", () => {
     const { container } = render(
-      <LinearProgress stageValue={stageValue} max={max} />
+      <ThemeProvider>
+        <LinearProgress stageValue={stageValue} max={max} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -19,7 +22,9 @@ describe("LinearProgress", () => {
 
   it("render correctly with custom LinearProgress Props", () => {
     const { container } = render(
-      <LinearProgress stageValue={stageValue} max={max} color={"primary"} />
+      <ThemeProvider>
+        <LinearProgress stageValue={stageValue} max={max} color={"primary"} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();

@@ -3,10 +3,10 @@
 exports[`Section component does not render nested section components 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-21"
   >
     <div
-      class="Container"
+      class="Container-root-29"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -21,10 +21,10 @@ exports[`Section component does not render nested section components 1`] = `
 exports[`Section component renders correctly 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-1"
   >
     <div
-      class="Container"
+      class="Container-root-9"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -39,10 +39,10 @@ exports[`Section component renders correctly 1`] = `
 exports[`Section component renders correctly a white section 1`] = `
 <div>
   <div
-    class="Section Section--white"
+    class="Section-root-11 Section-white-15"
   >
     <div
-      class="Container"
+      class="Container-root-19"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -57,10 +57,10 @@ exports[`Section component renders correctly a white section 1`] = `
 exports[`Section component renders correctly as with size === 'lg' 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-97"
   >
     <div
-      class="Container"
+      class="Container-root-105"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthLg"
@@ -75,16 +75,17 @@ exports[`Section component renders correctly as with size === 'lg' 1`] = `
 exports[`Section component renders correctly with a custom className 1`] = `
 <div>
   <div
-    class="test Section"
+    class="test Section-root-49"
   >
     <div
-      class="Container"
+      class="Container-root-57"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-56 Typography-root-59 Typography-underline-61 MuiTypography-h2"
+          data-testid="typography"
         >
           H2 Heading
         </h2>
@@ -98,16 +99,17 @@ exports[`Section component renders correctly with a custom className 1`] = `
 exports[`Section component renders correctly with a title 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-31"
   >
     <div
-      class="Container"
+      class="Container-root-39"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
       >
         <h2
-          class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+          class="MuiTypography-root Section-title-38 Typography-root-41 Typography-underline-43 MuiTypography-h2"
+          data-testid="typography"
         >
           H2 Heading
         </h2>
@@ -121,10 +123,10 @@ exports[`Section component renders correctly with a title 1`] = `
 exports[`Section component renders correctly with hasNoPadding 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-117"
   >
     <div
-      class="Container"
+      class="Container-root-125"
     >
       <div
         class="MuiContainer-root MuiContainer-disableGutters MuiContainer-maxWidthXl"
@@ -139,11 +141,11 @@ exports[`Section component renders correctly with hasNoPadding 1`] = `
 exports[`Section component renders correctly with id 1`] = `
 <div>
   <div
-    class="Section"
+    class="Section-root-107"
     id="id"
   >
     <div
-      class="Container"
+      class="Container-root-115"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -158,10 +160,10 @@ exports[`Section component renders correctly with id 1`] = `
 exports[`Section component renders correctly with overflow visible 1`] = `
 <div>
   <div
-    class="Section Section--overflow-visible"
+    class="Section-root-77 Section-overflowVisible-78"
   >
     <div
-      class="Container"
+      class="Container-root-85"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -176,10 +178,10 @@ exports[`Section component renders correctly with overflow visible 1`] = `
 exports[`Section component renders correctly with slim === true 1`] = `
 <div>
   <div
-    class="Section Section--slim"
+    class="Section-root-67 Section-slim-73"
   >
     <div
-      class="Container"
+      class="Container-root-75"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"
@@ -194,10 +196,10 @@ exports[`Section component renders correctly with slim === true 1`] = `
 exports[`Section component renders correctly with spacing none 1`] = `
 <div>
   <div
-    class="Section Section--no-spacing"
+    class="Section-root-87 Section-noSpacing-92"
   >
     <div
-      class="Container"
+      class="Container-root-95"
     >
       <div
         class="MuiContainer-root MuiContainer-maxWidthXl"

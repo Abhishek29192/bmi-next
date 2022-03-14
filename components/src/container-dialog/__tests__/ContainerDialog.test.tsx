@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import ContainerDialog from "../ContainerDialog";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("ContainerDialog component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ContainerDialog
         open
         allowOverflow
@@ -22,7 +22,7 @@ describe("ContainerDialog component", () => {
   });
 
   it("renders correctly with disabledPortal", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ContainerDialog open disablePortal onCloseClick={console.log}>
         <div>Some content</div>
       </ContainerDialog>
@@ -31,7 +31,7 @@ describe("ContainerDialog component", () => {
   });
 
   it("renders correctly when closed", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ContainerDialog open={false} onCloseClick={console.log}>
         <div>Some content</div>
       </ContainerDialog>
@@ -40,7 +40,7 @@ describe("ContainerDialog component", () => {
   });
 
   it("renders correctly with Header child", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <ContainerDialog onCloseClick={console.log}>
         <ContainerDialog.Header>Header</ContainerDialog.Header>
       </ContainerDialog>
@@ -55,7 +55,7 @@ describe("ContainerDialog component", () => {
     const onCloseClick = jest.fn();
     const onBackdropClick = jest.fn();
 
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <ContainerDialog
         open
         onCloseClick={onCloseClick}

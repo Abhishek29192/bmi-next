@@ -19,14 +19,14 @@ exports[`TableOfContent component renders anchor correctly without the context  
 exports[`TableOfContent component renders correctly 1`] = `
 <div>
   <div
-    class="TOC"
+    class="TOC-root-1"
   >
     <div>
       <div
-        class="link"
+        class="TOC-link-2"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-4 Anchorlink MuiTypography-colorPrimary"
           href="#div-with-text"
         >
           <span>
@@ -35,10 +35,10 @@ exports[`TableOfContent component renders correctly 1`] = `
         </a>
       </div>
       <div
-        class="link"
+        class="TOC-link-2"
       >
         <a
-          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover AnchorLink-root-4 Anchorlink MuiTypography-colorPrimary"
           href="#div-with-single-paragraph"
         >
           <span>

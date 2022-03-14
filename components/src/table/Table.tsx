@@ -23,7 +23,7 @@ import React, {
   useState
 } from "react";
 import ColorPair, { Colors } from "../color-pair/ColorPair";
-import styles from "./Table.module.scss";
+import { useStyles } from "./styles";
 
 const TableContext = createContext<{
   theme?: Colors;
@@ -93,6 +93,8 @@ const Table = ({
     "normal"
   );
 
+  const classes = useStyles();
+
   const header = useMemo(
     () =>
       React.Children.toArray(rest.children)
@@ -140,11 +142,11 @@ const Table = ({
           <MuiTable
             ref={normalTableRef}
             className={classnames(
-              styles["Table"],
+              classes.root,
               _rowBgColorPattern !== "none" &&
-                styles[`Table--row-${_rowBgColorPattern}-color`],
-              _rowBgColorPattern === "none" && styles["Table--row-no-color"],
-              hasNoBorder && styles["Table--no-border"]
+                classes[`${_rowBgColorPattern}Color`],
+              _rowBgColorPattern === "none" && classes.rowNoColor,
+              hasNoBorder && classes.noBorder
             )}
             {...rest}
           />
@@ -183,14 +185,12 @@ const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
       () => parseTable(children),
       [children]
     );
+    const classes = useStyles();
 
     return (
       <MuiTable
         ref={ref}
-        className={classnames(
-          styles["Table"],
-          hasNoBorder && styles["Table--no-border"]
-        )}
+        className={classnames(classes.root, hasNoBorder && classes.noBorder)}
         {...rest}
       >
         <TableBody>
@@ -199,7 +199,7 @@ const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
               <TableRow
                 key={`${key}_${i}`}
                 className={classnames(
-                  i === row.length - 1 && styles["separator"]
+                  i === row.length - 1 && classes.separator
                 )}
               >
                 <ColorPair theme={theme} markupComponent={TableCell}>
@@ -225,6 +225,7 @@ const SmallTable = ({
     () => parseTable(children),
     [children]
   );
+  const classes = useStyles();
 
   const ListComponent = headerRow.length ? "dl" : "ul";
   const ItemComponent = headerRow.length ? "dd" : "li";
@@ -232,20 +233,22 @@ const SmallTable = ({
   return (
     <div
       className={classnames(
-        styles["SmallTable"],
-        styles[`SmallTable--item-${rowBgColorPattern}-color`],
-        hasNoBorder && styles["SmallTable--no-border"]
+        classes.smallTable,
+        rowBgColorPattern &&
+          rowBgColorPattern !== "none" &&
+          classes[`item${rowBgColorPattern}Color`],
+        hasNoBorder && classes.noBorder
       )}
     >
       {bodyRows.map((row, key) => (
-        <ListComponent key={key} className={styles["item"]}>
+        <ListComponent key={key} className={classes.item}>
           {row.map((cell, i) => (
             <Fragment key={`${key}_${i}`}>
               {headerRow.length ? (
                 // eslint-disable-next-line security/detect-object-injection
-                <dt className={styles["title"]}>{headerRow[i]}</dt>
+                <dt className={classes.title}>{headerRow[i]}</dt>
               ) : null}
-              <ItemComponent className={styles["description"]}>
+              <ItemComponent className={classes.description}>
                 {cell}
               </ItemComponent>
             </Fragment>

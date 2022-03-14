@@ -3,30 +3,29 @@ import {
   Clickable,
   ClickableProps,
   DownloadList,
-  DownloadListContext,
   Icon,
   IconButtonProps,
   iconMap,
   Table
 } from "@bmi/components";
+import { PimProductDocument } from "@bmi/elasticsearch-types";
 import classnames from "classnames";
 import fetch, { Response } from "node-fetch";
-import React, { useContext } from "react";
+import React from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { PimProductDocument } from "@bmi/elasticsearch-types";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "../../../components/DocumentFileUtils";
 import { useSiteContext } from "../../../components/Site";
+import { useStyles } from "../../../components/styles/DocumentTechnicalTableResultsStyles";
 import { Format } from "../../../components/types";
 import { microCopy } from "../../../constants/microCopies";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { downloadAs } from "../../../utils/client-download";
 import withGTM from "../../../utils/google-tag-manager";
 import { AssetType } from "../types";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {
@@ -40,11 +39,11 @@ const DesktopDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
+  const classes = useStyles();
   const {
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
-  const { list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const GTMClickable = withGTM<ClickableProps>(Clickable);
@@ -64,7 +63,7 @@ const DesktopDocumentTechnicalTableResults = ({
       >
         <Icon
           source={fileIconsMap[asset.format] || iconMap.FileUniversal}
-          className={styles["format-icon"]}
+          className={classnames(classes.formatIcon, "format-icon")}
         />
       </GTMClickable>
     ) : (
@@ -83,13 +82,10 @@ const DesktopDocumentTechnicalTableResults = ({
           label: "Download",
           action: asset.url
         }}
-        className={styles["external-download-button"]}
+        className={classes.externalDownloadButton}
         disableTouchRipple={true}
       >
-        <Icon
-          source={iconMap.External}
-          className={styles["external-link-icon"]}
-        />
+        <Icon source={iconMap.External} className={classes.externalLinkIcon} />
       </GTMButton>
     );
 
@@ -166,18 +162,18 @@ const DesktopDocumentTechnicalTableResults = ({
           action: JSON.stringify(assets.map((asset) => asset.url))
         }}
         disableTouchRipple={true}
-        className={styles["external-download-button"]}
+        className={classes.externalDownloadButton}
       >
-        <Icon source={iconMap.FileZIP} className={styles["format-icon"]} />
+        <Icon source={iconMap.FileZIP} className={classes.formatIcon} />
       </GTMButton>
     );
   };
 
   return (
-    <div className={styles["table-div"]}>
+    <div>
       <Table rowBgColorPattern="none">
         <Table.Head>
-          <Table.Row className={styles["header-row"]}>
+          <Table.Row className={classes.headerRow}>
             <Table.Cell>
               {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_PRODUCT)}
             </Table.Cell>
@@ -185,18 +181,18 @@ const DesktopDocumentTechnicalTableResults = ({
               return (
                 <Table.Cell
                   key={`asset-type-${assetType.code}-${index}`}
-                  className={styles["asset-type-cell"]}
+                  className={classes.assetTypeCell}
                 >
                   {assetType.code}
                   <AssetHeader assetType={assetType} />
                 </Table.Cell>
               );
             })}
-            <Table.Cell className={styles["all-files-header"]}>
-              <span className={styles["all-files-header-wrapper"]}>
+            <Table.Cell className={classes.allFilesHeader}>
+              <span className={classes.allFilesHeaderWrapper}>
                 <Icon
                   source={iconMap.Download}
-                  className={styles["all-files-icon"]}
+                  className={classes.allFilesIcon}
                 />
                 <span>
                   {getMicroCopy(microCopy.DOCUMENT_LIBRARY_HEADERS_ALL_FILES)}
@@ -214,13 +210,7 @@ const DesktopDocumentTechnicalTableResults = ({
               (asset) => asset.isLinkDocument
             );
             return (
-              <Table.Row
-                key={key}
-                className={classnames(styles["row"], {
-                  // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[key]
-                })}
-              >
+              <Table.Row key={key}>
                 <Table.Cell>
                   {assets.length > 0 ? assets[0].productName : productName}
                 </Table.Cell>
@@ -233,11 +223,11 @@ const DesktopDocumentTechnicalTableResults = ({
                     return (
                       <Table.Cell
                         key={`${productName}-missing-asset-${index}`}
-                        className={styles["align-center"]}
+                        className={classes.alignCenter}
                       >
                         <Icon
                           source={iconMap.Cross}
-                          className={styles["no-document-icon"]}
+                          className={classes.noDocumentIcon}
                         />
                       </Table.Cell>
                     );
@@ -246,7 +236,7 @@ const DesktopDocumentTechnicalTableResults = ({
                   return (
                     <Table.Cell
                       key={`${productName}-asset-${assetType.code}`}
-                      className={styles["align-center"]}
+                      className={classes.alignCenter}
                     >
                       {filteredAssets.length === 1
                         ? singleDocument(filteredAssets[0])
@@ -254,7 +244,7 @@ const DesktopDocumentTechnicalTableResults = ({
                     </Table.Cell>
                   );
                 })}
-                <Table.Cell className={styles["align-center"]}>
+                <Table.Cell className={classes.alignCenter}>
                   {!hasOnlyExternalAssets && (
                     <DownloadList.Checkbox
                       name={key}

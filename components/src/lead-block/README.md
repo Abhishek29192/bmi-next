@@ -37,7 +37,7 @@ const BlueCheckIcon = <Icon source={CheckIcon} style={{ color: "#009fe3" }} />;
       <Typography>Ipsum</Typography>
     </LeadBlock.Content.Section>
   </LeadBlock.Content>
-  <LeadBlock.Card theme="blue-900">
+  <LeadBlock.Card theme="blue900">
     <LeadBlock.Card.Section>
       <LeadBlock.Card.Heading>Heading 1</LeadBlock.Card.Heading>
       <LeadBlock.Card.Content>

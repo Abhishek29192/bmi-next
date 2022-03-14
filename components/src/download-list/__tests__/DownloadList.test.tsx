@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react";
-import { render, fireEvent, cleanup, act } from "@testing-library/react";
+import { act, cleanup, fireEvent } from "@testing-library/react";
 import DownloadList, { DownloadListContext } from "../DownloadList";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 afterEach(cleanup);
 
 describe("DownloadList component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <DownloadList onChange={() => {}}>
         <DownloadList.Checkbox
           name="id-1"
@@ -22,7 +23,7 @@ describe("DownloadList component", () => {
   it("triggers an onChange event", async () => {
     const onChange = jest.fn();
     const label = "Label";
-    const { findByLabelText } = render(
+    const { findByLabelText } = renderWithThemeProvider(
       <DownloadList maxSize={200000} onChange={onChange}>
         <DownloadList.Checkbox
           name="id-1"
@@ -43,7 +44,7 @@ describe("DownloadList component", () => {
   it("triggers an onClick event", async () => {
     const onClick = jest.fn();
     const label = "Download";
-    const { findByText } = render(
+    const { findByText } = renderWithThemeProvider(
       <DownloadList initialList={{ "id-1": true }}>
         <DownloadList.Checkbox name="id-1" ariaLabel="Label" value={true} />
 
@@ -61,7 +62,7 @@ describe("DownloadList component", () => {
   it("triggers an onChange event when clearing", async () => {
     const onChange = jest.fn();
     const label = "Clear";
-    const { findByText } = render(
+    const { findByText } = renderWithThemeProvider(
       <DownloadList initialList={{ "id-1": true }} onChange={onChange}>
         <DownloadList.Checkbox name="id-1" ariaLabel="Label" value={true} />
 
@@ -77,7 +78,7 @@ describe("DownloadList component", () => {
   it("triggers an onChange event when Checkbox clicked", async () => {
     const onChange = jest.fn();
     const label = "Checkbox";
-    const { findByText } = render(
+    const { findByText } = renderWithThemeProvider(
       <DownloadList initialList={{ "id-1": true }} onChange={onChange}>
         <DownloadList.Checkbox
           label={label}
@@ -115,7 +116,7 @@ describe("DownloadList component", () => {
       );
     };
 
-    const { container } = render(<Component />);
+    const { container } = renderWithThemeProvider(<Component />);
     expect(container).toMatchSnapshot();
   });
 
@@ -132,7 +133,7 @@ describe("DownloadList component", () => {
       return <DownloadList.Button onClick={() => {}} label="label" />;
     };
 
-    const { container } = render(<Component />);
+    const { container } = renderWithThemeProvider(<Component />);
     expect(container).toMatchSnapshot();
   });
 
@@ -149,7 +150,7 @@ describe("DownloadList component", () => {
       return <DownloadList.Clear label="Label" />;
     };
 
-    const { container } = render(<Component />);
+    const { container } = renderWithThemeProvider(<Component />);
     expect(container).toMatchSnapshot();
   });
 });

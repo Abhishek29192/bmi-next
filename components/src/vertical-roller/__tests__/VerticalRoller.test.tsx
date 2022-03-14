@@ -1,10 +1,11 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import mockImage from "path-to-image.png";
 import mockSvg from "path-to-logo.svg";
 import snapshotDiff from "snapshot-diff";
 import VerticalRoller from "../VerticalRoller";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 const slides = [
   {
@@ -37,13 +38,13 @@ beforeAll(() => {
 
 describe("VerticalRoller component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <VerticalRoller title="H2 Heading" slides={slides} />
     );
     expect(container).toMatchSnapshot();
   });
   it("renders correctly on onClick", () => {
-    const { container, getByText } = render(
+    const { container, getByText } = renderWithThemeProvider(
       <VerticalRoller title="H2 Heading" slides={slides} />
     );
     const slide = getByText("Approved Installers");
@@ -52,7 +53,7 @@ describe("VerticalRoller component", () => {
   });
   it("navigates to next page", () => {
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <VerticalRoller title="something" slides={slides} />
     );
     const containerBeforeClick = container.cloneNode(true);
@@ -63,7 +64,7 @@ describe("VerticalRoller component", () => {
   });
   it("navigates to previous page", () => {
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <VerticalRoller title="something" slides={slides} />
     );
     const containerBeforeClick = container.cloneNode(true);

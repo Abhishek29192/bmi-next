@@ -1,12 +1,13 @@
 import React from "react";
 import mediaQuery from "css-mediaquery";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { cleanup, fireEvent } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import imageSource from "test-image.jpg";
 import BrandIcon from "brand-logo.svg";
 import mockConsole from "jest-mock-console";
 import TwoPaneCarousel from "../TwoPaneCarousel";
 import { Props } from "../types";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 beforeAll(() => {
   mockConsole();
@@ -55,7 +56,7 @@ afterEach(cleanup);
 
 describe("TwoPaneCarousel component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     expect(container).toMatchSnapshot();
@@ -63,14 +64,14 @@ describe("TwoPaneCarousel component", () => {
   it("renders a single pane carousel", () => {
     window.matchMedia = createMatchMedia(1280);
 
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     expect(container).toMatchSnapshot();
   });
   it("navigates to next page", () => {
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     const containerBeforeClick = container!.cloneNode(true);
@@ -82,7 +83,7 @@ describe("TwoPaneCarousel component", () => {
   it("navigates to previous page", () => {
     window.matchMedia = createMatchMedia(1280);
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     const containerBeforeClick = container.cloneNode(true);
@@ -94,7 +95,7 @@ describe("TwoPaneCarousel component", () => {
   it("navigates to next page on mobile", () => {
     window.matchMedia = createMatchMedia(480);
     const nextLabel = "next";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     const containerBeforeClick = container.cloneNode(true);
@@ -106,7 +107,7 @@ describe("TwoPaneCarousel component", () => {
   it("navigates to previous page on mobile", () => {
     window.matchMedia = createMatchMedia(480);
     const previousLabel = "previous";
-    const { container, getByLabelText } = render(
+    const { container, getByLabelText } = renderWithThemeProvider(
       <TwoPaneCarousel slides={slides}>Lorem ipsum</TwoPaneCarousel>
     );
     const containerBeforeClick = container!.cloneNode(true);

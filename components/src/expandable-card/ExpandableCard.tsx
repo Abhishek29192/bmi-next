@@ -1,21 +1,20 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useMemo,
-  CSSProperties,
-  useCallback,
-  useLayoutEffect,
-  TransitionEvent
-} from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { Close } from "@material-ui/icons";
 import classnames from "classnames";
+import React, {
+  CSSProperties,
+  TransitionEvent,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import Button from "../button/Button";
 import DefaultCard, { CardContent } from "../card/Card";
 import Typography from "../typography/Typography";
-import styles from "./ExpandableCard.module.scss";
-import listStyles from "./ExpandableCardList.module.scss";
+import { useExpandableCardListStyles, useExpandableCardStyles } from "./styles";
 
 type CardItem = {
   icon: SVGImport;
@@ -125,6 +124,7 @@ const ExpandableCard = ({
   }>({});
   const [, setForceRerender] = useState(false);
   const cardElement = useRef<HTMLElement>(null);
+  const classes = useExpandableCardStyles();
   const [animationStatus, setAnimationStatus] =
     useState<AnimationStatus>("END");
   const handleTransitionEnd = useCallback(
@@ -192,9 +192,10 @@ const ExpandableCard = ({
         onTransitionEnd={({ propertyName }: TransitionEvent<HTMLDivElement>) =>
           handleTransitionEnd(propertyName)
         }
-        className={classnames(styles["ExpandableCard"], {
-          [styles["ExpandableCard--expanded"]!]: isExpanded
-        })}
+        className={classnames(
+          classes.root,
+          isExpanded ? classes.expanded : classes.collapsed
+        )}
         style={{
           ...(cardElement &&
             getStyleFromAnimationStatus(
@@ -214,25 +215,26 @@ const ExpandableCard = ({
             isIconButton
             variant="text"
             onClick={onCloseClick}
-            className={styles["close"]}
+            className={classes.close}
           >
             <Close />
           </Button>
         )}
-        <CardContent className={styles["content"]}>
-          <div className={styles["header"]}>
-            <Icon className={styles["icon"]} />
+        <CardContent className={classes.content}>
+          <div className={classes.header}>
+            <Icon className={classes.icon} />
             <Typography
               variant="h5"
-              className={classnames(styles["title"], {
-                [styles["title--static"]!]: !isExpanded && !wrapperSize.height
-              })}
+              className={classnames(
+                classes.title,
+                !isExpanded && !wrapperSize.height && classes.titleStatic
+              )}
             >
               {title}
             </Typography>
           </div>
-          <div className={styles["body"]}>{body}</div>
-          {footer && <div className={styles["footer"]}>{footer}</div>}
+          <div className={classes.body}>{body}</div>
+          {footer && <div className={classes.footer}>{footer}</div>}
         </CardContent>
       </Card>
     </div>
@@ -256,6 +258,7 @@ const ExpandableCardList = ({
   const [expandedItem, setExpandedItem] = useState<number>(
     expandedItems.length ? expandedItems[0] : -1
   );
+  const classes = useExpandableCardListStyles();
 
   /* istanbul ignore next */
   if (expandedItems.length > 1 && process.env.NODE_ENV === "development") {
@@ -266,12 +269,12 @@ const ExpandableCardList = ({
   }
 
   return (
-    <div className={classnames(listStyles["ExpandableCardList"], className)}>
+    <div className={classnames(classes.root, className)}>
       {items.map((props, key) => (
         <ExpandableCard
           {...props}
           cardComponent={cardComponent}
-          className={listStyles["item"]}
+          className={classes.item}
           key={key}
           isExpanded={expandedItem === key}
           onClick={() => {

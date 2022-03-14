@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import {
   Breadcrumbs as MaterialBreadcrumbs,
   BreadcrumbsProps,
@@ -7,12 +6,13 @@ import {
 } from "@material-ui/core";
 import { ArrowBack } from "@material-ui/icons";
 import classnames from "classnames";
-import Button from "../button/Button";
-import { ClickableAction } from "../clickable/Clickable";
+import React, { useContext } from "react";
+import Button from "../button";
+import { ClickableAction } from "../clickable";
 import Icon from "../icon";
-import Typography from "../typography/Typography";
-import { transformHyphens } from "../utils/commonUtils";
-import styles from "./Breadcrumbs.module.scss";
+import Typography from "../typography";
+import { transformHyphens } from "../utils/hyphenUtils";
+import { useStyles } from "./styles";
 
 type BreadcrumbsItemProps = {
   children: React.ReactNode;
@@ -24,6 +24,7 @@ const BreadcrumbsItem = ({
   action
 }: Partial<BreadcrumbsItemProps>) => {
   const isDarkThemed = useContext(ThemeContext);
+  const classes = useStyles();
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
@@ -31,18 +32,16 @@ const BreadcrumbsItem = ({
   return (
     <Button
       hasDarkBackground={isDarkThemed}
-      className={classnames(styles["button"], {
-        [styles["link"]!]: action
-      })}
+      className={classnames(classes.button, action && classes.link)}
       variant="text"
       disabled={!action}
       startIcon={
-        matches ? null : <Icon className={styles["icon"]} source={ArrowBack} />
+        matches ? null : <Icon className={classes.icon} source={ArrowBack} />
       }
       action={action}
     >
       {action ? (
-        <span className={styles["label"]}>{transformHyphens(children)}</span>
+        <span className={classes.label}>{transformHyphens(children)}</span>
       ) : (
         <span>{transformHyphens(children)}</span>
       )}
@@ -69,11 +68,14 @@ const removeDeadLinks = (children: React.ReactNode) => {
   );
 };
 
-const truncateChildren = (children: React.ReactNodeArray) =>
+const truncateChildren = (
+  children: React.ReactNodeArray,
+  classes: ReturnType<typeof useStyles>
+) =>
   children.length > 5
     ? [
         ...children.slice(0, 1),
-        <Typography className={styles["ellipsis"]} key={Math.random()}>
+        <Typography className={classes.ellipsis} key={Math.random()}>
           ...
         </Typography>,
         ...children.slice(children.length - 2, children.length)
@@ -87,6 +89,7 @@ const Breadcrumbs = ({
   ...rest
 }: Props) => {
   const theme = useTheme();
+  const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const activeLinkList = removeDeadLinks(children);
 
@@ -94,16 +97,19 @@ const Breadcrumbs = ({
     <ThemeContext.Provider value={isDarkThemed}>
       <MaterialBreadcrumbs
         {...rest}
-        className={classnames(styles["Breadcrumbs"], className, {
-          [styles["Breadcrumbs--dark-themed"]!]: isDarkThemed
-        })}
+        classes={{ separator: classes.separator }}
+        className={classnames(
+          classes.root,
+          className,
+          isDarkThemed && classes.darkThemed
+        )}
         aria-label="breadcrumbs"
         itemsBeforeCollapse={1}
         itemsAfterCollapse={2}
         maxItems={5}
       >
         {matches
-          ? truncateChildren(activeLinkList)
+          ? truncateChildren(activeLinkList, classes)
           : activeLinkList[activeLinkList.length - 2]}
       </MaterialBreadcrumbs>
     </ThemeContext.Provider>

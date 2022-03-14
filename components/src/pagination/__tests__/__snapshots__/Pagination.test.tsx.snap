@@ -12,7 +12,7 @@ exports[`Pagination component covers test for count is not provided 1`] = `
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-131 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -33,7 +33,7 @@ exports[`Pagination component covers test for count is not provided 1`] = `
         <button
           aria-current="true"
           aria-label="page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-131 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -46,7 +46,7 @@ exports[`Pagination component covers test for count is not provided 1`] = `
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-131 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -80,7 +80,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -101,7 +101,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
         <button
           aria-current="true"
           aria-label="page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -114,7 +114,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to page 2"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -127,7 +127,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to page 3"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -140,7 +140,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to page 4"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -153,7 +153,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to page 5"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -166,7 +166,7 @@ exports[`Pagination component renders all buttons without go-to-first, go-to-las
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-99 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -202,7 +202,7 @@ exports[`Pagination component renders correctly under hideAllPages condition 1`]
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-105 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -224,7 +224,7 @@ exports[`Pagination component renders correctly under hideAllPages condition 1`]
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-105 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -260,7 +260,7 @@ exports[`Pagination component renders correctly under reducedMode 1`] = `
       <li>
         <button
           aria-label="Go to first page"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-122 iconButton IconButton-medium-128 IconButton-text-124 Pagination-root-108 Pagination-first-109 MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
           disabled=""
           page="1"
           shape="round"
@@ -279,7 +279,7 @@ exports[`Pagination component renders correctly under reducedMode 1`] = `
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-108 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -300,7 +300,7 @@ exports[`Pagination component renders correctly under reducedMode 1`] = `
         <button
           aria-current="true"
           aria-label="page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-108 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -317,7 +317,7 @@ exports[`Pagination component renders correctly under reducedMode 1`] = `
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-108 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -339,7 +339,7 @@ exports[`Pagination component renders correctly under reducedMode 1`] = `
       <li>
         <button
           aria-label="Go to last page"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-92 iconButtonStyles-medium-98 iconButtonStyles-text-94 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-122 iconButton IconButton-medium-128 IconButton-text-124 Pagination-root-108 Pagination-last-110 MuiPaginationItem-root MuiPaginationItem-page"
           page="7"
           shape="round"
           tabindex="0"
@@ -374,7 +374,7 @@ exports[`Pagination component renders with only prev and next buttons 1`] = `
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-50 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -398,7 +398,7 @@ exports[`Pagination component renders with only prev and next buttons 1`] = `
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-50 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -434,7 +434,7 @@ exports[`Pagination component renders with only prev, next and current page butt
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -459,7 +459,7 @@ exports[`Pagination component renders with only prev, next and current page butt
         <button
           aria-current="true"
           aria-label="page 4"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -474,7 +474,7 @@ exports[`Pagination component renders with only prev, next and current page butt
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-73 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -510,7 +510,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to first page"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--first MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-41 iconButton IconButton-medium-47 IconButton-text-43 Pagination-root-27 Pagination-first-28 MuiPaginationItem-root MuiPaginationItem-page Mui-disabled Mui-disabled Mui-disabled"
           disabled=""
           page="1"
           shape="round"
@@ -529,7 +529,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -550,7 +550,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
         <button
           aria-current="true"
           aria-label="page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -563,7 +563,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to page 2"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -576,7 +576,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to page 3"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -589,7 +589,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to page 4"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -602,7 +602,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to page 5"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -614,7 +614,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       </li>
       <li>
         <div
-          class="PaginationItem MuiPaginationItem-root MuiPaginationItem-ellipsis"
+          class="Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-ellipsis"
         >
           <svg
             style="font-size: 16px;"
@@ -624,7 +624,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to page 10"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -637,7 +637,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-27 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -659,7 +659,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       <li>
         <button
           aria-label="Go to last page"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-text-34 PaginationItem PaginationItem--last MuiPaginationItem-root MuiPaginationItem-page"
+          class="MuiButtonBase-root MuiIconButton-root IconButton-root-41 iconButton IconButton-medium-47 IconButton-text-43 Pagination-root-27 Pagination-last-29 MuiPaginationItem-root MuiPaginationItem-page"
           page="10"
           shape="round"
           tabindex="0"
@@ -694,7 +694,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -716,7 +716,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -729,7 +729,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to page 2"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -742,7 +742,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to page 3"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -756,7 +756,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
         <button
           aria-current="true"
           aria-label="page 4"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -769,7 +769,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to page 5"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -782,7 +782,7 @@ exports[`Pagination component renders without first and last page buttons 1`] = 
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-96 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -818,7 +818,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to previous page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-disabled Mui-disabled"
           disabled=""
           tabindex="-1"
           type="button"
@@ -839,7 +839,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
         <button
           aria-current="true"
           aria-label="page 1"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary Mui-selected"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary Mui-selected"
           tabindex="0"
           type="button"
         >
@@ -852,7 +852,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 2"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -865,7 +865,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 3"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -878,7 +878,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 4"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -891,7 +891,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 5"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -904,7 +904,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 6"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -917,7 +917,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 7"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -930,7 +930,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 8"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -943,7 +943,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to page 9"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >
@@ -956,7 +956,7 @@ exports[`Pagination component renders without go-to-first, go-to-last double arr
       <li>
         <button
           aria-label="Go to next page"
-          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page PaginationItem MuiPaginationItem-textPrimary"
+          class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-page Pagination-root-24 MuiPaginationItem-root MuiPaginationItem-textPrimary MuiPaginationItem-textPrimary"
           tabindex="0"
           type="button"
         >

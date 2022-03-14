@@ -1,14 +1,15 @@
 import React from "react";
 import MaterialButton, { ButtonProps } from "../button/Button";
-import styles from "./Form.module.scss";
+import { useStyles } from "./styles";
 
 type Props = ButtonProps & {
   children: React.ReactNode;
 };
 
 const Button = ({ children, ...props }: Props) => {
+  const classes = useStyles();
   return (
-    <MaterialButton className={styles["Button"]} {...props}>
+    <MaterialButton className={classes.button} {...props}>
       {children}
     </MaterialButton>
   );

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { useMediaQuery } from "@material-ui/core";
 import { render, screen } from "@testing-library/react";
 import React from "react";
@@ -36,7 +37,11 @@ function renderDocumentResults(props?: Partial<Props>) {
   const defaultProps: Props = {
     documents: []
   };
-  return render(<DocumentSimpleTableResults {...defaultProps} {...props} />);
+  return render(
+    <ThemeProvider>
+      <DocumentSimpleTableResults {...defaultProps} {...props} />
+    </ThemeProvider>
+  );
 }
 
 describe("DocumentSimpleTableResult", () => {

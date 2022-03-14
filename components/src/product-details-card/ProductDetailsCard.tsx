@@ -1,11 +1,11 @@
-import React from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
+import React from "react";
 import AnchorLink from "../anchor-link/AnchorLink";
 import { ClickableAction } from "../clickable/Clickable";
 import Media, { AcceptedNode } from "../media/Media";
 import MicroCopy from "../micro-copy/MicroCopy";
 import Typography from "../typography/Typography";
-import styles from "./ProductDetailsCard.module.scss";
+import { useStyles } from "./styles";
 
 type Props = {
   media?: React.ReactElement<AcceptedNode>;
@@ -25,25 +25,25 @@ const ProductDetailsCard = ({
   linkLabel
 }: Props) => {
   const BrandLogo = brandLogo;
-
+  const classes = useStyles();
   return (
-    <div className={styles["OverviewCard"]}>
-      <Media className={styles["header-picture"]} size="contain">
+    <div className={classes.root}>
+      <Media className={classes.headerPicture} size="contain">
         {media}
       </Media>
-      <div className={styles["body"]}>
+      <div className={classes.body}>
         <BrandLogo
           preserveAspectRatio="xMinYMin"
-          className={styles["brand-logo"]}
+          className={classes.brandLogo}
         />
-        <Typography variant="h5" className={styles["title"]}>
+        <Typography variant="h5" className={classes.title}>
           {title}
         </Typography>
         <Typography>
           <MicroCopy path="productDetailsCard.externalRefLabel" />:{" "}
-          <span className={styles["bold-nobb"]}>{nnob}</span>
+          <span className={classes.boldNobb}>{nnob}</span>
         </Typography>
-        <AnchorLink action={action} iconEnd className={styles["link"]}>
+        <AnchorLink action={action} iconEnd className={classes.link}>
           {linkLabel}
         </AnchorLink>
       </div>

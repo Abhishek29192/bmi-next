@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@bmi/components";
 import { render } from "@testing-library/react";
 import React from "react";
 import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
@@ -22,7 +23,9 @@ describe("DocumentSimpleTableResultsMobile component", () => {
     });
 
     const { container } = render(
-      <DocumentSimpleTableResultsMobile documents={[document]} />
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile documents={[document]} />
+      </ThemeProvider>
     );
 
     expect(container).toMatchSnapshot();
@@ -44,29 +47,38 @@ describe("DocumentSimpleTableResultsMobile component", () => {
     });
 
     const { container } = render(
-      <DocumentSimpleTableResultsMobile documents={[document]} />
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile documents={[document]} />
+      </ThemeProvider>
     );
+    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
-    expect(container.innerHTML).toContain('<svg class="download-icon"></svg>');
+    expect(svg).toBeTruthy();
   });
   it("renders pim documents correctly", () => {
     const { container, findByText } = render(
-      <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+      </ThemeProvider>
     );
+    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
     expect(findByText("dummy-title")).not.toBeNull();
-    expect(container.innerHTML).toContain('<svg class="download-icon"></svg>');
+    expect(svg).toBeTruthy();
   });
   it("renders multiple documents of same asset type as zip file", () => {
     const { container, queryAllByText } = render(
-      <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+      <ThemeProvider>
+        <DocumentSimpleTableResultsMobile documents={[pimDocument]} />
+      </ThemeProvider>
     );
+    const svg = container.querySelector(".download-icon");
 
     expect(container).toMatchSnapshot();
     expect(queryAllByText(pimDocument.title).length).toBe(1);
-    expect(container.innerHTML).toContain('<svg class="download-icon"></svg>');
+    expect(svg).toBeTruthy();
   });
 
   it("renders correctly when invalid asset types are used", () => {
@@ -85,7 +97,11 @@ describe("DocumentSimpleTableResultsMobile component", () => {
     });
 
     try {
-      render(<DocumentSimpleTableResultsMobile documents={[document]} />);
+      render(
+        <ThemeProvider>
+          <DocumentSimpleTableResultsMobile documents={[document]} />
+        </ThemeProvider>
+      );
     } catch (iconError) {
       expect(iconError).not.toBe(null);
     }

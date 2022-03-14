@@ -1,10 +1,10 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import Autocomplete from "../Autocomplete";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 
 describe("Autocomplete component", () => {
   it("renders correctly", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Autocomplete
         id="autocomplete-test"
         options={[
@@ -22,7 +22,7 @@ describe("Autocomplete component", () => {
   });
 
   it("renders correctly with start icon", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Autocomplete
         id="autocomplete-test"
         options={[
@@ -41,7 +41,7 @@ describe("Autocomplete component", () => {
   });
 
   it("renders correctly with all data option component", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Autocomplete.Option
         text="text"
         secondaryText="secondaryText"
@@ -55,7 +55,7 @@ describe("Autocomplete component", () => {
   });
 
   it("renders correctly with partial data option component", () => {
-    const { container } = render(
+    const { container } = renderWithThemeProvider(
       <Autocomplete.Option text="text" secondaryText="secondaryText" />
     );
     expect(container).toMatchSnapshot();

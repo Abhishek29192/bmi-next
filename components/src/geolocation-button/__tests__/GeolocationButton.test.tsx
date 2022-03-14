@@ -1,5 +1,6 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, waitFor } from "@testing-library/react";
 import React from "react";
+import { renderWithThemeProvider } from "../../__tests__/helper";
 import GeolocationButton, {
   getCurrentPosition,
   getGeolocation
@@ -23,7 +24,7 @@ describe("GeolocationButton component", () => {
       configurable: true
     });
 
-    const container = render(
+    const container = renderWithThemeProvider(
       <GeolocationButton {...props}>Use my location</GeolocationButton>
     );
     expect(container).toMatchSnapshot();
@@ -35,7 +36,7 @@ describe("GeolocationButton component", () => {
       configurable: true
     });
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <GeolocationButton {...props}>Use my location</GeolocationButton>
     );
 
@@ -56,7 +57,7 @@ describe("GeolocationButton component", () => {
       configurable: true
     });
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <GeolocationButton {...props}>Use my location</GeolocationButton>
     );
 
@@ -77,7 +78,7 @@ describe("GeolocationButton component", () => {
       configurable: true
     });
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithThemeProvider(
       <GeolocationButton {...props}>Use my location</GeolocationButton>
     );
 

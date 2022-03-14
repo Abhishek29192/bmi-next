@@ -4,16 +4,17 @@ exports[`ToggleCard component renders a card containing title only 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="MuiButtonBase-root ToggleCard"
+    class="MuiButtonBase-root ToggleCard-root-49"
     id="A Unique ID"
     role="button"
     tabindex="0"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ToggleCard-body-50 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <h6
-        class="MuiTypography-root title title--only Typography MuiTypography-h6"
+        class="MuiTypography-root ToggleCard-title-51 ToggleCard-only-52 Typography-root-57 MuiTypography-h6"
+        data-testid="typography"
       >
         Title only
       </h6>
@@ -29,30 +30,33 @@ exports[`ToggleCard component renders a disabled card 1`] = `
 <div>
   <div
     aria-disabled="true"
-    class="MuiButtonBase-root ToggleCard ToggleCard--disabled Mui-disabled"
+    class="MuiButtonBase-root ToggleCard-root-33 ToggleCard-disabled-40 Mui-disabled"
     id="Another Unique ID"
     role="button"
     tabindex="-1"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ToggleCard-body-34 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
-        class="image"
+        class="ToggleCard-image-38"
         style="background-image: url(path-to-image);"
       />
       <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+        class="MuiTypography-root ToggleCard-title-35 Typography-root-41 MuiTypography-h6"
+        data-testid="typography"
       >
         Curabitur posuere varius erat
       </h6>
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-37 Typography-root-41 MuiTypography-body1"
+        data-testid="typography"
       >
         Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
       </p>
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-37 Typography-root-41 MuiTypography-body1"
+        data-testid="typography"
       >
         Nobb: 
         <strong>
@@ -68,19 +72,20 @@ exports[`ToggleCard component renders card with illustrated image 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="MuiButtonBase-root ToggleCard"
+    class="MuiButtonBase-root ToggleCard-root-65"
     id="A Unique ID"
     role="button"
     tabindex="0"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ToggleCard-body-66 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <svg
         preserveAspectRatio="xMidYMid"
       />
       <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+        class="MuiTypography-root ToggleCard-title-67 Typography-root-73 MuiTypography-h6"
+        data-testid="typography"
       >
         Title only
       </h6>
@@ -96,30 +101,33 @@ exports[`ToggleCard component renders correctly 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="MuiButtonBase-root ToggleCard"
+    class="MuiButtonBase-root ToggleCard-root-1"
     id="A Unique ID"
     role="button"
     tabindex="0"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ToggleCard-body-2 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
-        class="image"
+        class="ToggleCard-image-6"
         style="background-image: url(path-to-image);"
       />
       <h6
-        class="MuiTypography-root title Typography MuiTypography-h6"
+        class="MuiTypography-root ToggleCard-title-3 Typography-root-9 MuiTypography-h6"
+        data-testid="typography"
       >
         Curabitur posuere varius erat
       </h6>
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-5 Typography-root-9 MuiTypography-body1"
+        data-testid="typography"
       >
         Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
       </p>
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-5 Typography-root-9 MuiTypography-body1"
+        data-testid="typography"
       >
         Nobb: 
         <strong>
@@ -138,25 +146,27 @@ exports[`ToggleCard component renders correctly with no title 1`] = `
 <div>
   <div
     aria-disabled="false"
-    class="MuiButtonBase-root ToggleCard"
+    class="MuiButtonBase-root ToggleCard-root-17"
     id="A Unique ID"
     role="button"
     tabindex="0"
   >
     <div
-      class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+      class="MuiPaper-root MuiCard-root ToggleCard-body-18 MuiPaper-elevation1 MuiPaper-rounded"
     >
       <div
-        class="image"
+        class="ToggleCard-image-22"
         style="background-image: url(path-to-image);"
       />
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-21 Typography-root-25 MuiTypography-body1"
+        data-testid="typography"
       >
         Asfalt underlagsbelegg med selvklebende omlegg. Kategori: Bra
       </p>
       <p
-        class="MuiTypography-root paragraph Typography MuiTypography-body1"
+        class="MuiTypography-root ToggleCard-paragraph-21 Typography-root-25 MuiTypography-body1"
+        data-testid="typography"
       >
         Nobb: 
         <strong>
