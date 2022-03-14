@@ -1,33 +1,19 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
 import { Typography } from "@bmi/components";
-import TimeAgo from "javascript-time-ago";
 import { useTranslation } from "next-i18next";
 import ReactTimeAgo from "react-time-ago";
-import en from "javascript-time-ago/locale/en";
-import it from "javascript-time-ago/locale/it";
-import nb from "javascript-time-ago/locale/nb";
-import dynamic from "next/dynamic";
+import classnames from "classnames";
+import ReactMarkdown from "react-markdown";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
-
-TimeAgo.addDefaultLocale(en);
-TimeAgo.addLocale(it);
-TimeAgo.addLocale(nb);
+import "../../lib/reactTimeAgo";
 
 export type NotificationProps = {
   message: string;
   date: string;
   read: boolean;
-  id: number;
 };
-
-const ReactMarkdown: React.ComponentType<Record<string, any>> = dynamic(
-  () => import("react-markdown").then((module) => module.default),
-  {
-    ssr: false
-  }
-);
 
 export const Notification = ({
   // eslint-disable-next-line react/prop-types
@@ -35,13 +21,11 @@ export const Notification = ({
   // eslint-disable-next-line react/prop-types
   date,
   // eslint-disable-next-line react/prop-types
-  read,
-  // eslint-disable-next-line react/prop-types
-  id
+  read
 }: NotificationProps) => {
   const { i18n } = useTranslation();
   return (
-    <div className={`${styles.main} ${read ? null : styles.unread}`}>
+    <div className={classnames(styles.main, { [styles.unread]: !read })}>
       <Typography variant="body1" component="div" className={styles.body}>
         <div className={styles.timeAgo}>
           <ReactTimeAgo
