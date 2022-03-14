@@ -641,6 +641,12 @@ describe("Company", () => {
       });
 
       it("send email", async () => {
+        const mailBody = {
+          accountId: context.user.id,
+          firstname: context.user.firstName,
+          company: companyName,
+          city: "town"
+        };
         query
           .mockReturnValueOnce({ rows: [{ id: 1, tier: "T1" }] })
           .mockReturnValueOnce({
@@ -666,9 +672,7 @@ describe("Company", () => {
           "COMPANY_REGISTERED",
           {
             email: context.user.email,
-            accountId: context.user.id,
-            firstname: context.user.firstName,
-            company: companyName
+            ...mailBody
           }
         );
         expect(sendMessageWithTemplate).toHaveBeenNthCalledWith(
@@ -677,9 +681,7 @@ describe("Company", () => {
           "COMPANY_REGISTERED",
           {
             email: marketAdminEmail,
-            accountId: context.user.id,
-            firstname: context.user.firstName,
-            company: companyName
+            ...mailBody
           }
         );
       });
@@ -713,7 +715,8 @@ describe("Company", () => {
             email: `${marketAdminEmail}2`,
             accountId: context.user.id,
             firstname: context.user.firstName,
-            company: companyName
+            company: companyName,
+            city: "town"
           }
         );
       });
