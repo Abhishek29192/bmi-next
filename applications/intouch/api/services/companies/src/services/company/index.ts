@@ -132,14 +132,19 @@ export const updateCompany = async (
       await pgClient.query("SELECT * FROM activate_company($1)", [
         args.input.id
       ]);
+
+      const dynamicContent = {
+        accountId: user.id,
+        firstname: user.firstName,
+        company: $name,
+        city: registeredAddress.town
+      };
       const sendEMailToUser = sendMessageWithTemplate(
         context,
         "COMPANY_REGISTERED",
         {
           email: user.email,
-          accountId: user.id,
-          firstname: user.firstName,
-          company: $name
+          ...dynamicContent
         }
       );
       // send mail to market admin after successful company creation
@@ -148,9 +153,7 @@ export const updateCompany = async (
         ...marketAdmins.map(({ email }) => {
           sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
             email,
-            accountId: user.id,
-            firstname: user.firstName,
-            company: $name
+            ...dynamicContent
           });
         })
       ]);
