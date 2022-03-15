@@ -18,8 +18,8 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     <a
       aria-disabled="false"
       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1\\"}"
-      href="/undefined/test1"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/\\"}"
+      href="/undefined/test1/"
       role="button"
       tabindex="0"
     >

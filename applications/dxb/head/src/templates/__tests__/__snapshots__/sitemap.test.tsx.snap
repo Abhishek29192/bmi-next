@@ -290,7 +290,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -811,8 +811,8 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 buttonStyles-textDarkBg-127 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -1159,7 +1159,7 @@ exports[`Sitemap renders correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -1680,8 +1680,8 @@ exports[`Sitemap renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -2028,7 +2028,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -2496,8 +2496,8 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -2844,7 +2844,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -3302,8 +3302,8 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 buttonStyles-textDarkBg-60 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -3558,8 +3558,8 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 buttonStyles-textDarkBg-87 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -3814,8 +3814,8 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-102 MuiButton-text buttonStyles-text-103 buttonStyles-textDarkBg-107 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >

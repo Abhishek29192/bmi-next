@@ -77,3 +77,4 @@ process.env.GOOGLE_YOUTUBE_API_KEY_SECRET =
 process.env.BUILD_WEBHOOKS =
   '{"norway":"https://norway.local","italy":"https://italy.local","finland":"https://finland.local"}';
 process.env.BUILD_REQUEST_SECRET = "build_secret";
+process.env.GATSBY_SITE_URL = "http://localhost:8000";

@@ -84,8 +84,8 @@ exports[`Footer component renders correctly 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
-                      href="/uk/landing-page"
+                      data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
+                      href="/uk/landing-page/"
                       role="button"
                       tabindex="0"
                     >
@@ -120,8 +120,8 @@ exports[`Footer component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page\\"}"
-                  href="/uk/landing-page"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"Our story\\",\\"action\\":\\"/uk/landing-page/\\"}"
+                  href="/uk/landing-page/"
                   role="button"
                   tabindex="0"
                 >
@@ -141,8 +141,8 @@ exports[`Footer component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
-                  href="/uk/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
+                  href="/uk/sitemap/"
                   role="button"
                   tabindex="0"
                 >

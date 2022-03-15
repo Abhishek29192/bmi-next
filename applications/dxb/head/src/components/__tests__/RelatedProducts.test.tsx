@@ -250,7 +250,7 @@ describe("RelatedProducts component", () => {
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
       label: "product-1 - MC: pdp.relatedProducts.viewDetails",
-      action: "/en/some-path"
+      action: "/en/some-path/"
     });
 
     const elemsWithGTM = container.querySelectorAll(".OverviewCard");

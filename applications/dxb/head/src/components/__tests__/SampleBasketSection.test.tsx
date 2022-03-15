@@ -1,6 +1,7 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
+import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import {
   BasketContextProvider,
   Sample
@@ -10,7 +11,6 @@ import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
-import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import { ClassificationCodeEnum } from "../types/pim";
 import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
@@ -108,9 +108,10 @@ const data: Data = {
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-axios.CancelToken.source = jest
-  .fn()
-  .mockReturnValue({ token: "this", cancel: () => {} });
+axios.CancelToken.source = jest.fn().mockReturnValue({
+  token: "this",
+  cancel: () => {}
+});
 
 jest.mock("react-google-recaptcha-v3", () => ({
   useGoogleReCaptcha: () => ({
@@ -188,7 +189,7 @@ describe("SampleBasketSection with form", () => {
           title: "Complete form",
           values: {
             samples:
-              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details<br>color: green<br>texture: rough",
+              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/<br>color: green<br>texture: rough",
             text: "Text"
           }
         },

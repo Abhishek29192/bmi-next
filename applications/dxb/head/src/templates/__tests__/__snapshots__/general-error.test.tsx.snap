@@ -261,7 +261,7 @@ exports[`General Error render correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/no"
+              href="/no/"
             >
               <svg
                 class="logo"
@@ -652,8 +652,8 @@ exports[`General Error render correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap\\"}"
-                  href="/no/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
+                  href="/no/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -971,7 +971,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/no"
+              href="/no/"
             >
               <svg
                 class="logo"
@@ -1378,8 +1378,8 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap\\"}"
-                  href="/no/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap/\\"}"
+                  href="/no/sitemap/"
                   role="button"
                   tabindex="0"
                 >

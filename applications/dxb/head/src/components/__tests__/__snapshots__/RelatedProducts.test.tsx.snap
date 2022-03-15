@@ -95,8 +95,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -249,8 +249,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -303,8 +303,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -457,8 +457,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -511,8 +511,8 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -768,8 +768,8 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -822,8 +822,8 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
@@ -976,8 +976,8 @@ exports[`RelatedProducts component renders variants correctly with products with
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-name - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
-                      href="/en/some-path"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-name - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path/\\"}"
+                      href="/en/some-path/"
                       role="button"
                       tabindex="0"
                     >
