@@ -61,7 +61,7 @@ export const proxy: HttpFunction = async (req, res) => {
       }
       return response.body.pipe(res);
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
       return res.status(500).send("Request to Elasticsearch failed.");
     }
   }
