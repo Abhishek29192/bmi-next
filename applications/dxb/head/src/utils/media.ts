@@ -91,7 +91,7 @@ export const filterAndTransformVideoData = (
         subtitle: null,
         previewMedia: null,
         videoRatio: null,
-        youtubeId: getYoutubeId(video.url)
+        youtubeId: video.url ? getYoutubeId(video.url) : ""
       };
     });
 };

@@ -120,4 +120,31 @@ describe("filterAndTransformVideoData", () => {
       }
     ]);
   });
+
+  it("should not error if PIM Video URL is null", () => {
+    const expectedVideo = createAsset({
+      assetType: "VIDEO",
+      mime: "application/octet-stream",
+      name: "testVideo",
+      url: null
+    });
+    const mockMedia = [
+      createAsset({ assetType: "CERTIFICATES" }),
+      expectedVideo
+    ];
+
+    const expectResult = filterAndTransformVideoData(mockMedia);
+
+    expect(expectResult).toStrictEqual([
+      {
+        __typename: "PimVideo",
+        label: expectedVideo.name,
+        title: "",
+        previewMedia: null,
+        subtitle: null,
+        videoRatio: null,
+        youtubeId: ""
+      }
+    ]);
+  });
 });
