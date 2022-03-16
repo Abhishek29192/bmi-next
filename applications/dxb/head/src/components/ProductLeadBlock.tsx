@@ -57,6 +57,38 @@ const DOCUMENTS_PER_PAGE = 24;
 const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
+export const getCountsOfDocuments = (
+  documentsByAssetType: [string, (PIMDocumentData | PIMLinkDocumentData)[]][]
+): number => {
+  let count = 0;
+  documentsByAssetType.forEach((groupedDocs) => {
+    if (groupedDocs[1].length === 1) {
+      count++;
+    } else {
+      //zip files and PiMLinkDocument will have its separate row
+      // eslint-disable-next-line security/detect-object-injection
+      groupedDocs[1].forEach((x) => {
+        if (
+          x.__typename === "PIMLinkDocument" ||
+          (x.__typename === "PIMDocument" && x.extension === "zip")
+        ) {
+          count++;
+        }
+      });
+      //files to be zipped will have a single count of 1
+      if (
+        // eslint-disable-next-line security/detect-object-injection
+        groupedDocs[1].filter(
+          (x) => x.__typename === "PIMDocument" && x.extension !== "zip"
+        ).length > 0
+      ) {
+        count++;
+      }
+    }
+  });
+  return count;
+};
+
 const ProductLeadBlock = ({
   bimIframeUrl,
   description,
@@ -77,9 +109,7 @@ const ProductLeadBlock = ({
 }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
-  const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
-  //filters formats not supported in all_formats such as tiff
 
   const filteredDocuments = useMemo(
     () =>
@@ -91,10 +121,7 @@ const ProductLeadBlock = ({
         ) {
           return All_FORMATS.includes(document.format);
         }
-        if (NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode)) {
-          return false;
-        }
-        return document;
+        return !NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode);
       }),
     [documents]
   );
@@ -106,6 +133,9 @@ const ProductLeadBlock = ({
         page * DOCUMENTS_PER_PAGE
       ),
     [filteredDocuments]
+  );
+  const count = Math.ceil(
+    getCountsOfDocuments(documentsByAssetType) / DOCUMENTS_PER_PAGE
   );
 
   const isImageAsset = (asset: Asset) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import ProductLeadBlock from "../ProductLeadBlock";
+import ProductLeadBlock, { getCountsOfDocuments } from "../ProductLeadBlock";
 import {
   mapGalleryImages,
   transformImages
@@ -273,6 +273,60 @@ describe("ProductLeadBlock tests", () => {
     );
     expect(container.getElementsByClassName("row").length).toBe(6);
     expect(container.getElementsByClassName("Checkbox").length).toBe(2);
+    expect(container).toMatchSnapshot();
+  });
+  it("should render with correct page count", () => {
+    const documents: [string, (PIMDocumentData | PIMLinkDocumentData)[]][] = [
+      [
+        "type1",
+        [
+          document,
+          { ...document, fileSize: 123 },
+          { ...document, extension: "zip" }
+        ]
+      ],
+      ["type2", [document, { ...document, fileSize: 234 }, linkdocument]]
+    ];
+    expect(getCountsOfDocuments(documents)).toBe(4);
+  });
+  it("should filter assets with pimcode of BIM, SPECIFICATION, VIDEO,FIXING_TOOL", () => {
+    const documents = [
+      document,
+      linkdocument,
+      linkdocument,
+      {
+        ...document,
+        assetType: { ...document.assetType, pimCode: "SPECIFICATION" }
+      },
+      {
+        ...document,
+        assetType: { ...document.assetType, pimCode: "BMI" }
+      },
+      { ...document, filesize: 123 },
+      {
+        ...document,
+        assetType: { ...document.assetType, pimCode: "VIDEO" }
+      },
+      {
+        ...document,
+        assetType: { ...document.assetType, pimCode: "FIXING_TOOL" }
+      },
+      {
+        ...linkdocument,
+        assetType: { ...linkdocument.assetType, pimCode: "VIDEO" }
+      }
+    ];
+    const { container } = render(
+      <ProductLeadBlock
+        documents={documents}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        pdpSpecificationTitle="Specification title"
+        pdpSpecificationDescription={null}
+      />
+    );
+    expect(container.getElementsByClassName("row").length).toBe(3);
     expect(container).toMatchSnapshot();
   });
 });
