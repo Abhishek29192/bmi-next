@@ -10,7 +10,7 @@ import {
 } from "@bmi/components";
 import classnames from "classnames";
 import filesize from "filesize";
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import axios from "axios";
@@ -63,7 +63,6 @@ const getDocument = (
 ) => {
   const { getMicroCopy } = useSiteContext();
   const document = documents[0];
-
   const { title, id } = document;
   return headers.map((header) => {
     const key = `${title}-body-${header}`;
@@ -130,10 +129,9 @@ const getDocument = (
       );
     }
     if (header === "add") {
-      return (
+      return !multipleDocuments ? (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
-          {document.__typename !== "PIMLinkDocument" &&
-          mapAssetToFileDownload(document).size ? (
+          {document.__typename !== "PIMLinkDocument" ? (
             <DownloadList.Checkbox
               name={id}
               maxLimitReachedLabel={getMicroCopy(
@@ -148,6 +146,27 @@ const getDocument = (
           ) : (
             <span className={styles["no-document-icon"]}>-</span>
           )}
+        </Table.Cell>
+      ) : (
+        <Table.Cell className={styles["table-cell"]} align="center" key={key}>
+          <DownloadList.Checkbox
+            name={id}
+            maxLimitReachedLabel={getMicroCopy(
+              microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
+            )}
+            ariaLabel={`${getMicroCopy(
+              microCopy.DOCUMENT_LIBRARY_DOWNLOAD
+            )} ${title}`}
+            value={documents}
+            fileSize={documents.reduce(
+              (a, c) =>
+                a +
+                mapAssetToFileDownload(
+                  c as PIMDocumentData | DocumentData | SDPDocumentData
+                ).size,
+              0
+            )}
+          />
         </Table.Cell>
       );
     }
@@ -166,45 +185,20 @@ const DocumentsByAssetType = ({ documentsByAssetType, list, headers }) => {
       assets.find(({ assetType }) => assetType.code)?.assetType.code
     }-${index}`;
 
-    const pimLinkDocuments = assets.filter(
-      (asset) => asset.__typename == "PIMLinkDocument" || !asset.fileSize
-    );
-
-    const zipDocuments = assets.filter(
-      (asset) => asset.__typename === "PIMDocument" && asset.extension === "zip"
+    const pimLinkAndZipDocuments = assets.filter(
+      (asset) =>
+        asset.__typename == "PIMLinkDocument" ||
+        (asset.__typename === "PIMDocument" && asset.extension === "zip")
     );
 
     const filteredDocuments = assets.filter(
-      (asset) =>
-        (asset.__typename = "PIMDocument") &&
-        asset.fileSize &&
-        asset.extension !== "zip"
+      (asset) => asset.__typename === "PIMDocument" && asset.extension !== "zip"
     );
 
     return (
-      <>
-        {pimLinkDocuments.length > 0 &&
-          pimLinkDocuments.map((asset, index) => {
-            const newKey = key + index;
-            return (
-              <Table.Row
-                key={newKey}
-                className={classnames(styles["row"], {
-                  // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[newKey]
-                })}
-                // eslint-disable-next-line security/detect-object-injection
-                selected={!!list[newKey]}
-              >
-                {getDocument(
-                  [{ ...asset, __typename: "PIMLinkDocument" }],
-                  headers
-                )}
-              </Table.Row>
-            );
-          })}
-        {zipDocuments.length > 0 &&
-          zipDocuments.map((asset, index) => {
+      <Fragment key={key}>
+        {pimLinkAndZipDocuments.length > 0 &&
+          pimLinkAndZipDocuments.map((asset, index) => {
             const newKey = key + index;
             return (
               <Table.Row
@@ -236,7 +230,7 @@ const DocumentsByAssetType = ({ documentsByAssetType, list, headers }) => {
               : getDocument(filteredDocuments, headers, true)}
           </Table.Row>
         )}
-      </>
+      </Fragment>
     );
   });
 };
