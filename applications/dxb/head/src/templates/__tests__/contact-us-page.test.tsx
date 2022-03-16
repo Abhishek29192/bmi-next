@@ -74,6 +74,7 @@ describe("Contact us page", () => {
           bodyList: [
             {
               __typename: "ContentfulTitleWithContent",
+              name: "Our installation instructions show how a product is assembled",
               title:
                 "Our installation instructions show how a product is assembled",
               content: {
@@ -83,6 +84,7 @@ describe("Contact us page", () => {
             },
             {
               __typename: "ContentfulTitleWithContent",
+              name: "You can check relevant technical information whilst browsing our site",
               title:
                 "You can check relevant technical information whilst browsing our site",
               content: {
@@ -101,6 +103,7 @@ describe("Contact us page", () => {
           bodyList: [
             {
               __typename: "ContentfulTitleWithContent",
+              name: "Use our online form",
               title: "Use our online form",
               content: {
                 raw: '{"data":{},"content":[{"data":{"target":{"sys":{"id":"7CVaEtq6uudGvsBBRvArMM","type":"Link","linkType":"Entry"}}},"content":[],"nodeType":"embedded-entry-block"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
@@ -123,6 +126,7 @@ describe("Contact us page", () => {
             },
             {
               __typename: "ContentfulTitleWithContent",
+              name: "Use our online form",
               title: "Use our online form",
               content: {
                 raw: '{"data":{},"content":[{"data":{"target":{"sys":{"id":"7CVaEtq6uudGvsBBRvArMM","type":"Link","linkType":"Entry"}}},"content":[],"nodeType":"embedded-entry-block"},{"data":{},"content":[{"data":{},"marks":[],"value":"","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
