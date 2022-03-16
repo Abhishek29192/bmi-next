@@ -481,7 +481,7 @@ HTMLCollection [
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root clickable"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Contact us\\",\\"action\\":\\"contact-us\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us\\"}"
                         href="/uk/contact-us"
                         role="button"
                         tabindex="0"
@@ -503,7 +503,7 @@ HTMLCollection [
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Contact us\\",\\"action\\":\\"contact-us\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us\\"}"
                         data-testid="card-link"
                         href="/uk/contact-us"
                         role="button"
@@ -603,7 +603,7 @@ HTMLCollection [
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title\\",\\"action\\":\\"path\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path\\"}"
                   href="/uk/path"
                   role="button"
                   tabindex="0"
