@@ -2871,5 +2871,11 @@ describe("product-details-transforms tests", () => {
       );
       expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
     });
+
+    it("returns passes through any value that doesn't match the regex", () => {
+      const expectedYoutubeId = "djskhvjksdvjksdb";
+      const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
   });
 });

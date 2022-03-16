@@ -1083,8 +1083,9 @@ export const getMergedClassifications = (
   ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
 };
 
-export const getYoutubeId = (url) => {
+export const getYoutubeId = (urlOrCode) => {
   const regExp =
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
-  return url.match(regExp)[1];
+  const urlMatch = urlOrCode.match(regExp);
+  return urlMatch && urlMatch.length > 0 ? urlMatch[1] : urlOrCode;
 };
