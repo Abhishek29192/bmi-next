@@ -30,6 +30,11 @@ export const EditUserProfileDialog = ({
   const profilePictureUrl = account.signedPhotoUrl || account.photo;
   const [uploadedPhoto, setUploadedPhoto] = useState(undefined);
   const [shouldRemovePhoto, setShouldRemovePhoto] = useState(false);
+  const [fileSizeRestriction, setFileSizeRestriction] = useState(false);
+  const [fileValidationMessage, setFileValidationMessage] = useState("");
+
+  // You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+  const MAX_FILE_SIZE = 3;
 
   const [updateAccountProfile, { loading }] = useUpdateAccountProfileMutation({
     onError: (error) => {
@@ -70,6 +75,16 @@ export const EditUserProfileDialog = ({
     [updateAccountProfile, account, uploadedPhoto, shouldRemovePhoto]
   );
 
+  const onValidationException = (restriction: boolean, message: string) => {
+    setFileSizeRestriction(restriction);
+    setFileValidationMessage(message);
+  };
+
+  const handleClose = useCallback(() => {
+    onCloseClick && onCloseClick();
+    onValidationException(false, "");
+  }, []);
+
   const getFieldProps = useCallback(
     (fieldName: string) => ({
       name: fieldName,
@@ -87,12 +102,22 @@ export const EditUserProfileDialog = ({
   const onProfilePictureChange = (file) => {
     setShouldRemovePhoto(!file);
     setUploadedPhoto(file);
+    onValidationException(false, "");
+
+    if (file?.size > MAX_FILE_SIZE * (1024 * 1024)) {
+      onValidationException(
+        true,
+        `${t(
+          "profile:editDialog.fileSizeValidationMessage"
+        )} ${MAX_FILE_SIZE}MB`
+      );
+    }
   };
 
   return (
     <Dialog
       open={isOpen}
-      onCloseClick={onCloseClick}
+      onCloseClick={handleClose}
       backdropProps={{
         className: "test-backdrop"
       }}
@@ -121,6 +146,7 @@ export const EditUserProfileDialog = ({
             onChange={onProfilePictureChange}
             fileTypesMessage={t("profile:editDialog.fileTypesMessage")}
             fileSizeMessage={t("profile:editDialog.fileSizeMessage")}
+            fileValidationMessage={fileValidationMessage}
           />
 
           <Typography variant="h5" className={styles.editFormSubtitle}>
@@ -137,7 +163,7 @@ export const EditUserProfileDialog = ({
           </div>
           <Form.ButtonWrapper>
             <Form.SubmitButton
-              disabled={loading}
+              disabled={loading || fileSizeRestriction}
               className={styles.submitButton}
             >
               {t("profile:editDialog.buttons.saveAndClose")}

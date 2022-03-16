@@ -13,6 +13,9 @@ import clientGateway from "./middleware/clientGateway";
 
 const PORT = process.env.PORT || 4001;
 
+// You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+const MAX_FILE_SIZE = 40;
+
 async function main() {
   await setEnvFromSecrets([
     { secret: "COMPANIES_DB_HOST", env: "PG_HOST" },
@@ -28,7 +31,12 @@ async function main() {
   app.use(WinstonLogger);
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
+  app.use(
+    graphqlUploadExpress({
+      maxFileSize: MAX_FILE_SIZE * (1024 * 1024),
+      maxFiles: 10
+    })
+  );
 
   // Parse header to get current user info
   app.use(parseUserInfo);
