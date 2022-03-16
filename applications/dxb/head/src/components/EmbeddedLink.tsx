@@ -8,19 +8,25 @@ type Props = {
   fields: LinkData;
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";
+  gtmLabel?: string;
 };
 
 const EmbeddedLink = ({
   fields,
   theme = "primary",
-  backgroundTheme = "light"
+  backgroundTheme = "light",
+  gtmLabel
 }: Props) => {
+  const transformedFields = {
+    ...fields,
+    label: gtmLabel ? `${gtmLabel} - ${fields.label}` : fields.label
+  };
   return (
     <Link
       component={Button}
       variant={theme === "primary" ? "contained" : "opaqueOutlined"}
       hasDarkBackground={backgroundTheme === "dark"}
-      data={fields}
+      data={transformedFields}
       className={styles["EmbeddedLink"]}
     >
       {fields.label}

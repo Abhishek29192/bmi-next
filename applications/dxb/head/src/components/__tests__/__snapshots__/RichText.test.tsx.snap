@@ -84,12 +84,12 @@ exports[`RichText component closes dialog 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 EmbeddedLink MuiButton-containedPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-44"
+          class="MuiButton-label buttonStyles-label-64"
         >
           Aerodek Robust Plus
         </span>
@@ -126,12 +126,12 @@ exports[`RichText component closes dialog 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 EmbeddedLink MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-44"
+        class="MuiButton-label buttonStyles-label-64"
       >
         Support
       </span>
@@ -432,12 +432,12 @@ exports[`RichText component renders when dialog clicked 1`] = `
       </a>
        
       <button
-        class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 EmbeddedLink MuiButton-containedPrimary"
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
         tabindex="0"
         type="button"
       >
         <span
-          class="MuiButton-label buttonStyles-label-24"
+          class="MuiButton-label buttonStyles-label-44"
         >
           Aerodek Robust Plus
         </span>
@@ -474,12 +474,12 @@ exports[`RichText component renders when dialog clicked 1`] = `
     </blockquote>
     <hr />
     <button
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 EmbeddedLink MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-24"
+        class="MuiButton-label buttonStyles-label-44"
       >
         Support
       </span>

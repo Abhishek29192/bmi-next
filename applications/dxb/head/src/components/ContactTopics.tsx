@@ -4,6 +4,7 @@ import { ExpandableCard } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Grid, GridProps } from "@bmi/components";
 import { IconList } from "@bmi/components";
+import { Card, CardProps } from "@bmi/components";
 import BuildIcon from "@material-ui/icons/Build";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import LocalShippingIcon from "@material-ui/icons/LocalShipping";
@@ -13,6 +14,7 @@ import FindReplaceIcon from "@material-ui/icons/FindReplace";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import HelpIcon from "@material-ui/icons/Help";
 import EmojiObjectsOutlinedIcon from "@material-ui/icons/EmojiObjectsOutlined";
+import withGTM from "../utils/google-tag-manager";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 import RichText from "./RichText";
 import ContactDetails, { Data as ContactDetailsData } from "./ContactDetails";
@@ -39,6 +41,7 @@ type BodyProps = {
 
 type FooterProps = {
   footerTitle: string | null;
+  parentSectionTitle?: string;
   footerList: readonly (TitleWithContentData | ContactDetailsData)[] | null;
 };
 
@@ -47,6 +50,8 @@ export type Data = {
   title: string;
 } & BodyProps &
   FooterProps;
+
+const GTMCard = withGTM<CardProps>(Card);
 
 const Body = ({ bodyTitle, bodyList }: BodyProps) => {
   return (
@@ -83,7 +88,11 @@ const BorderedItem = () => {
   return <div className={borderedItemStyles["BorderedItem"]} />;
 };
 
-const Footer = ({ footerTitle, footerList }: FooterProps) => {
+const Footer = ({
+  footerTitle,
+  footerList,
+  parentSectionTitle
+}: FooterProps) => {
   return (
     <div>
       {footerTitle && (
@@ -102,6 +111,10 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
               item: true
             };
 
+            const gtmLabel = `${parentSectionTitle}${
+              item.title ? ` - ${item.title}` : ""
+            }`;
+
             if (item.__typename === "ContentfulTitleWithContent") {
               const { title, content } = item;
               return (
@@ -110,7 +123,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
                   <Typography variant="h5" className={styles["heading"]}>
                     {title}
                   </Typography>
-                  <RichText document={content} />
+                  <RichText document={content} gtmLabel={gtmLabel} />
                 </Grid>
               );
             }
@@ -118,7 +131,7 @@ const Footer = ({ footerTitle, footerList }: FooterProps) => {
             return (
               <Grid key={key} {...gridItemProps}>
                 <BorderedItem />
-                <ContactDetails data={item} isFlat />
+                <ContactDetails gtmLabel={gtmLabel} data={item} isFlat />
               </Grid>
             );
           })}
@@ -140,17 +153,27 @@ const ContactTopics = ({ topics }: { topics: Data[] }) => {
         ? {
             footer: (
               <Footer
+                parentSectionTitle={item.title}
                 footerTitle={item.footerTitle}
                 footerList={item.footerList}
               />
             )
           }
-        : [])
+        : []),
+      gtm: {
+        id: "selector-cards2",
+        label: item.title,
+        action: "Selector - Cards"
+      }
     };
   });
 
   return (
-    <ExpandableCard.List items={items} className={styles["ContactTopics"]} />
+    <ExpandableCard.List
+      items={items}
+      className={styles["ContactTopics"]}
+      cardComponent={(props) => <GTMCard {...props} />}
+    />
   );
 };
 

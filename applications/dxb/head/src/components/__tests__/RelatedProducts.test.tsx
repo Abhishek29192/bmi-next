@@ -2,7 +2,10 @@ import React from "react";
 import { render } from "@testing-library/react";
 import RelatedProducts from "../RelatedProducts";
 import { ClassificationCodeEnum, Product } from "../types/pim";
-import { createBaseProduct } from "../../__tests__/PimDocumentProductHelper";
+import {
+  createBaseProduct,
+  createVariantOption
+} from "../../__tests__/PimDocumentProductHelper";
 import createCategory from "../../__tests__/CategoryHelper";
 
 describe("RelatedProducts component", () => {
@@ -198,6 +201,62 @@ describe("RelatedProducts component", () => {
       />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders with correct gtmLabel", () => {
+    const prods: Product[] = [
+      createBaseProduct({
+        variantOptions: [createVariantOption(), createVariantOption()],
+        name: "product-1",
+        categories: [
+          createCategory({
+            categoryType: "Category",
+            code: "parent-category",
+            parentCategoryCode: ""
+          }),
+          createCategory({
+            categoryType: "Category",
+            parentCategoryCode: "parent-category"
+          })
+        ],
+        classifications: [
+          {
+            code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+            features: [
+              {
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [
+                  {
+                    value: "blue",
+                    code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+                  }
+                ],
+                name: "colour"
+              }
+            ],
+            name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+          }
+        ]
+      })
+    ];
+
+    const { container } = render(
+      <RelatedProducts
+        countryCode="en"
+        classificationNamespace={"bmiClassificationCatalog/1.0"}
+        products={prods}
+      />
+    );
+    const expectedDataGtm = JSON.stringify({
+      id: "cta-click1",
+      label: "product-1 - blue - MC: pdp.relatedProducts.viewDetails",
+      action: "/en/some-path"
+    });
+
+    const elemsWithGTM = container.querySelectorAll(".OverviewCard");
+    expect(elemsWithGTM).toHaveLength(2);
+    expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
+    expect(elemsWithGTM[1].getAttribute("data-gtm")).toEqual(expectedDataGtm);
   });
 
   // TODO: improve test to check order correctly

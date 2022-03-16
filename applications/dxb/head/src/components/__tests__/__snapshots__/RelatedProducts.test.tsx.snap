@@ -29,10 +29,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-33 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-41 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-34"
+                    class="MuiTabs-root tabStyles-TabsRoot-42"
                   >
                     <div
                       class="MuiTabs-scrollable"
@@ -50,7 +50,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         <button
                           aria-controls="tabpanel-category-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-35 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-43 Mui-selected"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                           id="tab-category-name"
                           role="tab"
@@ -68,7 +68,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-36 PrivateTabIndicator-colorPrimary-37 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-44 PrivateTabIndicator-colorPrimary-45 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -84,7 +84,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-40 TabPanelBox"
+                class="MuiBox-root MuiBox-root-48 TabPanelBox"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -95,7 +95,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -183,10 +183,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-41 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-49 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-42"
+                    class="MuiTabs-root tabStyles-TabsRoot-50"
                   >
                     <div
                       class="MuiTabs-scrollable"
@@ -204,7 +204,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         <button
                           aria-controls="tabpanel-category-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-43 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-51 Mui-selected"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                           id="tab-category-name"
                           role="tab"
@@ -222,7 +222,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-44 PrivateTabIndicator-colorPrimary-45 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-52 PrivateTabIndicator-colorPrimary-53 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -238,7 +238,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-48 TabPanelBox"
+                class="MuiBox-root MuiBox-root-56 TabPanelBox"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -249,7 +249,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -303,7 +303,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -391,10 +391,10 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                 class="Container"
               >
                 <div
-                  class="MuiContainer-root tabStyles-ContainerRoot-25 MuiContainer-maxWidthXl"
+                  class="MuiContainer-root tabStyles-ContainerRoot-33 MuiContainer-maxWidthXl"
                 >
                   <div
-                    class="MuiTabs-root tabStyles-TabsRoot-26"
+                    class="MuiTabs-root tabStyles-TabsRoot-34"
                   >
                     <div
                       class="MuiTabs-scrollable"
@@ -412,7 +412,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                         <button
                           aria-controls="tabpanel-category-name"
                           aria-selected="true"
-                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-27 Mui-selected"
+                          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-35 Mui-selected"
                           data-gtm="{\\"id\\":\\"related-products-filter1\\",\\"label\\":\\"category-name\\",\\"action\\":\\"Filter – Related Products\\"}"
                           id="tab-category-name"
                           role="tab"
@@ -430,7 +430,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                         </button>
                       </div>
                       <span
-                        class="PrivateTabIndicator-root-28 PrivateTabIndicator-colorPrimary-29 MuiTabs-indicator"
+                        class="PrivateTabIndicator-root-36 PrivateTabIndicator-colorPrimary-37 MuiTabs-indicator"
                         style="left: 0px; width: 0px;"
                       />
                     </div>
@@ -446,7 +446,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
               role="tabpanel"
             >
               <div
-                class="MuiBox-root MuiBox-root-32 TabPanelBox"
+                class="MuiBox-root MuiBox-root-40 TabPanelBox"
               >
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
@@ -457,7 +457,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -511,7 +511,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -768,7 +768,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-2 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -822,7 +822,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-1 - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
@@ -976,7 +976,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"product-name - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/some-path\\"}"
                       href="/en/some-path"
                       role="button"
                       tabindex="0"
