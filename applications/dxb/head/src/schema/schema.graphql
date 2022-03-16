@@ -232,7 +232,7 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
   sampleBasketSection: ContentfulSampleBasketSection
-    @link(from: "sampleBasketSection___NODE")
+  @link(from: "sampleBasketSection___NODE")
 
   "The CTA link for this page."
   cta: ContentfulLink @link(from: "cta___NODE")
@@ -426,7 +426,7 @@ Represents a combination of Title, Description, Image, and Link combination.
 """
 type ContentfulPromo implements Node {
   "The display name of this promo."
-  name: String
+  name: String!
 
   "The title of this promo."
   title: String
@@ -473,14 +473,14 @@ type ContentfulTag implements Node {
 Represents a union for a combination of promo or pages.
 """
 union ContentfulPromoOrPage =
-    ContentfulPromo
+  ContentfulPromo
   | ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
 union ContentfulRichTextReference =
-    ContentfulAsset
+  ContentfulAsset
   | ContentfulTable
   | ContentfulLink
   | ContentfulHomePage
@@ -604,7 +604,7 @@ type ContentfulSampleBasketSection implements Node {
 
   "The checkout form section"
   checkoutFormSection: ContentfulFormSection
-    @link(from: "checkoutFormSection___NODE")
+  @link(from: "checkoutFormSection___NODE")
 
   "The text to display when basket is empty."
   emptyBasketMessage: ContentfulRichText
@@ -706,7 +706,7 @@ type ContentfulTabsOrAccordionSection implements Node {
 
   "The description for this section."
   description: contentfulTabsOrAccordionSectionDescriptionTextNode
-    @link(from: "description___NODE")
+  @link(from: "description___NODE")
 
   "The list of items for this section."
   items: [ContentfulTitleWithContent] @link(from: "items___NODE")
@@ -779,8 +779,8 @@ type ContentfulServiceLocatorSection implements Node {
 Represents an inline video section.
 """
 type ContentfulVideoSection implements Node {
-  "The internal nam for this section."
-  name: String
+  "The internal name for this section."
+  name: String!
 
   "The title for this section."
   title: String
@@ -796,7 +796,7 @@ type ContentfulVideoSection implements Node {
 Represents the union of possible navigation entities.
 """
 union ContentfulNavigationEntity =
-    ContentfulNavigation
+  ContentfulNavigation
   | ContentfulNavigationItem
   | ContentfulLink
 
@@ -850,11 +850,13 @@ type ContentfulVillainSection implements Node {
 type ContentfulTitleWithContent implements Node {
   id: ID!
 
+  name: String!
+
   "The title for this title with content."
   title: String
 
   "The content for this title with content."
-  content: ContentfulRichText
+  content: ContentfulRichText!
 }
 
 """
@@ -864,7 +866,7 @@ type ContentfulTeamMember implements Node {
   id: ID!
 
   "The name for this member."
-  name: String
+  name: String!
 
   "The picture for this member."
   profileImage: ContentfulImage @link(from: "profileImage___NODE")
@@ -896,7 +898,7 @@ type ContentfulTeamCategory implements Node {
 Represents a union for all the possible sections available in a page.
 """
 union ContentfulSection =
-    ContentfulCardCollectionSection
+  ContentfulCardCollectionSection
   | ContentfulCarouselSection
   | ContentfulFormSection
   | ContentfulNavigation
@@ -933,7 +935,7 @@ type ContentfulResources implements Node {
 
   "The elements for the product details page sidebar for these resources."
   pdpSidebarItems: [ContentfulTitleWithContent]
-    @link(from: "pdpSidebarItems___NODE")
+  @link(from: "pdpSidebarItems___NODE")
 
   "Maximum Numbers of samples allowed"
   maximumSamples: Int
@@ -949,18 +951,18 @@ type ContentfulResources implements Node {
 
   "The share widget for the product details page for these resources."
   pdpShareWidget: ContentfulShareWidgetSection
-    @link(from: "pdpShareWidget___NODE")
+  @link(from: "pdpShareWidget___NODE")
 
   "The share widget for the system details page for these resources."
   sdpShareWidget: ContentfulShareWidgetSection
-    @link(from: "sdpShareWidget___NODE")
+  @link(from: "sdpShareWidget___NODE")
 
   "The lead block cta for the system details page for these resources."
   sdpLeadBlockCta: ContentfulLink @link(from: "sdpLeadBlockCta___NODE")
 
   "The product details page sidebar"
   sdpSidebarItems: [ContentfulTitleWithContent]
-    @link(from: "sdpSidebarItems___NODE")
+  @link(from: "sdpSidebarItems___NODE")
 
   "The sdp bim description item"
   sdpBimDescription: ContentfulRichText
@@ -976,19 +978,19 @@ type ContentfulResources implements Node {
 
   "The search tips for the search page."
   searchPageSearchTips: ContentfulTitleWithContent
-    @link(from: "searchPageSearchTips___NODE")
+  @link(from: "searchPageSearchTips___NODE")
 
   "The sidebar items for the search page."
   searchPageSidebarItems: ContentfulTitleWithContent
-    @link(from: "searchPageSidebarItems___NODE")
+  @link(from: "searchPageSidebarItems___NODE")
 
   "The next best actions for the search page."
   searchPageNextBestActions: [ContentfulPromoOrPage]
-    @link(from: "searchPageNextBestActions___NODE")
+  @link(from: "searchPageNextBestActions___NODE")
 
   "The explore bar for the search page."
   searchPageExploreBar: ContentfulNavigation
-    @link(from: "searchPageExploreBar___NODE")
+  @link(from: "searchPageExploreBar___NODE")
 
   welcomeDialogTitle: String
 
@@ -1001,7 +1003,7 @@ type ContentfulResources implements Node {
 
   "The share widget for the visualiser for these resources."
   visualiserShareWidget: ContentfulShareWidgetSection
-    @link(from: "visualiserShareWidget___NODE")
+  @link(from: "visualiserShareWidget___NODE")
 
   " Language selection dialog introduction"
   countryNavigationIntroduction: ContentfulRichText
@@ -1029,7 +1031,7 @@ type ContentfulResources implements Node {
 Represents a union for a combination of contact details and title with content.
 """
 union ContentfulContactDetailsOrTitleWithContent =
-    ContentfulContactDetails
+  ContentfulContactDetails
   | ContentfulTitleWithContent
 
 """
@@ -1055,7 +1057,7 @@ type ContentfulContactTopic implements Node {
 
   "The list of actions for this topic."
   footerList: [ContentfulContactDetailsOrTitleWithContent]
-    @link(from: "footerList___NODE")
+  @link(from: "footerList___NODE")
 }
 
 """
@@ -1076,7 +1078,7 @@ type ContentfulInputBanner implements Node {
 
   "The description for this input banner."
   description: contentfulInputBannerDescriptionTextNode
-    @link(from: "description___NODE")
+  @link(from: "description___NODE")
 
   "The label for this input banner."
   inputLabel: String
@@ -1086,7 +1088,7 @@ type ContentfulInputBanner implements Node {
 
   "The additional inputs for the banner, if needed."
   additionalInputs: [ContentfulFormInputs]
-    @link(from: "additionalInputs___NODE")
+  @link(from: "additionalInputs___NODE")
 
   "The thank you message for the confirmation for this input banner."
   thankYouMessage: String
@@ -1116,7 +1118,7 @@ type ContentfulSite implements Node {
 
   "head script tags for this Site."
   headScripts: contentfulSiteHeadScriptsTextNode
-    @link(from: "headScripts___NODE")
+  @link(from: "headScripts___NODE")
 
   "OneTrust integration ID"
   scriptOnetrust: String
@@ -1133,7 +1135,7 @@ type contentfulSiteHeadScriptsTextNode implements Node {
 }
 
 union LinkedPage =
-    ContentfulContactUsPage
+  ContentfulContactUsPage
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
@@ -1169,7 +1171,7 @@ type ContentfulLink implements Node {
 
   "The parameters used for a webtools type of link."
   parameters: contentfulLinkParametersJsonNode
-    @link(by: "id", from: "parameters___NODE")
+  @link(by: "id", from: "parameters___NODE")
 
   "The query parameters for internal linked pages."
   queryParams: String
@@ -1233,7 +1235,7 @@ type ContentfulAssetType implements Node {
   id: ID!
 
   "The asset type name."
-  name: String
+  name: String!
 
   "The asset type code."
   code: String
@@ -1608,7 +1610,7 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
 
   "The description for this page."
   description: contentfulBrandLandingPageDescriptionTextNode
-    @link(from: "description___NODE")
+  @link(from: "description___NODE")
 
   "The brand logo for this page."
   brandLogo: String
@@ -1669,7 +1671,7 @@ type ContentfulService implements Node {
   entryType: String
 
   "The name for this service."
-  name: String
+  name: String!
 
   "The location for this service."
   location: Location
@@ -1776,7 +1778,7 @@ type ContentfulImage implements Node {
 
   "The caption for this Image."
   caption: contentfulImageCaptionTextNode
-    @link(by: "id", from: "caption___NODE")
+  @link(by: "id", from: "caption___NODE")
 
   "The focal point for this Image."
   focalPoint: FocalPoint
@@ -1791,7 +1793,7 @@ type ContentfulIframe implements Node {
   id: ID!
 
   "The title for video"
-  name: String
+  name: String!
 
   "The label for the video"
   title: String
@@ -1837,7 +1839,7 @@ type ContentfulSystemConfiguratorBlock implements Node {
 
   "No result items from the tree below the current block"
   noResultItems: [ContentfulTitleWithContent]
-    @link(from: "noResultItems___NODE")
+  @link(from: "noResultItems___NODE")
 
   recommendedSystems: [String!]
 }

@@ -1,13 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { AnchorLink } from "@bmi/components";
-import { HeroItem } from "@bmi/components";
-import { LeadBlock } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Filter } from "@bmi/components";
+import {
+  AnchorLink,
+  Filter,
+  Grid,
+  HeroItem,
+  IconList,
+  LeadBlock,
+  Section,
+  Typography
+} from "@bmi/components";
 import CheckIcon from "@material-ui/icons/Check";
 import queryString from "query-string";
 import { useLocation } from "@reach/router";
@@ -32,9 +34,9 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
 import {
-  queryElasticSearch,
+  compileElasticSearchQuery,
   disableFiltersFromAggregations,
-  compileElasticSearchQuery
+  queryElasticSearch
 } from "../../../utils/elasticSearch";
 import {
   compileESQueryPLP,

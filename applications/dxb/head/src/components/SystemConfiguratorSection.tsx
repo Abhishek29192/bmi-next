@@ -8,12 +8,10 @@ import React, {
   useState
 } from "react";
 import { graphql } from "gatsby";
-import axios, { AxiosResponse, CancelToken } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { Section } from "@bmi/components";
-import { RadioPane, RadioPaneProps } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { useLocation, navigate } from "@reach/router";
+import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import { navigate, useLocation } from "@reach/router";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
@@ -21,6 +19,7 @@ import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import { generateSystemPath } from "../utils/systems";
 import { getPathWithCountryCode } from "../utils/path";
+import { devLog } from "../utils/devLog";
 import { System } from "./types/pim";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import { SystemCard } from "./RelatedSystems";
@@ -37,12 +36,15 @@ export type Data = {
   title: string;
   label: string;
   description: RichTextData | null;
-  question: Partial<EntryData>;
+  question: QuestionData;
   type: "Section";
-  noResultItems: TitleWithContentData[];
 };
 
-export type NextStepData = Partial<EntryData> | TitleWithContentData;
+export type NextStepData = {
+  nextQuestion?: QuestionData;
+  nextResult?: ResultData;
+  nextNoResult?: TitleWithContentData;
+};
 
 type StoredStateType = {
   selectedAnswers: Array<string>;
@@ -55,40 +57,39 @@ type EntryData = {
   __typename: "ContentfulSystemConfiguratorBlock";
   id: string;
   title: string;
-  type: "Question" | "Answer" | "Result";
   description: RichTextData | null;
-} & QuestionData &
-  ResultData;
-
-type QuestionData = {
-  answers: Partial<EntryData>[] | null;
 };
 
-type TitleWithContentData = DefaultTitleWithContentData & {
+export type AnswerData = EntryData & {
+  type: "Answer";
+};
+
+export type QuestionData = EntryData & {
+  type: "Question";
+  answers: AnswerData[];
+};
+
+export type TitleWithContentData = DefaultTitleWithContentData & {
   contentful_id: string;
 };
 
-type ResultData = {
+export type ResultData = EntryData & {
+  type: "Result";
   recommendedSystems: string[] | null;
 };
 
-type SystemConfiguratorBlockProps = {
-  id: string;
-  index: number;
-  getData: (
-    id: string,
-    index: number,
-    cancelToken: CancelToken,
-    recaptchaToken: string
-  ) => Promise<NextStepData>;
-  storedAnswers?: string[];
-  stateSoFar?: string[];
-  isReload: boolean;
+type SystemConfiguratorSectionState = {
+  locale: string;
+  isLoading: boolean;
+  openIndex?: number;
+  result?: ResultData;
+  noResult?: TitleWithContentData;
+  error?: Error;
 };
 
 const ACCORDION_TRANSITION = 500;
 
-const SystemConfigurtorContext = createContext(undefined);
+const SystemConfiguratorContext = createContext(undefined);
 
 const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
@@ -98,79 +99,99 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
 
 const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
-const SystemConfiguratorBlock = ({
-  id,
+type SystemConfiguratorQuestionData = {
+  index: number;
+  id: string;
+  question: QuestionData;
+  storedAnswers: string[];
+  isReload: boolean;
+  stateSoFar?: string[];
+};
+const SystemConfiguratorQuestion = ({
   index,
-  getData,
+  id,
+  question,
   storedAnswers,
-  stateSoFar = [],
-  isReload
-}: SystemConfiguratorBlockProps) => {
-  const { executeRecaptcha } = useGoogleReCaptcha();
+  isReload,
+  stateSoFar = []
+}: SystemConfiguratorQuestionData) => {
   const [myStoredAnswerId, ...remainingStoredAnswers] = storedAnswers;
-  const [data, setData] = useState<NextStepData>(null);
   const [nextId, setNextId] = useState<string>(myStoredAnswerId);
-  const { openIndex, setState } = useContext(SystemConfigurtorContext);
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [nextStep, setNextStep] = useState<NextStepData>({});
+  const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
+  const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
 
+  const singleAnswer = question.answers.length === 1 && question.answers[0];
+  const selectedAnswer =
+    question.answers.find(({ id }) => id === nextId) || singleAnswer;
+
+  // TODO: Is this really needed?
   const allStateSoFar = [...stateSoFar, nextId];
 
-  useEffect(() => {
+  const getData = useCallback(async (answerId, locale) => {
     const cancelTokenSource = axios.CancelToken.source();
 
-    const fetchData = async () => {
-      setState((state) => ({ ...state, isLoading: true }));
-      const token = await executeRecaptcha();
-      const data = await getData(id, index, cancelTokenSource.token, token);
-      if (data) {
-        setData(data);
-        setState((state) => ({
-          ...state,
-          isLoading: false
-        }));
+    setState((state) => ({ ...state, isLoading: true }));
+    const recaptchaToken = await executeRecaptcha();
+    try {
+      const {
+        data
+      }: AxiosResponse<QuestionData | ResultData | TitleWithContentData> =
+        await axios.get(
+          `${process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT}`,
+          {
+            headers: { "X-Recaptcha-Token": recaptchaToken },
+            params: {
+              answerId: answerId,
+              locale: locale
+            },
+            cancelToken: cancelTokenSource.token
+          }
+        );
+
+      // TODO: Remove before commit
+      console.log(JSON.stringify(data));
+
+      const updatedState: Partial<SystemConfiguratorSectionState> = {};
+      if (data.__typename === "ContentfulTitleWithContent") {
+        setNextStep({ nextNoResult: data });
+        updatedState.noResult = data;
+      } else if (data.type === "Question") {
+        setNextStep({ nextQuestion: data });
+      } else if (data.type === "Result") {
+        setNextStep({ nextResult: data });
+        updatedState.result = data;
       }
-    };
-
-    fetchData();
-
-    return () => cancelTokenSource.cancel();
-  }, [id, index]);
+      setState((state) => ({
+        ...state,
+        ...updatedState,
+        isLoading: false
+      }));
+    } catch (error) {
+      devLog(error);
+      cancelTokenSource.cancel();
+      setState((state) => ({
+        ...state,
+        error,
+        isLoading: false
+      }));
+    }
+  }, []);
 
   useEffect(() => {
-    if (!data || nextId) {
-      return;
+    if (singleAnswer) {
+      getData(singleAnswer.id, locale);
+      if (!isReload) {
+        pushToDataLayer({
+          id: `system-configurator01-selected-auto`,
+          label: question.title,
+          action: selectedAnswer.title,
+          event: "dxb.button_click"
+        });
+      }
     }
-
-    if (
-      data.__typename === "ContentfulSystemConfiguratorBlock" &&
-      data.type === "Result"
-    ) {
-      setState((state) => ({ ...state, result: data, noResult: null }));
-    }
-
-    if (data.__typename === "ContentfulTitleWithContent") {
-      setState((state) => ({ ...state, result: null, noResult: data }));
-    }
-
-    return () => {
-      setState((state) => ({ ...state, result: null, noResult: null }));
-    };
-  }, [data]);
-
-  const questionData =
-    data &&
-    data.__typename === "ContentfulSystemConfiguratorBlock" &&
-    data.type === "Question"
-      ? data
-      : null;
-
-  const ref = useScrollToOnLoad(
-    index === 0 || !questionData,
-    ACCORDION_TRANSITION
-  );
-
-  const { type, title, ...rest } = questionData || {};
-
-  const { answers = [], description } = rest;
+  }, [singleAnswer, locale, isReload]);
 
   const handleOnChange = (
     event: ChangeEvent<Record<string, unknown>>,
@@ -184,86 +205,69 @@ const SystemConfiguratorBlock = ({
     setState((state) => ({ ...state, openIndex: index }));
   };
 
-  const hasSingleAnswer = answers.length === 1 && answers[0];
-  const selectedAnswer =
-    answers.find(({ id }) => id === nextId) || hasSingleAnswer;
-
-  useEffect(() => {
-    if (hasSingleAnswer && !isReload) {
-      pushToDataLayer({
-        id: `system-configurator01-selected-auto`,
-        label: title,
-        action: selectedAnswer.title,
-        event: "dxb.button_click"
-      });
-    }
-  }, [hasSingleAnswer, isReload]);
-
-  if (!questionData) {
-    return null;
-  }
-
   return (
     <>
       <ConfiguratorPanel
         ref={ref}
-        title={title}
+        title={question.title}
         selectedOptionTitle={selectedAnswer?.title}
         isExpanded={!selectedAnswer?.id || openIndex === index}
         disabled={!selectedAnswer?.id}
         handleOnChange={handleOnChange}
-        options={answers.map(({ id, title: answerTitle, description }) => {
-          return (
-            <GTMRadioPane
-              key={id}
-              title={answerTitle}
-              name={title}
-              collapseFeature
-              value={answerTitle}
-              onClick={() => {
-                setNextId(id);
-                setState((state) => ({ ...state, openIndex: null }));
-                const stateToSave = JSON.stringify({
-                  selectedAnswers: [...stateSoFar, id]
-                });
-                saveStateToLocalStorage(stateToSave);
-              }}
-              defaultChecked={id === selectedAnswer?.id}
-              gtm={{
-                id: "system-configurator01-selected",
-                label: title,
-                action: answerTitle
-              }}
-            >
-              {description && <RichText document={description} />}
-            </GTMRadioPane>
-          );
-        })}
+        options={question.answers.map(
+          ({ id, title: answerTitle, description }) => {
+            return (
+              <GTMRadioPane
+                key={id}
+                title={answerTitle}
+                name={question.title}
+                value={answerTitle}
+                onClick={async () => {
+                  await getData(id, locale);
+                  setNextId(id);
+                  setState((state) => ({ ...state, openIndex: null }));
+                  const stateToSave = JSON.stringify({
+                    selectedAnswers: [...stateSoFar, id]
+                  });
+                  saveStateToLocalStorage(stateToSave);
+                }}
+                defaultChecked={id === selectedAnswer?.id}
+                gtm={{
+                  id: "system-configurator01-selected",
+                  label: question.title,
+                  action: answerTitle
+                }}
+              >
+                {description && <RichText document={description} />}
+              </GTMRadioPane>
+            );
+          }
+        )}
         TransitionProps={{
           timeout: ACCORDION_TRANSITION
         }}
       >
-        {description && <RichText document={description} />}
+        {question.description && <RichText document={question.description} />}
       </ConfiguratorPanel>
-      {selectedAnswer ? (
-        <SystemConfiguratorBlock
+      {selectedAnswer && nextStep.nextQuestion ? (
+        <SystemConfiguratorQuestion
           key={selectedAnswer?.id}
           id={selectedAnswer?.id}
           index={index + 1}
-          getData={getData}
           storedAnswers={remainingStoredAnswers}
           stateSoFar={allStateSoFar}
           isReload={isReload}
+          question={nextStep.nextQuestion}
         />
       ) : null}
     </>
   );
 };
 
-const SystemConfiguratorBlockNoResultsSection = ({
+const SystemConfiguratorNoResult = ({
   title,
   content
-}: Partial<TitleWithContentData>) => {
+}: TitleWithContentData) => {
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
 
   useEffect(() => {
@@ -279,17 +283,17 @@ const SystemConfiguratorBlockNoResultsSection = ({
     <div ref={ref}>
       <Section backgroundColor="alabaster">
         <Section.Title>{title}</Section.Title>
-        {content && <RichText document={content} />}
+        <RichText document={content} />
       </Section>
     </div>
   );
 };
 
-const SystemConfiguratorBlockResultSection = ({
+const SystemConfiguratorResult = ({
   title,
   description,
   recommendedSystems
-}: Partial<EntryData>) => {
+}: ResultData) => {
   const maxDisplay = 4;
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
@@ -327,10 +331,7 @@ const SystemConfiguratorBlockResultSection = ({
           navigate("/404");
         }
       } catch (error) {
-        if (process.env.NODE_ENV === "development") {
-          // eslint-disable-next-line no-console
-          console.error(error);
-        }
+        devLog(error);
         navigate("/404");
       }
     };
@@ -382,14 +383,6 @@ const SystemConfiguratorBlockResultSection = ({
   );
 };
 
-type SystemConfiguratorSectionState = {
-  isLoading: boolean;
-  openIndex: number | null;
-  result: EntryData | null;
-  noResult: Omit<TitleWithContentData, "content"> | null;
-  error: Error | null;
-};
-
 const SYSTEM_CONFIG_STORAGE_KEY = "SystemConfiguratorBlock";
 const VALID_REFERER = "sys_details";
 
@@ -415,72 +408,19 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
     );
   }, []);
 
-  const { title, description, type, question, locale, noResultItems } = data;
+  const { title, description, type, question, locale } = data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
-    isLoading: false,
-    openIndex: null,
-    result: null,
-    noResult: null,
-    error: null
+    locale: locale,
+    isLoading: false
   });
 
   const { isLoading } = state;
   /* istanbul ignore next */
-  if (type !== "Section" && process.env.NODE_ENV === "development") {
-    // eslint-disable-next-line no-console
-    console.error(
+  if (type !== "Section") {
+    devLog(
       `Entry ContentfulSystemConfiguratorBlock "${data.label}" type "${type}" is not of type "Section"`
     );
   }
-
-  const handleAnswerChange = useCallback(
-    async (
-      answerId,
-      index,
-      cancelToken,
-      recaptchaToken
-    ): Promise<NextStepData> => {
-      if (index === 0) {
-        return Promise.resolve(question);
-      }
-
-      try {
-        const { data }: AxiosResponse = await axios.get(
-          `${process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT}`,
-          {
-            headers: { "X-Recaptcha-Token": recaptchaToken },
-            params: {
-              answerId: answerId,
-              locale: locale
-            },
-            cancelToken
-          }
-        );
-
-        return data;
-      } catch (error) {
-        handleError(error);
-      }
-    },
-    []
-  );
-
-  const handleError = useCallback((error) => {
-    /* istanbul ignore next */
-    if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return;
-    }
-    setState((state) => ({ ...state, error }));
-  }, []);
-
-  const noResult = state.noResult && {
-    ...state.noResult,
-    ...(noResultItems.find(
-      ({ contentful_id }) => contentful_id === state.noResult.contentful_id
-    ) || {})
-  };
 
   useEffect(() => {
     // delete the storage and remove the referer from location bar
@@ -510,25 +450,21 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
       <Section backgroundColor="white" className={styles["SystemConfigurator"]}>
         <Section.Title>{title}</Section.Title>
         {description && <RichText document={description} />}
-        {question && storedAnswers ? (
-          <SystemConfigurtorContext.Provider value={{ ...state, setState }}>
-            <SystemConfiguratorBlock
+        {storedAnswers ? (
+          <SystemConfiguratorContext.Provider value={{ ...state, setState }}>
+            <SystemConfiguratorQuestion
               key={question.id}
               index={0}
               id={question.id}
-              getData={(answerId, index, cancelToken, recaptchaToken) =>
-                handleAnswerChange(answerId, index, cancelToken, recaptchaToken)
-              }
               storedAnswers={storedAnswers.selectedAnswers}
               isReload={(referer || "").length > 0}
+              question={question}
             />
-          </SystemConfigurtorContext.Provider>
+          </SystemConfiguratorContext.Provider>
         ) : null}
       </Section>
-      {state.result && (
-        <SystemConfiguratorBlockResultSection {...state.result} />
-      )}
-      {noResult && <SystemConfiguratorBlockNoResultsSection {...noResult} />}
+      {state.result && <SystemConfiguratorResult {...state.result} />}
+      {state.noResult && <SystemConfiguratorNoResult {...state.noResult} />}
     </>
   );
 };
@@ -561,11 +497,15 @@ export const query = graphql`
           ...RichTextFragment
         }
         type
+        nextStep {
+          ... on ContentfulSystemConfiguratorBlock {
+            id: contentful_id
+          }
+          ... on ContentfulTitleWithContent {
+            id: contentful_id
+          }
+        }
       }
-    }
-    noResultItems {
-      contentful_id
-      ...TitleWithContentFragment
     }
   }
 `;
