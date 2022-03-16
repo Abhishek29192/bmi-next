@@ -1916,7 +1916,8 @@ describe("HTTP function:", () => {
                 id: "titleWithContent2"
               },
               __typename: "TitleWithContent",
-              title: "Title with content 2"
+              title: "Title with content 2",
+              content: { raw: "Title with content content", references: null }
             }
           }
         }
