@@ -77,11 +77,13 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
           tabindex="0"
           type="button"
         >
+          <img
+            class="Media"
+            src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+          />
           <span
-            class="accessibility-text"
-          >
-            test alt text
-          </span>
+            class="MuiTouchRipple-root"
+          />
         </button>
         <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"

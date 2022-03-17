@@ -92,7 +92,6 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
         </button>
         <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(gallery__image_1);"
           tabindex="0"
           type="button"
         >
@@ -106,7 +105,6 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
         </button>
         <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(gallery__image_2);"
           tabindex="0"
           type="button"
         >
