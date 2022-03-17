@@ -27,6 +27,6 @@
     "concurrently": "^6.0.0",
     "dotenv": "^8.2.0",
     "nodemon": "latest",
-    "@google-cloud/functions-framework": "^1.7.1"
+    "@google-cloud/functions-framework": "^3.0.0"
   }
 }
