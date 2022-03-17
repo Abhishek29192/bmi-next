@@ -218,6 +218,7 @@ const SystemConfiguratorBlock = ({
               key={id}
               title={answerTitle}
               name={title}
+              collapseFeature
               value={answerTitle}
               onClick={() => {
                 setNextId(id);
