@@ -81,6 +81,7 @@ export type ResultData = EntryData & {
 type SystemConfiguratorSectionState = {
   locale: string;
   isLoading: boolean;
+  isComplete: boolean;
   openIndex?: number;
   result?: ResultData;
   noResult?: TitleWithContentData;
@@ -89,7 +90,13 @@ type SystemConfiguratorSectionState = {
 
 const ACCORDION_TRANSITION = 500;
 
-const SystemConfiguratorContext = createContext(undefined);
+const SystemConfiguratorContext = createContext<
+  SystemConfiguratorSectionState & {
+    setState: React.Dispatch<
+      React.SetStateAction<SystemConfiguratorSectionState>
+    >;
+  }
+>(undefined);
 
 const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
@@ -122,11 +129,12 @@ const SystemConfiguratorQuestion = ({
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
 
-  const singleAnswer = question.answers.length === 1 && question.answers[0];
+  const singleAnswer =
+    question.answers.length === 1 ? question.answers[0] : undefined;
   const selectedAnswer =
     question.answers.find(({ id }) => id === nextId) || singleAnswer;
 
-  // TODO: Is this really needed?
+  // Needed so the "go back to your selection" states aren't stored with the user interactions
   const allStateSoFar = [...stateSoFar, nextId];
 
   const getData = useCallback(async (answerId, locale) => {
@@ -150,24 +158,34 @@ const SystemConfiguratorQuestion = ({
           }
         );
 
-      // TODO: Remove before commit
-      console.log(JSON.stringify(data));
-
-      const updatedState: Partial<SystemConfiguratorSectionState> = {};
       if (data.__typename === "ContentfulTitleWithContent") {
         setNextStep({ nextNoResult: data });
-        updatedState.noResult = data;
+        setState((state) => ({
+          ...state,
+          noResult: data,
+          result: undefined,
+          isLoading: false,
+          isComplete: true
+        }));
       } else if (data.type === "Question") {
         setNextStep({ nextQuestion: data });
+        setState((state) => ({
+          ...state,
+          noResult: undefined,
+          result: undefined,
+          isLoading: false,
+          isComplete: false
+        }));
       } else if (data.type === "Result") {
         setNextStep({ nextResult: data });
-        updatedState.result = data;
+        setState((state) => ({
+          ...state,
+          noResult: undefined,
+          result: data,
+          isLoading: false,
+          isComplete: true
+        }));
       }
-      setState((state) => ({
-        ...state,
-        ...updatedState,
-        isLoading: false
-      }));
     } catch (error) {
       devLog(error);
       cancelTokenSource.cancel();
@@ -180,18 +198,19 @@ const SystemConfiguratorQuestion = ({
   }, []);
 
   useEffect(() => {
-    if (singleAnswer) {
-      getData(singleAnswer.id, locale);
-      if (!isReload) {
-        pushToDataLayer({
-          id: `system-configurator01-selected-auto`,
-          label: question.title,
-          action: selectedAnswer.title,
-          event: "dxb.button_click"
-        });
-      }
+    if ((selectedAnswer && isReload) || singleAnswer) {
+      getData(selectedAnswer.id, locale);
     }
-  }, [singleAnswer, locale, isReload]);
+
+    if (singleAnswer && !isReload) {
+      pushToDataLayer({
+        id: `system-configurator01-selected-auto`,
+        label: question.title,
+        action: selectedAnswer.title,
+        event: "dxb.button_click"
+      });
+    }
+  }, [selectedAnswer, locale, isReload]);
 
   const handleOnChange = (
     event: ChangeEvent<Record<string, unknown>>,
@@ -411,7 +430,8 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   const { title, description, type, question, locale } = data;
   const [state, setState] = useState<SystemConfiguratorSectionState>({
     locale: locale,
-    isLoading: false
+    isLoading: false,
+    isComplete: false
   });
 
   const { isLoading } = state;
@@ -423,14 +443,7 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
   }
 
   useEffect(() => {
-    // delete the storage and remove the referer from location bar
-    // if the page is fully loaded
-    if (
-      referer === VALID_REFERER &&
-      !state.isLoading &&
-      history &&
-      (state.result !== null || state.noResult !== null)
-    ) {
+    if (referer === VALID_REFERER && state.isComplete && history) {
       history.replaceState(null, null, location.pathname);
       setStoredAnswers(initialStorageState);
     }
@@ -454,8 +467,8 @@ const SystemConfiguratorSection = ({ data }: { data: Data }) => {
           <SystemConfiguratorContext.Provider value={{ ...state, setState }}>
             <SystemConfiguratorQuestion
               key={question.id}
-              index={0}
               id={question.id}
+              index={0}
               storedAnswers={storedAnswers.selectedAnswers}
               isReload={(referer || "").length > 0}
               question={question}

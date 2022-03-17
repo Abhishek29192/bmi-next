@@ -97,6 +97,36 @@ const richTextRaw = {
   ]
 };
 
+const initialQuestion: QuestionData = {
+  __typename: "ContentfulSystemConfiguratorBlock",
+  id: "Q1",
+  title: "Question One",
+  type: "Question",
+  description: null,
+  answers: [
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1a",
+      title: "Answer 1a title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1b",
+      title: "Answer 1b title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1c",
+      title: "Answer 1c title",
+      description: null,
+      type: "Answer"
+    }
+  ]
+};
 const initialData: Data = {
   __typename: "ContentfulSystemConfiguratorBlock",
   title: "System Configurator Section Title",
@@ -104,36 +134,7 @@ const initialData: Data = {
   description: null,
   type: "Section",
   locale: "en-US",
-  question: {
-    __typename: "ContentfulSystemConfiguratorBlock",
-    id: "Q1",
-    title: "Question One",
-    type: "Question",
-    description: null,
-    answers: [
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1a",
-        title: "Answer 1a title",
-        description: null,
-        type: "Answer"
-      },
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1b",
-        title: "Answer 1b title",
-        description: null,
-        type: "Answer"
-      },
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1c",
-        title: "Answer 1c title",
-        description: null,
-        type: "Answer"
-      }
-    ]
-  }
+  question: initialQuestion
 };
 
 const question: QuestionData = {
@@ -569,6 +570,7 @@ describe("SystemConfiguratorSection component", () => {
 
   it("renders toggled closed configurator panel", async () => {
     mockedAxios.get.mockResolvedValueOnce({ data: question });
+    mockedAxios.get.mockResolvedValueOnce({ data: initialQuestion });
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =
       render(
