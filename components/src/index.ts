@@ -127,7 +127,6 @@ import Icon, {
   YouTube
 } from "./icon";
 import IconList from "./icon-list";
-import ImageGallery, { Image } from "./image-gallery";
 import InputBanner from "./input-banner";
 import InputGroup from "./input-group";
 import LanguageSelection, {
@@ -305,7 +304,6 @@ export type {
   GridSize,
   HeroItem,
   IconName,
-  Image,
   LanguageSelectionItem,
   LanguageSelectionList,
   LinkCardProps,
@@ -431,7 +429,6 @@ export {
   FolderZip,
   iconMap,
   IconList,
-  ImageGallery,
   InputBanner,
   InputGroup,
   LanguageSelection,

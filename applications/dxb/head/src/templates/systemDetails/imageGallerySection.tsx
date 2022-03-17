@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageGallery } from "@bmi/components";
+import { MediaGallery } from "@bmi/components";
 import {
   mapGalleryImages,
   transformImages
@@ -12,9 +12,9 @@ type Props = {
 };
 
 const ImageGallerySection = ({ images }: Props) => (
-  <ImageGallery
+  <MediaGallery
     className={styles["gallery"]}
-    images={transformImages(mapGalleryImages(images))}
+    media={transformImages(mapGalleryImages(images))}
     layout="short"
   />
 );

@@ -1038,7 +1038,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
           class="LeadBlockContentSection"
         >
           <div
-            class="ImageGallery"
+            class="MediaGallery"
           >
             <div
               class="image-wrapper"

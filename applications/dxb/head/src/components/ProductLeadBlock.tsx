@@ -1,12 +1,11 @@
 import React, { useMemo, useRef, useState } from "react";
-import { LeadBlock } from "@bmi/components";
+import { LeadBlock, MediaData, MediaGallery } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { IconList } from "@bmi/components";
 import { Tabs } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { DownloadList } from "@bmi/components";
 import { Icon } from "@bmi/components";
-import { ImageGallery, Image } from "@bmi/components";
 import { AnchorLink, AnchorLinkProps } from "@bmi/components";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
@@ -43,7 +42,7 @@ type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
-  techDrawings: readonly Image[];
+  techDrawings: readonly MediaData[];
   fixingToolIframeUrl?: string;
   pdpFixingToolTitle?: string | null;
   pdpFixingToolDescription?: RichTextData | null;
@@ -389,7 +388,7 @@ const ProductLeadBlock = ({
             <LeadBlock justify="center">
               <LeadBlock.Content>
                 <LeadBlock.Content.Section>
-                  <ImageGallery images={techDrawings} />
+                  <MediaGallery media={techDrawings} />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>

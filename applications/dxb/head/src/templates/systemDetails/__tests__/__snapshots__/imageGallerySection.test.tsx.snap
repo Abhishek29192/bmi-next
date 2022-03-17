@@ -3,7 +3,7 @@
 exports[`ImageGallerySection tests When ONLY master images are provided should render single master image 1`] = `
 <div>
   <div
-    class="ImageGallery gallery"
+    class="MediaGallery gallery"
   >
     <div
       class="image-wrapper"
@@ -23,7 +23,7 @@ exports[`ImageGallerySection tests When images are empty array should render emp
 exports[`ImageGallerySection tests When master images and gallery images are provided should render single master image and multiple gallery images 1`] = `
 <div>
   <div
-    class="ImageGallery gallery"
+    class="MediaGallery gallery"
   >
     <div
       class="image-wrapper"
