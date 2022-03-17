@@ -64,8 +64,8 @@ export const youtubeCache: HttpFunction = async (req, res) => {
     await saveById(youtubeId, youtubeDetails);
 
     return res.status(Status.HTTP_201_CREATED).send(youtubeDetails);
-  } catch (err) {
-    logger.error({ message: err.message });
+  } catch (error) {
+    logger.error({ message: (error as Error).message });
 
     return res.status(Status.HTTP_500_INTERNAL_SERVER_ERROR).send({
       message: "Something went wrong, try again later."

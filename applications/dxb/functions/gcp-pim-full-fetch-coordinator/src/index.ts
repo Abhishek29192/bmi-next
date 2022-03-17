@@ -96,9 +96,9 @@ const handleRequest: HttpFunction = async (req, res) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ foo: "bar" })
-  }).catch((err) => {
+  }).catch((error) => {
     logger.error({
-      message: `Error whilst trying to trigger the build. ${err}`
+      message: `Error whilst trying to trigger the build. ${error}`
     });
   });
 

@@ -200,7 +200,7 @@ export const submit: HttpFunction = async (request, response) => {
 
       return response.sendStatus(200);
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
       return response.sendStatus(500);
     }
   }

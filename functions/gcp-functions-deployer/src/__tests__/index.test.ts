@@ -82,7 +82,9 @@ describe("When GCP_STORAGE_NAME is not provided", () => {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Unable to connect to a storage bucket");
+      expect((error as Error).message).toEqual(
+        "Unable to connect to a storage bucket"
+      );
     }
 
     expect(file).toBeCalledTimes(0);
@@ -105,7 +107,9 @@ describe("When TRIGGER_SECRET is not provided", () => {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("TRIGGER_SECRET has not been set");
+      expect((error as Error).message).toEqual(
+        "TRIGGER_SECRET has not been set"
+      );
     }
 
     expect(file).toBeCalledTimes(0);
@@ -128,7 +132,9 @@ describe("When TRIGGER_API_KEY_SECRET is not provided", () => {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("TRIGGER_API_KEY_SECRET has not been set");
+      expect((error as Error).message).toEqual(
+        "TRIGGER_API_KEY_SECRET has not been set"
+      );
     }
 
     expect(file).toBeCalledTimes(0);
