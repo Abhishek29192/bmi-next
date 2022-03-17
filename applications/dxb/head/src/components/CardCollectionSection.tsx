@@ -1,14 +1,14 @@
 import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
-import AnchorLink from "@bmi/anchor-link";
-import Button, { ButtonProps } from "@bmi/button";
-import Section from "@bmi/section";
-import OverviewCard from "@bmi/overview-card";
-import Typography from "@bmi/typography";
-import Chip, { Props as ChipProps } from "@bmi/chip";
-import Carousel from "@bmi/carousel";
-import Grid from "@bmi/grid";
-import { withClickable } from "@bmi/clickable";
+import { AnchorLink } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { OverviewCard } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Chip, ChipProps } from "@bmi/components";
+import { Carousel } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { withClickable } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import withGTM from "../utils/google-tag-manager";
@@ -77,8 +77,9 @@ const CardCollectionItem = ({
       data={link}
       gtm={{
         id: "cta-click1",
-        label: transformedCardLabel,
-        action: link.linkedPage?.path || link.url
+        label: `${title || name}${
+          transformedCardLabel ? " - " + transformedCardLabel : ""
+        }`
       }}
       {...props}
     />
@@ -206,10 +207,7 @@ const CardCollectionSection = ({
   // TODO: Type me.
   theme: any;
 }) => {
-  const allKeys = [].concat.apply(
-    [],
-    cards.map((x) => x.tags)
-  );
+  const allKeys = cards.flatMap((x) => x.tags);
   const allKeysGrouped = [];
   Array.from(allKeys.values()).forEach((x: TagData) => {
     if (x && !allKeysGrouped.find((y) => y.title == x.title))
@@ -384,7 +382,7 @@ const CardCollectionSection = ({
             <Carousel.Controls type="arrows" />
           </Carousel>
         ) : (
-          <Grid container justify={justifyCenter ? "center" : undefined}>
+          <Grid container justifyContent={justifyCenter ? "center" : undefined}>
             {sortedIterableCards.map((card, i) => {
               const { id } = card;
               const cardIsVisible = i >= numberOfCardsToShow;

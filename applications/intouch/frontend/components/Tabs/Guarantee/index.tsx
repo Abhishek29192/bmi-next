@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "@bmi/button";
-import AlertBanner from "@bmi/alert-banner";
+import { Button } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { guaranteeApplicationValidate } from "../../../lib/utils/guarantee";

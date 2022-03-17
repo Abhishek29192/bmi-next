@@ -97,10 +97,17 @@ exports[`FormSection component renders correctly 1`] = `
                 class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                   data-shrink="false"
                 >
                   Email
+                  <span
+                    aria-hidden="true"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                  >
+                     
+                    *
+                  </span>
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -109,6 +116,7 @@ exports[`FormSection component renders correctly 1`] = `
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     name="email"
+                    required=""
                     type="text"
                     value=""
                   />
@@ -121,6 +129,7 @@ exports[`FormSection component renders correctly 1`] = `
                     >
                       <span>
                         Email
+                         *
                       </span>
                     </legend>
                   </fieldset>
@@ -708,7 +717,7 @@ exports[`FormSection component test convertMarkdownLinksToAnchorLinks function w
                     I agree with BMI's 
                     <a
                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                      href="http://localhost/co.uk"
+                      href="http://www.bmigroup.com"
                       target="_blank"
                     >
                       <span>
@@ -945,10 +954,17 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                 class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
                   data-shrink="true"
                 >
                   Email
+                  <span
+                    aria-hidden="true"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                  >
+                     
+                    *
+                  </span>
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -957,6 +973,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input"
                     name="email"
+                    required=""
                     type="text"
                     value=""
                   />
@@ -969,6 +986,7 @@ exports[`FormSection component test handleEmailValidation with correct email 1`]
                     >
                       <span>
                         Email
+                         *
                       </span>
                     </legend>
                   </fieldset>
@@ -1069,10 +1087,17 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                 class="MuiFormControl-root MuiTextField-root TextField TextField--error MuiFormControl-fullWidth"
               >
                 <label
-                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error MuiFormLabel-filled"
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-error Mui-error MuiFormLabel-filled Mui-required Mui-required"
                   data-shrink="true"
                 >
                   Email
+                  <span
+                    aria-hidden="true"
+                    class="MuiFormLabel-asterisk MuiInputLabel-asterisk Mui-error Mui-error"
+                  >
+                     
+                    *
+                  </span>
                 </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
@@ -1081,6 +1106,7 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                     aria-invalid="true"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                     name="email"
+                    required=""
                     type="text"
                     value=""
                   />
@@ -1108,12 +1134,13 @@ exports[`FormSection component test handleEmailValidation with incorrect email 1
                     >
                       <span>
                         Email
+                         *
                       </span>
                     </legend>
                   </fieldset>
                 </div>
                 <p
-                  class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error MuiFormHelperText-filled"
+                  class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error MuiFormHelperText-filled Mui-required"
                 >
                   MC: errors.emailInvalid
                 </p>

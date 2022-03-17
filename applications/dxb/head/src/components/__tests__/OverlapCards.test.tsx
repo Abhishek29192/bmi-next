@@ -32,6 +32,7 @@ const data: Data = [
     title: "Call to action",
     path: "some-page",
     featuredMedia: {
+      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
       caption: null,
@@ -75,6 +76,7 @@ const data: Data = [
     title: "Call to action",
     path: "some-page",
     featuredMedia: {
+      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
       caption: null,
@@ -118,6 +120,7 @@ const data: Data = [
     title: "Card with Video",
     path: "some-page",
     featuredMedia: {
+      __typename: "ContentfulImage",
       type: null,
       altText: "Lorem ipsum",
       caption: null,
@@ -155,11 +158,13 @@ const data: Data = [
       }
     },
     featuredVideo: {
+      __typename: "ContentfulVideo",
       title: "video title",
       label: "video label",
       subtitle: "video subtitle",
       youtubeId: "TDNEwZbm_Nk",
       previewMedia: {
+        __typename: "ContentfulImage",
         type: null,
         altText: "Lorem ipsum",
         caption: null,

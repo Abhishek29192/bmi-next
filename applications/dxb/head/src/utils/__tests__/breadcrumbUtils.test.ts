@@ -34,7 +34,7 @@ describe("updateBreadcrumbTitleFromContentful function", () => {
       }
     ];
     const mockBreadcrumbTitle: string | null = "mock-breadcrumb-title";
-    const mockBreadcrumbTitleTruncated: string = "mock-breadcrumb-tit...";
+    const mockBreadcrumbTitleTruncated = "mock-breadcrumb-tit...";
 
     const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
       mockBreadcrumbs,

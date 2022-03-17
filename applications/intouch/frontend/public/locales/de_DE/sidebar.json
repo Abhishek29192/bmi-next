@@ -1,8 +1,7 @@
 {
-  "Home": "Startseite",
-  "Projects": "Projekte",
-  "Training": "Ausbildung",
-  "Team": "Arbeitsgruppe",
-  "Company": "Firma",
-  "Toolkit": "Werkzeuge"
+  "certifiedInstallers": "Certified installers",
+  "daysRemaining": "Number of days remaining\"",
+  "noCertifiedInstallers": "There are no BMI certified installers",
+  "projectInsight": "Project insight",
+  "projectsInsightCertifiedInstallers": "There are {{count}} BMI certified installers on this project"
 }

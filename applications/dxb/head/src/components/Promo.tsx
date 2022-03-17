@@ -1,8 +1,8 @@
 import { graphql } from "gatsby";
-import { RichTextData } from "../components/RichText";
+import { RichTextData } from "./RichText";
 import { Data as LinkData } from "./Link";
 import { TagData } from "./Tag";
-import { Data as VideoData } from "./Video";
+import { ContentfulVideoData } from "./Video";
 import { Data as ImageData } from "./Image";
 
 export type Data = {
@@ -22,7 +22,7 @@ export type Data = {
       })
     | null;
   cta: LinkData | null;
-  featuredVideo: VideoData | null;
+  featuredVideo: ContentfulVideoData | null;
   backgroundColor: "White" | "Alabaster" | null;
 };
 

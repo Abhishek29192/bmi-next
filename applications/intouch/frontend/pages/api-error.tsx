@@ -1,6 +1,6 @@
 import React from "react";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Session } from "@auth0/nextjs-auth0";
 import { Account } from "@bmi/intouch-api-types";

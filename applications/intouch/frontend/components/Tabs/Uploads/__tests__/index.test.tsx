@@ -12,7 +12,7 @@ import ApolloProvider from "../../../../lib/tests/fixtures/apollo";
 
 import { UploadsTab } from "..";
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

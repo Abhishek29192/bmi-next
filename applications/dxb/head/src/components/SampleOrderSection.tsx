@@ -1,8 +1,8 @@
-import Button from "@bmi/button";
+import { Button } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { ButtonProps } from "@bmi/components";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
-import Section from "@bmi/section";
 import React, { useEffect, useState } from "react";
-import { ButtonProps } from "@bmi/button/src";
 import {
   ACTION_TYPES,
   createSample,
@@ -24,7 +24,7 @@ const SampleOrderSection = ({
   sampleBasketLinkInfo,
   actionLabel
 }: {
-  isSampleOrderAllowed: Boolean;
+  isSampleOrderAllowed: boolean;
   product: Product;
   variant?: VariantOption;
   maximumSamples?: number;

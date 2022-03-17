@@ -1,6 +1,6 @@
 import React from "react";
-import Typography from "@bmi/typography";
-import TextField from "@bmi/text-field";
+import { Typography } from "@bmi/components";
+import { TextField } from "@bmi/components";
 import { Search } from "@material-ui/icons";
 import { Wizard } from "./Wizard";
 

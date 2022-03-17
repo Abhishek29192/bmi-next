@@ -1,6 +1,6 @@
 import { Writable } from "stream";
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { File, Storage } from "@google-cloud/storage";
@@ -231,7 +231,7 @@ export const download: HttpFunction = async (request, response) => {
     await zipStreamPromise;
 
     logger.info({ message: "Getting zip file public URL." });
-    let url = zipFile.publicUrl();
+    const url = zipFile.publicUrl();
     logger.info({ message: `Zip file created at: ${url}` });
     return response.send({ url: url });
   }

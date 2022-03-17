@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
-import Table from "@bmi/table";
-import Button from "@bmi/button";
+import { Table } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { ProjectMember, CompanyMember } from "@bmi/intouch-api-types";
 import { gql } from "@apollo/client";

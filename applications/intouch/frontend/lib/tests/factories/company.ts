@@ -17,7 +17,8 @@ const defaultCompany: GetCompaniesByMarketQuery["companies"]["nodes"][0] = {
   companyOperationsByCompany: emptyNodes,
   isProfileComplete: true,
   referenceNumber: 10001,
-  tier: "T1"
+  tier: "T1",
+  updatedAt: ""
 };
 
 export const generateCompany = (

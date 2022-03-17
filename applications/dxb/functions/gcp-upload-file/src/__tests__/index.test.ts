@@ -8,7 +8,7 @@ import {
   mockRequest as fetchMockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -19,12 +19,14 @@ const recaptchaSecret = "recaptcha-secret";
 const managementTokenSecret = "management-token-secret";
 
 const mockRequest = (
-  body: Buffer | Object = readFileSync(`${resourcesBasePath}/blank.jpeg`),
+  body: Buffer | Record<string, unknown> = readFileSync(
+    `${resourcesBasePath}/blank.jpeg`
+  ),
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 
@@ -41,8 +43,8 @@ jest.mock("contentful-management", () => ({
   })
 }));
 
-const upload = (request: Partial<Request>, response: Partial<Response>) =>
-  require("../index").upload(request, response);
+const upload = async (request: Partial<Request>, response: Partial<Response>) =>
+  (await import("../index")).upload(request as Request, response as Response);
 
 beforeAll(() => {
   mockConsole();

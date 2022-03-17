@@ -448,8 +448,9 @@ describe("filters tests", () => {
   describe("getAssetTypeFilterFromDocuments tests", () => {
     describe("Documents has NO AssetTypes", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
@@ -463,8 +464,9 @@ describe("filters tests", () => {
     });
     describe("Documents has AssetTypes", () => {
       it("Then: returns asset type filter", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`
@@ -491,8 +493,9 @@ describe("filters tests", () => {
   describe("getBrandFilterFromDocuments tests", () => {
     describe("Documents has NO Brand Category", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`
@@ -505,8 +508,9 @@ describe("filters tests", () => {
     });
     describe("When PIM Documents has Brand category", () => {
       it("Then: returns brand filter", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
@@ -534,8 +538,9 @@ describe("filters tests", () => {
     });
     describe("When Contenful Documents has Brand category", () => {
       it("Then: returns brand filter", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createContentfulDocument({ brand: "Brand-1" });
 
@@ -560,8 +565,9 @@ describe("filters tests", () => {
   describe("getProductFamilyFilterFromDocuments tests", () => {
     describe("Documents has NO Categories", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
@@ -576,8 +582,9 @@ describe("filters tests", () => {
 
     describe("Documents has NO ProductFamily Category", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`
@@ -590,8 +597,9 @@ describe("filters tests", () => {
     });
     describe("Not a Pim document test", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createContentfulDocument();
 
@@ -602,8 +610,9 @@ describe("filters tests", () => {
     });
     describe("Documents has ProductFamily category", () => {
       it("Then: returns ProductFamily filter", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
@@ -633,8 +642,9 @@ describe("filters tests", () => {
   describe("getTextureFilterFromDocuments tests", () => {
     describe("Documents has NO classifications", () => {
       it("Then: returns undefined", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`
@@ -648,8 +658,9 @@ describe("filters tests", () => {
     describe("Documents has appearance classification", () => {
       describe("And Document has texturefamily classification", () => {
         it("Then: returns texture filter", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2531,10 +2542,11 @@ describe("filters tests", () => {
       });
       describe("input documents are NOT empty", () => {
         it("returns unique document list", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const contenfulDocument = createContentfuldocument({
             id: `contentful-doc-id`,
@@ -2570,8 +2582,9 @@ describe("filters tests", () => {
           const result = generateUniqueDocuments("Simple", inputDataItems);
 
           // unique documents for expected result
-          const expectedResult: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const expectedResult: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
           expectedResult.push(pimDocument);
           expectedResult.push(pimLinkDocument);
           expectedResult.push(contenfulDocument);
@@ -2590,10 +2603,11 @@ describe("filters tests", () => {
       });
       describe("input documents are NOT empty", () => {
         it("returns document list without filtering", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const contenfulDocument = createContentfuldocument({
             id: `contentful-doc-id`,
@@ -2637,10 +2651,11 @@ describe("filters tests", () => {
   describe("getDocumentFilters tests", () => {
     describe("When non supported arguments are passed for filters tests", () => {
       it("Then: returns NO filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const contenfulDocument = createContentfuldocument({
           id: `contentful-doc-id`,
@@ -2697,10 +2712,11 @@ describe("filters tests", () => {
 
     describe("When allowFilterBy is null and non supported arguments are passed for filters tests", () => {
       it("Then: returns NO filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const contenfulDocument = createContentfuldocument({
           id: `contentful-doc-id`,
@@ -2758,10 +2774,11 @@ describe("filters tests", () => {
     describe("When 'PIM' document data is viewed in 'Simple' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand and product family filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2813,10 +2830,11 @@ describe("filters tests", () => {
       });
       describe("and allowFilterBy is provided", () => {
         it("Then: returns category filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2894,10 +2912,11 @@ describe("filters tests", () => {
     describe("When 'PIM' document data is viewed in 'Technical' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand and product family filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -2950,10 +2969,11 @@ describe("filters tests", () => {
 
       describe("and allowFilterBy is provided", () => {
         it("Then: returns category filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3031,10 +3051,11 @@ describe("filters tests", () => {
     describe("When 'CMS' document data is viewed in 'Card Collection' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3075,10 +3096,11 @@ describe("filters tests", () => {
       });
       describe("and allowFilterBy is provided", () => {
         it("Then: does NOT return category filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3130,10 +3152,11 @@ describe("filters tests", () => {
     describe("When 'CMS' document data is viewed in 'Simple' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3185,10 +3208,11 @@ describe("filters tests", () => {
       });
       describe("and allowFilterBy is provided with categories to filter", () => {
         it("Then: returns category filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3266,10 +3290,11 @@ describe("filters tests", () => {
     describe("When 'ALL' document data is viewed in 'Simple' Page", () => {
       describe("and allowFilterBy is not provided", () => {
         it("Then: returns brand filters", () => {
-          const inputDataItems: DocumentResultsData =
-            Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
 
-          const baseUrl: string = "http://localhost/document/library/";
+          const baseUrl = "http://localhost/document/library/";
 
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
@@ -3333,10 +3358,11 @@ describe("filters tests", () => {
       describe("and allowFilterBy is provided with categories to filter", () => {
         describe("and matching categories DO NOT exist in document products", () => {
           it("Then: returns category filters", () => {
-            const inputDataItems: DocumentResultsData =
-              Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+            const inputDataItems: DocumentResultsData = Array<
+              PIMDocumentData | DocumentData | PIMLinkDocumentData
+            >();
 
-            const baseUrl: string = "http://localhost/document/library/";
+            const baseUrl = "http://localhost/document/library/";
 
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
@@ -3407,10 +3433,11 @@ describe("filters tests", () => {
         });
         describe("and matching categories exists in document products", () => {
           it("Then: returns category filters", () => {
-            const inputDataItems: DocumentResultsData =
-              Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+            const inputDataItems: DocumentResultsData = Array<
+              PIMDocumentData | DocumentData | PIMLinkDocumentData
+            >();
 
-            const baseUrl: string = "http://localhost/document/library/";
+            const baseUrl = "http://localhost/document/library/";
 
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
@@ -3597,10 +3624,11 @@ describe("filters tests", () => {
     });
     describe("Only returns filter with options", () => {
       it("Then: returns category filters", () => {
-        const inputDataItems: DocumentResultsData =
-          Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
+        const inputDataItems: DocumentResultsData = Array<
+          PIMDocumentData | DocumentData | PIMLinkDocumentData
+        >();
 
-        const baseUrl: string = "http://localhost/document/library/";
+        const baseUrl = "http://localhost/document/library/";
 
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,

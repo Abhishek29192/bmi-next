@@ -1,0 +1,59 @@
+{
+  "genericError": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an einen BMI-Administrator",
+  "invitation": {
+    "dialog": {
+      "cancel": "Abbrechen",
+      "emails": {
+        "helperText": "Fügen Sie mehrere Mitglieder hinzu, indem Sie jede E-Mail-Adresse durch ein Komma trennen",
+        "label": "E-Mail-Adresse des Empfängers"
+      },
+      "errorAlreadyMember": "Der Benutzer ist bereits Mitglied einer anderen Firma",
+      "errorInvitationNotFound": "Einladung nicht gefunden",
+      "personalNote": {
+        "label": "Ihre Nachricht (optional)"
+      },
+      "send": "E-Mail senden",
+      "success": "Die Einladung wurde versendet",
+      "title": "Teammitglieder einladen"
+    }
+  },
+  "lastCompanyAdminError": "Sie können den letzten Firmenadministrator nicht aus einer Firma entfernen, es sei denn, er wurde von BMI deaktiviert",
+  "memberRemoved": "Mitglied erfolgreich entfernt",
+  "report": "Teamliste herunterladen",
+  "sidePanel": {
+    "inviteLabel": " + Teammitglieder einladen",
+    "search": {
+      "label": "Suchen Sie nach einem Benutzer",
+      "noResult": "Mitglied nicht gefunden"
+    }
+  },
+  "table": {
+    "certification": "BMI-Zertifizierungen",
+    "noResults": "Der Benutzer hat keine BMI-Zertifizierungen",
+    "title": "BMI-Zertifizierungen",
+    "type": "Typ",
+    "validity": "Gültigkeit"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Benutzer aktivieren",
+      "deactivate": "Benutzer deaktivieren"
+    },
+    "title": "Benutzeraktionen"
+  },
+  "user_card": {
+    "add_admin": "Als Firmenadministrator zuweisen",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "remove": "Aus Firma entfernen",
+    "remove_admin": "Als Firmenadministrator entfernen",
+    "remove_user_dialog": {
+      "text": "Möchten Sie dieses Firmenmitglied entfernen?",
+      "title": "Firmenmitglied entfernen"
+    },
+    "role_dialog": {
+      "text": "Möchten Sie die Rolle wechseln?",
+      "title": "Rolle wechseln"
+    }
+  }
+}

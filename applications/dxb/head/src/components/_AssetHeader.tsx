@@ -1,19 +1,12 @@
 import React, { useState } from "react";
+import { AnchorLink, Button, Dialog, Icon, Tooltip } from "@bmi/components";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import InfoIcon from "@material-ui/icons/Info";
-import Icon from "@bmi/icon";
-import Tooltip from "@bmi/tooltip";
-import AnchorLink from "@bmi/anchor-link";
-import Dialog from "@bmi/dialog";
-import Button from "@bmi/button";
-import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
 import { microCopy } from "../constants/microCopies";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 
 const AssetHeader = ({
   assetType

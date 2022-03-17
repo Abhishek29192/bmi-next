@@ -1,0 +1,82 @@
+@import "~@bmi-digital/styles";
+
+.LinkCard {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: none;
+  background-color: $color-white;
+  color: $color-slate;
+  padding: 16px;
+  border-radius: 0%;
+  cursor: pointer;
+  & + & {
+    border-top: 1px solid $color-storm;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    border: 1px solid $color-storm;
+    margin-top: -1px;
+
+    &--selected {
+      background-color: $color-alabaster;
+      color: $color-charcoal;
+    }
+
+    &:hover {
+      color: $color-charcoal;
+      background-color: $color-pearl;
+      .icon {
+        color: rgba($color-black, 0.35);
+      }
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .item {
+    flex: 2 0;
+  }
+
+  .icon {
+    height: 24px;
+    width: 24px;
+    margin: 12px;
+    color: rgba($color-black, 0.2);
+    flex: 0 1;
+    svg {
+      transform: rotate(90deg);
+      transition: transform ease-in-out 280ms, color ease-in-out 280ms;
+      @media (min-width: $breakpoint-lg) {
+        transform: none;
+      }
+    }
+  }
+
+  &--selected {
+    .icon {
+      svg {
+        color: $color-theme-inter;
+        transform: rotate(-90deg);
+        transition: transform ease-in-out 280ms, color ease-in-out 280ms;
+        @media (min-width: $breakpoint-lg) {
+          color: rgba($color-black, 0.2);
+        }
+      }
+      @media (min-width: $breakpoint-lg) {
+        svg {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .details {
+    flex: 3 0 100%;
+    @media (min-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+}

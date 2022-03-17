@@ -300,7 +300,7 @@ describe("Link component", () => {
 
     it("internal urls doesn't open in a new window", () => {
       expect(
-        getClickableActionFromUrl(undefined, "http://localhost", "en")
+        getClickableActionFromUrl(undefined, "http://www.bmigroup.com", "en")
       ).toMatchSnapshot();
     });
 
@@ -381,6 +381,29 @@ describe("Link component", () => {
         )
       ).toMatchSnapshot();
     });
+    it("returns a cta object with asset url", () => {
+      expect(
+        getCTA(
+          {
+            cta: {
+              __typename: "ContentfulLink",
+              id: "string",
+              label: "string",
+              icon: null,
+              isLabelHidden: null,
+              url: "https://www.external.co.uk",
+              linkedPage: null,
+              type: DataTypeEnum.External,
+              parameters: null,
+              dialogContent: null,
+              hubSpotCTAID: null
+            }
+          },
+          "no",
+          "Go to Page"
+        )
+      ).toMatchSnapshot();
+    });
 
     it("returns a null object with page without path", () => {
       expect(
@@ -415,6 +438,11 @@ describe("Link component", () => {
               id: "string",
               label: "string",
               icon: null,
+              asset: {
+                file: {
+                  url: "https://somelink.com"
+                }
+              },
               isLabelHidden: null,
               url: "https://www.external.co.uk",
               linkedPage: null,

@@ -37,7 +37,7 @@
   "show": "Vis",
   "sidePanel": {
     "search": {
-      "label": "Søg",
+      "label": "Søg efter et produkt eller system",
       "noResult": "Ingen objekter fundet"
     }
   },

@@ -1,7 +1,6 @@
-import Button, { ButtonProps } from "@bmi/button";
-import Footer, { MenuItem } from "@bmi/footer";
-import BmiIcon from "@bmi/footer/src/svgs/BMI.svg";
-import HidePrint from "@bmi/hide-print";
+import { Button, ButtonProps } from "@bmi/components";
+import { Footer, FooterMenuItem, BMI as BmiIcon } from "@bmi/components";
+import { HidePrint } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import withGTM from "../utils/google-tag-manager";
@@ -17,13 +16,12 @@ import { useSiteContext } from "./Site";
 const parseNavigation = (
   navigationItems: NavigationData["links"],
   countryCode: string
-): MenuItem[] => {
+): FooterMenuItem[] => {
   if (!navigationItems) {
     return [];
   }
   return navigationItems.map((navigationItem) => {
-    // @ts-ignore I have on idea why, but TS does not understand narrowing the Union here.
-    if (navigationItem.links) {
+    if ("links" in navigationItem && navigationItem.links) {
       const { links, label } = navigationItem as NavigationData;
       return {
         label,

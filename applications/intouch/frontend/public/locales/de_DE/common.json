@@ -1,9 +1,85 @@
 {
-  "Home": "Startseite",
-  "Projects": "Projekte",
-  "Training": "Ausbildung",
-  "Team": "Team",
+  "ARCHITECT": "Architekten/-innen, Planer/-innen",
+  "About Us": "Über uns",
+  "Account": "Mein Konto",
+  "CONTRACTOR": "Dachhandwerker/-innen",
+  "CORP_DEVELOPER": "Ingenieure/-innen",
+  "Companies": "Firmen",
   "Company": "Firma",
-  "Toolkit": "Werkzeuge",
-  "Edit": "Bearbeiten"
+  "Company Description": "Beschreibung",
+  "Download": "Herunterladen",
+  "Edit": "Bearbeiten",
+  "Home": "Startseite",
+  "Inventory": "Inventar",
+  "Logout": "Abmelden",
+  "MERCHANT": "Mitarbeiter/-innen des Handels",
+  "Main office address": "Adresse",
+  "No Options": "Keine Optionen",
+  "Notifications": "Benachrichtigungen",
+  "Products": "Produkte",
+  "Profile": "Profil",
+  "Projects": "Projekte",
+  "Registered Address": "Registrierte Adresse",
+  "Registered Details": "Registrierte Details",
+  "Registered Name": "Eingetragener Firmenname",
+  "SavePdf": "PDF Herunterladen",
+  "Search": "Suche",
+  "Show me": "Anzeigen",
+  "Sort by": "Sortiere nach",
+  "Team": "Mannschaft",
+  "Tools": "Werkzeuge",
+  "Training": "Schulungen",
+  "aria": {
+    "navigation": "Navigation",
+    "notifications": "Benachrichtigungen"
+  },
+  "certificationLabels": {
+    "certification": "Zertifizierung",
+    "expiry": "Ablauf",
+    "type": "Typ"
+  },
+  "certifications": {
+    "flat": "Flachdach",
+    "other": "Andere",
+    "pitched": "Steildach"
+  },
+  "deactivatedCompany": "Firma deaktiviert",
+  "error_messages": {
+    "email_format": "Ungültige E-Mail-Adresse",
+    "phone_number_format": "Ungültige Telefonnummer",
+    "required": "Erforderlich",
+    "url_format": "Ungültige URL"
+  },
+  "fallback": {
+    "noResults": "Keine Ergebnisse",
+    "notAdded": "Nicht hinzugefügt"
+  },
+  "generatingPdf": "PDF generieren",
+  "notifications": {
+    "earlier": "Vorhin",
+    "older": "Älter als 2 Monate",
+    "today": "Heute"
+  },
+  "results available": "Ergebnisse verfügbar",
+  "roles": {
+    "COMPANY_ADMIN": "Firmenadministrator",
+    "INSTALLER": "Mitglied",
+    "MARKET_ADMIN": "BMI Administrator",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "Sie waren jetzt eine Weile inaktiv und diese Sitzung läuft ab und Sie werden automatisch abgemeldet.",
+      "continue": "Sitzung verlängern",
+      "logout": "Abmelden",
+      "title": "Ihre Sitzung läuft ab in {{counter}}"
+    }
+  },
+  "tier": {
+    "T1": "Mitglied",
+    "T2": "SystemPartner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "visitWebsite": "Besuche die Website"
 }

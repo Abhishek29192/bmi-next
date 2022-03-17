@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { Technology } from "@bmi/intouch-api-types";
-import Icon from "@bmi/icon";
+import { Icon } from "@bmi/components";
 import { FilterResult } from "../../FilterResult";
 import { SidePanel } from "../";
 import { TrainingQuery } from "../../../graphql/generated/operations";
@@ -90,6 +90,7 @@ export const TrainingSidePanel = ({
               onClick={() => {
                 onCourseSelected && onCourseSelected(courseId);
               }}
+              testId="filterResult"
             >
               <Typography style={{ textTransform: "capitalize" }}>
                 {t(`training-page:type.${trainingType}`)}
@@ -102,9 +103,7 @@ export const TrainingSidePanel = ({
                     className={styles.technologyIcon}
                   />
                 )}
-                {t(
-                  `training-page:${courseEnrollments?.nodes[0]?.status || ""}`
-                )}
+                {t(`training-page:${courseEnrollments.nodes[0]?.status || ""}`)}
               </Typography>
             </FilterResult>
           );

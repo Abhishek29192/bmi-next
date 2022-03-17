@@ -1,13 +1,17 @@
 import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { mockResponse, mockRequest, mockResponses } from "@bmi/fetch-mocks";
+import {
+  mockResponse,
+  mockRequest,
+  mockResponses
+} from "@bmi-digital/fetch-mocks";
 import {
   createProductsApiResponse,
   createSystemsApiResponse
 } from "@bmi/pim-types";
 import { ElasticsearchIndexes } from "../elasticsearch";
-import { FirestoreCollections } from "../firestore-collections";
+import { FirestoreCollections } from "../firestoreCollections";
 
 const deleteElasticSearchIndex = jest.fn();
 jest.mock("../elasticsearch", () => {
@@ -56,11 +60,14 @@ beforeEach(() => {
     .mockResolvedValueOnce(createSystemsApiResponse({ totalPageCount: 10 }));
 });
 
-const handleRequest = (
+const handleRequest = async (
   request: Partial<Request>,
   response: Partial<Response>
 ) =>
-  require("../index").handleRequest(request as Request, response as Response);
+  (await import("../index")).handleRequest(
+    request as Request,
+    response as Response
+  );
 
 describe("handleRequest", () => {
   it("should return 500 if BUILD_TRIGGER_ENDPOINT is not set", async () => {

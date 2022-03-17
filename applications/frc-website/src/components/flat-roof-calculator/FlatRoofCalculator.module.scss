@@ -1,0 +1,160 @@
+@import "~@bmi-digital/styles";
+
+.FlatRoofCalculator {
+  .header {
+    margin-top: 72px;
+    margin-bottom: 48px;
+  }
+
+  .header3 {
+    margin-bottom: 24px;
+
+    &--extra-margin {
+      margin-bottom: 48px;
+    }
+  }
+
+  .description {
+    margin-bottom: 36px;
+
+    &--less-margin {
+      margin-bottom: 24px;
+    }
+  }
+
+  .field {
+    margin-bottom: 40px;
+
+    &--extra-margin {
+      margin-bottom: 48px;
+    }
+
+    .iconButton {
+      color: $color-storm;
+      margin-left: 24px;
+    }
+  }
+
+  .fieldHeader {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .fieldDescription {
+    margin-bottom: 36px;
+  }
+
+  .section {
+    margin-bottom: 60px;
+
+    &--less-margin {
+      margin-bottom: 48px;
+    }
+
+    &--x-less-margin {
+      margin-bottom: 36px;
+    }
+
+    &--xx-less-margin {
+      margin-bottom: 24px;
+    }
+  }
+
+  .helpHeader {
+    margin-bottom: 14px;
+
+    &--extra-margin {
+      margin-bottom: 24px;
+    }
+  }
+
+  .divider {
+    margin-bottom: 24px;
+  }
+
+  .spaceBetween {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: -12px;
+
+    @media (min-width: $breakpoint-sm) {
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .item {
+      margin: 12px;
+    }
+  }
+
+  .systemName {
+    margin-bottom: 24px;
+  }
+
+  .linkContainer {
+    padding: 34px;
+    border: 1px solid $color-storm;
+    border-radius: 6px;
+  }
+
+  .link {
+    font-size: 18px;
+    word-break: break-all;
+  }
+
+  .img {
+    margin-top: 48px;
+  }
+
+  /* TODO: move to a separate component */
+  .inputLabel {
+    color: $color-slate;
+  }
+
+  .input {
+    padding: 14.5px 14px;
+  }
+
+  & :global(.MuiInputLabel-outlined) {
+    transform: translate(14px, 16px) scale(1);
+  }
+
+  & :global(.MuiInputLabel-shrink) {
+    /* original Material UI shrink */
+    transform: translate(14px, -6px) scale(0.75);
+  }
+
+  .img {
+    width: 100%;
+    border: 1px solid $color-storm;
+  }
+}
+
+.Table {
+  border: 1px solid $color-storm;
+
+  .head {
+    border-bottom: 1px solid $color-storm;
+    background-color: $color-pearl;
+  }
+
+  .row {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-storm;
+    }
+  }
+
+  .cell {
+    font-size: 18px;
+    line-height: 25px;
+    color: $color-slate;
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+}

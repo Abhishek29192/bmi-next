@@ -71,7 +71,7 @@
         "logo": {
           "alt_text": "Firmalogo",
           "buttons": {
-            "remove": "Fjerne",
+            "remove": "Fjern",
             "upload": "Upload nyt billede"
           },
           "fileSizeMessage": "Maksimal filstørrelse 3 mb.",
@@ -160,5 +160,11 @@
   },
   "supportTitle": "Kontakt BMI",
   "titleAdmin": "Virksomheder",
-  "titleMember": "Virksomhed"
+  "titleMember": "Virksomhed",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alfabetisk",
+      "UPDATED": "Sidst opdateret"
+    }
+  }
 }

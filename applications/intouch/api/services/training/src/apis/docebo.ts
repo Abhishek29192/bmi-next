@@ -69,20 +69,20 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     return data;
   }
 
-  async getSSOUrl(path: string = "/learn/mycourses") {
+  async getSSOUrl(path = "/learn/mycourses") {
     return `${this.baseURL}${path};type=oauth2_response;access_token=${this.context.token};expires_in=3600;token_type=Bearer;scope=api`;
   }
 
-  async createSSOUrl(username: string, path: string = "/learn/mycourses") {
+  async createSSOUrl(username: string, path = "/learn/mycourses") {
     const token = await this.getTokenByJWTPayload(username);
     return `${this.baseURL}${path};type=oauth2_response;access_token=${token.access_token};expires_in=${token.expires_in};token_type=${token.token_type};scope=${token.scope}`;
   }
 
-  async getUser(id: Number) {
+  async getUser(id: number) {
     const { data } = await this.axiosInstance.get(`/manage/v1/user/${id}`);
     return data;
   }
-  async getEnrollmentByUserId(userId: Number, options?: IPageQueryOptions) {
+  async getEnrollmentByUserId(userId: number, options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
     //TODO:Add filter criteria;
     //updated_from: Filters all the courses that have been updated after a certain date/time
@@ -91,7 +91,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     );
     return data;
   }
-  async getCourse(id: Number) {
+  async getCourse(id: number) {
     const { data } = await this.axiosInstance.get(`/learn/v1/courses/${id}`);
     return data;
   }
@@ -111,7 +111,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     const { data } = await this.axiosInstance.get(`/manage/v1/user/session`);
     return data;
   }
-  async checkUserValidatiy(userId?: String, email?: String) {
+  async checkUserValidatiy(userId?: string, email?: string) {
     const mapQuery = [];
     if (userId) mapQuery.push({ name: "userid", value: userId });
     if (email) mapQuery.push({ name: "email", value: email });
@@ -173,7 +173,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
   }
 
   //List of enrollments for current branch and children
-  async getEnrollmentsReport(branchId: Number, options?: IPageQueryOptions) {
+  async getEnrollmentsReport(branchId: number, options?: IPageQueryOptions) {
     const queryString = buildUrlQueryString(options);
 
     const { data } = await this.axiosInstance.get(
@@ -182,7 +182,7 @@ export default class Docebo extends RESTDataSource<ITokenInfo> {
     return data;
   }
 
-  async getReportDetail(reportId: Number, dateFrom?: String, count?: Number) {
+  async getReportDetail(reportId: number, dateFrom?: string, count?: number) {
     const mapQuery = [];
     //The start timestamp used to additionally filter report rows (in yyyy-MM-dd HH:mm:ss).
     if (dateFrom) mapQuery.push({ name: "dateFrom", value: dateFrom });

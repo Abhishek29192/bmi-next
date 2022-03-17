@@ -138,7 +138,7 @@ class Auth0 {
     }
   };
 
-  changePassword = async (email: String) => {
+  changePassword = async (email: string) => {
     try {
       const { data } = await axios({
         method: "POST",

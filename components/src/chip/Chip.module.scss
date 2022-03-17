@@ -1,0 +1,49 @@
+@import "~@bmi-digital/styles";
+
+.Chip {
+  margin: 5px;
+  border-radius: 21px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &--default {
+    color: $color-theme-inter;
+    background-color: $color-pearl;
+    &:hover {
+      background-color: $color-alabaster;
+      color: $color-theme-focus;
+    }
+  }
+
+  &:global(.Mui-disabled) {
+    background-color: rgba($color-pearl, 0.5);
+    color: rgba($color-theme-inter-rgb, 0.3);
+  }
+
+  &.MuiChip-colorPrimary {
+    color: $color-white;
+    background-color: $color-theme-inter;
+  }
+
+  &--theme-white {
+    &.Chip--default {
+      background-color: $color-white;
+    }
+
+    &:global(.Mui-disabled) {
+      background-color: rgba($color-white, 0.5);
+    }
+
+    .MuiChip-colorPrimary {
+      color: $color-white;
+      background-color: $color-theme-inter;
+    }
+  }
+
+  :global {
+    [class*="MuiChip-deleteIcon"] {
+      width: 16px;
+      color: $color-theme-inter;
+    }
+  }
+}

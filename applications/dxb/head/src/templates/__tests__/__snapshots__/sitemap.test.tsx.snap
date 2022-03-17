@@ -22,12 +22,12 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 utilities-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 utilities-button MuiButton-textPrimary"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-116"
+                  class="MuiButton-label buttonStyles-label-125"
                 >
                   menuUtilitiesLinkLabel
                 </span>
@@ -41,12 +41,12 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 utilities-button language-selection-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-116"
+                  class="MuiButton-label buttonStyles-label-125"
                 >
                   <img
                     alt="English"
@@ -77,7 +77,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-124 iconButtonStyles-medium-130 iconButtonStyles-contained-125 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-contained-134 close-button"
         tabindex="0"
         type="button"
       >
@@ -103,15 +103,15 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton back-button MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-116"
+            class="MuiButton-label buttonStyles-label-125"
           >
             <span
-              class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-126 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -157,15 +157,15 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-116"
+                      class="MuiButton-label buttonStyles-label-125"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-126 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -186,15 +186,15 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-116"
+                      class="MuiButton-label buttonStyles-label-125"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-126 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -215,15 +215,15 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-116"
+                      class="MuiButton-label buttonStyles-label-125"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-126 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -244,15 +244,15 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-116"
+                      class="MuiButton-label buttonStyles-label-125"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-117 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-126 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -316,11 +316,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="menuNavigationLink"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -335,7 +337,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-133 PrivateTabIndicator-colorSecondary-135 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-145 PrivateTabIndicator-colorSecondary-147 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -346,7 +348,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-124 iconButtonStyles-medium-130 iconButtonStyles-contained-125 search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-contained-134 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -370,7 +372,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-124 iconButtonStyles-medium-130 iconButtonStyles-text-126 burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-text-135 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -408,7 +410,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-124 iconButtonStyles-medium-130 iconButtonStyles-contained-125 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-contained-134 close-button"
         tabindex="0"
         type="button"
       >
@@ -447,13 +449,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-116"
+                  class="MuiButton-label buttonStyles-label-125"
                 >
                   menuNavigationLinkLabel
                 </span>
@@ -468,13 +470,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuUtilitiesLinkLabel\\"}"
                   href="menuUtilitiesLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-116"
+                    class="MuiButton-label buttonStyles-label-125"
                   >
                     menuUtilitiesLinkLabel
                   </span>
@@ -486,13 +488,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-116"
+                  class="MuiButton-label buttonStyles-label-125"
                 >
                   <span
                     class="LanguageButtonContent"
@@ -539,7 +541,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-124 iconButtonStyles-medium-130 iconButtonStyles-contained-125 close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-contained-134 close-button"
           tabindex="0"
           type="button"
         >
@@ -787,13 +789,13 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 buttonStyles-textDarkBg-118 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 buttonStyles-textDarkBg-127 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"footerSecondaryNavigationLinkLabel\\",\\"action\\":\\"footerSecondaryNavigationLink\\"}"
                   href="footerSecondaryNavigationLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-116"
+                    class="MuiButton-label buttonStyles-label-125"
                   >
                     footerSecondaryNavigationLinkLabel
                   </span>
@@ -807,14 +809,14 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-text buttonStyles-text-114 buttonStyles-textDarkBg-118 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 buttonStyles-textDarkBg-127 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-116"
+                    class="MuiButton-label buttonStyles-label-125"
                   >
                     MC: global.sitemap
                   </span>
@@ -840,12 +842,12 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-113 MuiButton-contained buttonStyles-contained-115 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-contained buttonStyles-contained-124 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-116"
+        class="MuiButton-label buttonStyles-label-125"
       >
         <svg
           aria-hidden="true"
@@ -1182,11 +1184,13 @@ exports[`Sitemap renders correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="menuNavigationLink"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -1201,7 +1205,7 @@ exports[`Sitemap renders correctly 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-24 PrivateTabIndicator-colorSecondary-26 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -1754,12 +1758,12 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   menuUtilitiesLinkLabel
                 </span>
@@ -1773,12 +1777,12 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button language-selection-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   <img
                     alt="English"
@@ -1809,7 +1813,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -1835,15 +1839,15 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton back-button MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-28"
+            class="MuiButton-label buttonStyles-label-31"
           >
             <span
-              class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -1889,15 +1893,15 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -1918,15 +1922,15 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -1947,15 +1951,15 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -1976,15 +1980,15 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -2048,11 +2052,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="menuNavigationLink"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -2067,7 +2073,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-45 PrivateTabIndicator-colorSecondary-47 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-51 PrivateTabIndicator-colorSecondary-53 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -2078,7 +2084,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -2102,7 +2108,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-text-38 burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-text-41 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -2140,7 +2146,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -2179,13 +2185,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   menuNavigationLinkLabel
                 </span>
@@ -2200,13 +2206,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuUtilitiesLinkLabel\\"}"
                   href="menuUtilitiesLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     menuUtilitiesLinkLabel
                   </span>
@@ -2218,13 +2224,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   <span
                     class="LanguageButtonContent"
@@ -2271,7 +2277,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
           tabindex="0"
           type="button"
         >
@@ -2466,13 +2472,13 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 buttonStyles-textDarkBg-30 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"footerSecondaryNavigationLinkLabel\\",\\"action\\":\\"footerSecondaryNavigationLink\\"}"
                   href="footerSecondaryNavigationLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     footerSecondaryNavigationLinkLabel
                   </span>
@@ -2486,14 +2492,14 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 buttonStyles-textDarkBg-30 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     MC: global.sitemap
                   </span>
@@ -2519,12 +2525,12 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-contained buttonStyles-contained-27 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-contained buttonStyles-contained-30 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-28"
+        class="MuiButton-label buttonStyles-label-31"
       >
         <svg
           aria-hidden="true"
@@ -2567,12 +2573,12 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 utilities-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-52"
+                  class="MuiButton-label buttonStyles-label-58"
                 >
                   menuUtilitiesLinkLabel
                 </span>
@@ -2586,12 +2592,12 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 utilities-button language-selection-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-52"
+                  class="MuiButton-label buttonStyles-label-58"
                 >
                   <img
                     alt="English"
@@ -2622,7 +2628,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
         tabindex="0"
         type="button"
       >
@@ -2648,15 +2654,15 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton back-button MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-52"
+            class="MuiButton-label buttonStyles-label-58"
           >
             <span
-              class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -2702,15 +2708,15 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-52"
+                      class="MuiButton-label buttonStyles-label-58"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -2731,15 +2737,15 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-52"
+                      class="MuiButton-label buttonStyles-label-58"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -2760,15 +2766,15 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/uk"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-52"
+                      class="MuiButton-label buttonStyles-label-58"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -2789,15 +2795,15 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
                     href="/en"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-52"
+                      class="MuiButton-label buttonStyles-label-58"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-53 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-59 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -2861,11 +2867,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="menuNavigationLink"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -2880,7 +2888,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-69 PrivateTabIndicator-colorSecondary-71 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-78 PrivateTabIndicator-colorSecondary-80 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -2891,7 +2899,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -2915,7 +2923,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-text-68 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -2953,7 +2961,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
         tabindex="0"
         type="button"
       >
@@ -2992,13 +3000,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-52"
+                  class="MuiButton-label buttonStyles-label-58"
                 >
                   menuNavigationLinkLabel
                 </span>
@@ -3013,13 +3021,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuUtilitiesLinkLabel\\"}"
                   href="menuUtilitiesLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-52"
+                    class="MuiButton-label buttonStyles-label-58"
                   >
                     menuUtilitiesLinkLabel
                   </span>
@@ -3031,13 +3039,13 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"EN\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-52"
+                  class="MuiButton-label buttonStyles-label-58"
                 >
                   <span
                     class="LanguageButtonContent"
@@ -3084,7 +3092,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
           tabindex="0"
           type="button"
         >
@@ -3289,14 +3297,14 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 buttonStyles-textDarkBg-54 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 buttonStyles-textDarkBg-60 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-52"
+                    class="MuiButton-label buttonStyles-label-58"
                   >
                     MC: global.sitemap
                   </span>
@@ -3322,12 +3330,12 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-contained buttonStyles-contained-51 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-contained buttonStyles-contained-57 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-52"
+        class="MuiButton-label buttonStyles-label-58"
       >
         <svg
           aria-hidden="true"
@@ -3525,13 +3533,13 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 buttonStyles-textDarkBg-78 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 buttonStyles-textDarkBg-87 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"footerSecondaryNavigationLinkLabel\\",\\"action\\":\\"footerSecondaryNavigationLink\\"}"
                   href="footerSecondaryNavigationLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-76"
+                    class="MuiButton-label buttonStyles-label-85"
                   >
                     footerSecondaryNavigationLinkLabel
                   </span>
@@ -3545,14 +3553,14 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 buttonStyles-textDarkBg-78 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 buttonStyles-textDarkBg-87 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-76"
+                    class="MuiButton-label buttonStyles-label-85"
                   >
                     MC: global.sitemap
                   </span>
@@ -3578,12 +3586,12 @@ exports[`Sitemap renders correctly when menuNavigation is falsy 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-contained buttonStyles-contained-75 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-contained buttonStyles-contained-84 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-76"
+        class="MuiButton-label buttonStyles-label-85"
       >
         <svg
           aria-hidden="true"
@@ -3781,13 +3789,13 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-text buttonStyles-text-94 buttonStyles-textDarkBg-98 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-102 MuiButton-text buttonStyles-text-103 buttonStyles-textDarkBg-107 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"footerSecondaryNavigationLinkLabel\\",\\"action\\":\\"footerSecondaryNavigationLink\\"}"
                   href="footerSecondaryNavigationLink"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-96"
+                    class="MuiButton-label buttonStyles-label-105"
                   >
                     footerSecondaryNavigationLinkLabel
                   </span>
@@ -3801,14 +3809,14 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-text buttonStyles-text-94 buttonStyles-textDarkBg-98 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-102 MuiButton-text buttonStyles-text-103 buttonStyles-textDarkBg-107 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
                   href="/en/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-96"
+                    class="MuiButton-label buttonStyles-label-105"
                   >
                     MC: global.sitemap
                   </span>
@@ -3834,12 +3842,12 @@ exports[`Sitemap renders correctly when menuUtilities is falsy 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-contained buttonStyles-contained-95 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-102 MuiButton-contained buttonStyles-contained-104 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-96"
+        class="MuiButton-label buttonStyles-label-105"
       >
         <svg
           aria-hidden="true"

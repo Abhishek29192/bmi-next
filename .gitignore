@@ -7,6 +7,8 @@ yarn-error.log*
 
 # Dependencies
 **/node_modules/
+.yalc/
+yalc.lock
 
 # Build output
 **/dist/

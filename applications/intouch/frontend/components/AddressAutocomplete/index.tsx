@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import GoogleAutocomplete, {
-  Props as GoogleAutocompleteProps
-} from "@bmi/google-autocomplete";
-import GoogleApi, { loadGoogleApi, GeocoderResult } from "@bmi/google-api";
-import GoogleMap, { Props as GoogleMapProps } from "@bmi/google-map";
+import { GoogleAutocomplete, GoogleAutocompleteProps } from "@bmi/components";
+import {
+  Google,
+  GoogleApi,
+  loadGoogleApi,
+  GeocoderResult
+} from "@bmi/components";
+import { GoogleMap, GoogleMapProps } from "@bmi/components";
 import { Address, Point } from "@bmi/intouch-api-types";
 import { addressFromPlaceApiResponse } from "./placeApiResponseToAddress";
 import styles from "./styles.module.scss";
@@ -15,6 +18,12 @@ type AddressAutocompleteProps = GoogleAutocompleteProps & {
   searchBiasRadiusKm?: number;
   mapsApiKey: string;
 };
+
+declare global {
+  interface Window {
+    google?: Google;
+  }
+}
 
 const DEFAULT_SEARCH_BIAS_RADIUS_KM = 100 * 1000;
 

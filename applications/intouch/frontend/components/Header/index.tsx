@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
-import { BMI } from "@bmi/logo";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { BMI } from "@bmi/components";
 import { Notifications, Menu, Close } from "@material-ui/icons";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";

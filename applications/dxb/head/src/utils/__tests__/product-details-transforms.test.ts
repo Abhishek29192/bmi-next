@@ -11,6 +11,7 @@ import {
   getSizeLabel,
   getValidClassification,
   getValidFeatures,
+  getYoutubeId,
   groupProductsByCategory,
   mapClassificationValues,
   mapGalleryImages,
@@ -30,9 +31,10 @@ import {
 import createCategory from "../../__tests__/CategoryHelper";
 import {
   ClassificationCodeEnum,
+  Image,
   ImageAssetTypesEnum,
-  Product,
-  Image
+  ImageFormatEnum,
+  Product
 } from "../../components/types/pim";
 
 describe("product-details-transforms tests", () => {
@@ -47,6 +49,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getSizeLabel tests", () => {
     describe("When measurement is NOT provided", () => {
       describe("And withUnit is false", () => {
@@ -151,6 +154,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("mapProductClassifications tests", () => {
     describe("When product is provided with invalid classifications", () => {
       it("returns empty object", () => {
@@ -376,6 +380,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findUniqueVariantClassifications tests", () => {
     describe("When VariantOptionWithProduct is provided", () => {
       describe("And it does not contain valid classifications", () => {
@@ -590,6 +595,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findAllCategories tests", () => {
     describe("When list product is empty array", () => {
       it("returns empty object", () => {
@@ -694,6 +700,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   //very long function (getProductAttributes)!!
   //starting some initial tests but need to add more tests!!
   describe("getProductAttributes tests", () => {
@@ -2025,6 +2032,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findMasterImageUrl tests", () => {
     it("returns undefined if null provided", () => {
       const result = findMasterImageUrl(null);
@@ -2042,7 +2050,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual(undefined);
@@ -2059,7 +2067,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual("http://nowhere.com");
@@ -2076,7 +2084,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Large-Desktop"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
         },
         {
           realFileName:
@@ -2088,7 +2096,7 @@ describe("product-details-transforms tests", () => {
           containerId: "container_Zanda Arktis normalstein1.jpg",
           fileSize: 28390,
           name: "Product-Listing-Card-Small-Desktop-Tablet_Zanda Arktis normalstein1",
-          format: "Product-Listing-Card-Small-Desktop-Tablet"
+          format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
         }
       ]);
       expect(result).toEqual(
@@ -2096,6 +2104,7 @@ describe("product-details-transforms tests", () => {
       );
     });
   });
+
   describe("getColourThumbnailUrl tests", () => {
     describe("when master image exists", () => {
       it("returns master image url value", () => {
@@ -2110,7 +2119,7 @@ describe("product-details-transforms tests", () => {
             containerId: "container_Zanda Arktis normalstein1.jpg",
             fileSize: 28390,
             name: "Product-Color-Selector-Mobile_Zanda Arktis normalstein1",
-            format: "Product-Color-Selector-Mobile"
+            format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
           }
         ]);
         expect(result).toEqual(undefined);
@@ -2129,13 +2138,14 @@ describe("product-details-transforms tests", () => {
             containerId: "container_Zanda Arktis normalstein1.jpg",
             fileSize: 28390,
             name: "Product-Color-Selector-Mobile_Zanda Arktis normalstein1",
-            format: "Product-Color-Selector-Mobile"
+            format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
           }
         ]);
         expect(result).toEqual("http://nowhere.com");
       });
     });
   });
+
   describe("mapGalleryImages tests", () => {
     describe("when Gallery images are empty", () => {
       it("returns empty result", () => {
@@ -2181,7 +2191,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Web_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Web"
+              format: ImageFormatEnum.WEB
             },
             {
               allowedToDownload: true,
@@ -2193,7 +2203,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/tiff",
               realFileName:
                 "Print_297006251_Turmalin Ridge tile K Glazed Zeder grey.tiff",
-              format: "Print"
+              format: ImageFormatEnum.PRINT
             },
             {
               allowedToDownload: true,
@@ -2205,7 +2215,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Mobile"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2217,7 +2227,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_HERO_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2229,7 +2239,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2241,7 +2251,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
             },
             {
               allowedToDownload: true,
@@ -2253,7 +2263,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Large-Desktop_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_LARGE_DESKTOP
             },
             {
               allowedToDownload: true,
@@ -2265,7 +2275,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Hero-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Hero-Mobile"
+              format: ImageFormatEnum.PRODUCT_HERO_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2277,7 +2287,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Mobile_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Mobile"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_MOBILE
             },
             {
               allowedToDownload: true,
@@ -2289,7 +2299,8 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Color-Selector-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Color-Selector-Small-Desktop-Tablet"
+              format:
+                ImageFormatEnum.PRODUCT_COLOR_SELECTOR_SMALL_DESKTOP_TABLET
             },
             {
               allowedToDownload: true,
@@ -2301,7 +2312,7 @@ describe("product-details-transforms tests", () => {
               mime: "image/jpeg",
               realFileName:
                 "Product-Listing-Card-Small-Desktop-Tablet_297006251_Turmalin Ridge tile K Glazed Zeder grey.jpg",
-              format: "Product-Listing-Card-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
             }
           ];
           const expectedResult = [
@@ -2330,7 +2341,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Listing-Card-Large-Desktop"
+              format: ImageFormatEnum.PRODUCT_LISTING_CARD_LARGE_DESKTOP
             },
             {
               realFileName:
@@ -2342,7 +2353,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Hero-Small-Desktop-Tablet"
+              format: ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
             },
             {
               realFileName:
@@ -2354,7 +2365,7 @@ describe("product-details-transforms tests", () => {
               containerId: "container_Zanda Arktis normalstein1.jpg",
               fileSize: 28390,
               name: "Product-Listing-Card-Large-Desktop_Zanda Arktis normalstein1",
-              format: "Product-Color-Selector-Mobile"
+              format: ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
             }
           ];
           const expectedResult = [
@@ -2371,6 +2382,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("groupProductsByCategory tests", () => {
     describe("When Product data is NOT provided", () => {
       it("returns empty object", () => {
@@ -2446,6 +2458,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("mapClassificationValues tests", () => {
     describe("When classifiction map is empty object", () => {
       it("returns empty string", () => {
@@ -2552,6 +2565,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("findProductBrandLogoCode tests", () => {
     describe("When Product with BMI Brands is NOT provided", () => {
       it("returns brand logo code", () => {
@@ -2584,6 +2598,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getMergedClassifications tests", () => {
     describe("When emtpy classifications are provided", () => {
       it("returns empty results", () => {
@@ -2656,6 +2671,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getValidClassification tests", () => {
     describe("When emtpy classifications are provided", () => {
       it("returns empty results", () => {
@@ -2723,6 +2739,7 @@ describe("product-details-transforms tests", () => {
       });
     });
   });
+
   describe("getValidFeatures tests", () => {
     describe("When emtpy features are provided", () => {
       it("returns empty results", () => {
@@ -2763,6 +2780,102 @@ describe("product-details-transforms tests", () => {
         const result = getValidFeatures("", [feature1, feature2, feature3]);
         expect(result).toEqual([feature3]);
       });
+    });
+  });
+
+  describe("getYoutubeId", () => {
+    it("returns ID for standard URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for standard URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}&t=10s`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}?t=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without 'www.'", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL with http protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `http://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns passes through any value that doesn't match the regex", () => {
+      const expectedYoutubeId = "djskhvjksdvjksdb";
+      const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
     });
   });
 });

@@ -4,9 +4,9 @@ import fs from "fs";
 import mockConsole from "jest-mock-console";
 import fetchMockJest from "fetch-mock-jest";
 import { when } from "jest-when";
-import { mockResponses } from "@bmi/fetch-mocks";
+import { mockResponses } from "@bmi-digital/fetch-mocks";
 
-jest.mock("@bmi/functions-logger");
+jest.mock("@bmi-digital/functions-logger");
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -16,7 +16,7 @@ const apiSecret = "api_secret";
 const trigger_secret = "trigger_secret";
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 
@@ -60,7 +60,7 @@ jest.doMock("../filter", () => ({
   filterFunctionMetadata: filterFunctionMetadata
 }));
 
-const deploy = (file: any) => require("../index").deploy(file);
+const deploy = async (file: any) => (await import("../index")).deploy(file);
 
 beforeAll(() => {
   mockConsole();

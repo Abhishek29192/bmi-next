@@ -7,7 +7,7 @@ import {
   mockRequest as fetchMockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -17,12 +17,16 @@ const recaptchaSecret = "recaptcha-secret";
 const apsisClientSecret = "apsis-client-secret";
 
 const mockRequest = (
-  body: Object = { email: "a@a.com", gdpr_1: true, gdpr_2: true },
+  body: Record<string, unknown> = {
+    email: "a@a.com",
+    gdpr_1: true,
+    gdpr_2: true
+  },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 

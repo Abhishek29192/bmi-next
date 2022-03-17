@@ -1,15 +1,16 @@
-import React, { useRef, useState } from "react";
-import LeadBlock from "@bmi/lead-block";
+import React, { useMemo, useRef, useState } from "react";
+import { LeadBlock } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { IconList } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { DownloadList } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { ImageGallery, Image } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi/components";
 import { Launch } from "@material-ui/icons";
-import Button from "@bmi/button";
-import IconList from "@bmi/icon-list";
-import Tabs from "@bmi/tabs";
-import Typography from "@bmi/typography";
 import CheckIcon from "@material-ui/icons/Check";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import DownloadList from "@bmi/download-list";
-import Icon from "@bmi/icon";
-import ImageGallery, { Image } from "@bmi/image-gallery";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
@@ -22,7 +23,10 @@ import DocumentResultsFooter, {
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
-import BimIframe from "./BimIframe";
+import AssetsIframe from "./AssetsIframe";
+import { getClickableActionFromUrl, isExternalUrl } from "./Link";
+import { All_FORMATS, NO_DOCUMENT_FORMAT } from "./types";
+import { groupDocuments } from "./DocumentTechnicalTableResults";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -41,11 +45,49 @@ type Props = {
   validClassifications: Classification[];
   classificationNamespace: string;
   techDrawings: readonly Image[];
+  fixingToolIframeUrl?: string;
+  pdpFixingToolTitle?: string | null;
+  pdpFixingToolDescription?: RichTextData | null;
+  specificationIframeUrl?: string;
+  pdpSpecificationTitle?: string | null;
+  pdpSpecificationDescription?: RichTextData | null;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
 const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
+
+export const getCountsOfDocuments = (
+  documentsByAssetType: [string, (PIMDocumentData | PIMLinkDocumentData)[]][]
+): number => {
+  let count = 0;
+  documentsByAssetType.forEach((groupedDocs) => {
+    if (groupedDocs[1].length === 1) {
+      count++;
+    } else {
+      //zip files and PiMLinkDocument will have its separate row
+      // eslint-disable-next-line security/detect-object-injection
+      groupedDocs[1].forEach((x) => {
+        if (
+          x.__typename === "PIMLinkDocument" ||
+          (x.__typename === "PIMDocument" && x.extension === "zip")
+        ) {
+          count++;
+        }
+      });
+      //files to be zipped will have a single count of 1
+      if (
+        // eslint-disable-next-line security/detect-object-injection
+        groupedDocs[1].filter(
+          (x) => x.__typename === "PIMDocument" && x.extension !== "zip"
+        ).length > 0
+      ) {
+        count++;
+      }
+    }
+  });
+  return count;
+};
 
 const ProductLeadBlock = ({
   bimIframeUrl,
@@ -57,12 +99,51 @@ const ProductLeadBlock = ({
   documents,
   validClassifications,
   classificationNamespace,
-  techDrawings
+  techDrawings,
+  fixingToolIframeUrl,
+  pdpFixingToolTitle,
+  pdpFixingToolDescription,
+  specificationIframeUrl,
+  pdpSpecificationTitle,
+  pdpSpecificationDescription
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
-  const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
   const resultsElement = useRef<HTMLDivElement>(null);
+
+  const filteredDocuments = useMemo(
+    () =>
+      documents.filter((document) => {
+        if (
+          document.__typename === "PIMDocument" &&
+          (document.assetType.name === "Warranties" ||
+            document.assetType.name === "Guaranties")
+        ) {
+          return All_FORMATS.includes(document.format);
+        }
+        return !NO_DOCUMENT_FORMAT.includes(document.assetType.pimCode);
+      }),
+    [documents]
+  );
+  //group documents by assetType
+  const documentsByAssetType = useMemo(
+    () =>
+      groupDocuments(filteredDocuments, true).slice(
+        (page - 1) * DOCUMENTS_PER_PAGE,
+        page * DOCUMENTS_PER_PAGE
+      ),
+    [filteredDocuments]
+  );
+  const count = Math.ceil(
+    getCountsOfDocuments(documentsByAssetType) / DOCUMENTS_PER_PAGE
+  );
+
+  const isImageAsset = (asset: Asset) => {
+    return (
+      asset.realFileName?.search(/.jpg/i) > -1 ||
+      asset.realFileName?.search(/.png/i) > -1
+    );
+  };
 
   const isPDFAsset = (asset: Asset) => {
     return (
@@ -70,12 +151,11 @@ const ProductLeadBlock = ({
       asset.realFileName?.indexOf(".pdf") > -1
     );
   };
-
-  const guaranteesDocuments = (guaranteesAndWarranties || []).filter((item) =>
-    isPDFAsset(item)
+  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
+    (item) => !item.realFileName && item.url
   );
-  const guaranteesImages = (guaranteesAndWarranties || []).filter(
-    (item) => !isPDFAsset(item)
+  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
+    isImageAsset(item)
   );
 
   const awardsDocs = (awardsAndCertificates || []).filter((item) =>
@@ -96,6 +176,7 @@ const ProductLeadBlock = ({
     window.scrollTo(0, scrollY);
     setPage(page);
   };
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
   return (
     <div className={styles["ProductLeadBlock"]}>
@@ -130,7 +211,7 @@ const ProductLeadBlock = ({
                       microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
                     )}
                   </LeadBlock.Content.Heading>
-                  {guaranteesImages.map((item, i) => (
+                  {guaranteesImages?.map((item, i) => (
                     <img
                       key={`guarentee-img-${i}`}
                       src={item.url}
@@ -138,26 +219,28 @@ const ProductLeadBlock = ({
                       className={styles["image"]}
                     />
                   ))}
-                  {guaranteesImages.length > 0 &&
-                    guaranteesDocuments.length > 0 && <br />}
-                  {guaranteesDocuments.map((item, i) => (
-                    <span
-                      className={styles["document"]}
-                      key={`guarentee-doc-${i}`}
-                    >
-                      <Button
-                        variant="outlined"
-                        action={{
-                          model: "htmlLink",
-                          href: item.url,
-                          target: "_blank",
-                          rel: "noopener noreferrer"
+                  {guaranteesAndWarrantiesLinks?.map((item, i) => (
+                    <div key={`link-${i}`}>
+                      <GTMAnchorLink
+                        action={getClickableActionFromUrl(
+                          null,
+                          item.url,
+                          countryCode,
+                          null,
+                          item.name
+                        )}
+                        gtm={{
+                          id: "cta-click1",
+                          label: item.name,
+                          action: item.url
                         }}
-                        endIcon={<Launch />}
+                        iconEnd
+                        isExternal={isExternalUrl(item.url)}
+                        className={styles["inline-link"]}
                       >
                         {item.name}
-                      </Button>
-                    </span>
+                      </GTMAnchorLink>
+                    </div>
                   ))}
                 </LeadBlock.Content.Section>
               )}
@@ -168,7 +251,7 @@ const ProductLeadBlock = ({
                   <LeadBlock.Content.Heading>
                     {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
                   </LeadBlock.Content.Heading>
-                  {awardsImages.map((item, i) => (
+                  {awardsImages?.map((item, i) => (
                     <img
                       key={`award-img-${i}`}
                       src={item.url}
@@ -277,10 +360,11 @@ const ProductLeadBlock = ({
               maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
             >
               <DocumentSimpleTableResults
-                documents={documents}
+                documents={filteredDocuments}
                 page={page}
                 documentsPerPage={DOCUMENTS_PER_PAGE}
                 headers={["type", "download", "add"]}
+                documentsByAssetType={documentsByAssetType}
               />
               <DocumentResultsFooter
                 page={page}
@@ -296,7 +380,7 @@ const ProductLeadBlock = ({
             heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_BIM)}
             index="four"
           >
-            <BimIframe url={bimIframeUrl} />
+            <AssetsIframe url={bimIframeUrl} />
           </Tabs.TabPanel>
         )}
         {techDrawings.length > 0 && (
@@ -314,9 +398,50 @@ const ProductLeadBlock = ({
             </LeadBlock>
           </Tabs.TabPanel>
         )}
+        {Boolean(specificationIframeUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_SPECIFICATION)}
+            index="seven"
+            data-testid="specification"
+            className={styles["tab-container"]}
+          >
+            {pdpSpecificationTitle && (
+              <Typography variant="h5" className={styles["heading"]}>
+                {pdpSpecificationTitle}
+              </Typography>
+            )}
+            {pdpSpecificationDescription && (
+              <RichText document={pdpSpecificationDescription} />
+            )}
+            <AssetsIframe
+              url={specificationIframeUrl}
+              className={styles["specification-tab-iframe"]}
+            />
+          </Tabs.TabPanel>
+        )}
+        {Boolean(fixingToolIframeUrl) && (
+          <Tabs.TabPanel
+            heading={getMicroCopy(microCopy.PDP_LEAD_BLOCK_FIXING_TOOL)}
+            index="six"
+            data-testid="fixingTool"
+            className={styles["tab-container"]}
+          >
+            {pdpFixingToolTitle && (
+              <Typography variant="h5" className={styles["heading"]}>
+                {pdpFixingToolTitle}
+              </Typography>
+            )}
+            {pdpFixingToolDescription && (
+              <RichText document={pdpFixingToolDescription} />
+            )}
+            <AssetsIframe
+              url={fixingToolIframeUrl}
+              className={styles["fixing-tool-iframe"]}
+            />
+          </Tabs.TabPanel>
+        )}
       </Tabs>
     </div>
   );
 };
-
 export default ProductLeadBlock;

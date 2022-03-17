@@ -1,5 +1,5 @@
 import React from "react";
-import ImageGallery from "@bmi/image-gallery";
+import { ImageGallery } from "@bmi/components";
 import {
   mapGalleryImages,
   transformImages

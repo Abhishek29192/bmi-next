@@ -1,4 +1,4 @@
-import TableOfContent from "@bmi/table-of-content";
+import { TableOfContent } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { createContext, useMemo } from "react";
 import CardCollectionSection, {
@@ -16,7 +16,7 @@ import ExploreBarSection, {
 import FormSection, { Data as FormSectionData } from "./FormSection";
 import ImageGallerySection, {
   Data as ImageGallerySectionData
-} from "./ImageGallerySection";
+} from "./MediaGallerySection";
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
@@ -66,7 +66,7 @@ export const sectionsMap = {
   ContentfulNavigation: ExploreBarSection,
   ContentfulTitleWithContent: TitleWithContentSection,
   ContentfulPromo: PromoSection,
-  ContentfulImageGallerySection: ImageGallerySection,
+  ContentfulMediaGallerySection: ImageGallerySection,
   ContentfulDocumentDownloadSection: DocumentDownloadSection,
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,
@@ -110,21 +110,34 @@ const Sections = ({
   const themeMap = useMemo(
     () =>
       data.reduce<Context>((carry, section, index) => {
+        const previousSection = data[index - 1];
         if (section.__typename !== "ContentfulPromo") {
           return carry;
         }
 
         const { id, backgroundColor } = section;
 
+        if (previousSection?.__typename !== "ContentfulPromo") {
+          return {
+            ...carry,
+            [id]: {
+              isReversed: true,
+              backgroundColor: backgroundColor || "White"
+            }
+          };
+        }
+
+        const previousCarry = carry[previousSection.id];
+
         return {
           ...carry,
           [id]: {
-            // @ts-ignore Property 'id' does not exist on type 'SectionData'.
-            isReversed: !carry[data[index - 1]?.id]?.isReversed,
+            // eslint-disable-next-line security/detect-object-injection
+            isReversed: previousCarry ? !previousCarry.isReversed : true,
             backgroundColor:
               backgroundColor ||
-              // @ts-ignore Property 'id' does not exist on type 'SectionData'.
-              (carry[data[index - 1]?.id]?.backgroundColor === "White"
+              // eslint-disable-next-line security/detect-object-injection
+              (previousCarry?.backgroundColor === "White"
                 ? "Alabaster"
                 : "White")
           }
@@ -181,7 +194,7 @@ export const query = graphql`
     ...CardCollectionSectionFragment
     ...TitleWithContentSectionFragment
     ...PromoSectionFragment
-    ...ImageGallerySectionFragment
+    ...MediaGallerySectionFragment
     ...DocumentDownloadSectionFragment
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment

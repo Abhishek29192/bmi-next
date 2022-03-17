@@ -1,18 +1,27 @@
 import React from "react";
 import classnames from "classnames";
-import { Icopal as IcopalLogoSVG } from "@bmi/logo";
-import Container from "@bmi/container";
-import Button from "@bmi/button";
+import { Icopal as IcopalLogoSVG } from "@bmi/components";
+import { Container } from "@bmi/components";
+import { Button } from "@bmi/components";
 import styles from "./Footer.module.scss";
+
+type MenuItem = {
+  label: string;
+  action: {
+    model: string;
+    href: string;
+  };
+};
 
 const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
   const IconComponent = icon;
 
   return (
     <li
-      className={classnames(styles["list-item"], {
-        [styles["list-item--icon"]]: isLabelHidden
-      })}
+      className={classnames(
+        styles["list-item"],
+        isLabelHidden && styles["list-item--icon"]
+      )}
     >
       {isLabelHidden ? (
         <Button
@@ -40,7 +49,7 @@ const NavigationItem = ({ label, icon, isLabelHidden, action }: any) => {
   );
 };
 
-const BmiFooter = ({ menu }: any) => {
+const BmiFooter = ({ menu }: { menu: MenuItem[] }) => {
   return (
     <div className={styles.Footer}>
       <Container className={styles.container}>

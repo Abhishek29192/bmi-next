@@ -234,7 +234,7 @@ const extractFeatureCode = (
 };
 
 export const IndexFeatures = (
-  pimClassificationNameSpace: string = "",
+  pimClassificationNameSpace = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {
   const allfeaturesAsProps = classifications.reduce((acc, classification) => {

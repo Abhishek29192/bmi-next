@@ -2,19 +2,46 @@
 
 exports[`FilterButton Component renders correctly 1`] = `
 <div>
-  <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-1 makeStyles-root-2 MuiButton-disableElevation"
-    tabindex="0"
-    type="button"
+  <div
+    class="filterButton"
   >
-    <span
-      class="MuiButton-label"
+    <div
+      class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+      role="button"
+      tabindex="0"
     >
-      Filter Button
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
+      <span
+        class="MuiChip-label"
+      >
+        Filter Button
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FilterButton Component show selected chip style if isActive props is true 1`] = `
+<div>
+  <div
+    class="filterButton"
+  >
+    <div
+      class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="MuiChip-label"
+      >
+        Filter Button
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </div>
+  </div>
 </div>
 `;

@@ -1,7 +1,7 @@
 import { initAuth0 } from "@auth0/nextjs-auth0";
 import { getSecret } from "../utils/secrets";
 
-let auth0 = {};
+const auth0 = {};
 
 export const getAuth0Instance = async (req, res) => {
   // Only server side

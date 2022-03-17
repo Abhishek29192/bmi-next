@@ -1,0 +1,48 @@
+@import "~@bmi-digital/styles";
+
+.GoogleMap {
+  position: relative;
+  height: 100%;
+
+  :global {
+    [class*="MuiPaper-root"] {
+      display: flex;
+      flex-direction: column;
+      max-height: 100%;
+
+      .MuiCardContent-root {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .map {
+    background-color: $color-pearl;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .popup {
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    max-width: 500px;
+    padding: 32px 20px;
+    pointer-events: none;
+
+    & > * {
+      pointer-events: all;
+    }
+  }
+
+  .error {
+    color: $color-error;
+  }
+}

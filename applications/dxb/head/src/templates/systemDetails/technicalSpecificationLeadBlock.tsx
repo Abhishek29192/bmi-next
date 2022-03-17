@@ -1,11 +1,14 @@
 import React from "react";
-import LeadBlock from "@bmi/lead-block";
-import Table from "@bmi/table";
-import Accordion from "@bmi/accordion";
-import Typography from "@bmi/typography";
+import { LeadBlock } from "@bmi/components";
+import { Table } from "@bmi/components";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import withGTM from "../../utils/google-tag-manager";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
 import { Classification } from "../../components/types/pim";
 import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
+
+const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
 type Props = {
   technicalSpecClassifications: Classification[];
@@ -42,9 +45,15 @@ const TechnicalSpecificationLeadBlock = ({
             {technicalSpecClassifications.map(({ name, features }, id) => {
               return (
                 <Accordion.Item key={`tech-spec-${id}`} defaultExpanded={true}>
-                  <Accordion.Summary>
+                  <GTMAccordionSummary
+                    gtm={{
+                      id: "selector-accordion1",
+                      label: name,
+                      action: "Selector – Accordion"
+                    }}
+                  >
                     <Typography variant="h6">{name}</Typography>
-                  </Accordion.Summary>
+                  </GTMAccordionSummary>
                   <Accordion.Details className={styles["accordion-details"]}>
                     <ProductFeaturesTable
                       features={features}

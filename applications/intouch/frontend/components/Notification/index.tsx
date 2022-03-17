@@ -1,49 +1,48 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from "react";
-import Typography from "@bmi/typography";
-import TimeAgo from "javascript-time-ago";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import ReactTimeAgo from "react-time-ago";
-import en from "javascript-time-ago/locale/en";
-import it from "javascript-time-ago/locale/it";
-import nb from "javascript-time-ago/locale/nb";
-import dynamic from "next/dynamic";
+import classnames from "classnames";
+import ReactMarkdown from "react-markdown";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
-
-TimeAgo.addDefaultLocale(en);
-TimeAgo.addLocale(it);
-TimeAgo.addLocale(nb);
+import "../../lib/reactTimeAgo";
 
 export type NotificationProps = {
   message: string;
   date: string;
   read: boolean;
-  id: number;
 };
 
-const ReactMarkdown = dynamic(
-  () => import("react-markdown").then((module) => module.default),
-  { ssr: false }
-);
-
 export const Notification = ({
+  // eslint-disable-next-line react/prop-types
   message,
+  // eslint-disable-next-line react/prop-types
   date,
-  read,
-  id
+  // eslint-disable-next-line react/prop-types
+  read
 }: NotificationProps) => {
   const { i18n } = useTranslation();
   return (
-    <div className={`${styles.main} ${read ? null : styles.unread}`}>
+    <div className={classnames(styles.main, { [styles.unread]: !read })}>
       <Typography variant="body1" component="div" className={styles.body}>
         <div className={styles.timeAgo}>
-          <ReactTimeAgo date={date} locale={i18n.language.replace("_", "-")} />
+          <ReactTimeAgo
+            date={Date.parse(date)}
+            locale={i18n.language.replace("_", "-")}
+          />
         </div>
         <div>
           <ReactMarkdown
-            // @ts-ignore
             components={{
-              a({ children, href }: { children: string; href: string }) {
+              a({
+                children,
+                href
+              }: {
+                children?: React.ReactNode;
+                href?: string;
+              }) {
                 return (
                   <Link href={href}>
                     <a>{children}</a>

@@ -1,6 +1,6 @@
-import Button, { ButtonProps } from "@bmi/button";
-import DownloadList, { DownloadListContext } from "@bmi/download-list";
-import Pagination from "@bmi/pagination";
+import { Button, ButtonProps } from "@bmi/components";
+import { DownloadList, DownloadListContext } from "@bmi/components";
+import { Pagination } from "@bmi/components";
 import axios from "axios";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -52,14 +52,18 @@ export const handleDownloadClick = async (
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
   if (listValues.length === 0) {
-    return () => {};
+    return () => {
+      // no-op
+    };
   }
 
   if (process.env.GATSBY_PREVIEW) {
     alert("You cannot download documents on the preview enviornment.");
     callback();
 
-    return () => {};
+    return () => {
+      // no-op
+    };
   }
 
   try {

@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "@bmi/button";
-import Typography from "@bmi/typography";
+import { Button } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { AccountStatus } from "@bmi/intouch-api-types";
 import { TeamMembersQuery } from "../../../../graphql/generated/operations";

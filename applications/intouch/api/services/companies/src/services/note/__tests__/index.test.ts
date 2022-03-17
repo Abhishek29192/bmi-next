@@ -25,12 +25,13 @@ const mockMarketAdminUsers = [
 
 describe("Note", () => {
   const mockQuery = jest.fn();
+  const loggerError = jest.fn();
   const context: any = {
     pubSub: {},
     logger: jest.fn().mockReturnValue({
       debug: jest.fn(),
       log: jest.fn(),
-      error: jest.fn()
+      error: loggerError
     }),
     pgRootPool: {
       query: mockQuery
@@ -116,5 +117,67 @@ describe("Note", () => {
     const calledTime =
       mockCompanyAdminUsers.length + mockMarketAdminUsers.length;
     expect(sendMessageWithTemplate).toBeCalledTimes(calledTime);
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: 1,
+        email: "email1",
+        project: "project_name",
+        projectId: 1
+      }
+    );
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: 2,
+        email: "email2",
+        project: "project_name",
+        projectId: 1
+      }
+    );
+    expect(sendMessageWithTemplate).toHaveBeenCalledWith(
+      expect.any(Object),
+      "NOTE_ADDED",
+      {
+        accountId: 11,
+        email: "email11",
+        project: "project_name",
+        projectId: 1
+      }
+    );
+  });
+
+  it("call logger when createNote throw error", async () => {
+    context.user.can = () => true;
+    resolve.mockRejectedValueOnce("I am error");
+    mockQuery
+      .mockImplementationOnce(() => {})
+      .mockImplementationOnce(() => ({
+        rows: [
+          {
+            name: "project_name",
+            companyId: 1,
+            marketId: 1
+          }
+        ]
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }))
+      .mockImplementationOnce(() => ({
+        rows: []
+      }))
+      .mockImplementationOnce(() => ({}));
+
+    await expect(
+      createNote(resolve, source, args, context, resolveInfo)
+    ).rejects.toEqual("I am error");
+
+    expect(loggerError).toHaveBeenCalledWith(
+      "Error insert note:",
+      "I am error"
+    );
   });
 });

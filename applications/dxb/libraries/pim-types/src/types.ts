@@ -45,7 +45,7 @@ export type System = {
   name: string;
   shortDescription: string;
   systemBenefits?: string[];
-  systemLayers: SystemLayer[];
+  systemLayers?: SystemLayer[] | null;
   systemReferences: SystemReference[];
   description: HTML;
 };
@@ -207,3 +207,8 @@ export type Product = {
   summary: string;
   variantOptions?: readonly VariantOption[];
 };
+
+export enum PimTypes {
+  Products = "products",
+  Systems = "systems"
+}

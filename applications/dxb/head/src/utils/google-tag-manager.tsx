@@ -1,4 +1,4 @@
-import { ClickableAction } from "@bmi/clickable";
+import { ClickableAction } from "@bmi/components";
 import { ButtonBaseActions } from "@material-ui/core/ButtonBase";
 import React, { createContext, useContext } from "react";
 
@@ -20,7 +20,11 @@ type Props = {
 type Map = Partial<Record<keyof GTM, string>>;
 
 declare let window: Window & {
-  dataLayer: { push: (data: GTM) => {} };
+  dataLayer: {
+    push: (data: GTM) => {
+      // no-op
+    };
+  };
 };
 
 type Context = {
@@ -154,8 +158,9 @@ export default function withGTM<P>(
       if (!process.env.GATSBY_PREVIEW) {
         pushToDataLayer(dataGtm);
       }
-      // @ts-ignore TS does not realise P could include `onClick`
-      props.onClick && props.onClick(...args);
+
+      // TS doesn't like that P may have onClick
+      "onClick" in props && (props as any).onClick(...args);
     };
 
     return (

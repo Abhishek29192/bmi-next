@@ -1,17 +1,23 @@
 import React from "react";
-import LeadBlock from "@bmi/lead-block";
-import Typography from "@bmi/typography";
-import IconList from "@bmi/icon-list";
-import Icon from "@bmi/icon";
+import { LeadBlock } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { IconList } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
 import CheckIcon from "@material-ui/icons/Check";
-import Button, { ButtonProps } from "@bmi/button";
 import { Launch } from "@material-ui/icons";
+import { AnchorLink } from "@bmi/components";
+import { AnchorLinkProps } from "@bmi/components";
 import { microCopy } from "../../constants/microCopies";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText from "../../components/RichText";
 import { Asset, Feature } from "../../components/types/pim";
 import withGTM from "../../utils/google-tag-manager";
+import {
+  getClickableActionFromUrl,
+  isExternalUrl
+} from "../../components/Link";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -63,7 +69,21 @@ const AboutLeadBlock = ({
   specification,
   sidebarItem
 }: Props) => {
-  const { getMicroCopy } = useSiteContext();
+  const { getMicroCopy, countryCode } = useSiteContext();
+  const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+  const isImageAsset = (asset: Asset) => {
+    return (
+      asset.realFileName?.indexOf(".jpg") > -1 ||
+      asset.realFileName?.indexOf(".png") > -1
+    );
+  };
+
+  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
+    (item) => !item.realFileName && item.url
+  );
+  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
+    isImageAsset(item)
+  );
 
   return (
     <LeadBlock className={styles["aboutLeadBlock"]}>
@@ -81,13 +101,36 @@ const AboutLeadBlock = ({
             <LeadBlock.Content.Heading variant="h6">
               {getMicroCopy(microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES)}
             </LeadBlock.Content.Heading>
-            {guaranteesAndWarranties.map((item, i) => (
+            {guaranteesImages?.map((item, i) => (
               <img
-                key={i}
+                key={`guarentee-img-${i}`}
                 src={item.url}
                 alt={item.name}
                 className={styles["image"]}
               />
+            ))}
+            {guaranteesAndWarrantiesLinks?.map((item, i) => (
+              <div key={`link-${i}`}>
+                <GTMAnchorLink
+                  action={getClickableActionFromUrl(
+                    undefined,
+                    item.url,
+                    countryCode,
+                    undefined,
+                    item.name
+                  )}
+                  gtm={{
+                    id: "cta-click1",
+                    label: item.name,
+                    action: item.url
+                  }}
+                  iconEnd
+                  {...(isExternalUrl(item.url) ? { isExternal: true } : {})}
+                  className={styles["inline-link"]}
+                >
+                  {item.name}
+                </GTMAnchorLink>
+              </div>
             ))}
           </LeadBlock.Content.Section>
         )}

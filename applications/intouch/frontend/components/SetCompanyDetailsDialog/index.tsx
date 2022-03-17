@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
-import Grid from "@bmi/grid";
-import Form from "@bmi/form";
-import Dialog from "@bmi/dialog";
-import Typography from "@bmi/typography";
-import TextField from "@bmi/text-field";
-import Select, { MenuItem } from "@bmi/select";
-import AlertBanner from "@bmi/alert-banner";
+import { Grid } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,
@@ -19,6 +19,7 @@ import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
 import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
+import { getNestedValue } from "../../lib/utils/object";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
 import { SetCompanyOperations } from "./SetCompanyOperations";
@@ -92,7 +93,7 @@ export const SetCompanyDetailsDialog = ({
       name: fieldName,
       label: t(`company-page:edit_dialog.form.fields.${fieldName}`),
       // eslint-disable-next-line security/detect-object-injection
-      defaultValue: (company && company[`${fieldName}`]) || "",
+      defaultValue: getNestedValue(company, fieldName) || "",
       fullWidth: true,
       fieldIsRequiredError: t("common:error_messages.required")
     }),
@@ -166,9 +167,9 @@ export const SetCompanyDetailsDialog = ({
 
               <Select {...getFieldProps("businessType")} isRequired>
                 {Object.entries(BUSINESS_TYPES).map(([key, businessType]) => (
-                  <MenuItem key={key} value={businessType}>
+                  <SelectMenuItem key={key} value={businessType}>
                     {t(`company-page:businessType.${businessType}`)}
-                  </MenuItem>
+                  </SelectMenuItem>
                 ))}
               </Select>
 
@@ -189,9 +190,9 @@ export const SetCompanyDetailsDialog = ({
               >
                 <Select {...getFieldProps("tier")} isRequired>
                   {Object.entries(TIERS).map(([, tier]) => (
-                    <MenuItem key={tier} value={tier}>
+                    <SelectMenuItem key={tier} value={tier}>
                       {t(`common:tier.${tier}`)}
-                    </MenuItem>
+                    </SelectMenuItem>
                   ))}
                 </Select>
               </AccessControl>

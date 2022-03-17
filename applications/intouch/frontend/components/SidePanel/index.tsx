@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 
 import { FilterInput } from "../FilterInput";
 import { FilterButton } from "../FilterButton";
@@ -15,6 +15,8 @@ export type SidePanelProps = {
   onSearchFilterChange?: (value: string) => void;
   children: React.ReactNode;
   renderFooter?: () => React.ReactNode;
+  orders?: Record<string, any>;
+  orderClick?: (order) => void;
 };
 
 export const SidePanel = ({
@@ -25,11 +27,16 @@ export const SidePanel = ({
   onSearchFilterChange,
   children,
   noResultLabel,
-  renderFooter
+  renderFooter,
+  orders,
+  orderClick
 }: SidePanelProps) => {
   const { t } = useTranslation("common");
   const handleButtonClick = (filter) => {
     filterClick && filterClick(filter);
+  };
+  const handleOrderButtonClick = (order) => {
+    orderClick && orderClick(order);
   };
   const handleInputOnChange = (value: string) => {
     onSearchFilterChange && onSearchFilterChange(value);
@@ -41,6 +48,15 @@ export const SidePanel = ({
       key={filter.attr}
       isActive={filter.isActive}
       onClick={() => handleButtonClick(filter)}
+    />
+  ));
+
+  const orderButtons = (orders || []).map((order) => (
+    <FilterButton
+      label={order.label}
+      key={order.attr}
+      isActive={order.isActive}
+      onClick={() => handleOrderButtonClick(order)}
     />
   ));
 
@@ -57,6 +73,13 @@ export const SidePanel = ({
               <span>{t("Show me")}:</span>
 
               {filterButtons}
+            </div>
+          )}
+          {orderButtons.length > 0 && (
+            <div className={styles.filterButtons}>
+              <span>{t("Sort by")}:</span>
+
+              {orderButtons}
             </div>
           )}
         </div>

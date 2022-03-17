@@ -1,16 +1,18 @@
 import React, { useMemo, useState } from "react";
-import Tabs from "@bmi/tabs";
+import {
+  AnchorLink,
+  Button,
+  Grid,
+  OverviewCard,
+  OverviewCardProps,
+  Section,
+  Tabs
+} from "@bmi/components";
 import { graphql, Link } from "gatsby";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import AddIcon from "@material-ui/icons/Add";
-import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import AnchorLink from "@bmi/anchor-link";
-import Button from "@bmi/button";
-import Section from "@bmi/section";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
-import { iconMap } from "../components/Icon";
 import {
   findMasterImageUrl,
   findProductBrandLogoCode,
@@ -19,8 +21,10 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
+import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
 const ProductListing = ({
@@ -102,16 +106,18 @@ const ProductListing = ({
           const brandLogo = iconMap[brandLogoCode];
           const productUrl = getProductUrl(countryCode, variant.path);
 
-          const mainImage = findMasterImageUrl([
-            ...(variant.images || []),
-            ...(product.images || [])
-          ]);
-
           // Find variant classifications that don't exist in the base product
           // TODO: May not be performant
           const uniqueClassifications = mapClassificationValues(
             findUniqueVariantClassifications(variant, classificationNamespace)
           );
+
+          const mainImage = findMasterImageUrl([
+            ...(variant.images || []),
+            ...(product.images || [])
+          ]);
+
+          const altText = `${uniqueClassifications} ${product.name}`;
 
           return (
             <Grid
@@ -127,7 +133,7 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                imageSource={mainImage}
+                media={renderMedia(mainImage, altText)}
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",

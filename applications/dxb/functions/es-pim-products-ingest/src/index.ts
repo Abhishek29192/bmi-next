@@ -1,11 +1,18 @@
 import { getEsClient } from "@bmi/functions-es-client";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { Product as PIMProduct, System } from "@bmi/pim-types";
+import { DeleteItemType } from "@bmi/gcp-pim-message-handler";
 import { updateElasticSearch } from "./elasticsearch";
 import { ProductVariant } from "./es-model";
 import { transformProduct } from "./transformProducts";
 import { EsSystem, transformSystem } from "./transformSystems";
-import { MessageFunction, ProductMessage, SystemMessage } from "./types";
+import {
+  DeleteMessage,
+  MessageFunction,
+  ProductMessage,
+  SystemMessage
+} from "./types";
+import { deleteESItemByCode } from "./deleteESItemByCode";
 
 const pingEsCluster = async () => {
   // get ES client
@@ -19,14 +26,16 @@ const pingEsCluster = async () => {
   });
 };
 
-const buildEsProducts = (products: readonly PIMProduct[]): ProductVariant[] => {
+export const buildEsProducts = (
+  products: readonly PIMProduct[]
+): ProductVariant[] => {
   return products.reduce(
     (allProducts, product) => [...allProducts, ...transformProduct(product)],
     [] as ProductVariant[]
   );
 };
 
-const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
+export const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
   return systems.reduce(
     (allSystems, system) => allSystems.concat(transformSystem(system)),
     [] as EsSystem[]
@@ -39,12 +48,12 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   await pingEsCluster();
 
-  let message: ProductMessage | SystemMessage;
-  message = data.data
+  const message: ProductMessage | SystemMessage | DeleteMessage = data.data
     ? JSON.parse(Buffer.from(data.data as string, "base64").toString())
     : {};
 
   const { type, itemType, items } = message;
+
   if (!items) {
     logger.warning({ message: "No items received" });
     return;
@@ -58,13 +67,21 @@ export const handleMessage: MessageFunction = async (data, context) => {
   }`
   });
 
-  const esDocuments: (ProductVariant | EsSystem)[] =
-    itemType === "PRODUCTS"
-      ? buildEsProducts(items as PIMProduct[])
-      : buildEsSystems(items as System[]);
+  const getEsDocuments = (): (ProductVariant | EsSystem)[] => {
+    if (type === "UPDATED") {
+      return itemType === "PRODUCTS"
+        ? buildEsProducts(items as PIMProduct[])
+        : buildEsSystems(items as System[]);
+    }
+    return [];
+  };
 
-  if (esDocuments.length === 0) {
-    logger.warning({ message: `ES Products not found. Ignoring the ${type}.` });
+  const esDocuments = getEsDocuments();
+
+  if (type === "UPDATED" && esDocuments.length === 0) {
+    logger.warning({
+      message: `ES Products not found. Ignoring the ${type}.`
+    });
     return;
   }
 
@@ -73,9 +90,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
       await updateElasticSearch(itemType, esDocuments);
       break;
     case "DELETED":
-      await updateElasticSearch(itemType, esDocuments, "delete");
+      await deleteESItemByCode(items as DeleteItemType[], itemType);
       break;
-    default:
-      logger.error({ message: `[ERROR]: Unrecognised message type [${type}]` });
   }
 };

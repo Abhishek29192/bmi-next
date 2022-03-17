@@ -35,7 +35,7 @@ See the [Work with Workspaces](https://gitlab.com/bmi-digital/dxb#work-with-work
 
 See [monorepo root README](https://gitlab.com/bmi-digital/dxb/-/tree/master#work-with-workspaces).
 
-Example: `yarn workspace @bmi/intouch-frontend add @bmi/button@0.0.0`
+Example: `yarn workspace @bmi/intouch-frontend add @bmi-digital/components/button@0.0.0`
 
 ## TypeScript code generation
 

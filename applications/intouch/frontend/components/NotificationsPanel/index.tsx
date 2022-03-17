@@ -4,7 +4,7 @@ import { Notification as NotificationType } from "@bmi/intouch-api-types";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isToday from "dayjs/plugin/isToday";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { Notification } from "../Notification";
 import styles from "./styles.module.scss";
 
@@ -63,7 +63,6 @@ const NotificationsSet = ({ notifications, title }: NotificationsSetProps) => {
             message={notification.body}
             date={notification.sendDate}
             read={notification.read}
-            id={notification.id}
           />
         ))}
       </div>

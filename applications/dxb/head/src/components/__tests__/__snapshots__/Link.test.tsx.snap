@@ -50,6 +50,17 @@ Object {
 exports[`Link component getCTA function returns a cta object with a simple page cta 1`] = `
 Object {
   "action": Object {
+    "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://somelink.com\\",\\"label\\":\\"string\\"}",
+    "href": "https://somelink.com",
+    "model": "download",
+  },
+  "label": "string",
+}
+`;
+
+exports[`Link component getCTA function returns a cta object with asset url 1`] = `
+Object {
+  "action": Object {
     "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}",
     "href": "https://www.external.co.uk",
     "model": "htmlLink",
@@ -80,8 +91,8 @@ exports[`Link component getCTA function returns a null object with page without 
 
 exports[`Link component getClickableActionFromUrl function internal urls doesn't open in a new window 1`] = `
 Object {
-  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://localhost\\"}",
-  "href": "http://localhost",
+  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"http://www.bmigroup.com\\"}",
+  "href": "http://www.bmigroup.com",
   "model": "htmlLink",
 }
 `;

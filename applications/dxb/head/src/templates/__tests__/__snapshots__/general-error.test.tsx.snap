@@ -287,11 +287,13 @@ exports[`General Error render correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -306,7 +308,7 @@ exports[`General Error render correctly 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-24 PrivateTabIndicator-colorSecondary-26 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -729,12 +731,12 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             >
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
                 href="https://www.external.co.uk"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   string
                 </span>
@@ -748,12 +750,12 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             >
               <button
                 aria-label="MC: menu.language"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button language-selection-button MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   <img
                     alt="Norge"
@@ -784,7 +786,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -810,15 +812,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
         class="back-navigation"
       >
         <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton back-button MuiButton-textPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton back-button MuiButton-textPrimary"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiButton-label buttonStyles-label-28"
+            class="MuiButton-label buttonStyles-label-31"
           >
             <span
-              class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+              class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
             >
               <svg
                 aria-hidden="true"
@@ -864,15 +866,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/al"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -893,15 +895,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/at"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -922,15 +924,15 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 >
                   <a
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton link MuiButton-textPrimary"
+                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
                     href="/no"
                     tabindex="0"
                   >
                     <span
-                      class="MuiButton-label buttonStyles-label-28"
+                      class="MuiButton-label buttonStyles-label-31"
                     >
                       <span
-                        class="MuiButton-startIcon buttonStyles-startIcon-29 MuiButton-iconSizeMedium"
+                        class="MuiButton-startIcon buttonStyles-startIcon-32 MuiButton-iconSizeMedium"
                       >
                         <img
                           class="LanguageIcon"
@@ -994,11 +996,13 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="https://www.external.co.uk"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -1013,7 +1017,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-45 PrivateTabIndicator-colorSecondary-47 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-51 PrivateTabIndicator-colorSecondary-53 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>
@@ -1024,7 +1028,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             >
               <button
                 aria-label="MC: search.label"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 search-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 search-button"
                 tabindex="0"
                 type="button"
               >
@@ -1048,7 +1052,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               </button>
               <button
                 aria-label="MC: menu.open"
-                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-text-38 burger-button"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-text-41 burger-button"
                 tabindex="0"
                 type="button"
               >
@@ -1086,7 +1090,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     >
       <button
         aria-label="MC: global.close"
-        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
         tabindex="0"
         type="button"
       >
@@ -1125,13 +1129,13 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             <li>
               <a
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   string
                 </span>
@@ -1146,13 +1150,13 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               <li>
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="https://www.external.co.uk"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     string
                   </span>
@@ -1164,13 +1168,13 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
             </ul>
             <li>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"NO\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-28"
+                  class="MuiButton-label buttonStyles-label-31"
                 >
                   <span
                     class="LanguageButtonContent"
@@ -1217,7 +1221,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       >
         <button
           aria-label="MC: global.close"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 close-button"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
           tabindex="0"
           type="button"
         >
@@ -1285,12 +1289,12 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   Error:General.subtitle
                 </p>
                 <button
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-contained buttonStyles-contained-27 MuiButton-containedPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-contained buttonStyles-contained-30 MuiButton-containedPrimary"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     Error:General.cta.label
                   </span>
@@ -1349,7 +1353,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 buttonStyles-textDarkBg-30 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                   href="https://www.external.co.uk"
                   rel="noopener noreferrer"
@@ -1357,7 +1361,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   target="_blank"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     string
                   </span>
@@ -1371,14 +1375,14 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               >
                 <a
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 buttonStyles-textDarkBg-30 link MuiButton-textPrimary"
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
                   data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/no/sitemap\\"}"
                   href="/no/sitemap"
                   role="button"
                   tabindex="0"
                 >
                   <span
-                    class="MuiButton-label buttonStyles-label-28"
+                    class="MuiButton-label buttonStyles-label-31"
                   >
                     MC: global.sitemap
                   </span>
@@ -1404,12 +1408,12 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
     <button
       aria-hidden="true"
       aria-label="Back to the top"
-      class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-contained buttonStyles-contained-27 button MuiButton-containedPrimary"
+      class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-contained buttonStyles-contained-30 button MuiButton-containedPrimary"
       tabindex="-1"
       type="button"
     >
       <span
-        class="MuiButton-label buttonStyles-label-28"
+        class="MuiButton-label buttonStyles-label-31"
       >
         <svg
           aria-hidden="true"

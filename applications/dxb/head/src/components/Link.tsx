@@ -1,6 +1,6 @@
 import uniqueId from "lodash-es/uniqueId";
-import Clickable, { ClickableAction } from "@bmi/clickable";
-import Dialog from "@bmi/dialog";
+import { Clickable, ClickableAction } from "@bmi/components";
+import { Dialog } from "@bmi/components";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
 import { Data as SimplePageData } from "../templates/simplePage/components/simple-page";
@@ -28,10 +28,14 @@ export enum DataTypeEnum {
   HubSpotCta = "HubSpot CTA"
 }
 
+const internalHosts = process.env.GATSBY_INTERNAL_HOSTS?.split(",") || [
+  "www.bmigroup.com"
+];
+
 export const isExternalUrl = (url: string): boolean => {
   try {
     const linkUrl = new URL(url);
-    return linkUrl.host !== window.location.host;
+    return !internalHosts.includes(linkUrl.host);
   } catch (e) {
     return false;
   }
@@ -51,7 +55,7 @@ export const getClickableActionFromUrl = (
     label: string;
     action: string;
   }
-): ClickableAction | undefined => {
+): (ClickableAction & { "data-gtm"?: string }) | undefined => {
   if (type === DataTypeEnum.Visualiser) {
     const dataGtm = gtmData || {
       id: "cta-visualiser1",
@@ -62,7 +66,6 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -77,7 +80,6 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -87,7 +89,6 @@ export const getClickableActionFromUrl = (
     return {
       model: "default",
       onClick,
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -101,7 +102,6 @@ export const getClickableActionFromUrl = (
     return {
       model: "download",
       href: assetUrl,
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -121,7 +121,6 @@ export const getClickableActionFromUrl = (
       model: "routerLink",
       to,
       linkComponent: GatsbyLink,
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }
@@ -138,7 +137,6 @@ export const getClickableActionFromUrl = (
       model: "htmlLink",
       href: url,
       ...(checkUrlAction(url) || !isExternalUrl(url) ? {} : externalLinkProps),
-      // @ts-ignore data-gtm is not defined but a general html attribute
       "data-gtm": JSON.stringify(dataGtm)
     };
   }

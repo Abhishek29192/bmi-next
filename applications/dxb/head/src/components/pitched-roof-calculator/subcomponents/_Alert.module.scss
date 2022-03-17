@@ -1,0 +1,13 @@
+@import "~@bmi-digital/styles";
+
+.Alert {
+  margin: 0px -30px;
+
+  &--first {
+    margin-top: 60px;
+  }
+
+  &--last {
+    margin-bottom: 60px;
+  }
+}

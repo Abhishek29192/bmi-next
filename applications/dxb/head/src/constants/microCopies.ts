@@ -82,7 +82,9 @@ export const microCopy = {
     "pdp.leadBlock.technicalSpecifications",
   PDP_LEAD_BLOCK_DOCUMENTS: "pdp.leadBlock.documents",
   PDP_LEAD_BLOCK_BIM: "pdp.leadBlock.bim",
+  PDP_LEAD_BLOCK_FIXING_TOOL: "pdp.leadBlock.fixingTool",
   PDP_LEAD_BLOCK_TECHNICAL_DRAWINGS: "pdp.leadBlock.technicalDrawings",
+  PDP_LEAD_BLOCK_SPECIFICATION: "pdp.leadBlock.specification",
   PDP_NOBB_LABEL: "pdp.nobb.label",
   PDP_NO_TECH_SPEC_MESSAGE: "pdp.noTechSpecMessage",
   PDP_RELATED_PRODUCTS_VIEW_DETAILS: "pdp.relatedProducts.viewDetails",
@@ -121,6 +123,7 @@ export const microCopy = {
   FORM_UPLOAD_SUPPORTED_FORMATS: "form.upload.supportedFormats",
   FORM_UPLOAD_MAX_SIZE: "form.upload.maxSize",
   FORM_SUBMIT: "form.submit",
+  FORM_NONE_SELECTION: "form.none.selection",
 
   MENU_LANGUAGE: "menu.language",
   MENU_OPEN: "menu.open",

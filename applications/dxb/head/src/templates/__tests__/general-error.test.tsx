@@ -85,13 +85,14 @@ describe("General Error", () => {
         countryNavigationIntroduction: null,
         maximumSamples: null,
         sampleBasketLink: null,
-        keyAssetTypes: null
+        keyAssetTypes: null,
+        pdpFixingToolTitle: null,
+        pdpFixingToolDescription: null,
+        pdpSpecificationTitle: null,
+        pdpSpecificationDescription: null
       },
       headScripts: null,
-      scriptGA: null,
       scriptOnetrust: null,
-      scriptHotJar: null,
-      scriptGOptLoad: null,
       regions: [
         {
           label: "Europe",

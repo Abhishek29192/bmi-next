@@ -4,8 +4,8 @@ import {
   Firestore,
   Query
 } from "@bmi/functions-firestore";
-import logger from "@bmi/functions-logger";
-import { FirestoreCollections } from "./firestore-collections";
+import logger from "@bmi-digital/functions-logger";
+import { FirestoreCollections } from "./firestoreCollections";
 
 async function deleteQueryBatch(db: Firestore, query: Query<DocumentData>) {
   let snapshot = await query.get();

@@ -10,14 +10,10 @@ import React, {
 import { graphql } from "gatsby";
 import axios, { AxiosResponse, CancelToken } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import ConfiguratorPanel from "@bmi/configurator-panel";
-import Section from "@bmi/section";
-import RadioPane, { RadioPaneProps } from "@bmi/radio-pane";
-import Grid from "@bmi/grid";
+import { Section } from "@bmi/components";
+import { RadioPane, RadioPaneProps } from "@bmi/components";
+import { Grid } from "@bmi/components";
 import { useLocation, navigate } from "@reach/router";
-import { SystemCard } from "../components/RelatedSystems";
-import ProgressIndicator from "../components/ProgressIndicator";
-import Scrim from "../components/Scrim";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import * as storage from "../utils/storage";
@@ -26,6 +22,10 @@ import { queryElasticSearch } from "../utils/elasticSearch";
 import { generateSystemPath } from "../utils/systems";
 import { getPathWithCountryCode } from "../utils/path";
 import { System } from "./types/pim";
+import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
+import { SystemCard } from "./RelatedSystems";
+import ProgressIndicator from "./ProgressIndicator";
+import Scrim from "./Scrim";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
@@ -172,7 +172,10 @@ const SystemConfiguratorBlock = ({
 
   const { answers = [], description } = rest;
 
-  const handleOnChange = (event: ChangeEvent<{}>, isExpanded: boolean) => {
+  const handleOnChange = (
+    event: ChangeEvent<Record<string, unknown>>,
+    isExpanded: boolean
+  ) => {
     if (!isExpanded) {
       setState((state) => ({ ...state, openIndex: null }));
       return;
@@ -357,6 +360,7 @@ const SystemConfiguratorBlockResultSection = ({
                 const linkToSDP = `${system.path}/?selected_system=${system.code}&prev_page=${window.location.pathname}&referer=sys_details`;
                 return (
                   <SystemCard
+                    data-testid={system.code}
                     key={`${system.code}-${id}`}
                     system={system}
                     countryCode={countryCode}

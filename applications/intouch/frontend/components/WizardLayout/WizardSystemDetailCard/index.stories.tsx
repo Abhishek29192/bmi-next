@@ -32,7 +32,9 @@ export const Basic = ({ name, description }: WizardSystemDetailCardProp) => (
         name={name}
         description={description}
         products={products}
-        onDeleteClick={() => {}}
+        onDeleteClick={() => {
+          // no-op
+        }}
       />
     </div>
   </div>

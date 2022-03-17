@@ -1,5 +1,5 @@
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
@@ -24,7 +24,10 @@ const {
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
 } = process.env;
 
-const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
+const fetchData = async (
+  body: Record<string, any>,
+  remainingRetries = 5
+): Promise<any> => {
   const contentfulToken = await getSecret(WEBTOOLS_CONTENTFUL_TOKEN_SECRET!);
 
   const requestOptions = {

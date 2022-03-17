@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useCallback } from "react";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import React, { useMemo, useState, useCallback, useEffect } from "react";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
@@ -66,16 +66,16 @@ const Projects = ({
   });
 
   const sortedProjects = useMemo(
-    () => sortProjects(projects?.nodes, isPowerfulUser),
-    [projects?.nodes]
+    () => sortProjects(projects.nodes, isPowerfulUser),
+    [projects.nodes]
   );
 
   const activeProject = useMemo(() => {
     const { project } = router.query;
     if (project && project.length) {
-      return projects.nodes.find(({ id }) => id === parseInt(project[0]));
+      return parseInt(project[0]);
     }
-  }, [router.query, sortedProjects]);
+  }, [router.query]);
 
   const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
@@ -83,13 +83,17 @@ const Projects = ({
 
   const getProjectsCallBack = useCallback(() => getProjects(), [getProjects]);
 
+  useEffect(() => {
+    getProjectsCallBack();
+  }, [activeProject]);
+
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
       <div className={layoutStyles.sidePanelWrapper}>
         <ProjectSidePanel
           projects={sortedProjects}
           onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProject?.id}
+          selectedProjectId={activeProject}
         />
 
         <Grid
@@ -111,7 +115,7 @@ const Projects = ({
             </Grid>
           ) : (
             <ProjectDetail
-              projectId={activeProject.id}
+              projectId={activeProject}
               onUpdateGuarantee={getProjectsCallBack}
             />
           )}
@@ -167,11 +171,12 @@ export const getServerSideProps = withPage(
     const isPowerfulUser = isSuperOrMarketAdmin(account);
 
     // If trying to access a specific project, check if it's accessible
-    if (params?.project && params?.project.length) {
+    if (params.project) {
       const found = projectsByMarket?.nodes.find(
-        ({ id }) => id === parseInt(params.project[0])
+        ({ id }) => id === parseInt(params.project)
       );
 
+      /* istanbul ignore else */
       if (!found) {
         const statusCode = ErrorStatusCode.NOT_FOUND;
         res.statusCode = statusCode;
@@ -184,13 +189,13 @@ export const getServerSideProps = withPage(
       // Otherwise, redirect to first accessible project, if any
     } else if (projectsByMarket?.nodes.length) {
       const sortedProjects = sortProjects(
-        projectsByMarket?.nodes,
+        projectsByMarket.nodes,
         isPowerfulUser
       );
       return {
         redirect: {
           permanent: false,
-          destination: `/projects/${sortedProjects[0]?.id}`
+          destination: `/projects/${sortedProjects[0].id}`
         }
       };
     }

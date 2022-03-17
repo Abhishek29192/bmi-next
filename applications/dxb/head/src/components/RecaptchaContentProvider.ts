@@ -1,10 +1,10 @@
 export type RecaptchaPolicyContentType = {
-  startText: String;
-  privacyPloicyText: String;
-  privacyPolicyUrl: String;
-  andText: String;
-  termsOfServiceText: String;
-  termsOfServiceUrl: String;
+  startText: string;
+  privacyPloicyText: string;
+  privacyPolicyUrl: string;
+  andText: string;
+  termsOfServiceText: string;
+  termsOfServiceUrl: string;
   endText: string;
 };
 

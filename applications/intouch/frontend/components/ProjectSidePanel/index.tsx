@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import Icon, { FlatRoof, PitchedRoof } from "@bmi/icon";
+import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
@@ -282,6 +282,7 @@ export const ProjectSidePanel = ({
               onClick={() => {
                 onProjectSelected && onProjectSelected(id);
               }}
+              testId={"projectCard"}
             >
               <Typography>{filterResultBody}</Typography>
               <Typography style={{ display: "flex" }}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
 
 const EmailVerification = () => {
   const { t } = useTranslation("email-verification");

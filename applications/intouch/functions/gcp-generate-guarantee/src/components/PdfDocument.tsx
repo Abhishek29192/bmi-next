@@ -104,7 +104,6 @@ export const PdfDocument = ({
           </View>
         </Col>
       </Row>
-
       <Row>
         <Col width={250}>
           <Typography variant="h3" marginBottom={20}>
@@ -135,7 +134,6 @@ export const PdfDocument = ({
             values={[template.roofType]}
           />
         </Col>
-
         <Col width={250}>
           <Typography variant="h3" marginBottom={20}>
             {template.headingContractor}
@@ -171,9 +169,8 @@ export const PdfDocument = ({
           />
         </Col>
       </Row>
-
-      <View marginTop={20} marginBottom={20}>
-        <Img src={signatureEncoded} width={150} />
+      <View marginBottom={20}>
+        <Img src={signatureEncoded} maxWidth={100} maxHeight={100} />
         <Typography>{template.signatory}</Typography>
       </View>
 

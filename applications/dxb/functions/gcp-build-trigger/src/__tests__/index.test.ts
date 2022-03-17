@@ -6,7 +6,7 @@ import {
   mockRequest as fetchMockRequest,
   mockResponse,
   mockResponses
-} from "@bmi/fetch-mocks";
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -29,8 +29,8 @@ jest.mock("@google-cloud/monitoring", () => {
   return { MetricServiceClient: mMetricServiceClient };
 });
 
-const build = (request: Partial<Request>, response: Partial<Response>) =>
-  require("../index").build(request, response);
+const build = async (request: Partial<Request>, response: Partial<Response>) =>
+  (await import("../index")).build(request as Request, response as Response);
 
 beforeAll(() => {
   mockConsole();

@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Breadcrumbs, { Props as BreadcrumbsProps } from "@bmi/breadcrumbs";
-import { useSiteContext } from "../components/Site";
+import { Breadcrumbs, BreadcrumbsProps } from "@bmi/components";
 import { getClickableActionFromUrl } from "./Link";
+import { useSiteContext } from "./Site";
 import { BreadcrumbItem } from "./types/BreadcrumbTypeBase";
 
 export type Data = BreadcrumbItem[];

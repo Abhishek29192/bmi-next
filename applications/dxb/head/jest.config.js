@@ -10,10 +10,11 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      statements: "70",
-      branches: "60",
-      functions: "68",
-      lines: "70"
+      statements: "82",
+      branches: "73",
+      functions: "82",
+      lines: "82"
     }
-  }
+  },
+  resolver: "@bmi/jest-node-exports-resolver"
 };

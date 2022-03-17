@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Section from "@bmi/section";
-import Tabs from "@bmi/tabs";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import Typography from "@bmi/typography";
 import withGTM from "../utils/google-tag-manager";
 import RichText from "../components/RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
@@ -26,26 +26,28 @@ const SectionAccordion = ({
 }) => {
   return (
     <Accordion>
-      {items.map(({ title, content }) => {
-        return (
-          <Accordion.Item key={title}>
-            <GTMAccordionSummary
-              gtm={{
-                id: "selector-accordion1",
-                label: title,
-                action: "Selector – Accordion"
-              }}
-            >
-              <Typography component="h3" variant="h6">
-                {title}
-              </Typography>
-            </GTMAccordionSummary>
-            <Accordion.Details>
-              <RichText document={content} />
-            </Accordion.Details>
-          </Accordion.Item>
-        );
-      })}
+      {items.length > 0 &&
+        items.map(({ title, name, content }) => {
+          const newTitle = title || name;
+          return (
+            <Accordion.Item key={title}>
+              <GTMAccordionSummary
+                gtm={{
+                  id: "selector-accordion1",
+                  label: newTitle,
+                  action: "Selector – Accordion"
+                }}
+              >
+                <Typography component="h3" variant="h6">
+                  {newTitle}
+                </Typography>
+              </GTMAccordionSummary>
+              <Accordion.Details>
+                <RichText document={content} />
+              </Accordion.Details>
+            </Accordion.Item>
+          );
+        })}
     </Accordion>
   );
 };
@@ -64,15 +66,17 @@ const SectionTabs = ({ items }: { items: readonly TitleWithContentData[] }) => {
         />
       )}
       theme="primary"
-      initialValue={items[0].title}
+      initialValue={items.length > 0 ? items[0].title || items[0].name : null}
     >
-      {items.map(({ title, content }) => {
-        return (
-          <Tabs.TabPanel heading={title} index={title} key={title}>
-            <RichText document={content} />
-          </Tabs.TabPanel>
-        );
-      })}
+      {items.length > 0 &&
+        items.map(({ title, content, name }) => {
+          const newTitle = title || name;
+          return (
+            <Tabs.TabPanel heading={newTitle} index={newTitle} key={newTitle}>
+              <RichText document={content} />
+            </Tabs.TabPanel>
+          );
+        })}
     </Tabs>
   );
 };

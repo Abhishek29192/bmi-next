@@ -4,3 +4,5 @@ export * from "./SearchLocationBlock";
 export * from "./ServiceLocatorChips";
 export * from "./ServiceLocatorResultList";
 export * from "./ServiceLocatorMap";
+export * from "./useScrollTo";
+export * from "./CompanyDetails";

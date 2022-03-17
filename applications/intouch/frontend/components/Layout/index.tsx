@@ -1,9 +1,9 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import Head from "next/head";
-import Icon from "@bmi/icon";
-import BmiThemeProvider from "@bmi/theme-provider";
-import { BMI } from "@bmi/logo";
+import { Icon } from "@bmi/components";
+import { ThemeProvider } from "@bmi/components";
+import { BMI } from "@bmi/components";
 import { Sidebar } from "../Sidebar";
 import { Header } from "../Header";
 import { Footer, Props as FooterProps } from "../Footer";
@@ -66,7 +66,7 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
   const notifications = pageData.notifications?.nodes;
 
   return (
-    <BmiThemeProvider>
+    <ThemeProvider>
       <div>
         <Head>
           <title>BMI InTouch</title>
@@ -112,6 +112,6 @@ export const Layout = ({ children, title, pageData = {} }: LayoutProps) => {
           </div>
         </div>
       </div>
-    </BmiThemeProvider>
+    </ThemeProvider>
   );
 };

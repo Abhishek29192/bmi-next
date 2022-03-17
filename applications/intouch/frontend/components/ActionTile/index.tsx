@@ -1,8 +1,8 @@
 import React from "react";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
-import { BMI } from "@bmi/logo";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { BMI } from "@bmi/components";
 import classnames from "classnames";
 import styles from "./styles.module.scss";
 

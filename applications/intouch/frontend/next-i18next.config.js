@@ -12,33 +12,37 @@ const multiMarketDomains =
         { domain: `dev-it.${baseUrlDomain}`, defaultLocale: "it_IT" },
         { domain: `dev-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `dev-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
-        { domain: `dev-dk.${baseUrlDomain}`, defaultLocale: "da_DK" }
+        { domain: `dev-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
+        { domain: `dev-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
       ]
     : process.env.APP_ENV === "uat"
     ? [
         { domain: `uat-it.${baseUrlDomain}`, defaultLocale: "it_IT" },
         { domain: `uat-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `uat-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
-        { domain: `uat-dk.${baseUrlDomain}`, defaultLocale: "da_DK" }
+        { domain: `uat-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
+        { domain: `uat-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
       ]
     : process.env.APP_ENV === "preprod"
     ? [
         { domain: `preprod-it.${baseUrlDomain}`, defaultLocale: "it_IT" },
         { domain: `preprod-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `preprod-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
-        { domain: `preprod-dk.${baseUrlDomain}`, defaultLocale: "da_DK" }
+        { domain: `preprod-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
+        { domain: `preprod-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
       ]
     : [
         { domain: `it.${baseUrlDomain}`, defaultLocale: "it_IT" },
         { domain: `en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
-        { domain: `dk.${baseUrlDomain}`, defaultLocale: "da_DK" }
+        { domain: `dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
+        { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DE" }
       ];
 
 module.exports = {
   i18n: {
     localeDetection: false,
-    locales: ["en_EN", "nb_NO", "it_IT", "da_DK"],
+    locales: ["en_EN", "nb_NO", "it_IT", "da_DK", "de_DE"],
     defaultLocale: "en_EN",
     domains: multiMarketDomains
   }

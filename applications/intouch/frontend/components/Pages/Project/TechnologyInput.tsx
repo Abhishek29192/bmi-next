@@ -1,18 +1,19 @@
 import React, { useEffect, useContext } from "react";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import { FormContext, ValidationResult } from "@bmi/form";
-import Grid from "@bmi/grid";
-import RadioGroup from "@bmi/radio-group";
-import Typography from "@bmi/typography";
-import Icon, { FlatRoof, PitchedRoof } from "@bmi/icon";
-import { Props as TextFieldProps } from "@bmi/text-field";
+import { FormContext, ValidationResult } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { RadioGroup } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
+import { TextFieldProps } from "@bmi/components";
 import { getFieldValueLabel } from "./Form";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
 
-const FlatIconWrapper: React.FunctionComponent<React.SVGProps<SVGSVGElement>> =
-  (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
+const FlatIconWrapper: React.FunctionComponent<
+  React.SVGProps<SVGSVGElement>
+> = (props) => <FlatRoof viewBox="0 7 48 48" {...props} />;
 
 // TODO: Use this once "OTHER" is removed from it
 const technologyIcons: Record<

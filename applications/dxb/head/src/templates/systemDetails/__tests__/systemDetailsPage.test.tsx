@@ -2,10 +2,10 @@ import React from "react";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import Component from "../systemDetailsPage";
-import { System, AssetAssetType, Asset } from "../../../components/types/pim";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
+import { Asset, AssetAssetType, System } from "../../../components/types/pim";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
 
@@ -82,6 +82,31 @@ describe("SystemDetailsPage template component", () => {
 
     expect(container).toMatchSnapshot();
     expect(tabSection).toBeInTheDocument();
+  });
+
+  it("should render without systemLayers", async () => {
+    process.env.SPACE_MARKET_CODE = "no";
+    const systemDetails = createSystemDetails({ systemLayers: null });
+    const { container } = renderWithRouter(
+      <SystemDetailsPage
+        data={{
+          contentfulSite: createMockSiteData(),
+          shareWidget: null,
+          systems: systemDetails,
+          allContentfulAssetType
+        }}
+        pageContext={{
+          systemPageId,
+          siteId
+        }}
+      />
+    );
+
+    const layersRelatedProducts = container.querySelector(
+      "Zanda Protector normalstein"
+    );
+    expect(container).toMatchSnapshot();
+    expect(layersRelatedProducts).not.toBeInTheDocument();
   });
 
   describe("should have function to", () => {

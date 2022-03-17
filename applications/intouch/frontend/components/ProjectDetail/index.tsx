@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
-import Grid from "@bmi/grid";
-import Tabs from "@bmi/tabs";
-import Typography from "@bmi/typography";
+import { Grid } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import can from "../../lib/permissions/can";

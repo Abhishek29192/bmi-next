@@ -1,4 +1,4 @@
-@import "@bmi/styles";
+@import "~@bmi-digital/styles";
 
 .main {
   background-color: $color-white;
@@ -30,13 +30,6 @@
 
 .filterButtons {
   margin-top: 1rem;
-
-  span {
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 0.5em;
-    padding-bottom: 0.5em;
-  }
 }
 
 .results {

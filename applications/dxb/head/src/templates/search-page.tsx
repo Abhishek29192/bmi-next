@@ -1,11 +1,11 @@
-import Hero from "@bmi/hero";
-import Container from "@bmi/container";
-import Section from "@bmi/section";
-import Tabs from "@bmi/tabs";
-import { QUERY_KEY } from "@bmi/search";
+import { Hero } from "@bmi/components";
+import { Container } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { Tabs } from "@bmi/components";
+import { Filter } from "@bmi/components";
+import { QUERY_KEY } from "@bmi/components";
 import { graphql } from "gatsby";
 import React, { useEffect, useMemo, useState, FormEvent } from "react";
-import { Filter } from "@bmi/filters";
 import { microCopy } from "../constants/microCopies";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
@@ -150,7 +150,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
       };
 
       // Find first one that has some results and set it to display
-      for (let tabKey in newResults) {
+      for (const tabKey in newResults) {
         // eslint-disable-next-line security/detect-object-injection
         const config = newResults[tabKey];
         if (config.count) {

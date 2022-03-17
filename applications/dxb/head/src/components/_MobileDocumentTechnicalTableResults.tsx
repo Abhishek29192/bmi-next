@@ -1,17 +1,20 @@
 import React from "react";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Button, { IconButtonProps } from "@bmi/button";
-import Clickable, { ClickableProps } from "@bmi/clickable";
-import Icon, { iconMap } from "@bmi/icon";
-import withGTM from "../utils/google-tag-manager";
 import {
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../components/types/PIMDocumentBase";
+  Accordion,
+  AccordionSummaryProps,
+  Button,
+  Clickable,
+  ClickableProps,
+  Icon,
+  IconButtonProps,
+  iconMap
+} from "@bmi/components";
+import withGTM from "../utils/google-tag-manager";
 import AssetHeader from "./_AssetHeader";
 import { Data as AssetTypeData } from "./AssetType";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 
 interface Props {
   documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
@@ -59,7 +62,9 @@ const MobileDocumentTechnicalTableResults = ({
                     <div className={styles["icon-container"]}>
                       {asset.__typename !== "PIMLinkDocument" ? (
                         <Icon
-                          source={fileIconsMap[asset.format]}
+                          source={
+                            fileIconsMap[asset.format] || iconMap.External
+                          }
                           className={styles["format-icon"]}
                         />
                       ) : (

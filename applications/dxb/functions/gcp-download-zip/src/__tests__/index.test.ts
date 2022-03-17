@@ -4,7 +4,11 @@ import path from "path";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { mockRequest, mockResponse, mockResponses } from "@bmi/fetch-mocks";
+import {
+  mockRequest,
+  mockResponse,
+  mockResponses
+} from "@bmi-digital/fetch-mocks";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -17,7 +21,7 @@ const mockDocument = (
 const recaptchaSecret = "recaptcha-secret";
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 
@@ -759,9 +763,10 @@ describe("Making a POST request", () => {
       }
     );
 
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    let writeStream = fs.createWriteStream(temporaryFile);
-    createWriteStream.mockImplementation(() => writeStream);
+    createWriteStream.mockImplementation(() =>
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
+      fs.createWriteStream(temporaryFile)
+    );
     publicUrl.mockImplementation(() => "https://somewhere/file.zip");
 
     await download(req, res);

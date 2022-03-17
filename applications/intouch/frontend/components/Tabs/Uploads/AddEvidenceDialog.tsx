@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import Dialog from "@bmi/dialog";
-import Upload from "@bmi/upload";
-import Select, { MenuItem } from "@bmi/select";
+import { Dialog } from "@bmi/components";
+import { Upload } from "@bmi/components";
+import { Select, SelectMenuItem } from "@bmi/components";
 import {
   ContentfulEvidenceCategory,
   CustomEvidenceCategoryKey,
@@ -22,7 +22,7 @@ type AddEvidenceDialogProps = {
   ) => void;
 };
 //You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-const MAX_FILE_SIZE: number = 25;
+const MAX_FILE_SIZE = 40;
 
 type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
 
@@ -71,13 +71,13 @@ export const AddEvidenceDialog = ({
               value={evidenceCategoryKey}
               fullWidth={true}
             >
-              <MenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
+              <SelectMenuItem value={"MISCELLANEOUS"} key={"MISCELLANEOUS"}>
                 {t("MISCELLANEOUS")}
-              </MenuItem>
+              </SelectMenuItem>
               {evidenceCategories.map(({ referenceCode, name }, index) => (
-                <MenuItem value={referenceCode} key={referenceCode}>
+                <SelectMenuItem value={referenceCode} key={referenceCode}>
                   {name}
-                </MenuItem>
+                </SelectMenuItem>
               ))}
             </Select>
           )}
@@ -89,7 +89,9 @@ export const AddEvidenceDialog = ({
           buttonLabel={t("upload_tab.add_evidence_modal.button_label")}
           accept=".pdf,.jpg,.jpeg,.png"
           instructions={t("upload_tab.add_evidence_modal.instruction")}
-          mapValue={() => {}}
+          mapValue={() => {
+            // no-op
+          }}
           mapBody={(file) => ({ file })}
           microcopyProvider={{
             "upload.instructions.drop": t(

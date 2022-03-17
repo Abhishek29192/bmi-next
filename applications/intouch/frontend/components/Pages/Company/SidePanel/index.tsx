@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { SvgIcon } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
@@ -16,6 +16,16 @@ type CompaniesSidePanelProps = {
 };
 
 // TODO: refactor Filter to be more generic & re-used across projects, companies, team, etc.
+const INITIAL_ORDER_SELECTION = "ALPHABETICAL";
+const getCompaniesOrders = (t) => {
+  return [
+    {
+      label: t("company-page:order.labels.ALPHABETICAL"),
+      attr: "ALPHABETICAL"
+    },
+    { label: t("company-page:order.labels.UPDATED"), attr: "UPDATED" }
+  ];
+};
 
 export const CompaniesSidePanel = ({
   companies,
@@ -24,15 +34,35 @@ export const CompaniesSidePanel = ({
 }: CompaniesSidePanelProps) => {
   const { t } = useTranslation(["common", "company-page"]);
 
+  const [orderSelection, setOrderSelection] = useState<string>(
+    INITIAL_ORDER_SELECTION
+  );
+
+  const handleOrderChange = ({ attr }) => {
+    setOrderSelection(attr);
+  };
+
+  const companyOrders = useMemo(() => getCompaniesOrders(t), [t]);
+  const orderOptions = useMemo(() => {
+    return companyOrders.map((filter) => ({
+      ...filter,
+      isActive: filter.attr === orderSelection
+    }));
+  }, [companyOrders, orderSelection]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredCompanies = useMemo(() => {
-    return companies.filter(({ name }) => {
-      const query = searchQuery.toLowerCase().trim();
-      const matchesQuery = (name || "").toLowerCase().includes(query);
-      return matchesQuery;
-    });
-  }, [companies, searchQuery]);
+    return companies
+      .filter(({ name }) => {
+        const query = searchQuery.toLowerCase().trim();
+        return (name || "").toLowerCase().includes(query);
+      })
+      .sort((a, b) => {
+        return orderSelection === "UPDATED"
+          ? new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+          : a.name?.localeCompare(b.name);
+      });
+  }, [companies, searchQuery, orderSelection]);
 
   return (
     <SidePanel
@@ -45,6 +75,8 @@ export const CompaniesSidePanel = ({
           <CompanyReport disabled={companies?.length === 0} />
         </AccessControl>
       )}
+      orders={orderOptions}
+      orderClick={handleOrderChange}
     >
       {filteredCompanies.map(({ id, name, isProfileComplete }) => (
         <FilterResult
@@ -54,6 +86,7 @@ export const CompaniesSidePanel = ({
             onItemSelected && onItemSelected(id);
           }}
           isSelected={selectedItemId === id}
+          testId="companyCard"
         >
           <Typography style={{ display: "flex" }}>
             {isProfileComplete && (

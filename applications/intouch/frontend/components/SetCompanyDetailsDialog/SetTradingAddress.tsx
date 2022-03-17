@@ -7,20 +7,23 @@ import React, {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { Point } from "@bmi/intouch-api-types";
-import { FormContext } from "@bmi/form";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { FormContext } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 // if this MR which updates "withFormControl", is compatible with DXB
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 // we can just use the controlled "TextField" instead of wrapping it with a forked withFormControl
-import { Props as TextFieldProps, TextField } from "@bmi/text-field";
+import { TextFieldProps, TextField } from "@bmi/components";
 import withFormControlWithFormValues from "../withFormControlForked";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
 import { AddressAutocomplete } from "../AddressAutocomplete";
+import { getNestedValue } from "../../lib/utils/object";
 import styles from "./styles.module.scss";
 
-const ControlledTextInput =
-  withFormControlWithFormValues<TextFieldProps, string>(TextField);
+const ControlledTextInput = withFormControlWithFormValues<
+  TextFieldProps,
+  string
+>(TextField);
 
 type Props = {
   existingTradingAddress: GetCompanyQuery["company"]["tradingAddress"];
@@ -70,7 +73,7 @@ export const SetTradingAddress = ({
       const formValue = (key) => ({
         // return "" in case of empty field, in order to re-render the input field
         // eslint-disable-next-line security/detect-object-injection
-        [`tradingAddress.${key}`]: updatedAddress[`${key}`] || ""
+        [`tradingAddress.${key}`]: getNestedValue(updatedAddress, key) || ""
       });
 
       updateFormState(

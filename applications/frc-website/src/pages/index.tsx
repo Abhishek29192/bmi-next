@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "@bmi/hero";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Button from "@bmi/button";
+import { Hero } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { Link } from "gatsby";
 import {
   parse as queryString,
@@ -19,7 +19,7 @@ import landing from "../images/landing.jpg";
 
 const VALUES_PARAM = "v";
 
-const getLink = (page, values: object): string => {
+const getLink = (page: string, values: Record<string, unknown>): string => {
   const currentQueryParams =
     typeof window === "undefined" ? {} : queryString(window.location.search);
   const encoded = stringifyQueryString({
@@ -35,7 +35,7 @@ const Home = () => (
     <Hero
       title="Bitumen Flat Roof Estimator"
       level={1}
-      imageSource={landing}
+      media={<img src={landing} alt="Bitumen Flat Roof Estimator" />}
       className={pageStyles.Hero}
     >
       Use this estimating tool to identify the best flat roof system for your

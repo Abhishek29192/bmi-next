@@ -1,4 +1,4 @@
-@import "@bmi/styles";
+@import "~@bmi-digital/styles";
 
 .RichText {
   .title {
@@ -16,7 +16,7 @@
   p {
     margin-bottom: 0.75em;
     min-height: 1.4rem;
-    &:last-child:empty{
+    &:last-child:empty {
       display: none;
     }
   }
