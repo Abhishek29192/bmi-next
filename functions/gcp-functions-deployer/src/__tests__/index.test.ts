@@ -81,7 +81,8 @@ describe("When GCP_STORAGE_NAME is not provided", () => {
     try {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       expect(error.message).toEqual("Unable to connect to a storage bucket");
     }
 
@@ -104,7 +105,8 @@ describe("When TRIGGER_SECRET is not provided", () => {
     try {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       expect(error.message).toEqual("TRIGGER_SECRET has not been set");
     }
 
@@ -127,7 +129,8 @@ describe("When TRIGGER_API_KEY_SECRET is not provided", () => {
     try {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       expect(error.message).toEqual("TRIGGER_API_KEY_SECRET has not been set");
     }
 
