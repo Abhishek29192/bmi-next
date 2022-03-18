@@ -50,6 +50,7 @@ type HeaderProps = {
   navigationButtonComponent?: React.ComponentType<any>; // TODO
   promoButtonComponent?: React.ComponentType<any>; // TODO
   tabComponent?: React.ComponentType<any>; // TODO
+  navUtilityLinkButton?: React.ComponentType<any>; //TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   isBasketEmpty?: boolean;
@@ -64,6 +65,7 @@ type HeaderProps = {
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
+  onLanguagesSectionOpen?: () => void;
 };
 
 const Header = ({
@@ -92,7 +94,9 @@ const Header = ({
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
   languageLabel,
-  languageIntroduction
+  languageIntroduction,
+  navUtilityLinkButton: NavUtilityLinkButton = Button,
+  onLanguagesSectionOpen
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -142,8 +146,12 @@ const Header = ({
     }
   };
 
-  const toggleLanguageSelection = () =>
+  const toggleLanguageSelection = () => {
+    if (!showLanguageSelection) {
+      onLanguagesSectionOpen?.();
+    }
     setShowLanguageSelection(!showLanguageSelection);
+  };
 
   const toggleSearch = () => {
     if (!showSearch) {
@@ -210,13 +218,13 @@ const Header = ({
           <ul>
             {utilities.map(({ label, action }, key) => (
               <li key={`utilities-link-${key}`} className={styles["nav-item"]}>
-                <Button
+                <NavUtilityLinkButton
                   className={styles["utilities-button"]}
                   action={action}
                   variant="text"
                 >
                   {label}
-                </Button>
+                </NavUtilityLinkButton>
               </li>
             ))}
             {language && languages && (

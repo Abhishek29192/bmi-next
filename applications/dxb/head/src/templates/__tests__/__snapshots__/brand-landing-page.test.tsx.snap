@@ -22,6 +22,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -3592,6 +3597,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3610,6 +3616,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3628,6 +3635,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3646,6 +3654,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3665,6 +3674,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -6927,6 +6937,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6945,6 +6956,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6963,6 +6975,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6981,6 +6994,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -7000,6 +7014,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -10479,6 +10494,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10497,6 +10513,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10515,6 +10532,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10533,6 +10551,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10552,6 +10571,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -14005,6 +14025,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14023,6 +14044,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14041,6 +14063,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14059,6 +14082,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14078,6 +14102,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -17555,6 +17580,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17573,6 +17599,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17591,6 +17618,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17609,6 +17637,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17628,6 +17657,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -21080,6 +21110,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21098,6 +21129,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21116,6 +21148,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21134,6 +21167,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21153,6 +21187,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -24633,6 +24668,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24651,6 +24687,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24669,6 +24706,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24687,6 +24725,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24706,6 +24745,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -28185,6 +28225,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28203,6 +28244,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28221,6 +28263,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28239,6 +28282,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28258,6 +28302,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"

@@ -22,6 +22,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -4467,6 +4472,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4485,6 +4491,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4503,6 +4510,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4521,6 +4529,7 @@ exports[`Contact us page render Sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4540,6 +4549,7 @@ exports[`Contact us page render Sections correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -8912,6 +8922,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -8930,6 +8941,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -8948,6 +8960,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -8966,6 +8979,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -8985,6 +8999,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -13356,6 +13371,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -13374,6 +13390,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -13392,6 +13409,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -13410,6 +13428,7 @@ exports[`Contact us page render iframe correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -13429,6 +13448,7 @@ exports[`Contact us page render iframe correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -17801,6 +17821,7 @@ exports[`Contact us page render location correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17819,6 +17840,7 @@ exports[`Contact us page render location correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17837,6 +17859,7 @@ exports[`Contact us page render location correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17855,6 +17878,7 @@ exports[`Contact us page render location correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17874,6 +17898,7 @@ exports[`Contact us page render location correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -22246,6 +22271,7 @@ exports[`Contact us page renders correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22264,6 +22290,7 @@ exports[`Contact us page renders correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22282,6 +22309,7 @@ exports[`Contact us page renders correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22300,6 +22328,7 @@ exports[`Contact us page renders correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22319,6 +22348,7 @@ exports[`Contact us page renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"

@@ -10,6 +10,7 @@ import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import { pushToDataLayer } from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -137,6 +138,9 @@ const GTMNavigationButton = withGTM<ButtonProps>(Button, {
 const GTMNavigationTab = withGTM<TabProps>(Tab, {
   label: "label"
 });
+const GTMNavigationUtilityButton = withGTM<ButtonProps>(Button, {
+  label: "children"
+});
 
 export type Region = {
   label: string;
@@ -235,6 +239,15 @@ const Header = ({
           searchButtonComponent={(props: ButtonProps) => (
             <GTMSearchButton gtm={{ id: "search1" }} {...props} />
           )}
+          navUtilityLinkButton={(props: ButtonProps) => (
+            <GTMNavigationUtilityButton
+              gtm={{
+                id: "nav-top-utilities-bar",
+                action: props["action"]?.to || props["action"]?.href
+              }}
+              {...props}
+            />
+          )}
           isBasketEmpty={productsInBasket.length === 0}
           basketAction={basketCta?.action}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
@@ -268,6 +281,13 @@ const Header = ({
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
           isOnSearchPage={isOnSearchPage}
+          onLanguagesSectionOpen={() => {
+            pushToDataLayer({
+              id: "nav-country-selector",
+              label: "open panel",
+              action: "open panel"
+            });
+          }}
         />
       )}
     />

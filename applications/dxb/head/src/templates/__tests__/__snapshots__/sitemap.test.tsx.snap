@@ -23,6 +23,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
@@ -891,6 +892,7 @@ exports[`Sitemap renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
@@ -1759,6 +1761,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
@@ -2574,6 +2577,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
               >
