@@ -289,6 +289,14 @@ const CardCollectionSection = ({
   const GTMChip = withGTM<ChipProps>(Chip);
 
   const activeGroupValues = Object.values(activeGroups);
+  const sortedGroupKeys = groupKeys.sort((a, b) => {
+    if (isNaN(b)) {
+      return -1;
+    } else if (isNaN(a)) {
+      return 1;
+    }
+    return a - b;
+  });
 
   return (
     <div className={styles["CardCollectionSection"]}>
@@ -306,7 +314,7 @@ const CardCollectionSection = ({
             </Typography>
             <div className={styles["group-chips"]}>
               <div className={styles["chips"]}>
-                {groupKeys.map((tagTitle, index) => {
+                {sortedGroupKeys.map((tagTitle, index) => {
                   const label =
                     tagTitle === "undefined"
                       ? getMicroCopy(microCopy.CARD_COLLECTION_REST_LABEL)
