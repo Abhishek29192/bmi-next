@@ -15233,11 +15233,6 @@
  force=true
  
 [[redirects]]
- from="/de/private-bauherren/"
- to="/de/private-bauherren/"
- force=true
- 
-[[redirects]]
  from="/de/rufus2022"
  to="/de/"
  force=true
