@@ -468,7 +468,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 ref={resultsElement}
               >
                 <Grid container spacing={3}>
-                  {products.length === 0 && (
+                  {!isLoading && products.length === 0 && (
                     <Typography>
                       {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
                     </Typography>
