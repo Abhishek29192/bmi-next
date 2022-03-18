@@ -342,9 +342,9 @@ export const MultipleAssetToFileDownload = ({
         action: JSON.stringify(Object.values(assets).map((asset) => asset.url))
       }}
       action={{
-        model: "default",
-        onClick: downloadMultipleFiles
+        model: "default"
       }}
+      onClick={downloadMultipleFiles}
       variant="text"
       accessibilityLabel="Download"
       startIcon={
