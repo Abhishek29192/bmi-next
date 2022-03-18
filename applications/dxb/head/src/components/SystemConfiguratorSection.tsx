@@ -240,6 +240,7 @@ const SystemConfiguratorQuestion = ({
                 key={id}
                 title={answerTitle}
                 name={question.title}
+                collapseFeature
                 value={answerTitle}
                 onClick={async () => {
                   await getData(id, locale);
