@@ -34,15 +34,25 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
               label: "children"
             });
 
+            const GTMAccordionSummary = withGTM(Accordion.Summary);
+
             const layerLabel = layer.type ? ` ${layer.type}:` : "";
 
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
-                <Accordion.Summary>
+                <GTMAccordionSummary
+                  gtm={{
+                    id: "selector-accordion1",
+                    label: `${layer.layerNumber}.${layerLabel} ${
+                      layer.name || ""
+                    }`,
+                    action: "Selector - Accordion"
+                  }}
+                >
                   <Typography variant="default">
                     {`${layer.layerNumber}.${layerLabel} ${layer.name || ""}`}
                   </Typography>
-                </Accordion.Summary>
+                </GTMAccordionSummary>
 
                 <Accordion.Details>
                   <Grid container spacing={3}>
