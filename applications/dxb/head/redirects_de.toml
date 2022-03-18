@@ -15265,8 +15265,7 @@
 [[redirects]]
  from="/de/downloads/sicherheitsdatenblatt_sicherheitserklärung"
  to="/de/services-downloads-im-ueberblick/alle-downloads/"
- force=true 
-[[redirects]]
+ force=true
 
 [[redirects]]
  from="/de/sxa/file/download*"
