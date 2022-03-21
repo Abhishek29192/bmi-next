@@ -6,6 +6,7 @@ Object {
     "body": Object {
       "type": "document",
     },
+    "links": undefined,
     "title": "test page",
   },
 }
@@ -17,6 +18,7 @@ Object {
     "body": Object {
       "type": "document",
     },
+    "links": undefined,
     "title": "test page",
   },
 }

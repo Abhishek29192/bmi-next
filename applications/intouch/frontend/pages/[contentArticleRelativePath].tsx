@@ -25,7 +25,27 @@ export const GET_CONTENT_ARTICLE_CONTENT = gql`
         title
         body {
           json
+          links {
+            ...ArticleContentLinksFragment
+          }
         }
+      }
+    }
+  }
+`;
+
+export const ARTICLE_CONTENT_LINKS_FRAGMENT = gql`
+  fragment ArticleContentLinksFragment on ContentArticleBodyLinks {
+    assets {
+      block {
+        sys {
+          id
+        }
+        url
+        title
+        width
+        height
+        description
       }
     }
   }
@@ -34,12 +54,14 @@ export const GET_CONTENT_ARTICLE_CONTENT = gql`
 type ContentArticlePageProps = GlobalPageProps & {
   title: string;
   body: Document;
+  links: Document;
 };
 
 const ContentArticlePage = ({
   account,
   title,
   body,
+  links,
   globalPageData
 }: ContentArticlePageProps) => {
   // If we have an account we must have come from authenticated middlreware
@@ -47,7 +69,7 @@ const ContentArticlePage = ({
     return (
       <AuthenticatedLayout title={title} pageData={globalPageData}>
         <div className={styles.container}>
-          <RichText content={body} />
+          <RichText content={body} links={links} />
         </div>
       </AuthenticatedLayout>
     );
@@ -58,7 +80,7 @@ const ContentArticlePage = ({
       <Typography component="h1" variant="h1" style={{ marginBottom: "0.6em" }}>
         {title}
       </Typography>
-      <RichText content={body} />
+      <RichText content={body} links={links} />
     </UnauthenticatedLayout>
   );
 };
@@ -124,6 +146,7 @@ export const getServerSideProps = async (context) => {
         props: {
           title: pageContent.title,
           body: pageContent.body.json,
+          links: pageContent.body.links,
           ...translations
         }
       };

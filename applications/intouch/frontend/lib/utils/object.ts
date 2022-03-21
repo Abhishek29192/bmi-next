@@ -49,10 +49,10 @@ export const spreadObjectKeys = (
  */
 // TODO: Needs tests
 export const mergeByKey = <T extends Record<string, unknown>>(
-  arrA: ReadonlyArray<T>,
-  arrB: ReadonlyArray<Record<string, unknown>>,
+  arrA: Array<T>,
+  arrB: Array<Record<string, unknown>>,
   key: string
-): ReadonlyArray<T> => {
+): Array<T> => {
   const map = new Map(arrA.map((val) => [val[`${key}`], val]));
 
   arrB.forEach((val) => {
