@@ -90,6 +90,6 @@ export const deploy = async (file: { bucket: string; name: string }) => {
       });
     }
   } catch (error) {
-    logger.error({ message: error.message });
+    logger.error({ message: (error as Error).message });
   }
 };

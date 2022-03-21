@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
 import createSystemDetails from "../../../test/systemDetailsMockData";
 import "@testing-library/jest-dom";
@@ -46,6 +46,7 @@ const systemBenefitsMicroCopy = "sdp.leadBlock.systemBenefits";
 const aboutLeadBlockSidebarTitle = "siderBarItem";
 const sidebarItem: TitleWithContentData = {
   __typename: "ContentfulTitleWithContent",
+  name: aboutLeadBlockSidebarTitle,
   title: aboutLeadBlockSidebarTitle,
   content: {
     raw: '{"nodeType":"document","data":{},"content":[]}',

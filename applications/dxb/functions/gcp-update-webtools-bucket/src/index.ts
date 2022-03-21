@@ -10,10 +10,10 @@ import {
   transformUnderlayProduct
 } from "./transform";
 import {
-  GET_MAIN_TILES_QUERY,
-  getMainTileQuery,
   GET_GUTTERING_RELATED_PRODUCT_QUERY,
-  GET_UNDERLAYS_QUERY
+  GET_MAIN_TILES_QUERY,
+  GET_UNDERLAYS_QUERY,
+  getMainTileQuery
 } from "./queries";
 
 const {
@@ -94,7 +94,9 @@ const getMainTileProducts = async () => {
       mainTiles.push(transformMainTileProduct(product));
     } catch (error) {
       logger.warning({
-        message: `Failed to transform ${code}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${code}, skipping for this build. ${
+          (error as Error).message
+        }`
       });
     }
   }
@@ -117,7 +119,9 @@ const getGutteringRelatedProducts = async () => {
       gutters.push(transformGutteringProduct(product));
     } catch (error) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -128,7 +132,9 @@ const getGutteringRelatedProducts = async () => {
       gutterHooks.push(transformGutterHookProduct(product));
     } catch (error) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -154,7 +160,9 @@ const getUnderlayProducts = async () => {
       underlays.push(transformUnderlayProduct(product));
     } catch (error) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -233,7 +241,7 @@ const handleRequest: HttpFunction = async (req, res) => {
     res.status(200).send("ok");
     logger.info({ message: "Succeeded" });
   } catch (error) {
-    logger.error({ message: error.message });
+    logger.error({ message: (error as Error).message });
     res.status(500).send("Internal Server Error");
     logger.error({ message: "Failed" });
   }

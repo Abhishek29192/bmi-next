@@ -41,6 +41,7 @@ type TitleWithContent = {
     id: string;
   };
   title: string;
+  content: { raw: string; references: null };
 };
 
 type Asset = {

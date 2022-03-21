@@ -4,9 +4,9 @@ import { RichTextData } from "./RichText";
 
 export type Data = {
   __typename: "ContentfulTitleWithContent";
-  name?: string;
+  name: string;
   title: string | null;
-  content: RichTextData | null;
+  content: RichTextData;
 };
 
 export const query = graphql`
