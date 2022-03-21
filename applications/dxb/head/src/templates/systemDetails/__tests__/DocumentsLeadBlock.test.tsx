@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "@testing-library/react";
 import Component from "../documentsLeadBlock";
 import { DocumentData } from "../types";
-import "@testing-library/jest-dom";
 import { FileContentTypeEnum } from "../../../components/types/pim";
 
 const documents: DocumentData[] = [

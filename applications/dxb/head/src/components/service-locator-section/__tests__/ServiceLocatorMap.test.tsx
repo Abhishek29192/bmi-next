@@ -1,7 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
-import "@testing-library/jest-dom";
 import { selectedRooferMock } from "../__mocks__/markers";
 
 jest.mock("@bmi/components", () => {

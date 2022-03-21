@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import MediaGallery from "../MediaGallery";

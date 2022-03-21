@@ -5,6 +5,11 @@ import {
 } from "../media";
 import createAsset from "../../__tests__/AssetHelper";
 
+jest.mock("../../components/Video", () => ({
+  ...(jest.requireActual("../../components/Video") as any),
+  renderVideo: jest.fn()
+}));
+
 describe("getJpgImage function", () => {
   it("does nothing if undefined", () => {
     expect(getJpgImage(null)).toBeNull();

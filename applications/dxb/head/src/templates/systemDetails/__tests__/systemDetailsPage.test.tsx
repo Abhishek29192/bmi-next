@@ -7,7 +7,6 @@ import SystemDetailsPage, {
 } from "../systemDetailsPage";
 import { Asset, AssetAssetType, System } from "../../../components/types/pim";
 import createSystemDetails from "../../../test/systemDetailsMockData";
-import "@testing-library/jest-dom";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 

@@ -13,6 +13,7 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="test video"
@@ -180,6 +181,7 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="test video 1"
@@ -330,6 +332,7 @@ exports[`MediaGallery component test click on sortable thumbnails 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="test video 2"

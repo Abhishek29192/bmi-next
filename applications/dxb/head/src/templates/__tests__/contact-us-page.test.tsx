@@ -2,7 +2,6 @@ import React from "react";
 import ContactUsPage, { Data } from "../contact-us-page";
 import { createMockSiteData } from "../../test/mockSiteData";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import "@testing-library/jest-dom";
 
 describe("Contact us page", () => {
   const data: { contentfulContactUsPage: Data; contentfulSite: any } = {

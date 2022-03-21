@@ -46,11 +46,11 @@ module.exports = {
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   transformIgnorePatterns: ["node_modules/(?!(three|lodash-es)/)"],
-  setupFiles: [
-    "<rootDir>/jest/src/setEnvVars.ts",
+  setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
+  setupFilesAfterEnv: [
+    "jest-mock-console/dist/setupTestFramework.js",
     "<rootDir>/jest/src/setupTests.ts"
   ],
-  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"],
   coverageThreshold: {
     global: {
       statements: "100",

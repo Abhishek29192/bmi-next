@@ -2727,6 +2727,8 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="label"
@@ -3349,6 +3351,8 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"
@@ -7179,6 +7183,8 @@ exports[`Contact us page render Sections correctly 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="label"
@@ -7801,6 +7807,8 @@ exports[`Contact us page render Sections correctly 1`] = `
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"
@@ -12252,6 +12260,8 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"
@@ -16082,6 +16092,8 @@ exports[`Contact us page render iframe correctly 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="label"
@@ -16704,6 +16716,8 @@ exports[`Contact us page render iframe correctly 1`] = `
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"
@@ -20534,6 +20548,8 @@ exports[`Contact us page render location correctly 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="label"
@@ -21156,6 +21172,8 @@ exports[`Contact us page render location correctly 1`] = `
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"
@@ -24986,6 +25004,8 @@ exports[`Contact us page renders correctly 1`] = `
       >
         <div
           class="YoutubeVideo"
+          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+          data-testid="youtube-dialog-wrapper"
         >
           <button
             aria-label="label"
@@ -25608,6 +25628,8 @@ exports[`Contact us page renders correctly 1`] = `
                     >
                       <div
                         class="YoutubeVideo"
+                        data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                        data-testid="youtube-dialog-wrapper"
                       >
                         <button
                           aria-label="BMI Group VIDEO LABEL"

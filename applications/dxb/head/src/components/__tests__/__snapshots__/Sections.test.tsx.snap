@@ -762,6 +762,8 @@ HTMLCollection [
               >
                 <div
                   class="YoutubeVideo"
+                  data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=abc123-Video\\",\\"action\\":\\"Play\\"}"
+                  data-testid="youtube-dialog-wrapper"
                 >
                   <button
                     aria-label="Video"
@@ -2165,6 +2167,8 @@ HTMLCollection [
           >
             <div
               class="YoutubeVideo YoutubeVideo--inline"
+              data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=A-RfHC91Ewc-Video label\\",\\"action\\":\\"Play\\"}"
+              data-testid="youtube-inline-wrapper"
               style="--aspect-ratio: 0.5625;"
             >
               <div>

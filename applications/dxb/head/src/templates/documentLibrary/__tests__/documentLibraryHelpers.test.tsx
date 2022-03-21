@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { sourceToSortMap } from "../helpers/documnetLibraryHelpers";
 import createPimDocument from "../../../__tests__/PimDocumentHelper";
 import createProduct from "../../../__tests__/PimDocumentProductHelper";

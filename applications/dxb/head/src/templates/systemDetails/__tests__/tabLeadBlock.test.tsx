@@ -2,7 +2,6 @@ import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import Component, { BimContent } from "../tabLeadBlock";
 import createSystemDetails from "../../../test/systemDetailsMockData";
-import "@testing-library/jest-dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import {
   Classification,

@@ -2,7 +2,6 @@ import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import AboutLeadBlock from "../aboutLeadBlock";
 import createSystemDetails from "../../../test/systemDetailsMockData";
-import "@testing-library/jest-dom";
 import { Asset, Feature } from "../../../components/types/pim";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
 

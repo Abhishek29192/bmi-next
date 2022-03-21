@@ -37,6 +37,8 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 >
                   <div
                     class="YoutubeVideo"
+                    data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtube-id-Lorem ipsum video label\\",\\"action\\":\\"Play\\"}"
+                    data-testid="youtube-dialog-wrapper"
                   >
                     <button
                       aria-label="Lorem ipsum video label"

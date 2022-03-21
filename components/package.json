@@ -7,6 +7,7 @@
   "types": "dist/src/index.d.ts",
   "scripts": {
     "check:ts": "tsc",
+    "test": "jest",
     "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "build": "yarn run check:ts -p tsconfig.json",
     "prepare": "husky install",
