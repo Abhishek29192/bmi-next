@@ -11,11 +11,11 @@ import styles from "./styles.module.scss";
 type Notification = Pick<NotificationType, "id" | "body" | "sendDate" | "read">;
 
 export type NotificationsPanelProps = {
-  notifications?: ReadonlyArray<Notification>;
+  notifications?: Array<Notification>;
 };
 
 type NotificationsSetProps = {
-  notifications?: ReadonlyArray<Notification>;
+  notifications?: Array<Notification>;
   title: string;
 };
 

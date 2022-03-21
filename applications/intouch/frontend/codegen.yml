@@ -20,7 +20,7 @@ generates:
     plugins:
       - typescript-operations
     config:
-      immutableTypes: true
+      immutableTypes: false
       useTypeImports: true
 
   # Create react-apollo hooks

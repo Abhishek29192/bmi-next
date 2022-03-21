@@ -34,11 +34,13 @@ describe("ContactTopics component", () => {
             bodyList: [
               {
                 __typename: "ContentfulTitleWithContent",
+                name: "Frequently Asked Questions",
                 title: "Frequently Asked Questions",
                 content: { raw: contentMock, references: [] }
               },
               {
                 __typename: "ContentfulTitleWithContent",
+                name: "CloseDach",
                 title: "CloseDach",
                 content: { raw: contentMock, references: [] }
               }
@@ -47,6 +49,7 @@ describe("ContactTopics component", () => {
             footerList: [
               {
                 __typename: "ContentfulTitleWithContent",
+                name: "teste",
                 title: "teste",
                 content: { raw: contentMock, references: [] }
               }

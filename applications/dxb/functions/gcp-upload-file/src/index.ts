@@ -133,7 +133,7 @@ export const upload: HttpFunction = async (request, response) => {
 
       return response.send(upload);
     } catch (error) {
-      logger.error({ message: error.message });
+      logger.error({ message: (error as Error).message });
       return response.sendStatus(500);
     }
   }
