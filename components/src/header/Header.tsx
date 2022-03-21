@@ -65,7 +65,6 @@ type HeaderProps = {
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
-  onLanguagesSectionOpen?: () => void;
 };
 
 const Header = ({
@@ -95,8 +94,7 @@ const Header = ({
   mainMenuDefaultLabel,
   languageLabel,
   languageIntroduction,
-  navUtilityLinkButton: NavUtilityLinkButton = Button,
-  onLanguagesSectionOpen
+  navUtilityLinkButton: NavUtilityLinkButton = Button
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -146,12 +144,8 @@ const Header = ({
     }
   };
 
-  const toggleLanguageSelection = () => {
-    if (!showLanguageSelection) {
-      onLanguagesSectionOpen?.();
-    }
+  const toggleLanguageSelection = () =>
     setShowLanguageSelection(!showLanguageSelection);
-  };
 
   const toggleSearch = () => {
     if (!showSearch) {

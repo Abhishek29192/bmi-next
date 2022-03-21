@@ -10,7 +10,6 @@ import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
 import { useBasketContext } from "../contexts/SampleBasketContext";
-import { pushToDataLayer } from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -281,13 +280,6 @@ const Header = ({
           mainMenuTitleLabel={getMicroCopy(microCopy.MENU_MAIN_TITLE)}
           mainMenuDefaultLabel={getMicroCopy(microCopy.MENU_MAIN_DEFAULT)}
           isOnSearchPage={isOnSearchPage}
-          onLanguagesSectionOpen={() => {
-            pushToDataLayer({
-              id: "nav-country-selector",
-              label: "open panel",
-              action: "open panel"
-            });
-          }}
         />
       )}
     />
