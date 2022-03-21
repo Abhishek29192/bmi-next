@@ -15,6 +15,10 @@
         justify-content: space-between;
         padding-left: 0.6rem;
         padding-right: 0.6rem;
+        .MuiTypography-root {
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }
