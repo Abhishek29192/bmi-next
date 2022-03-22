@@ -206,11 +206,15 @@ const ProductLeadBlock = ({
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
-                  <LeadBlock.Content.Heading>
-                    {getMicroCopy(
-                      microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
-                    )}
-                  </LeadBlock.Content.Heading>
+                  {guaranteesImages?.length ||
+                  guaranteesAndWarrantiesLinks?.length ? (
+                    <LeadBlock.Content.Heading>
+                      {getMicroCopy(
+                        microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
+                      )}
+                    </LeadBlock.Content.Heading>
+                  ) : null}
+
                   {guaranteesImages?.map((item, i) => (
                     <img
                       key={`guarentee-img-${i}`}
