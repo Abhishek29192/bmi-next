@@ -1,12 +1,12 @@
 import React from "react";
-import Hero from "@bmi/hero";
-import Button from "@bmi/button";
+import { Hero } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { TrainingProcessCard } from "../TrainingProcess";
 import { TrainingQuery } from "../../../graphql/generated/operations";
 
 type TrainingCoverProps = {
   trainingContentCollection: TrainingQuery["trainingContentCollection"];
-  lmsUrl?: String;
+  lmsUrl?: string;
 };
 
 export const TrainingCover = ({

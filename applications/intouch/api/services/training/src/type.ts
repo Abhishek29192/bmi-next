@@ -2,7 +2,7 @@ import { DataSources } from "apollo-server-core/dist/graphqlOptions";
 import { Docebo } from "./apis";
 
 export type ITokenInfo = {
-  token: String;
+  token: string;
 };
 
 export interface IDataSources extends DataSources<ITokenInfo> {
@@ -10,15 +10,15 @@ export interface IDataSources extends DataSources<ITokenInfo> {
 }
 
 export interface IContext {
-  token: String;
+  token: string;
   dataSources?: IDataSources;
 }
 
 export interface ISelectOrgchart {
-  [branchId: string]: String;
+  [branchId: string]: string;
 }
 export interface ISelectManager {
-  [managerId: string]: String;
+  [managerId: string]: string;
 }
 export interface IUserCreateInput {
   userid: string;
@@ -27,17 +27,17 @@ export interface IUserCreateInput {
   privacy?: string;
   firstname: string;
   lastname: string;
-  force_change?: Number;
-  level?: Number;
+  force_change?: number;
+  level?: number;
   language?: string;
   expiration?: string;
-  email_validation_status?: Number;
-  valid?: Number;
+  email_validation_status?: number;
+  valid?: number;
   date_format?: string;
   timezone?: string;
-  role?: Number;
-  send_notification_email?: Boolean;
-  can_manage_subordinates?: Boolean;
+  role?: number;
+  send_notification_email?: boolean;
+  can_manage_subordinates?: boolean;
   select_orgchart: ISelectOrgchart;
 }
 export interface IUserUpdateInput {
@@ -46,59 +46,59 @@ export interface IUserUpdateInput {
   password: string;
   firstname: string;
   lastname: string;
-  force_change?: Number;
-  level?: Number;
+  force_change?: number;
+  level?: number;
   language?: string;
   expiration?: string;
-  email_validation_status?: Number;
+  email_validation_status?: number;
   date_format?: string;
   timezone?: string;
-  role?: Number;
+  role?: number;
   manager?: ISelectManager;
-  can_manage_subordinates?: Boolean;
+  can_manage_subordinates?: boolean;
   select_orgchart: ISelectOrgchart;
-  country?: Number;
+  country?: number;
 }
 export interface IMessage {
-  id: String;
-  message: String;
+  id: string;
+  message: string;
 }
 
 export interface IUserCreateResponse {
-  success: Boolean;
-  user_id: Number;
+  success: boolean;
+  user_id: number;
   message: [IMessage];
 }
 
 export interface IUserUpdateResponse {
-  success: Boolean;
-  updated_id: Number;
+  success: boolean;
+  updated_id: number;
   message: [IMessage];
 }
 
 export interface IRulesList {
-  condition_value: String;
-  condition_type: String;
-  id_field_common: Number;
+  condition_value: string;
+  condition_type: string;
+  id_field_common: number;
 }
 
 export interface IGroupCreateInput {
-  name: String;
-  description: String;
-  assign_rules?: Number;
-  rules_logic?: String;
-  assign_existing_users?: Boolean;
+  name: string;
+  description: string;
+  assign_rules?: number;
+  rules_logic?: string;
+  assign_existing_users?: boolean;
   rules_list?: [IRulesList];
-  id_users?: [Number];
+  id_users?: [number];
 }
 
 export interface ITrainingUser {
-  id: Number;
-  username: String;
-  firstname: String;
-  lastname: String;
-  email: String;
-  user_level: String;
+  id: number;
+  username: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+  user_level: string;
   userInfo?: any;
   enrollment?: any;
 }

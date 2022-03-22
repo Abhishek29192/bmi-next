@@ -48,6 +48,7 @@ describe("Contact us page", () => {
       ],
       featuredMedia: null,
       featuredVideo: {
+        __typename: "ContentfulVideo",
         title: "featuredVideo",
         label: "label",
         subtitle: null,
@@ -217,6 +218,7 @@ describe("Contact us page", () => {
               featuredMedia: null,
               cta: null,
               featuredVideo: {
+                __typename: "ContentfulVideo",
                 title: "BMI Group - We see further",
                 label: "BMI Group VIDEO LABEL",
                 subtitle:
@@ -354,6 +356,7 @@ describe("Contact us page", () => {
     const newData = { ...data };
     newData.contentfulContactUsPage.featuredVideo = null;
     newData.contentfulContactUsPage.featuredMedia = {
+      __typename: "ContentfulImage",
       type: null,
       altText: "featuredMediaAltText",
       caption: null,

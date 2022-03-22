@@ -1,5 +1,5 @@
 import React from "react";
-import { DetailProps } from "@bmi/company-details";
+import { CompanyDetailProps } from "@bmi/components";
 import { Account } from "@bmi/intouch-api-types";
 import { UserCard } from ".";
 
@@ -8,7 +8,7 @@ export default {
   component: UserCard
 };
 
-const mikeHaroldDetails: DetailProps[] = [
+const mikeHaroldDetails: CompanyDetailProps[] = [
   {
     type: "phone",
     text: "67 97 90 99",
@@ -23,7 +23,7 @@ const mikeHaroldDetails: DetailProps[] = [
   }
 ];
 
-const lisaSimpsonDetails: DetailProps[] = [
+const lisaSimpsonDetails: CompanyDetailProps[] = [
   {
     type: "phone",
     text: "07790 848483",
@@ -40,7 +40,9 @@ const lisaSimpsonDetails: DetailProps[] = [
 
 export const MikeHarold = () => (
   <UserCard
-    onRemoveUser={() => {}}
+    onRemoveUser={() => {
+      // no-op
+    }}
     companyName="Roofer ltd"
     account={
       {
@@ -59,7 +61,9 @@ export const MikeHarold = () => (
 export const LisaSimpson = () => (
   <div style={{ maxWidth: "300px", margin: "2rem auto" }}>
     <UserCard
-      onRemoveUser={() => {}}
+      onRemoveUser={() => {
+        // no-op
+      }}
       companyName="Roofer ltd"
       account={
         {

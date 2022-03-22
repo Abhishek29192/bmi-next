@@ -1,8 +1,8 @@
 // import { Document } from "@contentful/rich-text-types";
 import React from "react";
 import { graphql } from "gatsby";
-import Grid from "@bmi/grid";
-import Section from "@bmi/section";
+import { Grid } from "@bmi/components";
+import { Section } from "@bmi/components";
 import RichText from "./RichText";
 import { Data as TitleWithContentData } from "./TitleWithContent";
 

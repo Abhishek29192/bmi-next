@@ -1,9 +1,9 @@
 import React from "react";
-import OverviewCard from "@bmi/overview-card";
-import Typography from "@bmi/typography";
+import { OverviewCard } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
+import { Button } from "@bmi/components";
 import { Remove } from "@material-ui/icons";
-import Icon from "@bmi/icon";
-import Button from "@bmi/button";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
 import { getPathWithCountryCode } from "../utils/path";
@@ -62,6 +62,7 @@ const SampleBasketSectionProducts = () => {
   const sampleCards = basketState.products.map((sample) => {
     const media = renderImage(
       {
+        __typename: "ContentfulImage",
         type: "Descriptive",
         altText: sample.name,
         caption: { caption: sample.name },

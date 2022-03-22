@@ -1,13 +1,13 @@
 import React from "react";
-import Tabs from "@bmi/tabs";
+import { Tabs } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { LeadBlock } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import Section from "@bmi/section";
-import LeadBlock from "@bmi/lead-block";
-import Typography from "@bmi/typography";
 import { useSiteContext } from "../../components/Site";
 import withGTM from "../../utils/google-tag-manager";
 import { microCopy } from "../../constants/microCopies";
-import BimIframe from "../../components/BimIframe";
+import AssetsIframe from "../../components/AssetsIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
 import { Asset, Feature, Classification } from "../../components/types/pim";
@@ -127,7 +127,7 @@ const TabLeadBlock = ({
                     <RichText document={bimContent.description} />
                   </LeadBlock.Content.Section>
                 </LeadBlock.Content>
-                <BimIframe
+                <AssetsIframe
                   data-testid="bmi-iframe"
                   className={styles["bmiIframe"]}
                   url={bimContent.bimIframeUrl}

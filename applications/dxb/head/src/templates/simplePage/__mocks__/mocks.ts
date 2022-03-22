@@ -1,5 +1,6 @@
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import { DataTypeEnum } from "../../../components/Link";
+import { ImageWithThumbnail } from "../../../components/PageInfo";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -55,6 +56,7 @@ export const sections = [
         featuredMedia: null,
         cta: null,
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "BMI Group - We see further",
           label: "BMI Group VIDEO LABEL",
           subtitle:
@@ -70,7 +72,8 @@ export const sections = [
     justifyCenter: null
   }
 ];
-export const featuredMedia = {
+export const featuredMedia: ImageWithThumbnail = {
+  __typename: "ContentfulImage",
   type: null,
   altText: "Lorem ipsum",
   caption: null,

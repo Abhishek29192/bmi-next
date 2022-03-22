@@ -1,10 +1,10 @@
 import React from "react";
-import Accordion, { AccordionSummaryProps } from "@bmi/accordion";
-import Button from "@bmi/button";
-import Checkbox, { Props as CheckboxProps } from "@bmi/checkbox";
-import Typography from "@bmi/typography";
-import Filters, { FilterProps } from "@bmi/filters";
-import PerfectScrollbar from "@bmi/perfect-scrollbar";
+import { Accordion, AccordionSummaryProps } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Checkbox, CheckboxProps } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Filters, FilterProps } from "@bmi/components";
+import { PerfectScrollbar } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
@@ -60,14 +60,20 @@ const FiltersSidebar = ({
         filters={filters}
         onChange={onFiltersChange}
         checkboxComponent={(props: CheckboxProps) => {
-          const label: string | React.ReactNode = props.label;
+          const label: React.ReactNode = props.label;
 
           return (
             <GTMCheckbox
               gtm={{
                 id: "filter2",
-                // @ts-ignore
-                label: label.props ? label.props?.children[1] : label,
+                label:
+                  typeof label !== "string" &&
+                  typeof label !== "number" &&
+                  typeof label !== "boolean" &&
+                  "props" in label &&
+                  label.props
+                    ? label.props?.children[1]
+                    : label,
                 action: "Selector – Filter"
               }}
               {...props}

@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { NextLogger } from "@bmi-digital/logger";
+import { NextLogger } from "@bmi/logger";
 import { Session } from "@auth0/nextjs-auth0";
 
 import { getAuth0Instance } from "../auth0";

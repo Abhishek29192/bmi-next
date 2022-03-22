@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Section from "@bmi/section";
-import Grid from "@bmi/grid";
-import NBACard from "@bmi/nba-card";
-import AnchorLink from "@bmi/anchor-link";
-import { Colors } from "@bmi/color-pair";
-import { withClickable } from "@bmi/clickable";
+import { Section } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { NBACard } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
+import { Colors } from "@bmi/components";
+import { withClickable } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import { Data as PromoData } from "../components/Promo";
 import { Data as PageInfoData } from "../components/PageInfo";

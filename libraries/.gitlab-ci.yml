@@ -1,3 +1,0 @@
-include:
-  - local: "/libraries/contentful-upload/.gitlab-ci.yml"
-  - local: "/libraries/react-pdf-maker/.gitlab-ci.yml"

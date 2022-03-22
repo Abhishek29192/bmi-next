@@ -1,14 +1,14 @@
-import AnchorLink from "@bmi/anchor-link";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { HeroItem } from "@bmi/hero";
-import LeadBlock from "@bmi/lead-block";
-import Section from "@bmi/section";
+import { AnchorLink } from "@bmi/components";
+import { HeroItem } from "@bmi/components";
+import { LeadBlock } from "@bmi/components";
+import { Section } from "@bmi/components";
+import { IconList } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Filter } from "@bmi/components";
 import CheckIcon from "@material-ui/icons/Check";
-import IconList from "@bmi/icon-list";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
-import { Filter } from "@bmi/filters";
 import queryString from "query-string";
 import { useLocation } from "@reach/router";
 import ResultsPagination from "../../../components/ResultsPagination";
@@ -186,12 +186,17 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     Math.ceil(products.length / PAGE_SIZE)
   );
 
-  const handlePageChange = (_, page) => {
+  const handlePageChange = async (_, page) => {
+    await fetchProducts(
+      filters,
+      pageContext.categoryCodes,
+      page - 1,
+      PAGE_SIZE
+    );
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    fetchProducts(filters, pageContext.categoryCodes, page - 1, PAGE_SIZE);
   };
 
   const onFiltersChange = async (newFilters: ProductFilter[]) => {
@@ -266,7 +271,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-    let query =
+    const query =
       process.env.GATSBY_USE_LEGACY_FILTERS === "true"
         ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
         : compileESQueryPLP({

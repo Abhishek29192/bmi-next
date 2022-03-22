@@ -1,9 +1,9 @@
 import React from "react";
 import { Technology } from "@bmi/intouch-api-types";
-import Typography from "@bmi/typography";
-import Icon from "@bmi/icon";
+import { Typography } from "@bmi/components";
+import { Icon } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Button from "@bmi/button";
+import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { SimpleCard } from "../SimpleCard";
 import { technologyIcon, technologyNames } from "../../../lib/utils/course";
@@ -31,7 +31,7 @@ export const CourseDescription = ({
   const { t } = useTranslation("training-page");
 
   return (
-    <SimpleCard>
+    <SimpleCard data-testid="courseDescription">
       <Typography variant="h4" hasUnderline>
         {title}
       </Typography>

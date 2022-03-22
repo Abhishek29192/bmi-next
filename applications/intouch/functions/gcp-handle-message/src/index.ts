@@ -1,5 +1,5 @@
-const sgMail = require("@sendgrid/mail");
-const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
+import sgMail from "@sendgrid/mail";
+import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
 
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.

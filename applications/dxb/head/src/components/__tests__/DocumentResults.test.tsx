@@ -15,9 +15,10 @@ import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
 describe("DocumentResults component", () => {
   let inputDataItems: DocumentResultsData;
   beforeEach(() => {
-    inputDataItems =
-      Array<PIMDocumentData | DocumentData | PIMLinkDocumentData>();
-    const baseUrl: string = "http://localhost/document/library/";
+    inputDataItems = Array<
+      PIMDocumentData | DocumentData | PIMLinkDocumentData
+    >();
+    const baseUrl = "http://localhost/document/library/";
 
     const pimDocument = createPimDocument({
       id: `pim-doc-id-aero`,

@@ -11,6 +11,7 @@ import trimStringsDeep from "../../utils/trimStringsDeep";
 import { PostGraphileContext } from "../../types";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { tierBenefit } from "../contentful";
+import { getDbPool } from "../../db";
 
 const UNIQUE_VIOLATION_ERROR_CODE = "23505";
 
@@ -33,8 +34,8 @@ export const createCompany = async (
   } catch (error) {
     logger.error(`Error creating company: ${error}`);
 
-    if (error?.code === UNIQUE_VIOLATION_ERROR_CODE) {
-      throwUniqueViolationError(error?.constraint);
+    if (error.code === UNIQUE_VIOLATION_ERROR_CODE) {
+      throwUniqueViolationError(error.constraint);
     }
     throw error;
   }
@@ -123,15 +124,39 @@ export const updateCompany = async (
         (line) => registeredAddress[line]
       )
     ) {
+      const dbPool = getDbPool();
+      const { rows: marketAdmins } = await dbPool.query(
+        `SELECT * FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+        ["MARKET_ADMIN", user.marketId]
+      );
       await pgClient.query("SELECT * FROM activate_company($1)", [
         args.input.id
       ]);
-      await sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
-        email: user.email,
+
+      const dynamicContent = {
         accountId: user.id,
         firstname: user.firstName,
-        company: $name
-      });
+        company: $name,
+        city: registeredAddress.town
+      };
+      const sendEMailToUser = sendMessageWithTemplate(
+        context,
+        "COMPANY_REGISTERED",
+        {
+          email: user.email,
+          ...dynamicContent
+        }
+      );
+      // send mail to market admin after successful company creation
+      await Promise.all([
+        sendEMailToUser,
+        ...marketAdmins.map(({ email }) => {
+          sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
+            email,
+            ...dynamicContent
+          });
+        })
+      ]);
     }
 
     if (tier && activeCompanyTier !== tier) {
@@ -147,7 +172,7 @@ export const updateCompany = async (
         [args.input.id]
       );
 
-      for (let i = 0; i < accounts?.length; i++) {
+      for (let i = 0; i < accounts.length; i++) {
         const account = accounts[+i];
         await sendMessageWithTemplate(context, "TIER_ASSIGNED", {
           email: account.email,
@@ -161,8 +186,8 @@ export const updateCompany = async (
 
     return result;
   } catch (error) {
-    if (error?.code === UNIQUE_VIOLATION_ERROR_CODE) {
-      throwUniqueViolationError(error?.constraint);
+    if (error.code === UNIQUE_VIOLATION_ERROR_CODE) {
+      throwUniqueViolationError(error.constraint);
     }
     throw error;
   }
@@ -246,7 +271,7 @@ export const deleteCompanyMember = async (
   }
 };
 
-const getCompanyTier = async (
+export const getCompanyTier = async (
   id: number,
   pgClient: PoolClient
 ): Promise<Tier> => {
@@ -255,10 +280,10 @@ const getCompanyTier = async (
     [id]
   );
 
-  return rows?.[0]?.tier;
+  return rows[0]?.tier;
 };
 
-const throwUniqueViolationError = (constraint: string) => {
+export const throwUniqueViolationError = (constraint: string) => {
   if (constraint === "company_market_id_name_key") {
     throw new Error("errorCompanyNameUniqueViolation");
   } else if (constraint === "company_reference_number_key") {

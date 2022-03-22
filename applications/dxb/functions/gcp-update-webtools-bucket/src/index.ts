@@ -1,5 +1,5 @@
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
@@ -24,7 +24,10 @@ const {
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
 } = process.env;
 
-const fetchData = async (body: object, remainingRetries = 5): Promise<any> => {
+const fetchData = async (
+  body: Record<string, any>,
+  remainingRetries = 5
+): Promise<any> => {
   const contentfulToken = await getSecret(WEBTOOLS_CONTENTFUL_TOKEN_SECRET!);
 
   const requestOptions = {
@@ -89,7 +92,8 @@ const getMainTileProducts = async () => {
 
     try {
       mainTiles.push(transformMainTileProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${code}, skipping for this build. ${error.message}`
       });
@@ -112,7 +116,8 @@ const getGutteringRelatedProducts = async () => {
   for (const product of gutterCollection.items) {
     try {
       gutters.push(transformGutteringProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
       });
@@ -123,7 +128,8 @@ const getGutteringRelatedProducts = async () => {
   for (const product of gutterHookCollection.items) {
     try {
       gutterHooks.push(transformGutterHookProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
       });
@@ -149,7 +155,8 @@ const getUnderlayProducts = async () => {
   for (const product of underlayCollection.items) {
     try {
       underlays.push(transformUnderlayProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
       });
@@ -229,7 +236,8 @@ const handleRequest: HttpFunction = async (req, res) => {
 
     res.status(200).send("ok");
     logger.info({ message: "Succeeded" });
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     logger.error({ message: error.message });
     res.status(500).send("Internal Server Error");
     logger.error({ message: "Failed" });

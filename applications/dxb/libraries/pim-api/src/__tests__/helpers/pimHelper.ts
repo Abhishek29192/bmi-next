@@ -1,4 +1,9 @@
-import { ProductsApiResponse, SystemsApiResponse } from "../..";
+import {
+  createProduct,
+  createSystem,
+  ProductsApiResponse,
+  SystemsApiResponse
+} from "@bmi/pim-types";
 
 export const createProductsApiResponse = (
   productsApiResponse?: Partial<ProductsApiResponse>
@@ -7,7 +12,7 @@ export const createProductsApiResponse = (
   currentPage: 0,
   totalPageCount: 1,
   totalProductCount: 1,
-  products: [{}],
+  products: [createProduct()],
   version: "Online",
   ...productsApiResponse
 });
@@ -19,6 +24,6 @@ export const createSystemsApiResponse = (
   currentPage: 0,
   totalPageCount: 1,
   totalSystemsCount: 1,
-  systems: [{}],
+  systems: [createSystem()],
   ...systemsApiResponse
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "@bmi/table";
+import { Table } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 
 type ProductCardProps = {

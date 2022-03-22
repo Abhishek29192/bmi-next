@@ -36,6 +36,7 @@ describe("Brand Landing Page Template", () => {
       hubSpotCTAID: null
     },
     featuredVideo: {
+      __typename: "ContentfulVideo",
       title: "featuredVideo",
       label: "label",
       subtitle: null,
@@ -59,6 +60,7 @@ describe("Brand Landing Page Template", () => {
       tags: null,
       featuredMedia: null,
       featuredVideo: {
+        __typename: "ContentfulVideo",
         title: "featuredVideo",
         label: "label",
         subtitle: null,
@@ -116,6 +118,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -130,6 +133,7 @@ describe("Brand Landing Page Template", () => {
         path: "some-page",
         featuredMedia: null,
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "featuredVideo",
           label: "label",
           subtitle: null,
@@ -175,6 +179,7 @@ describe("Brand Landing Page Template", () => {
     const newData = { ...data };
     newData.contentfulBrandLandingPage.featuredVideo = null;
     newData.contentfulBrandLandingPage.featuredMedia = {
+      __typename: "ContentfulImage",
       type: null,
       altText: "featuredMediaAltText",
       caption: null,
@@ -231,6 +236,7 @@ describe("Brand Landing Page Template", () => {
         ...slide,
         featuredVideo: null,
         featuredMedia: {
+          __typename: "ContentfulImage",
           type: null,
           altText: "featuredMediaAltText",
           caption: null,
@@ -345,8 +351,35 @@ describe("Brand Landing Page Template", () => {
     );
 
     expect(container).toMatchSnapshot();
-    expect(
-      container.querySelector(".Hero .text-no-underline").textContent
-    ).toBe("");
+    expect(container.querySelectorAll(".Hero .text")[0].textContent).toBe("");
+  });
+  it("renders cta on firstSlide if not null", () => {
+    const newData = {
+      ...data
+    };
+    newData.contentfulBrandLandingPage.cta = {
+      __typename: "ContentfulLink",
+      id: "98566b68-bad1-5d5a-ab42-ddad6f67120d",
+      label: "firstSlideCTA",
+      icon: null,
+      isLabelHidden: null,
+      url: null,
+      type: DataTypeEnum.Internal,
+      linkedPage: {
+        path: "roof-tiles/"
+      },
+      asset: null,
+      parameters: null,
+      dialogContent: null,
+      hubSpotCTAID: null
+    };
+    const { container, queryByText } = renderWithRouter(
+      <BrandLandingPage
+        data={newData}
+        pageContext={{ variantCodeToPathMap: {} }}
+      />
+    );
+    expect(queryByText("firstSlideCTA")).not.toBeNull();
+    expect(container).toMatchSnapshot();
   });
 });

@@ -1,8 +1,8 @@
 import React from "react";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import Tabs from "@bmi/tabs";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Tabs } from "@bmi/components";
 import GridStyles from "../../styles/Grid.module.scss";
 import { Projects } from "../SidePanel/index.stories";
 import { NoProjectsCard } from "../Cards/NoProjects";
@@ -107,7 +107,9 @@ export const Team = ({ title }: LayoutProps) => (
             <Tabs.TabPanel heading="Guarantee" index="two">
               <TabCard>
                 <GuaranteeTab
-                  onGuaranteeSubmitted={() => {}}
+                  onGuaranteeSubmitted={() => {
+                    // no-op
+                  }}
                   project={null}
                   isApplyGuarantee={false}
                 />

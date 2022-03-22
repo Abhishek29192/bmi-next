@@ -132,6 +132,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -285,6 +286,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -338,6 +340,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal & 
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -491,6 +494,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -544,6 +548,7 @@ exports[`RelatedProducts component renders correctly when scoringweight equal 1`
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -800,6 +805,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -853,6 +859,7 @@ exports[`RelatedProducts component renders correctly with scoringweight 1`] = `
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>
@@ -1006,6 +1013,7 @@ exports[`RelatedProducts component renders variants correctly with products with
                             <svg
                               aria-hidden="true"
                               class="icon"
+                              data-testid="internal"
                               focusable="false"
                             />
                           </span>

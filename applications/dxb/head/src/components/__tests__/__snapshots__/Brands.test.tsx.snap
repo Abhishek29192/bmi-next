@@ -18,7 +18,7 @@ exports[`Brands component renders correctly 1`] = `
           MC: homepage.brands
         </h2>
         <div
-          class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
         >
           <div
             class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-xl-3"
@@ -29,7 +29,7 @@ exports[`Brands component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 brandLogoButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"[object Object]\\",\\"action\\":\\"/smilex\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"
                 role="button"
                 tabindex="0"
@@ -51,7 +51,7 @@ exports[`Brands component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Smilex - MC: homepage.brands.learn\\",\\"action\\":\\"/smilex\\"}"
                 href="/smilex"
                 role="button"
                 tabindex="0"

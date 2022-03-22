@@ -35,7 +35,7 @@ const TRUSTED_USER_INFO_HEADER = Buffer.from(
 ).toString("base64");
 
 describe("ParseUserInfo", () => {
-  let logger = () => ({
+  const logger = () => ({
     info: () => {},
     error: () => {}
   });
@@ -49,7 +49,7 @@ describe("ParseUserInfo", () => {
   };
 
   let res;
-  let next = () => {};
+  const next = () => {};
 
   beforeEach(() => {});
   describe("Default userinfo", () => {

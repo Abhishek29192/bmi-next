@@ -1,8 +1,8 @@
-import { InputValue } from "@bmi/form";
-import Grid from "@bmi/grid";
-import PostItCard from "@bmi/post-it-card";
-import Search, { QUERY_KEY } from "@bmi/search";
-import Typography from "@bmi/typography";
+import { InputValue } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { PostItCard } from "@bmi/components";
+import { Search, QUERY_KEY } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import classnames from "classnames";
 import React, { FormEvent, useState, useEffect } from "react";
 import RichText from "../components/RichText";

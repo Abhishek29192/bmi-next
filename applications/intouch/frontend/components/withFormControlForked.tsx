@@ -1,11 +1,11 @@
-// This has been forked from @bmi/form
+// This has been forked from @bmi-digital/components/form
 // <root>/components/form/src/withFormControl.tsx
 
-// TODO: use @bmi/form withFormControl - if this MR is merged
+// TODO: use @bmi-digital/components/form withFormControl - if this MR is merged
 // https://gitlab.com/bmi-digital/dxb/-/merge_requests/1672
 
 import React, { useEffect, useContext, useState, ElementType } from "react";
-import { FormContext, ValidationResult } from "@bmi/form";
+import { FormContext, ValidationResult } from "@bmi/components";
 
 export type InputValue = string | number | boolean | File[] | string[];
 
@@ -20,7 +20,10 @@ export type Props<I extends InputValue> = {
   name: string;
 };
 
-const withFormControl = <P extends {}, I extends InputValue>(
+const withFormControl = <
+  P extends Record<string, unknown>,
+  I extends InputValue
+>(
   WrappedComponent: ElementType<any>
 ) => {
   const FormControl = ({

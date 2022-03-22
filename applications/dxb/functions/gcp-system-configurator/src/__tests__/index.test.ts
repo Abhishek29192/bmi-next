@@ -14,7 +14,7 @@ fetchMock.config.overwriteRoutes = false;
 jest.mock("node-fetch", () => fetchMock);
 
 const getSecret = jest.fn();
-jest.mock("@bmi/functions-secret-client", () => {
+jest.mock("@bmi-digital/functions-secret-client", () => {
   return { getSecret };
 });
 
@@ -987,7 +987,6 @@ describe("HTTP function:", () => {
       {
         data: {
           systemConfiguratorBlock: {
-            // @ts-ignore: breaking type to intentionally test a section type of the SystemConfiguratorBlock.
             nextStep: {
               __typename: "SystemConfiguratorBlock",
               sys: {
@@ -1938,94 +1937,6 @@ describe("HTTP function:", () => {
       answers: null,
       recommendedSystems: null
     });
-    expect(fetchMock).toHaveFetched(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
-    );
-    expect(fetchMock).toHaveFetched("begin:https://graphql.contentful.com");
-    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
-    );
-  });
-
-  it("nextStep: returns a 400 response if content model has changed.", async () => {
-    getSecret
-      .mockReturnValueOnce(recaptchaSecret)
-      .mockReturnValueOnce(contentfulDeliveryToken);
-
-    const req = getMockReq({
-      headers: {
-        [recaptchaTokenHeader]: recaptchaSiteKey
-      },
-      method: "GET",
-      query: {
-        answerId: "1234",
-        locale: "en-US"
-      }
-    });
-
-    fetchMock.post(
-      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
-      {
-        status: 200,
-        body: JSON.stringify({
-          success: true
-        })
-      }
-    );
-
-    const addContentfulResponseMock = async (
-      mockResponse: ContentfulResponse,
-      index: number
-    ) => {
-      fetchMock.mock(
-        {
-          method: "POST",
-          url: "begin:https://graphql.contentful.com",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${contentfulDeliveryToken}`
-          },
-          body: {
-            query: await query(index),
-            variables: {
-              answerId: "1234",
-              locale: "en-US"
-            }
-          },
-          matchPartialBody: true
-        },
-        mockResponse
-      );
-    };
-
-    await addContentfulResponseMock(
-      {
-        data: {
-          systemConfiguratorBlock: {
-            nextStep: {
-              sys: {
-                id: "newContentType1"
-              },
-              // @ts-ignore: breaking type to intentionally test an unknown new content type relationship.
-              __typename: "NewContentType",
-              title: "Entry title"
-            }
-          }
-        }
-      },
-      0
-    );
-
-    await nextStep(req, res);
-
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
-    expect(res.status).toBeCalledWith(400);
-    expect(res.send).toBeCalledWith(
-      new Error(
-        `__typename NewContentType is not a valid content type (SystemConfiguratorBlock or TitleWithContent)`
-      )
-    );
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify"
     );

@@ -489,6 +489,8 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
 
+union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
+
 """
 Represents a lead block section post it card type.
 """
@@ -716,7 +718,7 @@ type ContentfulTabsOrAccordionSection implements Node {
 """
 Represents a section with a image gallery.
 """
-type ContentfulImageGallerySection implements Node {
+type ContentfulMediaGallerySection implements Node {
   id: ID!
 
   "The title for this section."
@@ -727,7 +729,7 @@ type ContentfulImageGallerySection implements Node {
 
   "The images for this section."
   # TODO: Check if the @link is needed.
-  medias: [ContentfulImage] @link(from: "medias___NODE")
+  medias: [ContentfulMediasTypes] @link(from: "medias___NODE")
 }
 
 """
@@ -902,7 +904,7 @@ union ContentfulSection =
   | ContentfulSyndicateSection
   | ContentfulTitleWithContent
   | ContentfulPromo
-  | ContentfulImageGallerySection
+  | ContentfulMediaGallerySection
   | ContentfulDocumentDownloadSection
   | ContentfulServiceLocatorSection
   | ContentfulVideoSection
@@ -1009,6 +1011,18 @@ type ContentfulResources implements Node {
 
   "Key Asset Types"
   keyAssetTypes: [String]
+
+  "The title for product details page fixing tool tab."
+  pdpFixingToolTitle: String
+
+  "The description for product details page fixing tool tab."
+  pdpFixingToolDescription: ContentfulRichText
+
+  "The title for product details page specification tab."
+  pdpSpecificationTitle: String
+
+  "The description for product details page specification tab."
+  pdpSpecificationDescription: ContentfulRichText
 }
 
 """
@@ -1104,17 +1118,8 @@ type ContentfulSite implements Node {
   headScripts: contentfulSiteHeadScriptsTextNode
     @link(from: "headScripts___NODE")
 
-  "Google Analitycs integration ID"
-  scriptGA: String
-
   "OneTrust integration ID"
   scriptOnetrust: String
-
-  "HotJar integration ID"
-  scriptHotJar: String
-
-  "Google Optimize Load balancing ID"
-  scriptGOptLoad: String
 
   "Regions for country navigation"
   regions: [RegionJson]! @link(from: "regions___NODE")
@@ -1583,6 +1588,9 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The name of this page, representative of the type."
   title: String
 
+  "The link for the first slide."
+  cta: ContentfulLink @link(from: "cta___NODE")
+
   "The url for this page, devoid of any prefix."
   slug: String!
 
@@ -1644,6 +1652,14 @@ type ContentfulTable implements Node {
 }
 
 """
+Represents the type of services associated with a service.
+"""
+type ContentfulServiceType implements Node {
+  "The name for this service type."
+  name: String!
+}
+
+"""
 Represents the details of a service.
 """
 type ContentfulService implements Node {
@@ -1673,14 +1689,8 @@ type ContentfulService implements Node {
   "The fax for the website of this service."
   fax: String
 
-  "The type of this service."
-  type: [String]
-
-  "The type of this branch."
-  branchType: [String]
-
-  "The type of this merchant."
-  merchantType: [String!]
+  "Sample Basket Link"
+  serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
 
   "The certification level of this service."
   certification: String

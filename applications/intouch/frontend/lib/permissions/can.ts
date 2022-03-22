@@ -7,12 +7,13 @@ const can = (
   action: string,
   extraData?: any
 ): boolean => {
-  const definition = gates?.[dataModel]?.[action];
+  // eslint-disable-next-line security/detect-object-injection
+  const definition = gates[dataModel]?.[action];
   let gate;
 
   // Object holding definition per role
   if (typeof definition === "object") {
-    gate = definition?.[user?.role];
+    gate = definition[user?.role];
   } else if (typeof definition === "function") {
     return definition(user, extraData || {});
   } else if (typeof definition === "boolean") {

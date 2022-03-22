@@ -1,15 +1,15 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import Icon, { FilePDF } from "@bmi/icon";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Icon, FilePDF } from "@bmi/components";
 import { ProjectDetailsProductFragmentFragment } from "../../../../graphql/generated/operations";
 import { ProductCard } from "../ProductCard";
 import styles from "./styles.module.scss";
 
 type ProductGuaranteeCardProps = {
   product: ProjectDetailsProductFragmentFragment;
-  guaranteeFileUrl?: String;
+  guaranteeFileUrl?: string;
 };
 const ProductGuaranteeCard = ({
   product,

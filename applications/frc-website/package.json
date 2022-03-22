@@ -14,19 +14,13 @@
   "scripts": {
     "build": "gatsby build --prefix-paths",
     "check:ts": "tsc",
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "gatsby clean && gatsby develop",
     "start": "gatsby build && gatsby serve"
   },
   "dependencies": {
-    "@bmi/button": "0.0.0",
-    "@bmi/container": "0.0.0",
-    "@bmi/flat-roof-calculator": "0.0.0",
-    "@bmi/footer": "0.0.0",
-    "@bmi/grid": "0.0.0",
-    "@bmi/logo": "0.0.0",
-    "@bmi/styles": "0.0.0",
-    "@bmi/theme-provider": "0.0.0",
-    "@bmi/typography": "0.0.0",
+    "@bmi/components": "1.2.0-monorepo",
+    "@bmi-digital/styles": "1.0.1",
     "@material-ui/core": "^4.10.2",
     "@material-ui/styles": "^4.10.0",
     "babel-eslint": "^10.1.0",
@@ -44,5 +38,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/react-helmet": "^6.1.5"
   }
 }

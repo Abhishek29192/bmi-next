@@ -3,7 +3,7 @@ import { Product } from "@bmi/intouch-api-types";
 import { fireEvent, render, screen } from "../../../../lib/tests/utils";
 import { WizardSystemDetailCard } from "..";
 
-jest.mock("@bmi/use-dimensions", () => ({
+jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
   default: () => [useRef(), jest.fn()]
 }));

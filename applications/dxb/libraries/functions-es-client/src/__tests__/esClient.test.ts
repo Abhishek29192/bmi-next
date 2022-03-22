@@ -1,6 +1,3 @@
-import { Client } from "@elastic/elasticsearch";
-import { protos } from "@google-cloud/secret-manager";
-
 const mockClient = jest.fn();
 jest.mock("@elastic/elasticsearch", () => {
   return {
@@ -10,26 +7,22 @@ jest.mock("@elastic/elasticsearch", () => {
   };
 });
 
-const accessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => {
-  const mSecretManagerServiceClient = jest.fn(() => ({
-    accessSecretVersion: (
-      request: protos.google.cloud.secretmanager.v1.IAccessSecretVersionRequest
-    ) => accessSecretVersion(request)
-  }));
-  return { SecretManagerServiceClient: mSecretManagerServiceClient };
+const getSecret = jest.fn();
+jest.mock("@bmi-digital/functions-secret-client", () => {
+  return { getSecret };
 });
 
 beforeEach(() => {
   delete process.env.USE_LOCAL_ES;
   process.env.ES_CLOUD_ID = "es-cloud-id";
   process.env.ES_USERNAME = "es-username";
+  process.env.ES_PASSWORD_SECRET = "es-password-secret";
 
   jest.clearAllMocks();
   jest.resetModules();
 });
 
-const getEsClient = (): Promise<Client> => require("..").getEsClient();
+const getEsClient = async () => (await import("../index")).getEsClient();
 
 describe("getEsClient with USE_LOCAL_ES as true", () => {
   it("should return a new client set from ES_CLOUD_ID", async () => {
@@ -66,10 +59,10 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("ES_CLOUD_ID was not provided");
+      expect((error as Error).message).toEqual("ES_CLOUD_ID was not provided");
     }
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(mockClient).toBeCalledTimes(0);
   });
 
@@ -80,57 +73,53 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("ES_USERNAME was not provided");
+      expect((error as Error).message).toEqual("ES_USERNAME was not provided");
     }
 
-    expect(accessSecretVersion).toBeCalledTimes(0);
+    expect(getSecret).toBeCalledTimes(0);
     expect(mockClient).toBeCalledTimes(0);
   });
 
-  it("should error if secret payload is undefined", async () => {
-    accessSecretVersion.mockResolvedValue([{}]);
+  it("should error if ES_PASSWORD_SECRET is not set", async () => {
+    delete process.env.ES_PASSWORD_SECRET;
 
     try {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Unable to retrieve ES password");
+      expect((error as Error).message).toEqual(
+        "ES_PASSWORD_SECRET was not provided"
+      );
     }
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledTimes(0);
     expect(mockClient).toBeCalledTimes(0);
   });
 
-  it("should error if secret payload data is undefined", async () => {
-    accessSecretVersion.mockResolvedValue([{ payload: {} }]);
+  it("should error if getSecret throws error", async () => {
+    getSecret.mockRejectedValue(Error("Expected error"));
 
     try {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect(error.message).toEqual("Unable to retrieve ES password");
+      expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
     expect(mockClient).toBeCalledTimes(0);
   });
 
   it("should return a new client set from ES_CLOUD_ID and authentication", async () => {
     const esPassword = "es-password";
-    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    getSecret.mockResolvedValue(esPassword);
     const expectedClient = {};
     mockClient.mockReturnValue(expectedClient);
 
     const esClient = await getEsClient();
 
     expect(esClient).toStrictEqual(expectedClient);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
     expect(mockClient).toBeCalledWith({
       cloud: {
         id: process.env.ES_CLOUD_ID
@@ -147,17 +136,15 @@ describe("getEsClient without USE_LOCAL_ES", () => {
 
   it("should only create a new client once if called multiple times", async () => {
     const esPassword = "es-password";
-    accessSecretVersion.mockResolvedValue([{ payload: { data: esPassword } }]);
+    getSecret.mockResolvedValue(esPassword);
     const expectedClient = {};
     mockClient.mockReturnValue(expectedClient);
 
     await getEsClient();
     await getEsClient();
 
-    expect(accessSecretVersion).toBeCalledTimes(1);
-    expect(accessSecretVersion).toBeCalledWith({
-      name: `projects/${process.env.SECRET_MAN_GCP_PROJECT_NAME}/secrets/${process.env.ES_PASSWORD_SECRET}/versions/latest`
-    });
+    expect(getSecret).toBeCalledTimes(1);
+    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
     expect(mockClient).toBeCalledTimes(1);
     expect(mockClient).toBeCalledWith({
       cloud: {

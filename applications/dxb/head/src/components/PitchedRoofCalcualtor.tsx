@@ -1,15 +1,15 @@
 import React, { createContext, Suspense, useEffect, useState } from "react";
-import MicroCopy from "@bmi/micro-copy";
-// import sampleData from "@bmi/pitched-roof-calculator/src/samples/data.json";
-// import no from "@bmi/pitched-roof-calculator/src/samples/copy/no.json";
-import { Data, no, sampleData } from "@bmi/pitched-roof-calculator";
+import { MicroCopy } from "@bmi/components";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import { Data } from "./pitched-roof-calculator/types";
+import no from "./pitched-roof-calculator/samples/copy/no.json";
+import sampleData from "./pitched-roof-calculator/samples/data.json";
 
 const PitchedRoofCalculator = React.lazy(
-  () => import("@bmi/pitched-roof-calculator")
+  () => import("./pitched-roof-calculator/PitchedRoofCalculator")
 );
 
 type Parameters = {
@@ -18,7 +18,7 @@ type Parameters = {
 
 type Context = {
   isOpen: boolean;
-  open?: (params?: object) => void;
+  open?: (params?: Record<string, unknown>) => void;
 };
 
 export const CalculatorContext = createContext<Context>({
@@ -85,7 +85,9 @@ const CalculatorProvider = ({ children, onError }: Props) => {
         open:
           process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR === "true"
             ? open
-            : () => {}
+            : () => {
+                // no-op
+              }
       }}
     >
       {children}

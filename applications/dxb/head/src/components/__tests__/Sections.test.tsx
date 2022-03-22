@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import Sections, { Data } from "../Sections";
 import { SiteContextProvider } from "../Site";
-import { EntryTypeEnum, rooferTypes } from "../Service";
+import { EntryTypeEnum } from "../Service";
 import createService from "../../__tests__/ServiceHelper";
 import { DataTypeEnum } from "../Link";
 import { renderWithRouter } from "../../test/renderWithRouter";
@@ -115,21 +115,6 @@ describe("Sections component", () => {
             cta: null,
             featuredVideo: null,
             backgroundColor: "Alabaster"
-          },
-          {
-            __typename: "ContentfulPromo",
-            id: "4567",
-            name: "Villain 3",
-            title: "Villain 3",
-            brandLogo: null,
-            tags: null,
-            subtitle: null,
-            body: null,
-            featuredMedia: null,
-            cta: null,
-            featuredVideo: null,
-            // @ts-ignore
-            backgroundColor: "Invalid"
           }
         ],
         isReversed: false
@@ -211,6 +196,7 @@ describe("Sections component", () => {
             subtitle: "page subtitle",
             date: null,
             featuredMedia: {
+              __typename: "ContentfulImage",
               type: null,
               altText: "Lorem ipsum",
               caption: null,
@@ -275,6 +261,7 @@ describe("Sections component", () => {
           hubSpotCTAID: null
         },
         featuredVideo: {
+          __typename: "ContentfulVideo",
           title: "Video",
           label: "Video",
           subtitle: null,
@@ -294,6 +281,7 @@ describe("Sections component", () => {
         brandLogo: null,
         tags: null,
         featuredMedia: {
+          __typename: "ContentfulImage",
           altText: null,
           type: null,
           image: {
@@ -335,11 +323,12 @@ describe("Sections component", () => {
         backgroundColor: null
       },
       {
-        __typename: "ContentfulImageGallerySection",
+        __typename: "ContentfulMediaGallerySection",
         title: "Gallery title",
         longDescription: null,
         medias: [
           {
+            __typename: "ContentfulImage",
             type: null,
             altText: "Lorem ipsum",
             caption: null,
@@ -410,12 +399,18 @@ describe("Sections component", () => {
           createService({
             id: "roofer_1",
             name: "roofer 1",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+            ]
           }),
           createService({
             id: "roofer_2",
             name: "roofer 2",
-            type: [rooferTypes[0], rooferTypes[1]]
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+              { __typename: "ContentfulServiceType", name: "Flat Roof" }
+            ]
           })
         ],
         position: 0,
@@ -431,6 +426,7 @@ describe("Sections component", () => {
           references: []
         },
         video: {
+          __typename: "ContentfulVideo",
           title: "Video title",
           label: "Video label",
           youtubeId: "A-RfHC91Ewc",
@@ -665,14 +661,7 @@ describe("Sections component", () => {
         },
         source: "Contentful",
         hubSpotFormGuid: null
-      },
-      {
-        // @ts-ignore
-        __typename: "InvalidTypename",
-        title: "Invalid type test"
-      },
-      // @ts-ignore For test coverage
-      {}
+      }
     ];
 
     const { container } = renderWithRouter(

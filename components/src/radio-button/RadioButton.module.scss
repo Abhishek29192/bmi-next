@@ -1,0 +1,40 @@
+@import "~@bmi-digital/styles";
+
+.RadioButton {
+  display: inline-block;
+  color: $color-theme-inter;
+
+  &--disabled {
+    opacity: 0.38;
+    color: $color-black;
+  }
+
+  .input {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+
+  .label {
+    display: flex;
+    flex-flow: row nowrap;
+    cursor: pointer;
+    border: 1px solid $color-storm;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .input:focus + .label {
+    border: 1px solid currentColor;
+  }
+
+  .input:checked + .label {
+    border: 2px solid currentColor;
+  }
+
+  .text {
+    padding: 12px 48px;
+    color: currentColor;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import FlatRoofCalculator from "@bmi/flat-roof-calculator";
-import calculatorData from "@bmi/flat-roof-calculator/src/samples/calculatorData";
 import { navigate } from "gatsby";
+import FlatRoofCalculator from "../components/flat-roof-calculator";
+import calculatorData from "../components/flat-roof-calculator/samples/calculatorData";
 import Page from "../components/Page";
 import Container from "../components/Container";
 import { treeFieldsDisplay } from "../lib/treeFieldsDisplay";

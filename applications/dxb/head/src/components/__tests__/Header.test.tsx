@@ -34,6 +34,7 @@ const card1: PromoData = {
   brandLogo: null,
   tags: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,
@@ -84,6 +85,7 @@ const card2: PromoData = {
   brandLogo: null,
   tags: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,

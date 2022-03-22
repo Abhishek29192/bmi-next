@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "@bmi/table";
+import { Table } from "@bmi/components";
 import { graphql } from "gatsby";
 import styles from "./styles/EmbeddedTable.module.scss";
 

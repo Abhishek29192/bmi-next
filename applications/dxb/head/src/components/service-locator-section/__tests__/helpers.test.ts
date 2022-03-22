@@ -1,9 +1,6 @@
-import * as GoogleMockApi from "@bmi/google-api";
-import { renderHook } from "@testing-library/react-hooks";
-import React from "react";
+import * as GoogleMockApi from "@bmi/components";
 import {
   calculateCenter,
-  createCompanyDetails,
   createMarker,
   filterServices,
   getFilterOptions,
@@ -11,16 +8,10 @@ import {
   getRooferTypes,
   getTypesFromServices,
   sortServices,
-  typeFilter,
-  useScrollTo
+  typeFilter
 } from "../helpers";
-import {
-  BranchTypesEnum,
-  EntryTypeEnum,
-  MerchantTypesEnum,
-  RooferTypesEnum,
-  ServiceType
-} from "../../Service";
+import { ServiceTypeFilter } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
 import createService from "../../../__tests__/ServiceHelper";
 import * as devLog from "../../../utils/devLog";
 import { DEFAULT_MAP_CENTRE, EVENT_CAT_ID_SELECTOR_CARDS } from "../constants";
@@ -29,148 +20,68 @@ jest.spyOn(devLog, "devLog");
 
 afterEach(jest.clearAllMocks);
 
-const createActiveFilterMocks = (
-  typeOfMock: "roofer" | "branch" | "merchant"
-): Record<ServiceType, boolean> => {
-  const obj = {
-    roofer: RooferTypesEnum,
-    merchant: MerchantTypesEnum,
-    branch: BranchTypesEnum
-  };
-  return {
-    // eslint-disable-next-line security/detect-object-injection
-    ...Object.values(obj[typeOfMock]).reduce(
-      (acc, key) => ({
-        ...acc,
-        [key]: false
-      }),
-      {}
-    )
-  };
+const createActiveFilterMocks = (serviceTypesByEntityItems: ServiceType[]) => {
+  return serviceTypesByEntityItems.reduce(
+    (carry, key: ServiceType) => ({ ...carry, [key.name]: false }),
+    {}
+  ) as ServiceTypeFilter;
 };
 
 describe("helpers functions", () => {
-  describe("createCompanyDetails", () => {
-    const getMicroCopyMock = jest
-      .fn()
-      .mockImplementation((copy: string) => copy);
-    it("should return details array for sectionType = ROOFER_TYPE", () => {
-      const service = createService({
-        type: [RooferTypesEnum.PITCHED_ROOF]
-      });
-      const details = createCompanyDetails(
-        EntryTypeEnum.ROOFER_TYPE,
-        service,
-        false,
-        "en",
-        getMicroCopyMock,
-        false,
-        "googleURLLatLng"
-      );
-      const typeObject = details.find(
-        (item) => item.label === "findARoofer.roofTypeLabel"
-      );
-      expect(typeObject.label).toBeTruthy();
-    });
-    it("should return details array for sectionType = BRANCH_TYPE", () => {
-      const service = createService();
-      const details = createCompanyDetails(
-        EntryTypeEnum.BRANCH_TYPE,
-        service,
-        false,
-        "en",
-        getMicroCopyMock,
-        false,
-        "googleURLLatLng"
-      );
-      const faxObject = details.find((item) => item.label === "global.fax");
-      expect(faxObject.label).toBeTruthy();
-    });
-    it("should return details array for sectionType = MERCHANT_TYPE", () => {
-      const service = createService();
-      const details = createCompanyDetails(
-        EntryTypeEnum.MERCHANT_TYPE,
-        service,
-        false,
-        "en",
-        getMicroCopyMock,
-        false,
-        "googleURLLatLng"
-      );
-      const faxObject = details.find((item) => item.label === "global.fax");
-      const typeObject = details.find(
-        (item) => item.label === "findARoofer.roofTypeLabel"
-      );
-      expect(faxObject).toBeFalsy();
-      expect(typeObject).toBeFalsy();
-    });
-    it("should return empty details array for sectionType = undefined", () => {
-      const service = createService();
-      const sectionType = undefined;
-      const details = createCompanyDetails(
-        sectionType,
-        service,
-        false,
-        "en",
-        getMicroCopyMock,
-        false,
-        "googleURLLatLng"
-      );
-      expect(devLog.devLog).toHaveBeenCalledWith(
-        "Invalid section type passed to service locator:",
-        sectionType
-      );
-      expect(details).toStrictEqual([]);
-    });
-  });
   describe("getTypesFromServices", () => {
     it("should collect types from services", () => {
       const services = [
         createService({
-          type: [RooferTypesEnum.FLAT_ROOF, RooferTypesEnum.PITCHED_ROOF]
-        }),
-        createService({
-          branchType: [
-            BranchTypesEnum.COUNTRY_OFFICES,
-            BranchTypesEnum.HEADQUARTERS
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Flat Roof" },
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
           ]
         }),
         createService({
-          merchantType: [MerchantTypesEnum.BMI_ICOPAL_FLAT_ROOF_SYSTEMS]
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Country Offices" },
+            { __typename: "ContentfulServiceType", name: "Headquarters" }
+          ]
+        }),
+        createService({
+          serviceTypes: [
+            {
+              __typename: "ContentfulServiceType",
+              name: "BMI Icopal Flat Roof Systems"
+            }
+          ]
         }),
         createService()
       ];
       const types = getTypesFromServices(services);
       expect(types).toEqual([
-        ...services[0].type,
-        ...services[1].branchType,
-        ...services[2].merchantType
+        ...services[0].serviceTypes,
+        ...services[1].serviceTypes,
+        ...services[2].serviceTypes
       ]);
     });
   });
   describe("getRooferTypes", () => {
     it("should filter uniqRoofersTypes array", () => {
-      const uniqRooferTypesByDataMock = [...Object.values(RooferTypesEnum)];
-      const allQueriesMock = [
-        RooferTypesEnum.FLAT_ROOF,
-        RooferTypesEnum.PITCHED_ROOF_TILE_ROOFS
+      const uniqRooferTypesByDataMock: ServiceType[] = [
+        { __typename: "ContentfulServiceType", name: "Flat Roof" },
+        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
       ];
+      const allQueriesMock = ["Flat Roof", "Pitched Roof"];
       const resultRooferTypes = getRooferTypes(
         uniqRooferTypesByDataMock,
         allQueriesMock
       );
-      expect(resultRooferTypes).toStrictEqual(allQueriesMock);
+      expect(resultRooferTypes).toStrictEqual(uniqRooferTypesByDataMock);
     });
     it("should return empty array if there is no specific service types", () => {
       const uniqRooferTypesByDataMock = [
-        ...Object.values(RooferTypesEnum).splice(2)
+        { __typename: "ContentfulServiceType", name: "Flat Roof" },
+        { __typename: "ContentfulServiceType", name: "Pitched Roof" }
       ];
-      const allQueriesMock = [
-        RooferTypesEnum.PITCHED_ROOF,
-        RooferTypesEnum.FLAT_ROOF
-      ];
+      const allQueriesMock = ["Flat Roof 2"];
       const resultRooferTypes = getRooferTypes(
-        uniqRooferTypesByDataMock,
+        uniqRooferTypesByDataMock as ServiceType[],
         allQueriesMock
       );
       expect(resultRooferTypes).toStrictEqual([]);
@@ -211,7 +122,7 @@ describe("helpers functions", () => {
       it("should return 0 if we have 2 services with the same name", () => {
         const sortResult = sortServices(null)(
           {
-            mockServiceA,
+            ...mockServiceA,
             ...{
               name: mockServiceB.name
             }
@@ -226,7 +137,7 @@ describe("helpers functions", () => {
       });
       it("should return 1 if serviceNameA > serviceNameB", () => {
         const sortResult = sortServices(null)(mockServiceA, {
-          mockServiceB,
+          ...mockServiceB,
           ...{ name: "AServiceB_name" }
         });
         expect(sortResult).toStrictEqual(1);
@@ -234,41 +145,37 @@ describe("helpers functions", () => {
     });
   });
   describe("typeFilter", () => {
-    const typeDataMock = {
-      type: [
-        RooferTypesEnum.PITCHED_ROOF_ROOF_COATERS,
-        RooferTypesEnum.PITCHED_ROOF_TILE_ROOFS
-      ],
-      branchType: null,
-      merchantType: null
-    };
-    const branchTypeDataMock = {
-      type: null,
-      branchType: [
-        BranchTypesEnum.HEADQUARTERS,
-        BranchTypesEnum.COUNTRY_OFFICES
-      ],
-      merchantType: null
-    };
-    const merchantTypeDataMock = {
-      type: null,
-      branchType: null,
-      merchantType: [
-        MerchantTypesEnum.DISTRIBUTEURS_SIPLAST,
-        MerchantTypesEnum.DISTRIBUTEURS_MONIER
-      ]
-    };
+    const typeDataMock: ServiceType[] = [
+      { __typename: "ContentfulServiceType", name: "Roof Coaters" },
+      {
+        __typename: "ContentfulServiceType",
+        name: "Tile Roofs"
+      }
+    ];
+    const branchTypeDataMock: ServiceType[] = [
+      {
+        __typename: "ContentfulServiceType",
+        name: "Headquarters"
+      },
+      { __typename: "ContentfulServiceType", name: "Country offices" }
+    ];
+    const merchantTypeDataMock: ServiceType[] = [
+      { __typename: "ContentfulServiceType", name: "Distributers Siplast" },
+      { __typename: "ContentfulServiceType", name: "Distributers Monier" }
+    ];
     describe('typeData = Service["type"]', () => {
       it("should return true if all chips unselected", () => {
-        const rooferTypesFiltersMock = createActiveFilterMocks("roofer");
+        const rooferTypesFiltersMock = createActiveFilterMocks(typeDataMock);
         const typeFilters = typeFilter(typeDataMock, rooferTypesFiltersMock);
         expect(typeFilters).toBeTruthy();
       });
       it("should return true if some chip is selected", () => {
-        const rooferTypesFiltersMock = createActiveFilterMocks("roofer");
+        const rooferTypesFiltersMock = createActiveFilterMocks([
+          { __typename: "ContentfulServiceType", name: "roofer" }
+        ]);
         const filtersMock = {
           ...rooferTypesFiltersMock,
-          [RooferTypesEnum.PITCHED_ROOF_TILE_ROOFS]: true
+          "Tile Roofs": true
         };
         const typeFilters = typeFilter(typeDataMock, filtersMock);
         expect(typeFilters).toBeTruthy();
@@ -276,10 +183,12 @@ describe("helpers functions", () => {
     });
     describe('typeData = Service["branchType"]', () => {
       it("should return true if some chip is selected", () => {
-        const branchTypesFiltersMock = createActiveFilterMocks("branch");
+        const branchTypesFiltersMock = createActiveFilterMocks([
+          { __typename: "ContentfulServiceType", name: "branch" }
+        ]);
         const filtersMock = {
           ...branchTypesFiltersMock,
-          [BranchTypesEnum.HEADQUARTERS]: true
+          Headquarters: true
         };
         const typeFilters = typeFilter(branchTypeDataMock, filtersMock);
         expect(typeFilters).toBeTruthy();
@@ -287,24 +196,24 @@ describe("helpers functions", () => {
     });
     describe('typeData = Service["merchantType"]', () => {
       it("should return true if some chip is selected", () => {
-        const merchantTypesFiltersMock = createActiveFilterMocks("merchant");
+        const merchantTypesFiltersMock = createActiveFilterMocks([
+          { __typename: "ContentfulServiceType", name: "merchant" }
+        ]);
         const filtersMock = {
           ...merchantTypesFiltersMock,
-          [MerchantTypesEnum.DISTRIBUTEURS_MONIER]: true
+          "Distributers Monier": true
         };
         const typeFilters = typeFilter(merchantTypeDataMock, filtersMock);
         expect(typeFilters).toBeTruthy();
       });
     });
     it("should return true if service's types are null", () => {
-      const typesData = {
-        type: null,
-        branchType: null,
-        merchantType: null
-      };
+      const typesData = null;
       const typeFilters = typeFilter(
         typesData,
-        createActiveFilterMocks("roofer")
+        createActiveFilterMocks([
+          { __typename: "ContentfulServiceType", name: "roofer" }
+        ])
       );
       expect(typeFilters).toBeTruthy();
     });
@@ -317,7 +226,9 @@ describe("helpers functions", () => {
         .mockReturnValue(distanceMock);
       const servicesMock = [createService({ distance: undefined })];
       const centerMock = { lat: 59, lng: 10 };
-      const activeFiltersMock = createActiveFilterMocks("roofer");
+      const activeFiltersMock = createActiveFilterMocks([
+        { __typename: "ContentfulServiceType", name: "roofer" }
+      ]);
       const result = servicesMock.reduce(
         filterServices(centerMock, activeFiltersMock, ""),
         []
@@ -331,7 +242,9 @@ describe("helpers functions", () => {
         .mockReturnValue(distanceMock);
       const servicesMock = [createService({ distance: undefined })];
       const centerMock = { lat: 59, lng: 10 };
-      const activeFiltersMock = createActiveFilterMocks("roofer");
+      const activeFiltersMock = createActiveFilterMocks([
+        { __typename: "ContentfulServiceType", name: "roofer" }
+      ]);
       const result = servicesMock.reduce(
         filterServices(centerMock, activeFiltersMock, ""),
         []
@@ -341,13 +254,16 @@ describe("helpers functions", () => {
   });
   describe("getResultDataGtm", () => {
     const serviceMock = createService({ certification: "expert" });
-    const { name, address, certification, type, entryType } = serviceMock;
+    const { name, address, certification, serviceTypes, entryType } =
+      serviceMock;
     it("should return dataGtm object with service.certification in label if matches === true", () => {
       const result = getResultDataGtm(serviceMock, true);
       const expectResult = {
         id: EVENT_CAT_ID_SELECTOR_CARDS,
         label: `${name} - ${address} - ${certification}${
-          type && type.length === 1 ? ` - ${type[0]}` : ` - ${entryType}`
+          serviceTypes && serviceTypes.length === 1
+            ? ` - ${serviceTypes[0].name}`
+            : ` - ${entryType}`
         } - selected`,
         action: "Expanded company details"
       };
@@ -358,7 +274,9 @@ describe("helpers functions", () => {
       const expectResult = {
         id: EVENT_CAT_ID_SELECTOR_CARDS,
         label: `${name} - ${address}${
-          type && type.length === 1 ? ` - ${type[0]}` : ` - ${entryType}`
+          serviceTypes && serviceTypes.length === 1
+            ? ` - ${serviceTypes[0].name}`
+            : ` - ${entryType}`
         } - selected`,
         action: "Expanded company details"
       };
@@ -397,28 +315,6 @@ describe("helpers functions", () => {
     it("should return centre = DEFAULT_MAP_CENTRE", () => {
       const centre = calculateCenter(null, null);
       expect(centre).toEqual(DEFAULT_MAP_CENTRE);
-    });
-  });
-  describe("useScrollTo", () => {
-    it("should execute scrollTo function if card expansion completed", () => {
-      React.useState = jest.fn().mockReturnValueOnce([true, {}]);
-      const ref = {
-        current: {
-          parentElement: { scrollTo: jest.fn() }
-        }
-      };
-      renderHook(() => useScrollTo(true, ref));
-      expect(ref.current.parentElement.scrollTo).toHaveBeenCalledTimes(1);
-    });
-    it("shouldn't execute scrollTo function if card expansion didn't completed", () => {
-      React.useState = jest.fn().mockReturnValueOnce([false, {}]);
-      const ref = {
-        current: {
-          parentElement: { scrollTo: jest.fn() }
-        }
-      };
-      renderHook(() => useScrollTo(true, ref));
-      expect(ref.current.parentElement.scrollTo).toHaveBeenCalledTimes(0);
     });
   });
 });

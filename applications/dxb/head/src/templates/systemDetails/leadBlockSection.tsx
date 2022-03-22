@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Section from "@bmi/section";
-import LeadBlock from "@bmi/lead-block";
-import Typography from "@bmi/typography";
+import { Section } from "@bmi/components";
+import { LeadBlock } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { IconList } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Button, { ButtonProps } from "@bmi/button";
-import IconList from "@bmi/icon-list";
-import { SVGImport } from "@bmi/svg-import";
+import { SVGImport } from "@bmi-digital/svg-import";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
@@ -41,6 +41,7 @@ const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
   if (!brandCategory) return null;
 
   return {
+    __typename: "ContentfulImage",
     type: null,
     altText: null,
     image: {

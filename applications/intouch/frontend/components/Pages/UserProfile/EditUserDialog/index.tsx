@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { gql } from "@apollo/client";
-import Form from "@bmi/form";
-import Dialog from "@bmi/dialog";
-import TextField from "@bmi/text-field";
-import Typography from "@bmi/typography";
+import { Form } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import log from "../../../../lib/logger";
 import { validatePhoneNumberInput } from "../../../../lib/validations/utils";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";

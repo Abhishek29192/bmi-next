@@ -1,12 +1,13 @@
 import { Link } from "gatsby";
-import { Props as ProductOverviewPaneProps } from "@bmi/product-overview-pane";
-import { Image as ImageGalleryImage } from "@bmi/image-gallery";
+import { ProductOverviewPaneProps } from "@bmi/components";
+import { Image as ImageGalleryImage } from "@bmi/components";
 import React from "react";
 import {
   Category,
   Classification,
   FeatureValue,
   Image,
+  ImageFormatEnum,
   Product,
   VariantOption,
   VariantOptionWithProduct,
@@ -30,7 +31,7 @@ const getProductProp = (classifications, productCode, propName) =>
 const getAllValues = (
   classifications: ClassificationsPerProductMap,
   propName: string,
-  enableSorting: boolean = false
+  enableSorting = false
 ) => {
   const alreadyFoundProps = new Set();
 
@@ -109,7 +110,7 @@ export const findMasterImageUrl = (images: readonly Image[] | null): string =>
   images?.find(
     (image) =>
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE &&
-      image.format == "Product-Listing-Card-Small-Desktop-Tablet"
+      image.format == ImageFormatEnum.PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET
   )?.url;
 
 export const findProductBrandLogoCode = (product: Product) =>
@@ -181,10 +182,11 @@ export const convertImageSetToMediaFormat = (
 ): GalleryImageType[] => {
   return imageSets.map((images) => ({
     mainSource: images.find(
-      (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
+      (image) =>
+        image.format === ImageFormatEnum.PRODUCT_HERO_SMALL_DESKTOP_TABLET
     )?.url,
     thumbnail: images.find(
-      (image) => image.format === "Product-Color-Selector-Mobile"
+      (image) => image.format === ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE
     )?.url,
     altText: images[0]?.altText || images[0]?.name
   }));
@@ -193,7 +195,7 @@ export const convertImageSetToMediaFormat = (
 export const getColourThumbnailUrl = (images): string | undefined =>
   images.find(
     (image) =>
-      image.format === "Product-Color-Selector-Mobile" &&
+      image.format === ImageFormatEnum.PRODUCT_COLOR_SELECTOR_MOBILE &&
       image.assetType === ImageAssetTypesEnum.MASTER_IMAGE
   )?.url;
 
@@ -245,7 +247,7 @@ export const mapProductClassifications = (
     "code" | "images" | "classifications" | "variantOptions"
   >,
   classificationNamepace: string,
-  includeVariantScoringWeight: boolean = false
+  includeVariantScoringWeight = false
 ): ClassificationsPerProductMap => {
   const allProducts: {
     [productCode: string]: Product;
@@ -1079,4 +1081,11 @@ export const getMergedClassifications = (
       return classifications;
     }, [])
   ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
+};
+
+export const getYoutubeId = (urlOrCode) => {
+  const regExp =
+    /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
+  const urlMatch = urlOrCode.match(regExp);
+  return urlMatch && urlMatch.length > 0 ? urlMatch[1] : urlOrCode;
 };

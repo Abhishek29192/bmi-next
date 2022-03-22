@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 
 export type InfoPairProps = {
   title: string;

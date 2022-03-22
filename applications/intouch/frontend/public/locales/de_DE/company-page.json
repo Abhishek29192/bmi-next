@@ -1,0 +1,171 @@
+{
+  "businessType": {
+    "ARCHITECT": "Architekten/-innen, Planer/-innen",
+    "CONTRACTOR": "Dachhandwerker/-innen",
+    "CORP_DEVELOPER": "Ingenieure/-innen",
+    "MERCHANT": "Mitarbeiter/-innen des Handels"
+  },
+  "certificationsTitle": "BMI-Zertifizierungen",
+  "companyActions": {
+    "activate": "Firma aktivieren",
+    "deactivate": "Firma deaktivieren"
+  },
+  "companyActionsTitle": "Firmenaktionen",
+  "companyOperations": "Operationstyp",
+  "companyOperationsSuffix": "Dachtyp",
+  "details": {
+    "aboutUs": "Firmenbeschreibung",
+    "contactDetails": "Kontaktinformation",
+    "name": "Firmenname",
+    "owner": "Firmeninhaber",
+    "phone": "Telefon",
+    "referenceNumber": "Firmenreferenznummer",
+    "registeredAddress": "Registrierte Adresse",
+    "registeredDetails": "Registrierte Details",
+    "taxNumber": "Umsatzsteuer-Identifikationsnummer",
+    "title": "Firmenangaben",
+    "tradingAddress": "Adresse"
+  },
+  "document": {
+    "addDocument": "Dokument hinzufügen",
+    "confirmDialog": {
+      "body": "Dokument löschen",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Bestätigen",
+      "title": "Dokument"
+    },
+    "headers": {
+      "date": "Datum",
+      "document": "Dokument",
+      "download": "HERUNTERLADEN"
+    },
+    "noContent": "Noch keine Dokumente hochgeladen",
+    "title": "Unternehmensunterlagen",
+    "uploadDialog": {
+      "buttonLabel": "Daten hochladen",
+      "cancelLabel": "Abbrechen",
+      "confirmLabel": "Daten hochladen",
+      "evidence_category": "Kategorie hochladen",
+      "fileAlreadyExisting": "Dateiname existiert bereits",
+      "fileValidationMessage": "Sie können keine Dateien hochladen, die größer als {{fileSize}} sind",
+      "genericError": "Allgemeiner Fehler",
+      "instruction": "Sie können Dateien hinzufügen",
+      "microcopy": {
+        "browse": "Durchsuche",
+        "drop": "Aufgeben"
+      },
+      "title": "Dokumenten-Upload"
+    }
+  },
+  "edit_dialog": {
+    "form": {
+      "actions": {
+        "cancel": "Abbrechen",
+        "submit": "Speichern und schließen"
+      },
+      "fields": {
+        "aboutUs": "Firmenbeschreibung (optional)",
+        "businessType": "Firmentyp",
+        "facebook": "Facebook-Profil (optional)",
+        "linkedIn": "LinkedIn-Profil (optional)",
+        "logo": {
+          "alt_text": "Firmenlogo",
+          "buttons": {
+            "remove": "Entfernen",
+            "upload": "Foto ändern"
+          },
+          "fileSizeMessage": "Maximale Dateigröße von 3 MB.",
+          "fileTypesMessage": "Sie können jpg-, gif- oder png-Dateien hochladen.",
+          "label": "Logo"
+        },
+        "name": "Registrierter Name",
+        "ownerFullname": "Name (optional)",
+        "operationTypes": "Operationstypen",
+        "ownerEmail": "E-Mail-Adresse (optional)",
+        "ownerPhone": "Telefon (optional)",
+        "phone": "Telefon (optional)",
+        "publicEmail": "E-Mail-Adresse (optional)",
+        "registeredAddress": {
+          "coordinates": {
+            "x": "Breitengrad",
+            "y": "Längengrad"
+          },
+          "country": "Land",
+          "firstLine": "Adressezeile 1",
+          "postcode": "Postleitzahl",
+          "region": "Ort",
+          "secondLine": "Adresszeile 2",
+          "town": "Stadt oder Ort"
+        },
+        "taxNumber": "Umsatzsteuer-Identifikationsnummer",
+        "tier": "Niveau",
+        "tradingAddress": {
+          "autocomplete": "Straße, Ort oder Postleitzahl",
+          "coordinates": {
+            "x": "Breitengrad",
+            "y": "Längengrad"
+          },
+          "country": "Land",
+          "firstLine": "Adressezeile 1",
+          "postcode": "Postleitzahl",
+          "region": "Ort",
+          "secondLine": "Adresszeile 2",
+          "town": "Stadt oder Ort"
+        },
+        "website": "Firmenwebsite (optional)"
+      },
+      "maxCharacters": "Maximal 255 Zeichen"
+    },
+    "sections": {
+      "contact_details": "Kontaktinformation",
+      "owner_details": "Angaben zum Firmeninhaber",
+      "registered_details": "Registrierte Details",
+      "trading_address": "Adresse",
+      "trading_address_description": "Um Ihre Registrierung optimal zu nutzen, geben Sie bitte die Handelsadresse Ihrer Firma an.",
+      "trading_address_fields_heading": "Kontaktinformation"
+    },
+    "title": "Firmenangaben"
+  },
+  "errorCompanyNameUniqueViolation": "Name bereits verwendet",
+  "errorCompanyReferenceUniqueViolation": "Nummer bereits verwendet",
+  "errorUniqueViolation": "Nicht einzigartig",
+  "incompleteProfile": {
+    "closeAlertAccessibilityLabel": "Schließen",
+    "fields": {
+      "aboutUs": "Beschreibung",
+      "logo": "Logo",
+      "phone": "Telefon",
+      "publicEmail": "E-Mail",
+      "tradingAddress": "Adresse"
+    },
+    "warning": "Um Ihre Registrierung für Sie und Ihre Teammitglieder optimal zu nutzen, geben Sie bitte die unten aufgeführten Informationen an."
+  },
+  "noCompanies": "Dieser Markt hat noch keine Firmen",
+  "operationTypes": {
+    "BITUMEN": "Dach aus Bitumen",
+    "COATER": "Dachbeschichtung",
+    "FLAT": "Flachdach",
+    "GREEN": "Grünes Dach",
+    "PITCHED": "Steildach",
+    "SOLAR": "Solar-PV-Dach",
+    "TILE": "Dachziegel"
+  },
+  "register_dialog": {
+    "title": "Registrieren Sie eine Firma"
+  },
+  "report": "Firmenliste herunterladen",
+  "search": {
+    "inputLabel": "Suche nach einer Firma",
+    "profileComplete": "Profil abgeschlossen",
+    "profileIncomplete": "Profil unvollständig"
+  },
+  "supportTitle": "BMI kontaktieren",
+  "titleAdmin": "Firmen",
+  "titleMember": "Firma",
+  "order": {
+    "labels": {
+      "ALPHABETICAL": "Alphabetisch",
+      "UPDATED": "Zuletzt aktualisiert"
+    }
+  }
+}

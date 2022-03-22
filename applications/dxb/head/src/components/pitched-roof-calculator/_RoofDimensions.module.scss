@@ -1,0 +1,21 @@
+@import "~@bmi-digital/styles";
+
+.RoofDimensions {
+  .illustration {
+    display: block;
+    margin: 0 auto;
+
+    @media (min-width: $breakpoint-lg) {
+      width: 350px;
+    }
+  }
+
+  .form {
+    margin: 0 auto 48px;
+
+    @media (min-width: $breakpoint-lg) {
+      margin-bottom: 96px;
+      width: 66%;
+    }
+  }
+}

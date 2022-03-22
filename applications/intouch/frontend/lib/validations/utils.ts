@@ -1,5 +1,6 @@
 import validator from "validator";
-import { ValidationResult } from "@bmi/form";
+import { ValidationResult } from "@bmi/components";
+import { getNestedValue } from "../utils/object";
 
 export type ValidateObjectResult = {
   result: boolean;
@@ -10,12 +11,6 @@ export const validateObject = (
   object: { [key: string]: any },
   mandatoryFields: string[]
 ): ValidateObjectResult => {
-  const getNestedValue = (object, keyString) => {
-    const keys = keyString.split(".");
-    return keys.length <= 1
-      ? object[`${keys}`]
-      : getNestedValue(object[`${keys[0]}`], keys[1]);
-  };
   const missingFields = mandatoryFields.filter((mandatoryField) => {
     return !getNestedValue(object, mandatoryField);
   });

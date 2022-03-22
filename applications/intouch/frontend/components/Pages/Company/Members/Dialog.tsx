@@ -4,11 +4,11 @@ import validator from "validator";
 import { useTranslation } from "next-i18next";
 import { withStyles } from "@material-ui/core/styles";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import TextField from "@bmi/text-field";
-import Button from "@bmi/button";
-import Dialog from "@bmi/dialog";
-import Form from "@bmi/form";
-import AlertBanner from "@bmi/alert-banner";
+import { TextField } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Dialog } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useInviteMutation } from "../../../../graphql/generated/hooks";
 
 export const INVITE_USER = gql`
@@ -157,7 +157,6 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
                     ["data-testid"]: "emails",
                     ...params.inputProps
                   }}
-                  isRequired
                   fullWidth
                 />
               )}
@@ -175,7 +174,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
             <Form.SubmitButton
               data-testid="invite-dialog-submit"
               key="btn-send-invitation"
-              disabled={loading}
+              disabled={loading || !emails.length}
             >
               {t("team-page:invitation.dialog.send")}
             </Form.SubmitButton>

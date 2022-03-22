@@ -1,4 +1,4 @@
-declare module Express {
+declare namespace Express {
   export interface Request {
     docebo: any;
     user: import("./../user");

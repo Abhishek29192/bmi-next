@@ -47,7 +47,7 @@ export default class TrainingClient {
     return courseSyncConfigurationByConfigName;
   }
   async setLastUpdatedDate(
-    lastUpdateDate: String
+    lastUpdateDate: string
   ): Promise<ICourseSyncConfiguration> {
     const payload = {
       query: `mutation updateLastUpdateDate($lastUpdateDate:String!){
@@ -76,7 +76,7 @@ export default class TrainingClient {
     return courseSyncConfiguration;
   }
 
-  async updateTrainingDB(lastUpdateDate?: String) {
+  async updateTrainingDB(lastUpdateDate?: string) {
     const payload = {
       query: `mutation updateTrainingDB($lastUpdateDate:String) {
         updateTraining(lastUpdateDate:$lastUpdateDate)

@@ -1,0 +1,71 @@
+@import "~@bmi-digital/styles";
+
+.Breadcrumbs {
+  .link {
+    display: inline-block;
+    text-decoration: none;
+    display: inline-flex;
+  }
+
+  .ellipsis {
+    margin: 0 6px;
+    color: $color-theme-inter;
+  }
+
+  li:last-child:not(:first-child) {
+    .button:disabled {
+      color: $color-slate;
+    }
+  }
+
+  &--dark-themed {
+    color: $color-storm;
+
+    .ellipsis {
+      color: inherit;
+    }
+
+    .button {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+    }
+
+    li:last-child:not(:first-child) {
+      .button {
+        color: $color-storm;
+        text-decoration: none;
+      }
+      .button:disabled {
+        color: $color-storm;
+      }
+
+      .label {
+        max-width: none;
+      }
+    }
+  }
+
+  .button {
+    font-size: 16px;
+    padding-left: 6px;
+    padding-right: 6px;
+    min-width: auto;
+  }
+
+  .label {
+    max-width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon {
+    font-size: inherit;
+  }
+
+  :global {
+    [class*="MuiBreadcrumbs-separator"] {
+      margin: 0 1px;
+    }
+  }
+}

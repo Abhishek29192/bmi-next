@@ -1,5 +1,5 @@
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage/build/src/storage";
 import { filterFunctionMetadata } from "./filter";
@@ -89,7 +89,8 @@ export const deploy = async (file: { bucket: string; name: string }) => {
         message: `Metadata file not found for ${file.name} source`
       });
     }
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     logger.error({ message: error.message });
   }
 };

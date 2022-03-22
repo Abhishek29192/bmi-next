@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import { Session } from "@auth0/nextjs-auth0";
-import { NextLogger } from "@bmi-digital/logger";
+import { NextLogger } from "@bmi/logger";
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { getAuth0Instance } from "../../../lib/auth0";
@@ -9,7 +9,7 @@ import Account, { isSuperAdmin } from "../../../lib/account";
 import { getMarketAndEnvFromReq } from "../../../lib/utils";
 import { withLoggerApi } from "../../../lib/middleware/withLogger";
 
-interface Request extends NextApiRequest {
+export interface Request extends NextApiRequest {
   logger: any;
 }
 

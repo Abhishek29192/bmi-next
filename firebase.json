@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "styleguide",
-      "public": "styleguide",
+      "public": "components/styleguide",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
         {

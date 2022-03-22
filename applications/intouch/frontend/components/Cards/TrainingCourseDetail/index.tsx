@@ -1,6 +1,6 @@
 import React from "react";
 import { Course } from "@bmi/intouch-api-types";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { getTechnology } from "../../../lib/utils/course";
 import { CourseDescription } from "../CourseDescription";

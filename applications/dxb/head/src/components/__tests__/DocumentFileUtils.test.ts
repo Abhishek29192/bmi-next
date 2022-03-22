@@ -309,7 +309,7 @@ describe("DocumentFileUtils Tests", () => {
           fileIndexCount: [1, 2, 1, 1, 2, 1]
         };
 
-        let generatedFileName = generateFileNamebyTitle(
+        const generatedFileName = generateFileNamebyTitle(
           uniqueFileMap,
           assets[0].title,
           assets[0].extension,

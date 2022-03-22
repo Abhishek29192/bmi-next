@@ -3,9 +3,9 @@ import React from "react";
 import PhoneIcon from "@material-ui/icons/Phone";
 import EmailIcon from "@material-ui/icons/Email";
 import PublicIcon from "@material-ui/icons/Public";
-import Icon from "@bmi/icon";
-import { SVGImport } from "@bmi/svg-import";
-import Typography from "@bmi/typography";
+import { Icon } from "@bmi/components";
+import { SVGImport } from "@bmi-digital/svg-import";
+import { Typography } from "@bmi/components";
 import { Link } from "../Link";
 import styles from "./styles.module.scss";
 

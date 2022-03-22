@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
 import React, { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "next-i18next";
-import AlertBanner from "@bmi/alert-banner";
-import TextField from "@bmi/text-field";
-import Checkbox from "@bmi/checkbox";
-import Button from "@bmi/button";
-import Form from "@bmi/form";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { AlertBanner } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Checkbox } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
@@ -48,6 +48,21 @@ const marketKeys = [
     label: "Docebo company admin branch id"
   },
   { type: "number", key: "doceboCatalogueId", label: "Docebo catalogue id" },
+  {
+    type: "number",
+    key: "doceboCatalogueIdT2",
+    label: "Docebo catalogue id T2"
+  },
+  {
+    type: "number",
+    key: "doceboCatalogueIdT3",
+    label: "Docebo catalogue id T3"
+  },
+  {
+    type: "number",
+    key: "doceboCatalogueIdT4",
+    label: "Docebo catalogue id T4"
+  },
   { type: "text", key: "merchandisingUrl", label: "Merchandising url" },
   { type: "checkbox", key: "projectsEnabled", label: "Projects enabled" },
   {
@@ -61,6 +76,7 @@ const marketKeys = [
 
 const getValue = (t, type, value) => {
   switch (type) {
+    case "number":
     case "text":
     case "textarea":
       return value;
@@ -348,6 +364,9 @@ export const updateMarket = gql`
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
             doceboCatalogueId
+            doceboCatalogueIdT2
+            doceboCatalogueIdT3
+            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm

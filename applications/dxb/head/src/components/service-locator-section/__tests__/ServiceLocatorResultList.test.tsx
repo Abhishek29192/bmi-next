@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { ServiceLocatorResultList } from "../components";
 import createService from "../../../__tests__/ServiceHelper";
-import { RooferTypesEnum } from "../../Service";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -27,12 +26,17 @@ describe("ServiceLocatorResultList component", () => {
     expect(noResultHeading).toBeDefined();
   });
   it("should renders correctly with single service type", () => {
-    const service = createService({ type: [RooferTypesEnum.PITCHED_ROOF] });
+    const service = createService({
+      serviceTypes: [
+        { __typename: "ContentfulServiceType", name: "Pitched Roof" },
+        { __typename: "ContentfulServiceType", name: "Pitched Roof 2" }
+      ]
+    });
     const expectedResult = `${service.name} - ${service.address}${
       service.certification ? ` - ${service.certification}` : ""
     }${
-      service.type && service.type.length === 1
-        ? ` - ${service.type[0]}`
+      service.serviceTypes && service.serviceTypes.length === 1
+        ? ` - ${service.serviceTypes[0].name}`
         : ` - ${service.entryType}`
     } - selected`;
     const { getByTestId } = render(
@@ -51,7 +55,7 @@ describe("ServiceLocatorResultList component", () => {
     expect(gtmData.label).toEqual(expectedResult);
   });
   it("should execute callback fn when user click on list item", () => {
-    const service = createService({ type: [] });
+    const service = createService({ serviceTypes: [] });
     const onListItemClick = jest.fn();
     const { getByTestId } = render(
       <ServiceLocatorResultList
@@ -98,9 +102,12 @@ describe("ServiceLocatorResultList component", () => {
       />
     );
     const integratedLinkCard = getByTestId(listItemTestId);
-
-    expect(
-      integratedLinkCard.classList.contains("LinkCard--selected")
-    ).toBeTruthy();
+    let hasSelectedClass = false;
+    integratedLinkCard.classList.forEach((item) => {
+      if (item.startsWith("LinkCard--selected")) {
+        hasSelectedClass = true;
+      }
+    });
+    expect(hasSelectedClass).toBeTruthy();
   });
 });

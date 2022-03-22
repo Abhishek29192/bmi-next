@@ -1,31 +1,61 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import { getFirestore } from "@bmi/functions-firestore";
+import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { config } from "dotenv";
 
-config({
-  path: `${__dirname}/../.env.${process.env.NODE_ENV || "development"}`
-});
+const { FIRESTORE_ROOT_COLLECTION } = process.env;
+const db = getFirestore();
 
 // TODO: I think these should start with "/", but was easier for them not to
-const COLLECTIONS = {
+export const COLLECTIONS = {
   CATEGORIES: "root/categories",
   PRODUCTS: "root/products",
   SYSTEMS: "root/systems"
 };
 
-const db = getFirestore();
+export const OBJECT_TYPES = {
+  VARIANT_OPTIONS: "variantOptions",
+  SYSTEM_LAYERS: "systemLayers"
+};
+
+export const CODE_TYPES = {
+  VARIANT_CODES: "variantCodes",
+  LAYER_CODES: "layerCodes"
+};
 
 // TODO: This is batched, functions can be consolidated
-const setItemsInFirestore = async (collectionPath: string, item: any) => {
+const setItemsInFirestore = async (collectionPath: string, items: any) => {
   const batch = db.batch();
 
-  item.forEach((item: any) => {
+  items.forEach((item: any) => {
     // Doing it this way to be able to set the ID, otherwise collection.add() creates ID automatically
-    const docPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
+    const docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
     const docRef = db.doc(docPath);
 
-    batch.set(docRef, item);
+    if (collectionPath === COLLECTIONS.CATEGORIES) {
+      batch.set(docRef, item);
+    } else {
+      // this update will allow us to find correct base product or system in delete method if we deleting variantOption or systemLayer
+      const key =
+        collectionPath === COLLECTIONS.PRODUCTS
+          ? CODE_TYPES.VARIANT_CODES
+          : CODE_TYPES.LAYER_CODES;
+      const objType =
+        collectionPath === COLLECTIONS.PRODUCTS
+          ? OBJECT_TYPES.VARIANT_OPTIONS
+          : OBJECT_TYPES.SYSTEM_LAYERS;
+
+      if (item[`${objType}`] && item[`${objType}`].length) {
+        const updatedItem = {
+          ...item,
+          [key]: item[`${objType}`].map((obj: any) => obj.code)
+        };
+
+        batch.set(docRef, updatedItem);
+      } else {
+        batch.set(docRef, item);
+      }
+    }
 
     logger.info({ message: `Set ${docPath}` });
   });
@@ -33,23 +63,89 @@ const setItemsInFirestore = async (collectionPath: string, item: any) => {
   await batch.commit();
 };
 
-const deleteItemsFromFirestore = async (collectionPath: string, items: any) => {
+const deleteItemsFromFirestore = async (
+  collectionPath: string,
+  items: DeleteItemType[]
+) => {
   const batch = db.batch();
 
-  items.forEach((item: any) => {
-    const docPath = `${process.env.FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
-    const docRef = db.doc(docPath);
+  await Promise.all(
+    items.map(async (item: DeleteItemType) => {
+      let docPath = "";
 
-    batch.delete(docRef);
+      if (
+        item.objType === ObjType.Base_product ||
+        item.objType === ObjType.System
+      ) {
+        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
 
-    logger.info({ message: `Delete ${docPath}` });
-  });
+        const docRef = db.doc(docPath);
+
+        batch.delete(docRef);
+      } else {
+        const objType =
+          item.objType === ObjType.Variant
+            ? OBJECT_TYPES.VARIANT_OPTIONS
+            : OBJECT_TYPES.SYSTEM_LAYERS;
+
+        const key =
+          item.objType === ObjType.Variant
+            ? CODE_TYPES.VARIANT_CODES
+            : CODE_TYPES.LAYER_CODES;
+
+        const data = await db
+          .collection(`${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`)
+          .where(key, "array-contains", item.code)
+          .get();
+
+        const document = data.docs[0].data();
+
+        logger.info({
+          message: `Deleted document data: ${JSON.stringify(document)}`
+        });
+
+        const updatedObjType = document[`${objType}`].filter(
+          (obj: any) => obj.code !== item.code
+        );
+
+        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
+
+        logger.info({
+          message: `Deleted from docPath: ${docPath}`
+        });
+
+        if (updatedObjType.length || item.objType === ObjType.Layer) {
+          const updatedDocument = {
+            ...document,
+            [objType]: updatedObjType,
+            [key]: updatedObjType.map((obj: any) => obj.code)
+          };
+
+          logger.info({
+            message: `Deleted updated document data: ${JSON.stringify(
+              updatedDocument
+            )}`
+          });
+
+          const docRef = db.doc(docPath);
+
+          batch.set(docRef, updatedDocument);
+        } else {
+          const docRef = db.doc(docPath);
+
+          batch.delete(docRef);
+        }
+
+        logger.info({ message: `Delete ${docPath}` });
+      }
+    })
+  );
 
   await batch.commit();
 };
 
 export const handleMessage: EventFunction = async ({ data }: any) => {
-  const message = data
+  const message: { type: string; itemType: string; items: any } = data
     ? JSON.parse(Buffer.from(data, "base64").toString())
     : {};
 
@@ -60,7 +156,7 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
   });
 
   const { type, itemType, items } = message;
-  // eslint-disable-next-line security/detect-object-injection
+
   const collectionPath =
     itemType in COLLECTIONS &&
     COLLECTIONS[itemType as keyof typeof COLLECTIONS];

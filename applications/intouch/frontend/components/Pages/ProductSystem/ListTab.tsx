@@ -2,12 +2,12 @@ import { gql } from "@apollo/client";
 import React, { useState, useCallback, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { Product, System } from "@bmi/intouch-api-types";
-import Checkbox from "@bmi/checkbox";
-import TextField from "@bmi/text-field";
-import Button from "@bmi/button";
-import Form from "@bmi/form";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { Checkbox } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
@@ -79,13 +79,13 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
     filters: projectFilters
   });
 
-  const [items, setItems] =
-    useState<
-      ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
-    >(ssrItems);
+  const [items, setItems] = useState<
+    ProductsAndSystemsQuery["products"] | ProductsAndSystemsQuery["systems"]
+  >(ssrItems);
 
-  const [selectedItem, setSelectedItem] =
-    useState<Partial<Product> | Partial<System>>();
+  const [selectedItem, setSelectedItem] = useState<
+    Partial<Product> | Partial<System>
+  >();
 
   const [udpateProduct] = useUpdateProductMutation({
     onCompleted: (data) => {

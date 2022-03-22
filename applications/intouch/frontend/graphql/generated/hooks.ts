@@ -2,7 +2,7 @@ import * as OperationTypes from "./operations";
 
 import { gql } from "@apollo/client";
 import * as Apollo from "@apollo/client";
-const defaultOptions = {};
+const defaultOptions = {} as const;
 export const ContactDetailsCollectionFragmentFragmentDoc = gql`
   fragment ContactDetailsCollectionFragment on ContactDetailsCollection {
     items {
@@ -901,6 +901,9 @@ export const UpdateMarketDocument = gql`
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
             doceboCatalogueId
+            doceboCatalogueIdT2
+            doceboCatalogueIdT3
+            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm
@@ -3527,6 +3530,9 @@ export const GetMarketsByDomainDocument = gql`
         language
         domain
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         merchandisingUrl
@@ -4000,6 +4006,9 @@ export const MarketsDocument = gql`
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
         doceboCatalogueId
+        doceboCatalogueIdT2
+        doceboCatalogueIdT3
+        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
@@ -4141,6 +4150,7 @@ export const GetCompaniesByMarketDocument = gql`
     companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
+        updatedAt
       }
     }
     contactDetailsCollection {
@@ -4302,6 +4312,8 @@ export const GetPartnerBrandsDocument = gql`
             }
             body
             cta
+            customUrl
+            customUrlButtonText
             audienceTiers
           }
         }
@@ -4746,6 +4758,9 @@ export const DoceboCatalogIdByMarketDomainDocument = gql`
   query DoceboCatalogIdByMarketDomain($domain: String!) {
     marketByDomain(domain: $domain) {
       doceboCatalogueId
+      doceboCatalogueIdT2
+      doceboCatalogueIdT3
+      doceboCatalogueIdT4
     }
   }
 `;

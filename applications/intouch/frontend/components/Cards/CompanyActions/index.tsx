@@ -1,6 +1,6 @@
-import Button from "@bmi/button";
+import { Button } from "@bmi/components";
 import { CompanyStatus } from "@bmi/intouch-api-types";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import React, { useCallback, useState } from "react";
 import { useUpdateCompanyDetailsMutation } from "../../../graphql/generated/hooks";
@@ -22,7 +22,7 @@ export const CompanyActionsCard = ({
 }: CompanyActionsCardProps) => {
   const { id, status } = company;
   const { t } = useTranslation("company-page");
-  const [isLoading, setIsLoading] = useState<Boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [updateCompany] = useUpdateCompanyDetailsMutation({
     onError: (error) => {

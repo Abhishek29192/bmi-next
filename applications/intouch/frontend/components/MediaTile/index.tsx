@@ -2,7 +2,7 @@ import React, { useMemo, ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import { MediaItem } from "../../lib/media/types";
 import {
   getMediaItemMeta,

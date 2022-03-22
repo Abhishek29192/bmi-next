@@ -1,7 +1,7 @@
 import React from "react";
-import Icon from "@bmi/icon";
-import { BMI } from "@bmi/logo";
-import Button from "@bmi/button";
+import { Icon } from "@bmi/components";
+import { BMI } from "@bmi/components";
+import { Button } from "@bmi/components";
 import CloseIcon from "@material-ui/icons/Close";
 import Link from "next/link";
 import { GetProjectQuery } from "../../graphql/generated/operations";

@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PostItCard from "@bmi/post-it-card";
-import Typography from "@bmi/typography";
-import Button from "@bmi/button";
-import AnchorLink from "@bmi/anchor-link";
+import { PostItCard } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Button } from "@bmi/components";
+import { AnchorLink } from "@bmi/components";
 import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { useSiteContext } from "./Site";
 

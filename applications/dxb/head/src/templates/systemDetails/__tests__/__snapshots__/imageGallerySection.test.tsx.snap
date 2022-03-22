@@ -84,8 +84,10 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="TBK SN-403 T"
+            class="Media"
+            src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
           />
         </button>
         <button
@@ -94,8 +96,9 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="gallery__image_1"
+            class="Media"
           />
           <span
             class="MuiTouchRipple-root"
@@ -107,8 +110,9 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
           tabindex="0"
           type="button"
         >
-          <span
-            class="accessibility-text"
+          <img
+            alt="gallery__image_2"
+            class="Media"
           />
           <span
             class="MuiTouchRipple-root"

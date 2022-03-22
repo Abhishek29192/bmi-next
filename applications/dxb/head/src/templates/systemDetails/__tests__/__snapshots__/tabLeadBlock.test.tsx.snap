@@ -646,7 +646,7 @@ exports[`TabLeadBlock tests should render the bimIframe tab 1`] = `
                 </div>
               </div>
               <iframe
-                class="bimIframe bmiIframe"
+                class="assetsIframe bmiIframe"
                 data-testid="bmi-iframe"
                 src="https://google.com"
               />

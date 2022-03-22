@@ -68,10 +68,7 @@ const card4: PromoData = {
   featuredVideo: null
 };
 
-const getSiteContext = (
-  countryCode: string = "en",
-  nodeLocale: string = "en-GB"
-) => ({
+const getSiteContext = (countryCode = "en", nodeLocale = "en-GB") => ({
   countryCode: countryCode,
   getMicroCopy: (microCopy: string) => `MC: ${microCopy}`,
   node_locale: nodeLocale,
@@ -647,6 +644,65 @@ describe("CardCollectionSection component", () => {
 
       const cardLink = wrapper.getByTestId("card-link");
       expect(cardLink.textContent).toEqual(data.cardLabel);
+    });
+
+    it("renders as name if title is empty string", () => {
+      const cards: Card[] = [
+        {
+          ...card4,
+          name: "test Name",
+          title: "",
+          cta: {
+            __typename: "ContentfulLink",
+            id: "visualiser-id",
+            label: "Visualiser",
+            icon: null,
+            isLabelHidden: null,
+            url: null,
+            parameters: null,
+            type: DataTypeEnum.Visualiser,
+            dialogContent: null,
+            linkedPage: null,
+            hubSpotCTAID: null
+          }
+        }
+      ];
+
+      const data: Data = {
+        title: "test title",
+        description: {
+          raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+          references: null
+        },
+
+        justifyCenter: false,
+        __typename: "ContentfulCardCollectionSection",
+        cardType: "Story Card",
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        sortOrder: null,
+        link: {
+          __typename: "ContentfulLink",
+          id: "visualiser-id",
+          label: "Visualiser",
+          icon: null,
+          isLabelHidden: null,
+          url: null,
+          parameters: null,
+          type: DataTypeEnum.Visualiser,
+          dialogContent: null,
+          linkedPage: null,
+          hubSpotCTAID: null
+        }
+      };
+
+      const wrapper = render(
+        <SiteContextProvider value={getSiteContext()}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContextProvider>
+      );
+      expect(wrapper.container).toMatchSnapshot();
     });
 
     it("renders as cardLabel with the title replaced with the card title", () => {

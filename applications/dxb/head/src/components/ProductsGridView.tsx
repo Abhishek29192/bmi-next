@@ -1,10 +1,12 @@
-import AnchorLink from "@bmi/anchor-link";
-import Grid from "@bmi/grid";
-import OverviewCard, { OverviewCardProps } from "@bmi/overview-card";
-import Typography from "@bmi/typography";
+import {
+  AnchorLink,
+  Grid,
+  OverviewCard,
+  OverviewCardProps,
+  Typography
+} from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
-import { iconMap } from "../components/Icon";
 import withGTM from "../utils/google-tag-manager";
 import {
   findMasterImageUrl,
@@ -13,6 +15,7 @@ import {
   mapClassificationValues
 } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
+import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
 // TODO: This is the transformed indexed data

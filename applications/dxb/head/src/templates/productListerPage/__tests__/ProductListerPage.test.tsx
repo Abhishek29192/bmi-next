@@ -10,8 +10,8 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import * as all from "@bmi/use-dimensions";
-import { Filter } from "@bmi/filters";
+import * as all from "@bmi-digital/use-dimensions";
+import { Filter } from "@bmi/components";
 import ProductListerPage, {
   PageContextType
 } from "../components/product-lister-page";
@@ -19,9 +19,12 @@ import { Data as PageInfoData } from "../../../components/PageInfo";
 import { Data as PageData } from "../../../components/Page";
 import { RichTextData } from "../../../components/RichText";
 import { Data as BreadcrumbsData } from "../../../components/Breadcrumbs";
-import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
+import {
+  Data as LinkData,
+  DataTypeEnum,
+  NavigationData
+} from "../../../components/Link";
 import { Data as SiteData } from "../../../components/Site";
-import { NavigationData } from "../../../components/Link";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import * as elasticSearch from "../../../utils/elasticSearch";
 
@@ -54,6 +57,7 @@ const pageInfo: Data = {
   tags: null,
   date: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,
@@ -142,7 +146,6 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null,
   regions: [
     {
       label: "Europe",
@@ -452,7 +455,9 @@ describe("ProductListerPage template", () => {
           pageContext
         );
         await waitFor(() =>
-          expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(1)
+          expect(
+            container.querySelectorAll("[class*='Hero--lvl-1']").length
+          ).toBe(1)
         );
         await waitFor(() => expect(container.parentElement).toMatchSnapshot());
       });
@@ -494,9 +499,9 @@ describe("ProductListerPage template", () => {
             pageContext
           );
           await waitFor(() =>
-            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
-              1
-            )
+            expect(
+              container.querySelectorAll("[class*='Hero--lvl-1']").length
+            ).toBe(1)
           );
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()
@@ -698,9 +703,9 @@ describe("ProductListerPage template", () => {
             pageContext
           );
           await waitFor(() =>
-            expect(container.getElementsByClassName("Hero--lvl-1").length).toBe(
-              1
-            )
+            expect(
+              container.querySelectorAll("[class*='Hero--lvl-1']").length
+            ).toBe(1)
           );
           await waitFor(() =>
             expect(container.parentElement).toMatchSnapshot()
@@ -756,7 +761,9 @@ describe("ProductListerPage template", () => {
       pageContext
     );
     fireEvent.click(getByLabelText("Go to next page"));
-    expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
+    await waitFor(() => {
+      expect(window.scrollTo).toHaveBeenCalledWith(0, -200);
+    });
   });
 
   it("test hande fetch product by click on pagination when ES return hits", async () => {

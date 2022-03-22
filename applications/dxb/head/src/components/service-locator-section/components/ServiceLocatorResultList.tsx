@@ -1,17 +1,17 @@
-import { DetailProps, RoofProLevel } from "@bmi/company-details/src";
-import Logo, {
+import { CompanyDetailProps, RoofProLevel } from "@bmi/components";
+import {
+  Logo,
   RoofProElite,
   RoofProExpert,
   RoofProPartnerSmall
-} from "@bmi/logo";
-import CompanyDetails from "@bmi/company-details";
-import Typography from "@bmi/typography";
-import { SVGImport } from "@bmi/svg-import";
+} from "@bmi/components";
+import { CompanyDetails } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { SVGImport } from "@bmi-digital/svg-import";
 import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import { Service } from "../index";
-import { EVENT_CAT_ID_LINK_CLICKS } from "../constants";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
@@ -22,10 +22,9 @@ interface ResultListProps {
   roofersList: Partial<Service[]>;
   onCloseCard: () => void;
   getCompanyDetails: (
-    eventCategoryId: string,
     service: Service,
     isAddressHidden?: boolean
-  ) => DetailProps[];
+  ) => CompanyDetailProps[];
   selectedRoofer: Service;
   shouldListCertification: boolean;
 }
@@ -77,13 +76,7 @@ export const ServiceLocatorResultList = ({
               </>
             }
           >
-            <CompanyDetails
-              details={getCompanyDetails(
-                EVENT_CAT_ID_LINK_CLICKS,
-                service,
-                true
-              )}
-            >
+            <CompanyDetails details={getCompanyDetails(service, true)}>
               <Typography>{service.summary}</Typography>
             </CompanyDetails>
           </GTMIntegratedLinkCard>

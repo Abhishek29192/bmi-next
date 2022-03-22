@@ -1,9 +1,14 @@
 import { Product as PIMProduct, System } from "@bmi/pim-types";
+import { DeleteItemType, MessageType } from "@bmi/gcp-pim-message-handler";
 
 type Message = {
-  type: string;
+  type: MessageType;
   itemType: "CATEGORIES" | "PRODUCTS" | "SYSTEMS";
 };
+
+export type DeleteMessage = {
+  items: ReadonlyArray<DeleteItemType>;
+} & Message;
 
 export type ProductMessage = {
   itemType: "PRODUCTS";
@@ -17,10 +22,12 @@ export type SystemMessage = {
 
 // This type is speculative at best
 export type MessageFunction = (
-  data: { data: string } | { data: ProductMessage | SystemMessage },
+  data:
+    | { data: string }
+    | { data: ProductMessage | SystemMessage | DeleteMessage },
   context: {
     message: {
-      data: ProductMessage | SystemMessage;
+      data: ProductMessage | SystemMessage | DeleteMessage;
     };
   }
 ) => Promise<any>;

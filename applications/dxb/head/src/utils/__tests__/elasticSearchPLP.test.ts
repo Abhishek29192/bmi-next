@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/filters";
+import { Filter } from "@bmi/components";
 import {
   compileESQueryPLP,
   disableFiltersFromAggregationsPLP,

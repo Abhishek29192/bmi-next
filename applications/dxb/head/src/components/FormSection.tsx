@@ -2,11 +2,23 @@ import {
   HubspotProvider,
   useHubspotForm
 } from "@aaronhayes/react-use-hubspot-form";
-import Button, { ButtonProps } from "@bmi/button";
-import Form from "@bmi/form";
-import { InputValue } from "@bmi/form/src/withFormControl";
-import Grid from "@bmi/grid";
-import Section from "@bmi/section";
+import {
+  AnchorLink,
+  Button,
+  ButtonProps,
+  Checkbox,
+  Form,
+  getFileSizeString,
+  Grid,
+  InputValue,
+  RadioGroup,
+  Section,
+  Select,
+  SelectMenuItem,
+  TextField,
+  Typography,
+  Upload
+} from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
@@ -14,14 +26,6 @@ import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
-import AnchorLink from "@bmi/anchor-link";
-import { getFileSizeString } from "@bmi/upload";
-import Upload from "@bmi/upload";
-import Typography from "@bmi/typography";
-import RadioGroup from "@bmi/radio-group";
-import Select, { MenuItem } from "@bmi/select";
-import Checkbox from "@bmi/checkbox";
-import TextField from "@bmi/text-field";
 import { getPathWithCountryCode } from "../utils/path";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isValidEmail } from "../utils/emailUtils";
@@ -217,13 +221,15 @@ const Input = ({
           label={label}
           name={name}
         >
-          <MenuItem value="none">None</MenuItem>
+          <SelectMenuItem value={microCopy.FORM_NONE_SELECTION}>
+            {getMicroCopy(microCopy.FORM_NONE_SELECTION)}
+          </SelectMenuItem>
           {options.split(/, |,/).map((option, $i) => {
             const [select, value] = option.split(/= |=/);
             return (
-              <MenuItem key={$i} value={value ? option : select}>
+              <SelectMenuItem key={$i} value={value ? option : select}>
                 {select}
-              </MenuItem>
+              </SelectMenuItem>
             );
           })}
         </Select>
@@ -265,6 +271,7 @@ const Input = ({
         <TextField
           name={name}
           isRequired={required}
+          errorText={getMicroCopy(microCopy.UPLOAD_FIELD_IS_REQUIRED)}
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
           )}
@@ -285,7 +292,7 @@ type FormInputs = {
   inputs: InputType[];
 };
 
-const FormInputs = ({ inputs }: FormInputs) => {
+export const FormInputs = ({ inputs }: FormInputs) => {
   return (
     <>
       {inputs.map(({ width, ...props }, $i) => (

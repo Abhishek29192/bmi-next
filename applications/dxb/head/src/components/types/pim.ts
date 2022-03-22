@@ -33,7 +33,9 @@ export type AssetAssetType =
   | "GUARANTIES"
   | "PROFESSIONAL_ARTICLES"
   | "SPECIFICATION"
-  | "WARRANTIES";
+  | "VIDEO"
+  | "WARRANTIES"
+  | "FIXING_TOOL";
 
 export type Mime =
   | "application/octet-stream"
@@ -72,18 +74,21 @@ export type Category = {
 
 export type ImageMime = "image/jpeg" | "image/png" | "image/tiff";
 
-export type ImageFormat =
-  | "Product-Hero-Small-Desktop-Tablet"
-  | "Product-Hero-Large-Desktop"
-  | "Product-Hero-Mobile"
-  | "Product-Listing-Card-Large-Desktop"
-  | "Product-Color-Selector-Mobile"
-  | "Product-Color-Selector-Small-Desktop-Tablet"
-  | "Product-Listing-Card-Small-Desktop-Tablet"
-  | "Product-Color-Selector-Large-Desktop"
-  | "Product-Listing-Card-Mobile"
-  | "Web"
-  | "Print";
+export enum ImageFormatEnum {
+  PRODUCT_HERO_SMALL_DESKTOP_TABLET = "Product-Hero-Small-Desktop-Tablet",
+  PRODUCT_HERO_LARGE_DESKTOP = "Product-Hero-Large-Desktop",
+  PRODUCT_HERO_MOBILE = "Product-Hero-Mobile",
+  PRODUCT_LISTING_CARD_LARGE_DESKTOP = "Product-Listing-Card-Large-Desktop",
+  PRODUCT_COLOR_SELECTOR_MOBILE = "Product-Color-Selector-Mobile",
+  PRODUCT_COLOR_SELECTOR_SMALL_DESKTOP_TABLET = "Product-Color-Selector-Small-Desktop-Tablet",
+  PRODUCT_LISTING_CARD_SMALL_DESKTOP_TABLET = "Product-Listing-Card-Small-Desktop-Tablet",
+  PRODUCT_COLOR_SELECTOR_LARGE_DESKTOP = "Product-Color-Selector-Large-Desktop",
+  PRODUCT_LISTING_CARD_MOBILE = "Product-Listing-Card-Mobile",
+  WEB = "Web",
+  PRINT = "Print"
+}
+
+export type ImageFormat = ImageFormatEnum;
 
 export type Image = {
   allowedToDownload: boolean;
@@ -191,7 +196,8 @@ export type VariantOptionWithProduct = VariantOption & {
 export enum ImageAssetTypesEnum {
   TECHNICAL_DRAWINGS = "TECHNICAL_DRAWINGS",
   MASTER_IMAGE = "MASTER_IMAGE",
-  GALLERY = "GALLERY"
+  GALLERY = "GALLERY",
+  NOT_MASTER_IMAGE = "NOT_MASTER_IMAGE"
 }
 
 export enum ClassificationCodeEnum {

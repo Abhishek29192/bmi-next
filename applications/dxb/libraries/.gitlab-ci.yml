@@ -1,3 +1,9 @@
 include:
+  - local: "/applications/dxb/libraries/contentful-upload/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/functions-es-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-firestore/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/gatsby-plugin-elasticsearch/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/gatsby-plugin-firestore/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/gatsby-plugin-meta-redirect/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/pim-api/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/pim-types/.gitlab-ci.yml"

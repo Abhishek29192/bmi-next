@@ -30,6 +30,7 @@ const card1: PromoData = {
   brandLogo: null,
   tags: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,
@@ -80,6 +81,7 @@ const card2: PromoData = {
   brandLogo: null,
   tags: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,
@@ -132,6 +134,7 @@ const slide: PageInfoData = {
   tags: null,
   date: null,
   featuredMedia: {
+    __typename: "ContentfulImage",
     type: null,
     altText: "Lorem ipsum",
     caption: null,
@@ -213,7 +216,6 @@ const siteData: SiteData = {
   menuNavigation: mockNavigation,
   menuUtilities: mockNavigation,
   resources: null,
-  scriptGOptLoad: null,
   regions: [
     {
       label: "Europe",

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
-import Typography from "@bmi/typography";
-import Grid from "@bmi/grid";
-import Form from "@bmi/form";
-import AlertBanner from "@bmi/alert-banner";
+import { Typography } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Form } from "@bmi/components";
+import { AlertBanner } from "@bmi/components";
 import { useImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/hooks";
 import { ImportAccountsCompaniesFromCvsMutation } from "../../../graphql/generated/operations";
+import { getNestedValue } from "../../../lib/utils/object";
 import styles from "./styles.module.scss";
 
 type ImportStatus = {
@@ -228,9 +229,10 @@ const ImportAccount = () => {
                               "coordinates.y",
                               "coordinates.x"
                             ].map((field) => {
-                              return !company.registeredAddress[
-                                `${field}`
-                              ] ? null : (
+                              return !getNestedValue(
+                                company.registeredAddress,
+                                field
+                              ) ? null : (
                                 <div className={styles.field}>
                                   <Typography
                                     key={`${company?.name}-${field}`}
@@ -245,7 +247,10 @@ const ImportAccount = () => {
                                     key={`${company?.name}-${field}-value`}
                                     variant="body1"
                                   >
-                                    {company.registeredAddress[`${field}`]}
+                                    {getNestedValue(
+                                      company.registeredAddress,
+                                      field
+                                    )}
                                   </Typography>
                                 </div>
                               );

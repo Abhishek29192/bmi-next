@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Course } from "@bmi/intouch-api-types";
-import Grid from "@bmi/grid";
+import { Grid } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -18,6 +18,7 @@ import { Layout } from "../components/Layout";
 import layoutStyles from "../components/Layout/styles.module.scss";
 import { TrainingCourseDetail } from "../components/Cards/TrainingCourseDetail";
 import { sortCourses } from "../lib/utils/course";
+import { findAccountCompany } from "../lib/account";
 
 type PageProps = {
   trainingData: {
@@ -56,25 +57,25 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
   const sidePanelHandler = (courseId: number) => {
     const activeCourse = courseCatalogues.nodes.find(
       ({ course }) => course.courseId === courseId
-    )?.course as Course;
+    )!.course as Course;
     setActiveCourse(activeCourse);
   };
 
   const enrolledCourses = sortCourses(
-    courseCatalogues?.nodes.filter(
-      (c) => c.course.courseEnrollments?.nodes[0]?.status === "enrolled"
+    courseCatalogues.nodes.filter(
+      (c) => c.course.courseEnrollments.nodes[0]?.status === "enrolled"
     )
   );
   const completedCourses = sortCourses(
-    courseCatalogues?.nodes.filter(
-      (c) => c.course.courseEnrollments?.nodes[0]?.status === "completed"
+    courseCatalogues.nodes.filter(
+      (c) => c.course.courseEnrollments.nodes[0]?.status === "completed"
     )
   );
   const orderedCourses = sortCourses(
-    courseCatalogues?.nodes.filter(
+    courseCatalogues.nodes.filter(
       (c) =>
         !["enrolled", "completed"].includes(
-          c.course.courseEnrollments?.nodes[0]?.status
+          c.course.courseEnrollments.nodes[0]?.status
         )
     )
   );
@@ -121,13 +122,22 @@ const TrainingPage = ({ trainingData, globalPageData }: PageProps) => {
 export const getServerSideProps = withPage(
   async ({ apolloClient, account, locale, market }) => {
     const { doceboUserId } = account;
+    const { tier } = findAccountCompany(account) || { tier: null };
+    const doceboCatalogueId = () => {
+      if (tier) {
+        return tier === "T1"
+          ? market.doceboCatalogueId
+          : market[`doceboCatalogueId${tier}`];
+      }
+      return market.doceboCatalogueId;
+    };
 
     let trainingData = {};
     try {
       const pageQuery = await getServerPageTraining(
         {
           variables: {
-            catalogueId: market.doceboCatalogueId || null,
+            catalogueId: doceboCatalogueId(),
             userId: doceboUserId
           }
         },
@@ -210,6 +220,9 @@ export const pageQuery = gql`
   query DoceboCatalogIdByMarketDomain($domain: String!) {
     marketByDomain(domain: $domain) {
       doceboCatalogueId
+      doceboCatalogueIdT2
+      doceboCatalogueIdT3
+      doceboCatalogueIdT4
     }
   }
 `;

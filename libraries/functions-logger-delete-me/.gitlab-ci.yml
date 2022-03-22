@@ -1,0 +1,11 @@
+test_functions-logger:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi-digital/functions-logger"
+    ROOT_DIR: "applications/dxb/libraries/functions-logger"
+
+build_functions-logger:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi-digital/functions-logger"
+    ROOT_DIR: "applications/dxb/libraries/functions-logger"

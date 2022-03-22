@@ -1,8 +1,8 @@
 import { escape } from "querystring";
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { getSecret } from "@bmi/functions-secret-client";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 
 type RequestRedirect = "error" | "follow" | "manual";
 
@@ -31,7 +31,7 @@ const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 const getAuthToken = async () => {
   const apsisClientSecret = await getSecret(APSIS_CLIENT_SECRET!);
 
-  var requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -157,7 +157,7 @@ const createSubscription = async (access_token: string, email: string) => {
 };
 
 const validateEmail = (email: string): boolean => {
-  var re = /\S+@\S+\.\S+/;
+  const re = /\S+@\S+\.\S+/;
   return re.test(email);
 };
 
@@ -254,7 +254,8 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
           });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         logger.error({
           message: `Recaptcha request failed with error ${error}.`
         });
@@ -276,7 +277,8 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
       } else {
         return response.sendStatus(200);
       }
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({ message: `APSIS integration Error occured ${error}` });
       return response.sendStatus(500);
     }

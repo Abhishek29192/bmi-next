@@ -70,96 +70,122 @@ exports[`ProjectSidePanel component renders correctly 1`] = `
             Show me
             :
           </span>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-6 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.ALL
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-7 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.ALL
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.NOT_STARTED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-8 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.NOT_STARTED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.IN_PROGRESS
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-9 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.IN_PROGRESS
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.COMPLETED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-10 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.COMPLETED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.FLAT
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-5 makeStyles-root-11 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.FLAT
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.PITCHED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.PITCHED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div
         class="results"
       >
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -270,10 +296,10 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
               </div>
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-12 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-14"
+                  class="PrivateNotchedOutline-legendLabelled-7"
                 >
                   <span>
                     search.inputLabel
@@ -290,96 +316,122 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
             Show me
             :
           </span>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-17 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.ALL
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-18 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.ALL
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.NOT_STARTED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-19 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.NOT_STARTED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.IN_PROGRESS
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-20 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.IN_PROGRESS
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.COMPLETED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-21 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.COMPLETED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.FLAT
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-root-16 makeStyles-root-22 MuiButton-disableElevation"
-            tabindex="0"
-            type="button"
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.FLAT
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="filterButton"
           >
-            <span
-              class="MuiButton-label"
+            <div
+              class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+              role="button"
+              tabindex="0"
             >
-              filters.labels.PITCHED
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
+              <span
+                class="MuiChip-label"
+              >
+                filters.labels.PITCHED
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div
         class="results"
       >
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -429,7 +481,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
             />
           </button>
         </div>
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"
@@ -479,7 +533,9 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
             />
           </button>
         </div>
-        <div>
+        <div
+          data-testid="projectCard"
+        >
           <button
             class="MuiButtonBase-root MuiCardActionArea-root"
             tabindex="0"

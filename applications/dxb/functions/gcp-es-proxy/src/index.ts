@@ -1,4 +1,4 @@
-import logger from "@bmi/functions-logger";
+import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch, { RequestInit } from "node-fetch";
 
@@ -56,11 +56,12 @@ export const proxy: HttpFunction = async (req, res) => {
       const response = await fetch(ES_HOST + req.url, requestInit);
       logger.debug({ message: JSON.stringify(response, undefined, 2) });
       res.status(response.status);
-      for (let [key, value] of response.headers.entries()) {
+      for (const [key, value] of response.headers.entries()) {
         res.setHeader(key, value);
       }
       return response.body.pipe(res);
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({ message: error.message });
       return res.status(500).send("Request to Elasticsearch failed.");
     }

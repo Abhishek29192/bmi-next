@@ -1,4 +1,4 @@
-import { Filter } from "@bmi/filters";
+import { Filter } from "@bmi/components";
 import {
   getCollapseVariantsByBaseProductCodeQuery,
   getUniqueBaseProductCountCodeAggrigation
@@ -64,7 +64,7 @@ export const compileESQueryPLP = ({
   categoryCodes,
   page,
   pageSize
-}: compileESQueryPLPArgs): object => {
+}: compileESQueryPLPArgs) => {
   const userSelectedFilterTerms =
     generateUserSelectedFilterTerms(updatedFilters);
 
@@ -128,7 +128,7 @@ const createAggregation = (categoryKey: string, optionKey: string) => {
   };
 };
 
-const generateAllowFiltersAggs = (allowFilterBy?: string[]): object =>
+const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
   (allowFilterBy || []).reduce(
     (acc: Record<string, { terms: { include: [] } }>, allowValue: string) => {
       const allowValueArr = allowValue.split("|");

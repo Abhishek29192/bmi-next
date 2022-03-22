@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "next-i18next";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
-import Autocomplete from "@bmi/autocomplete";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
+import { Autocomplete } from "@bmi/components";
 import styles from "./styles.module.scss";
 
 export type WizardAutoCompleteOptions = {

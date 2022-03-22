@@ -113,7 +113,7 @@
   },
   "guarantee": {
     "incompleteGuaranteeAlert": {
-      "description": "For at tilmelde dig en garanti skal du tilføje en certificeret installatør og uploade det nødvendige bevis for udførelse.",
+      "description": "For at fuldføre garantiansøgningen skal du gå til fanen team og vælge den ansvarlige, certificerede installatør og uploade det nødvendige bevis for udførelse i fanen uploads.",
       "title": "Oplysninger påkrævet"
     },
     "notRequested": "Ikke efterspurgt",
@@ -163,7 +163,7 @@
       },
       "solutionDialog": {
         "confirm_label": "Luk",
-        "description": "Fuldfør din ansøgning ved at indsende bevis på upload-fanen.",
+        "description": "Fuldfør din ansøgning ved at vælge den ansvarlige installatør i teamfanen og indsende bevis på upload-fanen.",
         "title": "Ansøgning om garanti startet"
       }
     },
@@ -174,7 +174,7 @@
           "title": "Der er ingen garantitype tilgængelig for denne teknologi"
         }
       },
-      "cancel_label": "Annuller",
+      "cancel_label": "Annullér",
       "confirm_label": "Registrer",
       "message": {
         "guarantee_exists_error": "Du kan ikke tilmelde dig en BMI Løsnings Garanti for et projekt, der allerede har en BMI-garanti",
@@ -195,7 +195,7 @@
           "title": "Udfyld din ansøgning ved at indtaste følgende:"
         },
         "responsible_installer": {
-          "description": "Vælg et medlem fra projektteamet, der fungerer som det ansvarlige medlem. Denne person skal have en BMI-certificering i enten skråtag eller fladt tag teknologi, som matcher projektets teknologi.",
+          "description": "Gå til fanen projektteam og vælg et medlem fra projektteamet, der fungerer som det ansvarlige medlem. Denne person skal have en BMI-certificering i enten skråtag eller fladt tag teknologi, som matcher projektets teknologi.",
           "title": "Ansvarlig medlem"
         },
         "system_title": "Systemdetaljer"
@@ -230,7 +230,7 @@
         },
         "step5": {
           "subTitle": "Gennemgå de oplysninger, du har givet, inden du indsender ansøgningen.",
-          "title": "Anmeldelse"
+          "title": "Ansøgning"
         },
         "stepDefault": {
           "subTitle": "Ansøgning om garanti",
@@ -254,13 +254,13 @@
   },
   "noteTab": {
     "addNoteDialog": {
-      "cancel": "Annuller",
+      "cancel": "Annullér",
       "detailHeading": "Udfyld venligst detaljerne nedenfor for at dele oplysninger om dette projekt",
       "send": "Send",
       "title": "Tilføj note"
     },
     "header": "Tilføj note",
-    "noContent": "Der er ikke tilføjet noter til dette projekt",
+    "noContent": "Ingen uploads endnu",
     "table": {
       "author": "Forfatter",
       "date": "Dato",
@@ -325,7 +325,7 @@
   },
   "teamTab": {
     "add_team_member_modal": {
-      "cancel_label": "Annuller",
+      "cancel_label": "Annullér",
       "caption": "Tildel teammedlemmer til at arbejde på dette projekt",
       "confirm_label": "Tilføj team",
       "table": {
@@ -348,14 +348,14 @@
   "upload_tab": {
     "add_evidence_modal": {
       "button_label": "Upload filer",
-      "cancel_label": "Annuller",
+      "cancel_label": "Annullér",
       "confirm_label": "Upload filer",
       "evidence_category": "Bevis kategori",
       "file_validation_message": "Du kan ikke uploade filer større end",
       "instruction": "Du kan tilføje filer",
       "microcopy": {
         "browse": "Gennemse",
-        "drop": "Annuller"
+        "drop": "Annullér"
       },
       "title": "Tilføj dokumentation"
     },

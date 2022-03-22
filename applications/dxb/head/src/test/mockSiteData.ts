@@ -1305,10 +1305,7 @@ export const createMockSiteData = (): SiteData =>
       welcomeDialogBody: null
     },
     headScripts: null,
-    scriptGA: null,
     scriptOnetrust: null,
-    scriptHotJar: null,
-    scriptGOptLoad: null,
     regions: [
       {
         label: "Europe",

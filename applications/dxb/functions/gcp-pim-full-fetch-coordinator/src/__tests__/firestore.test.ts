@@ -1,6 +1,6 @@
 import mockConsole from "jest-mock-console";
 import { deleteFirestoreCollection } from "../firestore";
-import { FirestoreCollections } from "../firestore-collections";
+import { FirestoreCollections } from "../firestoreCollections";
 
 const collection = jest.fn();
 const batch = jest.fn();

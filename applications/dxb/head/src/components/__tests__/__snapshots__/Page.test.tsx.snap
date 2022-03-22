@@ -287,11 +287,13 @@ exports[`Page component renders correctly 1`] = `
                     role="tablist"
                   >
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="tel:+4401234567890"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -305,11 +307,13 @@ exports[`Page component renders correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="/uk/landing-page"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -323,11 +327,13 @@ exports[`Page component renders correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-controls="tabpanel-undefined"
                       aria-disabled="false"
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
                       href="link-to-page"
+                      id="tab-undefined"
                       role="tab"
                       tabindex="-1"
                     >
@@ -342,7 +348,7 @@ exports[`Page component renders correctly 1`] = `
                     </a>
                   </div>
                   <span
-                    class="PrivateTabIndicator-root-21 PrivateTabIndicator-colorSecondary-23 MuiTabs-indicator"
+                    class="PrivateTabIndicator-root-24 PrivateTabIndicator-colorSecondary-26 MuiTabs-indicator"
                     style="left: 0px; width: 0px;"
                   />
                 </div>

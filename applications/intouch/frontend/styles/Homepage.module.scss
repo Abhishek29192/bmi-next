@@ -1,4 +1,4 @@
-@import "@bmi/styles";
+@import "~@bmi-digital/styles";
 
 .feedholder {
   display: flex;
@@ -17,4 +17,8 @@
 .embed,
 .tierBenefits {
   margin: 1rem 0;
+}
+
+.carouselImage {
+  object-position: left;
 }

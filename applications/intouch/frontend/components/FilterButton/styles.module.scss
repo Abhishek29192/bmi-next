@@ -1,7 +1,11 @@
-@import "@bmi/styles";
+@import "~@bmi-digital/styles";
 
 .pill {
   border-radius: 50%;
+}
+
+.filterButton {
+  display: inline-block;
 }
 
 :export {

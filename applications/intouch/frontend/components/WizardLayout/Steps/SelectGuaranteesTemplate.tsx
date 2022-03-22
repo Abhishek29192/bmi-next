@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Select, { MenuItem } from "@bmi/select";
+import { Select, SelectMenuItem } from "@bmi/components";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { useGetGuaranteeTemplatesLazyQuery } from "../../../graphql/generated/hooks";
@@ -67,9 +67,9 @@ const SelectGuaranteesTemplate = () => {
           value={selectedTemplate || ""}
         >
           {guaranteeTemplates.map((template) => (
-            <MenuItem value={template.sys.id} key={template.sys.id}>
+            <SelectMenuItem value={template.sys.id} key={template.sys.id}>
               {template.languageDescriptor}
-            </MenuItem>
+            </SelectMenuItem>
           ))}
         </Select>
       )}

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { useTranslation } from "next-i18next";
-import Button from "@bmi/button";
+import { Button } from "@bmi/components";
 import MaybeTooltip from "../../../MaybeTooltip";
 import AccessControl from "../../../../lib/permissions/AccessControl";
 import { isProjectEditable } from "../../../../lib/utils/project";

@@ -582,6 +582,9 @@ export type UpdateMarketMutation = { readonly __typename?: "Mutation" } & {
                   | "doceboInstallersBranchId"
                   | "doceboCompanyAdminBranchId"
                   | "doceboCatalogueId"
+                  | "doceboCatalogueIdT2"
+                  | "doceboCatalogueIdT3"
+                  | "doceboCatalogueIdT4"
                   | "merchandisingUrl"
                   | "projectsEnabled"
                   | "locationBiasRadiusKm"
@@ -2874,6 +2877,9 @@ export type GetMarketsByDomainQuery = { readonly __typename?: "Query" } & {
           | "language"
           | "domain"
           | "doceboCatalogueId"
+          | "doceboCatalogueIdT2"
+          | "doceboCatalogueIdT3"
+          | "doceboCatalogueIdT4"
           | "doceboInstallersBranchId"
           | "doceboCompanyAdminBranchId"
           | "merchandisingUrl"
@@ -3250,6 +3256,9 @@ export type MarketsQuery = { readonly __typename?: "Query" } & {
           | "doceboInstallersBranchId"
           | "doceboCompanyAdminBranchId"
           | "doceboCatalogueId"
+          | "doceboCatalogueIdT2"
+          | "doceboCatalogueIdT3"
+          | "doceboCatalogueIdT4"
           | "merchandisingUrl"
           | "projectsEnabled"
           | "gtag"
@@ -3444,6 +3453,7 @@ export type GetCompaniesByMarketQuery = { readonly __typename?: "Query" } & {
           | "taxNumber"
           | "tier"
           | "certifications"
+          | "updatedAt"
         > & {
             readonly tradingAddress?: SchemaTypes.Maybe<
               { readonly __typename?: "Address" } & Pick<
@@ -3773,7 +3783,12 @@ export type GetPartnerBrandsQuery = { readonly __typename?: "Query" } & {
                         SchemaTypes.Maybe<
                           { readonly __typename?: "CarouselItem" } & Pick<
                             SchemaTypes.CarouselItem,
-                            "header" | "body" | "cta" | "audienceTiers"
+                            | "header"
+                            | "body"
+                            | "cta"
+                            | "customUrl"
+                            | "customUrlButtonText"
+                            | "audienceTiers"
                           > & {
                               readonly image?: SchemaTypes.Maybe<
                                 { readonly __typename?: "Asset" } & Pick<
@@ -4154,7 +4169,10 @@ export type DoceboCatalogIdByMarketDomainQuery = {
   readonly marketByDomain?: SchemaTypes.Maybe<
     { readonly __typename?: "Market" } & Pick<
       SchemaTypes.Market,
-      "doceboCatalogueId"
+      | "doceboCatalogueId"
+      | "doceboCatalogueIdT2"
+      | "doceboCatalogueIdT3"
+      | "doceboCatalogueIdT4"
     >
   >;
 };

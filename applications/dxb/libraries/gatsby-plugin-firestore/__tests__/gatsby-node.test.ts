@@ -56,9 +56,6 @@ describe("getsby plugin firestore", () => {
     );
 
     expect(firebase.initializeApp).toHaveBeenCalled();
-    expect(settingsFn).toHaveBeenCalledWith({
-      timestampsInSnapshots: true
-    });
     expect(createContentDigestFn).toHaveBeenCalled();
     expect(createNodeFn).toHaveBeenCalled();
     expect(collectionFn).toHaveBeenCalled();

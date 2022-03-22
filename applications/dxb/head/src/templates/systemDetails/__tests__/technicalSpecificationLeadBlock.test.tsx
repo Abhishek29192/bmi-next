@@ -53,6 +53,24 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
   });
 
   describe("should render correctly", () => {
+    describe("when no classifications provided", () => {
+      it("With tech spec an empty set", () => {
+        const { container, queryByText } = render(
+          <Component technicalSpecClassifications={[]} />
+        );
+        const accordion = container.querySelectorAll(".Accordion");
+        const techTable = container.querySelectorAll(
+          ".SystemDetailsTechnicalSpec"
+        );
+        const unitTypeText = queryByText(featureUnit.symbol, { exact: false });
+
+        expect(container).toMatchSnapshot();
+        expect(accordion.length).toBeFalsy();
+        expect(techTable.length).toBeFalsy();
+        expect(unitTypeText).not.toBeInTheDocument();
+      });
+    });
+
     describe("when One classifications provided", () => {
       it("With no feature units", () => {
         const { container, queryByText } = render(

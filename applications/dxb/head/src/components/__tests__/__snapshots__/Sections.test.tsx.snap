@@ -434,33 +434,6 @@ HTMLCollection [
               />
             </div>
           </div>
-          <div
-            class="Villain Villain--contained"
-          >
-            <div
-              class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
-            >
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
-              >
-                <div
-                  class="content ColorPair ColorPair--blue-800"
-                >
-                  <h3
-                    class="MuiTypography-root title Typography MuiTypography-h4"
-                  >
-                    Villain 3
-                  </h3>
-                  <div
-                    class="text"
-                  />
-                </div>
-              </div>
-              <div
-                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -508,7 +481,7 @@ HTMLCollection [
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root clickable"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card Label\\",\\"action\\":\\"contact-us\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us\\"}"
                         href="/uk/contact-us"
                         role="button"
                         tabindex="0"
@@ -530,7 +503,7 @@ HTMLCollection [
                       <a
                         aria-disabled="false"
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-outlined MuiButton-outlinedPrimary"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card Label\\",\\"action\\":\\"contact-us\\"}"
+                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"promo title - Card Label\\",\\"action\\":\\"/uk/contact-us\\"}"
                         data-testid="card-link"
                         href="/uk/contact-us"
                         role="button"
@@ -630,7 +603,7 @@ HTMLCollection [
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Go to page title\\",\\"action\\":\\"path\\"}"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"page title - Go to page title\\",\\"action\\":\\"/uk/path\\"}"
                   href="/uk/path"
                   role="button"
                   tabindex="0"
@@ -638,7 +611,7 @@ HTMLCollection [
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained header-picture Media"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block;"
+                    style="overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -878,7 +851,7 @@ HTMLCollection [
               <div
                 class="gatsby-image-wrapper gatsby-image-wrapper-constrained image Media"
                 data-gatsby-image-wrapper=""
-                style="overflow: hidden; display: inline-block;"
+                style="overflow: hidden; display: inline-block; vertical-align: top;"
               >
                 <div
                   style="max-width: 948px; display: block;"
@@ -932,7 +905,7 @@ HTMLCollection [
     style="margin-top: -150px; padding-top: 150px;"
   >
     <div
-      class="ImageGallerySection Section Section--alabaster"
+      class="MediaGallerySection Section Section--alabaster"
     >
       <div
         class="Container"
@@ -956,7 +929,7 @@ HTMLCollection [
               class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
             >
               <div
-                class="ImageGallery"
+                class="MediaGallery"
               >
                 <div
                   class="image-wrapper"
@@ -964,7 +937,7 @@ HTMLCollection [
                   <div
                     class="gatsby-image-wrapper gatsby-image-wrapper-constrained main-image-wrapper main-image-wrapper--cover main-image-wrapper--default Media"
                     data-gatsby-image-wrapper=""
-                    style="overflow: hidden; display: inline-block;"
+                    style="overflow: hidden; display: inline-block; vertical-align: top;"
                   >
                     <div
                       style="max-width: 948px; display: block;"
@@ -1525,13 +1498,14 @@ HTMLCollection [
                   </h6>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Pitched Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"
                   >
                     <span
                       class="MuiChip-label"
                     >
-                      findARoofer.filters.pitchedRoof
+                      Pitched Roof
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -1539,13 +1513,14 @@ HTMLCollection [
                   </div>
                   <div
                     class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                    data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Flat Roof\\",\\"action\\":\\"Selector - Cards Filter\\"}"
                     role="button"
                     tabindex="0"
                   >
                     <span
                       class="MuiChip-label"
                     >
-                      findARoofer.filters.flatRoof
+                      Flat Roof
                     </span>
                     <span
                       class="MuiTouchRipple-root"
@@ -1696,7 +1671,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1739,7 +1714,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -1775,7 +1750,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -1811,7 +1786,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>
@@ -1836,7 +1811,7 @@ HTMLCollection [
                                     class="description"
                                   >
                                     <b>
-                                      findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                      Pitched Roof, Flat Roof
                                     </b>
                                   </dd>
                                 </div>
@@ -1930,7 +1905,7 @@ HTMLCollection [
                                   <a
                                     aria-disabled="false"
                                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
                                     href="https://www.google.com/maps/dir//address%201/"
                                     rel="noopener noreferrer"
                                     tabindex="0"
@@ -1973,7 +1948,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"tel:phone 1\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"tel:phone 1\\"}"
                                       href="tel:phone 1"
                                     >
                                       <span>
@@ -2009,7 +1984,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"mailto:test@test.com\\"}"
                                       href="mailto:test@test.com"
                                     >
                                       <span>
@@ -2045,7 +2020,7 @@ HTMLCollection [
                                   >
                                     <a
                                       class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched roof\\",\\"action\\":\\"www.test.com\\"}"
+                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"www.test.com\\"}"
                                       href="www.test.com"
                                     >
                                       <span>
@@ -2070,7 +2045,7 @@ HTMLCollection [
                                     class="description"
                                   >
                                     <b>
-                                      findARoofer.filters.pitchedRoof | findARoofer.filters.flatRoof
+                                      Pitched Roof, Flat Roof
                                     </b>
                                   </dd>
                                 </div>
@@ -2364,7 +2339,7 @@ HTMLCollection [
                             class="EqualHeights"
                           >
                             <div
-                              class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+                              class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
                             >
                               <div
                                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -2566,7 +2541,7 @@ HTMLCollection [
                             class="EqualHeights"
                           >
                             <div
-                              class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+                              class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
                             >
                               <div
                                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -2645,7 +2620,7 @@ HTMLCollection [
                             class="EqualHeights"
                           >
                             <div
-                              class="MuiGrid-root Grid Grid--justify MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
+                              class="MuiGrid-root Grid Grid--justifyContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
                             >
                               <div
                                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-lg-3"
@@ -2783,10 +2758,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     First name
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2795,6 +2777,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="first-name"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2807,6 +2790,7 @@ HTMLCollection [
                       >
                         <span>
                           First name
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2820,10 +2804,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Second name
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2832,6 +2823,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="second-names"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2844,6 +2836,7 @@ HTMLCollection [
                       >
                         <span>
                           Second name
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2857,10 +2850,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Email address
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
@@ -2869,6 +2869,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
                       name="email"
+                      required=""
                       type="text"
                       value=""
                     />
@@ -2881,6 +2882,7 @@ HTMLCollection [
                       >
                         <span>
                           Email address
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -2968,10 +2970,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Type of query
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root Select MuiInputBase-formControl"
@@ -2992,6 +3001,7 @@ HTMLCollection [
                       aria-hidden="true"
                       class="MuiSelect-nativeInput"
                       name="recipients"
+                      required=""
                       tabindex="-1"
                       value=""
                     />
@@ -3019,7 +3029,7 @@ HTMLCollection [
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained"
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-required"
                   />
                 </div>
               </div>
@@ -3083,10 +3093,17 @@ HTMLCollection [
                   class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
                   >
                     Your message
+                    <span
+                      aria-hidden="true"
+                      class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                    >
+                       
+                      *
+                    </span>
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
@@ -3095,6 +3112,7 @@ HTMLCollection [
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
                       name="message"
+                      required=""
                       rows="6"
                     />
                     <fieldset
@@ -3106,6 +3124,7 @@ HTMLCollection [
                       >
                         <span>
                           Your message
+                           *
                         </span>
                       </legend>
                     </fieldset>
@@ -3208,103 +3227,111 @@ HTMLCollection [
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="Checkbox--asterisks_decorator"
                 >
-                  <label
-                    class="MuiFormControlLabel-root"
+                  <div
+                    class="MuiFormControl-root Checkbox"
                   >
-                    <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    <label
+                      class="MuiFormControlLabel-root"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
-                        <input
-                          class="PrivateSwitchBase-input-54"
-                          data-indeterminate="false"
-                          name="data-protection"
-                          type="checkbox"
-                          value=""
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiIconButton-label"
                         >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          <input
+                            class="PrivateSwitchBase-input-54"
+                            data-indeterminate="false"
+                            name="data-protection"
+                            type="checkbox"
+                            value=""
                           />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    >
-                      I agree with BMI's 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-                        href="https://google.co.uk"
-                        rel="noopener"
-                        target="_blank"
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                       >
-                        <span>
-                          Data Protection Policy
-                        </span>
-                      </a>
-                      
-                    </span>
-                  </label>
+                        I agree with BMI's 
+                        <a
+                          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+                          href="https://google.co.uk"
+                          rel="noopener"
+                          target="_blank"
+                        >
+                          <span>
+                            Data Protection Policy
+                          </span>
+                        </a>
+                        
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
               <div
                 class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-12"
               >
                 <div
-                  class="MuiFormControl-root Checkbox"
+                  class="Checkbox--asterisks_decorator"
                 >
-                  <label
-                    class="MuiFormControlLabel-root"
+                  <div
+                    class="MuiFormControl-root Checkbox"
                   >
-                    <span
-                      aria-disabled="false"
-                      class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    <label
+                      class="MuiFormControlLabel-root"
                     >
                       <span
-                        class="MuiIconButton-label"
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-51 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                       >
-                        <input
-                          class="PrivateSwitchBase-input-54"
-                          data-indeterminate="false"
-                          name="gdpr"
-                          type="checkbox"
-                          value=""
-                        />
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
+                        <span
+                          class="MuiIconButton-label"
                         >
-                          <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                          <input
+                            class="PrivateSwitchBase-input-54"
+                            data-indeterminate="false"
+                            name="gdpr"
+                            type="checkbox"
+                            value=""
                           />
-                        </svg>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
                       </span>
                       <span
-                        class="MuiTouchRipple-root"
-                      />
-                    </span>
-                    <span
-                      class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                    >
-                      I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
-                    </span>
-                  </label>
+                        class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
+                      >
+                        I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.
+                      </span>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>

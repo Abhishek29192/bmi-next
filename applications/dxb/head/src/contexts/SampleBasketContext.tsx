@@ -38,7 +38,7 @@ export const createSample = (
   name: product.name,
   code: variant.code,
   path: variant.path,
-  image: findMasterImageUrl(variant.images),
+  image: findMasterImageUrl([...(variant?.images || [])]),
   classifications: combineVariantClassifications(product, variant)
 });
 
@@ -94,7 +94,9 @@ export interface BasketContextProps {
 
 export const BasketContext = React.createContext<BasketContextProps>({
   basketState: initialBasketState,
-  basketDispatch: () => {}
+  basketDispatch: () => {
+    // no-op
+  }
 });
 
 export const useBasketContext = () => useContext(BasketContext);

@@ -29,9 +29,6 @@ exports.sourceNodes = async (
     return;
   }
   const db = firebase.firestore();
-  db.settings({
-    timestampsInSnapshots: true
-  });
 
   const { createNode } = actions;
 

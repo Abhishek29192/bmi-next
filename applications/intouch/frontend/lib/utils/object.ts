@@ -48,9 +48,9 @@ export const spreadObjectKeys = (
  * ]
  */
 // TODO: Needs tests
-export const mergeByKey = <T extends object>(
+export const mergeByKey = <T extends Record<string, unknown>>(
   arrA: ReadonlyArray<T>,
-  arrB: ReadonlyArray<object>,
+  arrB: ReadonlyArray<Record<string, unknown>>,
   key: string
 ): ReadonlyArray<T> => {
   const map = new Map(arrA.map((val) => [val[`${key}`], val]));
@@ -61,4 +61,17 @@ export const mergeByKey = <T extends object>(
   });
 
   return Array.from(map.values());
+};
+
+export const getNestedValue = (
+  object: Record<string, any>,
+  keyString: string
+): any => {
+  const keys = keyString.split(/\.(.+)/).filter((n) => n);
+  if (object) {
+    return keys.length <= 1
+      ? object[`${keys}`] || null
+      : getNestedValue(object[`${keys[0]}`], keys[1]);
+  }
+  return null;
 };

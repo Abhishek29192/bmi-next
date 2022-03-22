@@ -52,6 +52,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
             <svg
               aria-hidden="true"
               class="icon"
+              data-testid="internal"
               focusable="false"
             />
           </span>

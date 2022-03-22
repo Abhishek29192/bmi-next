@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { graphql, Link, withPrefix } from "gatsby";
+import { Button, ButtonProps } from "@bmi/components";
+import { Header as HeaderComponent } from "@bmi/components";
+import { HidePrint } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Button, { ButtonProps } from "@bmi/button";
-import HeaderComponent from "@bmi/header";
-import HidePrint from "@bmi/hide-print";
-import Tab, { TabProps } from "@material-ui/core/Tab";
+import { Tab, TabProps } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
@@ -85,7 +85,7 @@ const parseNavigation = (
         if (result.length === 0) {
           return result;
         }
-        let lastItem = result[result.length - 1];
+        const lastItem = result[result.length - 1];
         result[result.length - 1] = { ...lastItem, hasSeparator: true };
         return result;
       }
@@ -242,8 +242,7 @@ const Header = ({
             <GTMNavigationButton
               gtm={{
                 id: "nav-main-menu",
-                // @ts-ignore This is getting messy
-                action: props.action?.to,
+                action: props["action"]?.["to"], // TODO: Fix this when we fix the withClickable lack of typing
                 label:
                   typeof props.children !== "string"
                     ? props.accessibilityLabel

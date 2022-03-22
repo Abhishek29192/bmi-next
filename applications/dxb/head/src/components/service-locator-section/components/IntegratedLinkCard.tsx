@@ -1,9 +1,12 @@
 import React, { useRef } from "react";
-import LinkCard, { Props as LinkCardProps } from "@bmi/link-card";
+import { LinkCard, LinkCardProps } from "@bmi/components";
 import withGTM from "../../../utils/google-tag-manager";
-import { useScrollTo } from "../helpers";
+import { useScrollTo } from "./useScrollTo";
 
-export const IntegratedLinkCard = ({ isOpen, ...rest }: LinkCardProps) => {
+export const IntegratedLinkCard = ({
+  isOpen,
+  ...rest
+}: LinkCardProps): JSX.Element => {
   const linkCardElement = useRef<HTMLElement>(null);
   const [setCardExpansionCompleted] = useScrollTo(isOpen, linkCardElement);
 

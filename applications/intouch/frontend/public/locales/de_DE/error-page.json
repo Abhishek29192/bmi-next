@@ -1,0 +1,9 @@
+{
+  "body": "Ein Fehler ist aufgetreten, bitte wenden Sie sich an einen BMI-Administrator",
+  "errorAlreadyMember": "Der Benutzer ist bereits Mitglied einer anderen Firma",
+  "errorAuthentication": "Authentifizierungsfehler",
+  "errorInvitationNotFound": "Einladung nicht gefunden",
+  "errorUserBlocked": "Benutzer ist gesperrt",
+  "title": "Etwas ist schief gelaufen",
+  "user_blocked": "Benutzer ist gesperrt"
+}

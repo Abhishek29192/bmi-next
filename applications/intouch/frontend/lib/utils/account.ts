@@ -1,4 +1,4 @@
-export const randomPassword = (length: number = 8) => {
+export const randomPassword = (length = 8) => {
   const charset =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 

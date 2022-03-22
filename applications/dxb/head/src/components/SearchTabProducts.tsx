@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import Grid from "@bmi/grid";
-import { FilterProps, Filter } from "@bmi/filters";
+import { Grid } from "@bmi/components";
+import { FilterProps, Filter } from "@bmi/components";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
 import { clearFilterValues, updateFilterValue } from "../utils/filters";
@@ -29,7 +29,7 @@ type Props = {
 
 export const getCount = async (searchQuery) => {
   // See how much this function doesn't actually need this, RETHINK compile query
-  let esQueryObject = compileElasticSearchQuery([], null, 0, 0, searchQuery);
+  const esQueryObject = compileElasticSearchQuery([], null, 0, 0, searchQuery);
 
   const countResult = await queryElasticSearch(
     getCountQuery(esQueryObject),
@@ -102,7 +102,7 @@ const SearchTabPanelProducts = (props: Props) => {
 
     updateLoadingStatus(true);
 
-    let esQueryObject = compileElasticSearchQuery(
+    const esQueryObject = compileElasticSearchQuery(
       filters,
       categoryCode,
       page,

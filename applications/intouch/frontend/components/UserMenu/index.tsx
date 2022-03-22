@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { KeyboardArrowDown, Person } from "@material-ui/icons";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Icon from "@bmi/icon";
+import { Icon } from "@bmi/components";
 import styles from "./styles.module.scss";
 
 const useStyles = makeStyles((theme: Theme) =>

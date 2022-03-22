@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import Button from "@bmi/button";
+import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
 import { useGetProductsReportLazyQuery } from "../../../graphql/generated/hooks";
 import { useMarketContext } from "../../../context/MarketContext";

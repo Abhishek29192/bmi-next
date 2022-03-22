@@ -1,5 +1,5 @@
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
@@ -15,6 +15,8 @@ const {
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
+
+const MAX_RECIPIENTS = 4;
 
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1");
 const recaptchaTokenHeader = "X-Recaptcha-Token";
@@ -99,10 +101,12 @@ export const submit: HttpFunction = async (request, response) => {
       const {
         body: {
           locale,
-          recipients,
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
+      const recipients = [
+        ...new Set<string>(request.body.recipients.replace(/\s/, "").split(","))
+      ].slice(0, MAX_RECIPIENTS);
 
       if (!fields || !Object.entries(fields).length) {
         return response.status(400).send(Error("Fields are empty."));
@@ -139,7 +143,8 @@ export const submit: HttpFunction = async (request, response) => {
           });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         logger.error({
           message: `Recaptcha request failed with error ${error}.`
         });
@@ -195,7 +200,8 @@ export const submit: HttpFunction = async (request, response) => {
       });
 
       return response.sendStatus(200);
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({ message: error.message });
       return response.sendStatus(500);
     }

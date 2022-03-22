@@ -1,3 +1,5 @@
+@import "~@bmi-digital/styles";
+
 .ProductLeadBlock {
   :global {
     [class*="MuiBox-root"] {
@@ -15,8 +17,29 @@
       padding-right: 10px;
       display: inline-block;
     }
+    .inline-link {
+      padding-top: 10px;
+      color: #0072b0;
+      &:hover {
+        color: #005b8c;
+      }
+      transition: color ease-out 0.25s;
+    }
   }
   .document-library {
     padding-top: 32px;
+  }
+  .fixing-tool-iframe,
+  .specification-tab-iframe {
+    height: 600px;
+    @media (min-width: $breakpoint-lg) {
+      height: 800px;
+    }
+  }
+  .tab-container {
+    padding-top: 24px;
+    .heading {
+      margin-bottom: 24px;
+    }
   }
 }

@@ -137,6 +137,7 @@ export const GET_COMPANIES_BY_MARKET = gql`
     companies(condition: { marketId: $marketId }) {
       nodes {
         ...CompanyPageDetailsFragment
+        updatedAt
       }
     }
     contactDetailsCollection {

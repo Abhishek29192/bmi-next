@@ -16,6 +16,7 @@
     "lodash.chunk": "^4.2.0"
   },
   "scripts": {
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "lint": "eslint *.js"
   },
   "files": [

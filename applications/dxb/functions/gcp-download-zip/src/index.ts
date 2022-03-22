@@ -1,6 +1,6 @@
 import { Writable } from "stream";
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import { File, Storage } from "@google-cloud/storage";
@@ -109,7 +109,8 @@ export const download: HttpFunction = async (request, response) => {
         });
         return response.status(400).send("Recaptcha check failed.");
       }
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({
         message: `Recaptcha request failed with error ${error}.`
       });
@@ -124,7 +125,8 @@ export const download: HttpFunction = async (request, response) => {
       const fileName = Date.now();
       zipFile = bucket.file(`${fileName}.zip`);
       zipFileWriteStream = zipFile.createWriteStream();
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({
         message: `Failed to create zip file stream: ${error}`
       });
@@ -209,7 +211,8 @@ export const download: HttpFunction = async (request, response) => {
           logger.info({ message: `Appended ${name} to zip.` });
         })
       );
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({
         message: `Failed to add a document to the zip file: ${error}`
       });
@@ -231,7 +234,7 @@ export const download: HttpFunction = async (request, response) => {
     await zipStreamPromise;
 
     logger.info({ message: "Getting zip file public URL." });
-    let url = zipFile.publicUrl();
+    const url = zipFile.publicUrl();
     logger.info({ message: `Zip file created at: ${url}` });
     return response.send({ url: url });
   }

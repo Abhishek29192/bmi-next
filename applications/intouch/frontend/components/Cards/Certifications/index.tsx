@@ -2,13 +2,14 @@ import React from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
-import Icon, {
+import {
+  Icon,
   CertificationFlatRoof,
   CertificationOtherTraining,
   CertificationPitchedRoof
-} from "@bmi/icon";
-import { SVGImport } from "@bmi/svg-import";
-import Typography from "@bmi/typography";
+} from "@bmi/components";
+import { SVGImport } from "@bmi-digital/svg-import";
+import { Typography } from "@bmi/components";
 import { SimpleCard } from "../SimpleCard";
 import styles from "./styles.module.scss";
 

@@ -1,13 +1,14 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
 import { Guarantee } from "@bmi/intouch-api-types";
-import Form, { FormProps } from "@bmi/form";
-import TextField from "@bmi/text-field";
-import Grid from "@bmi/grid";
-import Typography from "@bmi/typography";
+import { Form, FormProps } from "@bmi/components";
+import { TextField } from "@bmi/components";
+import { Grid } from "@bmi/components";
+import { Typography } from "@bmi/components";
 import { getDateOnlyString } from "../../../lib/utils/date";
 import { findProjectGuarantee } from "../../../lib/utils/project";
 import { GetProjectQuery } from "../../../graphql/generated/operations";
+import { getNestedValue } from "../../../lib/utils/object";
 import TechnologyInput from "./TechnologyInput";
 // TODO: move/split styles?
 import styles from "./CreateProject/styles.module.scss";
@@ -27,10 +28,10 @@ export const getFieldProps = (t, fieldName: string) => ({
 
 export const getValue = (project, fieldName) => {
   if (["startDate", "endDate"].includes(fieldName)) {
-    return getDateOnlyString(project[`${fieldName}`]);
+    return getDateOnlyString(getNestedValue(project, fieldName));
   }
 
-  return project[`${fieldName}`];
+  return getNestedValue(project, fieldName);
 };
 
 // If there is a guarantee present, cannot edit these fields

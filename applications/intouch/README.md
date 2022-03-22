@@ -79,8 +79,34 @@ Read `{dxb_root_folder}/README.md` `{dxb_root_folder}/libraries/migrate/README.m
 
 ### Contentful Mock data
 
-Mock data should be added directly in Contentful. We can save a particular snapshot of the trial space, by running this script:
+Install `contentful-cli` globally using `yarn global add contentful-cli`.
 
-`yarn workspace @bmi/migrate content-download`
+#### Add mock data to Contentful
 
-Make sure you have appropriately configured the env vars.
+Mock data should be added directly in Contentful.
+
+```bash
+contentful space export \
+  --space-id $SPACE_ID \
+  --environment-id $CONTENTFUL_ENVIRONMENT \
+  --management-token $MANAGEMENT_ACCESS_TOKEN \
+  --export-dir $PROJECT_RELATIVE_PATH/mocks \
+  --download-assets \
+  --skip-content-model \
+  --skip-webhooks \
+  --content-file content.json
+```
+
+#### Take a snapshot of data from Contentful
+
+We can save a particular snapshot of the trial space.
+
+```bash
+contentful space import \
+  --space-id $SPACE_ID \
+  --environment-id $CONTENTFUL_ENVIRONMENT \
+  --management-token $MANAGEMENT_ACCESS_TOKEN \
+  --export-dir libraries/migrate/$PROJECT_RELATIVE_PATH/mocks \
+  --skip-content-model \
+  --content-file libraries/migrate/$PROJECT_RELATIVE_PATH/mocks/content.json
+```

@@ -33,7 +33,7 @@ jest.mock("../../../graphql/generated/page", () => ({
 
 describe("Middleware withPage", () => {
   let ctx;
-  let auth0Mock = {
+  const auth0Mock = {
     getSession: () => ({
       idToken: "123",
       user: {
@@ -76,7 +76,7 @@ describe("Middleware withPage", () => {
       }
     });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx
@@ -117,7 +117,7 @@ describe("Middleware withPage", () => {
         }
       });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx
@@ -158,7 +158,7 @@ describe("Middleware withPage", () => {
         }
       });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx
@@ -256,7 +256,7 @@ describe("Middleware withPage", () => {
         }
       });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx
@@ -338,7 +338,7 @@ describe("Middleware withPage", () => {
       networkError: { result: { message: "Jwt issuer is not configured" } }
     });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx
@@ -357,7 +357,7 @@ describe("Middleware withPage", () => {
       networkError: { result: { message: "generic_error" } }
     });
 
-    let result = await innerGetServerSideProps(
+    const result = await innerGetServerSideProps(
       getServerSideProps,
       auth0Mock,
       ctx

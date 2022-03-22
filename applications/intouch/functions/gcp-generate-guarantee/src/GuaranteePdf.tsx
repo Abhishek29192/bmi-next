@@ -66,9 +66,9 @@ export default class GuaranteePdfGenerator {
           const pdfDocBuffer = await toArrayBuffer(buffer);
           resolve(pdfDocBuffer);
         },
-        (errorResponse) => {
+        ((errorResponse) => {
           reject(errorResponse);
-        }
+        }) as any // TODO: What on earth was this meant to be doing?!
       );
     });
   }

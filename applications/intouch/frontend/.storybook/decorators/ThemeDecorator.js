@@ -1,5 +1,5 @@
 import React from "react";
-import BmiThemeProvider from "@bmi/theme-provider";
+import { BmiThemeProvider } from "@bmi/components";
 import { StylesProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 

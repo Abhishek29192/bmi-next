@@ -1,6 +1,6 @@
 import { IncomingHttpHeaders } from "http";
-import logger from "@bmi/functions-logger";
-import { getSecret } from "@bmi/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Status } from "simple-http-status";
 import { getById, getYoutubeDetails, saveById } from "./db";
@@ -64,7 +64,8 @@ export const youtubeCache: HttpFunction = async (req, res) => {
     await saveById(youtubeId, youtubeDetails);
 
     return res.status(Status.HTTP_201_CREATED).send(youtubeDetails);
-  } catch (err) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
     logger.error({ message: err.message });
 
     return res.status(Status.HTTP_500_INTERNAL_SERVER_ERROR).send({

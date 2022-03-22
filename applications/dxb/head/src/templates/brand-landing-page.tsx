@@ -1,8 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Button from "@bmi/button";
-import Hero, { HeroItem } from "@bmi/hero";
-import Section from "@bmi/section";
+import { Button } from "@bmi/components";
+import { Hero, HeroItem } from "@bmi/components";
+import { Section } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import { Data as SiteData } from "../components/Site";
 import Page, { Data as PageData } from "../components/Page";
@@ -73,6 +73,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     title,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     description,
+    cta,
     brandLogo,
     featuredMedia,
     slides,
@@ -101,7 +102,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     media: featuredVideo
       ? renderVideo(featuredVideo)
       : renderImage(featuredMedia, { size: "cover" }),
-    hasUnderline: false
+    hasUnderline: false,
+    cta: cta ? (
+      <Link component={Button} data={cta}>
+        {cta.label}
+      </Link>
+    ) : null
   };
 
   return (
@@ -120,7 +126,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <Hero
               level={0}
-              brand={brandLogo}
+              isHeroKeyLine={!!brandLogo}
               breadcrumbs={
                 <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
               }
@@ -147,6 +153,9 @@ export const pageQuery = graphql`
     contentfulBrandLandingPage(id: { eq: $pageId }) {
       description {
         description
+      }
+      cta {
+        ...LinkFragment
       }
       slides {
         ... on ContentfulPromoOrPage {

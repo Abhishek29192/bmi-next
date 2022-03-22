@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import LeadBlock from "@bmi/lead-block";
-import DownloadList from "@bmi/download-list";
+import { LeadBlock } from "@bmi/components";
+import { DownloadList } from "@bmi/components";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import DocumentResultsFooter, {
   handleDownloadClick
@@ -19,7 +19,14 @@ const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
 const DocumnetsLeadBlock = ({ documents }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(1);
-  const count = Math.ceil(documents.length / DOCUMENTS_PER_PAGE);
+  const filteredDocuments = documents.filter(
+    (doc) =>
+      (doc.assetType.pimCode !== "VIDEO" &&
+        doc.assetType.pimCode !== "FIXING_TOOL" &&
+        doc.assetType.pimCode !== "SPECIFICATION") ||
+      doc.asset.file.details.size
+  );
+  const count = Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_, page) => {
     const scrollY = resultsElement.current
       ? resultsElement.current.offsetTop - 200
@@ -35,7 +42,7 @@ const DocumnetsLeadBlock = ({ documents }: Props) => {
           <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
             <div className={styles["tableContainer"]}>
               <DocumentSimpleTableResults
-                documents={documents}
+                documents={filteredDocuments}
                 page={page}
                 documentsPerPage={DOCUMENTS_PER_PAGE}
                 headers={["type", "title", "download", "add"]}

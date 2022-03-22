@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@bmi/typography";
+import { Typography } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { useTranslation } from "next-i18next";
 import { useWizardContext } from "./WizardContext";

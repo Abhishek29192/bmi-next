@@ -1,7 +1,7 @@
 export const truncate = (
   string: string,
   maxLength: number,
-  truncateSymbol: string = "..."
+  truncateSymbol = "..."
 ): string => {
   if (string.length >= maxLength) {
     return `${string.substring(0, maxLength - 1)}${truncateSymbol}`;

@@ -4,7 +4,11 @@ import { fireEvent, render } from "@testing-library/react";
 import withGTM, { pushToDataLayer } from "../google-tag-manager";
 
 declare let window: Window & {
-  dataLayer: { push: () => {} };
+  dataLayer: {
+    push: () => {
+      // no-op
+    };
+  };
 };
 
 const mockPush = jest.fn();

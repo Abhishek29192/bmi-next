@@ -1,13 +1,14 @@
 import fetch, { Response } from "node-fetch";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import logger from "@bmi/functions-logger";
-import { fetchData, PimTypes } from "@bmi/pim-api";
+import logger from "@bmi-digital/functions-logger";
+import { fetchData } from "@bmi/pim-api";
+import { PimTypes } from "@bmi/pim-types";
 import { deleteFirestoreCollection } from "./firestore";
-import { FirestoreCollections } from "./firestore-collections";
 import {
   deleteElasticSearchIndex,
   ElasticsearchIndexes
 } from "./elasticsearch";
+import { FirestoreCollections } from "./firestoreCollections";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
 

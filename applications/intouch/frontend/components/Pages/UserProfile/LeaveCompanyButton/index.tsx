@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
-import Button from "@bmi/button";
-import Dialog from "@bmi/dialog";
+import { Button } from "@bmi/components";
+import { Dialog } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { useAccountContext } from "../../../../context/AccountContext";
 import { GetUserProfileQuery } from "../../../../graphql/generated/operations";

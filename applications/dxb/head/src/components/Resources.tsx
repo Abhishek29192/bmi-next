@@ -36,6 +36,10 @@ export type Data = {
   maximumSamples: number | null;
   sampleBasketLink: PageInfoData | null;
   keyAssetTypes: string[] | null;
+  pdpFixingToolTitle: string | null;
+  pdpFixingToolDescription: RichTextData | null;
+  pdpSpecificationTitle: string | null;
+  pdpSpecificationDescription: RichTextData | null;
 };
 
 export const query = graphql`
@@ -102,6 +106,14 @@ export const query = graphql`
     ...WelcomeDialogFragment
     ...HeaderLanguageFragment
     sdpBimDescription {
+      ...RichTextFragment
+    }
+    pdpFixingToolTitle
+    pdpFixingToolDescription {
+      ...RichTextFragment
+    }
+    pdpSpecificationTitle
+    pdpSpecificationDescription {
       ...RichTextFragment
     }
   }
