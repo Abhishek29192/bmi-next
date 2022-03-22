@@ -129,13 +129,17 @@ const getListOfUrl = (item: Data) => {
 
 const getAction = (list: Record<string, Data>) => {
   return JSON.stringify(
-    Object.values(list).map((item) => {
-      if (Array.isArray(item)) {
-        return getListOfUrl(item);
-      } else {
-        return extractUrl(item);
-      }
-    })
+    Object.values(list)
+      .map((item) => {
+        if (item) {
+          if (Array.isArray(item)) {
+            return getListOfUrl(item);
+          } else {
+            return extractUrl(item);
+          }
+        }
+      })
+      .filter(Boolean)
   );
 };
 
