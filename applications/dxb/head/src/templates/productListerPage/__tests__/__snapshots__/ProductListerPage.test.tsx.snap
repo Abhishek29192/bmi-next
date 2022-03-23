@@ -24,6 +24,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -1112,6 +1113,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -2205,6 +2207,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -3434,6 +3437,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -4657,6 +4661,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -5959,6 +5964,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -6987,6 +6993,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -8015,6 +8022,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -9090,6 +9098,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -10165,6 +10174,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -11235,6 +11245,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -12310,6 +12321,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -13539,6 +13551,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -14762,6 +14775,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -16064,6 +16078,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -17074,6 +17089,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -19152,6 +19168,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -20471,6 +20488,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -21569,6 +21587,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -22898,6 +22917,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >
@@ -25490,6 +25510,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                  data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
                 >

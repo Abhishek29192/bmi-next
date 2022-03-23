@@ -22,6 +22,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-315 MuiButton-text buttonStyles-text-316 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-315 MuiButton-text buttonStyles-text-316 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-315 MuiButton-text buttonStyles-text-316 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-315 MuiButton-text buttonStyles-text-316 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`SystemDetailsPage template component should have function to filter and
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-315 MuiButton-text buttonStyles-text-316 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -4472,6 +4477,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-text buttonStyles-text-394 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4490,6 +4496,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-text buttonStyles-text-394 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4508,6 +4515,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-text buttonStyles-text-394 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4526,6 +4534,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-text buttonStyles-text-394 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -4545,6 +4554,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-text buttonStyles-text-394 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -10399,6 +10409,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10417,6 +10428,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10435,6 +10447,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10453,6 +10466,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10472,6 +10486,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -16467,6 +16482,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-text buttonStyles-text-119 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -16485,6 +16501,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-text buttonStyles-text-119 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -16503,6 +16520,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-text buttonStyles-text-119 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -16521,6 +16539,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-text buttonStyles-text-119 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -16540,6 +16559,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-text buttonStyles-text-119 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -22535,6 +22555,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-235 MuiButton-text buttonStyles-text-236 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22553,6 +22574,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-235 MuiButton-text buttonStyles-text-236 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22571,6 +22593,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-235 MuiButton-text buttonStyles-text-236 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22589,6 +22612,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-235 MuiButton-text buttonStyles-text-236 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -22608,6 +22632,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-235 MuiButton-text buttonStyles-text-236 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -27227,6 +27252,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-510 MuiButton-text buttonStyles-text-511 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -27245,6 +27271,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-510 MuiButton-text buttonStyles-text-511 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -27263,6 +27290,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-510 MuiButton-text buttonStyles-text-511 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -27281,6 +27309,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-510 MuiButton-text buttonStyles-text-511 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -27300,6 +27329,7 @@ exports[`gtm on landing on sdp from sc run pushtogtm data layer if selected_syst
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-510 MuiButton-text buttonStyles-text-511 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
