@@ -86,11 +86,28 @@
     height: 100%;
     max-height: calc(100vh - 48px); // Note: minus tab label height.
     overflow: auto;
-    border-top: 1px solid $color-storm;
     @media (min-width: $breakpoint-lg) {
       max-height: 640px;
       border-bottom: 1px solid $color-storm;
       border-top: 1px solid $color-storm;
+    }
+  }
+
+  .results-list-section {
+    height: 100%;
+
+    .list {
+      @media (min-width: $breakpoint-lg) {
+        max-height: 576px;
+      }
+    }
+
+    .pagination {
+      margin-top: 24px;
+    }
+
+    .pagination > ul {
+      justify-content: center;
     }
   }
 
@@ -124,6 +141,10 @@
   }
 
   .no-results {
+    margin-top: 30px;
+    @media (min-width: $breakpoint-lg) {
+      margin-top: 0;
+    }
     display: flex;
     flex-direction: column;
     height: 100%;

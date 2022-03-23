@@ -1,3 +1,4 @@
+import React from "react";
 import {
   LatLngLiteral as GoogleLatLngLiteral,
   MarkerOptionsWithData
@@ -10,7 +11,7 @@ import { Button } from "@bmi/components";
 import { CompanyDetails } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import CloseIcon from "@material-ui/icons/Close";
-import React from "react";
+import { microCopy } from "../../../constants/microCopies";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { Service } from "../index";
@@ -58,7 +59,7 @@ export const ServiceLocatorMap = ({
                 <Button
                   isIconButton
                   variant="text"
-                  accessibilityLabel={getMicroCopy("global.close")}
+                  accessibilityLabel={getMicroCopy(microCopy.GLOBAL_CLOSE)}
                   onClick={clearRooferAndResetMap}
                   className={styles["product-details-card__close-button"]}
                 >

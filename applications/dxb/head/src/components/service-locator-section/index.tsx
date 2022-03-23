@@ -14,6 +14,7 @@ import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";
+import { microCopy } from "../../constants/microCopies";
 import RichText, { RichTextData } from "../RichText";
 import {
   Data as ServiceData,
@@ -43,7 +44,8 @@ import {
 import {
   DEFAULT_LEVEL_ZOOM,
   PLACE_LEVEL_ZOOM,
-  QUERY_CHIP_FILTER_KEY
+  QUERY_CHIP_FILTER_KEY,
+  PAGE_SIZE
 } from "./constants";
 
 export type Service = ServiceData & {
@@ -99,6 +101,10 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   );
   const [uniqueRoofTypeByData, setUniqueRoofTypeByData] = useState([]);
   const [isUserAction, setUserAction] = useState(false);
+  const [page, setPage] = useState(1);
+  const [pagedFilteredRoofers, setPagedFilteredRoofers] = useState<Service[]>(
+    []
+  );
   const [showResultList, setShowResultList] = useState(showDefaultResultList);
   const [googleApi, setGoogleApi] = useState<Google>(null);
   const [selectedRoofer, setSelectedRoofer] = useState<Service>(null);
@@ -164,9 +170,27 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const markers = useMemo(
     () =>
-      showResultList ? filteredRoofers.map(createMarker(selectedRoofer)) : [],
-    [selectedRoofer, filteredRoofers, showResultList]
+      showResultList
+        ? pagedFilteredRoofers.map(createMarker(selectedRoofer))
+        : [],
+    [selectedRoofer, pagedFilteredRoofers, showResultList]
   );
+
+  const handlePageChange = (_, pageNumber: number) => {
+    setPagedFilteredRoofers(() => {
+      const start = (pageNumber - 1) * PAGE_SIZE;
+      const end = start + PAGE_SIZE;
+      return filteredRoofers.slice(start, end);
+    });
+    setPage(pageNumber);
+  };
+
+  useEffect(() => {
+    setPagedFilteredRoofers(filteredRoofers.slice(0, PAGE_SIZE));
+    setPage(1);
+  }, [filteredRoofers]);
+
+  const pageCount = Math.ceil(filteredRoofers.length / PAGE_SIZE);
 
   const handleServiceClick = (service: Service) => {
     setSelectedRoofer(service);
@@ -369,13 +393,16 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               md={12}
               lg={4}
               className={styles["tab-panel"]}
-              heading={getMicroCopy("findARoofer.listLabel")}
+              heading={getMicroCopy(microCopy.FIND_A_ROOFER_LIST_LABEL)}
               index="list"
             >
               <ServiceLocatorResultList
-                roofersList={filteredRoofers}
+                roofersList={pagedFilteredRoofers}
                 onListItemClick={handleServiceClick}
                 onCloseCard={clearRooferAndResetMap}
+                onPageChange={handlePageChange}
+                page={page}
+                pageCount={pageCount}
                 getCompanyDetails={getCompanyDetails}
                 shouldListCertification={shouldListCertification}
                 selectedRoofer={selectedRoofer}
@@ -386,7 +413,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             md={12}
             lg={showResultList ? 8 : 12}
             className={styles["tab-panel"]}
-            heading={getMicroCopy("findARoofer.mapLabel")}
+            heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
             <ServiceLocatorMap

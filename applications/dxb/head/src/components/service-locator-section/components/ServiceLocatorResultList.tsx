@@ -1,3 +1,4 @@
+import React from "react";
 import { CompanyDetailProps, RoofProLevel } from "@bmi/components";
 import {
   Logo,
@@ -6,12 +7,14 @@ import {
   RoofProPartnerSmall
 } from "@bmi/components";
 import { CompanyDetails } from "@bmi/components";
+import { Pagination } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { SVGImport } from "@bmi-digital/svg-import";
-import React from "react";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
+import classnames from "classnames";
 import { Service } from "../index";
+import { microCopy } from "../../../constants/microCopies";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
 import { getResultDataGtm } from "../helpers";
@@ -21,6 +24,9 @@ interface ResultListProps {
   onListItemClick: (service: Service | null) => void;
   roofersList: Partial<Service[]>;
   onCloseCard: () => void;
+  onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
+  page: number;
+  pageCount: number;
   getCompanyDetails: (
     service: Service,
     isAddressHidden?: boolean
@@ -41,16 +47,23 @@ export const ServiceLocatorResultList = ({
   onCloseCard,
   getCompanyDetails,
   selectedRoofer,
-  shouldListCertification
+  shouldListCertification,
+  onPageChange,
+  page,
+  pageCount
 }: ResultListProps) => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
-  return (
-    <div className={styles["list"]}>
-      {roofersList.length ? (
-        roofersList.map((service) => (
+  return roofersList.length ? (
+    <div
+      className={classnames({
+        [styles["results-list-section"]]: pageCount > 1
+      })}
+    >
+      <div className={styles["list"]}>
+        {roofersList.map((service) => (
           <GTMIntegratedLinkCard
             key={service.id}
             onClick={() => onListItemClick(service)}
@@ -64,7 +77,7 @@ export const ServiceLocatorResultList = ({
                 {service.address}
                 {service.certification && shouldListCertification && (
                   <div className={styles["roofpro-certification"]}>
-                    {getMicroCopy("findARoofer.certificationLabel")}:
+                    {getMicroCopy(microCopy.FIND_A_ROOFER_CERTIFICATION_LABEL)}:
                     <Logo
                       source={
                         iconSourceMap[service.certification.toLowerCase()]
@@ -80,17 +93,25 @@ export const ServiceLocatorResultList = ({
               <Typography>{service.summary}</Typography>
             </CompanyDetails>
           </GTMIntegratedLinkCard>
-        ))
-      ) : (
-        <div className={styles["no-results"]}>
-          <Typography variant="h4" className={styles["no-results-heading"]}>
-            {getMicroCopy("findARoofer.noResults.title")}
-          </Typography>
-          <Typography>
-            {getMicroCopy("findARoofer.noResults.subtitle")}
-          </Typography>
-        </div>
+        ))}
+      </div>
+      {pageCount > 1 && (
+        <Pagination
+          className={styles["pagination"]}
+          page={page}
+          count={pageCount}
+          onChange={onPageChange}
+        />
       )}
+    </div>
+  ) : (
+    <div className={styles["no-results"]}>
+      <Typography variant="h4" className={styles["no-results-heading"]}>
+        {getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_TITLE)}
+      </Typography>
+      <Typography>
+        {getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_SUBTITLE)}
+      </Typography>
     </div>
   );
 };
