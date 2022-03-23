@@ -15173,10 +15173,15 @@
  force=true
  
 [[redirects]]
- from="/de/p/vedatect-al-v-60-s-blank"
+ from="/de/p/vedatect-al-v-60-s blank"
  to="/de/alle-flachdachprodukte/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Vedag%22%5D%7D%5D"
  force=true
  
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//achat-12v-modulstütze"
+ to="/de/p/achat-12v-modulst%C3%BCtze-rot-aluminium-1485805193"
+ force=true
+
 [[redirects]]
  from="/de/vedag/ werke"
  to="/de/ueber-uns/kontakt/oeffnungszeiten-werke-und-lager/"
@@ -15233,11 +15238,6 @@
  force=true
  
 [[redirects]]
- from="/de/private-bauherren/"
- to="/de/private-bauherren/"
- force=true
- 
-[[redirects]]
  from="/de/rufus2022"
  to="/de/"
  force=true
@@ -15265,18 +15265,23 @@
 [[redirects]]
  from="/de/downloads/sicherheitsdatenblatt_sicherheitserklärung"
  to="/de/services-downloads-im-ueberblick/alle-downloads/"
- force=true 
-[[redirects]]
+ force=true
 
 [[redirects]]
- from="/de/sxa/file/download*"
+ from="/de/sxa/file/*"
  to="/de/services-downloads-im-ueberblick/alle-downloads/"
  force=true
 
 [[redirects]]
- from="/de/sxa/file/zip*"
- to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ from="/de/alle-produkte-dammung/*"
+ to="/de/alle-produkte-flachdachdaemmung/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Vedag%22%5D%7D%5D"
  force=true
+
+[[redirects]]
+ from="/de/de/private-bauherren/"
+ to="/de/private-bauherren/"
+ force=true
+
 
 
 [[redirects]]

@@ -118,11 +118,6 @@
         "icon": "/icons/flags/ro.svg"
       },
       {
-        "code": "ru",
-        "label": "Россия",
-        "icon": "/icons/flags/ru.svg"
-      },
-      {
         "code": "rs",
         "label": "Srbija",
         "icon": "/icons/flags/rs.svg"

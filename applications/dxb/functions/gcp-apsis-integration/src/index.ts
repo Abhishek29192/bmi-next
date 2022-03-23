@@ -254,7 +254,8 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
           });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         logger.error({
           message: `Recaptcha request failed with error ${error}.`
         });
@@ -276,7 +277,8 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
       } else {
         return response.sendStatus(200);
       }
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.error({ message: `APSIS integration Error occured ${error}` });
       return response.sendStatus(500);
     }
