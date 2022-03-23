@@ -143,7 +143,8 @@ export const submit: HttpFunction = async (request, response) => {
           });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
-      } catch (error) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (error: any) {
         logger.error({
           message: `Recaptcha request failed with error ${error}.`
         });

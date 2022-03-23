@@ -92,7 +92,8 @@ const getMainTileProducts = async () => {
 
     try {
       mainTiles.push(transformMainTileProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${code}, skipping for this build. ${
           (error as Error).message
@@ -117,7 +118,8 @@ const getGutteringRelatedProducts = async () => {
   for (const product of gutterCollection.items) {
     try {
       gutters.push(transformGutteringProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${
           product["code"]
@@ -130,7 +132,8 @@ const getGutteringRelatedProducts = async () => {
   for (const product of gutterHookCollection.items) {
     try {
       gutterHooks.push(transformGutterHookProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${
           product["code"]
@@ -158,7 +161,8 @@ const getUnderlayProducts = async () => {
   for (const product of underlayCollection.items) {
     try {
       underlays.push(transformUnderlayProduct(product));
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       logger.warning({
         message: `Failed to transform ${
           product["code"]
