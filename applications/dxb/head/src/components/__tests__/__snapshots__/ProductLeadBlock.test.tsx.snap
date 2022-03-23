@@ -15,10 +15,10 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
           class="Container"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-294 MuiContainer-maxWidthXl"
+            class="MuiContainer-root tabStyles-ContainerRoot-325 MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-295"
+              class="MuiTabs-root tabStyles-TabsRoot-326"
             >
               <div
                 class="MuiTabs-scrollable"
@@ -36,7 +36,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-296 Mui-selected"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-327 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-one"
                     role="tab"
@@ -55,7 +55,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-296"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-327"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-two"
                     role="tab"
@@ -74,7 +74,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-296"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-327"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-three"
                     role="tab"
@@ -92,7 +92,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-297 PrivateTabIndicator-colorPrimary-298 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-328 PrivateTabIndicator-colorPrimary-329 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -108,7 +108,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-301 TabPanelBox"
+          class="MuiBox-root MuiBox-root-332 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -136,7 +136,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-302 TabPanelBox"
+          class="MuiBox-root MuiBox-root-333 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -162,7 +162,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-303 TabPanelBox"
+          class="MuiBox-root MuiBox-root-334 TabPanelBox"
         >
           <div
             class="document-library"
@@ -216,7 +216,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-315 iconButtonStyles-medium-321 iconButtonStyles-text-317"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-346 iconButtonStyles-medium-352 iconButtonStyles-text-348"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -257,7 +257,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-315 iconButtonStyles-medium-321 iconButtonStyles-text-317"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-346 iconButtonStyles-medium-352 iconButtonStyles-text-348"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -297,16 +297,16 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
                       >
                         <button
-                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-304 MuiButton-text buttonStyles-text-305 MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-335 MuiButton-text buttonStyles-text-336 MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\"]\\"}"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="MuiButton-label buttonStyles-label-307"
+                            class="MuiButton-label buttonStyles-label-338"
                           >
                             <span
-                              class="MuiButton-startIcon buttonStyles-startIcon-308 MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon-339 MuiButton-iconSizeMedium"
                             >
                               <svg
                                 class="download-icon"
@@ -333,14 +333,14 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                             >
                               <span
                                 aria-disabled="false"
-                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-324 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-355 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                               >
                                 <span
                                   class="MuiIconButton-label"
                                 >
                                   <input
                                     aria-label="MC: documentLibrary.download dummy-title"
-                                    class="PrivateSwitchBase-input-327"
+                                    class="PrivateSwitchBase-input-358"
                                     data-indeterminate="false"
                                     name="dummy-id"
                                     type="checkbox"
@@ -378,7 +378,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
             >
               <nav
                 aria-label="pagination navigation"
-                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-328"
+                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-359"
               >
                 <ul
                   class="MuiPagination-ul"
@@ -435,13 +435,13 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
                 </span>
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-304 MuiButton-contained buttonStyles-contained-306 MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-335 MuiButton-contained buttonStyles-contained-337 MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-307"
+                  class="MuiButton-label buttonStyles-label-338"
                 >
                   MC: downloadList.download (0)
                 </span>
@@ -485,7 +485,7 @@ exports[`ProductLeadBlock tests should filter assets with pimcode of BIM, SPECIF
 </div>
 `;
 
-exports[`ProductLeadBlock tests should render guarantees & warranties images & links on on about tab 1`] = `
+exports[`ProductLeadBlock tests should render guarantees & warranties images & links on about tab 1`] = `
 <div>
   <div
     class="ProductLeadBlock"
@@ -927,7 +927,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-257 TabPanelBox"
+    class="MuiBox-root MuiBox-root-288 TabPanelBox"
   >
     <h5
       class="MuiTypography-root heading Typography MuiTypography-h5"
@@ -953,7 +953,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-126 TabPanelBox"
+    class="MuiBox-root MuiBox-root-157 TabPanelBox"
   >
     <iframe
       class="assetsIframe fixing-tool-iframe"
@@ -974,7 +974,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-158 TabPanelBox"
+    class="MuiBox-root MuiBox-root-189 TabPanelBox"
   >
     <h5
       class="MuiTypography-root heading Typography MuiTypography-h5"
@@ -1000,7 +1000,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-221 TabPanelBox"
+    class="MuiBox-root MuiBox-root-252 TabPanelBox"
   >
     <h5
       class="MuiTypography-root heading Typography MuiTypography-h5"
@@ -1026,7 +1026,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
   role="tabpanel"
 >
   <div
-    class="MuiBox-root MuiBox-root-63 TabPanelBox"
+    class="MuiBox-root MuiBox-root-94 TabPanelBox"
   >
     <div
       class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-center"
@@ -1144,10 +1144,10 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
           class="Container"
         >
           <div
-            class="MuiContainer-root tabStyles-ContainerRoot-258 MuiContainer-maxWidthXl"
+            class="MuiContainer-root tabStyles-ContainerRoot-289 MuiContainer-maxWidthXl"
           >
             <div
-              class="MuiTabs-root tabStyles-TabsRoot-259"
+              class="MuiTabs-root tabStyles-TabsRoot-290"
             >
               <div
                 class="MuiTabs-scrollable"
@@ -1165,7 +1165,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                   <button
                     aria-controls="tabpanel-one"
                     aria-selected="true"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-260 Mui-selected"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-291 Mui-selected"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.about\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-one"
                     role="tab"
@@ -1184,7 +1184,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                   <button
                     aria-controls="tabpanel-two"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-260"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-291"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.technicalSpecifications\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-two"
                     role="tab"
@@ -1203,7 +1203,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                   <button
                     aria-controls="tabpanel-three"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-260"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-291"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.documents\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-three"
                     role="tab"
@@ -1222,7 +1222,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                   <button
                     aria-controls="tabpanel-seven"
                     aria-selected="false"
-                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-260"
+                    class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary tabStyles-TabRoot-291"
                     data-gtm="{\\"id\\":\\"selector-tabs1\\",\\"label\\":\\"MC: pdp.leadBlock.specification\\",\\"action\\":\\"Selector – Tabs\\"}"
                     id="tab-seven"
                     role="tab"
@@ -1240,7 +1240,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                   </button>
                 </div>
                 <span
-                  class="PrivateTabIndicator-root-261 PrivateTabIndicator-colorPrimary-262 MuiTabs-indicator"
+                  class="PrivateTabIndicator-root-292 PrivateTabIndicator-colorPrimary-293 MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
                 />
               </div>
@@ -1256,7 +1256,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-265 TabPanelBox"
+          class="MuiBox-root MuiBox-root-296 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1284,7 +1284,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-266 TabPanelBox"
+          class="MuiBox-root MuiBox-root-297 TabPanelBox"
         >
           <div
             class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1310,7 +1310,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-267 TabPanelBox"
+          class="MuiBox-root MuiBox-root-298 TabPanelBox"
         >
           <div
             class="document-library"
@@ -1364,7 +1364,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-279 iconButtonStyles-medium-285 iconButtonStyles-text-281"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-310 iconButtonStyles-medium-316 iconButtonStyles-text-312"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -1405,7 +1405,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-279 iconButtonStyles-medium-285 iconButtonStyles-text-281"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-310 iconButtonStyles-medium-316 iconButtonStyles-text-312"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -1445,16 +1445,16 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
                       >
                         <button
-                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-268 MuiButton-text buttonStyles-text-269 MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-299 MuiButton-text buttonStyles-text-300 MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\"]\\"}"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="MuiButton-label buttonStyles-label-271"
+                            class="MuiButton-label buttonStyles-label-302"
                           >
                             <span
-                              class="MuiButton-startIcon buttonStyles-startIcon-272 MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon-303 MuiButton-iconSizeMedium"
                             >
                               <svg
                                 class="download-icon"
@@ -1481,14 +1481,14 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                             >
                               <span
                                 aria-disabled="false"
-                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-288 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-319 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                               >
                                 <span
                                   class="MuiIconButton-label"
                                 >
                                   <input
                                     aria-label="MC: documentLibrary.download dummy-title"
-                                    class="PrivateSwitchBase-input-291"
+                                    class="PrivateSwitchBase-input-322"
                                     data-indeterminate="false"
                                     name="dummy-id"
                                     type="checkbox"
@@ -1530,7 +1530,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-279 iconButtonStyles-medium-285 iconButtonStyles-text-281"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-310 iconButtonStyles-medium-316 iconButtonStyles-text-312"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -1571,7 +1571,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                       >
                         <a
                           aria-disabled="false"
-                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-279 iconButtonStyles-medium-285 iconButtonStyles-text-281"
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-310 iconButtonStyles-medium-316 iconButtonStyles-text-312"
                           href="https://doesnt-exist.com"
                           rel="noopener noreferrer"
                           tabindex="0"
@@ -1611,16 +1611,16 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                         class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
                       >
                         <button
-                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-268 MuiButton-text buttonStyles-text-269 MuiButton-textPrimary"
+                          class="MuiButtonBase-root MuiButton-root buttonStyles-root-299 MuiButton-text buttonStyles-text-300 MuiButton-textPrimary"
                           data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\"]\\"}"
                           tabindex="0"
                           type="button"
                         >
                           <span
-                            class="MuiButton-label buttonStyles-label-271"
+                            class="MuiButton-label buttonStyles-label-302"
                           >
                             <span
-                              class="MuiButton-startIcon buttonStyles-startIcon-272 MuiButton-iconSizeMedium"
+                              class="MuiButton-startIcon buttonStyles-startIcon-303 MuiButton-iconSizeMedium"
                             >
                               <svg
                                 class="download-icon"
@@ -1647,14 +1647,14 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                             >
                               <span
                                 aria-disabled="false"
-                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-288 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                                class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-319 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                               >
                                 <span
                                   class="MuiIconButton-label"
                                 >
                                   <input
                                     aria-label="MC: documentLibrary.download dummy-title"
-                                    class="PrivateSwitchBase-input-291"
+                                    class="PrivateSwitchBase-input-322"
                                     data-indeterminate="false"
                                     name="dummy-id"
                                     type="checkbox"
@@ -1692,7 +1692,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
             >
               <nav
                 aria-label="pagination navigation"
-                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-292"
+                class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-323"
               >
                 <ul
                   class="MuiPagination-ul"
@@ -1749,13 +1749,13 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
                 </span>
               </a>
               <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-268 MuiButton-contained buttonStyles-contained-270 MuiButton-containedPrimary"
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-299 MuiButton-contained buttonStyles-contained-301 MuiButton-containedPrimary"
                 data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (0)\\",\\"action\\":\\"[]\\"}"
                 tabindex="0"
                 type="button"
               >
                 <span
-                  class="MuiButton-label buttonStyles-label-271"
+                  class="MuiButton-label buttonStyles-label-302"
                 >
                   MC: downloadList.download (0)
                 </span>
@@ -1804,7 +1804,7 @@ exports[`ProductLeadBlock tests should zip the pimDocuments if they are of same 
         role="tabpanel"
       >
         <div
-          class="MuiBox-root MuiBox-root-293 TabPanelBox"
+          class="MuiBox-root MuiBox-root-324 TabPanelBox"
         >
           <h5
             class="MuiTypography-root heading Typography MuiTypography-h5"
