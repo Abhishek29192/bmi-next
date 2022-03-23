@@ -47,6 +47,15 @@ const getSendGridClient = async () => {
   return sendGridClientCache;
 };
 
+const getRecipientsArray = (recipients: string) => {
+  const result = recipients
+    .replace(/\s/g, "")
+    .split(",")
+    .filter((recipient) => Boolean(recipient));
+
+  return [...new Set<string>(result)].slice(0, MAX_RECIPIENTS);
+};
+
 export const submit: HttpFunction = async (request, response) => {
   if (!CONTENTFUL_MANAGEMENT_TOKEN_SECRET) {
     logger.error({
@@ -104,9 +113,7 @@ export const submit: HttpFunction = async (request, response) => {
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
-      const recipients = [
-        ...new Set<string>(request.body.recipients.replace(/\s/, "").split(","))
-      ].slice(0, MAX_RECIPIENTS);
+      const recipients = getRecipientsArray(request.body.recipients);
 
       if (!fields || !Object.entries(fields).length) {
         return response.status(400).send(Error("Fields are empty."));
