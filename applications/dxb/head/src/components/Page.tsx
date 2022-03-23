@@ -1,5 +1,4 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { BackToTop, MicroCopy } from "@bmi/components";
 import { graphql, navigate } from "gatsby";
@@ -9,14 +8,9 @@ import Footer from "../components/Footer";
 import InputBanner, {
   Data as InputBannerData
 } from "../components/InputBanner";
-import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
-import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
-import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
-import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
-import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
-import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
+import { useConfig } from "../contexts/ConfigProvider";
 import BrandProvider from "./BrandProvider";
 import {
   Context as SiteContext,
@@ -32,6 +26,7 @@ import VisualiserProvider from "./Visualiser";
 import Calculator from "./PitchedRoofCalcualtor";
 import { Product, VariantOption } from "./types/pim";
 import "../../src/styles/fonts.module.scss";
+import { Head } from "./Head";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -91,18 +86,18 @@ const Page = ({
   } = siteData;
 
   const { breadcrumbs, inputBanner, seo, path } = pageData;
-
-  const reCaptchaKey = process.env.GATSBY_RECAPTCHA_KEY;
-  const reCaptchaNet = process.env.GATSBY_RECAPTCHA_NET === "true";
+  const {
+    config: {
+      gatsbyReCaptchaKey,
+      gatsbyReCaptchaNet,
+      isPreviewMode,
+      visualizerAssetUrl
+    }
+  } = useConfig();
+  const reCaptchaKey = !isPreviewMode && gatsbyReCaptchaKey;
+  const reCaptchaNet = !isPreviewMode && gatsbyReCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
-
-  const imageUrl = getJpgImage(ogImageUrl);
-
-  const enableOnetrust = Boolean(!process.env.GATSBY_PREVIEW && scriptOnetrust);
-  const enableHubSpot = Boolean(
-    !process.env.GATSBY_PREVIEW && process.env.GATSBY_HUBSPOT_ID
-  );
 
   const siteContext = {
     node_locale,
@@ -121,123 +116,24 @@ const Page = ({
     {}
   );
 
-  //TODO: to be improved by making noindex a page level content option from Contentful
-  //      for DE this will be simply a path list, hence the crude nature of below
-  const noindex =
-    [
-      //DE
-      "vielen-dank/",
-      "teilnahmebedingungen/",
-      "services-downloads-im-ueberblick/alle-services/alle-braas-services/schneefangberechnung/",
-      "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
-      //FR
-      "professionnels/iaodc1artv2l5y7e/",
-      "professionnels/rgga23impm0om5rcs/"
-    ].indexOf(path) > -1;
-
-  const schemaOrgActivated =
-    Boolean(process.env.GATSBY_SCHEMA_ORG_ACTIVATED) &&
-    Boolean(baseproduct) &&
-    Boolean(variantProduct);
-
   return (
     <>
-      <Helmet
+      <Head
         htmlAttributes={{ lang: node_locale }}
-        title={seo?.metaTitle || title}
+        title={title}
         defer={false}
-      >
-        <link
-          rel="preload"
-          href={EffraRegular}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href={EffraMedium}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href={EffraHeavy}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href={EffraBold}
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        {imageUrl && <meta property="og:image" content={imageUrl} />}
-
-        {noindex && <meta name="robots" content="noindex, nofollow" />}
-
-        {/* NOTE: expand viewport beyond safe area */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
-        {seo?.metaDescription && (
-          <meta name="description" content={seo.metaDescription} />
-        )}
-        {headScripts && <script async>{headScripts.headScripts}</script>}
-
-        {enableOnetrust && (
-          <script
-            type="text/javascript"
-            src={`https://cdn.cookielaw.org/consent/${scriptOnetrust}/OtAutoBlock.js`}
-          />
-        )}
-        {enableOnetrust && (
-          <script
-            src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
-            type="text/javascript"
-            charSet="UTF-8"
-            data-domain-script={scriptOnetrust}
-          />
-        )}
-        {enableOnetrust && (
-          <script type="text/javascript" async>
-            {`function OptanonWrapper() {}`}
-          </script>
-        )}
-
-        {enableHubSpot && (
-          // This script is for the HubSpot CTA Links (see `Link.tsx`)
-          <script
-            id="hubspot-cta-script"
-            src="https://js.hscta.net/cta/current.js"
-            async
-          />
-        )}
-        <script lang="javascript">
-          {`
-            if(history && history.scrollRestoration && history.scrollRestoration !== 'manual') {
-              history.scrollRestoration = 'manual';
-            }
-          `}
-        </script>
-
-        {schemaOrgActivated && (
-          <script type="application/ld+json">
-            {JSON.stringify(
-              createSchemaOrgDataForPdpPage(
-                baseproduct,
-                variantProduct,
-                countryCode
-              )
-            )}
-          </script>
-        )}
-      </Helmet>
-
+        ogImageUrl={ogImageUrl}
+        scripts={{
+          headScripts,
+          scriptOnetrust
+        }}
+        path={path}
+        seo={seo}
+        baseProduct={baseproduct}
+        variantProduct={variantProduct}
+        countryCode={countryCode}
+      />
+      {/* TODO: move cascade of providers to separate composition component AppProviders */}
       <SiteContextProvider value={siteContext}>
         <MicroCopy.Provider values={microCopyContext}>
           <BasketContextProvider>
@@ -245,7 +141,6 @@ const Page = ({
               reCaptchaKey={reCaptchaKey}
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
-              scriptProps={{ async: true }}
             >
               <Header
                 navigationData={menuNavigation}
@@ -274,7 +169,7 @@ const Page = ({
                   }
                 >
                   <VisualiserProvider
-                    contentSource={process.env.GATSBY_VISUALISER_ASSETS_URL}
+                    contentSource={visualizerAssetUrl}
                     variantCodeToPathMap={variantCodeToPathMap}
                     shareWidgetData={resources?.visualiserShareWidget}
                   >

@@ -20,6 +20,7 @@ import BrandLogo from "../components/BrandLogo";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { useConfig } from "../contexts/ConfigProvider";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -95,6 +96,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     seo,
     path: data.contentfulBrandLandingPage.path
   };
+  const {
+    config: { isBrandProviderEnabled }
+  } = useConfig();
 
   const firstSlide: HeroItem = {
     title: <BrandLogo brandName={brandLogo} />,
@@ -126,12 +130,12 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
           <>
             <Hero
               level={0}
-              isHeroKeyLine={!!brandLogo}
               breadcrumbs={
                 <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
               }
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
+              isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
             />
 
             {overlapCards && <OverlapCards data={overlapCards} />}

@@ -26,8 +26,7 @@
     "dev:debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "lighthouse": "yarn lhci autorun",
     "microcopy": "node ./scripts/get-microcopy.js",
-    "start": "gatsby build --prefix-paths && gatsby serve",
-    "test: head": "jest"
+    "start": "gatsby build --prefix-paths && gatsby serve"
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",

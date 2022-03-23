@@ -25,6 +25,7 @@ import SearchTabPanelDocuments, {
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
+import { useConfig } from "../contexts/ConfigProvider";
 
 export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -49,11 +50,9 @@ export type Props = {
 };
 
 const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-  if (process.env.GATSBY_PREVIEW) {
-    e.preventDefault();
-    alert("You cannot search on the preview environment.");
-    return;
-  }
+  e.preventDefault();
+  alert("You cannot search on the preview environment.");
+  return;
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
@@ -61,13 +60,16 @@ const SearchPage = ({ pageContext, data }: Props) => {
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
+  const {
+    config: { isPreviewMode }
+  } = useConfig();
 
   const { countryCode, resources } = contentfulSite;
   const getMicroCopy = generateGetMicroCopy(resources.microCopy);
   const defaultTitle = getMicroCopy(microCopy.SEARCH_PAGE_TITLE);
 
   const queryString = useMemo(() => {
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       return null;
     }
 
@@ -291,7 +293,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           query={areTabsResolved ? queryString : ""}
           searchPageSearchTips={resources.searchPageSearchTips}
           searchPageSidebarItems={resources.searchPageSidebarItems}
-          handleSubmit={handleSubmit}
+          handleSubmit={isPreviewMode && handleSubmit}
         />
       </Section>
       {pageHasResults ? (

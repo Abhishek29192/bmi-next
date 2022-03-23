@@ -15,6 +15,7 @@ import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import AssetHeader from "./_AssetHeader";
 import { useSiteContext } from "./Site";
@@ -39,6 +40,9 @@ const DesktopDocumentTechnicalTableResults = ({
   assetTypes,
   fileIconsMap
 }: Props) => {
+  const {
+    config: { documentDownloadEndpoint }
+  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { list } = useContext(DownloadListContext);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -94,7 +98,7 @@ const DesktopDocumentTechnicalTableResults = ({
   ) => {
     const downloadMultipleFiles = async () => {
       try {
-        if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+        if (!documentDownloadEndpoint) {
           throw Error(
             "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
           );
@@ -128,7 +132,7 @@ const DesktopDocumentTechnicalTableResults = ({
                 )
         }));
         const response = await axios.post(
-          process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+          documentDownloadEndpoint,
           { documents: documents },
           { responseType: "text", headers: { "X-Recaptcha-Token": token } }
         );

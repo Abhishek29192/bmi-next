@@ -27,6 +27,7 @@ import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../../components/ShareWidgetSection";
 import { Data as LinkData } from "../../../components/Link";
+import { useConfig } from "../../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import {
   generateHeroLevel,
@@ -89,6 +90,9 @@ const SimplePage = ({ data, pageContext }: Props) => {
     breadcrumbs,
     breadcrumbTitle
   );
+  const {
+    config: { isBrandProviderEnabled }
+  } = useConfig();
   const heroProps: HeroItem = generateHeroProps(
     title,
     subtitle,
@@ -111,6 +115,8 @@ const SimplePage = ({ data, pageContext }: Props) => {
     path: data.contentfulSimplePage.path
   };
 
+  const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
+
   return (
     <Page
       brand={brandLogo}
@@ -120,7 +126,9 @@ const SimplePage = ({ data, pageContext }: Props) => {
       variantCodeToPathMap={pageContext.variantCodeToPathMap}
       ogImageUrl={featuredMedia?.image?.file.url}
     >
-      {renderHero(heroProps, breadcrumbsNode, heroLevel, brandLogo, heroType)}
+      {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+        isHeroKeyLine: isHeroKeyLine
+      })}
       <TableOfContent
         renderLink={(sectionId, title) => (
           <AnchorLink

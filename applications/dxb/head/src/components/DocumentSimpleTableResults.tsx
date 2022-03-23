@@ -20,6 +20,7 @@ import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { Data as DocumentData } from "./Document";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentSimpleTableResults.module.scss";
@@ -265,12 +266,15 @@ export const MultipleAssetToFileDownload = ({
   assets: PIMDocumentData[];
   isMobile?: boolean;
 }): React.ReactElement => {
+  const {
+    config: { documentDownloadEndpoint }
+  } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const format = "application/zip";
   const size = assets.reduce((a, c) => a + c.fileSize, 0);
   const downloadMultipleFiles = async () => {
     try {
-      if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+      if (!documentDownloadEndpoint) {
         throw Error(
           "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
         );
@@ -303,7 +307,7 @@ export const MultipleAssetToFileDownload = ({
               )
       }));
       const response = await axios.post(
-        process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+        documentDownloadEndpoint,
         { documents: documents },
         { responseType: "text", headers: { "X-Recaptcha-Token": token } }
       );

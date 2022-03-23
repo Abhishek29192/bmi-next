@@ -29,10 +29,7 @@ import {
   inputBanner
 } from "../__mocks__/mocks";
 import { createMockSiteData } from "../../../test/mockSiteData";
-
-process.env.GATSBY_USE_LEGACY_FILTERS = "true";
-process.env.GATSBY_RECAPTCHA_KEY = "test";
-process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
@@ -42,15 +39,15 @@ const renderWithStylesAndLocationProvider = (
   pageContext: PageContextType
 ): RenderResult => {
   return render(
-    <ProvideStyles>
-      <LocationProvider history={history}>
-        <SimplePage data={pageData} pageContext={pageContext} />
-      </LocationProvider>
-    </ProvideStyles>
+    <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
+      <ProvideStyles>
+        <LocationProvider history={history}>
+          <SimplePage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
+      </ProvideStyles>
+    </ConfigProvider>
   );
 };
-
-const OLD_ENV = process.env;
 
 const data: { contentfulSimplePage: Data; contentfulSite: any } = {
   contentfulSimplePage: {
@@ -96,15 +93,11 @@ const data: { contentfulSimplePage: Data; contentfulSite: any } = {
 
 describe("Simple page", () => {
   afterEach(() => {
-    process.env = OLD_ENV; // Restore old environment
-
     jest.restoreAllMocks();
   });
 
   beforeEach(() => {
-    jest.resetModules(); // Most important - it clears the cache
-    process.env = { ...OLD_ENV }; // Make a copy
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+    jest.resetModules();
   });
 
   it("renders correctly with full data", () => {

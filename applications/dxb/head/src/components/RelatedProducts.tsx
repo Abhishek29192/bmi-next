@@ -21,6 +21,7 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { useConfig } from "../contexts/ConfigProvider";
 import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
@@ -191,15 +192,15 @@ const RelatedProducts = ({
   products
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const {
+    config: { isRelatedProductsHide }
+  } = useConfig();
 
   if (Object.entries(products).length === 0) {
     return null;
   }
 
   const productGroups = groupProductsByCategory(products);
-
-  const isRelatedProductsHide =
-    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS === "true";
 
   if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;
