@@ -5,7 +5,7 @@ import {
   CTACard,
   Grid,
   GridSize,
-  Image as ImageGalleryImage,
+  MediaData,
   Section
 } from "@bmi/components";
 import Page, { Data as PageData } from "../components/Page";
@@ -181,7 +181,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const getTechDrawings = (
     images: readonly Image[],
     selfProdImages: readonly Image[]
-  ): readonly ImageGalleryImage[] => {
+  ): readonly MediaData[] => {
     const imagesByFormat: Image[][] = Object.values(
       groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
     );

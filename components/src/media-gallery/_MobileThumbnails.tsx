@@ -76,9 +76,10 @@ const Thumbnails = ({
           width: `${images.length * THUMBNAIL_WIDTH}px`
         }}
       >
-        {images.map(({ thumbnail, isVideo, altText }, index) => {
+        {images.map(({ thumbnail, isVideo, altText, media }, index) => {
           return (
             <Thumbnail
+              media={media}
               key={`thumbnail-${index}`}
               imageSource={thumbnail}
               state={activeImageIndex === index ? "selected" : "enabled"}

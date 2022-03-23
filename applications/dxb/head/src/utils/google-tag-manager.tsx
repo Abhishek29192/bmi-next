@@ -133,13 +133,36 @@ export default function withGTM<P>(
       gtmDataset?.id;
     // eslint-disable-next-line security/detect-object-injection
     const gtmId = idMap[id] || id;
+
+    const getMediaLabel = (props) => {
+      const { isVideo } = props;
+      if (propsToGtmMap.label === "media") {
+        return isVideo
+          ? String(props[propsToGtmMap.label].props.label)
+          : String(props[propsToGtmMap.label].props.alt);
+      }
+      return false;
+    };
+
+    const getMediaAction = (props) => {
+      const { isVideo } = props;
+      if (propsToGtmMap.action === "media") {
+        return isVideo
+          ? String(props["imageSource"])
+          : String(props[propsToGtmMap.action].props.src);
+      }
+      return false;
+    };
+
     const gtmLabel =
       gtm?.label ||
+      getMediaLabel(props) ||
       (propsToGtmMap.label === "children" && String(children)) ||
       (props[propsToGtmMap.label] && String(props[propsToGtmMap.label])) ||
       gtmDataset?.label;
     const gtmAction =
       gtm?.action ||
+      getMediaAction(props) ||
       (propsToGtmMap.action === "children" && String(children)) ||
       (props[propsToGtmMap.action] && String(props[propsToGtmMap.action])) ||
       gtmDataset?.action;

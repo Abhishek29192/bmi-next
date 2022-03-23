@@ -3139,16 +3139,27 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />
@@ -9124,16 +9135,27 @@ exports[`SystemDetailsPage template component should have function to filter and
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />
@@ -13667,16 +13689,27 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />
@@ -19599,16 +19632,27 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />
@@ -25672,16 +25716,27 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />
@@ -31745,16 +31800,27 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   >
                     <button
                       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
-                      tabindex="0"
-                      type="button"
-                    />
-                    <button
-                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                      style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg\\"}"
                       tabindex="0"
                       type="button"
                     >
+                      <img
+                        alt="490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                      />
+                    </button>
+                    <button
+                      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                      data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Print_490189 wireløper\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg\\"}"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <img
+                        alt="Print_490189 wireløper"
+                        class="Media"
+                        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
+                      />
                       <span
                         class="MuiTouchRipple-root"
                       />

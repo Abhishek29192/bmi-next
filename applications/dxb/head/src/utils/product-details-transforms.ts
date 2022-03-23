@@ -1,6 +1,5 @@
 import { Link } from "gatsby";
-import { ProductOverviewPaneProps } from "@bmi/components";
-import { Image as ImageGalleryImage } from "@bmi/components";
+import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import React from "react";
 import {
   Category,
@@ -119,7 +118,7 @@ export const findProductBrandLogoCode = (product: Product) =>
 
 export const transformImages = (
   images: readonly GalleryImageType[]
-): readonly ImageGalleryImage[] => {
+): readonly MediaData[] => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
     media: React.createElement("img", {
       src: mainSource,

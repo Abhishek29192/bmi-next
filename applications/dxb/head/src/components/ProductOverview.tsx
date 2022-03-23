@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid } from "@bmi/components";
 import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
-import { Image } from "@bmi/components";
 import { Thumbnail, ThumbnailProps } from "@bmi/components";
 import { MediaGallery, MediaData } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
@@ -15,7 +14,7 @@ export type Data = {
   name: string;
   brandName: string;
   nobb: string | null;
-  images: readonly Image[];
+  images: readonly MediaData[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
   isRecapchaShown?: boolean;
   videos?: MediaData[];

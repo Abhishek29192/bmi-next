@@ -1,5 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`_DesktopThumbnails component renders correctly with media prop 1`] = `
+<div
+  class="thumbnails"
+>
+  <button
+    class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <button
+    class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <div
+    class="scroller"
+    style="margin-right: 0%;"
+  >
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      data-testid="default-thumbnail"
+      tabindex="0"
+      type="button"
+    >
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      data-testid="default-thumbnail"
+      tabindex="0"
+      type="button"
+    >
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`_DesktopThumbnails component renders correctly without media prop 1`] = `
+<div
+  class="thumbnails"
+>
+  <button
+    class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <button
+    class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root icon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+  <div
+    class="scroller"
+    style="margin-right: 0%;"
+  >
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      data-testid="default-thumbnail"
+      style="background-image: url(path-to-image);"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="accessibility-text"
+      >
+        test alt text 1
+      </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      data-testid="default-thumbnail"
+      style="background-image: url(path-to-image);"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="accessibility-text"
+      >
+        test alt text 2
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`_MobileThumbnails component renders correctly 1`] = `
 <div
   class="thumbnails thumbnails--touch"
@@ -41,6 +197,45 @@ exports[`_MobileThumbnails component renders correctly 1`] = `
 </div>
 `;
 
+exports[`_MobileThumbnails component renders correctly with media prop component 1`] = `
+<div
+  class="thumbnails thumbnails--touch"
+>
+  <div
+    class="scroller"
+    style="width: 172px;"
+  >
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      data-testid="default-thumbnail"
+      tabindex="0"
+      type="button"
+    >
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </button>
+    <button
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      data-testid="default-thumbnail"
+      tabindex="0"
+      type="button"
+    >
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
+      />
+    </button>
+  </div>
+</div>
+`;
+
 exports[`_MobileThumbnails component scroll correctly 1`] = `
 <div
   class="thumbnails thumbnails--touch"
@@ -50,7 +245,8 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
     style="width: 172px;"
   >
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
@@ -58,18 +254,24 @@ exports[`_MobileThumbnails component scroll correctly 1`] = `
       <span
         class="accessibility-text"
       >
-        test alt text
+        test alt text 1
       </span>
+      <span
+        class="MuiTouchRipple-root"
+      />
     </button>
     <button
-      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+      class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+      data-testid="default-thumbnail"
       style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
     >
       <span
-        class="MuiTouchRipple-root"
-      />
+        class="accessibility-text"
+      >
+        test alt text 2
+      </span>
     </button>
   </div>
 </div>
@@ -86,23 +288,26 @@ exports[`_MobileThumbnails component scroll correctly when parentScrollLeft, par
     <button
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
       data-testid="default-thumbnail"
-      style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
     >
-      <span
-        class="accessibility-text"
-      >
-        test alt text
-      </span>
+      <img
+        alt="Lorem ipsum 1"
+        class="Media"
+        src="path-to-image"
+      />
     </button>
     <button
       class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
       data-testid="default-thumbnail"
-      style="background-image: url(path-to-image);"
       tabindex="0"
       type="button"
     >
+      <img
+        alt="Lorem ipsum 2"
+        class="Media"
+        src="path-to-image"
+      />
       <span
         class="MuiTouchRipple-root"
       />

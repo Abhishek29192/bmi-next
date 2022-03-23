@@ -1038,7 +1038,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
           class="LeadBlockContentSection"
         >
           <div
-            class="ImageGallery"
+            class="MediaGallery"
           >
             <div
               class="image-wrapper"
@@ -1096,7 +1096,6 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
               >
                 <button
                   class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                  style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h53/he3/9009920573470/Product-Color-Selector-Mobile-490189-wireloperjpg);"
                   tabindex="0"
                   type="button"
                 >
@@ -1108,7 +1107,6 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                 </button>
                 <button
                   class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                  style="background-image: url(https://bmipimngqa.azureedge.net/sys-master-hybris-media/h3b/h2a/9009919852574/Product-Color-Selector-Mobile-Icopal-staltakrenne-miljobilde-3jpg);"
                   tabindex="0"
                   type="button"
                 >
