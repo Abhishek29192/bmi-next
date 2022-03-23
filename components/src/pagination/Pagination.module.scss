@@ -17,6 +17,11 @@
     color: $color-theme-inter;
   }
 
+  &:global([class*="MuiPaginationItem-ellipsis"]),
+  &:global([class*="iconButtonStyles-text"]) {
+    fill: $color-theme-inter;
+  }
+
   &:global([class*="Mui-selected"]) {
     color: $color-white;
   }
