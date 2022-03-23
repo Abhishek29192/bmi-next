@@ -200,9 +200,8 @@ export const submit: HttpFunction = async (request, response) => {
       });
 
       return response.sendStatus(200);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      logger.error({ message: error.message });
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
       return response.sendStatus(500);
     }
   }

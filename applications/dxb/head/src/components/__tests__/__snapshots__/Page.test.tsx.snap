@@ -23,6 +23,7 @@ exports[`Page component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                 href="link-to-page"
                 tabindex="0"
               >

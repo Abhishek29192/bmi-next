@@ -17,7 +17,7 @@
     "@bmi/functions-firestore": "0.0.0",
     "@bmi-digital/functions-logger": "1.1.1",
     "@bmi-digital/functions-secret-client": "1.1.1",
-    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/functions-framework": "^3.0.0",
     "dotenv": "^8.2.0",
     "googleapis": "67.1.1",
     "node-fetch": "^2.6.1",

@@ -23,6 +23,7 @@ exports[`General Error render correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
               >
@@ -732,6 +733,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
               >

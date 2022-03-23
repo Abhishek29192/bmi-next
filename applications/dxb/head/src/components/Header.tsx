@@ -137,6 +137,9 @@ const GTMNavigationButton = withGTM<ButtonProps>(Button, {
 const GTMNavigationTab = withGTM<TabProps>(Tab, {
   label: "label"
 });
+const GTMNavigationUtilityButton = withGTM<ButtonProps>(Button, {
+  label: "children"
+});
 
 export type Region = {
   label: string;
@@ -234,6 +237,15 @@ const Header = ({
           )}
           searchButtonComponent={(props: ButtonProps) => (
             <GTMSearchButton gtm={{ id: "search1" }} {...props} />
+          )}
+          navUtilityLinkButton={(props: ButtonProps) => (
+            <GTMNavigationUtilityButton
+              gtm={{
+                id: "nav-top-utilities-bar",
+                action: props["action"]?.to || props["action"]?.href
+              }}
+              {...props}
+            />
           )}
           isBasketEmpty={productsInBasket.length === 0}
           basketAction={basketCta?.action}

@@ -13,6 +13,8 @@ type Card = PageInfoData | PromoData;
 
 const testTag1: TagData = { type: "Group", title: "Badgers" };
 const testTag2: TagData = { type: "Group", title: "Mushrooms" };
+const testTag3: TagData = { type: "Group", title: "2019" };
+const testTag4: TagData = { type: "Group", title: "2006" };
 
 const card1: PageInfoData = {
   id: "test",
@@ -25,7 +27,7 @@ const card1: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "2021-06-01T00:00:00",
-  tags: [testTag1]
+  tags: [testTag1, testTag3]
 };
 const card2: PageInfoData = {
   id: "test 2",
@@ -38,7 +40,7 @@ const card2: PageInfoData = {
   featuredMedia: null,
   featuredVideo: null,
   date: "2021-06-02T00:00:00",
-  tags: [testTag2]
+  tags: [testTag2, testTag4]
 };
 const card3: PageInfoData = {
   id: "test 3",

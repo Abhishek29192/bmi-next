@@ -22,6 +22,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -3464,6 +3469,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3482,6 +3488,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3500,6 +3507,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3518,6 +3526,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3537,6 +3546,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"

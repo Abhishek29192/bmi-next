@@ -2,8 +2,8 @@ import mockConsole from "jest-mock-console";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import {
-  mockResponse,
   mockRequest,
+  mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
 import {
@@ -20,6 +20,7 @@ jest.mock("../elasticsearch", () => {
     Products = "products",
     Systems = "systems"
   }
+
   return {
     ElasticsearchIndexes: ElasticsearchIndexes,
     deleteElasticSearchIndex: (...args: any) =>
@@ -326,7 +327,70 @@ describe("handleRequest", () => {
     expect(response.status).not.toHaveBeenCalled();
   });
 
-  it("should error if triggering full fetch functions for products returns error code", async () => {
+  it("should retry 5 times and eventually error if triggering full fetch functions for products if it returns error code 429", async () => {
+    mockResponses(fetchMock, {
+      url: process.env.FULL_FETCH_ENDPOINT,
+      method: "POST",
+      requestBody: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      },
+      status: 429
+    });
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual(
+        "Failed to get all of the products data."
+      );
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Products
+    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Systems
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
+    expect(fetchMock).toHaveFetchedTimes(5, process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should not retry and error if triggering full fetch functions for products if it returns non-429 error code", async () => {
     mockResponses(fetchMock, {
       url: process.env.FULL_FETCH_ENDPOINT,
       method: "POST",
@@ -526,7 +590,82 @@ describe("handleRequest", () => {
     expect(response.status).not.toHaveBeenCalled();
   });
 
-  it("should error if triggering full fetch functions for systems returns error code", async () => {
+  it("should retry 5 times and eventually error if triggering full fetch functions for systems if it returns error code 429", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        },
+        status: 429
+      }
+    );
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    try {
+      await handleRequest(request, response);
+      expect(false).toEqual("An error should have been thrown");
+    } catch (error) {
+      expect((error as Error).message).toEqual(
+        "Failed to get all of the systems data."
+      );
+    }
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Products
+    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Systems
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetchedTimes(5, process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
+    expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should not retry and error if triggering full fetch functions for systems if it returns non-429 error code", async () => {
     mockResponses(
       fetchMock,
       {
@@ -599,6 +738,80 @@ describe("handleRequest", () => {
     });
     expect(fetchMock).not.toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT);
     expect(response.status).not.toHaveBeenCalled();
+  });
+
+  it("should return status 200", async () => {
+    mockResponses(
+      fetchMock,
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "products",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.FULL_FETCH_ENDPOINT,
+        method: "POST",
+        requestBody: {
+          type: "systems",
+          startPage: 0,
+          numberOfPages: 10
+        }
+      },
+      {
+        url: process.env.BUILD_TRIGGER_ENDPOINT,
+        method: "POST"
+      }
+    );
+
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Products
+    );
+    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
+      ElasticsearchIndexes.Systems
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Products
+    );
+    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
+      FirestoreCollections.Systems
+    );
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "products",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        type: "systems",
+        startPage: 0,
+        numberOfPages: 10
+      }
+    });
+    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
+      method: "POST"
+    });
+    expect(response.status).toHaveBeenCalledWith(200);
   });
 
   it("should return status 200 if triggering build throws error", async () => {
@@ -701,80 +914,6 @@ describe("handleRequest", () => {
         url: process.env.BUILD_TRIGGER_ENDPOINT,
         method: "POST",
         status: 500
-      }
-    );
-
-    const request = mockRequest("GET");
-    const response = mockResponse();
-
-    await handleRequest(request, response);
-
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Products
-    );
-    expect(deleteElasticSearchIndex).toHaveBeenCalledWith(
-      ElasticsearchIndexes.Systems
-    );
-    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
-      FirestoreCollections.Products
-    );
-    expect(deleteFirestoreCollection).toHaveBeenCalledWith(
-      FirestoreCollections.Systems
-    );
-    expect(fetchData).toHaveBeenCalledWith("products");
-    expect(fetchData).toHaveBeenCalledWith("systems");
-    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: {
-        type: "products",
-        startPage: 0,
-        numberOfPages: 10
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: {
-        type: "systems",
-        startPage: 0,
-        numberOfPages: 10
-      }
-    });
-    expect(fetchMock).toHaveFetched(process.env.BUILD_TRIGGER_ENDPOINT, {
-      method: "POST"
-    });
-    expect(response.status).toHaveBeenCalledWith(200);
-  });
-
-  it("should return status 200", async () => {
-    mockResponses(
-      fetchMock,
-      {
-        url: process.env.FULL_FETCH_ENDPOINT,
-        method: "POST",
-        requestBody: {
-          type: "products",
-          startPage: 0,
-          numberOfPages: 10
-        }
-      },
-      {
-        url: process.env.FULL_FETCH_ENDPOINT,
-        method: "POST",
-        requestBody: {
-          type: "systems",
-          startPage: 0,
-          numberOfPages: 10
-        }
-      },
-      {
-        url: process.env.BUILD_TRIGGER_ENDPOINT,
-        method: "POST"
       }
     );
 

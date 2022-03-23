@@ -60,9 +60,8 @@ export const proxy: HttpFunction = async (req, res) => {
         res.setHeader(key, value);
       }
       return response.body.pipe(res);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      logger.error({ message: error.message });
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
       return res.status(500).send("Request to Elasticsearch failed.");
     }
   }

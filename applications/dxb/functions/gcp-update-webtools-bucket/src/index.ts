@@ -10,10 +10,10 @@ import {
   transformUnderlayProduct
 } from "./transform";
 import {
-  GET_MAIN_TILES_QUERY,
-  getMainTileQuery,
   GET_GUTTERING_RELATED_PRODUCT_QUERY,
-  GET_UNDERLAYS_QUERY
+  GET_MAIN_TILES_QUERY,
+  GET_UNDERLAYS_QUERY,
+  getMainTileQuery
 } from "./queries";
 
 const {
@@ -95,7 +95,9 @@ const getMainTileProducts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       logger.warning({
-        message: `Failed to transform ${code}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${code}, skipping for this build. ${
+          (error as Error).message
+        }`
       });
     }
   }
@@ -119,7 +121,9 @@ const getGutteringRelatedProducts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -131,7 +135,9 @@ const getGutteringRelatedProducts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -158,7 +164,9 @@ const getUnderlayProducts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       logger.warning({
-        message: `Failed to transform ${product["code"]}, skipping for this build. ${error.message}`
+        message: `Failed to transform ${
+          product["code"]
+        }, skipping for this build. ${(error as Error).message}`
       });
     }
   }
@@ -236,9 +244,8 @@ const handleRequest: HttpFunction = async (req, res) => {
 
     res.status(200).send("ok");
     logger.info({ message: "Succeeded" });
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    logger.error({ message: error.message });
+  } catch (error) {
+    logger.error({ message: (error as Error).message });
     res.status(500).send("Internal Server Error");
     logger.error({ message: "Failed" });
   }

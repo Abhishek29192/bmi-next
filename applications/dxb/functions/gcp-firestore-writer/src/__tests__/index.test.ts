@@ -1,10 +1,10 @@
 import { ObjType } from "@bmi/gcp-pim-message-handler";
 import {
+  CollectionReference,
   DocumentReference,
-  Firestore,
-  CollectionReference
+  Firestore
 } from "@bmi/functions-firestore";
-import { handleMessage, CODE_TYPES, OBJECT_TYPES } from "../";
+import { CODE_TYPES, handleMessage, OBJECT_TYPES } from "../";
 
 const createEvent = (message = {}) => {
   if (!message) {
@@ -353,8 +353,8 @@ describe("handleMessage", () => {
     let actualErrorMsg;
     try {
       await handleMessage(data, {});
-    } catch (e) {
-      actualErrorMsg = (e as Error).message;
+    } catch (error) {
+      actualErrorMsg = (error as Error).message;
     }
     const expectedErrorMsg = `Unrecognised message type [TEST]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);
@@ -373,8 +373,8 @@ describe("handleMessage", () => {
     let actualErrorMsg;
     try {
       await handleMessage(data, {});
-    } catch (e) {
-      actualErrorMsg = (e as Error).message;
+    } catch (error) {
+      actualErrorMsg = (error as Error).message;
     }
     const expectedErrorMsg = `Unrecognised itemType [TEST]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);
@@ -384,8 +384,8 @@ describe("handleMessage", () => {
     let actualErrorMsg;
     try {
       await handleMessage({ data: "" }, {});
-    } catch (e) {
-      actualErrorMsg = (e as Error).message;
+    } catch (error) {
+      actualErrorMsg = (error as Error).message;
     }
     const expectedErrorMsg = `Unrecognised itemType [undefined]`;
     expect(actualErrorMsg).toEqual(expectedErrorMsg);

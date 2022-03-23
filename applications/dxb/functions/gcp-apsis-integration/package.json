@@ -22,7 +22,7 @@
   "devDependencies": {
     "@bmi-digital/fetch-mocks": "1.1.1",
     "env-cmd": "^10.1.0",
-    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/functions-framework": "^3.0.0",
     "inspectpack": "^4.7.1",
     "js-yaml": "^4.0.0",
     "process-top": "^1.2.0",

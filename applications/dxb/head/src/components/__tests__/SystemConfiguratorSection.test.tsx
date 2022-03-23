@@ -12,7 +12,7 @@ import {
 import { SiteContextProvider } from "../Site";
 import SystemConfiguratorSection, {
   Data,
-  NextStepData
+  QuestionData
 } from "../SystemConfiguratorSection";
 import * as elasticSearch from "../../utils/elasticSearch";
 import { ImageAssetTypesEnum } from "../types/pim";
@@ -97,6 +97,36 @@ const richTextRaw = {
   ]
 };
 
+const initialQuestion: QuestionData = {
+  __typename: "ContentfulSystemConfiguratorBlock",
+  id: "Q1",
+  title: "Question One",
+  type: "Question",
+  description: null,
+  answers: [
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1a",
+      title: "Answer 1a title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1b",
+      title: "Answer 1b title",
+      description: null,
+      type: "Answer"
+    },
+    {
+      __typename: "ContentfulSystemConfiguratorBlock",
+      id: "A1c",
+      title: "Answer 1c title",
+      description: null,
+      type: "Answer"
+    }
+  ]
+};
 const initialData: Data = {
   __typename: "ContentfulSystemConfiguratorBlock",
   title: "System Configurator Section Title",
@@ -104,48 +134,12 @@ const initialData: Data = {
   description: null,
   type: "Section",
   locale: "en-US",
-  noResultItems: [
-    {
-      contentful_id: "no1",
-      __typename: "ContentfulTitleWithContent",
-      title: "No Result Title",
-      content: { raw: JSON.stringify(richTextRaw), references: null }
-    }
-  ],
-  question: {
-    __typename: "ContentfulSystemConfiguratorBlock",
-    id: "Q1",
-    title: "Question One",
-    type: "Question",
-    recommendedSystems: null,
-    answers: [
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1a",
-        title: "Answer 1a title",
-        description: null,
-        type: "Answer"
-      },
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1b",
-        title: "Answer 1b title",
-        description: null,
-        type: "Answer"
-      },
-      {
-        __typename: "ContentfulSystemConfiguratorBlock",
-        id: "A1c",
-        title: "Answer 1c title",
-        description: null,
-        type: "Answer"
-      }
-    ]
-  }
+  question: initialQuestion
 };
 
-const nextStepData: NextStepData = {
+const question: QuestionData = {
   __typename: "ContentfulSystemConfiguratorBlock",
+  id: "Q2",
   title: "Next Question Title",
   description: null,
   type: "Question",
@@ -222,18 +216,7 @@ describe("SystemConfiguratorSection component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <LocationProvider>
-        <SystemConfiguratorSection
-          data={{
-            __typename: "ContentfulSystemConfiguratorBlock",
-            title: "System Configurator Section Title",
-            description: null,
-            label: "System Configurator Section Label",
-            type: "Section",
-            locale: "en-US",
-            question: null,
-            noResultItems: []
-          }}
-        />
+        <SystemConfiguratorSection data={initialData} />
       </LocationProvider>
     );
     expect(container).toMatchSnapshot();
@@ -244,14 +227,8 @@ describe("SystemConfiguratorSection component", () => {
       <LocationProvider>
         <SystemConfiguratorSection
           data={{
-            __typename: "ContentfulSystemConfiguratorBlock",
-            title: "System Configurator Section Title",
-            description: { raw: JSON.stringify(richTextRaw), references: null },
-            label: "System Configurator Section Label",
-            type: "Section",
-            locale: "en-US",
-            question: null,
-            noResultItems: []
+            ...initialData,
+            description: { raw: JSON.stringify(richTextRaw), references: null }
           }}
         />
       </LocationProvider>
@@ -273,7 +250,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders next question and answer block when answer clicked", async () => {
-    mockedAxios.get.mockResolvedValue({ data: nextStepData });
+    mockedAxios.get.mockResolvedValue({ data: question });
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -286,7 +263,7 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
 
-    await findByText(nextStepData.title);
+    await findByText(question.title);
 
     expect(container).toMatchSnapshot();
   });
@@ -508,7 +485,7 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders an expanded panel when previous panel is clicked", async () => {
-    mockedAxios.get.mockResolvedValue({ data: nextStepData });
+    mockedAxios.get.mockResolvedValue({ data: question });
 
     const { container, findByLabelText, findByRole, findByText, getByText } =
       render(
@@ -522,7 +499,7 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
 
-    await findByText(nextStepData.title);
+    await findByText(question.title);
     const button = getByText((content, element) =>
       content.startsWith("Question One")
     );
@@ -552,7 +529,7 @@ describe("SystemConfiguratorSection component", () => {
         ]
       }
     });
-    mockedAxios.get.mockResolvedValueOnce({ data: nextStepData });
+    mockedAxios.get.mockResolvedValueOnce({ data: question });
 
     const { container, findByLabelText, findByRole, findByText } = render(
       <LocationProvider>
@@ -565,7 +542,7 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
 
-    await findByText(nextStepData.title);
+    await findByText(question.title);
 
     expect(container).toMatchSnapshot();
     expect(mockedAxios.get).toBeCalledTimes(2);
@@ -592,7 +569,8 @@ describe("SystemConfiguratorSection component", () => {
   });
 
   it("renders toggled closed configurator panel", async () => {
-    mockedAxios.get.mockResolvedValueOnce({ data: nextStepData });
+    mockedAxios.get.mockResolvedValueOnce({ data: question });
+    mockedAxios.get.mockResolvedValueOnce({ data: initialQuestion });
 
     const { container, findByLabelText, findByText, findByRole, getByRole } =
       render(
@@ -606,7 +584,7 @@ describe("SystemConfiguratorSection component", () => {
 
     await findByRole("progressbar");
 
-    await findByText(nextStepData.title);
+    await findByText(question.title);
     const firstQuestion = getByRole("button", {
       name: `${initialData.question.title}: Answer 1c title`,
       exact: false

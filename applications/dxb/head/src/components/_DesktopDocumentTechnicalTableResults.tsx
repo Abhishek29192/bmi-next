@@ -144,9 +144,9 @@ const DesktopDocumentTechnicalTableResults = ({
         accessibilityLabel="Download"
         variant="text"
         action={{
-          model: "default",
-          onClick: downloadMultipleFiles
+          model: "default"
         }}
+        onClick={downloadMultipleFiles}
         gtm={{
           id: "download1",
           label: "Download",

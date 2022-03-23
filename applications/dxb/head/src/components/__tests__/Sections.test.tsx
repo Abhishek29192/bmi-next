@@ -58,6 +58,7 @@ describe("Sections component", () => {
         items: [
           {
             __typename: "ContentfulTitleWithContent",
+            name: "hello",
             title: "hello",
             content: {
               raw: contentMock,
@@ -74,6 +75,7 @@ describe("Sections component", () => {
         items: [
           {
             __typename: "ContentfulTitleWithContent",
+            name: "hello",
             title: "hello",
             content: {
               raw: contentMock,
