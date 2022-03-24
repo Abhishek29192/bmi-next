@@ -1,0 +1,52 @@
+{
+  "editDialog": {
+    "buttons": {
+      "removeProfilePicture": "Eliminar",
+      "saveAndClose": "Guardar y cerrar",
+      "uploadProfilePicture": "Subir nueva foto"
+    },
+    "contactDetailsHeading": "Datos de contacto",
+    "fileSizeMessage": "Tamaño máximo de archivo de 3 MB",
+    "fileTypesMessage": "Puede subir archivos jpg, gif o png.",
+    "form": {
+      "fields": {
+        "email": "Correo electrónico",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "phone": "Teléfono",
+        "photo": "Foto de perfil"
+      }
+    },
+    "title": "Sobre mí"
+  },
+  "leaveCompany": {
+    "cta": "dejar la empresa",
+    "dialog": {
+      "content": "Cualquier certificación que posea permanecerá con usted, pero la Compañía ya no heredará ninguna de sus certificaciones. Ya no será miembro de los proyectos de esta empresa ni podrá ver los datos del proyecto. La Compañía no podrá designarlo como instalador responsable de Proyectos.",
+      "cta": {
+        "cancel": "Cancelar",
+        "confirm": "Continuar"
+      },
+      "title": "¿Estás seguro?"
+    }
+  },
+  "passwordReset": {
+    "dialog": {
+      "error": "Ocurrió un error. Póngase en contacto con un administrador de BMI",
+      "success": "Le enviamos un correo electrónico con un enlace para restablecer su contraseña, siga las instrucciones en el correo electrónico",
+      "title": "Cambia la contraseña"
+    }
+  },
+  "profileCard": {
+    "buttons": {
+      "changePassword": "Restablecer su contraseña",
+      "editProfile": "Editar"
+    },
+    "certificationsHeading": "Certificaciones"
+  },
+  "registerCompany": {
+    "body": "Puede registrar su empresa aquí",
+    "cta": "Registrarse",
+    "heading": "Registre su empresa"
+  }
+}

@@ -1,3 +1,85 @@
 {
-  "Sort by": "Sort by"
+  "ARCHITECT": "Arquitecto",
+  "About Us": "Sobre nosotros",
+  "Account": "Mi cuenta",
+  "CONTRACTOR": "Contratista",
+  "CORP_DEVELOPER": "Promotor Inmobiliario",
+  "Companies": "Empresas",
+  "Company": "Empresa",
+  "Company Description": "Descripción de la empresa",
+  "Download": "Descargar",
+  "Edit": "Editar",
+  "Home": "Inicio",
+  "Inventory": "Inventario",
+  "Logout": "Cerrar sesión",
+  "MERCHANT": "Distribuidor",
+  "Main office address": "Dirección de la oficina principal",
+  "No Options": "Sin opciones",
+  "Notifications": "Notificaciones",
+  "Products": "Productos",
+  "Profile": "Perfil",
+  "Projects": "Proyectos",
+  "Registered Address": "Dirección registrada",
+  "Registered Details": "Datos de registro",
+  "Registered Name": "Nombre registrado",
+  "SavePdf": "Descargar PDF",
+  "Search": "Buscar",
+  "Show me": "Muéstrame",
+  "Sort by": "Ordenar por",
+  "Team": "Equipo",
+  "Tools": "Herramientas",
+  "Training": "Formación",
+  "aria": {
+    "navigation": "Navegación",
+    "notifications": "Notificaciones"
+  },
+  "certificationLabels": {
+    "certification": "Certificación",
+    "expiry": "Caducidad",
+    "type": "Tipo"
+  },
+  "certifications": {
+    "flat": "Plano",
+    "other": "Otro",
+    "pitched": "Inclinado"
+  },
+  "deactivatedCompany": "Empresa desactivada",
+  "error_messages": {
+    "email_format": "Dirección de correo electrónico no válida",
+    "phone_number_format": "Teléfono no válido",
+    "required": "Obligatorio",
+    "url_format": "URL invalida"
+  },
+  "fallback": {
+    "noResults": "No hay resultados",
+    "notAdded": "No añadido"
+  },
+  "generatingPdf": "Generando PDF",
+  "notifications": {
+    "earlier": "Antes",
+    "older": "Más de 2 meses",
+    "today": "Hoy"
+  },
+  "results available": "Resultados disponibles",
+  "roles": {
+    "COMPANY_ADMIN": "Administrador de la empresa",
+    "INSTALLER": "Miembro",
+    "MARKET_ADMIN": "Administrador de BMI",
+    "SUPER_ADMIN": "Super Admin"
+  },
+  "session": {
+    "dialog": {
+      "content": "Ha estado inactivo durante un tiempo y esta sesión caducará y su sesión se cerrará automáticamente.",
+      "continue": "Extender sesión",
+      "logout": "Cerrar sesión",
+      "title": "Su sesión caducará en {{counter}}"
+    }
+  },
+  "tier": {
+    "T1": "Miembro",
+    "T2": "Partner",
+    "T3": "Expert",
+    "T4": "Elite"
+  },
+  "visitWebsite": "Visita el sitio web"
 }
