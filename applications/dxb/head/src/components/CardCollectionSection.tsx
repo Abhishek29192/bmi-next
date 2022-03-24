@@ -78,7 +78,7 @@ const CardCollectionItem = ({
       gtm={{
         id: "cta-click1",
         label: `${title || name}${
-          transformedCardLabel ? " - " + transformedCardLabel : ""
+          transformedCardLabel ? ` - ${transformedCardLabel}` : ""
         }`
       }}
       {...props}

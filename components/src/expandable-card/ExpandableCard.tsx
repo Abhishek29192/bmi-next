@@ -115,7 +115,8 @@ const ExpandableCard = ({
   isExpanded: initialIsExpanded = false,
   onClick,
   onCloseClick,
-  onAnimationEnd
+  onAnimationEnd,
+  ...rest
 }: Props) => {
   const [isExpanded, setIsExpanded] = useState<boolean>(initialIsExpanded);
   const [wrapperSize, setWrapperSize] = useState<{
@@ -205,6 +206,7 @@ const ExpandableCard = ({
         }}
         onClick={onClick}
         ref={cardElement}
+        {...rest}
       >
         {onCloseClick && (
           <Button

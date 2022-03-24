@@ -120,6 +120,10 @@ const ProductListing = ({
 
           const altText = `${uniqueClassifications} ${product.name}`;
 
+          const gtmLabel = `${product.name}${
+            uniqueClassifications ? ` - ${uniqueClassifications}` : ""
+          } - ${getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}`;
+
           return (
             <Grid
               item
@@ -143,9 +147,7 @@ const ProductListing = ({
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy(
-                    microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
-                  ),
+                  label: gtmLabel,
                   action: productUrl
                 }}
                 footer={

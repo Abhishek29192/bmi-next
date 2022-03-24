@@ -15,7 +15,8 @@ import Card, {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia
+  CardMedia,
+  CardProps
 } from "./card";
 import CardCheckboxGroup from "./card-checkbox-group";
 import CardInput, { CardInputProps } from "./card-input";
@@ -333,7 +334,8 @@ export type {
   VerticalRollerSlide,
   VillainProps,
   Layout,
-  YoutubeVideoProps
+  YoutubeVideoProps,
+  CardProps
 };
 
 export {

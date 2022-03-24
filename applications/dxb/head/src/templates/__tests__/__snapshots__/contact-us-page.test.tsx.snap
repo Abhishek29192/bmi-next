@@ -2802,6 +2802,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -2976,6 +2977,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -3136,7 +3138,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -3168,7 +3170,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>
@@ -7252,6 +7254,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -7426,6 +7429,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -7586,7 +7590,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -7618,7 +7622,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>
@@ -11701,6 +11705,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -11875,6 +11880,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -12035,7 +12041,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -12067,7 +12073,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>
@@ -16151,6 +16157,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -16325,6 +16332,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -16485,7 +16493,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -16517,7 +16525,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>
@@ -20601,6 +20609,7 @@ exports[`Contact us page render location correctly 1`] = `
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -20775,6 +20784,7 @@ exports[`Contact us page render location correctly 1`] = `
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -20935,7 +20945,7 @@ exports[`Contact us page render location correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -20967,7 +20977,7 @@ exports[`Contact us page render location correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>
@@ -25051,6 +25061,7 @@ exports[`Contact us page renders correctly 1`] = `
                 <div
                   aria-label="No footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"No footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -25225,6 +25236,7 @@ exports[`Contact us page renders correctly 1`] = `
                 <div
                   aria-label="Only body list and footer"
                   class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+                  data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Only body list and footer\\",\\"action\\":\\"Selector - Cards\\"}"
                   role="button"
                   style="min-height: 100%;"
                 >
@@ -25385,7 +25397,7 @@ exports[`Contact us page renders correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"67679090\\",\\"action\\":\\"tel:67679090\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - 67679090\\",\\"action\\":\\"tel:67679090\\"}"
                                     href="tel:67679090"
                                   >
                                     <span>
@@ -25417,7 +25429,7 @@ exports[`Contact us page renders correctly 1`] = `
                                 >
                                   <a
                                     class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
+                                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Only body list and footer - Technical department - vijay@bmigroup.com\\",\\"action\\":\\"mailto:vijay@bmigroup.com\\"}"
                                     href="mailto:vijay@bmigroup.com"
                                   >
                                     <span>

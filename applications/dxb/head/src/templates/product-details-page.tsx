@@ -361,7 +361,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       index,
                       cards
                     ) => {
-                      const cta = getCTA(data, countryCode);
+                      const cta = getCTA(data, countryCode, title);
                       return (
                         <Grid
                           item
