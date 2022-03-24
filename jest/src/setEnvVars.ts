@@ -73,3 +73,7 @@ process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
 process.env.BEARER_TOKEN_SECRET = "TEST_BEARER_TOKEN_SECRET";
 process.env.GOOGLE_YOUTUBE_API_KEY_SECRET =
   "TEST_GOOGLE_YOUTUBE_API_KEY_SECRET";
+
+process.env.BUILD_WEBHOOKS =
+  '{"norway":"https://norway.local","italy":"https://italy.local","finland":"https://finland.local"}';
+process.env.BUILD_REQUEST_SECRET = "build_secret";
