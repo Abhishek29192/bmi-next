@@ -21,7 +21,7 @@ type AddEvidenceDialogProps = {
     files: File[]
   ) => void;
 };
-//You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+// You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
 const MAX_FILE_SIZE = 40;
 
 type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
@@ -35,6 +35,7 @@ export const AddEvidenceDialog = ({
 }: AddEvidenceDialogProps) => {
   const { t } = useTranslation("project-page");
   const [files, setFiles] = useState<File[]>([]);
+  const [hasMaxFileSizeReached, setHasMaxFileSizeReached] = useState(false);
   const [evidenceCategoryKey, setEvidenceCategoryKey] =
     useState<EvidenceCategoryKey>("MISCELLANEOUS");
 
@@ -54,6 +55,15 @@ export const AddEvidenceDialog = ({
   useEffect(() => {
     setEvidenceCategoryKey("MISCELLANEOUS");
   }, []);
+
+  useEffect(() => {
+    setHasMaxFileSizeReached(false);
+    files.map(function (item) {
+      if (item.size > MAX_FILE_SIZE * (1024 * 1024)) {
+        setHasMaxFileSizeReached(true);
+      }
+    });
+  }, [files]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -115,7 +125,9 @@ export const AddEvidenceDialog = ({
       <Dialog.Actions
         confirmLabel={t("upload_tab.add_evidence_modal.confirm_label")}
         onConfirmClick={addEvidenceHandler}
-        isConfirmButtonDisabled={loading || files.length === 0}
+        isConfirmButtonDisabled={
+          loading || files.length === 0 || hasMaxFileSizeReached
+        }
         cancelLabel={t("upload_tab.add_evidence_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
       />

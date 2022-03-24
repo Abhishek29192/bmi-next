@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { AlertBanner } from "@bmi/components";
 import { Dialog } from "@bmi/components";
@@ -12,7 +12,7 @@ type UploadDialogProps = {
   onFilesChange?: () => void;
   onConfirmClick: (files: File[]) => void;
 };
-//You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+// You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
 const MAX_FILE_SIZE = 25;
 
 export const UploadDialog = ({
@@ -25,6 +25,16 @@ export const UploadDialog = ({
 }: UploadDialogProps) => {
   const { t } = useTranslation("company-page");
   const [files, setFiles] = useState<File[]>([]);
+  const [hasMaxFileSizeReached, setHasMaxFileSizeReached] = useState(false);
+
+  useEffect(() => {
+    setHasMaxFileSizeReached(false);
+    files.map(function (item) {
+      if (item.size > MAX_FILE_SIZE * (1024 * 1024)) {
+        setHasMaxFileSizeReached(true);
+      }
+    });
+  }, [files]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -78,7 +88,9 @@ export const UploadDialog = ({
       <Dialog.Actions
         confirmLabel={t("document.uploadDialog.confirmLabel")}
         onConfirmClick={() => onConfirmClick(files)}
-        isConfirmButtonDisabled={loading || files.length === 0}
+        isConfirmButtonDisabled={
+          loading || files.length === 0 || hasMaxFileSizeReached
+        }
         cancelLabel={t("document.uploadDialog.cancelLabel")}
         onCancelClick={() => onCloseClick()}
       />
