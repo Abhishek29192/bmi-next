@@ -7,6 +7,7 @@ import { sendMessageWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
 import { tierBenefit } from "../contentful";
+import { getTranslatedRole, getTargetDomain } from "../../utils/account";
 
 const INSTALLER: Role = "INSTALLER";
 const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
@@ -14,14 +15,7 @@ const COMPANY_ADMIN: Role = "COMPANY_ADMIN";
 const ERROR_ALREADY_MEMBER = "errorAlreadyMember";
 const ERROR_INVITATION_NOT_FOUND = "errorInvitationNotFound";
 
-const { APP_ENV, FRONTEND_URL } = process.env;
-
-const getTargetDomain = (marketDomain) => {
-  const targetDomain =
-    APP_ENV === "prod" ? marketDomain : `${APP_ENV}-${marketDomain}`;
-
-  return targetDomain;
-};
+const { FRONTEND_URL } = process.env;
 
 export const createAccount = async (
   resolve,
@@ -160,7 +154,7 @@ export const updateAccount = async (
       // get all the user in the current company
       const { rows: users } = await pgClient.query(
         "select account.* from account join company_member on account.id = company_member.account_id where company_member.company_id = $1",
-        [user?.company?.id]
+        [user.company?.id]
       );
 
       const accountToEdit = users.find(({ id }) => id === args.input.id);
@@ -197,11 +191,22 @@ export const updateAccount = async (
           level
         });
 
+        const { rows: markets } = await pgClient.query(
+          `SELECT * FROM market WHERE id = $1`,
+          [user.marketId]
+        );
+
+        const locale = `${
+          markets[0].language
+        }_${markets[0].domain?.toUpperCase()}`;
+
+        const roleTranslated = getTranslatedRole(locale, role);
+
         await sendMessageWithTemplate(context, "ROLE_ASSIGNED", {
           accountId: args.input.id,
           email: result.data.$email,
           firstname: result.data.$first_name,
-          role: role?.toLowerCase().replace("_", " ")
+          role: roleTranslated
         });
 
         return result;
@@ -324,7 +329,7 @@ export const invite = async (
     throw new Error("email missing");
   }
 
-  const emailToSend = emails?.length > 11 ? emails?.slice(0, 10) : emails;
+  const emailToSend = emails.length > 11 ? emails.slice(0, 10) : emails;
 
   for (const invetee of emailToSend) {
     let auth0User = await auth0.getUserByEmail(invetee);
@@ -407,7 +412,7 @@ export const invite = async (
       if (invetees.length === 0) {
         // Creating a passsword reset ticket
         const ticket = await auth0.createResetPasswordTicket({
-          user_id: auth0User?.user_id,
+          user_id: auth0User.user_id,
           result_url: `${protocol}://${targetDomain}.${FRONTEND_URL}/api/invitation?company_id=${user.company.id}`
         });
         await sendMessageWithTemplate(updatedContext, "NEWUSER_INVITED", {
@@ -471,7 +476,7 @@ export const completeInvitation = async (
     throw new Error(ERROR_INVITATION_NOT_FOUND);
   }
 
-  if (user?.company?.id >= 0) {
+  if (user.company?.id >= 0) {
     throw new Error(ERROR_ALREADY_MEMBER);
   }
 
