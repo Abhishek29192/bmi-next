@@ -119,7 +119,7 @@
     "notRequested": "No requerido",
     "status": {
       "APPROVED": "Aprobado",
-      "NOT_APPLICABLE": NaN,
+      "NOT_APPLICABLE": "N/A",
       "READY": "Listo",
       "REJECTED": "Devuelto",
       "REVIEW": "Solicitud presentada",
