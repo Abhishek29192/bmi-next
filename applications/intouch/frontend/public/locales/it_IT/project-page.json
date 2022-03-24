@@ -154,6 +154,16 @@
     },
     "title": "Non puoi ancora presentare una garanzia"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Sei sicuro?",
+      "description": "Stai per approvare una richiesta di garanzia della soluzione. La documentazione di garanzia verrà ora generata e rilasciata automaticamente al proprietario dell'edificio tramite e-mail. L'installatore riceverà una notifica, ma puoi anche aggiungere una nota a questo progetto."
+    },
+    "reject": {
+      "title": "Sei sicuro?",
+      "description": "Stai per rifiutare una richiesta di garanzia della soluzione. L'installatore verrà avvisato. Aggiungi una nota a questo progetto per confermare all'installatore ciò che è richiesto."
+    }
+  },
   "guarantee_tab": {
     "applyGuarantee": {
       "defaultDialog": {
@@ -275,6 +285,8 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Approva la garanzia",
+      "confirm": "Conferma",
+      "cancel": "Annulla",
       "archive": "Archivia il progetto",
       "requestInformation": "Richiedi maggiore informazione",
       "unarchive": "Disarchivia il progetto"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { Card, CardContent, CardActions } from "@bmi/components";
@@ -8,6 +8,7 @@ import { GuaranteeEventType } from "@bmi/intouch-api-types";
 import { useUpdateProjectHiddenMutation } from "../../../graphql/generated/hooks";
 import log from "../../../lib/logger";
 import styles from "./styles.module.scss";
+import Dialog, { DialogProps } from "./Dialog";
 
 type ProjectActionsCardProps = {
   projectId: number;
@@ -21,6 +22,19 @@ export const ProjectActionsCard = ({
   guaranteeEventHandler
 }: ProjectActionsCardProps) => {
   const { t } = useTranslation("project-page");
+  const [dialogState, setDialogState] = useState<DialogProps>({
+    open: false,
+    title: null,
+    description: null,
+    onConfirm: null
+  });
+
+  const closeDialog = () => {
+    setDialogState((prev) => ({
+      ...prev,
+      open: false
+    }));
+  };
 
   const [updateProjectHidden] = useUpdateProjectHiddenMutation({
     onError: (error) => {
@@ -64,20 +78,37 @@ export const ProjectActionsCard = ({
             <Button
               variant="outlined"
               onClick={() => {
-                guaranteeEventHandler("REJECT_SOLUTION");
+                setDialogState({
+                  open: true,
+                  title: t("guaranteeApprovalAlert.reject.title"),
+                  description: t("guaranteeApprovalAlert.reject.description"),
+                  onConfirm: () => {
+                    guaranteeEventHandler("REJECT_SOLUTION");
+                    closeDialog();
+                  }
+                });
               }}
             >
               {t("projectActions.cta.requestInformation")}
             </Button>
             <Button
               onClick={() => {
-                guaranteeEventHandler("APPROVE_SOLUTION");
+                setDialogState({
+                  open: true,
+                  title: t("guaranteeApprovalAlert.confirm.title"),
+                  description: t("guaranteeApprovalAlert.confirm.description"),
+                  onConfirm: () => {
+                    guaranteeEventHandler("APPROVE_SOLUTION");
+                    closeDialog();
+                  }
+                });
               }}
             >
               {t("projectActions.cta.approveGuarantee")}
             </Button>
           </>
         )}
+        {open && <Dialog dialogState={dialogState} onCancel={closeDialog} />}
       </CardActions>
     </Card>
   );

@@ -154,6 +154,16 @@
     },
     "title": "Du kan ikke søge om garanti endnu"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Er du sikker?",
+      "description": "Du er ved at godkende en anmodning om løsningsgaranti. Garantidokumentationen vil nu blive genereret og automatisk udstedt til bygningsejeren via e-mail. Installationsprogrammet vil blive underrettet, men du kan også tilføje en note til dette projekt."
+    },
+    "reject": {
+      "title": "Er du sikker?",
+      "description": "Du er ved at afvise en anmodning om løsningsgaranti. Installatøren vil blive underrettet. Tilføj en note til dette projekt for at bekræfte over for installatøren, hvad der kræves."
+    }
+  },
   "guarantee_tab": {
     "applyGuarantee": {
       "defaultDialog": {
@@ -275,6 +285,8 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Godkend garanti",
+      "confirm": "Bekræft",
+      "cancel": "Annullér",
       "archive": "Arkivprojekt",
       "requestInformation": "Spørg for mere information",
       "unarchive": "Off-arkiv projekt"
