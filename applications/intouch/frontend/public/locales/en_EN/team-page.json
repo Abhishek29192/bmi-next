@@ -9,6 +9,7 @@
       },
       "errorAlreadyMember": "The user is already a member of another company",
       "errorInvitationNotFound": "Invitation not found",
+      "errorCommonFailure": "Failed response. Please check the details and try again, or contact your local BMI administrator.",
       "personalNote": {
         "label": "Your message (optional)"
       },
