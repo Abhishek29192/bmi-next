@@ -7,7 +7,7 @@ import { Button, ButtonProps } from "@bmi/components";
 import CheckIcon from "@material-ui/icons/Check";
 import { Launch } from "@material-ui/icons";
 import { AnchorLink } from "@bmi/components";
-import { AnchorLinkProps } from "@bmi/components";
+import { AnchorLinkProps, transformHyphens } from "@bmi/components";
 import { microCopy } from "../../constants/microCopies";
 import { useSiteContext } from "../../components/Site";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
@@ -91,7 +91,9 @@ const AboutLeadBlock = ({
         <LeadBlock.Content.Section>
           <Typography
             component="div"
-            dangerouslySetInnerHTML={{ __html: longDescription }}
+            dangerouslySetInnerHTML={{
+              __html: transformHyphens(longDescription)
+            }}
           />
         </LeadBlock.Content.Section>
         {guaranteesAndWarranties && guaranteesAndWarranties.length > 0 && (

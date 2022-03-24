@@ -10,7 +10,7 @@ import styles from "./PromoSection.module.scss";
 type Layout = "half" | "two-thirds";
 
 type Props = {
-  title?: React.ReactNode;
+  title?: React.ReactNode | string;
   media?: React.ReactElement<AcceptedNode>;
   children: React.ReactNode;
   layout?: Layout;

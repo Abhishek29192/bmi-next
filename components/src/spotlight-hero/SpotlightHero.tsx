@@ -8,7 +8,7 @@ import styles from "./SpotlightHero.module.scss";
 type BackgroundColor = "cyan" | "teal" | "blue" | "charcoal";
 
 type Props = {
-  title: React.ReactNode;
+  title: React.ReactNode | string;
   children: React.ReactNode;
   media?: React.ReactElement<AcceptedNode>;
   backgroundColor?: BackgroundColor;

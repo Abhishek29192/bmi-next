@@ -57,7 +57,7 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                     <p
                       class="MuiTypography-root product-color Typography MuiTypography-body1"
                     >
-                      green | rough
+                      green ­ rough
                     </p>
                     <p
                       class="MuiTypography-root product-size Typography MuiTypography-body1"
@@ -198,7 +198,7 @@ exports[`SampleBasketSection component should render form after complete button 
                     <p
                       class="MuiTypography-root product-color Typography MuiTypography-body1"
                     >
-                      green | rough
+                      green ­ rough
                     </p>
                     <p
                       class="MuiTypography-root product-size Typography MuiTypography-body1"

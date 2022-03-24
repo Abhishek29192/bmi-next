@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Accordion, AccordionSummaryProps } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { Tabs } from "@bmi/components";
-import { Typography } from "@bmi/components";
+import { Typography, transformHyphens } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import RichText from "../components/RichText";
@@ -39,7 +39,7 @@ const SectionAccordion = ({
                 }}
               >
                 <Typography component="h3" variant="h6">
-                  {newTitle}
+                  {transformHyphens(newTitle)}
                 </Typography>
               </GTMAccordionSummary>
               <Accordion.Details>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet, HelmetProps } from "react-helmet";
+import { transformHyphens } from "@bmi/components";
 import { getJpgImage } from "../utils/media";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -65,7 +66,7 @@ export const Head = ({
   return (
     <Helmet
       htmlAttributes={htmlAttributes}
-      title={seo?.metaTitle || title}
+      title={seo?.metaTitle || transformHyphens(title)}
       defer={defer}
     >
       {htmlAttributes?.lang && (
