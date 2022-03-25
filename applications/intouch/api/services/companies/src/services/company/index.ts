@@ -137,7 +137,8 @@ export const updateCompany = async (
         accountId: user.id,
         firstname: user.firstName,
         company: $name,
-        city: registeredAddress.town
+        city: registeredAddress.town,
+        companyCreator: user.email
       };
       const sendEMailToUser = sendMessageWithTemplate(
         context,
