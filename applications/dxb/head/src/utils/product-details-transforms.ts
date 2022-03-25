@@ -1027,7 +1027,7 @@ export const findUniqueVariantClassifications = (
   return findUniqueClassificationsOnVariant(
     allClassificationValues,
     classifications[variant.code] || {},
-    variant._product.variantOptions.length
+    variant._product.totalVariantCount || 1
   );
 };
 

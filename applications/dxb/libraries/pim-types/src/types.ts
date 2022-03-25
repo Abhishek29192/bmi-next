@@ -191,6 +191,8 @@ export type VariantOption = {
   productBenefits?: string[];
 };
 
+export type BaseProduct = Pick<Product, "code" | "name">;
+
 export type Product = {
   approvalStatus: ApprovalStatus;
   code: string;
@@ -205,7 +207,7 @@ export type Product = {
   name: string;
   shortDescription: string;
   summary: string;
-  variantOptions?: readonly VariantOption[];
+  variantOptions: readonly VariantOption[];
 };
 
 export enum PimTypes {

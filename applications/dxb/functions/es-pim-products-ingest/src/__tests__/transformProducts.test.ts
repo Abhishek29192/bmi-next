@@ -444,39 +444,17 @@ describe("transformProduct", () => {
     it("should transform full product with single variant to a single ES product", async () => {
       const product = createPimProduct();
 
-      expect(await transformProduct(product)).toMatchSnapshot();
+      const transformedProduct = await transformProduct(product);
+      expect(transformedProduct).toMatchSnapshot();
+      expect(transformedProduct[0]["totalVariantCount"]).toEqual(1);
     });
 
-    it("should transform product with colourfamilyCode,colourfamilyValue,texturefamilyCode,texturefamilyValue equal undefined if appearanceClassifications.features === undefined", async () => {
-      const product = createPimProduct({
-        classifications: [
-          createAppearanceAttributesClassification({
-            features: undefined
-          })
-        ]
-      });
+    it("should not transform full product without Variant products", async () => {
+      const product = createPimProduct();
+      product.variantOptions = [];
 
       const transformedProduct = await transformProduct(product);
-
-      expect(transformedProduct[0].colourfamilyCode).toEqual(undefined);
-      expect(transformedProduct[0].colourfamilyValue).toEqual(undefined);
-      expect(transformedProduct[0].texturefamilyCode).toEqual(undefined);
-      expect(transformedProduct[0].texturefamilyValue).toEqual(undefined);
-    });
-
-    it("should transform product with materialsCode,materialsValue equal undefined if generalInformationClassification.features === undefined", async () => {
-      const product = createPimProduct({
-        classifications: [
-          createGeneralInformationClassification({
-            features: undefined
-          })
-        ]
-      });
-
-      const transformedProduct = await transformProduct(product);
-
-      expect(transformedProduct[0].materialsCode).toEqual(undefined);
-      expect(transformedProduct[0].materialsValue).toEqual(undefined);
+      expect(transformedProduct).toMatchSnapshot();
     });
 
     it("should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided", async () => {
@@ -581,12 +559,10 @@ describe("transformProduct", () => {
           })
         ]
       });
-      const scoringWeightInt = (await transformProduct(product))[0]
-        .scoringWeightInt;
+
       const productScoringWeightInt = (await transformProduct(product))[0]
         .productScoringWeightInt;
 
-      expect(scoringWeightInt).toEqual(0);
       expect(productScoringWeightInt).toEqual(0);
     });
 
@@ -597,7 +573,6 @@ describe("transformProduct", () => {
           const transformedProduct = await transformProduct(product);
           expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
           expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
-          expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
         });
       });
       describe("When scoringWeightAttributes classification is present and no feature", () => {
@@ -613,7 +588,6 @@ describe("transformProduct", () => {
             const transformedProduct = await transformProduct(product);
             expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
-            expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
           });
         });
         describe("Variant Feature is undefined", () => {
@@ -637,7 +611,6 @@ describe("transformProduct", () => {
             const transformedProduct = await transformProduct(product);
             expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(0);
             expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(0);
-            expect(transformedProduct[0]["scoringWeightInt"]).toEqual(0);
           });
         });
       });
@@ -671,7 +644,6 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       expect(transformedProduct[0]["productScoringWeightInt"]).toEqual(3);
       expect(transformedProduct[0]["variantScoringWeightInt"]).toEqual(2);
-      expect(transformedProduct[0]["scoringWeightInt"]).toEqual(3);
     });
 
     it("should override product appearanceAttributes classification with variant", async () => {

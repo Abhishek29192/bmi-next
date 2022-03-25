@@ -171,6 +171,7 @@ export type VariantOption = {
   path: string;
 };
 
+// PIM prodct object as a result of GraphQL query
 export type Product = {
   code: string;
   externalProductCode?: string | null;
@@ -187,6 +188,7 @@ export type Product = {
   shortDescription: string;
   summary: string;
   variantOptions?: readonly VariantOption[] | null;
+  totalVariantCount?: number;
 };
 
 export type VariantOptionWithProduct = VariantOption & {

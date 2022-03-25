@@ -35,7 +35,7 @@ export const removeIrrelevantFilters = (
         options: filter.options.filter((option) => {
           // NOTE: all other filters are assumed to be categories
           const aggregationName =
-            ES_AGGREGATION_NAMES[filter.name] || "categories";
+            ES_AGGREGATION_NAMES[filter.name] || "allCategories";
           // eslint-disable-next-line security/detect-object-injection
           const buckets = aggregations[aggregationName]?.buckets;
 
@@ -60,7 +60,7 @@ export const disableFiltersFromAggregations = (
       options: filter.options.map((option) => {
         // NOTE: all other filters are assumed to be categories
         const aggregationName =
-          ES_AGGREGATION_NAMES[filter.name] || "categories";
+          ES_AGGREGATION_NAMES[filter.name] || "allCategories";
         // eslint-disable-next-line security/detect-object-injection
         const buckets = aggregations[aggregationName]?.buckets;
 
@@ -78,13 +78,13 @@ export const disableFiltersFromAggregations = (
 
 // Filter.name => ES index mapping
 const searchTerms = {
-  colour: "colourfamilyCode.keyword",
-  materials: "materialsCode.keyword",
-  texturefamily: "texturefamilyCode.keyword",
-  category: "categories.code.keyword",
+  colour: "appearanceAttributes.colourfamily.code.keyword",
+  materials: "generalInformation.materials.code.keyword",
+  texturefamily: "appearanceAttributes.texturefamily.code.keyword",
   allCategories: "allCategories.code.keyword"
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const compileElasticSearchQuery = (
   filters: Filter[],
   // TODO: Handle this being optional differently
@@ -111,7 +111,7 @@ export const compileElasticSearchQuery = (
       "brand"
     ].includes(filter.name)
       ? searchTerms[filter.name] || searchTerms.allCategories
-      : searchTerms.category;
+      : searchTerms.allCategories;
 
     const termQuery = (value) => ({
       term: {
@@ -140,18 +140,9 @@ export const compileElasticSearchQuery = (
       "_score",
       { productScoringWeightInt: "desc" },
       { variantScoringWeightInt: "desc" },
-      { scoringWeightInt: "desc" },
       { "name.keyword": "asc" }
     ],
     aggs: {
-      categories: {
-        terms: {
-          // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
-          // Could request these separately, and figure out a way of retrying and getting more buckets if needed
-          size: "100",
-          field: "categories.code.keyword"
-        }
-      },
       allCategories: {
         terms: {
           // NOTE: returns top 10 buckets by default. 100 is hopefully way more than is needed
@@ -163,19 +154,19 @@ export const compileElasticSearchQuery = (
       materials: {
         terms: {
           size: "100",
-          field: "materialsCode.keyword"
+          field: "generalInformation.materials.code.keyword"
         }
       },
       texturefamily: {
         terms: {
           size: "100",
-          field: "texturefamilyCode.keyword"
+          field: "appearanceAttributes.texturefamily.code.keyword"
         }
       },
       colourfamily: {
         terms: {
           size: "100",
-          field: "colourfamilyCode.keyword"
+          field: "appearanceAttributes.colourfamily.code.keyword"
         }
       },
       ...getUniqueBaseProductCount()
@@ -199,13 +190,10 @@ export const compileElasticSearchQuery = (
                     "description",
                     "longDescription",
                     "shortDescription",
-                    // known classification values
-                    // TODO: a way of doing this generically?
-                    "colourfamilyValue.keyword", // this doesn't have any effect when caret boosting
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword", // this doesn't have any effect when caret boosting
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
                   ]
