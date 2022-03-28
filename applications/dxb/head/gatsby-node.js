@@ -238,7 +238,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     await Promise.all(
-      ([site.homePage] || []).map(async (page) => {
+      ([site.homePage, ...site.pages] || []).map(async (page) => {
         const component = componentMap[page.__typename];
 
         if (!component) {
