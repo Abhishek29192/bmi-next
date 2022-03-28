@@ -248,7 +248,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
     setActiveSearchString(inputValue || "");
     if (inputValue) {
       pushToDataLayer({
-        event: "gtm.click",
+        event: "dxb.button_click",
         id: "filter-service-locator",
         label: nameSearchLabelKey,
         action: inputValue

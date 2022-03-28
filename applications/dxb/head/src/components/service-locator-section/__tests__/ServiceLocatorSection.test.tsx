@@ -619,7 +619,7 @@ describe("ServiceLocatorSection component", () => {
     expect(global.window["dataLayer"]).toEqual([
       {
         action: "roofer 1",
-        event: "gtm.click",
+        event: "dxb.button_click",
         id: "filter-service-locator",
         label: "MC: findARoofer.companyFieldLabel"
       }
