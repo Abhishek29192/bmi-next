@@ -488,6 +488,7 @@ union ContentfulRichTextReference =
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
+  | ContentfulBrandLandingPage
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
