@@ -105,7 +105,7 @@ const runQuery = async (
 
 const generateError = (message: string) => {
   const error = Error(message);
-  logger.error({ message: error.message });
+  logger.error({ message: (error as Error).message });
 
   return error;
 };

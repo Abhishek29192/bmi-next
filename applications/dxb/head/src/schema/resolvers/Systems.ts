@@ -21,7 +21,7 @@ const createResolver = (field: keyof Node) => ({
       (productVariant) => productVariant.code
     );
 
-    const products = await context.nodeModel.runQuery({
+    const products = await context.nodeModel.findAll({
       query: {
         filter: {
           variantOptions: {
@@ -44,6 +44,7 @@ const createResolver = (field: keyof Node) => ({
           2
         )}\n`
       );
+      return [];
     }
 
     return products;

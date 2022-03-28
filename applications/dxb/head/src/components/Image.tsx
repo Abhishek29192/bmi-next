@@ -2,17 +2,19 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage as Img, IGatsbyImageData } from "gatsby-plugin-image";
 
+type ImageData = {
+  file: {
+    fileName: string;
+    url: string;
+  };
+  gatsbyImageData?: IGatsbyImageData;
+};
+
 export type Data = {
   __typename: "ContentfulImage";
   altText: string | null;
   type: "Decorative" | "Descriptive" | null;
-  image: {
-    file: {
-      fileName: string;
-      url: string;
-    };
-    gatsbyImageData?: IGatsbyImageData;
-  };
+  image: ImageData;
   caption: {
     caption: string;
   } | null;
@@ -20,6 +22,7 @@ export type Data = {
     x: number;
     y: number;
   } | null;
+  thumbnail?: ImageData;
 };
 
 type Options = {
@@ -152,9 +155,12 @@ export const query = graphql`
         width: 696
         formats: [WEBP, AUTO]
       )
-      thumbnail: resize(width: 80, height: 60) {
-        src
-      }
+      thumbnail: gatsbyImageData(
+        placeholder: DOMINANT_COLOR
+        width: 80
+        height: 60
+        formats: [WEBP, AUTO]
+      )
     }
   }
 

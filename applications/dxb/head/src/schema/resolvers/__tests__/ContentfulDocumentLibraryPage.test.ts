@@ -9,7 +9,7 @@ const context: Context = {
       .mockResolvedValue([{ id: "asset-type-1" }, { id: "asset-type-2" }]),
     getNodeById: jest.fn().mockResolvedValueOnce({ id: "asset-type-1" }),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

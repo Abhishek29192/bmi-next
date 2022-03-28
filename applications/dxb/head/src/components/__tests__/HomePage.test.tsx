@@ -64,7 +64,11 @@ const card1: PromoData = {
       }
     },
     thumbnail: {
-      src: "//images.asset.jpg"
+      src: "//images.asset.jpg",
+      file: {
+        fileName: "Lorem ipsum",
+        url: "//images.asset.jpg"
+      }
     }
   },
   cta: null,
@@ -115,7 +119,11 @@ const card2: PromoData = {
       }
     },
     thumbnail: {
-      src: "//images.asset.jpg"
+      src: "//images.asset.jpg",
+      file: {
+        fileName: "Lorem ipsum",
+        url: "//images.asset.jpg"
+      }
     }
   },
   cta: null,
@@ -168,7 +176,11 @@ const slide: PageInfoData = {
       }
     },
     thumbnail: {
-      src: "//images.asset.jpg"
+      src: "//images.asset.jpg",
+      file: {
+        fileName: "Lorem ipsum",
+        url: "//images.asset.jpg"
+      }
     }
   },
   featuredVideo: null

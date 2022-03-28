@@ -6,7 +6,7 @@ import {
   SetStateAction
 } from "react";
 
-const useStickyState = <V>(
+const useStickyState = <V,>(
   defaultValue: V,
   key: string
 ): [V, Dispatch<SetStateAction<V>>, boolean] => {

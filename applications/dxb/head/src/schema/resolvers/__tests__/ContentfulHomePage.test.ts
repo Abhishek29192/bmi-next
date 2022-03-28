@@ -8,7 +8,7 @@ const context: Context = {
       .mockResolvedValue([{ type: "ContentfulBrandLandingPage" }]),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

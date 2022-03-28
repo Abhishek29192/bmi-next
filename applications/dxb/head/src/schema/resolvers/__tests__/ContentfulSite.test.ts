@@ -6,7 +6,7 @@ const context: Context = {
     getAllNodes: jest.fn().mockResolvedValue([{ type: "ContentfulSite" }]),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

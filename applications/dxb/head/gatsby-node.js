@@ -325,12 +325,14 @@ exports.createPages = async ({ graphql, actions }) => {
     const redirectsToml = fs.readFileSync(redirectsTomlFile);
 
     const redirects = toml.parse(redirectsToml.toString());
-    redirects.redirects.forEach((redirect) =>
-      createRedirect({
-        fromPath: redirect.from,
-        toPath: redirect.to,
-        isPermanent: !redirect.status || redirect.status == "301"
-      })
+    await Promise.all(
+      redirects.redirects.map((redirect) =>
+        createRedirect({
+          fromPath: redirect.from,
+          toPath: redirect.to,
+          isPermanent: !redirect.status || redirect.status === "301"
+        })
+      )
     );
   }
 };

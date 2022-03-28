@@ -6,7 +6,7 @@ const context: Context = {
     getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest
+    findAll: jest
       .fn()
       .mockResolvedValue([{ type: "ContentfulServiceLocatorSection" }])
   }
@@ -35,7 +35,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       )
     ).toEqual([{ type: "ContentfulServiceLocatorSection" }]);
 
-    expect(context.nodeModel.runQuery).toHaveBeenCalledWith(
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
       {
         firstOnly: false,
         query: { filter: { entryType: { eq: "type" } } },

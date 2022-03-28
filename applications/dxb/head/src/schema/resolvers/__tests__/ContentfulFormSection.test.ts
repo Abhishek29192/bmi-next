@@ -19,7 +19,7 @@ const context: Context = {
       })
     ),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

@@ -54,13 +54,6 @@ export const query = graphql`
 
   fragment VideoGallerySlideFragment on ContentfulVideo {
     ...VideoFragment
-    previewMedia {
-      image {
-        thumbnail: resize(width: 80, height: 60) {
-          src
-        }
-      }
-    }
   }
 `;
 

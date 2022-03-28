@@ -24,14 +24,14 @@ export default {
             );
 
       if (source.source === "PIM") {
-        return resolveDocumentsFromProducts(assetTypes, {
+        return await resolveDocumentsFromProducts(assetTypes, {
           source,
           context
         });
       }
 
       if (source.source === "CMS") {
-        return resolveDocumentsFromContentful(assetTypes, { context });
+        return await resolveDocumentsFromContentful(assetTypes, { context });
       }
 
       if (source.source === "ALL") {

@@ -446,7 +446,9 @@ export const query = graphql`
       ...RichTextFragment
     }
     services {
-      ...ServiceFragment
+      ... on ContentfulService {
+        ...ServiceFragment
+      }
     }
     centre {
       lat

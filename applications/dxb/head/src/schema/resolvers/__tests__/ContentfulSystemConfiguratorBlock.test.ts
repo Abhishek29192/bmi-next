@@ -35,7 +35,7 @@ const context: Context = {
         }
       }
     ]),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

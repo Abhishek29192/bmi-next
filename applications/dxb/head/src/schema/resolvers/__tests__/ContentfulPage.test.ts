@@ -15,7 +15,7 @@ const context: Context = {
     getAllNodes: jest.fn(),
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

@@ -91,7 +91,7 @@ export const solutionGuaranteeValidate = (
     const { projectMembers, technology, company, evidenceItems } = project;
 
     const isTierAvailable = checkCompanyTier(
-      guaranteeType.tiersAvailable,
+      [...guaranteeType.tiersAvailable],
       company.tier
     );
     if (!isTierAvailable) {
@@ -187,7 +187,7 @@ export const guaranteeApplicationValidate = (
       validationError: "guaranteeApplyAlert.message.guaranteeType"
     };
   }
-  if (!checkCompanyTier(guaranteeType.tiersAvailable, company?.tier)) {
+  if (!checkCompanyTier([...guaranteeType.tiersAvailable], company?.tier)) {
     return {
       isValid: false,
       validationError: "guaranteeApplyAlert.message.tier"

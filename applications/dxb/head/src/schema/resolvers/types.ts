@@ -103,6 +103,7 @@ export interface Node extends GatsbyNode {
   categoryCodes?: string[];
   productDocumentNameMap?: string;
   subtitle?: string;
+  type?: string;
 }
 
 export interface ResolveArgs {
@@ -133,7 +134,7 @@ export interface NodeModel {
     pageDependencies?: PageDependencies
   ) => Promise<Node[]>;
 
-  runQuery: (
+  findAll: (
     args: {
       query: { filter?: unknown; sort?: unknown };
       type: string | GraphQLOutputType;

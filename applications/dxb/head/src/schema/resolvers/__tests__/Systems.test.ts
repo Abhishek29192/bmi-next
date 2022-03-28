@@ -9,7 +9,7 @@ const context: Context = {
     getAllNodes: jest.fn(),
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 
@@ -50,7 +50,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
     it("should resolve products", async () => {
       const products = [{ product: "product-1" }];
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(products);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(products);
 
       expect(
         await Systems.relatedProducts.resolve(source, null, context)
@@ -58,7 +58,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     });
 
     it("should warn if some variant code found", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
       jest.spyOn(console, "warn");
 
       expect(
