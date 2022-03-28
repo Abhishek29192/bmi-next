@@ -645,7 +645,8 @@ describe("Company", () => {
           accountId: context.user.id,
           firstname: context.user.firstName,
           company: companyName,
-          city: "town"
+          city: "town",
+          companyCreator: context.user.email
         };
         query
           .mockReturnValueOnce({ rows: [{ id: 1, tier: "T1" }] })
@@ -716,7 +717,8 @@ describe("Company", () => {
             accountId: context.user.id,
             firstname: context.user.firstName,
             company: companyName,
-            city: "town"
+            city: "town",
+            companyCreator: context.user.email
           }
         );
       });
