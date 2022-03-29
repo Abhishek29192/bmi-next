@@ -1114,12 +1114,27 @@ type ContentfulInputBanner implements Node {
 Represents a site settings and its pages.
 """
 type ContentfulSite implements Node {
+  node_locale: String!
+
+  countryCode: String!
+
+  menuUtilities: ContentfulNavigation @link(from: "menuUtilities___NODE")
+
+  menuNavigation: ContentfulNavigation! @link(from: "menuNavigation___NODE")
+
+  homePage: ContentfulHomePage! @link(from: "homePage___NODE")
+
+  pages: [ContentfulPage] @link(from: "pages___NODE")
+
+  footerMainNavigation: ContentfulNavigation @link(from: "footerMainNavigation___NODE")
+
+  footerSecondaryNavigation: ContentfulNavigation @link(from: "footerSecondaryNavigation___NODE")
+
   "The global settings for this site."
   resources: ContentfulResources @link(from: "resources___NODE")
 
   "head script tags for this Site."
-  headScripts: contentfulSiteHeadScriptsTextNode
-  @link(from: "headScripts___NODE")
+  headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
 
   "OneTrust integration ID"
   scriptOnetrust: String
@@ -1830,8 +1845,12 @@ type RegionJson implements Node @dontInfer {
   menu: [CountryJSON]!
 }
 
+union NextStep = ContentfulSystemConfiguratorBlock | ContentfulTitleWithContent
+
 type ContentfulSystemConfiguratorBlock implements Node {
   id: ID!
+
+  node_locale: String!
 
   "The label for the System Configurator block"
   label: String
@@ -1849,8 +1868,9 @@ type ContentfulSystemConfiguratorBlock implements Node {
   answers: [ContentfulSystemConfiguratorBlock] @link(from: "answers___NODE")
 
   "No result items from the tree below the current block"
-  noResultItems: [ContentfulTitleWithContent]
-  @link(from: "noResultItems___NODE")
+  noResultItems: [ContentfulTitleWithContent] @link(from: "noResultItems___NODE")
 
   recommendedSystems: [String!]
+
+  nextStep: NextStep @link(from: "nextStep___NODE")
 }
