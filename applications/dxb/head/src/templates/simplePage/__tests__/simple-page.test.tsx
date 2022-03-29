@@ -6,7 +6,7 @@ import {
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import SimplePage, { Data } from "../components/simple-page";
+import SimplePage, { Data, Props } from "../components/simple-page";
 import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import { Data as SectionsData } from "../../../components/Sections";
@@ -14,31 +14,31 @@ import { Data as NextBestActionsData } from "../../../components/NextBestActions
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as LinkData } from "../../../components/Link";
-import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import {
   cta,
   exploreBarData,
   featuredMedia,
+  inputBanner,
+  leadBlockData,
   linkColumnsData,
   nextBestActions,
   pageContext,
   sections,
-  shareWidgetData,
-  leadBlockData,
-  inputBanner
-} from "../__mocks__/mocks";
+  shareWidgetData
+} from "../__mocks__/simplePage";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
+import { Data as SiteData } from "../../../components/Site";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
 const renderWithStylesAndLocationProvider = (
-  pageData: any,
-  pageContext: PageContextType
-): RenderResult => {
-  return render(
+  pageData: Props["data"],
+  pageContext: Props["pageContext"]
+): RenderResult =>
+  render(
     <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
       <ProvideStyles>
         <LocationProvider history={history}>
@@ -47,9 +47,8 @@ const renderWithStylesAndLocationProvider = (
       </ProvideStyles>
     </ConfigProvider>
   );
-};
 
-const data: { contentfulSimplePage: Data; contentfulSite: any } = {
+const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
   contentfulSimplePage: {
     // Data
     id: "simplePage",
@@ -113,7 +112,7 @@ describe("Simple page", () => {
       ...data,
       contentfulSimplePage: {
         ...data.contentfulSimplePage,
-        heroType: "Spotlight",
+        heroType: "Spotlight" as const,
         sections: [],
         exploreBarData: null,
         leadBlock: null

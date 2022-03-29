@@ -57,7 +57,7 @@ export type Data = PageInfoData &
     cta: LinkData | null;
   };
 
-type Props = {
+export type Props = {
   data: {
     contentfulSimplePage: Data;
     contentfulSite: SiteData;

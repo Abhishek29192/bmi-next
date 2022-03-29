@@ -1,4 +1,4 @@
-"use strict";
+import { Google } from "@bmi/components/src";
 
 const options = [
   {
@@ -243,9 +243,9 @@ const geoCodeMock = [
   }
 ];
 
-const googleMock = {
+export const googleMock: Google = {
   maps: {
-    Map: () => {},
+    Map: jest.fn(),
     places: {
       AutocompleteService: jest.fn().mockImplementation(() => {
         return {
@@ -271,8 +271,4 @@ const googleMock = {
       };
     })
   }
-};
-
-module.exports = {
-  googleMock: googleMock
-};
+} as unknown as Google;

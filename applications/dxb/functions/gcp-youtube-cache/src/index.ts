@@ -41,7 +41,7 @@ export const youtubeCache: HttpFunction = async (req, res) => {
       });
     }
 
-    const youtubeId = req.query.youtubeId as string;
+    const youtubeId = req.query.youtubeId as string | undefined;
     if (!youtubeId) {
       return res.status(Status.HTTP_400_BAD_REQUEST).send({
         message: "youtubeId query param is required."
