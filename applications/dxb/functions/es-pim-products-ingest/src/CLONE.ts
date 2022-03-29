@@ -1,8 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { Product, Classification, Category } from "@bmi/pim-types";
 
-type CategoryPath = readonly Category[];
-
 export type ProductCategoryTree = {
   [category: string]: {
     name: string;
@@ -13,48 +11,6 @@ export type ProductCategoryTree = {
 export const findProductBrandLogoCode = (product: Product) =>
   product.categories?.find((category) => category.categoryType === "Brand")
     ?.code;
-
-// NOTE: Figuring out the category paths is kind of naive.
-// I believe it works with the assumptions that PIM are working with
-// But it would make more sense if we analysed this data more accurately, to be sure.
-export const getFullCategoriesPaths = (
-  categories: readonly Category[]
-): CategoryPath[] => {
-  // Find only "Category" categories
-  // Also assign a "found" prop so each can only be selected once
-  const categoriesArray: (Category & { found: boolean })[] = categories
-    .filter(({ categoryType }) => categoryType === "Category")
-    .map((category) => ({
-      ...category,
-      found: false
-    }));
-
-  // Find all the roots
-  const roots = categoriesArray.filter(
-    ({ parentCategoryCode }) => parentCategoryCode === ""
-  );
-
-  // Then iterate over the roots and get all the other
-  return roots.map((rootCategory) => {
-    let path = [rootCategory];
-    let currentNode: (Category & { found: boolean }) | undefined = rootCategory;
-
-    // While we find a node, find another node which is its child, and add to path
-    while (currentNode) {
-      currentNode = categoriesArray.find(
-        ({ found, parentCategoryCode }) =>
-          !found && parentCategoryCode === currentNode!.code
-      );
-
-      if (currentNode) {
-        currentNode.found = true;
-        path = [...path, currentNode];
-      }
-    }
-
-    return path;
-  });
-};
 
 // product-details-page.tsx
 export type ClassificationFeatureValue = {
@@ -87,13 +43,6 @@ export type ClassificationsPerProductMap = {
   [productCode: string]: TransformedClassificationsMap;
 };
 
-// Second from last leaf category, which denotes top most parent category of a path
-export const getGroupCategory = (branch: CategoryPath) =>
-  branch[Math.max(0, branch.length - 2)];
-
-export const getLeafCategory = (branch: CategoryPath) =>
-  branch[branch.length - 1];
-
 // Find attributes like surface finish, color, etc, from classifications
 // TODO: Try to consolidate with the "unique" approach.
 // from applications/dxb/head/src/utils/product-details-transforms.ts
@@ -116,23 +65,14 @@ export const mapProductClassifications = (
     }, {})
   };
 
-  // Classifications
-  const SCORE_WEIGHT = "scoringWeightAttributes";
-  const APPEARANCE = "appearanceAttributes";
   const MEASUREMENTS = "measurements";
-  const GENERAL_INFORMATION = "generalInformation";
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- eslint doesn't pick up that it's being used
   const FEATURES = {
-    SCORE_WEIGHT: `${classificationNamepace}/${SCORE_WEIGHT}.scoringweight`,
-    TEXTURE_FAMILY: `${classificationNamepace}/${APPEARANCE}.texturefamily`,
-    COLOUR: `${classificationNamepace}/${APPEARANCE}.colour`,
-    COLOUR_FAMILY: `${classificationNamepace}/${APPEARANCE}.colourfamily`,
     LENGTH: `${classificationNamepace}/${MEASUREMENTS}.length`,
     WIDTH: `${classificationNamepace}/${MEASUREMENTS}.width`,
     HEIGHT: `${classificationNamepace}/${MEASUREMENTS}.height`,
-    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`,
-    MATERIALS: `${classificationNamepace}/${GENERAL_INFORMATION}.materials`
+    THICKNESS: `${classificationNamepace}/${MEASUREMENTS}.thickness`
   };
 
   return Object.entries(allProducts).reduce<ClassificationsPerProductMap>(

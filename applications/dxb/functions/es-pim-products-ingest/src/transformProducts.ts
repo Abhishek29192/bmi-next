@@ -4,14 +4,12 @@ import {
   Classification,
   Feature,
   Product as PIMProduct,
-  VariantOption as PIMVariant
+  VariantOption as PIMVariant,
+  BaseProduct
 } from "@bmi/pim-types";
 import type { ProductVariant as ESProduct } from "./es-model";
 import {
   findProductBrandLogoCode,
-  getFullCategoriesPaths,
-  getGroupCategory,
-  getLeafCategory,
   getSizeLabel,
   mapProductClassifications,
   TransformedMeasurementValue,
@@ -71,7 +69,6 @@ const combineVariantClassifications = (
         feature
       ])
     );
-
     //only set the product features which do not exist in variant features!
     productFeaturesMap.forEach((productFeature, key) => {
       if (mergedFeaturesMap.get(key) === undefined) {
@@ -100,34 +97,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     PIM_CLASSIFICATION_CATALOGUE_NAMESPACE
   );
 
-  // Only "Category" categories which are used for filters
-  const productLeafCategories = getFullCategoriesPaths(
-    product.categories || []
-  ).map((categoryBranch) => {
-    const parent = getGroupCategory(categoryBranch);
-    const leaf = getLeafCategory(categoryBranch);
-
-    return {
-      parentCategoryCode: parent.code,
-      code: leaf.code
-    };
-  });
-
-  // Any category that is not "category" type
-  // Keeping this because there are Brand and ProductFamily categories which are important
-  // TODO: save as individual Brand and ProductFamily?
-  const productFamilyCategories = (product.categories || []).filter(
-    ({ categoryType }) => categoryType === "ProductFamily"
-  );
-  const productLineCategories = (product.categories || []).filter(
-    ({ categoryType }) => categoryType === "ProductLine"
-  );
-
   const categoryGroups: IndexedItemGroup<Category> = groupBy(
     product.categories,
     "categoryType"
   );
-
   const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
     product.categories,
     "parentCategoryCode"
@@ -137,11 +110,10 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     ...categoryGroups,
     ...groupsByParentCategoryCodes
   };
-
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
-    .filter((key) => key.length > 0)
+    .filter((key) => key.length > 0 && key !== "undefined")
     .reduce((categoryAsProps, catName) => {
       // eslint-disable-next-line security/detect-object-injection
       const nameAndCodeValues = allGroupsOfCategories[catName].map((cat) => {
@@ -156,29 +128,23 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       };
     }, {});
 
-  //category codes ONLY
-  // not sure if we need to index array of category codes of special category type 'Category'
-  // was in the spike.. need to ask Ben
-  const categoryCodesOnly = (categoryGroups["Category"] || []).map(
-    (cat) => cat.code
-  );
-
   return (product.variantOptions || []).map((variant) => {
-    const classifications = combineVariantClassifications(product, variant);
+    const combinedClassifications = combineVariantClassifications(
+      product,
+      variant
+    );
 
     const indexedFeatures = IndexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-      classifications
+      combinedClassifications
     );
-
-    const allfeatureCodes: string[] = Object.keys(indexedFeatures);
 
     // combined classifications does not override 'vairant' 'scoringWeightAttributes'
     // hence this is 'product' `scoringWeightAttributes` classification
-
     const scoringWeight =
-      classifications.find(({ code }) => code === "scoringWeightAttributes")
-        ?.features?.[0]?.featureValues?.[0]?.value || "0";
+      combinedClassifications.find(
+        ({ code }) => code === "scoringWeightAttributes"
+      )?.features?.[0]?.featureValues?.[0]?.value || "0";
 
     const variantScoringWeight =
       (variant.classifications || []).find(
@@ -199,65 +165,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "productBenefits"
     );
 
-    const appearanceClassifications = classifications.find(
-      ({ code }) => code === "appearanceAttributes"
-    );
-
-    const generalInformationClassification = classifications.find(
-      ({ code }) => code === "generalInformation"
-    );
-
-    // Codes used for matching against filter codes
-    // Values used for matching against search strings (localised input)
-    // TODO: Perhaps refactor into objects
-    let colourfamilyCode: string | undefined,
-      colourfamilyValue: string | undefined,
-      materialsCode: string | undefined,
-      materialsValue: string | undefined,
-      texturefamilyCode: string | undefined,
-      texturefamilyValue: string | undefined,
-      // Measurement doesn't need a code for filters at the moment
-      measurementValue: string | undefined;
-
-    if (appearanceClassifications) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const colourfamilyAppearance = (
-        appearanceClassifications.features || []
-      ).find(
-        ({ code }) =>
-          code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.colourfamily`
-      )?.featureValues?.[0];
-
-      colourfamilyCode = colourfamilyAppearance?.code;
-      colourfamilyValue = colourfamilyAppearance?.value;
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const texturefamilyAppearance = (
-        appearanceClassifications.features || []
-      ).find(
-        ({ code }) =>
-          code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/appearanceAttributes.texturefamily`
-      )?.featureValues?.[0];
-
-      texturefamilyCode = texturefamilyAppearance?.code;
-      texturefamilyValue = texturefamilyAppearance?.value;
-    }
-
-    if (generalInformationClassification) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const materialsGeneralInformation = (
-        generalInformationClassification.features || []
-      ).find(
-        ({ code }) =>
-          code ===
-          `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/generalInformation.materials`
-      )?.featureValues?.[0];
-
-      materialsCode = materialsGeneralInformation?.code;
-      materialsValue = materialsGeneralInformation?.value;
-    }
+    let measurementValue: string | undefined;
 
     const measurementsClassification =
       mappedClassifications[variant.code]?.measurements;
@@ -267,47 +175,24 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       );
     }
 
-    return {
+    const baseProduct: BaseProduct = {
+      code: product.code,
+      name: product.name
+    };
+
+    const productVariant: ESProduct = {
       ...indexedFeatures,
       ...allCategoriesAsProps,
-      "category.codes": categoryCodesOnly,
-      "feature.codes": allfeatureCodes,
       ...baseAttributes,
       code: variant.code,
-      baseProduct: product,
+      baseProduct: { ...baseProduct },
       brandCode: findProductBrandLogoCode(product),
       // TODO: Perhaps we're only interested in specific images?
       images: [...(variant.images || []), ...(product.images || [])],
-      categories: productLeafCategories,
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
       allCategories: product.categories || [],
-      // Used for main category filter on PLP, interested in only leaf Categories and ProductCategories
-      plpCategories: [
-        ...productLeafCategories,
-        ...productFamilyCategories,
-        ...productLineCategories
-      ],
-      classifications,
-      //TODO: remove this when productScoringWeightInt and variantScoringWeightInt
-      //are working and are verified
-      //this is product scoringweightattribute value!
-      // Special because we want to use it for sorting, atm this seems easier
-      scoringWeight,
-      //this is product scoringweightattribute value!
-      // Parsing to a number so it'll be mapped as integer (long).
-      // @todo: Eventually to be swapped out with scoringWeight when changes have been propagated.
-      scoringWeightInt:
-        scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
-          ? Number.parseInt(scoringWeight)
-          : 0,
-      colourfamilyCode,
-      colourfamilyValue,
-      texturefamilyCode,
-      texturefamilyValue,
-      materialsCode,
-      materialsValue,
+      classifications: combinedClassifications,
       measurementValue,
-      //this is product scoringweightattribute value!
       productScoringWeightInt:
         scoringWeight && Number.isFinite(Number.parseInt(scoringWeight))
           ? Number.parseInt(scoringWeight)
@@ -316,7 +201,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         variantScoringWeight &&
         Number.isFinite(Number.parseInt(variantScoringWeight))
           ? Number.parseInt(variantScoringWeight)
-          : 0
+          : 0,
+      totalVariantCount: product.variantOptions.length
     };
+    return productVariant;
   });
 };

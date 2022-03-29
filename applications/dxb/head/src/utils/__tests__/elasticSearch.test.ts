@@ -68,7 +68,7 @@ describe("removeIrrelevantFilters function", () => {
       } as unknown as Filter
     ];
     const aggregations: Aggregations = {
-      categories: {
+      allCategories: {
         buckets: [{ key: "colour1", doc_count: 1 }]
       }
     };
@@ -158,27 +158,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -207,11 +201,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -228,12 +221,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -247,9 +240,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -271,27 +261,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -320,12 +304,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -339,9 +323,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -363,27 +344,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -410,12 +385,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -429,9 +404,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -453,27 +425,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -502,11 +468,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -523,12 +488,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -542,9 +507,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -566,27 +528,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -615,11 +571,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -636,12 +591,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -655,9 +610,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -679,27 +631,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -728,11 +674,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -749,12 +694,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -768,9 +713,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -792,27 +734,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -841,11 +777,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -862,12 +797,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -881,9 +816,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -905,27 +837,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -954,11 +880,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -975,12 +900,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -994,9 +919,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -1018,27 +940,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -1067,11 +983,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -1088,12 +1003,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -1107,9 +1022,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -1131,27 +1043,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -1180,11 +1086,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -1201,12 +1106,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -1220,9 +1125,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",

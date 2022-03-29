@@ -1,8 +1,8 @@
 import type {
   ApprovalStatus,
+  BaseProduct,
   Classification,
-  Image,
-  Product
+  Image
 } from "@bmi/pim-types";
 
 export type Operation = "index" | "delete" | "create" | "update";
@@ -24,23 +24,15 @@ export type ProductVariant = {
   summary: string;
   name: string;
   code: string; // Needed
-  baseProduct: Product; // Needed
+  baseProduct?: BaseProduct; // Needed
   brandCode?: string; // Needed
   images: readonly Image[]; // Needed
-  categories: readonly Category[];
   allCategories: readonly Category[];
-  plpCategories: readonly Category[];
   classifications: readonly Classification[];
-  scoringWeight?: string;
-  scoringWeightInt: number;
-  colourfamilyCode?: string;
-  colourfamilyValue?: string;
-  texturefamilyCode?: string;
-  texturefamilyValue?: string;
-  materialsCode?: string;
-  materialsValue?: string;
-  measurementValue?: string;
   approvalStatus: ApprovalStatus;
+  productScoringWeightInt: number;
+  variantScoringWeightInt: number;
+  totalVariantCount: number;
 } & {
   [extractedFilter: string]: any;
 };

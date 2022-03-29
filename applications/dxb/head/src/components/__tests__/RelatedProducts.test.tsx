@@ -249,7 +249,7 @@ describe("RelatedProducts component", () => {
     );
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
-      label: "product-1 - blue - MC: pdp.relatedProducts.viewDetails",
+      label: "product-1 - MC: pdp.relatedProducts.viewDetails",
       action: "/en/some-path"
     });
 

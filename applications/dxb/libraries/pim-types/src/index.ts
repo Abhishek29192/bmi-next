@@ -43,7 +43,8 @@ import {
   SystemReference,
   SystemReferenceTarget,
   SystemsApiResponse,
-  VariantOption
+  VariantOption,
+  BaseProduct
 } from "./types";
 
 export {
@@ -91,5 +92,6 @@ export {
   SystemReference,
   SystemReferenceTarget,
   SystemsApiResponse,
-  VariantOption
+  VariantOption,
+  BaseProduct
 };

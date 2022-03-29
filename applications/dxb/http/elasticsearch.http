@@ -1,5 +1,15 @@
 ###
 
+# @name search All request
+POST {{esHost}}/{{productsIndex}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+{
+}
+
+###
+
 # @name Product search request
 POST {{esHost}}/{{productsIndex}}/_search
 Content-Type: application/json
@@ -11,7 +21,7 @@ Authorization: ApiKey {{esApiKey}}
   "sort": [
     "_score",
     {
-      "scoringWeightInt": "desc"
+      "productScoringWeightInt": "desc"
     },
     {
       "name.keyword": "asc"
@@ -21,7 +31,7 @@ Authorization: ApiKey {{esApiKey}}
     "categories": {
       "terms": {
         "size": "100",
-        "field": "categories.code.keyword"
+        "field": "allCategories.code.keyword"
       }
     },
     "allCategories": {
@@ -33,19 +43,13 @@ Authorization: ApiKey {{esApiKey}}
     "materials": {
       "terms": {
         "size": "100",
-        "field": "materialsCode.keyword"
+        "field": "generalInformation.materials.code.keyword"
       }
     },
     "texturefamily": {
       "terms": {
         "size": "100",
-        "field": "texturefamilyCode.keyword"
-      }
-    },
-    "colourfamily": {
-      "terms": {
-        "size": "100",
-        "field": "colourfamilyCode.keyword"
+        "field": "appearanceAttributes.texturefamily.code.keyword"
       }
     }
   },
@@ -63,11 +67,10 @@ Authorization: ApiKey {{esApiKey}}
               "description",
               "longDescription",
               "shortDescription",
-              "colourfamilyValue.keyword",
-              "materialsValue.keyword",
-              "texturefamilyValue.keyword",
+              "appearanceAttributes.colourfamily.name.keyword",
+              "generalInformation.materials.name.keyword",
+              "appearanceAttributes.texturefamily.name.keyword",
               "measurementValue.keyword",
-              "categories.value.keyword",
               "allCategories.value.keyword",
               "classifications.features.featureValues.value^6"
             ]
@@ -194,7 +197,7 @@ Authorization: ApiKey {{esApiKey}}
   "sort": [
     "_score",
     {
-      "scoringWeightInt": "desc"
+      "productScoringWeightInt": "desc"
     },
     {
       "name.keyword": "asc"
@@ -204,7 +207,7 @@ Authorization: ApiKey {{esApiKey}}
     "categories": {
       "terms": {
         "size": "100",
-        "field": "categories.code.keyword"
+        "field": "allCategories.code.keyword"
       }
     },
     "allCategories": {
@@ -216,19 +219,13 @@ Authorization: ApiKey {{esApiKey}}
     "materials": {
       "terms": {
         "size": "100",
-        "field": "materialsCode.keyword"
+        "field": "generalInformation.materials.code.keyword"
       }
     },
     "texturefamily": {
       "terms": {
         "size": "100",
-        "field": "texturefamilyCode.keyword"
-      }
-    },
-    "colourfamily": {
-      "terms": {
-        "size": "100",
-        "field": "colourfamilyCode.keyword"
+        "field": "appearanceAttributes.texturefamily.code.keyword"
       }
     }
   },
@@ -240,7 +237,7 @@ Authorization: ApiKey {{esApiKey}}
             "allCategories.code.keyword": [
               "NO_PRODUCTS"
             ]
-          }
+          } 
         }
       ]
     }
