@@ -202,7 +202,6 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               path
               title
-
               ... on ContentfulProductListerPage {
                 categoryCodes
                 allowFilterBy
