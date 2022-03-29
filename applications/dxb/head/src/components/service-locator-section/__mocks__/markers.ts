@@ -1,6 +1,7 @@
-"use strict";
+import { Service } from "../index";
+import { EntryTypeEnum } from "../../Service";
 
-const markersMockData = [
+export const markersMockData = [
   {
     title: "Nortekk",
     position: {
@@ -31,10 +32,10 @@ const markersMockData = [
   }
 ];
 
-const selectedRooferMock = {
+export const selectedRooferMock: Service = {
   __typename: "ContentfulService",
   id: "27f97982-479f-5319-8006-111dbdaf84b0",
-  entryType: "Roofer",
+  entryType: EntryTypeEnum.ROOFER_TYPE,
   name: "Nortekk",
   location: {
     lat: 60.00797,
@@ -45,14 +46,7 @@ const selectedRooferMock = {
   email: "lmn@nortekk.no",
   website: "https://www.nortekk.no",
   fax: null,
-  type: ["Pitched roof"],
-  branchType: null,
-  merchantType: null,
+  serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched roof" }],
   certification: null,
   summary: "test summary"
-};
-
-module.exports = {
-  markersMockData,
-  selectedRooferMock
 };

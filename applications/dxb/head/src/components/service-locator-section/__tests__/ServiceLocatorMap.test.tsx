@@ -2,14 +2,14 @@ import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { MapProps, ServiceLocatorMap } from "../components";
 import "@testing-library/jest-dom";
-import { selectedRooferMock } from "../__mocks__/mocks";
+import { selectedRooferMock } from "../__mocks__/markers";
 
 jest.mock("@bmi/components", () => {
   const originalModule = jest.requireActual("@bmi/components");
   const GoogleMap = jest.fn().mockImplementation(({ children }) => {
     return (
       <div className="GoogleMap">
-        <div className="map"></div>
+        <div className="map" />
         {children && <div className="popup">{children}</div>}
       </div>
     );
