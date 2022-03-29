@@ -429,10 +429,8 @@ module.exports = {
           {
             resolve: "gatsby-plugin-sitemap",
             options: {
-              output: useCountryCode
-                ? `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`
-                : `/sitemap.xml`,
-              entryLimit: 50000
+              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "",
+              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl
             }
           }
         ]
@@ -443,8 +441,8 @@ module.exports = {
             resolve: "gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
-                ? `/${process.env.SPACE_MARKET_CODE}/images.xml`
-                : `/images.xml`,
+                ? `/${process.env.SPACE_MARKET_CODE}/images`
+                : `/images`,
               entryLimit: 50000,
               query: `
                 {
