@@ -171,6 +171,26 @@ describe("handleMessage", () => {
     expect(commit).toBeCalledTimes(1);
   });
 
+  it("should NOT delete 'base_product' if it is not exists in firestore", async () => {
+    const docRef1 = { ...documentRef, id: "docId1" };
+    const data = createEvent({
+      itemType: "PRODUCTS",
+      type: "DELETED",
+      items: [
+        { code: "BP1", objType: ObjType.Base_product },
+        { code: "BP2", objType: ObjType.Base_product }
+      ]
+    });
+
+    doc.mockReturnValueOnce(docRef1).mockReturnValueOnce(undefined);
+
+    await handleMessage(data, {});
+
+    expect(deleteFunc).toBeCalledTimes(1);
+    expect(deleteFunc).toHaveBeenCalledWith(docRef1);
+    expect(commit).toBeCalledTimes(1);
+  });
+
   it("should execute correctly if type is DELETED and objType is 'system'", async () => {
     const docRef1 = { ...documentRef, id: "docId1" };
     const docRef2 = { ...documentRef, id: "docId2" };
@@ -304,6 +324,25 @@ describe("handleMessage", () => {
 
     expect(deleteFunc).toBeCalledTimes(1);
     expect(deleteFunc).toBeCalledWith(documentRef);
+    expect(commit).toBeCalledTimes(1);
+  });
+
+  it("should NOT delete variant if it is not exists in firestore", async () => {
+    const data = createEvent({
+      itemType: "PRODUCTS",
+      type: "DELETED",
+      items: [{ code: "Test_Variant_1", objType: ObjType.Variant }]
+    });
+
+    get.mockResolvedValue({
+      docs: []
+    });
+
+    doc.mockReturnValue(documentRef);
+
+    await handleMessage(data, {});
+
+    expect(deleteFunc).toBeCalledTimes(0);
     expect(commit).toBeCalledTimes(1);
   });
 

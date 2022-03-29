@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import { VariantOption, SystemLayer } from "@bmi/pim-types";
 import { getFirestore } from "@bmi/functions-firestore";
 import { DeleteItemType, ObjType } from "@bmi/gcp-pim-message-handler";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
@@ -23,6 +24,127 @@ export const CODE_TYPES = {
   LAYER_CODES: "layerCodes"
 };
 
+const updateDocument = (
+  updatedItem: any,
+  docPath: string,
+  batch: FirebaseFirestore.WriteBatch
+) => {
+  const docRef = db.doc(docPath);
+
+  batch.set(docRef, updatedItem);
+};
+
+const deleteBaseEntity = (
+  item: DeleteItemType,
+  batch: FirebaseFirestore.WriteBatch,
+  path: string
+) => {
+  const docRef = db.doc(path);
+
+  if (docRef) {
+    batch.delete(docRef);
+  } else {
+    logger.info({
+      message: `Deleted ${item.objType} did not found in firestore`
+    });
+  }
+};
+
+const deleteNestedEntity = async (
+  item: DeleteItemType,
+  collectionPath: string,
+  batch: FirebaseFirestore.WriteBatch
+) => {
+  const key =
+    item.objType === ObjType.Variant
+      ? CODE_TYPES.VARIANT_CODES
+      : CODE_TYPES.LAYER_CODES;
+
+  const basePath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`;
+
+  const documents = await db
+    .collection(basePath)
+    .where(key, "array-contains", item.code)
+    .get();
+
+  const document = documents.docs[0]?.data();
+
+  if (document) {
+    const objType =
+      item.objType === ObjType.Variant
+        ? OBJECT_TYPES.VARIANT_OPTIONS
+        : OBJECT_TYPES.SYSTEM_LAYERS;
+
+    logger.info({
+      message: `Deleted document data: ${JSON.stringify(document)}`
+    });
+
+    const updatedDocumentEntities = document[`${objType}`].filter(
+      (obj: VariantOption | SystemLayer) => obj.code !== item.code
+    );
+
+    const docPath = `${basePath}/${document.code}`;
+
+    logger.info({
+      message: `Deleted from docPath: ${docPath}`
+    });
+
+    if (updatedDocumentEntities.length || item.objType === ObjType.Layer) {
+      const updatedDocument = {
+        ...document,
+        [objType]: updatedDocumentEntities,
+        [key]: updatedDocumentEntities.map(
+          (obj: VariantOption | SystemLayer) => obj.code
+        )
+      };
+
+      logger.info({
+        message: `Deleted updated document data: ${JSON.stringify(
+          updatedDocument
+        )}`
+      });
+
+      updateDocument(updatedDocument, docPath, batch);
+    } else {
+      deleteBaseEntity(item, batch, docPath);
+    }
+
+    logger.info({ message: `Delete ${docPath}` });
+  } else {
+    logger.info({
+      message: `Deleted ${item.objType} did not found in firestore`
+    });
+  }
+};
+
+const getUpdatedItem = (item: any, collectionPath: string) => {
+  if (collectionPath === COLLECTIONS.CATEGORIES) {
+    return item;
+  } else {
+    const key =
+      collectionPath === COLLECTIONS.PRODUCTS
+        ? CODE_TYPES.VARIANT_CODES
+        : CODE_TYPES.LAYER_CODES;
+    const objType =
+      collectionPath === COLLECTIONS.PRODUCTS
+        ? OBJECT_TYPES.VARIANT_OPTIONS
+        : OBJECT_TYPES.SYSTEM_LAYERS;
+
+    if (item[`${objType}`] && item[`${objType}`].length) {
+      const updatedItem = {
+        ...item,
+        [key]: item[`${objType}`].map(
+          (obj: VariantOption | SystemLayer) => obj.code
+        )
+      };
+
+      return updatedItem;
+    } else {
+      return item;
+    }
+  }
+};
+
 // TODO: This is batched, functions can be consolidated
 const setItemsInFirestore = async (collectionPath: string, items: any) => {
   const batch = db.batch();
@@ -30,32 +152,9 @@ const setItemsInFirestore = async (collectionPath: string, items: any) => {
   items.forEach((item: any) => {
     // Doing it this way to be able to set the ID, otherwise collection.add() creates ID automatically
     const docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
-    const docRef = db.doc(docPath);
+    const updatedItem = getUpdatedItem(item, collectionPath);
 
-    if (collectionPath === COLLECTIONS.CATEGORIES) {
-      batch.set(docRef, item);
-    } else {
-      // this update will allow us to find correct base product or system in delete method if we deleting variantOption or systemLayer
-      const key =
-        collectionPath === COLLECTIONS.PRODUCTS
-          ? CODE_TYPES.VARIANT_CODES
-          : CODE_TYPES.LAYER_CODES;
-      const objType =
-        collectionPath === COLLECTIONS.PRODUCTS
-          ? OBJECT_TYPES.VARIANT_OPTIONS
-          : OBJECT_TYPES.SYSTEM_LAYERS;
-
-      if (item[`${objType}`] && item[`${objType}`].length) {
-        const updatedItem = {
-          ...item,
-          [key]: item[`${objType}`].map((obj: any) => obj.code)
-        };
-
-        batch.set(docRef, updatedItem);
-      } else {
-        batch.set(docRef, item);
-      }
-    }
+    updateDocument(updatedItem, docPath, batch);
 
     logger.info({ message: `Set ${docPath}` });
   });
@@ -71,72 +170,14 @@ const deleteItemsFromFirestore = async (
 
   await Promise.all(
     items.map(async (item: DeleteItemType) => {
-      let docPath = "";
-
       if (
         item.objType === ObjType.Base_product ||
         item.objType === ObjType.System
       ) {
-        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
-
-        const docRef = db.doc(docPath);
-
-        batch.delete(docRef);
+        const docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`;
+        deleteBaseEntity(item, batch, docPath);
       } else {
-        const objType =
-          item.objType === ObjType.Variant
-            ? OBJECT_TYPES.VARIANT_OPTIONS
-            : OBJECT_TYPES.SYSTEM_LAYERS;
-
-        const key =
-          item.objType === ObjType.Variant
-            ? CODE_TYPES.VARIANT_CODES
-            : CODE_TYPES.LAYER_CODES;
-
-        const data = await db
-          .collection(`${FIRESTORE_ROOT_COLLECTION}/${collectionPath}`)
-          .where(key, "array-contains", item.code)
-          .get();
-
-        const document = data.docs[0].data();
-
-        logger.info({
-          message: `Deleted document data: ${JSON.stringify(document)}`
-        });
-
-        const updatedObjType = document[`${objType}`].filter(
-          (obj: any) => obj.code !== item.code
-        );
-
-        docPath = `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${document.code}`;
-
-        logger.info({
-          message: `Deleted from docPath: ${docPath}`
-        });
-
-        if (updatedObjType.length || item.objType === ObjType.Layer) {
-          const updatedDocument = {
-            ...document,
-            [objType]: updatedObjType,
-            [key]: updatedObjType.map((obj: any) => obj.code)
-          };
-
-          logger.info({
-            message: `Deleted updated document data: ${JSON.stringify(
-              updatedDocument
-            )}`
-          });
-
-          const docRef = db.doc(docPath);
-
-          batch.set(docRef, updatedDocument);
-        } else {
-          const docRef = db.doc(docPath);
-
-          batch.delete(docRef);
-        }
-
-        logger.info({ message: `Delete ${docPath}` });
+        deleteNestedEntity(item, collectionPath, batch);
       }
     })
   );
