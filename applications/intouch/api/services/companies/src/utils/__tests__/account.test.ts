@@ -10,10 +10,10 @@ describe("Get translated role", () => {
   it("should return proper strings", async () => {
     expect(getTranslatedRole("en_EN", INSTALLER)).toBe("Installer");
     expect(getTranslatedRole("WRONG_LANG", INSTALLER)).toBe("installer");
-    expect(getTranslatedRole("nb_NO", COMPANY_ADMIN)).toBe(
+    expect(getTranslatedRole("no_NO", COMPANY_ADMIN)).toBe(
       "Bedriftsadministrator"
     );
-    expect(getTranslatedRole("nb_NO", undefined)).toBe(undefined);
+    expect(getTranslatedRole("no_NO", undefined)).toBe(undefined);
   });
 });
 

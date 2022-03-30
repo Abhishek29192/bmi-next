@@ -5,7 +5,7 @@
       "INSTALLER": "Installer"
     }
   },
-  "nb_NO": {
+  "no_NO": {
     "roles": {
       "COMPANY_ADMIN": "Bedriftsadministrator",
       "INSTALLER": "Medlem"
@@ -27,6 +27,12 @@
     "roles": {
       "COMPANY_ADMIN": "Administrator",
       "INSTALLER": "Medlem"
+    }
+  },
+  "es_ES": {
+    "roles": {
+      "COMPANY_ADMIN": "Administrador de la empresa",
+      "INSTALLER": "Miembro"
     }
   }
 }
