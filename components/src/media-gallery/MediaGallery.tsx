@@ -61,7 +61,9 @@ const MediaGallery = ({
   if (!media.length) {
     return null;
   }
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(
+    media.length - 1
+  );
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
   const Thumbnails = renderThumbnails();
   const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {

@@ -1044,9 +1044,9 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
               class="image-wrapper"
             >
               <img
-                alt="490189 wireløper"
+                alt="Print_490189 wireløper"
                 class="main-image-wrapper main-image-wrapper--default Media Media--contain"
-                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
+                src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
               />
             </div>
             <div
@@ -1095,7 +1095,7 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                 style="margin-right: 0%;"
               >
                 <button
-                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                   tabindex="0"
                   type="button"
                 >
@@ -1104,9 +1104,12 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                     class="Media"
                     src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h62/he9/9009920704542/Product-Hero-Small-Desktop-Tablet-490189-wireloperjpg"
                   />
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
                 <button
-                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                  class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                   tabindex="0"
                   type="button"
                 >
@@ -1114,9 +1117,6 @@ exports[`ProductLeadBlock tests should render the technical draws tab 1`] = `
                     alt="Print_490189 wireløper"
                     class="Media"
                     src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h7b/h26/9009919983646/Product-Hero-Small-Desktop-Tablet-Icopal-staltakrenne-miljobilde-3jpg"
-                  />
-                  <span
-                    class="MuiTouchRipple-root"
                   />
                 </button>
               </div>

@@ -18,54 +18,6 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
             class="image-wrapper"
           >
             <div
-              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-            >
-              <div
-                class="YoutubeVideo"
-              >
-                <button
-                  aria-label="test video"
-                  class="thumbnail"
-                  type="button"
-                >
-                  <img
-                    alt="test video"
-                    class="preview-image"
-                    src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-                  />
-                  <span
-                    class="AlternativeContent"
-                  >
-                    test video
-                  </span>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiIconButton-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8 5v14l11-7z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
-                </button>
-              </div>
-            </div>
-            <div
               class="caption"
             >
               <p
@@ -74,7 +26,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  This is videos caption
+                  caption2
                   <wbr />
                 </span>
               </p>
@@ -126,7 +78,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
               >
@@ -140,12 +92,6 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                     d="M8 5v14l11-7z"
                   />
                 </svg>
-              </button>
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                tabindex="0"
-                type="button"
-              >
                 <span
                   class="MuiTouchRipple-root"
                 />
@@ -159,6 +105,11 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
         </div>
@@ -235,54 +186,6 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
             class="image-wrapper"
           >
             <div
-              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-            >
-              <div
-                class="YoutubeVideo"
-              >
-                <button
-                  aria-label="test video"
-                  class="thumbnail"
-                  type="button"
-                >
-                  <img
-                    alt="test video"
-                    class="preview-image"
-                    src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-                  />
-                  <span
-                    class="AlternativeContent"
-                  >
-                    test video
-                  </span>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiIconButton-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M8 5v14l11-7z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
-                </button>
-              </div>
-            </div>
-            <div
               class="caption"
             >
               <p
@@ -291,7 +194,7 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  This is videos caption
+                  caption2
                   <wbr />
                 </span>
               </p>
@@ -343,7 +246,7 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
               style="margin-right: 0%;"
             >
               <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
                 tabindex="0"
                 type="button"
               >
@@ -357,12 +260,6 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                     d="M8 5v14l11-7z"
                   />
                 </svg>
-              </button>
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                tabindex="0"
-                type="button"
-              >
                 <span
                   class="MuiTouchRipple-root"
                 />
@@ -376,6 +273,11 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                   class="MuiTouchRipple-root"
                 />
               </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+                tabindex="0"
+                type="button"
+              />
             </div>
           </div>
         </div>

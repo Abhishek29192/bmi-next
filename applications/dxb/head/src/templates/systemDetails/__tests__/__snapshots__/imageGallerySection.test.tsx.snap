@@ -29,9 +29,8 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
       class="image-wrapper"
     >
       <img
-        alt="TBK SN-403 T"
+        alt="gallery__image_2"
         class="main-image-wrapper main-image-wrapper--short Media Media--contain"
-        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
       />
     </div>
     <div
@@ -80,7 +79,7 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
           tabindex="0"
           type="button"
         >
@@ -88,6 +87,9 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
             alt="TBK SN-403 T"
             class="Media"
             src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+          />
+          <span
+            class="MuiTouchRipple-root"
           />
         </button>
         <button
@@ -104,16 +106,13 @@ exports[`ImageGallerySection tests When master images and gallery images are pro
           />
         </button>
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
           tabindex="0"
           type="button"
         >
           <img
             alt="gallery__image_2"
             class="Media"
-          />
-          <span
-            class="MuiTouchRipple-root"
           />
         </button>
       </div>
