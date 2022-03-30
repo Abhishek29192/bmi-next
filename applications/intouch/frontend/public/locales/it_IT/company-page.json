@@ -48,6 +48,7 @@
       "evidence_category": "Categoria di riscontro",
       "fileAlreadyExisting": "Il nome del file esiste già",
       "fileValidationMessage": "Non puoi caricare file più grandi di {{fileSize}}",
+      "total_files_size": "La dimensione totale dei file è stata superata - {{totalSize}}",
       "genericError": "Errore generico",
       "instruction": "Puoi aggiungere file",
       "microcopy": {

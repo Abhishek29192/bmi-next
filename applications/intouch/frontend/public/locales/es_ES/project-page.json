@@ -360,6 +360,7 @@
       "confirm_label": "Añadir archivos",
       "evidence_category": "Categoría de evidencia",
       "file_validation_message": "No puede añadir archivos de más de",
+      "total_files_size": "Tamaño total de archivos excedido - {{totalSize}}",
       "instruction": "Puedes añadir archivos",
       "microcopy": {
         "browse": "Navegar",

@@ -48,6 +48,7 @@
       "evidence_category": "Evidence Category",
       "fileAlreadyExisting": "Filename already exists",
       "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
+      "total_files_size": "Total files size exceeded - {{totalSize}}",
       "genericError": "Generic error",
       "instruction": "You can add files",
       "microcopy": {

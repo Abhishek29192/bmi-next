@@ -352,6 +352,7 @@
       "confirm_label": "Carica file",
       "evidence_category": "Categoria di riscontro",
       "file_validation_message": "Non puoi caricare file maggiori di",
+      "total_files_size": "La dimensione totale dei file è stata superata - {{totalSize}}",
       "instruction": "Pui aggiungere file",
       "microcopy": {
         "browse": "Scorrere",
