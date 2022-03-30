@@ -81,5 +81,9 @@
     "T3": "Expert",
     "T4": "Elite"
   },
-  "visitWebsite": "Visita el sitio web"
+  "visitWebsite": "Visita el sitio web",
+  "button": {
+    "more": "Mostrar más",
+    "less": "Muestra menos"
+  }
 }
