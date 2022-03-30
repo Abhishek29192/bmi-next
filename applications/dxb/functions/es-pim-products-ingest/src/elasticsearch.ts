@@ -1,4 +1,4 @@
-import { getEsClient, BulkApiResponse } from "@bmi/functions-es-client";
+import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
 import logger from "@bmi-digital/functions-logger";
 import { Operation, ProductVariant } from "./es-model";
 import { EsSystem } from "./transformSystems";
@@ -106,6 +106,8 @@ export const updateElasticSearch = async (
     }
   }
 
-  const { body: count } = await client.count({ index });
+  const {
+    body: { count }
+  } = await client.count({ index });
   logger.info({ message: `Total count: ${count}` });
 };

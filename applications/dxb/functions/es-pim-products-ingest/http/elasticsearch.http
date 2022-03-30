@@ -1,0 +1,9 @@
+###
+
+# @name Product search request
+
+GET {{esHost}}/{{productsIndex}}/_count
+Content-Type: application/json
+Authorization: ApiKey {{esApiKey}}
+
+###

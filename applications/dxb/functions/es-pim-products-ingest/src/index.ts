@@ -43,8 +43,8 @@ export const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
 };
 
 export const handleMessage: MessageFunction = async (data, context) => {
-  logger.info({ message: `data: ${data}` });
-  logger.info({ message: `context: ${context}` });
+  logger.info({ message: `data: ${JSON.stringify(data)}` });
+  logger.info({ message: `context: ${JSON.stringify(context)}` });
 
   await pingEsCluster();
 
