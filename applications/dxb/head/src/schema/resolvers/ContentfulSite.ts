@@ -12,9 +12,7 @@ export default {
         { query: {}, type: "RegionJson" },
         { connectionType: "RegionJson" }
       );
-      const resolvedEntries = [...entries];
-
-      return resolvedEntries;
+      return [...entries];
     }
   }
 };

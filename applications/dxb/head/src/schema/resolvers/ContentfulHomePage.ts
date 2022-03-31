@@ -22,8 +22,7 @@ export default {
         { query: {}, type: "ContentfulBrandLandingPage" },
         { connectionType: "ContentfulBrandLandingPage" }
       );
-      const resolvedPages = [...entries];
-      return resolvedPages;
+      return [...entries];
     }
   }
 };

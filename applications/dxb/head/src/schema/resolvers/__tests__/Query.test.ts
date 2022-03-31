@@ -37,9 +37,6 @@ describe("Query resolver", () => {
       expect(Query.allPIMDocument.type).toEqual(["PIMDocument"]);
     });
     it("should resolve pim documents without filters", async () => {
-      /*       context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValueOnce({ nodes: [] }); */
       const result = { documents: [] };
       resolveDocumentsFromProducts.mockResolvedValue(result);
 

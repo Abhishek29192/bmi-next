@@ -63,7 +63,7 @@ export const renderImage = (data?: Data, options: Options = {}) => {
 
   const { size, position, className } = options;
 
-  if (!data.image.gatsbyImageData) {
+  if (!data.image?.gatsbyImageData) {
     return (
       <img
         className={className}

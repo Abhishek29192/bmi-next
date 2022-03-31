@@ -102,6 +102,9 @@ export default {
   documents: {
     type: ["ProductDocument"],
     async resolve(source: Node, args: ResolveArgs, context: Context) {
+      if (!source.assets || !source.assets.length) {
+        return [];
+      }
       const { entries } = await context.nodeModel.findAll<Node>(
         {
           query: {},
@@ -111,10 +114,6 @@ export default {
       );
 
       const assetTypes = [...entries];
-
-      if (!source.assets || !source.assets.length) {
-        return [];
-      }
 
       return source.assets
         .map((asset) => {
