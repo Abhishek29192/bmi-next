@@ -5,7 +5,7 @@ import { Header as HeaderComponent } from "@bmi/components";
 import { HidePrint } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Tab, TabProps } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
@@ -141,6 +141,23 @@ const GTMNavigationUtilityButton = withGTM<ButtonProps>(Button, {
   label: "children"
 });
 
+const openButtonGTMData = {
+  id: "nav-country-selector",
+  label: "open panel",
+  action: "open panel"
+};
+
+const closeButtonGTMData = {
+  id: "nav-country-selector",
+  label: "close panel",
+  action: "close panel"
+};
+
+const GTMCloseButton = withGTM<ButtonProps>(Button);
+
+const onCountrySelection = (label: string, code: string) =>
+  pushToDataLayer({ id: "nav-country-selector", label: label, action: code });
+
 export type Region = {
   label: string;
   menu: Array<{
@@ -188,6 +205,12 @@ const Header = ({
         .find((l) => l.code === countryCode),
     [languages, countryCode]
   );
+
+  const onToggleLanguageSelection = (isSectionOpen: boolean) => {
+    !isSectionOpen
+      ? pushToDataLayer(openButtonGTMData)
+      : pushToDataLayer(closeButtonGTMData);
+  };
 
   if (!navigationData || !utilitiesData) {
     return null;
@@ -272,6 +295,11 @@ const Header = ({
               style={{ marginLeft: 10, marginBottom: 15 }}
             />
           )}
+          closeButtonComponent={(props: ButtonProps) => (
+            <GTMCloseButton gtm={closeButtonGTMData} {...props} />
+          )}
+          onToggleLanguageSelection={onToggleLanguageSelection}
+          onCountrySelection={onCountrySelection}
           searchAction={getPathWithCountryCode(countryCode, "search")}
           searchLabel={getMicroCopy(microCopy.SEARCH_LABEL)}
           searchPlaceholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HEADER)}

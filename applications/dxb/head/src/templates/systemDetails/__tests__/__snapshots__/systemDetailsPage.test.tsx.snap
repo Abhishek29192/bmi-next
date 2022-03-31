@@ -156,6 +156,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -6271,6 +6272,7 @@ exports[`SystemDetailsPage template component should have function to filter and
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -10737,6 +10739,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -16680,6 +16683,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -22764,6 +22768,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -28848,6 +28853,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -34386,6 +34392,7 @@ exports[`SystemDetailsPage template component should render without categories 1
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -37506,6 +37513,7 @@ exports[`SystemDetailsPage template component should render without classificati
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -43083,6 +43091,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >

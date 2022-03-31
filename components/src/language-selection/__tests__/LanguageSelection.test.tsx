@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import languages from "../languages";
 import LanguageSelection from "../LanguageSelection";
@@ -70,5 +70,18 @@ describe("LanguageSelection component", () => {
       />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("push analytics on click", () => {
+    const onCountrySelection = jest.fn();
+    const { getByText } = render(
+      <LanguageSelection
+        languages={languages}
+        onCountrySelection={onCountrySelection}
+      />
+    );
+    const countrySelectionButton = getByText("Albania");
+    fireEvent.click(countrySelectionButton);
+    expect(onCountrySelection).toHaveBeenCalledTimes(1);
   });
 });

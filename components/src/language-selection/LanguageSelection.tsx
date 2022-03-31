@@ -2,8 +2,8 @@ import React from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import Icon from "../icon";
 import Grid from "../grid/Grid";
-import { NavigationListButton } from "../navigation/Navigation";
 import Typography from "../typography/Typography";
+import { NavigationListButton } from "../navigation";
 import styles from "./LanguageSelection.module.scss";
 
 export type LanguageSelectionItem = {
@@ -21,12 +21,14 @@ type LanguageSelectionProps = {
   introduction?: React.ReactNode;
   languages: readonly LanguageSelectionList[];
   forceMobile?: boolean;
+  onCountrySelection?: (label: string, code: string) => void;
 };
 
 const LanguageSelection = ({
   introduction,
   languages,
-  forceMobile
+  forceMobile,
+  onCountrySelection
 }: LanguageSelectionProps) => (
   <div className={styles["LanguageSelection"]}>
     {introduction}
@@ -73,6 +75,7 @@ const LanguageSelection = ({
                   model: "htmlLink",
                   href: `/${code}`
                 }}
+                onClick={() => onCountrySelection?.(label, code)}
               >
                 {label}
               </NavigationListButton>
