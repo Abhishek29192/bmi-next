@@ -7,7 +7,6 @@ import createAsset from "../../../__tests__/AssetHelper";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
     findAll: jest.fn()
@@ -43,7 +42,9 @@ describe("documents resolver utils", () => {
     };
     process.env.SPACE_MARKET_CODE = "SPACE_MARKET_CODE";
     it("should return empty array if no products found", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([]);
@@ -73,7 +74,9 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       expect(
         await resolveDocumentsFromProducts([], { source, context })
       ).toEqual([]);
@@ -85,7 +88,9 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query without pimCodes or categoryCodes if no provided", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       const sourceWitoutCodes: Partial<Node> = {
         ...source,
         pimCodes: undefined,
@@ -159,7 +164,9 @@ describe("documents resolver utils", () => {
         }
       ];
 
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(products);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValue({ entries: products });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([
@@ -258,9 +265,13 @@ describe("documents resolver utils", () => {
       ];
       context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValueOnce(products)
+        .mockResolvedValueOnce({ entries: products })
         .mockResolvedValueOnce({
-          productDocumentNameMap: "Product name + asset type"
+          entries: [
+            {
+              productDocumentNameMap: "Product name + asset type"
+            }
+          ]
         });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
@@ -290,7 +301,9 @@ describe("documents resolver utils", () => {
     ];
     const documents = [{ id: "document-1" }, { id: "document-2" }];
     it("should return documents", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: documents });
       expect(
         await resolveDocumentsFromContentful(assetTypes, { context })
       ).toEqual(documents);
@@ -308,7 +321,9 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: documents });
       expect(await resolveDocumentsFromContentful([], { context })).toEqual(
         documents
       );

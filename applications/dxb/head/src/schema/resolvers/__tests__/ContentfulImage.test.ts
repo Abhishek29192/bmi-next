@@ -3,7 +3,6 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
     findAll: jest.fn()

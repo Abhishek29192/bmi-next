@@ -42,7 +42,7 @@ const resolvePathFromFamily = async (
   args: ResolveArgs,
   context: Context
 ) => {
-  const parentFamilies = (await context.nodeModel.findAll({
+  const { entries } = await context.nodeModel.findAll<Node>({
     query: {
       filter: {
         categoryCodes: {
@@ -51,7 +51,9 @@ const resolvePathFromFamily = async (
       }
     },
     type: "ContentfulProductListerPage"
-  })) as Node[];
+  });
+
+  const parentFamilies = [...entries];
 
   if (!parentFamilies.length) {
     return [];
@@ -100,10 +102,15 @@ export default {
   documents: {
     type: ["ProductDocument"],
     async resolve(source: Node, args: ResolveArgs, context: Context) {
-      const assetTypes = await context.nodeModel.getAllNodes(
-        { type: "ContentfulAssetType" },
+      const { entries } = await context.nodeModel.findAll<Node>(
+        {
+          query: {},
+          type: "ContentfulAssetType"
+        },
         { connectionType: "ContentfulAssetType" }
       );
+
+      const assetTypes = [...entries];
 
       if (!source.assets || !source.assets.length) {
         return [];

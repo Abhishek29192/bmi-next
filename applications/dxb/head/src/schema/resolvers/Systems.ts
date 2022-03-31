@@ -1,4 +1,5 @@
 import { generateSystemPath } from "../../utils/systems";
+import { Product } from "../../components/types/pim";
 import { Context, Node, ResolveArgs } from "./types";
 
 const systemPathResolver = {
@@ -21,7 +22,7 @@ const createResolver = (field: keyof Node) => ({
       (productVariant) => productVariant.code
     );
 
-    const products = await context.nodeModel.findAll({
+    const { entries } = await context.nodeModel.findAll<Product>({
       query: {
         filter: {
           variantOptions: {
@@ -34,6 +35,8 @@ const createResolver = (field: keyof Node) => ({
       },
       type: "Products"
     });
+
+    const products = [...entries];
 
     if (products.length !== variantCodes.length) {
       // eslint-disable-next-line no-console

@@ -441,7 +441,7 @@ export const getCategoryFilters = (productCategories: ProductCategoryTree) => {
     });
 };
 
-type PlpFiltersArgs = {
+export type PlpFiltersArgs = {
   products: readonly Product[];
   allowedFilters?: string[];
   pimClassificationNamespace?: string;
@@ -515,7 +515,7 @@ export const getPlpFilters = ({
   pimClassificationNamespace,
   products = [],
   allowedFilters = []
-}: PlpFiltersArgs) => {
+}: PlpFiltersArgs): ProductFilter[] => {
   if (
     !allowedFilters ||
     !products ||

@@ -34,7 +34,6 @@ describe("Path resolver util", () => {
     };
     const context: Context = {
       nodeModel: {
-        getAllNodes: jest.fn(),
         getNodeById: jest.fn(),
         getNodesByIds: jest.fn(),
         findAll: jest.fn()

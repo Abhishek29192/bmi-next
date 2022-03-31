@@ -173,6 +173,7 @@ export type VariantOption = {
 
 // PIM prodct object as a result of GraphQL query
 export type Product = {
+  id?: string;
   code: string;
   externalProductCode?: string | null;
   description: HTML;
@@ -243,3 +244,5 @@ export enum FileContentTypeEnum {
   FILE_NOT_AN_IMAGE = "file/not-an-image",
   APPLICATION_OCTET_STREAM = "application/octet-stream"
 }
+
+export type PimAssetType = { pimCode?: string; name?: string; id?: string };

@@ -13,11 +13,17 @@ export default {
   },
   brands: {
     type: ["ContentfulBrandLandingPage"],
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
-      return await context.nodeModel.getAllNodes(
-        { type: "ContentfulBrandLandingPage" },
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<Node[]> {
+      const { entries } = await context.nodeModel.findAll<Node>(
+        { query: {}, type: "ContentfulBrandLandingPage" },
         { connectionType: "ContentfulBrandLandingPage" }
       );
+      const resolvedPages = [...entries];
+      return resolvedPages;
     }
   }
 };

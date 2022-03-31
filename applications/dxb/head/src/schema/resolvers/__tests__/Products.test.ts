@@ -9,16 +9,15 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
     findAll: jest.fn().mockImplementation(({ query }) => {
-      const { categoryCodes } = query.filter;
+      const { categoryCodes } = query && query.filter;
 
       if (!categoryCodes.in.length) {
-        return [];
+        return { entries: [] };
       }
-      return [{ type: "parentFamily" }];
+      return { entries: [{ type: "parentFamily" }] };
     })
   }
 };
@@ -279,6 +278,9 @@ describe("Products resolver", () => {
     });
 
     it("should resolve empty array if no assets provided", async () => {
+      context.nodeModel.findAll = jest.fn().mockImplementation(() => {
+        return { entries: [{ type: "parentFamily" }] };
+      });
       expect(
         await Products.documents.resolve(
           { ...source, assets: null },
@@ -289,14 +291,16 @@ describe("Products resolver", () => {
     });
 
     it("should resolve documents", async () => {
-      context.nodeModel.getAllNodes = jest.fn().mockResolvedValue([
-        {
-          pimCode: "ASSEMBLY_INSTRUCTIONS",
-          id: "asset-type-1",
-          name: "asset-type-name-1"
-        },
-        { pimCode: "AWARDS", id: "asset-type-2", name: "asset-type-name-2" }
-      ]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [
+          {
+            pimCode: "ASSEMBLY_INSTRUCTIONS",
+            id: "asset-type-1",
+            name: "asset-type-name-1"
+          },
+          { pimCode: "AWARDS", id: "asset-type-2", name: "asset-type-name-2" }
+        ]
+      });
       expect(await Products.documents.resolve(source, null, context)).toEqual([
         {
           assetType___NODE: "asset-type-1",

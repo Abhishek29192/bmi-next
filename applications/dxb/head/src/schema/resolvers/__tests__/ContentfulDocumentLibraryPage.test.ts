@@ -4,12 +4,11 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest
-      .fn()
-      .mockResolvedValue([{ id: "asset-type-1" }, { id: "asset-type-2" }]),
+    findAll: jest.fn().mockResolvedValue({
+      entries: [{ id: "asset-type-1" }, { id: "asset-type-2" }]
+    }),
     getNodeById: jest.fn().mockResolvedValueOnce({ id: "asset-type-1" }),
-    getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    getNodesByIds: jest.fn()
   }
 };
 
@@ -46,8 +45,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       )
     ).toEqual([{ id: "product-document-1" }]);
 
-    expect(context.nodeModel.getAllNodes).toBeCalledWith(
-      { type: "ContentfulAssetType" },
+    expect(context.nodeModel.findAll).toBeCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
     expect(Documents.resolveDocumentsFromProducts).toBeCalledWith(
@@ -73,8 +72,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       [{ id: "asset-type-1" }, { id: "asset-type-2" }],
       { context }
     );
-    expect(context.nodeModel.getAllNodes).toBeCalledWith(
-      { type: "ContentfulAssetType" },
+    expect(context.nodeModel.findAll).toBeCalledWith(
+      { query: {}, type: "ContentfulAssetType" },
       { connectionType: "ContentfulAssetType" }
     );
   });

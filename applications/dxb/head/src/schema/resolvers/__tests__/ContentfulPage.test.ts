@@ -12,7 +12,6 @@ jest.mock("../utils/path", () => ({
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
     getNodesByIds: jest.fn(),
     findAll: jest.fn()

@@ -3,12 +3,11 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    findAll: jest
-      .fn()
-      .mockResolvedValue([{ type: "ContentfulServiceLocatorSection" }])
+    findAll: jest.fn().mockResolvedValue({
+      entries: [{ type: "ContentfulServiceLocatorSection" }]
+    })
   }
 };
 
@@ -37,7 +36,6 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
     expect(context.nodeModel.findAll).toHaveBeenCalledWith(
       {
-        firstOnly: false,
         query: { filter: { entryType: { eq: "type" } } },
         type: "ContentfulService"
       },
