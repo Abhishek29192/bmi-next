@@ -1802,7 +1802,7 @@ type ContentfulImage implements Node {
   altText: String
 
   "The actual Asset for this Image."
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  image: ContentfulAsset! @link(by: "id", from: "image___NODE")
 
   "The caption for this Image."
   caption: contentfulImageCaptionTextNode
