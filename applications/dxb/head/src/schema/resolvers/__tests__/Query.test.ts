@@ -2,10 +2,9 @@ import { Context, ResolveArgs } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn().mockResolvedValue({ nodes: [] }),
+    findAll: jest.fn().mockResolvedValue({ entries: [] }),
     getNodeById: jest.fn(),
-    getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    getNodesByIds: jest.fn()
   }
 };
 
@@ -45,10 +44,10 @@ describe("Query resolver", () => {
         result
       );
 
-      expect(resolveDocumentsFromProducts).toHaveBeenCalledWith(
-        { nodes: [] },
-        { source: {}, context }
-      );
+      expect(resolveDocumentsFromProducts).toHaveBeenCalledWith([], {
+        source: {},
+        context
+      });
     });
   });
 
@@ -72,7 +71,7 @@ describe("Query resolver", () => {
     });
 
     it("should handle empty products list", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValue([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({ entries: [] });
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual([]);
 
@@ -93,11 +92,11 @@ describe("Query resolver", () => {
     it("should run query without filters if not provided", async () => {
       const filters = { filters: [] };
       getPlpFilters.mockResolvedValue(filters);
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValue([
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [
           { categories: [{ code: "category-1" }, { code: "category-2" }] }
-        ]);
+        ]
+      });
 
       expect(
         await Query.plpFilters.resolve(
@@ -127,7 +126,7 @@ describe("Query resolver", () => {
       getPlpFilters.mockResolvedValue(filters);
       context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValue([{ categories: null }]);
+        .mockResolvedValue({ entries: [{ categories: null }] });
 
       expect(
         await Query.plpFilters.resolve(null, { ...args }, context)
@@ -162,9 +161,9 @@ describe("Query resolver", () => {
     it("should resolve plp filters", async () => {
       const filters = { filters: [] };
       getPlpFilters.mockResolvedValue(filters);
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValue([{ categories: [{ code: "category-1" }] }]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [{ products: [{ code: "product-1" }] }]
+      });
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
         filters
@@ -172,9 +171,8 @@ describe("Query resolver", () => {
 
       expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [],
-        pageCategory: { code: "category-1" },
         pimClassificationNamespace: "pimClassificationCatalogueNamespace",
-        products: [{ categories: [{ code: "category-1" }] }]
+        products: [{ products: [{ code: "product-1" }] }]
       });
     });
   });
@@ -199,7 +197,7 @@ describe("Query resolver", () => {
     });
 
     it("should handle empty products list", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValue([]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({ entries: [] });
 
       expect(await Query.productFilters.resolve(null, args, context)).toEqual(
         []
@@ -218,11 +216,11 @@ describe("Query resolver", () => {
     it("should run query without filters if not provided", async () => {
       const filters = { filters: [] };
       getFilters.mockResolvedValue(filters);
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValue([
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [
           { categories: [{ code: "category-1" }, { code: "category-2" }] }
-        ]);
+        ]
+      });
 
       expect(
         await Query.productFilters.resolve(
@@ -243,7 +241,7 @@ describe("Query resolver", () => {
       getFilters.mockResolvedValue(filters);
       context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValue([{ categories: null }]);
+        .mockResolvedValue({ entries: [{ categories: null }] });
 
       expect(
         await Query.productFilters.resolve(null, { ...args }, context)
@@ -268,11 +266,11 @@ describe("Query resolver", () => {
     it("should resolve product filters", async () => {
       const filters = { filters: [] };
       getFilters.mockResolvedValue(filters);
-      context.nodeModel.findAll = jest
-        .fn()
-        .mockResolvedValue([
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [
           { categories: [{ code: "category-1" }, { code: "category-2" }] }
-        ]);
+        ]
+      });
 
       expect(await Query.productFilters.resolve(null, args, context)).toEqual(
         filters

@@ -1,16 +1,22 @@
-import { Product } from "../../components/types/pim";
+import { PimAssetType, Product } from "../../components/types/pim";
 import { getFilters, getPlpFilters } from "../../utils/filters";
+import { ProductFilter } from "../../utils/product-filters";
 import { resolveDocumentsFromProducts } from "./documents";
 import { Context, Node, ResolveArgs } from "./types";
 
 export default {
   allPIMDocument: {
     type: ["PIMDocument"],
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
-      const allAssetTypes = await context.nodeModel.getAllNodes(
-        { type: "ContentfulAssetType" },
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<Node[]> {
+      const { entries } = await context.nodeModel.findAll<PimAssetType>(
+        { query: {}, type: "ContentfulAssetType" },
         { connectionType: "ContentfulAssetType" }
       );
+      const allAssetTypes = [...entries];
       return resolveDocumentsFromProducts(allAssetTypes, {
         source: {},
         context
@@ -25,13 +31,19 @@ export default {
       showBrandFilter: "Boolean",
       allowFilterBy: "[String!]"
     },
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
+
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<ProductFilter[]> {
       const {
         pimClassificationCatalogueNamespace,
         categoryCodes,
         allowFilterBy
       } = args;
-      const products = (await context.nodeModel.findAll({
+
+      const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
           ? {
               filter: {
@@ -44,21 +56,18 @@ export default {
             }
           : {},
         type: "Products"
-      })) as Product[];
+      });
 
-      if (!products.length) {
+      const resolvedProducts = [...entries];
+
+      if (resolvedProducts.length === 0) {
         return [];
       }
 
-      const pageCategory = (products[0].categories || []).find(({ code }) =>
-        (categoryCodes || []).includes(code)
-      );
-
       return getPlpFilters({
         pimClassificationNamespace: pimClassificationCatalogueNamespace,
-        products,
-        allowedFilters: allowFilterBy,
-        pageCategory
+        products: resolvedProducts,
+        allowedFilters: allowFilterBy
       });
     }
   },
@@ -70,14 +79,18 @@ export default {
       categoryCodes: "[String!]",
       showBrandFilter: "Boolean"
     },
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<ProductFilter[]> {
       const {
         pimClassificationCatalogueNamespace,
         categoryCodes,
         showBrandFilter
       } = args;
 
-      const products = (await context.nodeModel.findAll({
+      const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
           ? {
               filter: {
@@ -86,19 +99,21 @@ export default {
             }
           : {},
         type: "Products"
-      })) as Product[];
+      });
 
-      if (!products.length) {
+      const resolvedProducts = [...entries];
+
+      if (resolvedProducts.length === 0) {
         return [];
       }
 
-      const category = (products[0].categories || []).find(({ code }) =>
+      const category = (resolvedProducts[0].categories || []).find(({ code }) =>
         (categoryCodes || []).includes(code)
       );
 
       return getFilters(
         pimClassificationCatalogueNamespace,
-        products,
+        resolvedProducts,
         category,
         showBrandFilter
       );

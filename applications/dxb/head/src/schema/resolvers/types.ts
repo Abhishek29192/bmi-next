@@ -1,4 +1,5 @@
 import { Node as GatsbyNode } from "gatsby";
+import type { GatsbyIterable } from "gatsby/dist/datastore/common/iterable";
 import { GraphQLOutputType } from "graphql-compose/lib/graphql";
 import {
   Asset,
@@ -129,19 +130,21 @@ export interface NodeModel {
     pageDependencies?: PageDependencies
   ) => Promise<Node | null>;
 
-  getAllNodes: (
-    args: { type?: string | GraphQLOutputType },
-    pageDependencies?: PageDependencies
-  ) => Promise<Node[]>;
-
-  findAll: (
+  findAll: <T>(
     args: {
-      query: { filter?: unknown; sort?: unknown };
+      query: {
+        limit?: number;
+        skip?: number;
+        filter?: unknown;
+        sort?: unknown;
+      };
       type: string | GraphQLOutputType;
-      firstOnly?: boolean;
     },
     pageDependencies?: PageDependencies
-  ) => Promise<Node[] | Node>;
+  ) => Promise<{
+    entries: GatsbyIterable<T>;
+    totalCount: () => Promise<number>;
+  }>;
 
   getNodesByIds: (
     args: {
