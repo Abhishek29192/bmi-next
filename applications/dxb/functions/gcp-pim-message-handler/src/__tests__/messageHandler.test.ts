@@ -251,7 +251,7 @@ describe("handleMessage", () => {
       message: createEvent({
         itemType: "PRODUCTS",
         type: "DELETED",
-        base: ["BP1", "BP2"],
+        base: ["BP1", "BPÉ2"],
         variant: ["VP1", "VP2"]
       })
     });
@@ -282,7 +282,7 @@ describe("handleMessage", () => {
           itemType: "PRODUCTS",
           items: [
             { code: "BP1", objType: ObjType.Base_product },
-            { code: "BP2", objType: ObjType.Base_product }
+            { code: "BPÉ2", objType: ObjType.Base_product }
           ]
         })
       )
