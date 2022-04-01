@@ -9,3 +9,8 @@ export const randomPassword = (length = 8) => {
 
 export const sortByFirstName = (nodes) =>
   [...nodes].sort((a, b) => a.firstName?.localeCompare(b?.firstName));
+
+export const sortByLastName = (nodes) =>
+  [...nodes].sort((a, b) =>
+    a.account?.firstName?.localeCompare(b?.account?.firstName)
+  );
