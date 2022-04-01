@@ -351,7 +351,8 @@
       "cancel_label": "Cancel",
       "confirm_label": "Upload files",
       "evidence_category": "Evidence Category",
-      "file_validation_message": "You cannot upload  files larger than",
+      "file_validation_message": "You cannot upload files larger than",
+      "total_files_size": "Total files size exceeded - {{totalSize}}",
       "instruction": "You can add files",
       "microcopy": {
         "browse": "Browse",

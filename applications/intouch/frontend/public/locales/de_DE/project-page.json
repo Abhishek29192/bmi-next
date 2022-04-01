@@ -352,6 +352,7 @@
       "confirm_label": "Upload files",
       "evidence_category": "Evidence Category",
       "file_validation_message": "You cannot upload  files larger than",
+      "total_files_size": "Gesamtgröße der Dateien überschritten - {{totalSize}}",
       "instruction": "You can add files",
       "microcopy": {
         "browse": "Browse",

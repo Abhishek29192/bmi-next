@@ -352,6 +352,7 @@
       "confirm_label": "Last opp filer",
       "evidence_category": "Bevis kategori",
       "file_validation_message": "Du kan ikke laste opp filer som er større enn",
+      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}",
       "instruction": "Du kan legge til filer",
       "microcopy": {
         "browse": "Bla gjennom",

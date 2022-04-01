@@ -48,6 +48,7 @@
       "evidence_category": "Categoría de evidencia",
       "fileAlreadyExisting": "El nombre del archivo ya existe",
       "fileValidationMessage": "No puede añadir archivos de más de {{fileSize}}",
+      "total_files_size": "Tamaño total de archivos excedido - {{totalSize}}",
       "genericError": "Error genérico",
       "instruction": "Puedes añadir archivos",
       "microcopy": {
