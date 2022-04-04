@@ -77,14 +77,14 @@ const queries = [
       if (!data) {
         throw new Error("No data");
       }
-
       return data.allSitePage.edges
         .map(({ node }) => {
-          const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
+          const contentNodeFolderName = `${node.path}${
+            node.path.endsWith("/") ? "" : "/"
+          }`;
           const dataJSONPath = path.resolve(
             __dirname,
-            ".cache/json",
-            cacheJSONFilename
+            `public/page-data/${contentNodeFolderName}page-data.json`
           );
 
           try {
@@ -94,7 +94,7 @@ const queries = [
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
             const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.data) || {};
+              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
