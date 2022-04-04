@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToResults component renders children if no url query params provided 1`] = `
+<h1>
+  Rest of Breadcrumbs
+</h1>
+`;
+
+exports[`BackToResults component renders children if url query params is not related to search 1`] = `
+<h1>
+  Rest of Breadcrumbs
+</h1>
+`;
+
+exports[`BackToResults component renders correctly 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
+    href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-84"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-85 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
+</div>
+`;
+
+exports[`BackToResults component renders cta if url query params includes filters values 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D\\"}"
+    href="/en/search/?filters=%7B%22brands%22%3A%5B%22BRAND_1%22%5D%7D"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-24"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-25 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
+</div>
+`;
+
+exports[`BackToResults component renders cta if url query params includes previous page (for plp) 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page?\\"}"
+    href="/en/plp-page?"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-44"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-45 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
+</div>
+`;
+
+exports[`BackToResults component renders cta if url query params includes search request 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?q=query\\"}"
+    href="/en/search/?q=query"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-4"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
+</div>
+`;
+
+exports[`BackToResults component renders cta if url query params includes search tab 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?tab=pages\\"}"
+    href="/en/search/?tab=pages"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-64"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
+</div>
+`;
+
+exports[`BackToResults component renders cta without children if mobile 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-text buttonStyles-text-102 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
+    href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-104"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-105 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+</div>
+`;

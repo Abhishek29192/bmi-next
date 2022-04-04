@@ -15,6 +15,7 @@ import {
   mapClassificationValues
 } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
+import { getSearchParams } from "../utils/filters";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
@@ -57,10 +58,10 @@ const ProductsGridView = ({
         const brandLogo = iconMap[brandLogoCode];
         const mainImage = findMasterImageUrl(variant.images);
         const product = variant.baseProduct;
-        const productUrl = getProductUrl(
+        const productUrl = `${getProductUrl(
           pageContext.countryCode,
           variantCodeToPathMap[variant.code]
-        );
+        )}${getSearchParams()}`;
 
         const uniqueClassifications = mapClassificationValues(
           findUniqueVariantClassifications(

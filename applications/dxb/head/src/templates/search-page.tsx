@@ -26,6 +26,7 @@ import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
 import { useConfig } from "../contexts/ConfigProvider";
+import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 
 export type Props = {
   // TODO: pageContext is/should be the same for all pages, same type
@@ -57,6 +58,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 
 const SearchPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, allContentfulAssetType, productFilters } = data;
+
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
@@ -161,6 +163,21 @@ const SearchPage = ({ pageContext, data }: Props) => {
         }
       }
 
+      const urlTabKey = getSearchTabUrl();
+      if (urlTabKey && newResults[urlTabKey as string].count) {
+        newResults[urlTabKey as string].hasBeenDisplayed = true;
+      } else {
+        // Find first one that has some results and set it to display
+        for (const tabKey in newResults) {
+          // eslint-disable-next-line security/detect-object-injection
+          const config = newResults[tabKey];
+          if (config.count) {
+            config.hasBeenDisplayed = true;
+            break;
+          }
+        }
+      }
+
       setResults(newResults);
       setPageHasResults(Object.values(newResults).some(({ count }) => !!count));
       setAreTabsResolved(true);
@@ -202,6 +219,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
         hasBeenDisplayed: true
       }
     });
+    setSearchTabUrl(tabKey);
   };
 
   const onTabCountChange = (tabKey, count) => {
@@ -254,9 +272,21 @@ const SearchPage = ({ pageContext, data }: Props) => {
       .filter(Boolean);
   };
 
-  const initialTabKey = Object.entries(results).find(
-    ([tabKey, config]) => config.count
-  )?.[0];
+  const getInitialTabKey = () => {
+    const urlTab = getSearchTabUrl();
+
+    const validKeys = Object.entries(results)
+      .filter(([tabKey, config]) => config.count)
+      .map(([tabKey]) => tabKey);
+
+    if (urlTab && validKeys.includes(urlTab)) {
+      return urlTab;
+    }
+
+    return validKeys[0];
+  };
+
+  const initialTabKey = getInitialTabKey();
 
   return (
     <Page

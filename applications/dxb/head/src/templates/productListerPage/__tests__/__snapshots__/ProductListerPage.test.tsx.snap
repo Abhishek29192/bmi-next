@@ -790,8 +790,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -1885,8 +1885,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -3107,8 +3107,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -4311,8 +4311,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -5582,8 +5582,8 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -8719,8 +8719,8 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -9796,8 +9796,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -10868,8 +10868,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -11945,8 +11945,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -13167,8 +13167,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -14371,8 +14371,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -15642,8 +15642,8 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -18761,8 +18761,8 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -20061,8 +20061,8 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -21161,8 +21161,8 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -22467,8 +22467,8 @@ exports[`ProductListerPage template test hande change url by click on filters an
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23571,8 +23571,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23622,8 +23622,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23673,8 +23673,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23724,8 +23724,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23775,8 +23775,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23826,8 +23826,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23877,8 +23877,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23928,8 +23928,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -23979,8 +23979,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24030,8 +24030,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24081,8 +24081,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24132,8 +24132,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24183,8 +24183,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24234,8 +24234,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24285,8 +24285,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24336,8 +24336,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24387,8 +24387,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24438,8 +24438,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24489,8 +24489,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24540,8 +24540,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24591,8 +24591,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24642,8 +24642,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24693,8 +24693,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24744,8 +24744,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24795,8 +24795,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24846,8 +24846,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24897,8 +24897,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24948,8 +24948,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -24999,8 +24999,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -25050,8 +25050,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26165,8 +26165,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26216,8 +26216,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26267,8 +26267,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26318,8 +26318,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26369,8 +26369,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26420,8 +26420,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26471,8 +26471,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26522,8 +26522,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26573,8 +26573,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26624,8 +26624,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26675,8 +26675,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26726,8 +26726,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26777,8 +26777,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26828,8 +26828,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26879,8 +26879,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26930,8 +26930,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -26981,8 +26981,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27032,8 +27032,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27083,8 +27083,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27134,8 +27134,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27185,8 +27185,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27236,8 +27236,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27287,8 +27287,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27338,8 +27338,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27389,8 +27389,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27440,8 +27440,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27491,8 +27491,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27542,8 +27542,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27593,8 +27593,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >
@@ -27644,8 +27644,8 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/\\"}"
-                      href="/uk/"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/uk/?pathname=%2F\\"}"
+                      href="/uk/?pathname=%2F"
                       role="button"
                       tabindex="0"
                     >

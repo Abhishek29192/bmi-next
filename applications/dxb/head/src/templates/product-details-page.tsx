@@ -48,6 +48,7 @@ import { combineVariantClassifications } from "../utils/filters";
 import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
+import BackToResults from "../components/BackToResults";
 
 export type Data = PageData & {
   productData: ProductOverviewData;
@@ -163,7 +164,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
-      (carry, { code, path }) => ({ ...carry, [code]: path }),
+      (carry, { code, path }) => ({
+        ...carry,
+        [code]: `${path}${window?.location.search ?? ""}`
+      }),
       {}
     );
 
@@ -250,7 +254,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <>
             {breadcrumbs && (
               <Section backgroundColor="pearl" isSlim>
-                <Breadcrumbs data={breadcrumbs} />
+                <BackToResults>
+                  <Breadcrumbs data={breadcrumbs} />
+                </BackToResults>
               </Section>
             )}
 

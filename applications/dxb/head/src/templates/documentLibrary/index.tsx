@@ -36,6 +36,7 @@ import { getCount as getCardsCount } from "../../components/DocumentCardsResults
 import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
 import { getCount as getTechnicalTableCount } from "../../components/DocumentTechnicalTableResults";
 import { useConfig } from "../../contexts/ConfigProvider";
+import BackToResults from "../../components/BackToResults";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import { sourceToSortMap } from "./helpers/documnetLibraryHelpers";
@@ -241,7 +242,9 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
             level={2}
             title={title}
             breadcrumbs={
-              <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+              <BackToResults isDarkThemed>
+                <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+              </BackToResults>
             }
           />
           {description && (
