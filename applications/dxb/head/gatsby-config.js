@@ -194,7 +194,7 @@ module.exports = {
     title: `BMI dxb`,
     description: ``,
     author: `bmi`,
-    siteUrl: `https://www.bmigroup.com`
+    siteUrl: process.env.GATSBY_SITE_URL
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
@@ -207,6 +207,12 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: process.env.GATSBY_SITE_URL
+      }
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
