@@ -5,7 +5,9 @@ import {
   Phone,
   PhoneIphone as PhoneMobile,
   PlayArrow,
-  LinkedIn
+  LinkedIn,
+  Twitter,
+  Instagram
 } from "@material-ui/icons";
 import Icon from "./Icon";
 import Arrow from "./svgs/Arrow.svg";
@@ -41,6 +43,8 @@ export {
   Download,
   Facebook,
   LinkedIn,
+  Twitter,
+  Instagram,
   Mail,
   Phone,
   PhoneMobile,
@@ -76,6 +80,8 @@ export const iconMap = {
   Download,
   Facebook,
   LinkedIn,
+  Twitter,
+  Instagram,
   Mail,
   Phone,
   PhoneMobile,
