@@ -21,6 +21,8 @@
   &:global([class*="iconButtonStyles-text"]) {
     fill: $color-theme-inter;
   }
+  
+  &:global([class*="Mui-disabled"]) { opacity: 0.38; }
 
   &:global([class*="Mui-selected"]) {
     color: $color-white;
