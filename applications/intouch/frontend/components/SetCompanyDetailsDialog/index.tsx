@@ -146,9 +146,21 @@ export const SetCompanyDetailsDialog = ({
             if (e.key === "Enter") e.preventDefault();
           }}
         >
-          <Typography variant="h6" className={styles.sectionText}>
-            {t("company-page:edit_dialog.sections.registered_details")}
-          </Typography>
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
+              <Typography variant="h6" className={styles.sectionText}>
+                {t("company-page:edit_dialog.sections.registered_details")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <Typography
+                variant="default"
+                className={styles.requiredInformation}
+              >
+                * {t("common:requiredInformation")}
+              </Typography>
+            </Grid>
+          </Grid>
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
               <TextField {...getFieldProps("name")} isRequired />

@@ -85,5 +85,6 @@
   "button": {
     "more": "Vis mer",
     "less": "Vis mindre"
-  }
+  },
+  "requiredInformation": "nødvendig informasjon"
 }
