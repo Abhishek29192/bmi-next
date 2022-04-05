@@ -2,7 +2,10 @@
 
 exports[`CompanyAdmins Components check for correct behavior on Show More button click 1`] = `
 <div>
-  <div>
+  <div
+    class="wrapper"
+  >
+    
     <div
       class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
@@ -391,7 +394,10 @@ exports[`CompanyAdmins Components check for correct behavior on Show More button
 
 exports[`CompanyAdmins Components render correctly if there is members 1`] = `
 <div>
-  <div>
+  <div
+    class="wrapper"
+  >
+    
     <div
       class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     >
@@ -762,7 +768,9 @@ exports[`CompanyAdmins Components render correctly if there is members 1`] = `
 
 exports[`CompanyAdmins Components render correctly if there is no members 1`] = `
 <div>
-  <div>
+  <div
+    class="wrapper"
+  >
     <div
       class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
     />

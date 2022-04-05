@@ -167,5 +167,7 @@
       "ALPHABETICAL": "Alfabetisk",
       "UPDATED": "Sidst opdateret"
     }
-  }
+  },
+  "companyAdministrators": "Virksomhedsadministratorer",
+  "companyMembers": "Medlemmer"
 }

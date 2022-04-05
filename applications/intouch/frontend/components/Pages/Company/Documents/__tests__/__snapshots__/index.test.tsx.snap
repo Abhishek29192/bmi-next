@@ -12,7 +12,7 @@ exports[`CompanyDocuments Components render correctly if there is document 1`] =
         class="MuiCardContent-root"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
           style="font-size: 1.2rem;"
         >
           document.title
@@ -100,7 +100,7 @@ exports[`CompanyDocuments Components render correctly if there is no document 1`
         class="MuiCardContent-root"
       >
         <h4
-          class="MuiTypography-root Typography Typography--underline MuiTypography-h4 MuiTypography-colorPrimary"
+          class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
           style="font-size: 1.2rem;"
         >
           document.title
