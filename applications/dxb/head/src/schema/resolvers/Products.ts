@@ -132,7 +132,8 @@ export default {
               title: `${source.name} ${assetType.name}`,
               url,
               assetType___NODE: assetType.id,
-              product___NODE: source.id
+              product___NODE: source.id,
+              isLinkDocument: true
             };
 
             return {
@@ -157,6 +158,7 @@ export default {
             url,
             assetType___NODE: assetType.id,
             fileSize,
+            isLinkDocument: false,
             product___NODE: source.id,
             format: mime || getFormatFromFileName(realFileName),
             extension: realFileName.split(".").pop()

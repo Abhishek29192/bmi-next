@@ -214,7 +214,6 @@ export const useGTM = (props: GTM) => {
 
   function pushGTMEvent() {
     if (!process.env.GATSBY_PREVIEW) {
-      console.log(process.env.GATSBY_PREVIEW);
       pushToDataLayer(dataGTM);
     }
   }

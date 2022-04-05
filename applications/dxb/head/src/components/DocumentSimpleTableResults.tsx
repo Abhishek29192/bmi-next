@@ -43,7 +43,7 @@ export type Document =
   | PIMLinkDocumentData
   | SDPDocumentData;
 
-type Props = {
+export type Props = {
   documents: Document[];
   page: number;
   documentsPerPage: number;
@@ -56,6 +56,14 @@ const GTMButton = withGTM<
     action?: ClickableAction;
   }
 >(Button);
+
+function isLinkDocument(document: Document): document is PIMLinkDocumentData {
+  if ("isLinkDocument" in document) {
+    return document.isLinkDocument;
+  } else {
+    return document.__typename === "PIMLinkDocument";
+  }
+}
 
 const getDocument = (
   documents: Document[],
@@ -97,7 +105,7 @@ const getDocument = (
     if (header === "download") {
       return (
         <Table.Cell className={styles["table-cell"]} align="left" key={key}>
-          {document.__typename !== "PIMLinkDocument" ? (
+          {!isLinkDocument(document) ? (
             multipleDocuments ? (
               <MultipleAssetToFileDownload
                 assets={
@@ -132,7 +140,7 @@ const getDocument = (
     if (header === "add") {
       return !multipleDocuments ? (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
-          {document.__typename !== "PIMLinkDocument" ? (
+          {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
               name={id}
               maxLimitReachedLabel={getMicroCopy(
