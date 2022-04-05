@@ -85,5 +85,6 @@
   "button": {
     "more": "Mostra di più",
     "less": "Mostra meno"
-  }
+  },
+  "requiredInformation": "informazioni richieste"
 }
