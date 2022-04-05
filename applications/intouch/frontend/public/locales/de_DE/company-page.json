@@ -168,5 +168,7 @@
       "ALPHABETICAL": "Alphabetisch",
       "UPDATED": "Zuletzt aktualisiert"
     }
-  }
+  },
+  "companyAdministrators": "Unternehmensadministratoren",
+  "companyMembers": "Mitglieder"
 }

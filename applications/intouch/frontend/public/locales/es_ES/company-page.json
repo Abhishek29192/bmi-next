@@ -168,5 +168,7 @@
   },
   "supportTitle": "Póngase en contacto con BMI",
   "titleAdmin": "Empresas",
-  "titleMember": "Empresa"
+  "titleMember": "Empresa",
+  "companyAdministrators": "Administradores de la empresa",
+  "companyMembers": "Miembros"
 }

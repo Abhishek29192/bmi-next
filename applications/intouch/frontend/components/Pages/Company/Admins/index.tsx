@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { gql } from "@apollo/client";
-import { Button, Grid } from "@bmi/components";
+import { Button, Grid, Typography } from "@bmi/components";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
 import { SmallProfileCard } from "../../../Cards/SmallProfileCard";
 import { sortByLastName } from "../../../../lib/utils/account";
@@ -10,9 +10,14 @@ import styles from "./styles.module.scss";
 type AdminsProps = {
   admins: GetCompanyQuery["company"]["companyMembers"]["nodes"];
   count?: number;
+  title?: string;
 };
 
-export const CompanyAdmins = ({ admins, count = 6 }: AdminsProps) => {
+export const CompanyAdmins = ({
+  admins,
+  count = 6,
+  title = ""
+}: AdminsProps) => {
   const { t } = useTranslation("common");
 
   const [expandAllMembers, setExpandAllMembers] = useState<boolean>(true);
@@ -31,7 +36,12 @@ export const CompanyAdmins = ({ admins, count = 6 }: AdminsProps) => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
+      {admins.length > 0 && title && (
+        <Typography variant="h6" className={styles.headerText}>
+          {title}
+        </Typography>
+      )}
       <Grid container spacing={3} alignItems="stretch">
         {sortByLastName(admins.slice(0, countToShow)).map(({ account }) => (
           <Grid item xs={12} md={6} key={account.id}>

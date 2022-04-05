@@ -77,11 +77,13 @@ export const CompanyPage = ({
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.COMPANY_ADMIN
             )}
+            title={t("companyAdministrators")}
           />
           <CompanyAdmins
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.INSTALLER
             )}
+            title={t("companyMembers")}
           />
           <CompanyDocuments
             companyId={company.id}
