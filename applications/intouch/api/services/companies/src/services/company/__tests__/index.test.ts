@@ -635,7 +635,7 @@ describe("Company", () => {
         );
         expect(resolve).toHaveBeenCalledTimes(1);
         expect(mockGetDbPoolQuery).toHaveBeenCalledWith(
-          `SELECT * FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+          `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
           ["MARKET_ADMIN", 1]
         );
       });
@@ -662,7 +662,7 @@ describe("Company", () => {
           })
           .mockReturnValue({});
         mockGetDbPoolQuery.mockReturnValueOnce({
-          rows: [{ email: marketAdminEmail }]
+          rows: [{ email: marketAdminEmail, id: 3 }]
         });
 
         await updateCompany(resolve, source, args, context, resolveInfo);
@@ -681,8 +681,9 @@ describe("Company", () => {
           context,
           "COMPANY_REGISTERED",
           {
+            ...mailBody,
             email: marketAdminEmail,
-            ...mailBody
+            accountId: 3
           }
         );
       });
@@ -702,7 +703,10 @@ describe("Company", () => {
           })
           .mockReturnValue({});
         mockGetDbPoolQuery.mockReturnValueOnce({
-          rows: [{ email: marketAdminEmail }, { email: `${marketAdminEmail}2` }]
+          rows: [
+            { email: marketAdminEmail },
+            { email: `${marketAdminEmail}2`, id: 4 }
+          ]
         });
 
         await updateCompany(resolve, source, args, context, resolveInfo);
@@ -714,7 +718,7 @@ describe("Company", () => {
           "COMPANY_REGISTERED",
           {
             email: `${marketAdminEmail}2`,
-            accountId: context.user.id,
+            accountId: 4,
             firstname: context.user.firstName,
             company: companyName,
             city: "town",
