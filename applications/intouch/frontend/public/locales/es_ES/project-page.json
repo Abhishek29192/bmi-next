@@ -162,6 +162,16 @@
     },
     "title": "No puede solicitar una garantía todavía"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "¿Está seguro?",
+      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto."
+    },
+    "reject": {
+      "title": "¿Está seguro?",
+      "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere."
+    }
+  },
   "guarantee_tab": {
     "applyGuarantee": {
       "defaultDialog": {

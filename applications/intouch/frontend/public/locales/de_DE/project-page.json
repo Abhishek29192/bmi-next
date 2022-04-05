@@ -154,6 +154,16 @@
     },
     "title": "You cannot submit for a guarantee yet"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Are you sure?",
+      "description": "You are about to approve a solution guarantee request. The guarantee documentation will now be generated and automatically issued to the building owner by email. The installer will be notified but you can also add a note to this project."
+    },
+    "reject": {
+      "title": "Are you sure?",
+      "description": "You are about to reject a solution guarantee request. The installer will be notified. Add a note to this project to confirm to the installer what is required."
+    }
+  },
   "guarantee_tab": {
     "applyGuarantee": {
       "defaultDialog": {
@@ -275,6 +285,8 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Approve guarantee",
+      "confirm": "Bestätigen",
+      "cancel": "Abbrechen",
       "archive": "Archive project",
       "requestInformation": "Request more information",
       "unarchive": "Un-archive project"
