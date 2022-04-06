@@ -4,9 +4,12 @@ import { Button } from "@bmi/components";
 import { LeadBlock } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { TableOfContent } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import { BLOCKS } from "@contentful/rich-text-types";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
-import RichText, { RichTextData } from "./RichText";
+import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
 import Link, { Data as LinkData } from "./Link";
 
 export type Data = {
@@ -16,6 +19,8 @@ export type Data = {
   link: LinkData | null;
   postItCard: RichTextData | null;
 };
+
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const LeadBlockSection = ({
   data: { text, link, postItCard }
@@ -50,6 +55,10 @@ const LeadBlockSection = ({
               <RichText
                 document={postItCard}
                 underlineHeadings={["h2", "h3", "h4"]}
+                gtmLabel={
+                  parseReachDataRawFields(postItCard)[BLOCKS.HEADING_4] ||
+                  parseReachDataRawFields(postItCard)[BLOCKS.HEADING_5]
+                }
               />
             ) : (
               <>
@@ -57,7 +66,20 @@ const LeadBlockSection = ({
                   {getMicroCopy(microCopy.PAGE_JUMP_TO_SECTION)}
                 </LeadBlock.Card.Heading>
                 <LeadBlock.Card.Content>
-                  <TableOfContent.Menu />
+                  <TableOfContent.Menu
+                    anchorLinkComponent={(props: AnchorLinkProps) => (
+                      <GTMAnchorLink
+                        gtm={{
+                          id: "cta-click1",
+                          label: `${getMicroCopy(
+                            microCopy.PAGE_JUMP_TO_SECTION
+                          )} - ${props.children}`,
+                          action: props.action?.href
+                        }}
+                        {...props}
+                      />
+                    )}
+                  />
                 </LeadBlock.Card.Content>
               </>
             )}

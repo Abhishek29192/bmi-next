@@ -85,6 +85,7 @@ exports[`RichText component closes dialog 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 EmbeddedLink MuiButton-containedPrimary"
+        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
         tabindex="0"
         type="button"
       >
@@ -127,6 +128,7 @@ exports[`RichText component closes dialog 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-contained buttonStyles-contained-63 EmbeddedLink MuiButton-containedPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
       tabindex="0"
       type="button"
     >
@@ -264,6 +266,7 @@ exports[`RichText component renders correctly 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 EmbeddedLink MuiButton-containedPrimary"
+        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
         tabindex="0"
         type="button"
       >
@@ -306,6 +309,7 @@ exports[`RichText component renders correctly 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 EmbeddedLink MuiButton-containedPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
       tabindex="0"
       type="button"
     >
@@ -433,6 +437,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
        
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Aerodek Robust Plus\\",\\"action\\":\\"product-category-page/product-sub-category-page/aerodek-robust-plus/\\"}"
         tabindex="0"
         type="button"
       >
@@ -475,6 +480,7 @@ exports[`RichText component renders when dialog clicked 1`] = `
     <hr />
     <button
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-contained buttonStyles-contained-43 EmbeddedLink MuiButton-containedPrimary"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Support\\",\\"action\\":\\"landing-page/\\"}"
       tabindex="0"
       type="button"
     >

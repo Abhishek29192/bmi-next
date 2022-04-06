@@ -313,6 +313,13 @@ const ProductLeadBlock = ({
                         document={sidebarItems[0].content}
                         theme="secondary"
                         backgroundTheme="dark"
+                        gtmLabel={
+                          (keyFeatures
+                            ? `${getMicroCopy(
+                                microCopy.PDP_LEAD_BLOCK_KEY_FEATURES
+                              )} - `
+                            : "") + `${sidebarItems[0].title}`
+                        }
                       />
                     </LeadBlock.Card.Content>
                   </LeadBlock.Card.Section>
@@ -345,6 +352,7 @@ const ProductLeadBlock = ({
                           document={content}
                           theme="secondary"
                           backgroundTheme="dark"
+                          gtmLabel={title}
                         />
                       </LeadBlock.Card.Content>
                     </LeadBlock.Card.Section>

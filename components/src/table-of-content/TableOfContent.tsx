@@ -1,15 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
+import AnchorLink from "../anchor-link/AnchorLink";
 import styles from "./TableOfContent.module.scss";
 
 type ContextType = {
   titles: Record<string, string>;
-  renderLink: (sectionId: string, title: string) => React.ReactNode;
   getTitleId: (title: string) => string;
 };
 
 export const Context = React.createContext<ContextType>({
   titles: {},
-  renderLink: (sectionId, title) => undefined,
   getTitleId: (title) => title
 });
 
@@ -46,15 +45,28 @@ const TableOfContentAnchor = ({
   );
 };
 
-const TableOfContentMenu = ({ className }: { className?: string }) => {
+const TableOfContentMenu = ({
+  className,
+  anchorLinkComponent: AnchorComponent = AnchorLink
+}: {
+  className?: string;
+  anchorLinkComponent?: React.ElementType;
+}) => {
   return (
     <Context.Consumer>
-      {({ titles, renderLink }) => (
+      {({ titles }) => (
         <div className={className}>
           {Object.entries(titles).map(([title, sectionId], index) => {
             return (
               <div className={styles["link"]} key={index}>
-                {renderLink(sectionId, title)}
+                <AnchorComponent
+                  action={{
+                    model: "htmlLink",
+                    href: `#${sectionId}`
+                  }}
+                >
+                  {title}
+                </AnchorComponent>
               </div>
             );
           })}
@@ -66,10 +78,9 @@ const TableOfContentMenu = ({ className }: { className?: string }) => {
 
 type Props = {
   children: React.ReactNode;
-  renderLink: (sectionId: string, title: string) => React.ReactNode;
 };
 
-const TableOfContent = ({ children, renderLink }: Props) => {
+const TableOfContent = ({ children }: Props) => {
   const [titles, setTitles] = useState<Record<string, string>>({});
 
   const getTitleId = (title: string): string => {
@@ -81,7 +92,7 @@ const TableOfContent = ({ children, renderLink }: Props) => {
   };
 
   return (
-    <Context.Provider value={{ titles, renderLink, getTitleId }}>
+    <Context.Provider value={{ titles, getTitleId }}>
       <div className={styles["TOC"]}>{children}</div>
     </Context.Provider>
   );
