@@ -396,7 +396,7 @@ describe("Search Page Template", () => {
     expect(container.querySelector(".Tab")).toBeFalsy();
   });
 
-  it("render searchPageNextBestActions if searchPageNextBestActions exists", () => {
+  it("render searchPageNextBestActions if searchPageNextBestActions exists", async () => {
     const newData = { ...data };
     newData.contentfulSite.resources.searchPageNextBestActions = [
       {
@@ -414,6 +414,10 @@ describe("Search Page Template", () => {
         backgroundColor: null
       }
     ];
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search: "q="
+    });
     const { queryByText } = renderWithRouter(
       <SearchPage
         data={newData}
@@ -428,7 +432,9 @@ describe("Search Page Template", () => {
     );
 
     // expect(container).toMatchSnapshot();
-    expect(queryByText("searchPageNextBestActionsTitle")).toBeTruthy();
+    await waitFor(() =>
+      expect(queryByText("searchPageNextBestActionsTitle")).toBeTruthy()
+    );
   });
 
   it("render searchPageExploreBar if searchPageExploreBar exists", async () => {
