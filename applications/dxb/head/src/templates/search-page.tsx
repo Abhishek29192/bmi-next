@@ -296,7 +296,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           handleSubmit={isPreviewMode && handleSubmit}
         />
       </Section>
-      {pageHasResults ? (
+      {pageHasResults && !tabIsLoading ? (
         <Tabs
           initialValue={initialTabKey}
           theme="secondary"
@@ -305,7 +305,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
           {renderTabs()}
         </Tabs>
       ) : null}
-      {!pageHasResults
+      {!pageHasResults && !tabIsLoading
         ? resources.searchPageNextBestActions && (
             <NextBestActions data={resources.searchPageNextBestActions} />
           )
