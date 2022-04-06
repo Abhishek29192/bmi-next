@@ -7,7 +7,8 @@ import {
   createFeature,
   createFeatureValue,
   createFeatureUnit,
-  createMeasurementsClassification
+  createMeasurementsClassification,
+  createTwoOneClassifications
 } from "@bmi/pim-types";
 import {
   ESIndexObject,
@@ -668,6 +669,92 @@ describe("CLONE tests", () => {
                 name: "value-6 symbol"
               }
             ]
+          });
+        });
+      });
+
+      describe("When multiple TwoOne Classifications are present", () => {
+        describe("And No features are present", () => {
+          it("should return empty features list", () => {
+            const classifications: Array<Classification> = [
+              createClassification({
+                features: undefined
+              }),
+              createClassification({
+                code: "classification-2",
+                features: undefined
+              })
+            ];
+            const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+              "",
+              classifications
+            );
+            expect(result).toEqual({});
+          });
+        });
+        describe("And Multiple features are present", () => {
+          it("should remove ALL Two One Classifications and matching ignore features", () => {
+            const classifications: Array<Classification> = [
+              ...createTwoOneClassifications(""),
+              createClassification({
+                features: [
+                  createFeature({
+                    featureValues: [
+                      createFeatureValue({ code: "code1", value: "value-1" }),
+                      createFeatureValue({ code: "code2", value: "value-2" }),
+                      createFeatureValue({ code: "code3", value: "value-3" })
+                    ]
+                  })
+                ]
+              }),
+              createClassification({
+                code: "classification-2",
+                features: [
+                  createFeature({
+                    code: "classification-feature-code-2",
+                    featureValues: [
+                      createFeatureValue({ code: "code4", value: "value-4" }),
+                      createFeatureValue({ code: "code5", value: "value-5" }),
+                      createFeatureValue({ code: "code6", value: "value-6" })
+                    ]
+                  })
+                ]
+              })
+            ];
+            const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+              "",
+              classifications
+            );
+            expect(result).toEqual({
+              "classification-feature-code": [
+                {
+                  code: "code1symbol",
+                  name: "value-1 symbol"
+                },
+                {
+                  code: "code2symbol",
+                  name: "value-2 symbol"
+                },
+                {
+                  code: "code3symbol",
+                  name: "value-3 symbol"
+                }
+              ],
+              "classification-feature-code-2": [
+                {
+                  code: "code4symbol",
+                  name: "value-4 symbol"
+                },
+                {
+                  code: "code5symbol",
+                  name: "value-5 symbol"
+                },
+                {
+                  code: "code6symbol",
+                  name: "value-6 symbol"
+                }
+              ]
+            });
           });
         });
       });

@@ -9,7 +9,8 @@ import {
   createScoringWeightAttributesClassification,
   createVariantOption,
   createProduct as createPimProduct,
-  createCategory
+  createCategory,
+  createTwoOneClassifications
 } from "@bmi/pim-types";
 import { ProductVariant } from "../es-model";
 
@@ -437,6 +438,53 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
 
       expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
+    });
+
+    it("should exclude TwoOneClassificationAndFeatures", async () => {
+      const product = createPimProduct({
+        variantOptions: [
+          createVariantOption({
+            classifications: [
+              ...createTwoOneClassifications(),
+              createMeasurementsClassification({
+                features: [
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.height`,
+                    featureValues: [createFeatureValue({ value: "10" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.width`,
+                    featureValues: [createFeatureValue({ value: "100" })]
+                  }),
+                  createFeature({
+                    code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.length`,
+                    featureValues: [createFeatureValue({ value: "1" })]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      });
+      const transformedProduct = await transformProduct(product);
+
+      expect(transformedProduct[0].measurementValue).toEqual("10x100x1symbol");
+      //verify TwoOne classifications and attributes are not present iin transformed product
+      expect(transformedProduct[0].bagUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].canisterUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].crateUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].cubicMeterUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].drumUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].eachUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].kilogramUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].kilometerUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].literUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].meterUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].packUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].palletUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].pieceUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].rollsUomAttributes).toEqual(undefined);
+      expect(transformedProduct[0].squareMeterUomAttributes).toEqual(undefined);
     });
   });
 

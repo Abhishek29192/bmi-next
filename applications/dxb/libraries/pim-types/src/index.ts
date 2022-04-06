@@ -7,7 +7,8 @@ import createClassification, {
   createScoringWeightAttributesClassification,
   createAppearanceAttributesClassification,
   createGeneralInformationClassification,
-  createMeasurementsClassification
+  createMeasurementsClassification,
+  createTwoOneClassifications
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
 import createProduct from "./ProductHelper";
@@ -44,7 +45,9 @@ import {
   SystemReferenceTarget,
   SystemsApiResponse,
   VariantOption,
-  BaseProduct
+  BaseProduct,
+  TwoOneIgnoreDictionary,
+  TwoOneAttribToIgnore
 } from "./types";
 
 export {
@@ -66,7 +69,8 @@ export {
   createSystemLayerProducts,
   createSystemReference,
   createSystemsApiResponse,
-  createVariantOption
+  createVariantOption,
+  createTwoOneClassifications
 };
 
 export {
@@ -93,5 +97,7 @@ export {
   SystemReferenceTarget,
   SystemsApiResponse,
   VariantOption,
-  BaseProduct
+  BaseProduct,
+  TwoOneIgnoreDictionary,
+  TwoOneAttribToIgnore
 };

@@ -5,7 +5,8 @@ import {
   Feature,
   Product as PIMProduct,
   VariantOption as PIMVariant,
-  BaseProduct
+  BaseProduct,
+  TwoOneIgnoreDictionary
 } from "@bmi/pim-types";
 import type { ProductVariant as ESProduct } from "./es-model";
 import {
@@ -16,7 +17,8 @@ import {
   IndexFeatures,
   IndexedItemGroup,
   groupBy,
-  ESIndexObject
+  ESIndexObject,
+  extractFeatureCode
 } from "./CLONE";
 
 // Can't use lodash pick as it's not type-safe
@@ -30,6 +32,31 @@ const {
   // TODO: Remove this fallback once the environment variable is correctly set.
   PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiClassificationCatalog/1.0"
 } = process.env;
+
+const filterTwoOneAttributes = (
+  classificationCode: string,
+  origFeatures: Feature[]
+) => {
+  const excludeAttributes = TwoOneIgnoreDictionary[classificationCode];
+  return origFeatures.filter((feature) => {
+    const featureCode = extractFeatureCode(
+      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
+      feature.code
+    );
+    const attributeName = featureCode
+      .replace(`${classificationCode}.`, "")
+      .toLowerCase();
+    if (
+      excludeAttributes &&
+      excludeAttributes.some(
+        (attribute) => attribute.toLowerCase() === attributeName
+      )
+    ) {
+      return undefined;
+    }
+    return feature;
+  });
+};
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
 const combineVariantClassifications = (
@@ -75,7 +102,10 @@ const combineVariantClassifications = (
         mergedFeaturesMap.set(key, productFeature);
       }
     });
-    variantClassification.features = Array.from(mergedFeaturesMap.values());
+    variantClassification.features = filterTwoOneAttributes(
+      variantClassification.code,
+      Array.from(mergedFeaturesMap.values())
+    );
     mergedClassifications.set(key, variantClassification);
   });
 
@@ -83,6 +113,11 @@ const combineVariantClassifications = (
   // add them to collection at the end
   productClassificationMap.forEach((classification, key) => {
     if (vairantClassificationsMap.get(key) === undefined) {
+      const origFeatures = classification.features || [];
+      classification.features = filterTwoOneAttributes(
+        classification.code,
+        origFeatures
+      );
       mergedClassifications.set(key, classification);
     }
   });
@@ -191,6 +226,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       images: [...(variant.images || []), ...(product.images || [])],
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
       allCategories: product.categories || [],
+      // TODO: populate with just values of classifications in this collection
       classifications: combinedClassifications,
       measurementValue,
       productScoringWeightInt:
