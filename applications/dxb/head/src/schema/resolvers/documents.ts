@@ -89,6 +89,7 @@ export const resolveDocumentsFromProducts = async (
             title,
             url,
             assetType___NODE: assetType.id,
+            isLinkDocument: true,
             product___NODE: product.id
           };
 
@@ -114,6 +115,7 @@ export const resolveDocumentsFromProducts = async (
           url,
           assetType___NODE: assetType.id,
           fileSize,
+          isLinkDocument: false,
           product___NODE: product.id,
           format: mime || getFormatFromFileName(realFileName),
           extension: realFileName.split(".").pop(),

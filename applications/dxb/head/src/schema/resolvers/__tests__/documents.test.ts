@@ -175,10 +175,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-1",
           internal: {
-            contentDigest: "73d2ab1208ca6f224b8255f6fbce144f",
+            contentDigest: "bab90058677bb11e0a14c2fdc4788b99",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "asset-1",
@@ -189,10 +190,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-2",
           internal: {
-            contentDigest: "a800e9f8c1ddd35fefe36bbda032c3aa",
+            contentDigest: "827e3e7a40105c38bde2d1370ec1e174",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "asset-2",
@@ -206,10 +208,11 @@ describe("documents resolver utils", () => {
           format: "application/pdf",
           id: "product-1-nameasset-3",
           internal: {
-            contentDigest: "8d6022774e3b95762db734c740da0b63",
+            contentDigest: "8ce431c74abbe3fc435249dbbc2b2a1b",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source-id",
           product___NODE: "product-1",
           realFileName: "asset-real-file-name.pdf",
@@ -224,10 +227,11 @@ describe("documents resolver utils", () => {
           format: "application/pdf",
           id: "product-1-nameasset-4",
           internal: {
-            contentDigest: "ad930188ca49d9dd9fb5a9360977fbfe",
+            contentDigest: "8d2daadbab0f59acf7ce7766becc150d",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source-id",
           product___NODE: "product-1",
           realFileName: "asset-real-file-name.pdf",
@@ -239,10 +243,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-name",
           internal: {
-            contentDigest: "8670195ad3a9d4b2b63dfac28841839b",
+            contentDigest: "ba1d773a5aa6b19d4f4132324f7776bc",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "product-1-name asset-type-name-1",
@@ -281,10 +286,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-1",
           internal: {
-            contentDigest: "8670195ad3a9d4b2b63dfac28841839b",
+            contentDigest: "ba1d773a5aa6b19d4f4132324f7776bc",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "product-1-name asset-type-name-1",

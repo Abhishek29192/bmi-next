@@ -149,6 +149,9 @@ const queries = [
   process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
     query: documentsQuery,
     transformer: ({ data }) => {
+      function isLinkDocument(document) {
+        return !!document.url && !document.fileSize && !document.realFileName;
+      }
       if (!data) {
         throw new Error("No data");
       }
@@ -158,11 +161,13 @@ const queries = [
       return [
         ...allPIMDocument.map((item) => ({
           titleAndSize: `${item.title}_${item.fileSize}`,
+          isLinkDocument: isLinkDocument(item),
           ...item
         })),
         ...allContentfulDocument.edges.map(({ node }) => ({
           titleAndSize: `${node.title}_${node.asset.file.details.size}`,
           realFileName: `${node.asset.file.fileName}`,
+          isLinkDocument: isLinkDocument(node),
           ...node
         }))
       ];
