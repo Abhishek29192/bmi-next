@@ -546,7 +546,7 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockedAxios.get).toBeCalledTimes(2);
-    expect(mockPushToDataLayer).toHaveBeenCalledTimes(1);
+    expect(mockPushToDataLayer).toHaveBeenCalledTimes(2);
   });
 
   it("throws error", async () => {
@@ -633,7 +633,7 @@ describe("SystemConfiguratorSection component", () => {
         "/jest-test-page"
       );
       expect(container).toMatchSnapshot();
-      expect(mockPushToDataLayer).toHaveBeenCalledTimes(0);
+      expect(mockPushToDataLayer).toHaveBeenCalledTimes(1);
     });
 
     it("highlights last selected system", async () => {

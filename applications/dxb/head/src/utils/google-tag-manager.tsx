@@ -49,9 +49,9 @@ export const GTMContext = createContext<Context>({ idMap: {} });
  *
  * @param {GTM} dataGtm the data to push to the dataLayer
  */
-export function pushToDataLayer(dataGtm: GTM) {
+export const pushToDataLayer = (dataGtm: GTM) => {
   window.dataLayer && window.dataLayer.push(dataGtm);
-}
+};
 
 /**
  * Adds a `data-gtm` attribute and adds the {@link pushToDataLayer} call to the
@@ -202,3 +202,25 @@ export default function withGTM<P>(
 
   return ComponentWithGTM;
 }
+
+export const useGTM = (props: GTM) => {
+  const { idMap } = useContext(GTMContext);
+  const gtmId = idMap[props.id] || props.id;
+  const dataGTM = {
+    id: gtmId,
+    label: props.label,
+    action: props.action
+  };
+
+  function pushGTMEvent() {
+    if (!process.env.GATSBY_PREVIEW) {
+      console.log(process.env.GATSBY_PREVIEW);
+      pushToDataLayer(dataGTM);
+    }
+  }
+
+  return {
+    dataGTM,
+    pushGTMEvent
+  };
+};

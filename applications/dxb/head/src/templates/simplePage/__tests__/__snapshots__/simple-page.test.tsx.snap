@@ -6344,6 +6344,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="BMI Group VIDEO LABEL"

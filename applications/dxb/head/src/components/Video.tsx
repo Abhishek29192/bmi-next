@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { YoutubeVideo } from "@bmi/components";
+import { useGTM } from "../utils/google-tag-manager";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
@@ -22,6 +23,21 @@ const Video = ({ data }: { data: Data }) => {
 
 export const renderVideo = (data: Data) => {
   const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
+  const videoUrl = useMemo(
+    () => `https://www.youtube.com/watch?v=${youtubeId}`,
+    [youtubeId]
+  );
+  const gtm = useMemo(
+    () => ({
+      id: "cta-click--video-youtube",
+      label: `${videoUrl}-${label}`,
+      action: "Play"
+    }),
+    [videoUrl, label]
+  );
+
+  const { dataGTM, pushGTMEvent } = useGTM(gtm);
+
   return (
     <YoutubeVideo
       label={label}
@@ -32,6 +48,8 @@ export const renderVideo = (data: Data) => {
       previewImageSource={
         previewMedia ? <Image data={previewMedia} /> : undefined
       }
+      onGTMEvent={pushGTMEvent}
+      dataGTM={dataGTM}
     />
   );
 };

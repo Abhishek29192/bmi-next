@@ -7,7 +7,6 @@ import {
 } from "@reach/router";
 import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
-import "@testing-library/jest-dom";
 import {
   Category,
   Classification,

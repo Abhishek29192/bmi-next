@@ -1,6 +1,5 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import Thumbnail from "../../thumbnail/Thumbnail";
 import MobileThumbnails from "../_MobileThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
