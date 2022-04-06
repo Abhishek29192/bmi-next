@@ -196,7 +196,8 @@ export const compileElasticSearchQuery = (
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)
-                  ]
+                  ],
+                  escape: true
                 }
               }
             : null,
