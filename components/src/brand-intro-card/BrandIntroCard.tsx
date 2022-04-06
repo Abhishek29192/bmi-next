@@ -1,6 +1,7 @@
 import React from "react";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { ArrowForward } from "@material-ui/icons";
+import classnames from "classnames";
 import Card from "../card/Card";
 import Typography from "../typography/Typography";
 import DefaultButton from "../button/Button";
@@ -13,6 +14,7 @@ type Props = {
   description: React.ReactNode;
   buttonLabel: React.ReactNode;
   action?: ClickableAction;
+  whiteBox?: boolean;
 };
 
 const BrandIntroCard = ({
@@ -20,7 +22,8 @@ const BrandIntroCard = ({
   buttonComponent: Button = DefaultButton,
   description,
   buttonLabel,
-  action
+  action,
+  whiteBox = false
 }: Props) => {
   const BrandLogo = logoIcon;
 
@@ -34,7 +37,9 @@ const BrandIntroCard = ({
       >
         <BrandLogo
           preserveAspectRatio="xMinYMin"
-          className={styles["brandLogo"]}
+          className={classnames(styles["brandLogo"], {
+            [styles["brandLogo-whiteBox"]!]: whiteBox
+          })}
         />
       </Button>
       <Typography className={styles["description"]} variant="subtitle1">

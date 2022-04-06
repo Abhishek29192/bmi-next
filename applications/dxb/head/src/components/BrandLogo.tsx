@@ -7,16 +7,19 @@ import styles from "./styles/BrandLogo.module.scss";
 type Props = {
   brandName: string;
   className?: string;
+  brandWhiteBox?: boolean;
 };
 
-const BrandLogo = ({ brandName, className }: Props) => {
+const BrandLogo = ({ brandName, className, brandWhiteBox = false }: Props) => {
   // eslint-disable-next-line security/detect-object-injection
   const iconLogo = logoIconMap[brandName];
 
   return iconLogo ? (
     <Icon
       source={iconLogo}
-      className={classnames(styles["BrandLogo"], className)}
+      className={classnames(styles["BrandLogo"], className, {
+        [styles["BrandLogo-whiteBox"]]: brandWhiteBox
+      })}
     />
   ) : null;
 };

@@ -15,16 +15,26 @@
   }
 
   .brand-logo {
-    fill: $color-white;
+
     padding: 5px;
     height: 50px;
     z-index: 2;
     overflow: hidden;
+
     &--negative {
       margin-top: -50px;
+
+      & svg, img {
+        background-color: $color-white;
+      }
     }
-    object-fit: contain;
-    object-position: left;
+
+    & svg, img {
+      fill: $color-white;
+      height: 100%;
+      object-fit: contain;
+      object-position: left;
+    }
   }
 
   .header-picture {
