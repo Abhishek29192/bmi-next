@@ -59,6 +59,7 @@ const createContentfulDocument = (
   },
   description: null,
   brand: null,
+  noIndex: false,
   ...pimDocument
 });
 

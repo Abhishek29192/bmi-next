@@ -1292,6 +1292,9 @@ type ContentfulDocument implements Node {
 
   "The main image document."
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 """
