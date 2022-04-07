@@ -444,7 +444,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1109,7 +1109,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1510,7 +1510,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -1904,7 +1904,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -2272,7 +2272,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -2342,15 +2342,7 @@ Array [
           "en-US": "0492-383300",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": "Test summary",
@@ -2397,15 +2389,7 @@ Array [
           "en-US": "0492-383300",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": "Test summary",
@@ -2452,15 +2436,7 @@ Array [
           "en-US": "0492-383300",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": "Test summary",
@@ -2507,15 +2483,7 @@ Array [
           "en-US": "088-4553600",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": "Test summary",
@@ -2562,15 +2530,7 @@ Array [
           "en-US": "www.aberson.nl",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": undefined,
@@ -2617,15 +2577,7 @@ Array [
           "en-US": "088-4553600",
         },
         "serviceTypes": Object {
-          "en-US": Array [
-            Object {
-              "sys": Object {
-                "id": undefined,
-                "linkType": "Entry",
-                "type": "Link",
-              },
-            },
-          ],
+          "en-US": Array [],
         },
         "summary": Object {
           "en-US": "Test summary",
@@ -2704,7 +2656,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
@@ -3069,7 +3021,7 @@ ENVIRONMENT: CONTENTFUL_ENVIRONMENT:value",
     "Reading data/merchants.tsv",
   ],
   Array [
-    "Uploading 11 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
+    "Uploading 13 lines to columns: Name, Latitude, Longitude, Type of Merchant, Address, Country, City, Postcode, PhoneNumber, Email, Website, Summary of Company",
   ],
   Array [
     "Uploading line 1: 'Aarlese Bouwmaterialen'",
