@@ -214,3 +214,81 @@ export enum PimTypes {
   Products = "products",
   Systems = "systems"
 }
+
+export enum TwoOneClassToIgnore {
+  bagUomAttributes = "bagUomAttributes",
+  canisterUomAttributes = "canisterUomAttributes",
+  cartonUomAttributes = "cartonUomAttributes",
+  crateUomAttributes = "crateUomAttributes",
+  cubicMeterUomAttributes = "cubicMeterUomAttributes",
+  drumUomAttributes = "drumUomAttributes",
+  eachUomAttributes = "eachUomAttributes",
+  kilogramUomAttributes = "kilogramUomAttributes",
+  kilometerUomAttributes = "kilometerUomAttributes",
+  kilowattUomAttributes = "kilowattUomAttributes",
+  literUomAttributes = "literUomAttributes",
+  meterUomAttributes = "meterUomAttributes",
+  packUomAttributes = "packUomAttributes",
+  palletUomAttributes = "palletUomAttributes",
+  pieceUomAttributes = "pieceUomAttributes",
+  rollsUomAttributes = "rollsUomAttributes",
+  squareMeterUomAttributes = "squareMeterUomAttributes"
+}
+
+export enum TwoOneAttribToIgnore {
+  categoryOfEan11 = "categoryOfEan11",
+  denominatorForConversion = "denominatorForConversion",
+  ean11 = "ean11",
+  grossWeight = "grossWeight",
+  height = "height",
+  length = "length",
+  numeratorForConversion = "numeratorForConversion",
+  volume = "volume",
+  width = "width",
+  unit = "unit",
+  uomType = "uomType"
+}
+
+export const commonIgnoreList = [
+  TwoOneAttribToIgnore.categoryOfEan11,
+  TwoOneAttribToIgnore.denominatorForConversion,
+  TwoOneAttribToIgnore.ean11,
+  TwoOneAttribToIgnore.grossWeight,
+  TwoOneAttribToIgnore.height,
+  TwoOneAttribToIgnore.length,
+  TwoOneAttribToIgnore.numeratorForConversion,
+  TwoOneAttribToIgnore.unit,
+  TwoOneAttribToIgnore.uomType,
+  TwoOneAttribToIgnore.volume,
+  TwoOneAttribToIgnore.width
+];
+
+type TwoOneClassificationAttributeDictionary = {
+  [classKey: string]: TwoOneAttribToIgnore[];
+};
+
+export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
+  [TwoOneClassToIgnore.bagUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.canisterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.crateUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.cubicMeterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.eachUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilogramUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilometerUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilowattUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.literUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.meterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.packUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.palletUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.pieceUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.rollsUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.squareMeterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.drumUomAttributes]: [
+    TwoOneAttribToIgnore.unit,
+    TwoOneAttribToIgnore.uomType
+  ],
+  [TwoOneClassToIgnore.cartonUomAttributes]: [
+    TwoOneAttribToIgnore.unit,
+    TwoOneAttribToIgnore.uomType
+  ]
+};

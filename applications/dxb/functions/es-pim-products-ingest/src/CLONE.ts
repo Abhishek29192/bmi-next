@@ -1,5 +1,10 @@
 /* eslint-disable security/detect-object-injection */
-import { Product, Classification, Category } from "@bmi/pim-types";
+import {
+  Product,
+  Classification,
+  Category,
+  TwoOneIgnoreDictionary
+} from "@bmi/pim-types";
 
 export type ProductCategoryTree = {
   [category: string]: {
@@ -166,14 +171,14 @@ export const groupBy = <T extends IndexedItem>(
   }, {});
 };
 
-const extractFeatureCode = (
+export const extractFeatureCode = (
   pimClassificationNameSpace: string,
   code: string
 ) => {
   return code.replace(`${pimClassificationNameSpace}/`, "");
 };
 
-export const IndexFeatures = (
+export const indexFeatures = (
   pimClassificationNameSpace = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {
@@ -184,6 +189,21 @@ export const IndexFeatures = (
           pimClassificationNameSpace,
           feature.code
         );
+        const attributeName = featureCode
+          .replace(`${classification.code}.`, "")
+          .toLowerCase();
+        const excludeAttributes = TwoOneIgnoreDictionary[classification.code];
+        if (
+          excludeAttributes &&
+          excludeAttributes.some(
+            (attribName) => attribName.toLowerCase() === attributeName
+          )
+        ) {
+          return {
+            ...featureAsProp
+          };
+        }
+
         const nameAndCodeValues = feature.featureValues.map((featVal) => {
           return {
             code: `${featVal.code || featVal.value}${
