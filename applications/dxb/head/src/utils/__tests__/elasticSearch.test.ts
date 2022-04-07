@@ -194,6 +194,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -461,6 +462,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -564,6 +566,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -667,6 +670,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -770,6 +774,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -873,6 +878,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -976,6 +982,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -1079,6 +1086,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
