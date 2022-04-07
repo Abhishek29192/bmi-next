@@ -473,7 +473,7 @@ export const GetGlobalDataDocument = gql`
         externalLinkLabel
       }
     }
-    notifications(condition: { accountId: $accountId }) {
+    notifications(last: 125, condition: { accountId: $accountId }) {
       nodes {
         body
         sendDate
