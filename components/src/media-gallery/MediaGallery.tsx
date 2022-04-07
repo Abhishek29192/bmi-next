@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import Media from "../media/Media";
 import Truncate from "../truncate/Truncate";
@@ -29,10 +29,14 @@ const renderThumbnails = () => {
   return isTouchDevice ? MobileThumbnails : DesktopThumbnails;
 };
 const renderMedia = (
-  { media }: MediaData,
+  mediaData: MediaData,
   mediaSize: Props["mediaSize"],
   layout?: Props["layout"]
 ) => {
+  if (!mediaData) {
+    return null;
+  }
+  const { media } = mediaData;
   const className = classnames(
     styles["main-image-wrapper"],
     mediaSize !== "contain" && styles[`main-image-wrapper--${mediaSize}`],
@@ -61,9 +65,9 @@ const MediaGallery = ({
   if (!media.length) {
     return null;
   }
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(
-    media.length - 1
-  );
+  const [currentMedias, setCurrentMedias] = useState<MediaData[]>([]);
+  const [currentMedia, setCurrentMedia] = useState<MediaData | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
   const Thumbnails = renderThumbnails();
   const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {
@@ -72,38 +76,50 @@ const MediaGallery = ({
       setShowYouTubeVideo(true);
     } else {
       setActiveImageIndex(index);
+      setCurrentMedia(currentMedias[Number(index)]);
     }
   };
 
   const onThumbnailClick = (e: Event, index: number) => {
     e.preventDefault();
     setActiveImageIndex(index);
+    setCurrentMedia(currentMedias[Number(index)]);
     setShowYouTubeVideo(false);
   };
-  const sortedMedia = needToSort ? moveVideoToLast([...media]) : media;
-  const currentMedia = sortedMedia[Number(activeImageIndex)];
+
+  useEffect(() => {
+    if (media) {
+      const sortedMedias = needToSort
+        ? moveVideoToLast([...media])
+        : [...media];
+      setCurrentMedias(sortedMedias);
+      setCurrentMedia(sortedMedias[Number(activeImageIndex)]);
+    }
+  }, [media]);
 
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
-      <div className={styles["image-wrapper"]}>
-        <YoutubeContext.Provider value={showYouTubeVideo}>
-          {renderMedia(currentMedia, mediaSize, layout)}
-        </YoutubeContext.Provider>
-        {currentMedia.caption ? (
-          <div className={styles["caption"]}>
-            <Typography
-              variant="h6"
-              component="p"
-              className={styles["caption-text"]}
-            >
-              <Truncate lines={2}>{currentMedia.caption}</Truncate>
-            </Typography>
-          </div>
-        ) : null}
-      </div>
-      {sortedMedia.length > 1 && (
+      {currentMedia && (
+        <div className={styles["image-wrapper"]}>
+          <YoutubeContext.Provider value={showYouTubeVideo}>
+            {renderMedia(currentMedia, mediaSize, layout)}
+          </YoutubeContext.Provider>
+          {currentMedia.caption ? (
+            <div className={styles["caption"]}>
+              <Typography
+                variant="h6"
+                component="p"
+                className={styles["caption-text"]}
+              >
+                <Truncate lines={2}>{currentMedia.caption}</Truncate>
+              </Typography>
+            </div>
+          ) : null}
+        </div>
+      )}
+      {currentMedias.length > 1 && (
         <Thumbnails
-          images={sortedMedia}
+          images={currentMedias}
           component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
           onThumbnailClick={onThumbnailClick}

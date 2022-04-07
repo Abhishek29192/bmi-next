@@ -257,7 +257,6 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               className={styles["gallery"]}
               media={media}
               layout="short"
-              needToSort={true}
               thumbnailComponent={(props: ThumbnailProps) => (
                 <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
               )}
