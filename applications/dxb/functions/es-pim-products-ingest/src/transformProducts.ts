@@ -14,7 +14,7 @@ import {
   getSizeLabel,
   mapProductClassifications,
   TransformedMeasurementValue,
-  IndexFeatures,
+  indexFeatures,
   IndexedItemGroup,
   groupBy,
   ESIndexObject,
@@ -52,9 +52,9 @@ const filterTwoOneAttributes = (
         (attribute) => attribute.toLowerCase() === attributeName
       )
     ) {
-      return undefined;
+      return false;
     }
-    return feature;
+    return true;
   });
 };
 
@@ -169,7 +169,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       variant
     );
 
-    const indexedFeatures = IndexFeatures(
+    const indexedFeatures = indexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
       combinedClassifications
     );
@@ -226,7 +226,6 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       images: [...(variant.images || []), ...(product.images || [])],
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
       allCategories: product.categories || [],
-      // TODO: populate with just values of classifications in this collection
       classifications: combinedClassifications,
       measurementValue,
       productScoringWeightInt:

@@ -178,7 +178,7 @@ export const extractFeatureCode = (
   return code.replace(`${pimClassificationNameSpace}/`, "");
 };
 
-export const IndexFeatures = (
+export const indexFeatures = (
   pimClassificationNameSpace = "",
   classifications: Classification[]
 ): IndexedItemGroup<ESIndexObject> => {

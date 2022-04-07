@@ -14,7 +14,7 @@ import {
   ESIndexObject,
   groupBy,
   IndexedItemGroup,
-  IndexFeatures,
+  indexFeatures,
   getSizeLabel,
   mapProductClassifications
 } from "../CLONE";
@@ -329,7 +329,7 @@ describe("CLONE tests", () => {
   });
   describe("IndexFeatures tests", () => {
     it("should return empty object when empty array is passed", () => {
-      const result: IndexedItemGroup<ESIndexObject> = IndexFeatures("", []);
+      const result: IndexedItemGroup<ESIndexObject> = indexFeatures("", []);
       expect(result).toEqual({});
     });
 
@@ -347,7 +347,7 @@ describe("CLONE tests", () => {
           ]
         })
       ];
-      const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+      const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
         pimClassificationNameSpace,
         classifications
       );
@@ -359,7 +359,7 @@ describe("CLONE tests", () => {
         const classifications: Array<Classification> = [
           createClassification({ features: [] })
         ];
-        const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+        const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
           "",
           classifications
         );
@@ -380,7 +380,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "pim-namespace/1.0",
             classifications
           );
@@ -406,7 +406,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -436,7 +436,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -487,7 +487,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -535,7 +535,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "pim-namespace/1.0",
             classifications
           );
@@ -555,7 +555,7 @@ describe("CLONE tests", () => {
           const classifications: Array<Classification> = [
             createClassification()
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -585,7 +585,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -636,7 +636,7 @@ describe("CLONE tests", () => {
               ]
             })
           ];
-          const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+          const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
             "",
             classifications
           );
@@ -685,7 +685,7 @@ describe("CLONE tests", () => {
                 features: undefined
               })
             ];
-            const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
               "",
               classifications
             );
@@ -721,7 +721,7 @@ describe("CLONE tests", () => {
                 ]
               })
             ];
-            const result: IndexedItemGroup<ESIndexObject> = IndexFeatures(
+            const result: IndexedItemGroup<ESIndexObject> = indexFeatures(
               "",
               classifications
             );
