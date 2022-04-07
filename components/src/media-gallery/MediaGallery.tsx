@@ -88,13 +88,9 @@ const MediaGallery = ({
   };
 
   useEffect(() => {
-    if (media) {
-      const sortedMedias = needToSort
-        ? moveVideoToLast([...media])
-        : [...media];
-      setCurrentMedias(sortedMedias);
-      setCurrentMedia(sortedMedias[Number(activeImageIndex)]);
-    }
+    const sortedMedias = needToSort ? moveVideoToLast([...media]) : [...media];
+    setCurrentMedias(sortedMedias);
+    setCurrentMedia(sortedMedias[Number(activeImageIndex)]);
   }, [media]);
 
   return (
