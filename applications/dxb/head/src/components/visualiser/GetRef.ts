@@ -32,7 +32,7 @@ const contentFile = (ref: string, options: Options, r: Ref) => {
 
   let dirs = ref.split("/");
   ref = dirs.pop()!;
-  if (options.dirs) {
+  if (options && options.dirs) {
     dirs = dirs.concat(options.dirs);
   }
 
@@ -49,7 +49,7 @@ const contentFile = (ref: string, options: Options, r: Ref) => {
     url += dirs.join("/") + "/";
   }
 
-  if (!hadServer && options.contentSource) {
+  if (!hadServer && options && options.contentSource) {
     url = options.contentSource + url;
   }
 
@@ -66,11 +66,11 @@ const contentFile = (ref: string, options: Options, r: Ref) => {
     "-" +
     (video || type == "svg" || type == "apng" || type == "gif"
       ? "original"
-      : options.size || "original") +
+      : (options && options.size) || "original") +
     "." +
     type;
 
-  if (options.apiHost) {
+  if (options && options.apiHost) {
     url = options.apiHost + url;
   }
 
