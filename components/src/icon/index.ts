@@ -23,6 +23,7 @@ import FileZIP from "./svgs/FileZIP.svg";
 import Cross from "./svgs/Cross.svg";
 import Design from "./svgs/Design.svg";
 import External from "./svgs/External.svg";
+import ExternalMobile from "./svgs/ExternalMobile.svg";
 import HardHatHead from "./svgs/HardHatHead.svg";
 import LocationOn from "./svgs/LocationOn.svg";
 import TileColour from "./svgs/TileColour.svg";
@@ -58,6 +59,7 @@ export {
   Cross,
   Design,
   External,
+  ExternalMobile,
   HardHatHead,
   LocationOn,
   PlayArrow,
@@ -96,6 +98,7 @@ export const iconMap = {
   Cross,
   Design,
   External,
+  ExternalMobile,
   HardHatHead,
   LocationOn,
   PlayArrow,

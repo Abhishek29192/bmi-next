@@ -24,6 +24,14 @@ type ListProps = {
   documentsByAssetType?: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
 };
 
+function isLinkDocument(document: Document): document is PIMLinkDocumentData {
+  if ("isLinkDocument" in document) {
+    return document.isLinkDocument;
+  } else {
+    return document.__typename === "PIMLinkDocument";
+  }
+}
+
 const GTMButton = withGTM<
   ButtonProps & {
     action?: ClickableAction;
@@ -81,19 +89,14 @@ const ListItem = ({
   return (
     <div className={stylesMobile["list-item"]}>
       <div className={stylesMobile["list-title-row"]}>
-        <div className={stylesMobile["list-icon"]}>
-          {document.__typename !== "PIMLinkDocument" ? (
+        {!isLinkDocument(document) && (
+          <div className={stylesMobile["list-icon"]}>
             <Icon
               source={fileIconsMap[asset.format]}
               className={styles["download-icon"]}
             />
-          ) : (
-            <Icon
-              source={iconMap.External}
-              className={styles["external-link-icon"]}
-            />
-          )}
-        </div>
+          </div>
+        )}
         <Typography className={stylesMobile["document-title"]}>
           {document.title}
         </Typography>
@@ -102,7 +105,7 @@ const ListItem = ({
         <Typography className={stylesMobile["document-type"]}>
           {document.assetType.name}
         </Typography>
-        {document.__typename !== "PIMLinkDocument" ? (
+        {!isLinkDocument(document) ? (
           <GTMButton
             gtm={{
               id: "download1",
@@ -122,6 +125,7 @@ const ListItem = ({
           <Button
             isIconButton
             variant="text"
+            size="small"
             action={{
               model: "htmlLink",
               href: document.url,
@@ -130,7 +134,7 @@ const ListItem = ({
             }}
           >
             <Icon
-              source={iconMap.External}
+              source={iconMap.ExternalMobile}
               className={stylesMobile["external-link-icon"]}
             />
           </Button>

@@ -39,6 +39,14 @@
     justify-content: space-between;
     position: relative;
   }
+
+  .external-link-icon {
+    fill: $color-theme-inter;
+    width: 16px;
+    height: 16px;
+    margin: 6px 8px;
+  }
+
   .list-icon {
     margin-right: 12px;
     display: flex;
