@@ -56,6 +56,9 @@ const formatSamples = (samples: SampleOrderElement[]) =>
     )
     .join("<br><br>");
 
+const sampleIds = (samples: SampleOrderElement[]) =>
+  samples.map((sample) => sample.id).join(", ");
+
 const SampleBasketSection = ({
   data: {
     description,
@@ -150,6 +153,7 @@ const SampleBasketSection = ({
             data={checkoutFormSection}
             backgroundColor="pearl"
             additionalValues={{ samples: formatSamples(samples) }}
+            sampleIds={sampleIds(samples)}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
               label: "samples ordering basket form submitted",
