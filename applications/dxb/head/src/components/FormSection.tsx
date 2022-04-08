@@ -51,6 +51,7 @@ export type Data = {
   successRedirect: LinkData | null;
   source: SourceType | null;
   hubSpotFormGuid?: string | null;
+  sample_ids?: string | null;
 };
 
 const InputTypes = [
@@ -314,7 +315,8 @@ const HubspotForm = ({
   backgroundColor,
   showTitle,
   title,
-  description
+  description,
+  sampleIds
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -322,6 +324,7 @@ const HubspotForm = ({
   showTitle: boolean;
   title: string;
   description: RichTextData;
+  sampleIds: string;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -333,6 +336,28 @@ const HubspotForm = ({
     formId: hubSpotFormGuid,
     target: `#${hubSpotFormID}`
   });
+
+  typeof window !== "undefined" &&
+    window.addEventListener("message", (event) => {
+      if (
+        event.data.type === "hsFormCallback" &&
+        event.data.eventName === "onFormReady"
+      ) {
+        if (sampleIds.length) {
+          const iframeElement = document.querySelector(
+            "iframe"
+          ) as HTMLIFrameElement;
+
+          const result = iframeElement.contentWindow.document.querySelector(
+            'input[name="sample_ids"]'
+          );
+
+          if (result) {
+            (result as HTMLInputElement).value = sampleIds;
+          }
+        }
+      }
+    });
 
   return (
     <Section backgroundColor={backgroundColor}>
@@ -358,6 +383,7 @@ const FormSection = ({
   },
   backgroundColor,
   additionalValues,
+  sampleIds,
   isSubmitDisabled,
   gtmOverride,
   onSuccess
@@ -366,6 +392,7 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
   additionalValues?: Record<string, string>;
+  sampleIds?: string;
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
@@ -393,6 +420,7 @@ const FormSection = ({
     }
 
     setIsSubmitting(true);
+
     Object.assign(values, additionalValues);
     const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
@@ -542,6 +570,7 @@ const FormSection = ({
           showTitle={showTitle}
           title={title}
           description={description}
+          sampleIds={sampleIds}
         />
       </HubspotProvider>
     );

@@ -526,6 +526,30 @@ describe("Hubspot FormSection component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("renders correctly with sampleIds", () => {
+    const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
+
+    window.addEventListener = jest.fn();
+    const onFormReadyEvent = new MessageEvent("message", {
+      data: {
+        type: "hsFormCallback",
+        eventName: "onFormReady"
+      }
+    });
+
+    const { container } = render(
+      <FormSection
+        data={dataHubSpot}
+        sampleIds={sampleIds}
+        backgroundColor="white"
+      />
+    );
+    window.dispatchEvent(onFormReadyEvent);
+    expect(window.addEventListener).toBeCalled();
+
+    expect(container).toMatchSnapshot();
+  });
+
   it("test submit when preview is on", () => {
     process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
     jest.spyOn(window, "alert").mockImplementation();
