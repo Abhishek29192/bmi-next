@@ -15,7 +15,6 @@ type Props = {
   thumbnailComponent?: React.ComponentType<any>;
   layout?: "default" | "short";
   className?: string;
-  needToSort?: boolean;
 };
 
 export const moveVideoToLast = (media: MediaData[]) => {
@@ -59,17 +58,15 @@ const MediaGallery = ({
   mediaSize = "contain",
   layout = "default",
   className,
-  thumbnailComponent,
-  needToSort = false
+  thumbnailComponent
 }: Props) => {
-  if (!media.length) {
-    return null;
-  }
   const [currentMedias, setCurrentMedias] = useState<MediaData[]>([]);
   const [currentMedia, setCurrentMedia] = useState<MediaData | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
+
   const Thumbnails = renderThumbnails();
+
   const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {
     e.stopPropagation();
     if (index === activeImageIndex) {
@@ -86,11 +83,13 @@ const MediaGallery = ({
     setCurrentMedia(currentMedias[Number(index)]);
     setShowYouTubeVideo(false);
   };
-
+  if (!media.length) {
+    return null;
+  }
   useEffect(() => {
-    const sortedMedias = needToSort ? moveVideoToLast([...media]) : [...media];
-    setCurrentMedias(sortedMedias);
-    setCurrentMedia(sortedMedias[Number(activeImageIndex)]);
+    const medias = [...media];
+    setCurrentMedias(medias);
+    setCurrentMedia(medias[Number(activeImageIndex)]);
   }, [media]);
 
   return (
