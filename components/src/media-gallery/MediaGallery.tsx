@@ -17,10 +17,6 @@ type Props = {
   className?: string;
 };
 
-export const moveVideoToLast = (media: MediaData[]) => {
-  return [...media.sort((a: MediaData) => (a.isVideo ? -1 : 1))];
-};
-
 const renderThumbnails = () => {
   const isTouchDevice =
     typeof document !== `undefined` &&
