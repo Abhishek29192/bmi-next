@@ -46,9 +46,22 @@ export const build: HttpFunction = async (request, response) => {
 
   logger.info({ message: `Triggering build on: ${buildWebhook}` });
 
-  await fetch(buildWebhook, {
-    method: "POST",
-    body: request.body,
-    headers: JSON.parse(JSON.stringify(request.headers))
-  });
+  // GCP converts header names to lower case automatically.
+  const reqHeaders = {
+    "X-Contentful-Topic": request.headers["x-contentful-topic"],
+    "X-Contentful-Webhook-Name": request.headers["x-contentful-webhook-name"],
+    "Content-Type": "application/vnd.contentful.management.v1+json"
+  };
+
+  try {
+    const resp = await fetch(buildWebhook, {
+      method: "POST",
+      body: request.body,
+      headers: JSON.parse(JSON.stringify(reqHeaders))
+    });
+    return response.sendStatus(resp.status);
+  } catch (error) {
+    logger.error({ message: `Fetch error: ${error}` });
+    return response.sendStatus(500);
+  }
 };

@@ -138,7 +138,7 @@ describe("Error responses", () => {
     expect(mockRes.sendStatus).toBeCalledWith(405);
   });
   it.each([null, undefined])(
-    "Returns 404, wwhen build webhook is %s",
+    "Returns 404, when build webhook is %s",
     async (param) => {
       const mockReq = mockRequest("POST", {
         authorization: `Bearer ${REQUEST_SECRET}`
@@ -151,6 +151,20 @@ describe("Error responses", () => {
       expect(mockRes.sendStatus).toBeCalledWith(404);
     }
   );
+
+  it("Returns 500, when build webhook fetch returns an error", async () => {
+    const buildWebhook = "https://norway.local";
+    const mockReq = mockRequest("POST", {
+      authorization: `Bearer ${REQUEST_SECRET}`
+    });
+    const mockRes = mockResponse();
+    FindBuildWebhook.mockReturnValueOnce(buildWebhook);
+    fetchMock.mock(buildWebhook, { throws: new Error("error") });
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.sendStatus).toBeCalledWith(500);
+  });
 });
 
 describe("Making a POST request", () => {
@@ -200,15 +214,23 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
       body: mockContentfulWebhook,
-      headers: reqHeaders
+      headers: expect.any(Object)
     });
   });
 
-  it("sends original request headers to the POST request", async () => {
+  it("sends contentful request headers to the POST request", async () => {
     const requestHeaders = {
       "x-some-header-1": "some header value",
       "x-some-header-2": "some header value 2",
-      authorization: `Bearer ${REQUEST_SECRET}`
+      authorization: `Bearer ${REQUEST_SECRET}`,
+      "x-contentful-topic": "some value1",
+      "x-contentful-webhook-name": "some value 2",
+      "content-type": "application/json"
+    };
+    const contentfulRequestHeaders = {
+      "X-Contentful-Topic": "some value1",
+      "X-Contentful-Webhook-Name": "some value 2",
+      "Content-Type": "application/vnd.contentful.management.v1+json"
     };
     const req = mockRequest(
       "POST",
@@ -230,7 +252,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
       body: mockContentfulWebhook,
-      headers: requestHeaders
+      headers: contentfulRequestHeaders
     });
   });
 });
