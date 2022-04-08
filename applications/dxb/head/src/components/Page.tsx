@@ -87,15 +87,9 @@ const Page = ({
 
   const { breadcrumbs, inputBanner, seo, path } = pageData;
   const {
-    config: {
-      gatsbyReCaptchaKey,
-      gatsbyReCaptchaNet,
-      isPreviewMode,
-      visualizerAssetUrl
-    }
+    config: { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl }
   } = useConfig();
-  const reCaptchaKey = !isPreviewMode && gatsbyReCaptchaKey;
-  const reCaptchaNet = !isPreviewMode && gatsbyReCaptchaNet === "true";
+  const reCaptchaNet = gatsbyReCaptchaNet === "true";
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
@@ -104,7 +98,7 @@ const Page = ({
     countryCode,
     homePage: siteData.homePage,
     getMicroCopy,
-    reCaptchaKey,
+    gatsbyReCaptchaKey,
     reCaptchaNet
   };
 
@@ -138,7 +132,7 @@ const Page = ({
         <MicroCopy.Provider values={microCopyContext}>
           <BasketContextProvider>
             <GoogleReCaptchaProvider
-              reCaptchaKey={reCaptchaKey}
+              reCaptchaKey={gatsbyReCaptchaKey}
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
             >
