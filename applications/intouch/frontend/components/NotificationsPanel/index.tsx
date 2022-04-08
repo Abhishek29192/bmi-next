@@ -43,6 +43,10 @@ function sortNotifications(notifications) {
     }
   });
 
+  today.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
+  earlier.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
+  older.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
+
   return {
     today,
     earlier,
