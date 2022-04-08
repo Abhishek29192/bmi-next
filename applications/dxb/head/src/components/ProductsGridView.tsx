@@ -24,11 +24,20 @@ type ESProductResult = any;
 type Props = {
   products: ReadonlyArray<ESProductResult>;
   pageContext: any; // TODO:
+  isLoading?: boolean;
 };
 
-const ProductsGridView = ({ products, pageContext }: Props) => {
+const ProductsGridView = ({
+  products,
+  pageContext,
+  isLoading = false
+}: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { variantCodeToPathMap } = pageContext;
+
+  if (isLoading) {
+    return null;
+  }
 
   if (products.length === 0) {
     return (
