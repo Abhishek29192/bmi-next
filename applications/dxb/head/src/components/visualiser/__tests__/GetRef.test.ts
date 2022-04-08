@@ -8,70 +8,70 @@ describe("getRef", () => {
   });
   it("should return undefined if no handler in schema", () => {
     const ref = "test://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual(undefined);
   });
   it("should return url for http protocol urls", () => {
     const ref = "http://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
 
   it("should return url for https protocol urls", () => {
     const ref = "https://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fa urls", () => {
     const ref = "fa://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for url protocol urls", () => {
     const ref = "url://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fad protocol urls", () => {
     const ref = "fad://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fas protocol urls", () => {
     const ref = "fas://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for far protocol urls", () => {
     const ref = "far://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fal protocol urls", () => {
     const ref = "fal://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fab protocol urls", () => {
     const ref = "fab://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for fr protocol urls", () => {
     const ref = "fr://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for emoji protocol urls", () => {
     const ref = "emoji://test-url.com";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual("//test-url.com");
   });
   it("should return url for pablic protocol urls without options", () => {
     const ref = "public://part/part-2/file-part.file-type";
-    const result = getRef(ref, null);
+    const result = getRef(ref, { contentSource: "source-test/" });
     expect(result).toEqual(
-      "/content///part/part-2/file-part-original.file-type"
+      "source-test//content///part/part-2/file-part-original.file-type"
     );
   });
   it("should return url for pablic protocol urls with options", () => {
