@@ -1,5 +1,6 @@
 import React from "react";
 import { History } from "@reach/router";
+import { screen } from "@testing-library/dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
 import SystemDetailsPage, {
@@ -130,6 +131,85 @@ describe("SystemDetailsPage template component", () => {
     );
     expect(container).toMatchSnapshot();
     expect(layersRelatedProducts).not.toBeInTheDocument();
+  });
+
+  it("should render without assets", async () => {
+    const systemDetails = createSystemDetails({ assets: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    expect(
+      await screen.queryByText("MC: sdp.leadBlock.specification")
+    ).toBeNull();
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without classifications", async () => {
+    const systemDetails = createSystemDetails({ classifications: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    expect(
+      await screen.queryByText("MC: sdp.leadBlock.technicalSpecification")
+    ).toBeNull();
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without categories", async () => {
+    const systemDetails = createSystemDetails({ categories: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    const brandLogo = container.querySelector("brandLogo");
+    expect(brandLogo).not.toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   describe("should have function to", () => {
