@@ -61,6 +61,17 @@
   status = 301
   force = true
 
+# Needed as Group was released with France products/systems in its sitemap
+[[redirects]]
+ from = "/p/:slug"
+ to = "/fr/p/:slug"
+ force = true
+
+[[redirects]]
+ from = "/s/:slug"
+ to = "/fr/s/:slug"
+ force = true
+
 [[redirects]]
   from = "/fr-fr*"
   to = "https://www.bmigroup.com/fr/"
