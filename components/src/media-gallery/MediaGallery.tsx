@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classnames from "classnames";
 import Media from "../media/Media";
 import Truncate from "../truncate/Truncate";
@@ -15,11 +15,6 @@ type Props = {
   thumbnailComponent?: React.ComponentType<any>;
   layout?: "default" | "short";
   className?: string;
-  needToSort?: boolean;
-};
-
-export const moveVideoToLast = (media: MediaData[]) => {
-  return [...media.sort((a: MediaData) => (a.isVideo ? -1 : 1))];
 };
 
 const renderThumbnails = () => {
@@ -29,10 +24,14 @@ const renderThumbnails = () => {
   return isTouchDevice ? MobileThumbnails : DesktopThumbnails;
 };
 const renderMedia = (
-  { media }: MediaData,
+  mediaData: MediaData,
   mediaSize: Props["mediaSize"],
   layout?: Props["layout"]
 ) => {
+  if (!mediaData) {
+    return null;
+  }
+  const { media } = mediaData;
   const className = classnames(
     styles["main-image-wrapper"],
     mediaSize !== "contain" && styles[`main-image-wrapper--${mediaSize}`],
@@ -55,55 +54,63 @@ const MediaGallery = ({
   mediaSize = "contain",
   layout = "default",
   className,
-  thumbnailComponent,
-  needToSort = false
+  thumbnailComponent
 }: Props) => {
-  if (!media.length) {
-    return null;
-  }
-  const [activeImageIndex, setActiveImageIndex] = useState<number>(
-    media.length - 1
-  );
+  const [currentMedias, setCurrentMedias] = useState<MediaData[]>([]);
+  const [currentMedia, setCurrentMedia] = useState<MediaData | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [showYouTubeVideo, setShowYouTubeVideo] = useState<boolean>(false);
+
   const Thumbnails = renderThumbnails();
+
   const onPlayIconClick = (e: React.MouseEvent<SVGElement>, index: number) => {
     e.stopPropagation();
     if (index === activeImageIndex) {
       setShowYouTubeVideo(true);
     } else {
       setActiveImageIndex(index);
+      setCurrentMedia(currentMedias[Number(index)]);
     }
   };
 
   const onThumbnailClick = (e: Event, index: number) => {
     e.preventDefault();
     setActiveImageIndex(index);
+    setCurrentMedia(currentMedias[Number(index)]);
     setShowYouTubeVideo(false);
   };
-  const sortedMedia = needToSort ? moveVideoToLast([...media]) : media;
-  const currentMedia = sortedMedia[Number(activeImageIndex)];
+  if (!media.length) {
+    return null;
+  }
+  useEffect(() => {
+    const medias = [...media];
+    setCurrentMedias(medias);
+    setCurrentMedia(medias[Number(activeImageIndex)]);
+  }, [media]);
 
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
-      <div className={styles["image-wrapper"]}>
-        <YoutubeContext.Provider value={showYouTubeVideo}>
-          {renderMedia(currentMedia, mediaSize, layout)}
-        </YoutubeContext.Provider>
-        {currentMedia.caption ? (
-          <div className={styles["caption"]}>
-            <Typography
-              variant="h6"
-              component="p"
-              className={styles["caption-text"]}
-            >
-              <Truncate lines={2}>{currentMedia.caption}</Truncate>
-            </Typography>
-          </div>
-        ) : null}
-      </div>
-      {sortedMedia.length > 1 && (
+      {currentMedia && (
+        <div className={styles["image-wrapper"]}>
+          <YoutubeContext.Provider value={showYouTubeVideo}>
+            {renderMedia(currentMedia, mediaSize, layout)}
+          </YoutubeContext.Provider>
+          {currentMedia.caption ? (
+            <div className={styles["caption"]}>
+              <Typography
+                variant="h6"
+                component="p"
+                className={styles["caption-text"]}
+              >
+                <Truncate lines={2}>{currentMedia.caption}</Truncate>
+              </Typography>
+            </div>
+          ) : null}
+        </div>
+      )}
+      {currentMedias.length > 1 && (
         <Thumbnails
-          images={sortedMedia}
+          images={currentMedias}
           component={thumbnailComponent}
           activeImageIndex={activeImageIndex}
           onThumbnailClick={onThumbnailClick}

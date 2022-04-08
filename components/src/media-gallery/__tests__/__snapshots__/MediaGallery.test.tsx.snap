@@ -8,55 +8,10 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
     <div
       class="image-wrapper"
     >
-      <div
+      <img
         class="main-image-wrapper main-image-wrapper--default Media Media--contain"
-      >
-        <div
-          class="YoutubeVideo"
-          data-testid="youtube-dialog-wrapper"
-        >
-          <button
-            aria-label="test video"
-            class="thumbnail"
-            type="button"
-          >
-            <img
-              alt="test video"
-              class="preview-image"
-              src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-            />
-            <span
-              class="AlternativeContent"
-            >
-              test video
-            </span>
-            <div
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiIconButton-label"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8 5v14l11-7z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </button>
-        </div>
-      </div>
+        src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+      />
       <div
         class="caption"
       >
@@ -66,7 +21,7 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
           <span
             class="LinesEllipsis  Truncate"
           >
-            This is videos caption
+            This is image caption
             <wbr />
           </span>
         </p>
@@ -118,7 +73,7 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
         style="margin-right: 0%;"
       >
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
           tabindex="0"
           type="button"
         >
@@ -126,12 +81,9 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
             class="Media"
             src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
           />
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
         <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
           tabindex="0"
           type="button"
         >
@@ -145,6 +97,9 @@ exports[`MediaGallery component renders correctly with full data 1`] = `
               d="M8 5v14l11-7z"
             />
           </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
     </div>
@@ -184,157 +139,6 @@ exports[`MediaGallery component test click on nonsortable thumbnails 1`] = `
           data-testid="youtube-dialog-wrapper"
         >
           <button
-            aria-label="test video 1"
-            class="thumbnail"
-            type="button"
-          >
-            <img
-              alt="test video 1"
-              class="preview-image"
-              src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
-            />
-            <span
-              class="AlternativeContent"
-            >
-              test video 1
-            </span>
-            <div
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-contained-53 play-button"
-              role="button"
-              tabindex="0"
-            >
-              <span
-                class="MuiIconButton-label"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M8 5v14l11-7z"
-                  />
-                </svg>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      class="thumbnails"
-    >
-      <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <button
-        class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
-        tabindex="-1"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root icon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-          />
-        </svg>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </button>
-      <div
-        class="scroller"
-        style="margin-right: 0%;"
-      >
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-          style="background-image: url(https://thumbnail1.jpg);"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8 5v14l11-7z"
-            />
-          </svg>
-        </button>
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(https://thumbnail2.jpg);"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="accessibility-text"
-          >
-            test alt text 2
-          </span>
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8 5v14l11-7z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`MediaGallery component test click on sortable thumbnails 1`] = `
-<div>
-  <div
-    class="MediaGallery"
-  >
-    <div
-      class="image-wrapper"
-    >
-      <div
-        class="main-image-wrapper main-image-wrapper--default Media Media--contain"
-      >
-        <div
-          class="YoutubeVideo"
-          data-testid="youtube-dialog-wrapper"
-        >
-          <button
             aria-label="test video 2"
             class="thumbnail"
             type="button"
@@ -351,7 +155,7 @@ exports[`MediaGallery component test click on sortable thumbnails 1`] = `
             </span>
             <div
               aria-disabled="false"
-              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-32 iconButtonStyles-medium-38 iconButtonStyles-contained-33 play-button"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
               role="button"
               tabindex="0"
             >
@@ -437,6 +241,26 @@ exports[`MediaGallery component test click on sortable thumbnails 1`] = `
         style="margin-right: 0%;"
       >
         <button
+          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+          style="background-image: url(https://thumbnail1.jpg);"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root play-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8 5v14l11-7z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+        <button
           class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
           style="background-image: url(https://thumbnail2.jpg);"
           tabindex="0"
@@ -457,26 +281,6 @@ exports[`MediaGallery component test click on sortable thumbnails 1`] = `
               d="M8 5v14l11-7z"
             />
           </svg>
-        </button>
-        <button
-          class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-          style="background-image: url(https://thumbnail1.jpg);"
-          tabindex="0"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root play-icon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M8 5v14l11-7z"
-            />
-          </svg>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>
