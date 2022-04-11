@@ -14,6 +14,7 @@ import * as devLog from "../../../utils/devLog";
 import * as filterUtils from "../../../utils/filters";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
 import { ContentfulVideoData } from "../../../components/Video";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {
@@ -384,6 +385,42 @@ describe("Document Library page", () => {
     });
   });
 
+  it("should show tooltip when reach max limit", async () => {
+    const data = createData();
+    data.contentfulDocumentLibraryPage.documents = Array.apply(
+      null,
+      Array(2)
+    ).map((object, id) => ({
+      ...pimDocument,
+      id: `document${id}`,
+      title: `documentTitle${id}`,
+      fileSize: 104857600
+    }));
+    const { container, getByLabelText } = renderWithRouter(
+      <ConfigProvider configObject={{ documentDownloadMaxLimit: 200 }}>
+        <DocumentLibraryPage data={data} pageContext={pageContext} />
+      </ConfigProvider>
+    );
+    const checkbox = getByLabelText(
+      "MC: documentLibrary.download documentTitle0"
+    );
+    const checkbox2 = getByLabelText(
+      "MC: documentLibrary.download documentTitle1"
+    );
+
+    fireEvent.click(checkbox);
+    fireEvent.mouseOver(checkbox2);
+    const title = container.querySelector(
+      "[title='MC: documents.download.maxReached']"
+    );
+    expect(title).toBeFalsy();
+    fireEvent.click(checkbox2);
+    fireEvent.mouseOver(checkbox2);
+    expect(
+      container.querySelector("[title='MC: documents.download.maxReached']")
+    ).toBeTruthy();
+  });
+
   it("update page count correctly after applied filter", async () => {
     const data = createData();
     data.contentfulDocumentLibraryPage.documents = [
@@ -412,38 +449,4 @@ describe("Document Library page", () => {
       ).toBe(0);
     });
   }, 10000);
-
-  it("should show tooltip when reach max limit", async () => {
-    const data = createData();
-    data.contentfulDocumentLibraryPage.documents = Array.apply(
-      null,
-      Array(2)
-    ).map((object, id) => ({
-      ...pimDocument,
-      id: `document${id}`,
-      title: `documentTitle${id}`,
-      fileSize: 104857600
-    }));
-    process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT = "200";
-    const { container, getByLabelText } = renderWithRouter(
-      <DocumentLibraryPage data={data} pageContext={pageContext} />
-    );
-    const checkbox = getByLabelText(
-      "MC: documentLibrary.download documentTitle0"
-    );
-    const checkbox2 = getByLabelText(
-      "MC: documentLibrary.download documentTitle1"
-    );
-
-    fireEvent.click(checkbox);
-    fireEvent.mouseOver(checkbox2);
-    expect(
-      container.querySelector("[title='MC: documents.download.maxReached']")
-    ).toBeFalsy();
-    fireEvent.click(checkbox2);
-    fireEvent.mouseOver(checkbox2);
-    expect(
-      container.querySelector("[title='MC: documents.download.maxReached']")
-    ).toBeTruthy();
-  });
 });

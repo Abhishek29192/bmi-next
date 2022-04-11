@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import imageSource from "mock-image.jpg";
 import Button from "../../button/Button";
 import Hero from "../Hero";

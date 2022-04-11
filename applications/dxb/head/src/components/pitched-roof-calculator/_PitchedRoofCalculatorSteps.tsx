@@ -108,6 +108,7 @@ const PitchedRoofCalculatorSteps = ({
     setTileOptions(undefined);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unnecessary-type-constraint
   const saveAndMove = <T extends any>(
     e: React.FormEvent<Element>,
     values: T,

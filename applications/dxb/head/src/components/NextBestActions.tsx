@@ -30,12 +30,8 @@ const NextBestActions = ({ data }: { data: Data }) => {
       <Section.Title>{getMicroCopy(microCopy.NBA_TITLE)}</Section.Title>
       <Grid container spacing={3}>
         {data.map(({ title, subtitle, ...rest }, index) => {
-          const cta = getCTA(
-            rest,
-            countryCode,
-            getMicroCopy(microCopy.PAGE_LINK_LABEL)
-          );
           const name = rest.__typename === "ContentfulPromo" ? rest.name : null;
+          const cta = getCTA(rest, countryCode, title || name);
 
           const ClickableButtonBase =
             withClickable<ButtonBaseProps>(ButtonBase);

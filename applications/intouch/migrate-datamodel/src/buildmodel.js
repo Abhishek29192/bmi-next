@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-/* 
+/*
 This code block is taken from the @kimnobaydd
 https://gist.github.com/kimnobaydd/70b8c9fe6ccd21733c8dbd3abad22b49
 
@@ -90,7 +90,7 @@ class Attribute extends Value {
         `Mandatory field valid values are [Y, N]. Found ${mandatory}.`
       );
     }
-    this.mandatory = mandatory === "Y" ? true : false;
+    this.mandatory = mandatory === "Y";
   }
 }
 
@@ -151,24 +151,25 @@ class Table extends Thing {
     });
 
     let sql = `DROP TABLE IF EXISTS ${this.name} CASCADE;
-    CREATE TABLE ${this.name} (
-    ${this.properties
-      .map((property) => {
-        const isMandatory = property.mandatory ? "NOT NULL" : undefined;
-        const type =
-          property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
-        // NOTE: Currently only handling explicit default value
-        const defaultValue = property.defaultValue
-          ? `DEFAULT ${property.defaultValue}`
-          : undefined;
+    CREATE TABLE ${this.name}
+    (
+      ${this.properties
+        .map((property) => {
+          const isMandatory = property.mandatory ? "NOT NULL" : undefined;
+          const type =
+            property.type === "pk" ? "SERIAL PRIMARY KEY" : property.type;
+          // NOTE: Currently only handling explicit default value
+          const defaultValue = property.defaultValue
+            ? `DEFAULT ${property.defaultValue}`
+            : undefined;
 
-        return [property.name, type, isMandatory, defaultValue]
-          .filter(Boolean)
-          .join(" ");
-      })
-      .concat(additionalColumns)
-      .join(",\n")
-      .concat(`);`)}`;
+          return [property.name, type, isMandatory, defaultValue]
+            .filter(Boolean)
+            .join(" ");
+        })
+        .concat(additionalColumns)
+        .join(",\n")
+        .concat(`);`)}`;
 
     this.properties.map((property) => {
       if (property.type === "serial") {
@@ -208,7 +209,8 @@ class Table extends Thing {
             : `'${mockValue}'`;
         })
         .join();
-      sqlString += `INSERT INTO ${this.name}(${columns})\nVALUES (${values});\n`;
+      sqlString += `INSERT INTO ${this.name}(${columns})
+                    VALUES (${values});  `;
     }
     return `${sqlString}\n`;
   }
@@ -218,7 +220,7 @@ class Table extends Thing {
 
     this.properties.map((property) => {
       if (property.type === "serial") {
-        sql = `${sql} 
+        sql = `${sql}
         SELECT SETVAL('${this.name}_${property.name}_seq', (select MAX(${property.name}) from ${this.name}));`;
       }
     });
@@ -232,14 +234,16 @@ class Table extends Thing {
       .map((property) => {
         const refColumn = property.reference || property.name;
 
-        return `ALTER TABLE ${this.name} ADD ${property.constraint} (${refColumn});\n`;
+        return `ALTER TABLE ${this.name}
+          ADD ${property.constraint} (${refColumn});  `;
       });
 
     let multipleUniqueConstraints = [];
     if (this.constraint) {
-      multipleUniqueConstraints = this.constraint
-        .split("-")
-        .map((item) => `ALTER TABLE ${this.name} ADD ${item};\n`);
+      multipleUniqueConstraints = this.constraint.split("-").map(
+        (item) => `ALTER TABLE ${this.name}
+          ADD ${item};  `
+      );
     }
     return [].concat(singleConstraints, multipleUniqueConstraints).join("\n");
   }
@@ -281,8 +285,9 @@ class Reference {
 
   getPostgresCreate() {
     const refColumn = this.reference || "id";
-    return `ALTER TABLE ${this.source} ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target}(${refColumn}) ON DELETE CASCADE;
-CREATE INDEX ON ${this.source} (${this.referenceField});`;
+    return `ALTER TABLE ${this.source}
+      ADD FOREIGN KEY (${this.referenceField}) REFERENCES ${this.target} (${refColumn}) ON DELETE CASCADE;
+    CREATE INDEX ON ${this.source} (${this.referenceField});`;
   }
 }
 
@@ -311,7 +316,7 @@ class Index {
   }
 
   getPostgresCreate() {
-    return `CREATE INDEX  ${this.table}_${this.columnName}_idx ON ${this.table} USING ${this.indexType}(${this.columnName});\n`;
+    return `CREATE INDEX ${this.table}_${this.columnName}_idx ON ${this.table} USING ${this.indexType}(${this.columnName});  `;
   }
 }
 
@@ -394,7 +399,7 @@ const buildModel = (records) => {
         ); // add the new attribute to the current table. The description column in the csv in this case contains a type rather than a description
         break;
       case "enum":
-        if (firstEnum == true) {
+        if (firstEnum === true) {
           myDataModel.addTable(myTable); // we are at the first enum so have to add the last table to the list
           firstEnum = false;
         } else {
@@ -410,6 +415,7 @@ const buildModel = (records) => {
       case "ctdfield":
         break;
       default:
+        // add the new field to the current table based on the current record
         if (record.Index) {
           // if the column needs indexing, add the Index to the list of indices in the datamodel
           myIndex = new Index(
@@ -430,7 +436,7 @@ const buildModel = (records) => {
           record.Mandatory,
           record.Default,
           record.SeqInitialValue
-        ); // add the new field to the current table based on the current record
+        );
         break;
     }
   });

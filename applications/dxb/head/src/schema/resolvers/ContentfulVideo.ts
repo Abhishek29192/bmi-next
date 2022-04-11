@@ -1,13 +1,13 @@
 import { google, youtube_v3 } from "googleapis";
 import { config } from "dotenv";
-import axios from "axios";
+import fetch, { Response } from "node-fetch";
 import { Node } from "./types";
 
 config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
-const throwMissingEnvVariable = (name: string) => {
+const throwMissingEnvVariable = (name: string): never => {
   throw new Error(`resolvers.ContentfulVideo: ${name} is missing.`);
 };
 
@@ -24,6 +24,41 @@ const formatYoutubeDetails = (data: youtube_v3.Schema$VideoListResponse) => {
     height: parseFloat(embedHeight),
     width: parseFloat(embedWidth)
   };
+};
+
+const getYoutubeDetails = async (
+  youtubeId: string
+): Promise<youtube_v3.Schema$VideoListResponse> => {
+  let numberOfRetries = 0;
+  let response: Response;
+  const url = `${process.env.YOUTUBE_CACHE_API_URL}?youtubeId=${youtubeId}`;
+  const headers = {
+    Authorization: `Bearer ${process.env.YOUTUBE_CACHE_BEARER_TOKEN_SECRET}`
+  };
+
+  do {
+    try {
+      response = await fetch(url, {
+        method: "GET",
+        headers: headers
+      });
+
+      if (!response.ok) {
+        console.error(`Failed to get details for YouTube video ${youtubeId}`);
+      } else {
+        return await response.json();
+      }
+    } catch (error) {
+      console.error(
+        `Failed to get details for YouTube video ${youtubeId}`,
+        error
+      );
+      return Promise.reject(error);
+    }
+    numberOfRetries++;
+  } while (numberOfRetries < 5 && response.status === 429);
+
+  return undefined;
 };
 
 export default {
@@ -46,7 +81,7 @@ export default {
       if (!ENABLE_YOUTUBE_CACHE) {
         if (!youtube) {
           if (process.env.NODE_ENV === "production") {
-            return throwMissingEnvVariable("GOOGLE_YOUTUBE_API_KEY");
+            throwMissingEnvVariable("GOOGLE_YOUTUBE_API_KEY");
           }
 
           return { height: 16, width: 9 };
@@ -62,20 +97,18 @@ export default {
       }
 
       if (!YOUTUBE_CACHE_API_URL) {
-        return throwMissingEnvVariable("YOUTUBE_CACHE_API_URL");
+        throwMissingEnvVariable("YOUTUBE_CACHE_API_URL");
       }
       if (!YOUTUBE_CACHE_BEARER_TOKEN_SECRET) {
-        return throwMissingEnvVariable("YOUTUBE_CACHE_BEARER_TOKEN_SECRET");
+        throwMissingEnvVariable("YOUTUBE_CACHE_BEARER_TOKEN_SECRET");
       }
 
-      const url = `${YOUTUBE_CACHE_API_URL}?youtubeId=${source.youtubeId}`;
-      const options = {
-        headers: {
-          Authorization: `Bearer ${YOUTUBE_CACHE_BEARER_TOKEN_SECRET}`
-        }
-      };
-      const { data } = await axios.get(url, options);
-
+      const data = await getYoutubeDetails(source.youtubeId);
+      if (!data) {
+        throw new Error(
+          `resolvers.ContentfulVideo: Could not find video ${source.youtubeId}.`
+        );
+      }
       return formatYoutubeDetails(data);
     }
   }

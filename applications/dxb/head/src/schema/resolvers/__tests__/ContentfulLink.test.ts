@@ -3,7 +3,6 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn().mockResolvedValue({
       tileId: 0,
       colourId: "test",
@@ -11,7 +10,7 @@ const context: Context = {
       viewMode: "tile"
     }),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

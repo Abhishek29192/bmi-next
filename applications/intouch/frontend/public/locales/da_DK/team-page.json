@@ -9,6 +9,7 @@
       },
       "errorAlreadyMember": "Brugeren er allerede medlem af en anden virksomhed",
       "errorInvitationNotFound": "Ingen invitation fundet",
+      "errorCommonFailure": "Mislykket svar. Tjek venligst detaljerne og prøv igen, eller kontakt din lokale BMI-administrator.",
       "personalNote": {
         "label": "Din besked (valgfrit)"
       },

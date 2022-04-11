@@ -77,6 +77,13 @@ export const CompanyPage = ({
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.COMPANY_ADMIN
             )}
+            title={t("companyAdministrators")}
+          />
+          <CompanyAdmins
+            admins={company.companyMembers.nodes.filter(
+              ({ account }) => account.role === ROLES.INSTALLER
+            )}
+            title={t("companyMembers")}
           />
           <CompanyDocuments
             companyId={company.id}
@@ -94,7 +101,7 @@ export const CompanyPage = ({
           {company.certifications.length > 0 && (
             <CertificationsCard
               title={t("certificationsTitle")}
-              certifications={company.certifications}
+              certifications={[...company.certifications]}
             />
           )}
         </Grid>

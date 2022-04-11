@@ -468,6 +468,50 @@ deploy_gatsby_cloud_unitedkingdom:
       changes:
         - libraries/migrate/projects/dxb/**/*
 
+migrate_content_southafrica:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "ZA"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_southafrica:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_southafrica
+  variables:
+    DXB_MARKET_ID: "ZA"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+migrate_content_turkey:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "TR"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_turkey:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_turkey
+  variables:
+    DXB_MARKET_ID: "TR"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
 migrate_content_group:
   extends: .migrate_content
   needs:

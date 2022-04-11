@@ -7,9 +7,7 @@ import DocumentResults, {
   Data as DocumentResultsData,
   Format
 } from "../../../components/DocumentResults";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "../../../components/DocumentResultsFooter";
+import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 
 export type Props = {
   results: DocumentResultsData;
@@ -39,10 +37,10 @@ const ResultSection = ({
             <DocumentResultsFooter
               page={page}
               count={pageCount}
-              onDownloadClick={
+              isDownloadButton={
                 format === "cards" || (!matches && format === "technicalTable")
-                  ? undefined
-                  : handleDownloadClick
+                  ? false
+                  : true
               }
               onPageChange={handlePageChange}
             />

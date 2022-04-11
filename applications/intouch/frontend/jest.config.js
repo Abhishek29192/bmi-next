@@ -19,6 +19,5 @@ module.exports = {
     ...sharedConfig.coveragePathIgnorePatterns,
     ".next/",
     ".storybook/"
-  ],
-  resolver: "@bmi/jest-node-exports-resolver"
+  ]
 };

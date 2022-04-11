@@ -2,7 +2,6 @@ import { act, fireEvent, render } from "@testing-library/react";
 import { GoogleApi } from "@bmi/components";
 import React from "react";
 import { SearchLocationBlock } from "../components";
-import "@testing-library/jest-dom";
 import { googleMock } from "../__mocks__/google";
 
 afterEach(() => jest.clearAllMocks());

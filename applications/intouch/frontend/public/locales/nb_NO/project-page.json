@@ -154,6 +154,16 @@
     },
     "title": "Du kan ikke søke om garanti ennå"
   },
+  "guaranteeApprovalAlert": {
+    "confirm": {
+      "title": "Er du sikker?",
+      "description": "Du er i ferd med å godkjenne en forespørsel om løsningsgaranti. Garantidokumentasjonen vil nå bli generert og automatisk utstedt til byggeier på e-post. Installatøren vil bli varslet, men du kan også legge til et notat til dette prosjektet."
+    },
+    "reject": {
+      "title": "Er du sikker?",
+      "description": "Du er i ferd med å avvise en forespørsel om løsningsgaranti. Installatøren vil bli varslet. Legg til et notat til dette prosjektet for å bekrefte overfor installatøren hva som kreves."
+    }
+  },
   "guarantee_tab": {
     "applyGuarantee": {
       "defaultDialog": {
@@ -275,6 +285,8 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Godkjenn garanti",
+      "confirm": "Bekrefte",
+      "cancel": "Avbryt",
       "archive": "Arkiv prosjekt",
       "requestInformation": "Be om mer informasjon",
       "unarchive": "Av-arkiv prosjekt"
@@ -352,6 +364,7 @@
       "confirm_label": "Last opp filer",
       "evidence_category": "Bevis kategori",
       "file_validation_message": "Du kan ikke laste opp filer som er større enn",
+      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}",
       "instruction": "Du kan legge til filer",
       "microcopy": {
         "browse": "Bla gjennom",

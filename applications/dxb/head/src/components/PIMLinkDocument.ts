@@ -30,6 +30,7 @@ export const query = graphql`
         }
       }
     }
+    isLinkDocument
     url
     assetType {
       ...AssetTypeFragment

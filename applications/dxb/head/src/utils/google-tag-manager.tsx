@@ -49,9 +49,9 @@ export const GTMContext = createContext<Context>({ idMap: {} });
  *
  * @param {GTM} dataGtm the data to push to the dataLayer
  */
-export function pushToDataLayer(dataGtm: GTM) {
+export const pushToDataLayer = (dataGtm: GTM) => {
   window.dataLayer && window.dataLayer.push(dataGtm);
-}
+};
 
 /**
  * Adds a `data-gtm` attribute and adds the {@link pushToDataLayer} call to the
@@ -133,13 +133,36 @@ export default function withGTM<P>(
       gtmDataset?.id;
     // eslint-disable-next-line security/detect-object-injection
     const gtmId = idMap[id] || id;
+
+    const getMediaLabel = (props) => {
+      const { isVideo } = props;
+      if (propsToGtmMap.label === "media") {
+        return isVideo
+          ? String(props[propsToGtmMap.label].props.label)
+          : String(props[propsToGtmMap.label].props.alt);
+      }
+      return false;
+    };
+
+    const getMediaAction = (props) => {
+      const { isVideo } = props;
+      if (propsToGtmMap.action === "media") {
+        return isVideo
+          ? String(props["imageSource"])
+          : String(props[propsToGtmMap.action].props.src);
+      }
+      return false;
+    };
+
     const gtmLabel =
       gtm?.label ||
+      getMediaLabel(props) ||
       (propsToGtmMap.label === "children" && String(children)) ||
       (props[propsToGtmMap.label] && String(props[propsToGtmMap.label])) ||
       gtmDataset?.label;
     const gtmAction =
       gtm?.action ||
+      getMediaAction(props) ||
       (propsToGtmMap.action === "children" && String(children)) ||
       (props[propsToGtmMap.action] && String(props[propsToGtmMap.action])) ||
       gtmDataset?.action;
@@ -179,3 +202,24 @@ export default function withGTM<P>(
 
   return ComponentWithGTM;
 }
+
+export const useGTM = (props: GTM) => {
+  const { idMap } = useContext(GTMContext);
+  const gtmId = idMap[props.id] || props.id;
+  const dataGTM = {
+    id: gtmId,
+    label: props.label,
+    action: props.action
+  };
+
+  function pushGTMEvent() {
+    if (!process.env.GATSBY_PREVIEW) {
+      pushToDataLayer(dataGTM);
+    }
+  }
+
+  return {
+    dataGTM,
+    pushGTMEvent
+  };
+};

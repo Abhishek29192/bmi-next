@@ -316,207 +316,211 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
               class="MuiBox-root MuiBox-root-33 TabPanelBox"
             >
               <div
-                class="list"
+                class=""
               >
                 <div
-                  class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
-                  data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
-                  data-testid="GTMIntegratedLinkCard-test-id"
+                  class="list"
                 >
                   <div
-                    class="item"
-                  >
-                    <h6
-                      class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
-                    >
-                      roofer 1
-                    </h6>
-                    <p
-                      class="MuiTypography-root subtitle Typography MuiTypography-body1"
-                    >
-                      address 1
-                    </p>
-                  </div>
-                  <div
-                    class="icon"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="MuiCollapse-root details MuiCollapse-hidden"
-                    style="min-height: 0px;"
+                    class="MuiPaper-root MuiCard-root LinkCard MuiPaper-elevation1 MuiPaper-rounded"
+                    data-gtm="{\\"id\\":\\"selector-cards6\\",\\"label\\":\\"roofer 1 - address 1 - Roofer - selected\\",\\"action\\":\\"Expanded company details\\"}"
+                    data-testid="GTMIntegratedLinkCard-test-id"
                   >
                     <div
-                      class="MuiCollapse-wrapper"
+                      class="item"
+                    >
+                      <h6
+                        class="MuiTypography-root Typography MuiTypography-h6 MuiTypography-gutterBottom"
+                      >
+                        roofer 1
+                      </h6>
+                      <p
+                        class="MuiTypography-root subtitle Typography MuiTypography-body1"
+                      >
+                        address 1
+                      </p>
+                    </div>
+                    <div
+                      class="icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="MuiCollapse-root details MuiCollapse-hidden"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiCollapse-wrapperInner"
+                        class="MuiCollapse-wrapper"
                       >
                         <div
-                          class="CompanyDetails"
+                          class="MuiCollapse-wrapperInner"
                         >
                           <div
-                            class="scrollbar-container ps"
+                            class="CompanyDetails"
                           >
-                            <dl
-                              class="list"
+                            <div
+                              class="scrollbar-container ps"
                             >
-                              <div
-                                class="row, row--cta"
+                              <dl
+                                class="list"
                               >
-                                <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 cta-button MuiButton-containedPrimary"
-                                  tabindex="0"
-                                  type="button"
+                                <div
+                                  class="row, row--cta"
                                 >
-                                  <span
-                                    class="MuiButton-label buttonStyles-label-8"
+                                  <button
+                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 cta-button MuiButton-containedPrimary"
+                                    tabindex="0"
+                                    type="button"
                                   >
-                                    MC: findARoofer.getDirectionsLabel
-                                  </span>
-                                  <span
-                                    class="MuiTouchRipple-root"
-                                  />
-                                </button>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
-                                  >
-                                    <path
-                                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                                    <span
+                                      class="MuiButton-label buttonStyles-label-8"
+                                    >
+                                      MC: findARoofer.getDirectionsLabel
+                                    </span>
+                                    <span
+                                      class="MuiTouchRipple-root"
                                     />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
-                                  >
-                                    MC: global.telephone
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
+                                  </button>
+                                </div>
+                                <div
+                                  class="row"
                                 >
-                                  phone 1
-                                </dd>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
+                                  <dt
+                                    class="term"
                                   >
-                                    <path
-                                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root icon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                                      />
+                                    </svg>
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.telephone
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
                                   >
-                                    MC: global.email
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
+                                    phone 1
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
                                 >
-                                  test@test.com
-                                </dd>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    class="MuiSvgIcon-root icon"
-                                    focusable="false"
-                                    viewBox="0 0 24 24"
+                                  <dt
+                                    class="term"
                                   >
-                                    <path
-                                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                                    />
-                                  </svg>
-                                  <span
-                                    class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root icon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                                      />
+                                    </svg>
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+                                    >
+                                      MC: global.email
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    test@test.com
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
+                                >
+                                  <dt
+                                    class="term"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root icon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                                      />
+                                    </svg>
+                                    <span
+                                      class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
+                                    >
+                                      MC: findARoofer.websiteLabel
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
                                   >
                                     MC: findARoofer.websiteLabel
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
+                                  </dd>
+                                </div>
+                                <div
+                                  class="row"
                                 >
-                                  MC: findARoofer.websiteLabel
-                                </dd>
-                              </div>
-                              <div
-                                class="row"
-                              >
-                                <dt
-                                  class="term"
-                                >
-                                  <span
-                                    class="MuiTypography-root label Typography MuiTypography-body1"
+                                  <dt
+                                    class="term"
                                   >
-                                    MC: findARoofer.roofTypeLabel
-                                  </span>
-                                </dt>
-                                <dd
-                                  class="description"
-                                >
-                                  <b>
-                                    Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
-                                  </b>
-                                </dd>
+                                    <span
+                                      class="MuiTypography-root label Typography MuiTypography-body1"
+                                    >
+                                      MC: findARoofer.roofTypeLabel
+                                    </span>
+                                  </dt>
+                                  <dd
+                                    class="description"
+                                  >
+                                    <b>
+                                      Flat Roof, Pitched Roof, Flat Roof 1, Pitched Roof 2
+                                    </b>
+                                  </dd>
+                                </div>
+                              </dl>
+                              <p
+                                class="MuiTypography-root Typography MuiTypography-body1"
+                              >
+                                roofer summary
+                              </p>
+                              <div
+                                class="ps__rail-x"
+                                style="left: 0px; top: 0px;"
+                              >
+                                <div
+                                  class="ps__thumb-x"
+                                  style="left: 0px; width: 0px;"
+                                  tabindex="0"
+                                />
                               </div>
-                            </dl>
-                            <p
-                              class="MuiTypography-root Typography MuiTypography-body1"
-                            >
-                              roofer summary
-                            </p>
-                            <div
-                              class="ps__rail-x"
-                              style="left: 0px; top: 0px;"
-                            >
                               <div
-                                class="ps__thumb-x"
-                                style="left: 0px; width: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
-                            <div
-                              class="ps__rail-y"
-                              style="top: 0px; left: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-y"
-                                style="top: 0px; height: 0px;"
-                                tabindex="0"
-                              />
+                                class="ps__rail-y"
+                                style="top: 0px; left: 0px;"
+                              >
+                                <div
+                                  class="ps__thumb-y"
+                                  style="top: 0px; height: 0px;"
+                                  tabindex="0"
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>

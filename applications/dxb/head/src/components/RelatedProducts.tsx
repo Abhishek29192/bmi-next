@@ -21,6 +21,7 @@ import {
   groupProductsByCategory,
   mapClassificationValues
 } from "../utils/product-details-transforms";
+import { useConfig } from "../contexts/ConfigProvider";
 import { renderMedia } from "../utils/renderMedia";
 import { Product, VariantOption } from "./types/pim"; // Hmmmmmm
 import styles from "./styles/RelatedProducts.module.scss";
@@ -119,6 +120,10 @@ const ProductListing = ({
 
           const altText = `${uniqueClassifications} ${product.name}`;
 
+          const gtmLabel = `${product.name}${
+            uniqueClassifications ? ` - ${uniqueClassifications}` : ""
+          } - ${getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}`;
+
           return (
             <Grid
               item
@@ -142,9 +147,7 @@ const ProductListing = ({
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy(
-                    microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
-                  ),
+                  label: gtmLabel,
                   action: productUrl
                 }}
                 footer={
@@ -191,15 +194,15 @@ const RelatedProducts = ({
   products
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const {
+    config: { isRelatedProductsHide }
+  } = useConfig();
 
   if (Object.entries(products).length === 0) {
     return null;
   }
 
   const productGroups = groupProductsByCategory(products);
-
-  const isRelatedProductsHide =
-    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS === "true";
 
   if (!Object.keys(productGroups).length || isRelatedProductsHide) {
     return null;

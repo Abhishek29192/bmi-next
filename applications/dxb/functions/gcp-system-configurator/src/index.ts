@@ -30,7 +30,8 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
     type: null,
     title,
     answers: null,
-    recommendedSystems: null
+    recommendedSystems: null,
+    content: null
   };
 
   if (nextStepData.__typename === "SystemConfiguratorBlock") {
@@ -66,7 +67,8 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
 
   return {
     __typename: `ContentfulTitleWithContent`,
-    ...data
+    ...data,
+    content: { raw: JSON.stringify(nextStepData.content.json) }
   };
 };
 
@@ -103,7 +105,7 @@ const runQuery = async (
 
 const generateError = (message: string) => {
   const error = Error(message);
-  logger.error({ message: error.message });
+  logger.error({ message: (error as Error).message });
 
   return error;
 };
@@ -153,7 +155,9 @@ fragment TitleWithContentFragment on TitleWithContent {
     id
   }
   title
-  content
+  content {
+    json
+  }
 }
 
 fragment AssetFragment on Asset {

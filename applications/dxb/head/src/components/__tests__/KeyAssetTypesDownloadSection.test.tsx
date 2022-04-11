@@ -114,25 +114,25 @@ describe("KeyAssetTypesDownloadSection component", () => {
       mapAssetToCommonData(document2)
     ];
 
+    const mockConfig = (
+      isPreviewMode = false,
+      documentDownloadEndpoint = "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT"
+    ) => ({
+      isPreviewMode,
+      documentDownloadEndpoint
+    });
+
     const token = "token";
-    const ENV = process.env;
 
     beforeEach(() => {
       jest.resetModules();
       jest.resetAllMocks();
     });
 
-    afterAll(() => {
-      process.env = ENV;
-    });
-
     it("should download files", async () => {
-      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT =
-        "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT";
-
       mockedAxios.post.mockResolvedValueOnce({ data: { url: "url" } });
 
-      await handleDownloadClick(list, token);
+      await handleDownloadClick(list, token, mockConfig());
 
       expect(mockedAxios.post).toHaveBeenLastCalledWith(
         "GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT",
@@ -157,16 +157,14 @@ describe("KeyAssetTypesDownloadSection component", () => {
     });
 
     it("should not download empty list", async () => {
-      await handleDownloadClick([], token);
+      await handleDownloadClick([], token, mockConfig());
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
     });
 
     it("should prevent download on GATSBY_PREVIEW", async () => {
-      process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
-
       jest.spyOn(window, "alert").mockImplementation();
 
-      await handleDownloadClick(list, token);
+      await handleDownloadClick(list, token, mockConfig(true));
 
       expect(ClientDownloadUtils.downloadAs).toHaveBeenCalledTimes(0);
       expect(window.alert).toHaveBeenCalledWith(

@@ -13,7 +13,8 @@ const multiMarketDomains =
         { domain: `dev-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `dev-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
         { domain: `dev-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
-        { domain: `dev-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
+        { domain: `dev-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
+        { domain: `dev-es.${baseUrlDomain}`, defaultLocale: "es_ES" }
       ]
     : process.env.APP_ENV === "uat"
     ? [
@@ -21,7 +22,8 @@ const multiMarketDomains =
         { domain: `uat-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `uat-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
         { domain: `uat-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
-        { domain: `uat-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
+        { domain: `uat-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
+        { domain: `uat-es.${baseUrlDomain}`, defaultLocale: "es_ES" }
       ]
     : process.env.APP_ENV === "preprod"
     ? [
@@ -29,20 +31,22 @@ const multiMarketDomains =
         { domain: `preprod-en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `preprod-no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
         { domain: `preprod-dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
-        { domain: `preprod-de.${baseUrlDomain}`, defaultLocale: "de_DE" }
+        { domain: `preprod-de.${baseUrlDomain}`, defaultLocale: "de_DE" },
+        { domain: `preprod-es.${baseUrlDomain}`, defaultLocale: "es_ES" }
       ]
     : [
         { domain: `it.${baseUrlDomain}`, defaultLocale: "it_IT" },
         { domain: `en.${baseUrlDomain}`, defaultLocale: "en_EN" },
         { domain: `no.${baseUrlDomain}`, defaultLocale: "nb_NO" },
         { domain: `dk.${baseUrlDomain}`, defaultLocale: "da_DK" },
-        { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DE" }
+        { domain: `de.${baseUrlDomain}`, defaultLocale: "de_DE" },
+        { domain: `es.${baseUrlDomain}`, defaultLocale: "es_ES" }
       ];
 
 module.exports = {
   i18n: {
     localeDetection: false,
-    locales: ["en_EN", "nb_NO", "it_IT", "da_DK", "de_DE"],
+    locales: ["en_EN", "nb_NO", "it_IT", "da_DK", "de_DE", "es_ES"],
     defaultLocale: "en_EN",
     domains: multiMarketDomains
   }

@@ -1,30 +1,29 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import Thumbnail from "../../thumbnail/Thumbnail";
 import DesktopThumbnails from "../_DesktopThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
 
 const onThumbnailClick = jest.fn();
 const THUMBNAIL_WIDTH = 86;
-const images = [
+export const getImages = (isMedia: boolean) => [
   {
-    media: <img src={mockImage} alt="Lorem ipsum 1" />,
+    media: isMedia ? <img src={mockImage} alt="Lorem ipsum 1" /> : undefined,
     thumbnail: mockImage,
     altText: "test alt text 1",
     isVideo: false
   },
   {
-    media: <img src={mockImage} alt="Lorem ipsum 2" />,
+    media: isMedia ? <img src={mockImage} alt="Lorem ipsum 2" /> : undefined,
     altText: "test alt text 2",
     thumbnail: mockImage,
     isVideo: false
   }
 ];
-const renderedComponent = () =>
+const renderedComponent = (isMedia = false) =>
   render(
     <DesktopThumbnails
-      images={images}
+      images={getImages(isMedia)}
       component={(props) => (
         <Thumbnail data-testid="default-thumbnail" {...props} />
       )}
@@ -38,7 +37,8 @@ beforeAll(() => {
 });
 
 describe("_DesktopThumbnails component", () => {
-  it("renders correctly", async () => {
+  it("renders correctly without media prop", async () => {
+    const images = getImages(false);
     const { container, getAllByTestId, findByText } = renderedComponent();
 
     const thumbnails = getAllByTestId("default-thumbnail");
@@ -46,8 +46,6 @@ describe("_DesktopThumbnails component", () => {
     expect(container.firstChild).toMatchSnapshot();
     expect(scrollerButtons).toHaveLength(2);
     expect(thumbnails).toHaveLength(2);
-    expect(thumbnails[0]).toHaveStyle(`background-image: url(${mockImage})`);
-    expect(thumbnails[1]).toHaveStyle(`background-image: url(${mockImage})`);
     expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
     expect(await findByText(images[0].altText as string)).toHaveClass(
       "accessibility-text"
@@ -56,9 +54,24 @@ describe("_DesktopThumbnails component", () => {
     fireEvent.click(thumbnails[1]);
     expect(onThumbnailClick).toHaveBeenCalledWith(expect.any(Object), 1);
   });
+  it("renders correctly with media prop", async () => {
+    const { container, getAllByTestId } = renderedComponent(true);
+
+    const thumbnails = getAllByTestId("default-thumbnail");
+    const scrollerButtons = container.querySelectorAll(".thumb-scroller");
+    expect(container.firstChild).toMatchSnapshot();
+    expect(scrollerButtons).toHaveLength(2);
+    expect(thumbnails).toHaveLength(2);
+    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
+    expect(container.getElementsByTagName("img")).toHaveLength(2);
+
+    fireEvent.click(thumbnails[1]);
+    expect(onThumbnailClick).toHaveBeenCalledWith(expect.any(Object), 1);
+  });
 
   describe("when click on the ThumbScrollerButton", () => {
     const parentOffsetWidth = 200;
+    const images = getImages(false);
     const expectedMarginRight =
       -(THUMBNAIL_WIDTH * images.length - parentOffsetWidth) / 2;
 

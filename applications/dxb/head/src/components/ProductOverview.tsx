@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid } from "@bmi/components";
 import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
-import { Image } from "@bmi/components";
 import { Thumbnail, ThumbnailProps } from "@bmi/components";
 import { MediaGallery, MediaData } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
@@ -15,7 +14,7 @@ export type Data = {
   name: string;
   brandName: string;
   nobb: string | null;
-  images: readonly Image[];
+  images: readonly MediaData[];
   attributes: ProductOverviewPaneProps["attributes"] | null;
   isRecapchaShown?: boolean;
   videos?: MediaData[];
@@ -46,11 +45,7 @@ const ProductOverview = ({
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={8}>
-          <MediaGallery
-            media={[...images, ...videos]}
-            layout="short"
-            needToSort={true}
-          />
+          <MediaGallery media={[...images, ...videos]} layout="short" />
         </Grid>
         <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane

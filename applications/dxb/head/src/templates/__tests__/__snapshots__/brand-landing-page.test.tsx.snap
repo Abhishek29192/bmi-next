@@ -2859,6 +2859,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -2964,6 +2966,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -3051,6 +3055,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -6417,6 +6423,8 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -9861,6 +9869,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -9948,6 +9958,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -13392,6 +13404,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -13479,6 +13493,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -16947,6 +16963,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -17034,6 +17052,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -20400,6 +20420,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -20505,6 +20527,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -20592,6 +20616,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -23930,6 +23956,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -24035,6 +24063,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -24122,6 +24152,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -27592,6 +27624,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -27679,6 +27713,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -31164,6 +31200,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -31251,6 +31289,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"

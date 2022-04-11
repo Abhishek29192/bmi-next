@@ -5,6 +5,8 @@ import { Tabs } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { GuaranteeEventType, ProjectMember } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
+import { Project } from "@bmi/intouch-api-types";
+import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
 import can from "../../lib/permissions/can";
 import { ProjectsHeader } from "../Cards/ProjectsHeader";
 import { BuildingOwnerDetails } from "../Cards/BuildingOwnerDetails";
@@ -209,8 +211,13 @@ const ProjectDetail = ({
           startDate={project.startDate}
           endDate={project.endDate}
           guaranteeType={getProjectGuaranteeType(project)}
-          guaranteeStatus={getProjectGuaranteeStatus(project)}
-          guaranteeEventType={getGuaranteeEventType(project, account.id)}
+          guaranteeStatus={getProjectGuaranteeStatus(
+            project as DeepPartial<Project>
+          )}
+          guaranteeEventType={getGuaranteeEventType(
+            project as DeepPartial<Project>,
+            account.id
+          )}
           guaranteeEventHandler={guaranteeUpdateHandler}
           renderActions={() => <ProjectEditAction project={project} />}
         />
@@ -279,7 +286,10 @@ const ProjectDetail = ({
             projectId={project.id}
             isArchived={project.hidden}
             guaranteeEventHandler={
-              isProjectApprovable(project, account.id) && guaranteeUpdateHandler
+              isProjectApprovable(
+                project as DeepPartial<Project>,
+                account.id
+              ) && guaranteeUpdateHandler
             }
           />
         ) : null}

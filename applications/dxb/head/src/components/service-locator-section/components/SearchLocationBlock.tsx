@@ -8,6 +8,7 @@ import { Autocomplete } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { GoogleAutocomplete } from "@bmi/components";
 import { GeolocationButton } from "@bmi/components";
+import { microCopy } from "../../../constants/microCopies";
 import AutoCompleteCountryMap from "../../../countries/GoogleCountryCodeMap";
 import styles from "../styles/ServiceLocatorSection.module.scss";
 import { useSiteContext } from "../../Site";
@@ -41,7 +42,7 @@ export const SearchLocationBlock = ({
         <Autocomplete
           id="company-autocomplete"
           label={autocompleteLabel}
-          noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+          noOptionsText={getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL)}
           className={styles["company-autocomplete"]}
           onChange={handleAutocompleteOnChange}
           filterOptions={getFilterOptions()}
@@ -50,12 +51,12 @@ export const SearchLocationBlock = ({
           startAdornmentIcon="HardHatHead"
         />
         <Typography className={styles["and-or-label"]}>
-          <span>{getMicroCopy("findARoofer.andOr")}</span>
+          <span>{getMicroCopy(microCopy.FIND_A_ROOFER_AND_OR)}</span>
         </Typography>
         <GoogleAutocomplete
           id="location-autocomplete"
-          label={getMicroCopy("findARoofer.locationFieldLabel")}
-          noOptionsText={getMicroCopy("findARoofer.noResultsLabel")}
+          label={getMicroCopy(microCopy.FIND_A_ROOFER_LOCATION_FIELD_LABEL)}
+          noOptionsText={getMicroCopy(microCopy.FIND_A_ROOFER_NO_RESULTS_LABEL)}
           className={styles["location-autocomplete"]}
           onPlaceChange={handlePlaceChange}
           freeSolo
@@ -69,7 +70,7 @@ export const SearchLocationBlock = ({
           }}
         />
         <GeolocationButton onPosition={getPosition()}>
-          {getMicroCopy("findARoofer.geolocationButton")}
+          {getMicroCopy(microCopy.FIND_A_ROOFER_GEOLOCATION_BUTTON)}
         </GeolocationButton>
       </>
     </Grid>

@@ -68,7 +68,7 @@ describe("removeIrrelevantFilters function", () => {
       } as unknown as Filter
     ];
     const aggregations: Aggregations = {
-      categories: {
+      allCategories: {
         buckets: [{ key: "colour1", doc_count: 1 }]
       }
     };
@@ -158,27 +158,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -200,6 +194,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -207,11 +202,10 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
@@ -228,12 +222,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -247,9 +241,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -271,27 +262,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -320,12 +305,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -339,9 +324,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -363,27 +345,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -410,12 +386,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -429,9 +405,6 @@ describe("compileElasticSearchQuery function", () => {
           },
           Object {
             "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "scoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",
@@ -453,27 +426,21 @@ describe("compileElasticSearchQuery function", () => {
               "size": "100",
             },
           },
-          "categories": Object {
-            "terms": Object {
-              "field": "categories.code.keyword",
-              "size": "100",
-            },
-          },
           "colourfamily": Object {
             "terms": Object {
-              "field": "colourfamilyCode.keyword",
+              "field": "appearanceAttributes.colourfamily.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "materialsCode.keyword",
+              "field": "generalInformation.materials.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "texturefamilyCode.keyword",
+              "field": "appearanceAttributes.texturefamily.code.keyword",
               "size": "100",
             },
           },
@@ -495,6 +462,7 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "query_string": Object {
+                  "escape": true,
                   "fields": Array [
                     "externalProductCode",
                     "name^5",
@@ -502,15 +470,14 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "colourfamilyValue.keyword",
-                    "materialsValue.keyword",
-                    "texturefamilyValue.keyword",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
                     "measurementValue.keyword",
-                    "categories.value.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
                   ],
-                  "query": "*bar//*",
+                  "query": "*bar *",
                   "type": "cross_fields",
                 },
               },
@@ -523,12 +490,12 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "categories.code.keyword": "BAR",
+                  "allCategories.code.keyword": "BAR",
                 },
               },
               Object {
                 "term": Object {
-                  "colourfamilyCode.keyword": "Colour",
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
                 },
               },
             ],
@@ -544,7 +511,628 @@ describe("compileElasticSearchQuery function", () => {
             "variantScoringWeightInt": "desc",
           },
           Object {
-            "scoringWeightInt": "desc",
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform @ in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar@");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform ampersand in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar&");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform degree symbol in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar°");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform plus in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar+");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform superscript characters in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar²");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should transform smaller characters in searchQuery", () => {
+    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar<");
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "allCategories": Object {
+            "terms": Object {
+              "field": "allCategories.code.keyword",
+              "size": "100",
+            },
+          },
+          "colourfamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "materials": Object {
+            "terms": Object {
+              "field": "generalInformation.materials.code.keyword",
+              "size": "100",
+            },
+          },
+          "texturefamily": Object {
+            "terms": Object {
+              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "size": "100",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "appearanceAttributes.colourfamily.name.keyword",
+                    "generalInformation.materials.name.keyword",
+                    "appearanceAttributes.texturefamily.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar *",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
+                },
+              },
+              Object {
+                "term": Object {
+                  "allCategories.code.keyword": "BAR",
+                },
+              },
+              Object {
+                "term": Object {
+                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
           },
           Object {
             "name.keyword": "asc",

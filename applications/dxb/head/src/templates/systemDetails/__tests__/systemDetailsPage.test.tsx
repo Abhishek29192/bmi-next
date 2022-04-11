@@ -1,13 +1,15 @@
 import React from "react";
+import { History } from "@reach/router";
+import { screen } from "@testing-library/dom";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import Component from "../systemDetailsPage";
 import SystemDetailsPage, {
   IGNORED_DOCUMENTS_ASSETS
 } from "../systemDetailsPage";
 import { Asset, AssetAssetType, System } from "../../../components/types/pim";
 import createSystemDetails from "../../../test/systemDetailsMockData";
-import "@testing-library/jest-dom";
+import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
+import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
 
 const systemPageId = "1234";
 const siteId = "1234";
@@ -21,6 +23,23 @@ const allContentfulAssetType = {
 };
 const systemDetailsMockData = createSystemDetails();
 jest.mock("gatsby");
+
+const withProviders = ({
+  customConfig = { isBrandProviderEnabled: true },
+  routerObject,
+  renderComponent
+}: {
+  customConfig?: EnvConfig["config"];
+  routerObject?: { route?: string; history?: History };
+  renderComponent: React.ReactElement;
+}) => {
+  return renderWithRouter(
+    <ConfigProvider configObject={customConfig}>
+      <ProvideStyles>{renderComponent}</ProvideStyles>
+    </ConfigProvider>,
+    routerObject
+  );
+};
 
 describe("SystemDetailsPage template component", () => {
   beforeEach(() => {
@@ -42,42 +61,45 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render", () => {
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
-    process.env.SPACE_MARKET_CODE = "no";
-    const { container } = renderWithRouter(
-      <Component
-        data={{
-          contentfulSite: createMockSiteData(),
-          shareWidget: null,
-          systems: systemDetailsMockData,
-          allContentfulAssetType
-        }}
-        pageContext={{
-          systemPageId,
-          siteId
-        }}
-      />
-    );
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetailsMockData,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
 
     expect(container).toMatchSnapshot();
   });
 
   it("should render without BrandProvider", () => {
-    process.env.SPACE_MARKET_CODE = "no";
-    const { container } = renderWithRouter(
-      <SystemDetailsPage
-        data={{
-          contentfulSite: createMockSiteData(),
-          shareWidget: null,
-          systems: systemDetailsMockData,
-          allContentfulAssetType
-        }}
-        pageContext={{
-          systemPageId,
-          siteId
-        }}
-      />
-    );
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetailsMockData,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
     const tabSection = container.querySelector(".TabsBar");
 
     expect(container).toMatchSnapshot();
@@ -85,28 +107,109 @@ describe("SystemDetailsPage template component", () => {
   });
 
   it("should render without systemLayers", async () => {
-    process.env.SPACE_MARKET_CODE = "no";
     const systemDetails = createSystemDetails({ systemLayers: null });
-    const { container } = renderWithRouter(
-      <SystemDetailsPage
-        data={{
-          contentfulSite: createMockSiteData(),
-          shareWidget: null,
-          systems: systemDetails,
-          allContentfulAssetType
-        }}
-        pageContext={{
-          systemPageId,
-          siteId
-        }}
-      />
-    );
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
 
     const layersRelatedProducts = container.querySelector(
       "Zanda Protector normalstein"
     );
     expect(container).toMatchSnapshot();
     expect(layersRelatedProducts).not.toBeInTheDocument();
+  });
+
+  it("should render without assets", async () => {
+    const systemDetails = createSystemDetails({ assets: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    expect(
+      await screen.queryByText("MC: sdp.leadBlock.specification")
+    ).toBeNull();
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without classifications", async () => {
+    const systemDetails = createSystemDetails({ classifications: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    expect(
+      await screen.queryByText("MC: sdp.leadBlock.technicalSpecification")
+    ).toBeNull();
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("should render without categories", async () => {
+    const systemDetails = createSystemDetails({ categories: null });
+    const { container } = withProviders({
+      customConfig: { spaceMarketCode: "no" },
+      renderComponent: (
+        <SystemDetailsPage
+          data={{
+            contentfulSite: createMockSiteData(),
+            shareWidget: null,
+            systems: systemDetails,
+            allContentfulAssetType
+          }}
+          pageContext={{
+            systemPageId,
+            siteId
+          }}
+        />
+      )
+    });
+
+    const brandLogo = container.querySelector("brandLogo");
+    expect(brandLogo).not.toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
 
   describe("should have function to", () => {
@@ -186,21 +289,22 @@ describe("SystemDetailsPage template component", () => {
         ],
         systemLayers: []
       };
-      const { container, queryAllByText } = renderWithRouter(
-        <Component
-          data={{
-            contentfulSite: createMockSiteData(),
-            shareWidget: null,
-            systems: newDatajson as System,
-            allContentfulAssetType
-          }}
-          pageContext={{
-            systemPageId,
-            siteId
-          }}
-        />
-      );
-
+      const { container, queryAllByText } = withProviders({
+        renderComponent: (
+          <SystemDetailsPage
+            data={{
+              contentfulSite: createMockSiteData(),
+              shareWidget: null,
+              systems: newDatajson as System,
+              allContentfulAssetType
+            }}
+            pageContext={{
+              systemPageId,
+              siteId
+            }}
+          />
+        )
+      });
       const contentToBeIngored1 = queryAllByText(valueText, { exact: false });
       const contentToBeIngored2 = queryAllByText(valueText2, { exact: false });
       const contentToBeExist = queryAllByText(valueText3, { exact: false });
@@ -232,7 +336,6 @@ describe("SystemDetailsPage template component", () => {
         valueText4
       );
     });
-
     it("filter documentsAndDownload by assetsType and allowedToDownload", () => {
       const document: Asset = {
         allowedToDownload: true,
@@ -262,52 +365,53 @@ describe("SystemDetailsPage template component", () => {
         notAllowToDownload,
         ...ignoredDocument
       ];
-      const { container, queryByText } = renderWithRouter(
-        <Component
-          data={{
-            contentfulSite: createMockSiteData(),
-            shareWidget: null,
-            systems: { ...systemDetailsMockData, assets: documents },
-            allContentfulAssetType
-          }}
-          pageContext={{
-            systemPageId,
-            siteId
-          }}
-        />
-      );
+      const { container, queryByText } = withProviders({
+        renderComponent: (
+          <SystemDetailsPage
+            data={{
+              contentfulSite: createMockSiteData(),
+              shareWidget: null,
+              systems: { ...systemDetailsMockData, assets: documents },
+              allContentfulAssetType
+            }}
+            pageContext={{
+              systemPageId,
+              siteId
+            }}
+          />
+        )
+      });
       const tableRows = container.querySelectorAll(".tableContainer tbody tr");
-
       expect(container).toMatchSnapshot();
       expect(queryByText(allContentfulAssetType.nodes[0].name)).toBeTruthy();
       expect(tableRows.length).toBe(1);
     });
   });
-});
 
-describe("gtm on landing on sdp from sc", (): void => {
-  it("run pushtogtm data layer if selected_system in query param", (): void => {
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
-    process.env.SPACE_MARKET_CODE = "no";
-    const { container } = renderWithRouter(
-      <Component
-        data={{
-          contentfulSite: createMockSiteData(),
-          shareWidget: null,
-          systems: systemDetailsMockData,
-          allContentfulAssetType
-        }}
-        pageContext={{
-          systemPageId,
-          siteId
-        }}
-      />,
-      {
-        route:
-          "http://localhost:8000/no/system-details-page?selected_system=Recomended_System1&prev_page=system-configurator-page"
-      }
-    );
+  describe("gtm on landing on sdp from sc", () => {
+    it("run pushtogtm data layer if selected_system in query param", () => {
+      const { container } = withProviders({
+        renderComponent: (
+          <SystemDetailsPage
+            data={{
+              contentfulSite: createMockSiteData(),
+              shareWidget: null,
+              systems: systemDetailsMockData,
+              allContentfulAssetType
+            }}
+            pageContext={{
+              systemPageId,
+              siteId
+            }}
+          />
+        ),
+        routerObject: {
+          route:
+            "http://localhost:8000/no/system-details-page?selected_system=Recomended_System1&prev_page=system-configurator-page"
+        }
+      });
 
-    expect(container).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
+    });
   });
 });

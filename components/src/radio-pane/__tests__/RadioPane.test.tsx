@@ -30,7 +30,7 @@ describe("RadioPane component", () => {
     );
     expect(container).toMatchSnapshot();
   });
-  it("renders with collapse feature", async () => {
+  it("renders with collapse feature", () => {
     const { container, queryByTestId } = render(
       <RadioPane name="f1" value="v1" title={"Value 1"} collapseFeature>
         expanded content
@@ -41,6 +41,12 @@ describe("RadioPane component", () => {
     expect(queryByTestId("collapsed")).not.toBeTruthy();
     expect(queryByTestId("expanded")).toBeTruthy();
 
+    expect(container).toMatchSnapshot();
+  });
+  it("renders with collapse feature withoud description", () => {
+    const { container } = render(
+      <RadioPane name="f1" value="v1" title="Value 1" collapseFeature />
+    );
     expect(container).toMatchSnapshot();
   });
 });

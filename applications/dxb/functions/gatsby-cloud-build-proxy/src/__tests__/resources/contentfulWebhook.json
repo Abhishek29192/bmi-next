@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "tags": [
+      { "sys": { "id": "market__norway", "type": "Link", "linkType": "Tag" } }
+    ]
+  },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "ijg4laiqqeoh" }
+    },
+    "id": "01ds0p9rKbC16tsIc0cCPb",
+    "type": "Entry",
+    "createdAt": "2022-03-10T14:35:56.608Z",
+    "updatedAt": "2022-03-18T08:48:24.328Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7vk2ubaUBy27Ui1Wv1ryXG"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7vk2ubaUBy27Ui1Wv1ryXG"
+      }
+    },
+    "publishedCounter": 0,
+    "version": 4,
+    "contentType": {
+      "sys": { "type": "Link", "linkType": "ContentType", "id": "page" }
+    }
+  },
+  "fields": {
+    "title": { "nb-NO": "test", "fi-FI": "Referenssit ja artikkelit" },
+    "slug": { "fi-FI": "referenssit-ja-artikkelit" },
+    "featuredImage": {
+      "fi-FI": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Asset",
+          "id": "OfhOYHQWsNmwLTY1k7OpM"
+        }
+      }
+    },
+    "featuredMedia": {
+      "fi-FI": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "6BXcaiemQP4EiqaPegVLq9"
+        }
+      }
+    },
+    "subtitle": {
+      "fi-FI": "BMI Icopalin ja BMI Ormaxin tuotteilla on tehty Suomeen satojatuhansia kattoja. Tutustu tästä muutamiin rakennuskohteisiimme ja artikkeleihin!"
+    },
+    "heroType": { "fi-FI": "Hierarchy" },
+    "sections": {
+      "fi-FI": [
+        {
+          "sys": {
+            "type": "Link",
+            "linkType": "Entry",
+            "id": "2krGBAYat2HIY9v83Q9sGy"
+          }
+        }
+      ]
+    },
+    "seo": {
+      "fi-FI": {
+        "sys": {
+          "type": "Link",
+          "linkType": "Entry",
+          "id": "4qzgDf44xQ5bOwbSTol4gf"
+        }
+      }
+    },
+    "subtitleShortText": {
+      "fi-FI": "BMI Icopalin ja BMI Ormaxin tuotteilla on tehty Suomeen satojatuhansia kattoja. Tutustu tästä muutamiin rakennuskohteisiimme ja artikkeleihin!"
+    }
+  }
+}

@@ -1,7 +1,17 @@
-import "@testing-library/jest-dom";
+const mockContext = jest.fn().mockReturnValue({ idMap: {} });
 import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import withGTM, { pushToDataLayer } from "../google-tag-manager";
+import { renderHook } from "@testing-library/react-hooks";
+import * as GTM from "../google-tag-manager";
+
+const withGTM = GTM.default;
+const pushToDataLayer = GTM.pushToDataLayer;
+const useGTM = GTM.useGTM;
+
+jest.mock("react", () => ({
+  ...(jest.requireActual("react") as any),
+  useContext: mockContext
+}));
 
 declare let window: Window & {
   dataLayer: {
@@ -363,5 +373,71 @@ describe("withGTM", () => {
 
     expect(container.firstChild).not.toHaveAttribute("data-gtm");
     expect(mockPush).toHaveBeenCalledTimes(0);
+  });
+});
+
+describe("useGTM", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const gtm = {
+    id: "gtm-id",
+    label: "gtm-label",
+    action: "Click"
+  };
+  describe("when gtm id exists in gtm context id map", () => {
+    it("should use value from idMap for dataGTM", () => {
+      mockContext.mockReturnValueOnce({ idMap: { "gtm-id": "context-id" } });
+      const { result } = renderHook(() => useGTM(gtm));
+      expect(result.current.dataGTM).toEqual({
+        id: "context-id",
+        label: "gtm-label",
+        action: "Click"
+      });
+    });
+  });
+
+  describe("when gtm id doesn't exists in gtm context id map", () => {
+    it("should use value passed with gtm object", () => {
+      const { result } = renderHook(() => useGTM(gtm));
+      expect(result.current.dataGTM).toEqual({
+        id: "gtm-id",
+        label: "gtm-label",
+        action: "Click"
+      });
+    });
+  });
+
+  describe("when GATSBY_PREVIEW env undefined", () => {
+    beforeAll(() => {
+      delete process.env.GATSBY_PREVIEW;
+    });
+
+    describe("and pushGTMEvent triggered", () => {
+      it("should call pushToDataLayer", () => {
+        jest.spyOn(GTM, "pushToDataLayer");
+        const { result } = renderHook(() => useGTM(gtm));
+        result.current.pushGTMEvent();
+
+        expect(GTM.pushToDataLayer).toBeCalledWith(gtm);
+      });
+    });
+  });
+
+  describe("when GATSBY_PREVIEW env is not undefined", () => {
+    beforeEach(() => {
+      process.env.GATSBY_PREVIEW = "true";
+    });
+
+    describe("and pushGTMEvent triggered", () => {
+      it("shouldn't call pushToDataLayer", () => {
+        jest.spyOn(GTM, "pushToDataLayer");
+        const { result } = renderHook(() => useGTM(gtm));
+        result.current.pushGTMEvent();
+
+        expect(GTM.pushToDataLayer).not.toBeCalled();
+      });
+    });
   });
 });

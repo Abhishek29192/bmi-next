@@ -72,18 +72,22 @@ const RadioPane = ({
           ) : null}
         </ButtonBase>
       </label>
-      {children && collapseFeature && (
+      {collapseFeature && (
         <div className={styles["btn-container"]}>
-          <IconButton
-            onClick={() => setIsCollapse(!isCollapse)}
-            className={styles["icon-btn"]}
-          >
-            {isCollapse ? (
-              <Icon source={InfoIcon} className={styles["info-icon"]} />
-            ) : (
-              <Icon source={CancelIcon} className={styles["cancel-icon"]} />
-            )}
-          </IconButton>
+          {children ? (
+            <IconButton
+              onClick={() => setIsCollapse(!isCollapse)}
+              className={styles["icon-btn"]}
+            >
+              {isCollapse ? (
+                <Icon source={InfoIcon} className={styles["info-icon"]} />
+              ) : (
+                <Icon source={CancelIcon} className={styles["cancel-icon"]} />
+              )}
+            </IconButton>
+          ) : (
+            <div className={styles["icon-btn"]} />
+          )}
         </div>
       )}
     </div>

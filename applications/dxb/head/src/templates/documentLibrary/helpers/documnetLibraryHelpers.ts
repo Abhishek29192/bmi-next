@@ -33,10 +33,12 @@ const sourceToSortMap: Record<
           ? -1
           : 0
       ),
-  CMS: (documents) =>
-    documents
-      .concat()
-      .sort((a, b) =>
+  CMS: (documents) => {
+    const docs = documents.concat();
+    const isAllDocsHaveBrand = docs.every((doc) => Boolean(doc["brand"]));
+
+    if (isAllDocsHaveBrand) {
+      return docs.sort((a, b) =>
         a["brand"] > b["brand"]
           ? a.title > b.title
             ? 1
@@ -46,7 +48,11 @@ const sourceToSortMap: Record<
           : a["brand"] < b["brand"]
           ? -1
           : 0
-      )
+      );
+    } else {
+      return docs.sort((a, b) => (a.title > b.title ? 1 : -1));
+    }
+  }
 };
 
 export { sourceToSortMap };

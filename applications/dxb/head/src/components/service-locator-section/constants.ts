@@ -2,6 +2,7 @@
 export const EVENT_CAT_ID_LINK_CLICKS = "cta-click1";
 // TODO: Maybe calculate this from `range`?
 export const PLACE_LEVEL_ZOOM = 8;
+export const PAGE_SIZE = 24;
 
 export const DEFAULT_LEVEL_ZOOM = 5;
 export const QUERY_CHIP_FILTER_KEY = "chip";

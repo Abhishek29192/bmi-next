@@ -8,21 +8,24 @@ export const renderHero = (
   heroProps: HeroItem,
   breadcrumbsNode: React.ReactNode,
   heroLevel: heroLevelType,
-  brandLogo: string | null,
-  heroType: string
+  heroType: string,
+  heroKeyLine?: {
+    isHeroKeyLine?: boolean;
+    isSpotlightHeroKeyLine?: boolean;
+  }
 ) => {
   return heroType === "Spotlight" ? (
     <SpotlightHero
       {...heroProps}
       breadcrumbs={breadcrumbsNode}
-      isHeroKeyLine={!!brandLogo}
+      isHeroKeyLine={heroKeyLine.isSpotlightHeroKeyLine}
     />
   ) : (
     <Hero
       level={heroLevel}
       {...heroProps}
       breadcrumbs={breadcrumbsNode}
-      isHeroKeyLine={!!brandLogo}
+      isHeroKeyLine={heroKeyLine.isHeroKeyLine}
     />
   );
 };

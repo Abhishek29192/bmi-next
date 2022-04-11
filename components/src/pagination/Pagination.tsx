@@ -86,7 +86,11 @@ const Pagination = (props: { page: number } & PaginationProps) => {
             <div
               className={classnames(
                 styles["PaginationItem"],
-                "MuiPaginationItem-root"
+                "MuiPaginationItem-root",
+                "MuiPaginationItem-ellipsis",
+                {
+                  "Mui-disabled": item.disabled
+                }
               )}
             >
               <Icon source={Ellipsis} style={{ fontSize: 16 }} />

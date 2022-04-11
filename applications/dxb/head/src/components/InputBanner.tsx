@@ -11,6 +11,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import ErrorIcon from "@material-ui/icons/WarningOutlined";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
 import FormSection, { InputType as FormInputsData } from "./FormSection";
@@ -44,6 +45,9 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   const [retryDialogOpen, setRetryDialogOpen] = useState(false);
   const { getMicroCopy } = useSiteContext();
   const {
+    config: { gcpApsisEndpoint }
+  } = useConfig();
+  const {
     title,
     description,
     inputLabel,
@@ -62,7 +66,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
   const handleSubmit = useCallback(
     async (values) => {
       // integrate with Apsis API using GCP function
-      if (!process.env.GATSBY_GCP_APSIS_ENDPOINT) {
+      if (!gcpApsisEndpoint) {
         devLog("APSIS API Endpoint is not configured.");
         return;
       }
@@ -72,7 +76,7 @@ const IntegratedInputBanner = ({ data }: { data?: Data }) => {
       try {
         const source = axios.CancelToken.source();
         await axios.post(
-          process.env.GATSBY_GCP_APSIS_ENDPOINT,
+          gcpApsisEndpoint,
           {
             email,
             ...values

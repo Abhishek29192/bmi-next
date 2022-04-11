@@ -7,6 +7,7 @@
     },
     "contactDetailsHeading": "Kontaktinformation",
     "fileSizeMessage": "Maximale Dateigröße von 3 MB.",
+    "fileSizeValidationMessage": "You cannot upload files larger than",
     "fileTypesMessage": "Sie können jpg-, gif- oder png-Dateien hochladen.",
     "form": {
       "fields": {

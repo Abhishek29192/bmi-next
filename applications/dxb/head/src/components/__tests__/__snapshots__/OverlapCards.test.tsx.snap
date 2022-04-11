@@ -227,6 +227,8 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                 >
                   <div
                     class="YoutubeVideo"
+                    data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label\\",\\"action\\":\\"Play\\"}"
+                    data-testid="youtube-dialog-wrapper"
                   >
                     <button
                       aria-label="video label"
@@ -549,6 +551,8 @@ exports[`OverlapCards component renders correctly 1`] = `
                 >
                   <div
                     class="YoutubeVideo"
+                    data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-video label\\",\\"action\\":\\"Play\\"}"
+                    data-testid="youtube-dialog-wrapper"
                   >
                     <button
                       aria-label="video label"

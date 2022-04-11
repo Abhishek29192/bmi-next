@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable security/detect-object-injection */
 "use strict";
 
 require("dotenv").config();
@@ -137,41 +138,62 @@ const uploadLines = async (lines, environment) => {
       }
     }
 
-    //check if serviceTypeDictionary has the entry for merchant type to link id from contentful
-    const serviceTypeLinkId = serviceTypeOwnKeyValueMap[record["merchantType"]];
-    let serviceTypeEntryId = serviceTypeLinkId;
-    if (!serviceTypeLinkId) {
-      try {
-        //get Service type link record id of this merchant
-        const serviceTypeEntry = await environment.createEntry(
-          SERVICE_TYPE_CONTENT_TYPE_ID,
-          {
-            fields: {
-              name: { [LOCALE]: record["merchantType"] }
+    const sourceMerchantTypes = record["merchantType"].split(",");
+    const linkedMerchantTypObj = [];
+
+    sourceMerchantTypes.forEach(async (marchantType) => {
+      // splitted text starts with a ' ' space character!!
+      const currentMerchantType = marchantType.trim();
+
+      //check if serviceTypeDictionary has the entry for merchant type to link id from contentful
+      const serviceTypeLinkId = serviceTypeOwnKeyValueMap[currentMerchantType];
+      let serviceTypeEntryId = serviceTypeLinkId;
+      if (!serviceTypeLinkId) {
+        try {
+          //get Service type link record id of this merchant
+          const serviceTypeEntry = await environment.createEntry(
+            SERVICE_TYPE_CONTENT_TYPE_ID,
+            {
+              fields: {
+                name: { [LOCALE]: currentMerchantType }
+              }
             }
+          );
+          await serviceTypeEntry.publish();
+
+          serviceTypeOwnKeyValueMap[currentMerchantType] =
+            serviceTypeEntry.sys.id;
+
+          serviceTypeEntryId = serviceTypeEntry.sys.id;
+
+          linkedMerchantTypObj.push({
+            sys: {
+              type: "Link",
+              linkType: "Entry",
+              id: serviceTypeEntryId
+            }
+          });
+          const serviceTypeCreatedMsg = `Created and Published new Service Type - '${currentMerchantType}' with id '${serviceTypeOwnKeyValueMap[currentMerchantType]}'`;
+
+          console.log(serviceTypeCreatedMsg);
+          writeLine(successLoggerStream, serviceTypeCreatedMsg);
+        } catch (error) {
+          const errMsg = `Failed to publish Merchant type : '${marchantType}' :: source line No.: ${lineNumber}`;
+          console.error(errMsg, error);
+
+          writeLine(errorLoggerStream, errMsg);
+          writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
+        }
+      } else {
+        linkedMerchantTypObj.push({
+          sys: {
+            type: "Link",
+            linkType: "Entry",
+            id: serviceTypeEntryId
           }
-        );
-        await serviceTypeEntry.publish();
-
-        serviceTypeOwnKeyValueMap[record["merchantType"]] =
-          serviceTypeEntry.sys.id;
-
-        serviceTypeEntryId = serviceTypeEntry.sys.id;
-
-        const serviceTypeCreatedMsg = `Created and Published new Service Type - '${
-          record["merchantType"]
-        }' with id '${serviceTypeOwnKeyValueMap[record["merchantType"]]}'`;
-
-        console.log(serviceTypeCreatedMsg);
-        writeLine(successLoggerStream, serviceTypeCreatedMsg);
-      } catch (error) {
-        const errMsg = `Failed to publish Merchant type : '${record["merchantType"]}' :: source line No.: ${lineNumber}`;
-        console.error(errMsg, error);
-
-        writeLine(errorLoggerStream, errMsg);
-        writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
+        });
       }
-    }
+    });
 
     const fields = {
       entryType: "Merchant",
@@ -189,15 +211,7 @@ const uploadLines = async (lines, environment) => {
           : "https://" + record["website"]
         : undefined,
       summary: record["summary"],
-      serviceTypes: [
-        {
-          sys: {
-            type: "Link",
-            linkType: "Entry",
-            id: serviceTypeEntryId
-          }
-        }
-      ]
+      serviceTypes: linkedMerchantTypObj
     };
 
     const fieldsLocalised = Object.entries(fields).reduce(

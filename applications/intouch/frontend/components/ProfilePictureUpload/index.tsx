@@ -14,6 +14,7 @@ type ProfilePictureUploadProps = {
   removePictureLabel: string;
   fileTypesMessage: string;
   fileSizeMessage: string;
+  fileValidationMessage?: string;
 };
 
 export const ProfilePictureUpload = ({
@@ -25,7 +26,8 @@ export const ProfilePictureUpload = ({
   uploadPictureLabel,
   removePictureLabel,
   fileTypesMessage,
-  fileSizeMessage
+  fileSizeMessage,
+  fileValidationMessage
 }: ProfilePictureUploadProps) => {
   const [uploadedPhotoUrl, setUploadedPhotoUrl] = useState(initialPictureUrl);
 
@@ -79,6 +81,9 @@ export const ProfilePictureUpload = ({
         </Button>
         <Typography variant="default">{fileTypesMessage}</Typography>
         <Typography variant="default">{fileSizeMessage}</Typography>
+        <Typography variant="default" className={styles.validationMessage}>
+          {fileValidationMessage}
+        </Typography>
       </div>
     </div>
   );

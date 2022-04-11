@@ -1,4 +1,5 @@
 // TODO: Find another place for this file.
+import { PimAssetType, Product } from "../../components/types/pim";
 import {
   generateIdFromString,
   generateDigestFromData
@@ -7,9 +8,9 @@ import { Node, Context } from "./types";
 import { getFormatFromFileName, isPimLinkDocument } from "./utils/documents";
 
 export const resolveDocumentsFromProducts = async (
-  assetTypes,
+  assetTypes: PimAssetType[],
   { source, context }: { source: Partial<Node>; context: Context }
-) => {
+): Promise<Node[]> => {
   const pimAssetTypes = assetTypes.map(({ pimCode }) => pimCode);
   const filter = assetTypes.length
     ? {
@@ -35,19 +36,22 @@ export const resolveDocumentsFromProducts = async (
       }
     : {};
 
-  const products = (await context.nodeModel.runQuery({
+  const { entries } = await context.nodeModel.findAll<Product>({
     query: {
       filter
     },
     type: "Products"
-  })) as Node[];
+  });
 
-  if (!products.length) {
+  const products = [...entries];
+
+  if (products.length === 0) {
     return [];
   }
 
-  const resources = (await context.nodeModel.runQuery({
+  const { entries: resourceEntries } = await context.nodeModel.findAll<Node>({
     query: {
+      limit: 1,
       filter: {
         site: {
           elemMatch: {
@@ -56,9 +60,10 @@ export const resolveDocumentsFromProducts = async (
         }
       }
     },
-    type: "ContentfulResources",
-    firstOnly: true
-  })) as Node;
+    type: "ContentfulResources"
+  });
+
+  const resources = [...resourceEntries].shift();
 
   const documents = products.flatMap((product) =>
     (product.assets || [])
@@ -84,6 +89,7 @@ export const resolveDocumentsFromProducts = async (
             title,
             url,
             assetType___NODE: assetType.id,
+            isLinkDocument: true,
             product___NODE: product.id
           };
 
@@ -109,6 +115,7 @@ export const resolveDocumentsFromProducts = async (
           url,
           assetType___NODE: assetType.id,
           fileSize,
+          isLinkDocument: false,
           product___NODE: product.id,
           format: mime || getFormatFromFileName(realFileName),
           extension: realFileName.split(".").pop(),
@@ -134,9 +141,9 @@ export const resolveDocumentsFromProducts = async (
 };
 
 export const resolveDocumentsFromContentful = async (
-  assetTypes,
+  assetTypes: PimAssetType[],
   { context }: { context: Context }
-) => {
+): Promise<Node[]> => {
   const filter = assetTypes.length
     ? {
         assetType: {
@@ -147,12 +154,15 @@ export const resolveDocumentsFromContentful = async (
       }
     : {};
 
-  const documents = await context.nodeModel.runQuery({
+  const { entries } = await context.nodeModel.findAll<Node>({
     query: {
       filter
     },
     type: "ContentfulDocument"
   });
-
+  const documents = [...entries];
+  if (!documents.length) {
+    return [];
+  }
   return documents;
 };

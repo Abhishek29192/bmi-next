@@ -19,6 +19,7 @@ import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import { queryElasticSearch } from "../utils/elasticSearch";
 import { generateSystemPath } from "../utils/systems";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { System } from "./types/pim";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
@@ -102,8 +103,6 @@ const saveStateToLocalStorage = (stateToStore: string) => {
   storage.local.setItem(SYSTEM_CONFIG_STORAGE_KEY, stateToStore);
 };
 
-const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_SYSTEMS;
-
 const GTMRadioPane = withGTM<RadioPaneProps>(RadioPane);
 
 type SystemConfiguratorQuestionData = {
@@ -128,6 +127,9 @@ const SystemConfiguratorQuestion = ({
   const [nextStep, setNextStep] = useState<NextStepData>({});
   const { locale, openIndex, setState } = useContext(SystemConfiguratorContext);
   const ref = useScrollToOnLoad(index === 0, ACCORDION_TRANSITION);
+  const {
+    config: { gcpSystemConfiguratorEndpoint }
+  } = useConfig();
 
   const singleAnswer =
     question.answers.length === 1 ? question.answers[0] : undefined;
@@ -146,17 +148,14 @@ const SystemConfiguratorQuestion = ({
       const {
         data
       }: AxiosResponse<QuestionData | ResultData | TitleWithContentData> =
-        await axios.get(
-          `${process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT}`,
-          {
-            headers: { "X-Recaptcha-Token": recaptchaToken },
-            params: {
-              answerId: answerId,
-              locale: locale
-            },
-            cancelToken: cancelTokenSource.token
-          }
-        );
+        await axios.get(`${gcpSystemConfiguratorEndpoint}`, {
+          headers: { "X-Recaptcha-Token": recaptchaToken },
+          params: {
+            answerId: answerId,
+            locale: locale
+          },
+          cancelToken: cancelTokenSource.token
+        });
 
       if (data.__typename === "ContentfulTitleWithContent") {
         setNextStep({ nextNoResult: data });
@@ -319,6 +318,9 @@ const SystemConfiguratorResult = ({
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
     useState<Partial<System>[]>([]);
+  const {
+    config: { esIndexNameSystem }
+  } = useConfig();
 
   useEffect(() => {
     const fetchESData = async () => {
@@ -330,7 +332,7 @@ const SystemConfiguratorResult = ({
         }
       };
       try {
-        const response = await queryElasticSearch(query, ES_INDEX_NAME);
+        const response = await queryElasticSearch(query, esIndexNameSystem);
         if (response.hits?.total.value > 0) {
           const pimObject = response.hits?.hits.map(({ _source }) => {
             return {

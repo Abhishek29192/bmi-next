@@ -1,0 +1,38 @@
+{
+  "en_EN": {
+    "roles": {
+      "COMPANY_ADMIN": "Company administrator",
+      "INSTALLER": "Installer"
+    }
+  },
+  "no_NO": {
+    "roles": {
+      "COMPANY_ADMIN": "Bedriftsadministrator",
+      "INSTALLER": "Medlem"
+    }
+  },
+  "it_IT": {
+    "roles": {
+      "COMPANY_ADMIN": "Amministratore Dell'azienda",
+      "INSTALLER": "Membro"
+    }
+  },
+  "de_DE": {
+    "roles": {
+      "COMPANY_ADMIN": "Firmenadministrator",
+      "INSTALLER": "Mitglied"
+    }
+  },
+  "da_DK": {
+    "roles": {
+      "COMPANY_ADMIN": "Administrator",
+      "INSTALLER": "Medlem"
+    }
+  },
+  "es_ES": {
+    "roles": {
+      "COMPANY_ADMIN": "Administrador de la empresa",
+      "INSTALLER": "Miembro"
+    }
+  }
+}

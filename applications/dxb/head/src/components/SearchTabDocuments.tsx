@@ -15,16 +15,13 @@ import {
 } from "../utils/elasticSearch";
 import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "./DocumentResultsFooter";
+import DocumentResultsFooter from "./DocumentResultsFooter";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
@@ -77,6 +74,10 @@ const SearchTabPanelDocuments = (props: Props) => {
   const { queryString, onLoadingChange, onCountChange, extraData } = props;
 
   const { getMicroCopy } = useSiteContext();
+
+  const {
+    config: { documentDownloadMaxLimit }
+  } = useConfig();
 
   // TODO: Not sure if we need this, would be nice to remove
   const isInitialLoad = useRef(true);
@@ -211,8 +212,10 @@ const SearchTabPanelDocuments = (props: Props) => {
     clearFilters();
   }, []);
 
+  const maxSize = documentDownloadMaxLimit * 1048576;
+
   return (
-    <DownloadList maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}>
+    <DownloadList maxSize={maxSize}>
       <Grid container spacing={3} ref={resultsElement}>
         <Grid item xs={12} md={12} lg={3}>
           <DownloadListContext.Consumer>
@@ -235,7 +238,6 @@ const SearchTabPanelDocuments = (props: Props) => {
             <DocumentResultsFooter
               page={page + 1}
               count={pageCount}
-              onDownloadClick={handleDownloadClick}
               onPageChange={handlePageChange}
             />
           </div>

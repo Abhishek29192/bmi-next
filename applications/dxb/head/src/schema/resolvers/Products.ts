@@ -42,7 +42,7 @@ const resolvePathFromFamily = async (
   args: ResolveArgs,
   context: Context
 ) => {
-  const parentFamilies = await context.nodeModel.runQuery({
+  const { entries } = await context.nodeModel.findAll<Node>({
     query: {
       filter: {
         categoryCodes: {
@@ -52,6 +52,8 @@ const resolvePathFromFamily = async (
     },
     type: "ContentfulProductListerPage"
   });
+
+  const parentFamilies = [...entries];
 
   if (!parentFamilies.length) {
     return [];
@@ -100,14 +102,18 @@ export default {
   documents: {
     type: ["ProductDocument"],
     async resolve(source: Node, args: ResolveArgs, context: Context) {
-      const assetTypes = await context.nodeModel.getAllNodes(
-        { type: "ContentfulAssetType" },
-        { connectionType: "ContentfulAssetType" }
-      );
-
       if (!source.assets || !source.assets.length) {
         return [];
       }
+      const { entries } = await context.nodeModel.findAll<Node>(
+        {
+          query: {},
+          type: "ContentfulAssetType"
+        },
+        { connectionType: "ContentfulAssetType" }
+      );
+
+      const assetTypes = [...entries];
 
       return source.assets
         .map((asset) => {
@@ -126,7 +132,8 @@ export default {
               title: `${source.name} ${assetType.name}`,
               url,
               assetType___NODE: assetType.id,
-              product___NODE: source.id
+              product___NODE: source.id,
+              isLinkDocument: true
             };
 
             return {
@@ -151,6 +158,7 @@ export default {
             url,
             assetType___NODE: assetType.id,
             fileSize,
+            isLinkDocument: false,
             product___NODE: source.id,
             format: mime || getFormatFromFileName(realFileName),
             extension: realFileName.split(".").pop()

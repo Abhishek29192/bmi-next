@@ -27,6 +27,7 @@ import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isValidEmail } from "../utils/emailUtils";
 import { microCopy } from "../constants/microCopies";
@@ -50,6 +51,7 @@ export type Data = {
   successRedirect: LinkData | null;
   source: SourceType | null;
   hubSpotFormGuid?: string | null;
+  sample_ids?: string | null;
 };
 
 const InputTypes = [
@@ -117,6 +119,9 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
+  const {
+    config: { gcpFormUploadEndpoint }
+  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -161,7 +166,7 @@ const Input = ({
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
           )}
-          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
+          uri={gcpFormUploadEndpoint}
           headers={{
             "Content-Type": "application/octet-stream"
           }}
@@ -310,7 +315,8 @@ const HubspotForm = ({
   backgroundColor,
   showTitle,
   title,
-  description
+  description,
+  sampleIds
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -318,14 +324,40 @@ const HubspotForm = ({
   showTitle: boolean;
   title: string;
   description: RichTextData;
+  sampleIds: string;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
+  const {
+    config: { hubSpotId }
+  } = useConfig();
 
   useHubspotForm({
-    portalId: process.env.GATSBY_HUBSPOT_ID,
+    portalId: hubSpotId,
     formId: hubSpotFormGuid,
     target: `#${hubSpotFormID}`
   });
+
+  typeof window !== "undefined" &&
+    window.addEventListener("message", (event) => {
+      if (
+        event.data.type === "hsFormCallback" &&
+        event.data.eventName === "onFormReady"
+      ) {
+        if (sampleIds.length) {
+          const iframeElement = document.querySelector(
+            "iframe"
+          ) as HTMLIFrameElement;
+
+          const result = iframeElement.contentWindow.document.querySelector(
+            'input[name="sample_ids"]'
+          );
+
+          if (result) {
+            (result as HTMLInputElement).value = sampleIds;
+          }
+        }
+      }
+    });
 
   return (
     <Section backgroundColor={backgroundColor}>
@@ -351,6 +383,7 @@ const FormSection = ({
   },
   backgroundColor,
   additionalValues,
+  sampleIds,
   isSubmitDisabled,
   gtmOverride,
   onSuccess
@@ -359,10 +392,14 @@ const FormSection = ({
   data: Data;
   backgroundColor: "pearl" | "white";
   additionalValues?: Record<string, string>;
+  sampleIds?: string;
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
 }) => {
+  const {
+    config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
+  } = useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -377,12 +414,13 @@ const FormSection = ({
   ) => {
     event.preventDefault();
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       alert("You cannot submit a form on a preview environment.");
       return;
     }
 
     setIsSubmitting(true);
+
     Object.assign(values, additionalValues);
     const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
@@ -400,7 +438,7 @@ const FormSection = ({
       const token = await executeRecaptcha();
 
       await axios.post(
-        process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
+        gcpFormSubmitEndpoint,
         {
           locale: node_locale,
           title,
@@ -437,7 +475,7 @@ const FormSection = ({
   ) => {
     event.preventDefault();
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       alert("You cannot submit a form on a preview environment.");
       return;
     }
@@ -497,17 +535,14 @@ const FormSection = ({
     };
 
     try {
-      await axios.post(
-        `${process.env.GATSBY_HUBSPOT_API_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotFormGuid}`,
-        {
-          ...hsPayload,
-          ...(hsLegalFields
-            ? {
-                legalConsentOptions: getLegalOptions(hsLegalFields)
-              }
-            : {})
-        }
-      );
+      await axios.post(`${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`, {
+        ...hsPayload,
+        ...(hsLegalFields
+          ? {
+              legalConsentOptions: getLegalOptions(hsLegalFields)
+            }
+          : {})
+      });
 
       setIsSubmitting(false);
       if (successRedirect) {
@@ -535,6 +570,7 @@ const FormSection = ({
           showTitle={showTitle}
           title={title}
           description={description}
+          sampleIds={sampleIds}
         />
       </HubspotProvider>
     );

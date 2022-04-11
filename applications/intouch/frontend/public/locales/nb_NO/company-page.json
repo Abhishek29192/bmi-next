@@ -48,6 +48,7 @@
       "evidence_category": "Beviskategori",
       "fileAlreadyExisting": "Filnavnet finnes allerede",
       "fileValidationMessage": "Du kan ikke laste opp filer som er større enn {{fileSize}}",
+      "total_files_size": "Total filstørrelse er overskredet - {{totalSize}}",
       "genericError": "Generisk feil",
       "instruction": "Du kan legge til filer",
       "microcopy": {
@@ -167,5 +168,7 @@
       "ALPHABETICAL": "Alfabetisk",
       "UPDATED": "Sist oppdatert"
     }
-  }
+  },
+  "companyAdministrators": "Bedriftsadministratorer",
+  "companyMembers": "Medlemmer"
 }

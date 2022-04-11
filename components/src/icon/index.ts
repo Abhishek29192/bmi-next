@@ -5,7 +5,9 @@ import {
   Phone,
   PhoneIphone as PhoneMobile,
   PlayArrow,
-  LinkedIn
+  LinkedIn,
+  Twitter,
+  Instagram
 } from "@material-ui/icons";
 import Icon from "./Icon";
 import Arrow from "./svgs/Arrow.svg";
@@ -21,6 +23,7 @@ import FileZIP from "./svgs/FileZIP.svg";
 import Cross from "./svgs/Cross.svg";
 import Design from "./svgs/Design.svg";
 import External from "./svgs/External.svg";
+import ExternalMobile from "./svgs/ExternalMobile.svg";
 import HardHatHead from "./svgs/HardHatHead.svg";
 import LocationOn from "./svgs/LocationOn.svg";
 import TileColour from "./svgs/TileColour.svg";
@@ -41,6 +44,8 @@ export {
   Download,
   Facebook,
   LinkedIn,
+  Twitter,
+  Instagram,
   Mail,
   Phone,
   PhoneMobile,
@@ -54,6 +59,7 @@ export {
   Cross,
   Design,
   External,
+  ExternalMobile,
   HardHatHead,
   LocationOn,
   PlayArrow,
@@ -76,6 +82,8 @@ export const iconMap = {
   Download,
   Facebook,
   LinkedIn,
+  Twitter,
+  Instagram,
   Mail,
   Phone,
   PhoneMobile,
@@ -90,6 +98,7 @@ export const iconMap = {
   Cross,
   Design,
   External,
+  ExternalMobile,
   HardHatHead,
   LocationOn,
   PlayArrow,

@@ -3,7 +3,6 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest
       .fn()
       .mockResolvedValueOnce({
@@ -35,7 +34,7 @@ const context: Context = {
         }
       }
     ]),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 

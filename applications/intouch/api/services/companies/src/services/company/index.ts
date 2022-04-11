@@ -126,7 +126,7 @@ export const updateCompany = async (
     ) {
       const dbPool = getDbPool();
       const { rows: marketAdmins } = await dbPool.query(
-        `SELECT * FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+        `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
         ["MARKET_ADMIN", user.marketId]
       );
       await pgClient.query("SELECT * FROM activate_company($1)", [
@@ -137,7 +137,8 @@ export const updateCompany = async (
         accountId: user.id,
         firstname: user.firstName,
         company: $name,
-        city: registeredAddress.town
+        city: registeredAddress.town,
+        companyCreator: user.email
       };
       const sendEMailToUser = sendMessageWithTemplate(
         context,
@@ -150,10 +151,11 @@ export const updateCompany = async (
       // send mail to market admin after successful company creation
       await Promise.all([
         sendEMailToUser,
-        ...marketAdmins.map(({ email }) => {
+        ...marketAdmins.map(({ email, id: accountId }) => {
           sendMessageWithTemplate(context, "COMPANY_REGISTERED", {
+            ...dynamicContent,
             email,
-            ...dynamicContent
+            accountId
           });
         })
       ]);

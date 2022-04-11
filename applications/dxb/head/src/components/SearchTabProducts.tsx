@@ -207,7 +207,11 @@ const SearchTabPanelProducts = (props: Props) => {
       </Grid>
       <Grid item xs={12} md={12} lg={9} style={{ paddingTop: 60 }}>
         <Grid container spacing={3}>
-          <ProductsGridView products={products} pageContext={pageContext} />
+          <ProductsGridView
+            isLoading={isLoading}
+            products={products}
+            pageContext={pageContext}
+          />
         </Grid>
         <div style={{ marginTop: 48, marginBottom: 48 }}>
           <ResultsPagination

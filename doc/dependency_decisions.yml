@@ -244,3 +244,9 @@
     :why: Our own common components library
     :versions: []
     :when: 2022-02-22 18:24:13.432143100 Z
+- - :approve
+  - "@gatsbyjs/parcel-namer-relative-to-cwd"
+  - :who: Hitesh Khatri
+    :why: Gatsby 4 brings in `gatsby-parcel-config` which brings this in
+    :versions: []
+    :when: 2022-03-07 15:02:13.432143100 Z

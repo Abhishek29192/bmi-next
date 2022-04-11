@@ -60,7 +60,7 @@ const TabLeadBlock = ({
       initialValue="one"
       tabComponent={(props: TabProps) => (
         <GTMTab
-          gtm={{ id: "selector-tabs1", action: "Selector – Tabs" }}
+          gtm={{ id: "selector-tabs4", action: "Selector – Tabs" }}
           {...props}
         />
       )}

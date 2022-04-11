@@ -26,12 +26,13 @@ type Settings = {
   backgroundTheme?: "light" | "dark";
   underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
   hyperlinkColor?: "default" | "black" | "white";
+  gtmLabel?: string;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const getOptions = (settings: Settings): Options => {
-  const { underlineHeadings = [] } = settings;
+  const { underlineHeadings = [], gtmLabel } = settings;
 
   return {
     renderNode: {
@@ -116,7 +117,9 @@ const getOptions = (settings: Settings): Options => {
           }}
           gtm={{
             id: "cta-click1",
-            label: children[0][1],
+            label: gtmLabel
+              ? `${gtmLabel} - ${children[0][1]}`
+              : children[0][1],
             action: node.data.uri
           }}
           color={settings.hyperlinkColor}

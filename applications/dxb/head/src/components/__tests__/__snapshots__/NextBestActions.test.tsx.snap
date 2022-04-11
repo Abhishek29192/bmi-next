@@ -25,7 +25,7 @@ exports[`NextBestActions component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root NBACard NBACard--clickable ColorPair ColorPair--color-theme-secondary-1"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere\\",\\"label\\":\\"MC: page.linkLabel\\"}"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/somewhere\\",\\"label\\":\\"test\\"}"
               href="/en/somewhere"
               role="button"
               tabindex="0"
@@ -55,7 +55,7 @@ exports[`NextBestActions component renders correctly 1`] = `
                       focusable="false"
                     />
                     <span>
-                      MC: page.linkLabel
+                      test
                     </span>
                   </span>
                 </div>

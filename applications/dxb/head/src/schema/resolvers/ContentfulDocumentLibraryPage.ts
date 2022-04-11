@@ -7,31 +7,37 @@ import { Context, Node, ResolveArgs } from "./types";
 export default {
   documents: {
     type: ["Document"],
-    async resolve(source: Node, args: ResolveArgs, context: Context) {
-      const assetTypes =
-        source.assetTypes___NODE && source.assetTypes___NODE.length
-          ? await Promise.all(
-              source.assetTypes___NODE.map((id) => {
-                return context.nodeModel.getNodeById({
-                  id,
-                  type: "ContentfulAssetType"
-                });
-              })
-            )
-          : await context.nodeModel.getAllNodes(
-              { type: "ContentfulAssetType" },
-              { connectionType: "ContentfulAssetType" }
-            );
-
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<Node[]> {
+      let assetTypes = [];
+      if (source.assetTypes___NODE && source.assetTypes___NODE.length) {
+        assetTypes = await Promise.all(
+          source.assetTypes___NODE.map((id) => {
+            return context.nodeModel.getNodeById({
+              id,
+              type: "ContentfulAssetType"
+            });
+          })
+        );
+      } else {
+        const { entries } = await context.nodeModel.findAll<Node>(
+          { query: {}, type: "ContentfulAssetType" },
+          { connectionType: "ContentfulAssetType" }
+        );
+        assetTypes = [...entries];
+      }
       if (source.source === "PIM") {
-        return resolveDocumentsFromProducts(assetTypes, {
+        return await resolveDocumentsFromProducts(assetTypes, {
           source,
           context
         });
       }
 
       if (source.source === "CMS") {
-        return resolveDocumentsFromContentful(assetTypes, { context });
+        return await resolveDocumentsFromContentful(assetTypes, { context });
       }
 
       if (source.source === "ALL") {

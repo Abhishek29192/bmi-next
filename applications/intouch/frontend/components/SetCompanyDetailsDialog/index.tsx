@@ -55,10 +55,31 @@ export const SetCompanyDetailsDialog = ({
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
   const [logoUpload, setLogoUpload] = useState(undefined);
+  const [fileSizeRestriction, setFileSizeRestriction] = useState(false);
+  const [fileValidationMessage, setFileValidationMessage] = useState("");
+
+  // You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+  const MAX_FILE_SIZE = 3;
+
+  const onValidationException = (restriction: boolean, message: string) => {
+    setFileSizeRestriction(restriction);
+    setFileValidationMessage(message);
+  };
 
   const onProfilePictureChange = (file) => {
     setShouldRemoveLogo(!file);
     setLogoUpload(file);
+
+    onValidationException(false, "");
+
+    if (file?.size > MAX_FILE_SIZE * (1024 * 1024)) {
+      onValidationException(
+        true,
+        `${t(
+          "company-page:edit_dialog.form.fields.logo.fileSizeValidationMessage"
+        )} ${MAX_FILE_SIZE}MB`
+      );
+    }
   };
 
   const operations = useMemo(() => {
@@ -125,9 +146,21 @@ export const SetCompanyDetailsDialog = ({
             if (e.key === "Enter") e.preventDefault();
           }}
         >
-          <Typography variant="h6" className={styles.sectionText}>
-            {t("company-page:edit_dialog.sections.registered_details")}
-          </Typography>
+          <Grid container xs={12} spacing={3}>
+            <Grid item xs={12} lg={6}>
+              <Typography variant="h6" className={styles.sectionText}>
+                {t("company-page:edit_dialog.sections.registered_details")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <Typography
+                variant="default"
+                className={styles.requiredInformation}
+              >
+                * {t("common:requiredInformation")}
+              </Typography>
+            </Grid>
+          </Grid>
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
               <TextField {...getFieldProps("name")} isRequired />
@@ -219,6 +252,7 @@ export const SetCompanyDetailsDialog = ({
             fileSizeMessage={t(
               "company-page:edit_dialog.form.fields.logo.fileSizeMessage"
             )}
+            fileValidationMessage={fileValidationMessage}
           />
 
           <TextField
@@ -316,7 +350,7 @@ export const SetCompanyDetailsDialog = ({
                 {t("company-page:edit_dialog.form.actions.cancel")}
               </Form.Button>
             ) : null}
-            <Form.SubmitButton disabled={loading}>
+            <Form.SubmitButton disabled={loading || fileSizeRestriction}>
               {t("company-page:edit_dialog.form.actions.submit")}
             </Form.SubmitButton>
           </Form.ButtonWrapper>

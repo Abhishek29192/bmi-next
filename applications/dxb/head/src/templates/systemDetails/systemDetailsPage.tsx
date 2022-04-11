@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { graphql } from "gatsby";
-import { Grid, MediaGallery, Section } from "@bmi/components";
+import { Grid, MediaGallery, Section, Thumbnail } from "@bmi/components";
+import { ThumbnailProps } from "@bmi/components/src";
 import Page from "../../components/Page";
 import { Data as SiteData } from "../../components/Site";
 import ShareWidgetSection, {
@@ -26,6 +27,7 @@ import {
   mapGalleryImages,
   transformImages
 } from "../../utils/product-details-transforms";
+import withGTM from "../../utils/google-tag-manager";
 import LeadBlockSection from "./leadBlockSection";
 import { DocumentData } from "./types";
 import TabLeadBlock, { BimContent } from "./tabLeadBlock";
@@ -220,6 +222,11 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     ...transformImages(mapGalleryImages(images)),
     ...transformMediaSrc(videos)
   ];
+
+  const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+    label: "media",
+    action: "media"
+  });
   return (
     <Page
       brand={brandName}
@@ -250,7 +257,9 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               className={styles["gallery"]}
               media={media}
               layout="short"
-              needToSort={true}
+              thumbnailComponent={(props: ThumbnailProps) => (
+                <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
+              )}
             />
           </Grid>
           {systemLayers && (

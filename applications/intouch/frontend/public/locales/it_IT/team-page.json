@@ -9,6 +9,7 @@
       },
       "errorAlreadyMember": "L'utente è già membro di un'altra società",
       "errorInvitationNotFound": "Invito non trovato",
+      "errorCommonFailure": "Risposta fallita. Si prega di controllare i dettagli e riprovare, oppure contattare l'amministratore BMI locale.",
       "personalNote": {
         "label": "Il tuo messaggio (opzionale)"
       },

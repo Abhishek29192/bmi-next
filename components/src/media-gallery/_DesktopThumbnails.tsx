@@ -103,9 +103,10 @@ const Thumbnails = ({
           marginRight: `${scrollerPosition}%`
         }}
       >
-        {images.map(({ thumbnail, isVideo, altText }, index) => {
+        {images.map(({ thumbnail, isVideo, altText, media }, index) => {
           return (
             <Thumbnail
+              media={media}
               key={`thumbnail-${index}`}
               imageSource={thumbnail}
               state={activeImageIndex === index ? "selected" : "enabled"}

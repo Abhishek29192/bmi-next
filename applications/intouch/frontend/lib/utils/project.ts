@@ -1,7 +1,8 @@
 import {
   GuaranteeEventType,
   Project,
-  RequestStatus
+  RequestStatus,
+  Guarantee
 } from "@bmi/intouch-api-types";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
@@ -41,7 +42,9 @@ export const getProjectStatus = (startDate, endDate) => {
   return ProjectStatus.NOT_STARTED;
 };
 
-export const findProjectGuarantee = (project: DeepPartial<Project>) => {
+export const findProjectGuarantee = (
+  project: DeepPartial<Project>
+): DeepPartial<Guarantee> => {
   return project?.guarantees?.nodes?.[0];
 };
 

@@ -1,19 +1,18 @@
 import { Link } from "gatsby";
-import { ProductOverviewPaneProps } from "@bmi/components";
-import { Image as ImageGalleryImage } from "@bmi/components";
+import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import React from "react";
 import {
   Category,
   Classification,
+  ClassificationCodeEnum,
+  FeatureCodeEnum,
   FeatureValue,
   Image,
+  ImageAssetTypesEnum,
   ImageFormatEnum,
   Product,
   VariantOption,
-  VariantOptionWithProduct,
-  ImageAssetTypesEnum,
-  ClassificationCodeEnum,
-  FeatureCodeEnum
+  VariantOptionWithProduct
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
@@ -119,7 +118,7 @@ export const findProductBrandLogoCode = (product: Product) =>
 
 export const transformImages = (
   images: readonly GalleryImageType[]
-): readonly ImageGalleryImage[] => {
+): readonly MediaData[] => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
     media: React.createElement("img", {
       src: mainSource,
@@ -1028,7 +1027,7 @@ export const findUniqueVariantClassifications = (
   return findUniqueClassificationsOnVariant(
     allClassificationValues,
     classifications[variant.code] || {},
-    variant._product.variantOptions.length
+    variant._product.totalVariantCount || 1
   );
 };
 
@@ -1083,9 +1082,9 @@ export const getMergedClassifications = (
   ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
 };
 
-export const getYoutubeId = (urlOrCode) => {
+export const getYoutubeId = (urlOrCode: string) => {
   const regExp =
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
-  const urlMatch = urlOrCode.match(regExp);
-  return urlMatch && urlMatch.length > 0 ? urlMatch[1] : urlOrCode;
+  const match = urlOrCode.match(regExp);
+  return match && match.length > 0 ? match[1] : urlOrCode;
 };

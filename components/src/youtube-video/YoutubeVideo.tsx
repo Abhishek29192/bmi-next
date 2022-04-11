@@ -15,6 +15,13 @@ import { YoutubeContext } from "../media-gallery";
 import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 
+type GTM = {
+  id: string;
+  event?: string;
+  label?: string;
+  action?: string;
+};
+
 export type Props = {
   label: React.ReactNode;
   subtitle?: React.ReactNode;
@@ -23,6 +30,8 @@ export type Props = {
   className?: string;
   embedHeight: number;
   embedWidth: number;
+  onGTMEvent?: () => void;
+  dataGTM?: GTM;
 };
 
 const getSize = (
@@ -84,7 +93,9 @@ const DialogVideo = ({
   previewImageSource = getDefaultPreviewImageSource(videoId),
   label,
   embedWidth,
-  embedHeight
+  embedHeight,
+  dataGTM,
+  onGTMEvent
 }: Props) => {
   // TODO: Create and use 'Container Dialog' when its done with ticket: https://bmigroup.atlassian.net/browse/DXB-1835
   // had to use this as the design wants to show player as portait / full height on mobile
@@ -100,6 +111,12 @@ const DialogVideo = ({
   useEffect(() => {
     setDialogOpen(showYouTubeVideo);
   }, [showYouTubeVideo]);
+
+  useEffect(() => {
+    if (isDialogOpen && onGTMEvent) {
+      onGTMEvent();
+    }
+  }, [isDialogOpen]);
   // this is to fix safari full height issue with css properties!
   // this allows us keep player's height at max available height of container at all times
   if (dimensions.width && height > 0 && width > 0) {
@@ -112,7 +129,11 @@ const DialogVideo = ({
   }
   const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
-    <div className={classnames(styles["YoutubeVideo"], className)}>
+    <div
+      className={classnames(styles["YoutubeVideo"], className)}
+      data-gtm={JSON.stringify(dataGTM)}
+      data-testid="youtube-dialog-wrapper"
+    >
       <Clickable
         className={styles["thumbnail"]}
         aria-label={label}
@@ -200,9 +221,20 @@ const InlineVideo = ({
   subtitle,
   label,
   embedWidth = 16,
-  embedHeight = 9
+  embedHeight = 9,
+  dataGTM,
+  onGTMEvent
 }: Props) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFirstPlay, setIsFirstPlay] = useState(true);
+
+  useEffect(() => {
+    if (onGTMEvent && isFirstPlay && isPlaying) {
+      setIsFirstPlay(false);
+      onGTMEvent();
+    }
+  }, [isPlaying, isFirstPlay]);
+
   const validImageComponent = getValidPreviewImage(previewImageSource, label);
   return (
     <div
@@ -212,6 +244,8 @@ const InlineVideo = ({
         className
       )}
       style={{ ["--aspect-ratio" as any]: embedHeight / embedWidth }}
+      data-gtm={JSON.stringify(dataGTM)}
+      data-testid="youtube-inline-wrapper"
       onClick={() => setIsPlaying(true)}
     >
       <div>
