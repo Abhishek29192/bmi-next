@@ -534,6 +534,9 @@ type ContentfulCardCollectionSection implements Node {
   "The section should be centered."
   justifyCenter: Boolean
 
+  "Single Row Display option for the cards."
+  displaySingleRow: Boolean
+
   "The order in which the cards should be sorted."
   sortOrder: String
 }

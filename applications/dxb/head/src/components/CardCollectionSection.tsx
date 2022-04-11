@@ -41,6 +41,7 @@ export type Data = {
     | null;
   link: LinkData | null;
   justifyCenter: boolean | null;
+  displaySingleRow: boolean | null;
 };
 
 const CardCollectionItem = ({
@@ -199,7 +200,8 @@ const CardCollectionSection = ({
     cards,
     link,
     justifyCenter,
-    sortOrder
+    sortOrder,
+    displaySingleRow
   },
   theme
 }: {
@@ -359,7 +361,7 @@ const CardCollectionSection = ({
             </div>
           </>
         )}
-        {theme?.cardCollectionRowType === "single-row" ? (
+        {theme?.cardCollectionRowType === "single-row" || displaySingleRow ? (
           <Carousel
             slidesPerPage={{
               xs: 1,
@@ -462,6 +464,7 @@ export const query = graphql`
       ...PageInfoCardFragment
     }
     justifyCenter
+    displaySingleRow
     sortOrder
   }
 `;

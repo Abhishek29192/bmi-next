@@ -125,6 +125,7 @@ describe("Sections component", () => {
         __typename: "ContentfulCardCollectionSection",
         title: "card collection section title",
         justifyCenter: false,
+        displaySingleRow: false,
         description: null,
         groupCards: false,
         cardLabel: "Card Label",
@@ -186,6 +187,7 @@ describe("Sections component", () => {
         cardType: "Highlight Card",
         link: null,
         sortOrder: null,
+        displaySingleRow: false,
         cards: [
           {
             __typename: "ContentfulSimplePage",
