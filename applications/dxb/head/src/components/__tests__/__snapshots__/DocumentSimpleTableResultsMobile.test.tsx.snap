@@ -151,13 +151,6 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
       <div
         class="list-title-row"
       >
-        <div
-          class="list-icon"
-        >
-          <svg
-            class="external-link-icon"
-          />
-        </div>
         <p
           class="MuiTypography-root document-title Typography MuiTypography-body1"
         >
@@ -174,7 +167,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         </p>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-medium-78 iconButtonStyles-text-74"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-small-77 iconButtonStyles-text-74"
           href="https://doesnt-exist.com"
           rel="noopener noreferrer"
           tabindex="0"
@@ -318,13 +311,6 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
       <div
         class="list-title-row"
       >
-        <div
-          class="list-icon"
-        >
-          <svg
-            class="external-link-icon"
-          />
-        </div>
         <p
           class="MuiTypography-root document-title Typography MuiTypography-body1"
         >
@@ -341,7 +327,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         </p>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-medium-58 iconButtonStyles-text-54"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-small-57 iconButtonStyles-text-54"
           href="https://doesnt-exist.com"
           rel="noopener noreferrer"
           tabindex="0"
