@@ -316,6 +316,7 @@ const HubspotForm = ({
   showTitle,
   title,
   description,
+  onSuccess,
   sampleIds
 }: {
   id: string;
@@ -324,6 +325,7 @@ const HubspotForm = ({
   showTitle: boolean;
   title: string;
   description: RichTextData;
+  onSuccess: FormSectionProps["onSuccess"];
   sampleIds: FormSectionProps["sampleIds"];
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
@@ -342,13 +344,10 @@ const HubspotForm = ({
 
   typeof window !== "undefined" &&
     window.addEventListener("message", (event: MessageEvent) => {
-      console.log(`Message received: ${JSON.stringify(event)}`);
-      console.log(`Message data received: ${JSON.stringify(event.data)}`);
       if (
         event.data.type === "hsFormCallback" &&
         event.data.eventName === "onFormReady"
       ) {
-        console.log(`Form ready: ${JSON.stringify(event)}`);
         if (sampleIds?.length) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
             'input[name="sample_ids"]'
@@ -367,6 +366,13 @@ const HubspotForm = ({
             hiddenInput && (hiddenInput.value = sampleIds);
           }
         }
+      }
+
+      if (
+        event.data.accepted === true &&
+        event.data.formGuid === hubSpotFormGuid
+      ) {
+        onSuccess && onSuccess();
       }
     });
 
@@ -583,6 +589,7 @@ const FormSection = ({
           showTitle={showTitle}
           title={title}
           description={description}
+          onSuccess={onSuccess}
           sampleIds={sampleIds}
         />
       </HubspotProvider>
