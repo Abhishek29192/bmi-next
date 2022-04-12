@@ -4,7 +4,7 @@ import { Typography } from "@bmi/components";
 import { Table } from "@bmi/components";
 import { getValidFeatures } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
-import { Classification } from "./types/pim";
+import { Classification, ClassificationCodeEnum } from "./types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
 import { useSiteContext } from "./Site";
@@ -12,19 +12,22 @@ import { useSiteContext } from "./Site";
 type ProductTechnicalSpecProps = {
   classifications: readonly Classification[];
   classificationNamespace: string;
+  isSingleVariant?: boolean;
 };
 
 const ProductTechnicalSpec = ({
   classifications,
-  classificationNamespace
+  classificationNamespace,
+  isSingleVariant
 }: ProductTechnicalSpecProps) => {
   const { getMicroCopy } = useSiteContext();
+  const NoTechSpechMessage = () => (
+    <div className={styles["ProductTechnicalSpec"]}>
+      {getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}
+    </div>
+  );
   if (classifications.length === 0) {
-    return (
-      <div className={styles["ProductTechnicalSpec"]}>
-        {getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}
-      </div>
-    );
+    return <NoTechSpechMessage />;
   }
 
   if (classifications.length === 1) {
@@ -33,6 +36,12 @@ const ProductTechnicalSpec = ({
       classificationNamespace,
       classification.features
     );
+    if (
+      isSingleVariant &&
+      classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+    ) {
+      return <NoTechSpechMessage />;
+    }
     return (
       <div className={styles["ProductTechnicalSpec"]}>
         <ProductFeaturesTable
@@ -60,6 +69,13 @@ const ProductTechnicalSpec = ({
               classificationNamespace,
               classification.features
             );
+            if (
+              isSingleVariant &&
+              classification.code ===
+                ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+            ) {
+              return <></>;
+            }
             return (
               <Accordion.Item
                 key={`tech-spec-${classification.name}`}

@@ -342,6 +342,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 specificationIframeUrl={specificationIframeUrl}
                 pdpSpecificationTitle={pdpSpecificationTitle}
                 pdpSpecificationDescription={pdpSpecificationDescription}
+                isSingleVariant={product.variantOptions.length === 1}
               />
             </Section>
             <RelatedProducts

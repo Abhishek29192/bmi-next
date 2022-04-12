@@ -49,6 +49,7 @@ type Props = {
   specificationIframeUrl?: string;
   pdpSpecificationTitle?: string | null;
   pdpSpecificationDescription?: RichTextData | null;
+  isSingleVariant?: boolean;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -101,7 +102,8 @@ const ProductLeadBlock = ({
   pdpFixingToolDescription,
   specificationIframeUrl,
   pdpSpecificationTitle,
-  pdpSpecificationDescription
+  pdpSpecificationDescription,
+  isSingleVariant
 }: Props) => {
   const {
     config: { documentDownloadMaxLimit }
@@ -332,6 +334,7 @@ const ProductLeadBlock = ({
               <ProductTechnicalSpec
                 classificationNamespace={classificationNamespace}
                 classifications={validClassifications}
+                isSingleVariant={isSingleVariant}
               />
             </LeadBlock.Content>
             {sidebarItems && sidebarItems.length > 1 && (
