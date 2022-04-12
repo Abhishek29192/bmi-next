@@ -21,13 +21,13 @@ const ProductTechnicalSpec = ({
   isSingleVariant
 }: ProductTechnicalSpecProps) => {
   const { getMicroCopy } = useSiteContext();
-  const NoTechSpechMessage = () => (
+  const NoTechSpecMessage = () => (
     <div className={styles["ProductTechnicalSpec"]}>
       {getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}
     </div>
   );
   if (classifications.length === 0) {
-    return <NoTechSpechMessage />;
+    return <NoTechSpecMessage />;
   }
 
   if (classifications.length === 1) {
@@ -40,7 +40,7 @@ const ProductTechnicalSpec = ({
       isSingleVariant &&
       classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
     ) {
-      return <NoTechSpechMessage />;
+      return <NoTechSpecMessage />;
     }
     return (
       <div className={styles["ProductTechnicalSpec"]}>
