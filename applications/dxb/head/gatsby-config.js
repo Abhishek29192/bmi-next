@@ -447,7 +447,9 @@ module.exports = {
           {
             resolve: "gatsby-plugin-sitemap",
             options: {
-              output: useCountryCode ? `/${process.env.SPACE_MARKET_CODE}` : "",
+              output: useCountryCode
+                ? `/${process.env.SPACE_MARKET_CODE}`
+                : "/",
               resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl
             }
           }
