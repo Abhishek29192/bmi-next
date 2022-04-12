@@ -316,6 +316,7 @@ const HubspotForm = ({
   showTitle,
   title,
   description,
+  onSuccess,
   sampleIds
 }: {
   id: string;
@@ -324,38 +325,54 @@ const HubspotForm = ({
   showTitle: boolean;
   title: string;
   description: RichTextData;
-  sampleIds: string;
+  onSuccess: FormSectionProps["onSuccess"];
+  sampleIds: FormSectionProps["sampleIds"];
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
     config: { hubSpotId }
   } = useConfig();
 
+  // Uses the HS script to bring in the form. This will create an iframe regardless
+  // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
+  // iframe otherwise).
   useHubspotForm({
-    portalId: hubSpotId,
+    portalId: hubSpotId || "",
     formId: hubSpotFormGuid,
     target: `#${hubSpotFormID}`
   });
 
   typeof window !== "undefined" &&
-    window.addEventListener("message", (event) => {
+    window.addEventListener("message", (event: MessageEvent) => {
       if (
         event.data.type === "hsFormCallback" &&
         event.data.eventName === "onFormReady"
       ) {
-        if (sampleIds.length) {
-          const iframeElement = document.querySelector(
-            "iframe"
-          ) as HTMLIFrameElement;
-
-          const result = iframeElement.contentWindow.document.querySelector(
+        if (sampleIds?.length) {
+          const sampleIdsInput = document.querySelector<HTMLInputElement>(
             'input[name="sample_ids"]'
           );
 
-          if (result) {
-            (result as HTMLInputElement).value = sampleIds;
+          if (sampleIdsInput) {
+            sampleIdsInput.value = sampleIds;
+          } else {
+            const iframeElement = document.querySelector<HTMLIFrameElement>(
+              `#${hubSpotFormID} iframe`
+            );
+            const hiddenInput =
+              iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
+                'input[name="sample_ids"]'
+              );
+            hiddenInput && (hiddenInput.value = sampleIds);
           }
         }
+      }
+
+      if (
+        event.data.accepted === true &&
+        event.data.formGuid === hubSpotFormGuid
+      ) {
+        onSuccess && onSuccess();
       }
     });
 
@@ -366,6 +383,17 @@ const HubspotForm = ({
       <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
     </Section>
   );
+};
+
+type FormSectionProps = {
+  id?: string;
+  data: Data;
+  backgroundColor: "pearl" | "white";
+  additionalValues?: Record<string, string>;
+  sampleIds?: string;
+  isSubmitDisabled?: boolean;
+  gtmOverride?: Partial<GTM>;
+  onSuccess?: () => void;
 };
 
 const FormSection = ({
@@ -387,16 +415,7 @@ const FormSection = ({
   isSubmitDisabled,
   gtmOverride,
   onSuccess
-}: {
-  id?: string;
-  data: Data;
-  backgroundColor: "pearl" | "white";
-  additionalValues?: Record<string, string>;
-  sampleIds?: string;
-  isSubmitDisabled?: boolean;
-  gtmOverride?: Partial<GTM>;
-  onSuccess?: () => void;
-}) => {
+}: FormSectionProps) => {
   const {
     config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
   } = useConfig();
@@ -570,6 +589,7 @@ const FormSection = ({
           showTitle={showTitle}
           title={title}
           description={description}
+          onSuccess={onSuccess}
           sampleIds={sampleIds}
         />
       </HubspotProvider>
