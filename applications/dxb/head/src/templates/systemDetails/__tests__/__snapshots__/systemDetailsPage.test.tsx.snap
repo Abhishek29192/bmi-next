@@ -367,7 +367,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -2667,8 +2667,8 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -5691,8 +5691,8 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -6057,8 +6057,8 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -6482,7 +6482,7 @@ exports[`SystemDetailsPage template component should have function to filter and
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -8782,8 +8782,8 @@ exports[`SystemDetailsPage template component should have function to filter and
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -10157,8 +10157,8 @@ exports[`SystemDetailsPage template component should have function to filter and
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -10523,8 +10523,8 @@ exports[`SystemDetailsPage template component should have function to filter and
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -10948,7 +10948,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -13248,8 +13248,8 @@ exports[`SystemDetailsPage template component should have function to filter doc
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -16100,8 +16100,8 @@ exports[`SystemDetailsPage template component should have function to filter doc
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -16466,8 +16466,8 @@ exports[`SystemDetailsPage template component should have function to filter doc
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -16891,7 +16891,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -19191,8 +19191,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -22184,8 +22184,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -22550,8 +22550,8 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -22975,7 +22975,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -25275,8 +25275,8 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -28268,8 +28268,8 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -28634,8 +28634,8 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -29059,7 +29059,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -31359,8 +31359,8 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -33806,8 +33806,8 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -34172,8 +34172,8 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -34597,7 +34597,7 @@ exports[`SystemDetailsPage template component should render without categories 1
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -37292,8 +37292,8 @@ exports[`SystemDetailsPage template component should render without categories 1
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -37717,7 +37717,7 @@ exports[`SystemDetailsPage template component should render without classificati
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -40017,8 +40017,8 @@ exports[`SystemDetailsPage template component should render without classificati
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -42503,8 +42503,8 @@ exports[`SystemDetailsPage template component should render without classificati
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -42869,8 +42869,8 @@ exports[`SystemDetailsPage template component should render without classificati
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -43294,7 +43294,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -45594,8 +45594,8 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -47211,8 +47211,8 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -47577,8 +47577,8 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >

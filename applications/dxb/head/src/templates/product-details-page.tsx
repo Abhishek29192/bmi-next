@@ -283,20 +283,18 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   isRecapchaShown: hasFiltredKeyAssetsDocuments
                 }}
               >
-                {
-                  <SampleOrderSection
-                    isSampleOrderAllowed={getSampleOrderAllowed()}
-                    product={product}
-                    variant={getVariant(product, pageContext.variantCode)}
-                    maximumSamples={maximumSamples}
-                    sampleBasketLinkInfo={sampleBasketLink}
-                    actionLabel={createActionLabel(
-                      product.name,
-                      combineVariantClassifications(product, selfProduct),
-                      classificationConfig
-                    )}
-                  />
-                }
+                <SampleOrderSection
+                  isSampleOrderAllowed={getSampleOrderAllowed()}
+                  product={product}
+                  variant={getVariant(product, pageContext.variantCode)}
+                  maximumSamples={maximumSamples}
+                  sampleBasketLinkInfo={sampleBasketLink}
+                  actionLabel={createActionLabel(
+                    product.name,
+                    combineVariantClassifications(product, selfProduct),
+                    classificationConfig
+                  )}
+                />
                 {hasFiltredKeyAssetsDocuments && (
                   <KeyAssetTypesDownloadSection
                     assetTypes={resources.keyAssetTypes}

@@ -1,0 +1,30 @@
+###
+
+# @name Get authentication token
+# @noRejectUnauthorized
+
+POST {{auth0Host}}/oauth/token
+Content-Type: application/json
+
+{
+  "client_id": "{{auth0ClientId}}",
+  "client_secret": "{{auth0ClientSecret}}",
+  "audience": "{{auth0Audience}}",
+  "grant_type": "client_credentials"
+}
+
+> {%
+client.global.set("auth0Token", response.body.access_token);
+%}
+
+###
+
+POST {{intouchHost}}/api/graphql
+authorization: Bearer {{auth0Token}}
+Content-Type: application/json
+
+{
+    "query": "query {\n project(id:3) {\n id\n } \n}"
+}
+
+###

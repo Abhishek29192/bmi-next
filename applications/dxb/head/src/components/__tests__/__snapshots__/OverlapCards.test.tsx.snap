@@ -20,8 +20,8 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root Card"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-              href="/uk/some-page"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              href="/uk/some-page/"
               role="button"
               tabindex="0"
             >
@@ -106,8 +106,8 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root Card"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-              href="/uk/some-page"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              href="/uk/some-page/"
               role="button"
               tabindex="0"
             >
@@ -198,8 +198,8 @@ exports[`IntegratedOverlapCards component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root top-box"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
-                  href="/uk/some-page"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page/\\"}"
+                  href="/uk/some-page/"
                   role="button"
                   tabindex="0"
                 >
@@ -344,8 +344,8 @@ exports[`OverlapCards component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root Card"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-              href="/uk/some-page"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              href="/uk/some-page/"
               role="button"
               tabindex="0"
             >
@@ -430,8 +430,8 @@ exports[`OverlapCards component renders correctly 1`] = `
             <a
               aria-disabled="false"
               class="MuiButtonBase-root Card"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page\\"}"
-              href="/uk/some-page"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/uk/some-page/\\"}"
+              href="/uk/some-page/"
               role="button"
               tabindex="0"
             >
@@ -522,8 +522,8 @@ exports[`OverlapCards component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root top-box"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page\\"}"
-                  href="/uk/some-page"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Card with Video\\",\\"action\\":\\"/uk/some-page/\\"}"
+                  href="/uk/some-page/"
                   role="button"
                   tabindex="0"
                 >

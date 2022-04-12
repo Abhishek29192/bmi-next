@@ -261,7 +261,7 @@ exports[`Page component renders correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/uk"
+              href="/uk/"
             >
               <svg
                 class="logo"
@@ -313,7 +313,7 @@ exports[`Page component renders correctly 1`] = `
                       aria-selected="false"
                       class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit nav-item nav-item--no-children"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\"}"
-                      href="/uk/landing-page"
+                      href="/uk/landing-page/"
                       id="tab-undefined"
                       role="tab"
                       tabindex="-1"
@@ -480,8 +480,8 @@ exports[`Page component renders correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
-                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/uk/landing-page\\"}"
-                href="/uk/landing-page"
+                data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"About BMI\\",\\"action\\":\\"/uk/landing-page/\\"}"
+                href="/uk/landing-page/"
                 role="button"
                 tabindex="0"
               >
@@ -688,8 +688,8 @@ exports[`Page component renders correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap\\"}"
-                  href="/uk/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/uk/sitemap/\\"}"
+                  href="/uk/sitemap/"
                   role="button"
                   tabindex="0"
                 >

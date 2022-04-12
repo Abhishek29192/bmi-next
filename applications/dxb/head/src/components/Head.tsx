@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProps } from "react-helmet";
 import { getJpgImage } from "../utils/media";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { useConfig } from "../contexts/ConfigProvider";
@@ -7,12 +7,13 @@ import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
 import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
 import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
 import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
+import { getPathWithCountryCode } from "../utils/path";
 import { Data as SiteData } from "./Site";
 import { Data as SEOContentData } from "./SEOContent";
 import { Product, VariantOption } from "./types/pim";
 
 interface HeadProps {
-  htmlAttributes: Record<string, string>;
+  htmlAttributes: HelmetProps["htmlAttributes"];
   title: string;
   defer?: boolean;
   ogImageUrl?: string;
@@ -67,6 +68,16 @@ export const Head = ({
       title={seo?.metaTitle || title}
       defer={defer}
     >
+      {htmlAttributes?.lang && (
+        <link
+          rel="alternate"
+          href={`${process.env.GATSBY_SITE_URL}${getPathWithCountryCode(
+            countryCode,
+            path
+          )}`}
+          hrefLang={htmlAttributes.lang}
+        />
+      )}
       <link
         rel="preload"
         href={EffraRegular}
