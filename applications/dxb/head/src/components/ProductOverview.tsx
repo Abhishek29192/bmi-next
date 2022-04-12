@@ -53,7 +53,7 @@ const ProductOverview = ({
           <MediaGallery
             media={[...images, ...videos]}
             thumbnailComponent={(props: ThumbnailProps) => (
-              <GTMMediaThumbnail gtm={{ id: "image-gallery1" }} {...props} />
+              <GTMMediaThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}
             layout="short"
           />

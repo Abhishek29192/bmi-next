@@ -258,7 +258,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               media={media}
               layout="short"
               thumbnailComponent={(props: ThumbnailProps) => (
-                <GTMThumbnail gtm={{ id: "image-gallery1" }} {...props} />
+                <GTMThumbnail gtm={{ id: "media-gallery1" }} {...props} />
               )}
             />
           </Grid>
