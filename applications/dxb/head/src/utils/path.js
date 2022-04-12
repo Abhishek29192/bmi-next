@@ -3,20 +3,18 @@
 const dontUseCountryCode = process.env.GATSBY_DONT_USE_COUNTRY_CODE === "true";
 
 const getCorrectedPath = (path) => {
-  if (!path) {
-    return "";
+  let correctedPath = path || "";
+  if (correctedPath.charAt(0) !== "/") {
+    correctedPath = `/${correctedPath}`;
   }
-  if (path.charAt(0) !== "/") {
-    return `/${path}`;
+  if (correctedPath.charAt(correctedPath.length - 1) !== "/") {
+    correctedPath = `${correctedPath}/`;
   }
-  return path;
+  return correctedPath;
 };
 
 const getPathWithCountryCode = (countryCode, path) => {
   const correctedPath = getCorrectedPath(path);
-  if (dontUseCountryCode && correctedPath === "") {
-    return "/";
-  }
   if (dontUseCountryCode) {
     return correctedPath;
   }

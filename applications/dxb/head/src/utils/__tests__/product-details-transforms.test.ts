@@ -43,7 +43,7 @@ describe("product-details-transforms tests", () => {
       it("returns formatted url", () => {
         const countryCode = "en";
         const path = "test.com/product/1";
-        const expectedResult = `/${countryCode}/${path}`;
+        const expectedResult = `/${countryCode}/${path}/`;
         const result = getProductUrl(countryCode, path);
         expect(result).toEqual(expectedResult);
       });
@@ -725,7 +725,7 @@ describe("product-details-transforms tests", () => {
     const action = {
       linkComponent: Link,
       model: "routerLink",
-      to: "/no/somepath"
+      to: "/no/somepath/"
     };
     describe("when productClassifications is empty object", () => {
       it("returns minimum result", () => {

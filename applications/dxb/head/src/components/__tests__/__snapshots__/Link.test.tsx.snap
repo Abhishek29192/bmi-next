@@ -74,10 +74,10 @@ Object {
 exports[`Link component getCTA function returns a cta object with page 1`] = `
 Object {
   "action": Object {
-    "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/contact-us\\",\\"label\\":\\"Go to Page\\"}",
+    "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/contact-us/\\",\\"label\\":\\"Go to Page\\"}",
     "linkComponent": [MockFunction],
     "model": "routerLink",
-    "to": "/no/contact-us",
+    "to": "/no/contact-us/",
   },
   "label": "Go to Page",
 }
@@ -107,10 +107,10 @@ Object {
 
 exports[`Link component getClickableActionFromUrl function returns a Link router to page path 1`] = `
 Object {
-  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\"}",
+  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page/\\"}",
   "linkComponent": [MockFunction],
   "model": "routerLink",
-  "to": "/en/some-page",
+  "to": "/en/some-page/",
 }
 `;
 
@@ -134,9 +134,9 @@ Object {
 
 exports[`Link component getClickableActionFromUrl function returns external returns correctly 1`] = `
 Object {
-  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page\\",\\"label\\":\\"ImALabel\\"}",
+  "data-gtm": "{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/some-page/\\",\\"label\\":\\"ImALabel\\"}",
   "linkComponent": [MockFunction],
   "model": "routerLink",
-  "to": "/en/some-page",
+  "to": "/en/some-page/",
 }
 `;
