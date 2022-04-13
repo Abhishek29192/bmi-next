@@ -11,7 +11,9 @@ import {
   Source,
   ResultType,
   clearFilterValues,
-  updateFilterValue
+  updateFilterValue,
+  ResultTypeEnum,
+  SourceEnum
 } from "../utils/filters";
 import createPimDocument from "./PimDocumentHelper";
 import createPimLinkDocument from "./PimLinkDocumentHelper";
@@ -63,7 +65,7 @@ describe("clearFilterValues tests", () => {
 describe("generateUniqueDocuments tests", () => {
   describe("When Simple generateUniqueDocuments are requested", () => {
     it("Then: returns correct results", () => {
-      const results = generateUniqueDocuments("Simple", []);
+      const results = generateUniqueDocuments(ResultTypeEnum.Simple, []);
       expect(results).toMatchSnapshot();
     });
   });
@@ -90,7 +92,7 @@ describe("generateUniqueDocuments tests", () => {
         extension: "pdf",
         realFileName: "pim-document-id.pdf"
       };
-      const results = generateUniqueDocuments("Simple", [doc]);
+      const results = generateUniqueDocuments(ResultTypeEnum.Simple, [doc]);
       expect(results).toMatchSnapshot();
     });
   });
@@ -100,7 +102,7 @@ describe("generateUniqueDocuments tests", () => {
       const doc = createContentfulDocument({
         id: `contentful-doc-id`
       });
-      const results = generateUniqueDocuments("Simple", [doc]);
+      const results = generateUniqueDocuments(ResultTypeEnum.Simple, [doc]);
       expect(results).toMatchSnapshot();
     });
   });
@@ -110,21 +112,39 @@ describe("getDocumentFilters tests", () => {
   describe("When invalid types are requested", () => {
     it("Then: empty collection returned", () => {
       const src = "ThisIsInvalid" as Source;
-      const results = getDocumentFilters([], src, "Simple", "blah", []);
+      const results = getDocumentFilters(
+        [],
+        src,
+        ResultTypeEnum.Simple,
+        "blah",
+        []
+      );
       expect(results).toEqual([]);
     });
   });
 
   describe("When PIM Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "PIM", "Simple", "blah", []);
+      const results = getDocumentFilters(
+        [],
+        SourceEnum.PIM,
+        ResultTypeEnum.Simple,
+        "blah",
+        []
+      );
       expect(results).toEqual([]);
     });
   });
 
   describe("When PIM Technical are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "PIM", "Technical", "blah", []);
+      const results = getDocumentFilters(
+        [],
+        SourceEnum.PIM,
+        ResultTypeEnum.Technical,
+        "blah",
+        []
+      );
       expect(results).toEqual([]);
     });
   });
@@ -133,8 +153,8 @@ describe("getDocumentFilters tests", () => {
     it("Then: returns correct results", () => {
       const results = getDocumentFilters(
         [],
-        "CMS",
-        "Card Collection",
+        SourceEnum.CMS,
+        ResultTypeEnum.CardCollection,
         "blah",
         []
       );
@@ -144,14 +164,26 @@ describe("getDocumentFilters tests", () => {
 
   describe("When CMS Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "CMS", "Simple", "blah", []);
+      const results = getDocumentFilters(
+        [],
+        SourceEnum.CMS,
+        ResultTypeEnum.Simple,
+        "blah",
+        []
+      );
       expect(results).toEqual([]);
     });
   });
 
   describe("When ALL Simple are requested", () => {
     it("Then: returns correct results", () => {
-      const results = getDocumentFilters([], "ALL", "Simple", "blah", []);
+      const results = getDocumentFilters(
+        [],
+        SourceEnum.ALL,
+        ResultTypeEnum.Simple,
+        "blah",
+        []
+      );
       expect(results).toEqual([]);
     });
   });
