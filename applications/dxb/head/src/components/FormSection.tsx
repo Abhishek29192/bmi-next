@@ -368,10 +368,7 @@ const HubspotForm = ({
         }
       }
 
-      if (
-        event.data.accepted === true &&
-        event.data.formGuid === hubSpotFormGuid
-      ) {
+      if (event.data.eventName === "onFormSubmitted") {
         onSuccess && onSuccess();
       }
     });
