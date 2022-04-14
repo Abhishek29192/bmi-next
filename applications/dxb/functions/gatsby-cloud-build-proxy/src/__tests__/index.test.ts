@@ -120,23 +120,17 @@ describe("Error responses", () => {
     expect(mockRes.sendStatus).toBeCalledWith(401);
   });
 
-  it.each([
-    "GET",
-    "HEAD",
-    "PUT",
-    "DELETE",
-    "CONNECT",
-    "OPTIONS",
-    "TRACE",
-    "PATCH"
-  ])("Returns 405, when request method is %s", async (method) => {
-    const mockReq = mockRequest(method);
-    const mockRes = mockResponse();
+  it.each(["GET", "HEAD", "PUT", "DELETE", "CONNECT", "TRACE", "PATCH"])(
+    "Returns 405, when request method is %s",
+    async (method) => {
+      const mockReq = mockRequest(method);
+      const mockRes = mockResponse();
 
-    await build(mockReq, mockRes);
+      await build(mockReq, mockRes);
 
-    expect(mockRes.sendStatus).toBeCalledWith(405);
-  });
+      expect(mockRes.sendStatus).toBeCalledWith(405);
+    }
+  );
   it.each([null, undefined])(
     "Returns 404, when build webhook is %s",
     async (param) => {
@@ -163,13 +157,63 @@ describe("Error responses", () => {
 
     await build(mockReq, mockRes);
 
-    expect(mockRes.sendStatus).toBeCalledWith(500);
+    expect(mockRes.status).toBeCalledWith(500);
+  });
+});
+
+describe("Making an OPTIONS request", () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+  });
+
+  it("Sends CORS headers", async () => {
+    const req = mockRequest("OPTIONS");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.set).toHaveBeenNthCalledWith(
+      1,
+      "Access-Control-Allow-Origin",
+      "*"
+    );
+    expect(res.set).toHaveBeenNthCalledWith(
+      2,
+      "Access-Control-Allow-Methods",
+      "POST,OPTIONS"
+    );
+    expect(res.set).toHaveBeenNthCalledWith(
+      3,
+      "Access-Control-Allow-Headers",
+      "content-type,x-preview-auth-token,x-preview-update-source"
+    );
+  });
+
+  it("Sends 204 response", async () => {
+    const req = mockRequest("OPTIONS");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.status).toBeCalledWith(204);
   });
 });
 
 describe("Making a POST request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
+  });
+
+  it("Sends 204 if preview and request body is empty", async () => {
+    const IsPreview = process.env.PREVIEW_BUILD;
+    process.env.PREVIEW_BUILD = "true";
+    const req = mockRequest("POST", undefined, undefined, "{}");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.status).toBeCalledWith(204);
+    process.env.PREVIEW_BUILD = IsPreview;
   });
 
   it("Calls gatbsy cloud build, if called with a recognised tag, ", async () => {
@@ -213,7 +257,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
-      body: mockContentfulWebhook,
+      body: JSON.stringify(mockContentfulWebhook),
       headers: expect.any(Object)
     });
   });
@@ -251,7 +295,7 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
-      body: mockContentfulWebhook,
+      body: JSON.stringify(mockContentfulWebhook),
       headers: contentfulRequestHeaders
     });
   });
