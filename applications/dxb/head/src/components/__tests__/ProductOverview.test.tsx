@@ -9,8 +9,24 @@ describe("ProductOverview component", () => {
     brandName: "brandName",
     nobb: null,
     images: [
-      { mainSource: "mainSource", caption: "caption" },
-      { mainSource: "mainSource2", caption: "caption2" }
+      {
+        media: (
+          <img src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg" />
+        ),
+        thumbnail: "",
+        caption: "This is image caption",
+        altText: "test alt text",
+        isVideo: false
+      },
+      {
+        media: (
+          <img src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg" />
+        ),
+        thumbnail: "",
+        caption: "This is image caption 1",
+        altText: "test alt text 1",
+        isVideo: false
+      }
     ],
     videos: [
       {
