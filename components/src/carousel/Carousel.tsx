@@ -312,9 +312,6 @@ const Carousel = ({
   const [activePage, setActivePage] = useState<number>(initialPage);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-  console.log("isMobile: ", isMobile);
-
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
   const isArrowCarousel = checkArrowControls(arrayChildren);
