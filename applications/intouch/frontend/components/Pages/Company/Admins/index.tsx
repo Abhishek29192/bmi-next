@@ -50,7 +50,7 @@ export const CompanyAdmins = ({
               jobTitle={t(`roles.${account.role}`)}
               phoneNumber={account.phone}
               emailAddress={account.email}
-              avatar={account.photo}
+              avatar={account.signedPhotoUrl || account.photo}
             />
           </Grid>
         ))}
@@ -79,6 +79,7 @@ export const CompanyAdminsFragment = gql`
           phone
           email
           photo
+          signedPhotoUrl
         }
       }
     }
