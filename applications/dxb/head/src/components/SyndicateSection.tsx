@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Button } from "@bmi/components";
 import { Section } from "@bmi/components";
-import { Villain, VillainProps } from "@bmi/components";
+import { Villain, VillainProps, transformHyphens } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
 import { renderVideo } from "./Video";
 import { Data as PromoData } from "./Promo";
@@ -56,11 +56,11 @@ const SyndicateSection = ({
     }, [data]);
 
     return {
-      title: data.title,
+      title: transformHyphens(data.title),
       children: (data as PromoData).body ? (
         <RichText document={(data as PromoData).body} />
       ) : (
-        data.subtitle
+        transformHyphens(data.subtitle)
       ),
       media: data.featuredVideo
         ? renderVideo(data.featuredVideo)

@@ -131,6 +131,57 @@ exports[`PromoSection component renders correctly if no props passed 1`] = `
 </div>
 `;
 
+exports[`PromoSection component renders correctly if title is react node 1`] = `
+<div>
+  <div
+    class="PromoSection Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="MuiGrid-root grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          >
+            <div
+              class="content"
+            >
+              <h2
+                class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+              >
+                <span
+                  class="test-title"
+                >
+                  Title
+                </span>
+              </h2>
+              <h3
+                class="MuiTypography-root subtitle Typography MuiTypography-h3"
+              >
+                <span
+                  class="test-title"
+                >
+                  Title
+                </span>
+              </h3>
+              Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam, tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`PromoSection component renders reversed 1`] = `
 <div>
   <div

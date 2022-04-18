@@ -11,6 +11,7 @@ import Button from "../button/Button";
 import { ClickableAction } from "../clickable/Clickable";
 import Icon from "../icon";
 import Typography from "../typography/Typography";
+import { transformHyphens } from "../utils/commonUtils";
 import styles from "./Breadcrumbs.module.scss";
 
 type BreadcrumbsItemProps = {
@@ -41,9 +42,9 @@ const BreadcrumbsItem = ({
       action={action}
     >
       {action ? (
-        <span className={styles["label"]}>{children}</span>
+        <span className={styles["label"]}>{transformHyphens(children)}</span>
       ) : (
-        <span>{children}</span>
+        <span>{transformHyphens(children)}</span>
       )}
     </Button>
   );

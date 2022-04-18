@@ -5,6 +5,7 @@ import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import { withClickable } from "../clickable/Clickable";
 import Media, { AcceptedNode } from "../media/Media";
 import Typography from "../typography/Typography";
+import { transformHyphens } from "../utils/commonUtils";
 import styles from "./OverviewCard.module.scss";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {
@@ -72,7 +73,7 @@ const OverviewCard = ({
     children?: React.ReactNode;
   }) => (
     <Button {...rest} className={className}>
-      {children}
+      {transformHyphens(children)}
     </Button>
   );
 
@@ -130,7 +131,7 @@ const OverviewCard = ({
             hasChildrenWithoutMargin && styles["children--without-margin"]
           )}
         >
-          {children}
+          {transformHyphens(children)}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
       </Body>

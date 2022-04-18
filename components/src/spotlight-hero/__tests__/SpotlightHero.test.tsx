@@ -101,9 +101,9 @@ describe("SpotlightHero component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly if media does not pass at all", () => {
+  it("renders correctly if title as React node", () => {
     const { container } = render(
-      <SpotlightHero title="H1 Heading desktop">
+      <SpotlightHero title={<span className="test-title">Title</span>}>
         <Typography>
           Duis incididunt non laborum nulla consectetur irure ipsum. Laboris eu
           quis ex nostrud sunt ad eu laboris commodo deserunt commodo.
@@ -112,6 +112,8 @@ describe("SpotlightHero component", () => {
         </Typography>
       </SpotlightHero>
     );
+    const titleComponent = container.querySelector(".test-title");
+    expect(titleComponent).toBeDefined();
     expect(container).toMatchSnapshot();
   });
 });

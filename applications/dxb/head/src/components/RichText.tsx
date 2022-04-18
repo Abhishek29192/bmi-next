@@ -9,7 +9,7 @@ import {
 } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import { Typography } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps, transformHyphens } from "@bmi/components";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
 import withGTM from "../utils/google-tag-manager";
@@ -136,7 +136,11 @@ const getOptions = (settings: Settings): Options => {
     },
     renderText: (text) => {
       return text.split("\n").reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
+        return [
+          ...children,
+          index > 0 && <br key={index} />,
+          transformHyphens(textSegment)
+        ];
       }, []);
     }
   };
