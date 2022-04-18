@@ -589,6 +589,9 @@ type ContentfulFormSection implements Node {
 
   "HubSpot form ID"
   hubSpotFormGuid: String
+
+  "Email subject format"
+  emailSubjectFormat: String
 }
 
 """

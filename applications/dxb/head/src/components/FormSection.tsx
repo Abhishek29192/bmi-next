@@ -52,6 +52,7 @@ export type Data = {
   source: SourceType | null;
   hubSpotFormGuid?: string | null;
   sample_ids?: string | null;
+  emailSubjectFormat?: string;
 };
 
 const InputTypes = [
@@ -404,7 +405,8 @@ const FormSection = ({
     submitText,
     successRedirect,
     source,
-    hubSpotFormGuid
+    hubSpotFormGuid,
+    emailSubjectFormat
   },
   backgroundColor,
   additionalValues,
@@ -459,7 +461,8 @@ const FormSection = ({
           locale: node_locale,
           title,
           recipients: conditionalRecipients,
-          values
+          values,
+          emailSubjectFormat
         },
         {
           cancelToken: source.token,
@@ -674,6 +677,7 @@ export const query = graphql`
     }
     source
     hubSpotFormGuid
+    emailSubjectFormat
   }
   fragment FormInputsFragment on ContentfulFormInputs {
     label
