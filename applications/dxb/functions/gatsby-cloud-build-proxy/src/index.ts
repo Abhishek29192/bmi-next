@@ -38,7 +38,7 @@ export const build: HttpFunction = async (request, response) => {
     return response.sendStatus(405);
   }
   if (process.env.PREVIEW_BUILD && request.body === "{}") {
-    logger.debug({ message: "called from contentful sidebar." });
+    logger.debug({ message: "Called from contentful sidebar." });
     return response.status(204).send("");
   }
   const reqSecret = await getSecret(process.env.BUILD_REQUEST_SECRET!);
