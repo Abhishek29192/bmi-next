@@ -44,17 +44,6 @@ export const Head = ({
   } = useConfig();
   const imageUrl = getJpgImage(ogImageUrl);
 
-  //TODO: to be improved by making noindex a page level content option from Contentful
-  //      for DE this will be simply a path list, hence the crude nature of below
-  const noindex =
-    [
-      "vielen-dank!/",
-      "teilnahmebedingungen/",
-      "services-downloads-im-ueberblick/alle-services/alle-braas-services/schneefangberechnung/",
-      "services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/windsogberechnung-tool/",
-      "concrete-tiles/" // qa test page - remove before final commit
-    ].indexOf(path) > -1;
-
   const isScriptOnetrustEnabled = Boolean(!isPreviewMode && scriptOnetrust);
   const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
 
@@ -109,7 +98,7 @@ export const Head = ({
       />
       {imageUrl && <meta property="og:image" content={imageUrl} />}
 
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {seo?.noIndex && <meta name="robots" content="noindex, nofollow" />}
 
       {/* NOTE: expand viewport beyond safe area */}
       <meta

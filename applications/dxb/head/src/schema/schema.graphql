@@ -1758,6 +1758,9 @@ type ContentfulSeoContent implements Node {
 
   "Meta description tag."
   metaDescription: String
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 type VideoRatio {

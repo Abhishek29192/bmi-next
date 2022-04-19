@@ -62,7 +62,8 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     inputBanner,
     seo: {
       metaTitle: "BMI - simple page",
-      metaDescription: "BMI - simple page"
+      metaDescription: "BMI - simple page",
+      noIndex: false
     },
     path: "simple-page",
     // ContentfulSimplePageData

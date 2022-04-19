@@ -176,7 +176,8 @@ describe("Contact us page", () => {
       },
       seo: {
         metaTitle: "BMI - Contact Us",
-        metaDescription: "How can we help?"
+        metaDescription: "How can we help?",
+        noIndex: false
       },
       sections: [
         {

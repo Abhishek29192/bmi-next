@@ -107,8 +107,8 @@ const queries = [
               pageData.contentfulDocumentLibraryPage ||
               pageData.contentfulSimplePage;
 
-            // If not one of the above pages, not indexed
-            if (page) {
+            // If not one of the above pages or excluded then do not index
+            if (page && !page.seo.noIndex) {
               // relying on PageInfoFragment
               return {
                 __typename: page.__typename,
