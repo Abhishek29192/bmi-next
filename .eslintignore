@@ -20,3 +20,6 @@ libraries/migrate/projects/**/mocks
 applications/intouch/auth0/auth0-login/src/js/app.js
 applications/intouch/api/db-migrations/migration-companies
 applications/intouch/api/db-migrations/migration-training
+
+# Only brought in as a quick fix for upstream. Can be removed when https://github.com/gatsbyjs/gatsby/pull/35428 is merged in
+applications/dxb/libraries/gatsby-plugin-sitemap

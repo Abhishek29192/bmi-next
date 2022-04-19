@@ -445,12 +445,12 @@ module.exports = {
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
                 ? `/${process.env.SPACE_MARKET_CODE}`
                 : "/",
-              resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl
+              ignoreSitemapPathPrefix: true
             }
           }
         ]
@@ -458,7 +458,7 @@ module.exports = {
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
                 ? `/${process.env.SPACE_MARKET_CODE}/images`
@@ -497,7 +497,8 @@ module.exports = {
                   changefreq: "daily",
                   priority: 0.7
                 }));
-              }
+              },
+              ignoreSitemapPathPrefix: true
             }
           }
         ]
