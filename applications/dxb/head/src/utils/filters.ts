@@ -34,6 +34,22 @@ export type URLProductFilter = {
   value: string[];
 };
 
+export type ResultType = "Simple" | "Technical" | "Card Collection";
+
+export enum ResultTypeEnum {
+  Simple = "Simple",
+  Technical = "Technical",
+  CardCollection = "Card Collection"
+}
+
+export type Source = "PIM" | "CMS" | "ALL";
+
+export enum SourceEnum {
+  PIM = "PIM",
+  CMS = "CMS",
+  ALL = "ALL"
+}
+
 export const isPIMDocument = (
   item: DocumentResultsData[0]
 ): item is PIMDocumentData | PIMLinkDocumentData => {
@@ -57,11 +73,16 @@ const uniqueByCode = (uniqueObjects, object) => {
   return uniqueObjects;
 };
 
-const getProductsFromDocuments = (documents: DocumentResultsData) => {
+const getProductsFromDocuments = (
+  documents: DocumentResultsData,
+  resultsType: ResultType
+) => {
   return documents
-    .map((document) => {
+    .flatMap((document) => {
       if (isPIMDocument(document)) {
-        return document.product;
+        return resultsType === ResultTypeEnum.Simple
+          ? document.relatedProducts
+          : document.product;
       }
     })
     .filter(Boolean)
@@ -197,16 +218,23 @@ export const getBrandFilterFromDocuments = (documents: DocumentResultsData) => {
 };
 
 export const getProductFamilyFilterFromDocuments = (
-  documents: DocumentResultsData
+  documents: DocumentResultsData,
+  resultsType: ResultType
 ) => {
-  return getProductFamilyFilter(getProductsFromDocuments(documents));
+  return getProductFamilyFilter(
+    getProductsFromDocuments(documents, resultsType)
+  );
 };
 
 export const getCategoryCodesFilterFromDocuments = (
   documents: DocumentResultsData,
-  allowFilterBy: string[]
+  allowFilterBy: string[],
+  resultsType: ResultType
 ): ProductFilter[] => {
-  const productsFromDocuments = getProductsFromDocuments(documents);
+  const productsFromDocuments = getProductsFromDocuments(
+    documents,
+    resultsType
+  );
   const cagegoryFilters = generateCategoryFilters(
     productsFromDocuments.flatMap((product) => product.categories || []),
     allowFilterBy || []
@@ -319,9 +347,10 @@ const getColorFilter = (
 
 export const getTextureFilterFromDocuments = (
   classificationNamespace: string,
-  documents: DocumentResultsData
+  documents: DocumentResultsData,
+  resultsType: ResultType
 ) => {
-  const products = getProductsFromDocuments(documents);
+  const products = getProductsFromDocuments(documents, resultsType);
 
   return getTextureFilter(classificationNamespace, products);
 };
@@ -624,16 +653,12 @@ export const clearFilterValues = (filters) => {
   }));
 };
 
-export type ResultType = "Simple" | "Technical" | "Card Collection";
-
-export type Source = "PIM" | "CMS" | "ALL";
-
 export const generateUniqueDocuments = (
-  resultType: ResultType,
+  resultsType: ResultType,
   documents: DocumentResultsData
 ): DocumentResultsData => {
   //JIRA: 2042: this needs to be done only for "Simple" table results
-  if (resultType === "Simple") {
+  if (resultsType === ResultTypeEnum.Simple) {
     const allPIMDocuments = Array<PIMDocumentData | PIMLinkDocumentData>();
     const allOtherDocuments = Array<DocumentData>();
     documents.forEach((document) => {
@@ -644,11 +669,34 @@ export const generateUniqueDocuments = (
 
     const uniquePIMDocuments = allPIMDocuments.reduce(
       (uniqueDocuments, document) => {
-        uniqueDocuments.find(
+        const existingDocument = uniqueDocuments.find(
           (unique) =>
             `${unique.title}-${unique.url}` ===
             `${document.title}-${document.url}`
-        ) || uniqueDocuments.push(document);
+        );
+
+        if (existingDocument) {
+          const isProductPresent = existingDocument.relatedProducts.find(
+            (product) => product.code === document.product.code
+          );
+
+          if (!isProductPresent) {
+            const updatedDocument = existingDocument;
+            updatedDocument.relatedProducts = [
+              ...existingDocument.relatedProducts,
+              document.product
+            ];
+            const indexOfExistingDocument =
+              uniqueDocuments.indexOf(existingDocument);
+            // eslint-disable-next-line security/detect-object-injection
+            uniqueDocuments[indexOfExistingDocument] = updatedDocument;
+          }
+        } else {
+          uniqueDocuments.push({
+            ...document,
+            relatedProducts: [document.product]
+          });
+        }
         return uniqueDocuments;
       },
       []
@@ -678,36 +726,55 @@ export const getDocumentFilters = (
 ) => {
   // AC1 – view a page that displays PIM documents in a Simple Document table - INVALID
 
-  if (source === "PIM" && resultsType === "Simple") {
+  if (source === SourceEnum.PIM && resultsType === ResultTypeEnum.Simple) {
     return [
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents),
-      getTextureFilterFromDocuments(classificationNamespace, documents),
-      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+      getProductFamilyFilterFromDocuments(documents, resultsType),
+      getTextureFilterFromDocuments(
+        classificationNamespace,
+        documents,
+        resultsType
+      ),
+      ...getCategoryCodesFilterFromDocuments(
+        documents,
+        allowFilterBy,
+        resultsType
+      )
     ].filter(Boolean);
   }
 
   // AC2 – view a page that displays documents in a Technical Document table
-  if (source === "PIM" && resultsType === "Technical") {
+  if (source === SourceEnum.PIM && resultsType === ResultTypeEnum.Technical) {
     return [
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents),
-      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+      getProductFamilyFilterFromDocuments(documents, resultsType),
+      ...getCategoryCodesFilterFromDocuments(
+        documents,
+        allowFilterBy,
+        resultsType
+      )
     ].filter(Boolean);
   }
 
   // AC3 – view a page that displays documents in a Card Collection
-  if (source === "CMS" && resultsType === "Card Collection") {
+  if (
+    source === SourceEnum.CMS &&
+    resultsType === ResultTypeEnum.CardCollection
+  ) {
     return [getBrandFilterFromDocuments(documents)].filter(Boolean);
   }
 
   // AC4 – view a page that displays All documents in a Simple Document table
-  if (source === "ALL" && resultsType === "Simple") {
+  if (source === SourceEnum.ALL && resultsType === ResultTypeEnum.Simple) {
     return [
       getAssetTypeFilterFromDocuments(documents),
       getBrandFilterFromDocuments(documents),
-      getProductFamilyFilterFromDocuments(documents),
-      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+      getProductFamilyFilterFromDocuments(documents, resultsType),
+      ...getCategoryCodesFilterFromDocuments(
+        documents,
+        allowFilterBy,
+        resultsType
+      )
     ].filter(Boolean);
   }
 
@@ -715,13 +782,17 @@ export const getDocumentFilters = (
   // more than one Asset Type
   // AC6 – view a page that displays CMS documents in a Simple Document table,
   // only one Asset Type
-  if (source === "CMS" && resultsType === "Simple") {
+  if (source === SourceEnum.CMS && resultsType === ResultTypeEnum.Simple) {
     return [
       getBrandFilterFromDocuments(documents),
       // TODO: Should not be there if ONLY ONE OPTION AVAILABLE
       // TODO: Move this responsibility to Filters???
       getAssetTypeFilterFromDocuments(documents),
-      ...getCategoryCodesFilterFromDocuments(documents, allowFilterBy)
+      ...getCategoryCodesFilterFromDocuments(
+        documents,
+        allowFilterBy,
+        resultsType
+      )
     ].filter(Boolean);
   }
 

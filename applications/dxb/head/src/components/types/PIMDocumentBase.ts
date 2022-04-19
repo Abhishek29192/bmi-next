@@ -11,6 +11,7 @@ export type PIMDocumentBase = {
   id: string;
   title: string;
   product: PIMDocumentProduct;
+  relatedProducts?: PIMDocumentProduct[];
   url: string;
   assetType: AssetTypeData;
   isLinkDocument?: boolean;
