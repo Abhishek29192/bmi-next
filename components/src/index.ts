@@ -22,7 +22,7 @@ import CardCheckboxGroup from "./card-checkbox-group";
 import CardInput, { CardInputProps } from "./card-input";
 import CardRadioGroup, { CardRadioGroupProps } from "./card-radio-group";
 import Carousel, { getPageFromAbsoluteIndex } from "./carousel";
-import Checkbox, { Props as CheckboxProps } from "./checkbox";
+import Checkbox, { Props as CheckboxProps, checkboxStyles } from "./checkbox";
 import Chip, { Props as ChipProps } from "./chip";
 import Clickable, {
   ClickableAction,
@@ -363,6 +363,7 @@ export {
   Carousel,
   getPageFromAbsoluteIndex,
   Checkbox,
+  checkboxStyles,
   Chip,
   Clickable,
   withClickable,
