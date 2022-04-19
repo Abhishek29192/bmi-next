@@ -2606,6 +2606,18 @@ export type ProductsAndSystemsQuery = {
       maximumValidityYears: number;
     }>;
   } | null;
+  systemMembers?: {
+    __typename?: "SystemMembersConnection";
+    nodes: Array<{
+      __typename?: "SystemMember";
+      systemBmiRef: string;
+      productByProductBmiRef?: {
+        __typename?: "Product";
+        id: number;
+        name: string;
+      } | null;
+    }>;
+  } | null;
 };
 
 export type CompanyPageDetailsFragmentFragment = {

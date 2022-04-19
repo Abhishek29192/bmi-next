@@ -4113,6 +4113,15 @@ export const ProductsAndSystemsDocument = gql`
         maximumValidityYears
       }
     }
+    systemMembers(orderBy: ID_ASC, condition: { marketId: $marketId }) {
+      nodes {
+        systemBmiRef
+        productByProductBmiRef {
+          id
+          name
+        }
+      }
+    }
   }
 `;
 
