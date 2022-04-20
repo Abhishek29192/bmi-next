@@ -94,7 +94,10 @@ const createProductPages = async (
       ).code;
 
       let relatedProductCodes = [];
-      if (productFamilyCode) {
+      if (
+        productFamilyCode &&
+        process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS !== "true"
+      ) {
         const result = await graphql(`
       {
         categoryProducts: allProducts(
