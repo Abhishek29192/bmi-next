@@ -389,24 +389,6 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-983 MuiButton-contained buttonStyles-contained-985 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-986"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -875,24 +857,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   class="list"
                                 >
                                   <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-660"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
-                                  <div
                                     class="row"
                                   >
                                     <dt
@@ -1060,24 +1024,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-660"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -1332,24 +1278,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   >
                                     0.01km
                                   </dd>
-                                </div>
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-660"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
                                 </div>
                                 <div
                                   class="row"
@@ -1852,24 +1780,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -2057,24 +1967,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -2264,24 +2156,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -2470,24 +2344,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -2675,24 +2531,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -3161,24 +2999,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1049 MuiButton-contained buttonStyles-contained-1051 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-1052"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -3346,24 +3166,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1049 MuiButton-contained buttonStyles-contained-1051 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-1052"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -3814,24 +3616,6 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-contained buttonStyles-contained-527 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-528"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -5462,24 +5246,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -5668,24 +5434,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -5873,24 +5621,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -9446,24 +9176,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-426 MuiButton-contained buttonStyles-contained-428 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-429"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -9651,24 +9363,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-426 MuiButton-contained buttonStyles-contained-428 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-429"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -10137,24 +9831,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-170 MuiButton-contained buttonStyles-contained-172 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-173"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -10322,24 +9998,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-170 MuiButton-contained buttonStyles-contained-172 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-173"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -10865,24 +10523,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-contained buttonStyles-contained-395 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-396"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -11070,24 +10710,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-contained buttonStyles-contained-395 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-396"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -11556,24 +11178,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-203 MuiButton-contained buttonStyles-contained-205 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-206"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -11761,24 +11365,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-203 MuiButton-contained buttonStyles-contained-205 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-206"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -12247,24 +11833,6 @@ exports[`ServiceLocatorSection component renders single service with No service 
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-38 MuiButton-contained buttonStyles-contained-40 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-41"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -12711,24 +12279,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-71 MuiButton-contained buttonStyles-contained-73 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-74"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -13224,24 +12774,6 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-137 MuiButton-contained buttonStyles-contained-139 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-140"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -13708,24 +13240,6 @@ exports[`ServiceLocatorSection component renders single service with single serv
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-104 MuiButton-contained buttonStyles-contained-106 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-107"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -14195,24 +13709,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                                   class="list"
                                 >
                                   <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
-                                  <div
                                     class="row"
                                   >
                                     <dt
@@ -14664,24 +14160,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                   class="list"
                                 >
                                   <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
-                                  <div
                                     class="row"
                                   >
                                     <dt
@@ -14849,24 +14327,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -15345,24 +14805,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-723 MuiButton-contained buttonStyles-contained-725 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-726"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -15810,24 +15252,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-690 MuiButton-contained buttonStyles-contained-692 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-693"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt
@@ -16054,24 +15478,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   address 1
                                 </dd>
                               </address>
-                              <div
-                                class="row, row--cta"
-                              >
-                                <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-690 MuiButton-contained buttonStyles-contained-692 cta-button MuiButton-containedPrimary"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  <span
-                                    class="MuiButton-label buttonStyles-label-693"
-                                  >
-                                    MC: findARoofer.getDirectionsLabel
-                                  </span>
-                                  <span
-                                    class="MuiTouchRipple-root"
-                                  />
-                                </button>
-                              </div>
                               <div
                                 class="row"
                               >
@@ -16504,24 +15910,6 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-624 MuiButton-contained buttonStyles-contained-626 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-627"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -18449,24 +17837,6 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-950 MuiButton-contained buttonStyles-contained-952 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-953"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
