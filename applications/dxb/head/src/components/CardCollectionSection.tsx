@@ -369,6 +369,7 @@ const CardCollectionSection = ({
             }}
             scroll="finite"
             hasGutter
+            enableAnimateHeightMobile={false}
           >
             {sortedIterableCards.map((card, i) => {
               const { id } = card;

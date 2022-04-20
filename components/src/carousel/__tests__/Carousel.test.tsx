@@ -2,7 +2,17 @@ import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import snapshotDiff from "snapshot-diff";
 import mockConsole from "jest-mock-console";
+import { useMediaQuery } from "@material-ui/core";
 import Carousel, { getPageFromAbsoluteIndex } from "../Carousel";
+
+jest.mock("@material-ui/core", () => ({
+  ...(jest.requireActual("@material-ui/core") as any),
+  useMediaQuery: jest.fn()
+}));
+
+const mockUseMediaQuery = useMediaQuery as jest.Mock<
+  ReturnType<typeof useMediaQuery>
+>;
 
 beforeAll(() => {
   mockConsole();
@@ -162,6 +172,33 @@ describe("Carousel component", () => {
       </Carousel>
     );
     expect(container).toMatchSnapshot();
+  });
+  describe("in mobile view", () => {
+    beforeEach(() => {
+      mockUseMediaQuery.mockReturnValue(true);
+    });
+    it("should render slides with equal height", () => {
+      const { container } = render(
+        <Carousel
+          scroll="finite"
+          slidesPerPage={{
+            xs: 1,
+            sm: 2,
+            lg: 4
+          }}
+          hasGutter
+          enableAnimateHeightMobile={false}
+        >
+          <Carousel.Slide>First slide</Carousel.Slide>
+          <Carousel.Slide>Second slide</Carousel.Slide>
+          <Carousel.Slide>Third slide</Carousel.Slide>
+          <Carousel.Controls type="arrows" />
+        </Carousel>
+      );
+      expect(
+        container.querySelectorAll(".Carousel--slide-constant-height")
+      ).toHaveLength(1);
+    });
   });
 
   describe("getPageFromAbsoluteIndex function", () => {
