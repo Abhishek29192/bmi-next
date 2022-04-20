@@ -69,7 +69,8 @@ export const sections = [
         backgroundColor: null
       }
     ],
-    justifyCenter: null
+    justifyCenter: null,
+    displaySingleRow: null
   }
 ];
 export const featuredMedia: ImageWithThumbnail = {

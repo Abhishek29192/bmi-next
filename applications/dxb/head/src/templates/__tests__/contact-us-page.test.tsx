@@ -234,7 +234,8 @@ describe("Contact us page", () => {
               backgroundColor: null
             }
           ],
-          justifyCenter: null
+          justifyCenter: null,
+          displaySingleRow: null
         }
       ],
       locationsTitle: "Locations",
