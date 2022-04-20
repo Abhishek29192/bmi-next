@@ -471,10 +471,13 @@ HTMLCollection [
                   <div
                     class="body"
                   >
-                    <svg
+                    <div
                       class="brand-logo"
-                      preserveAspectRatio="xMinYMin"
-                    />
+                    >
+                      <svg
+                        preserveAspectRatio="xMinYMin"
+                      />
+                    </div>
                     <h4
                       class="MuiTypography-root title Typography MuiTypography-h4"
                     >

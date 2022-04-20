@@ -101,7 +101,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   } = useConfig();
 
   const firstSlide: HeroItem = {
-    title: <BrandLogo brandName={brandLogo} />,
+    title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
     children: description?.description,
     media: featuredVideo
       ? renderVideo(featuredVideo)

@@ -39,11 +39,19 @@ const BrandLogo = ({
   });
 
   if (typeof brandImageSource === "string") {
-    return <img className={className} src={brandImageSource} alt="" />;
+    return (
+      <div className={className}>
+        <img src={brandImageSource} alt="" />
+      </div>
+    );
   }
 
   const BrandLogo = brandImageSource;
-  return <BrandLogo preserveAspectRatio="xMinYMin" className={className} />;
+  return (
+    <div className={className}>
+      <BrandLogo preserveAspectRatio="xMinYMin" />
+    </div>
+  );
 };
 
 const OverviewCard = ({

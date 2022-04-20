@@ -15,4 +15,11 @@ describe("BrandLogo component", () => {
     const { container } = render(<BrandLogo brandName="" />);
     expect(container).toMatchSnapshot();
   });
+  it("should render with white background", () => {
+    const { container } = render(
+      <BrandLogo brandName="Monarplan" brandWhiteBox={true} />
+    );
+    const logo = container.querySelector(".BrandLogo");
+    expect(logo.classList).toContain("BrandLogo-whiteBox");
+  });
 });
