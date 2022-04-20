@@ -79,6 +79,7 @@ exports[`Page component renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >

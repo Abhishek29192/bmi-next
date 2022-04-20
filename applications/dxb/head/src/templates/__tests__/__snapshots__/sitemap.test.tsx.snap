@@ -79,6 +79,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-133 iconButtonStyles-medium-139 iconButtonStyles-contained-134 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -948,6 +949,7 @@ exports[`Sitemap renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -1817,6 +1819,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -2633,6 +2636,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >

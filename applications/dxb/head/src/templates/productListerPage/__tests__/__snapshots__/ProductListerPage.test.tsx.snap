@@ -80,6 +80,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -1169,6 +1170,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -2257,6 +2259,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -3487,6 +3490,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -4717,6 +4721,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -6020,6 +6025,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -7049,6 +7055,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -8078,6 +8085,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -9154,6 +9162,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -10230,6 +10239,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -11301,6 +11311,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -12371,6 +12382,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -13601,6 +13613,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -14831,6 +14844,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -16134,6 +16148,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -17145,6 +17160,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -18156,6 +18172,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -19250,6 +19267,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -20570,6 +20588,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -21669,6 +21688,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -22999,6 +23019,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >
@@ -25592,6 +25613,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
         <button
           aria-label="MC: global.close"
           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+          data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
           tabindex="0"
           type="button"
         >

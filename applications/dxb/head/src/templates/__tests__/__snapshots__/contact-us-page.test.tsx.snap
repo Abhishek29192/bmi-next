@@ -156,6 +156,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-120 iconButtonStyles-medium-126 iconButtonStyles-contained-121 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -4612,6 +4613,7 @@ exports[`Contact us page render Sections correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -9068,6 +9070,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-147 iconButtonStyles-medium-153 iconButtonStyles-contained-148 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -13521,6 +13524,7 @@ exports[`Contact us page render iframe correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -17977,6 +17981,7 @@ exports[`Contact us page render location correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -22433,6 +22438,7 @@ exports[`Contact us page renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
