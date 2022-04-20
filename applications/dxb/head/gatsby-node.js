@@ -141,7 +141,6 @@ const createProductPages = async (
               countryCode,
               variantOption.oldPath
             );
-            console.log(`creating redirect from '${oldPath}' to '${path}'`);
             createRedirect({
               fromPath: oldPath,
               toPath: path,
