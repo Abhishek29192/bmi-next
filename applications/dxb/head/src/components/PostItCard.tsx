@@ -2,8 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 import { PostItCard } from "@bmi/components";
 import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl, Data as LinkData } from "./Link";
 import { useSiteContext } from "./Site";
 
@@ -23,6 +24,9 @@ export type Data = {
   link: LinkData | null;
   linkType: "button" | "link" | null;
 };
+
+const GTMButton = withGTM<ButtonProps>(Button);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const IntegratedPostItCard = ({
   cardTheme,
@@ -55,7 +59,7 @@ const IntegratedPostItCard = ({
             {link && (
               <Component.Action>
                 {linkType === "button" ? (
-                  <Button
+                  <GTMButton
                     {...(cardTheme === "blue-900"
                       ? { hasDarkBackground: true, variant: "outlined" }
                       : {})}
@@ -66,11 +70,15 @@ const IntegratedPostItCard = ({
                       null,
                       link.label
                     )}
+                    gtm={{
+                      id: "cta-click1",
+                      label: `${title} - ${link.label}`
+                    }}
                   >
                     {link.label}
-                  </Button>
+                  </GTMButton>
                 ) : (
-                  <AnchorLink
+                  <GTMAnchorLink
                     action={getClickableActionFromUrl(
                       link.linkedPage,
                       link.url,
@@ -78,9 +86,13 @@ const IntegratedPostItCard = ({
                       null,
                       link.label
                     )}
+                    gtm={{
+                      id: "cta-click1",
+                      label: `${title} - ${link.label}`
+                    }}
                   >
                     {link.label}
-                  </AnchorLink>
+                  </GTMAnchorLink>
                 )}
               </Component.Action>
             )}

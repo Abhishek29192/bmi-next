@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import {
   AnchorLink,
+  AnchorLinkProps,
   Filter,
   Grid,
   HeroItem,
@@ -61,6 +62,7 @@ import {
 } from "../utils/productListerPageUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { microCopy } from "../../../constants/microCopies";
+import withGTM from "../../../utils/google-tag-manager";
 import { useConfig } from "../../../contexts/ConfigProvider";
 
 const PAGE_SIZE = 24;
@@ -113,6 +115,8 @@ type Props = {
 const BlueCheckIcon = (
   <CheckIcon style={{ color: "var(--color-theme-accent)" }} />
 );
+
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
 const ProductListerPage = ({ pageContext, data }: Props) => {
   const {
@@ -427,7 +431,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                         </IconList>
                       )}
                       {featuresLink && (
-                        <AnchorLink
+                        <GTMAnchorLink
                           action={getClickableActionFromUrl(
                             featuresLink.linkedPage,
                             featuresLink.url,
@@ -435,9 +439,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                             featuresLink.asset?.file?.url,
                             featuresLink.label
                           )}
+                          gtm={{
+                            id: "cta-click1",
+                            label: `${getMicroCopy(
+                              microCopy.PLP_KEY_FEATURES_TITLE
+                            )} - ${featuresLink.label}`
+                          }}
                         >
                           {featuresLink.label}
-                        </AnchorLink>
+                        </GTMAnchorLink>
                       )}
                     </LeadBlock.Card.Content>
                   </LeadBlock.Card.Section>

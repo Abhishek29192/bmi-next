@@ -21,7 +21,7 @@ const Locations = ({ data }: { data: Data }) => {
       {data.slice(0, numberVisible).map((data, index) => {
         return (
           <Grid item key={`locations-card-${index}`} xs={12} lg={6}>
-            <ContactDetails data={data} />
+            <ContactDetails data={data} gtmLabel={data.title} />
           </Grid>
         );
       })}

@@ -202,6 +202,7 @@ const AboutLeadBlock = ({
                 <RichText
                   document={sidebarItem.content}
                   hyperlinkColor="default"
+                  gtmLabel={sidebarItem.title}
                 />
               </LeadBlock.Card.Content>
             </LeadBlock.Card.Section>

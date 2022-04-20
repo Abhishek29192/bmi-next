@@ -90,7 +90,10 @@ const SearchPageBlock = ({
                 {searchPageSidebarItems.title}
               </PostItCard.Heading>
               <PostItCard.Content>
-                <RichText document={searchPageSidebarItems.content} />
+                <RichText
+                  document={searchPageSidebarItems.content}
+                  gtmLabel={searchPageSidebarItems.title}
+                />
               </PostItCard.Content>
             </PostItCard.Section>
           </PostItCard>

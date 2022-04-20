@@ -26,7 +26,7 @@ type Settings = {
   backgroundTheme?: "light" | "dark";
   underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
   hyperlinkColor?: "default" | "black" | "white";
-  gtmLabel?: string;
+  gtmLabel?: React.ReactNode;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
@@ -102,7 +102,9 @@ const getOptions = (settings: Settings): Options => {
         <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
-        <InlineHyperlink node={node}>{children}</InlineHyperlink>
+        <InlineHyperlink node={node} gtmLabel={gtmLabel}>
+          {children}
+        </InlineHyperlink>
       ),
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
@@ -161,6 +163,31 @@ const RichText = ({
       {renderRichText(document, getOptions(rest))}
     </div>
   );
+};
+
+export const parseReachDataRawFields = (
+  document: RichTextData
+): Record<string, string | undefined> => {
+  const parsedRaw: {
+    nodeType: string;
+    data: Record<string, unknown>;
+    content: Array<{
+      nodeType: string;
+      data: Record<string, unknown>;
+      content: Array<{
+        value: string;
+        nodeType: string;
+        data: Record<string, unknown>;
+      }>;
+    }>;
+  } = JSON.parse(document.raw);
+
+  let res: Record<string, string | undefined> = {};
+  parsedRaw.content.forEach((item) => {
+    res = { ...res, [item.nodeType]: item.content[0]?.value };
+  });
+
+  return res;
 };
 
 export default RichText;
