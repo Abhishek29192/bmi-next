@@ -47,7 +47,8 @@ import {
   VariantOption,
   BaseProduct,
   TwoOneIgnoreDictionary,
-  TwoOneAttribToIgnore
+  TwoOneAttribToIgnore,
+  filterTwoOneAttributes
 } from "./types";
 
 export {
@@ -99,5 +100,6 @@ export {
   VariantOption,
   BaseProduct,
   TwoOneIgnoreDictionary,
-  TwoOneAttribToIgnore
+  TwoOneAttribToIgnore,
+  filterTwoOneAttributes
 };
