@@ -78,7 +78,7 @@ type ProjectFormProps = {
 };
 
 const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
-  const { t } = useTranslation("project-page");
+  const { t } = useTranslation(["project-page", "common"]);
 
   const guarantee = findProjectGuarantee(project as DeepPartial<Project>);
 
@@ -94,10 +94,18 @@ const ProjectForm = ({ project, onSubmit, isSubmitting }: ProjectFormProps) => {
 
   return (
     <Form className={styles.form} onSubmit={onSubmit} rightAlignButton>
-      <Typography variant="h5" className={styles.sectionTitle}>
-        {t("project-page:addProject.dialog.sections.projectDetails.title")}
-      </Typography>
-
+      <Grid container xs={12} spacing={3}>
+        <Grid item xs={12} lg={6}>
+          <Typography variant="h5" className={styles.sectionTitle}>
+            {t("project-page:addProject.dialog.sections.projectDetails.title")}
+          </Typography>
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <Typography variant="default" className={styles.requiredInformation}>
+            * {t("common:requiredInformation")}
+          </Typography>
+        </Grid>
+      </Grid>
       <TextField {...getFieldPropsFn(t, "name")} isRequired />
 
       <div className={styles.input}>
