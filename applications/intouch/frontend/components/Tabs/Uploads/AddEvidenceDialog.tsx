@@ -15,6 +15,7 @@ type AddEvidenceDialogProps = {
   isOpen: boolean;
   loading: boolean;
   evidenceCategories?: DeepPartial<ContentfulEvidenceCategory>[];
+  defaultEvidenceCategory: EvidenceCategoryKey;
   onCloseClick: () => void;
   onConfirmClick: (
     evidenceCategoryType: EvidenceCategoryType,
@@ -30,6 +31,7 @@ type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
 export const AddEvidenceDialog = ({
   isOpen,
   evidenceCategories = [],
+  defaultEvidenceCategory,
   onCloseClick,
   onConfirmClick,
   loading
@@ -39,7 +41,7 @@ export const AddEvidenceDialog = ({
   const [hasMaxFileSizeReached, setHasMaxFileSizeReached] = useState(false);
   const [hasMaxTotalSizeReached, setHasMaxTotalSizeReached] = useState(false);
   const [evidenceCategoryKey, setEvidenceCategoryKey] =
-    useState<EvidenceCategoryKey>("MISCELLANEOUS");
+    useState<EvidenceCategoryKey>(defaultEvidenceCategory || "MISCELLANEOUS");
 
   let totalSize = 0;
 
@@ -57,8 +59,8 @@ export const AddEvidenceDialog = ({
   };
 
   useEffect(() => {
-    setEvidenceCategoryKey("MISCELLANEOUS");
-  }, []);
+    setEvidenceCategoryKey(defaultEvidenceCategory || "MISCELLANEOUS");
+  }, [defaultEvidenceCategory]);
 
   useEffect(() => {
     setHasMaxFileSizeReached(false);

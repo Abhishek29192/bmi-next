@@ -11,6 +11,7 @@ import AccountContextWrapper from "../../../../lib/tests/fixtures/account";
 import ApolloProvider from "../../../../lib/tests/fixtures/apollo";
 
 import { UploadsTab } from "..";
+import { GetProjectQuery } from "../../../../graphql/generated/operations";
 
 jest.mock("@bmi-digital/use-dimensions", () => ({
   __esModule: true,
@@ -49,10 +50,15 @@ describe("Uploads Components", () => {
           evidenceCategoriesCollection: {
             items: [
               {
-                name: "Waterproofing"
+                name: "Waterproofing",
+                minimumUploads: 1,
+                description: null
               },
               {
-                name: "Drainage"
+                name: "Drainage",
+                description: {
+                  json: {}
+                }
               }
             ]
           }
@@ -74,6 +80,51 @@ describe("Uploads Components", () => {
         "MISCELLANEOUS"
       ]);
     });
+    it("missing guaranteeType", () => {
+      const emptyNodes = {
+        nodes: []
+      };
+      const defaultProject: GetProjectQuery["project"] = {
+        __typename: "Project",
+        id: 1,
+        evidenceItems: emptyNodes,
+        name: "Project",
+        notes: emptyNodes,
+        projectMembers: emptyNodes,
+        roofArea: 0,
+        technology: "PITCHED",
+        guarantees: {
+          nodes: [
+            {
+              id: 1,
+              guaranteeReferenceCode: "PITCHED_SOLUTION",
+              coverage: "SOLUTION",
+              status: "NEW",
+              guaranteeType: null
+            }
+          ]
+        },
+        company: {
+          id: 1,
+          tier: "T1"
+        },
+        siteAddress: {
+          id: 1,
+          country: "UK",
+          postcode: "12345"
+        },
+        buildingOwnerMail: "buildingOwnerMail",
+        buildingOwnerFirstname: "buildingOwnerFirstname",
+        buildingOwnerLastname: "",
+        buildingOwnerAddress: {
+          id: 1
+        },
+        startDate: "12/12/2021",
+        endDate: "12/12/2022"
+      };
+
+      renderWithI18NProvider(<UploadsTab project={defaultProject} />);
+    });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
@@ -88,14 +139,14 @@ describe("Uploads Components", () => {
           nodes: [
             {
               id: 1,
-              name: "name",
+              name: "450px-Interior_drain_replacement.jpg",
               signedUrl: "signedUrl",
               evidenceCategoryType: "MISCELLANEOUS",
               customEvidenceCategory: null
             },
             {
               id: 2,
-              name: "name2",
+              name: "450px-Interior_drain_replacement_2.pdf",
               signedUrl: "signedUrl",
               evidenceCategoryType: "MISCELLANEOUS",
               customEvidenceCategory: null
