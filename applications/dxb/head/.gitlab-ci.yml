@@ -305,6 +305,11 @@ migrate_content_norway:
       optional: true
   variables:
     DXB_MARKET_ID: "NO"
+  artifacts:
+    name: "migrate_content_norway_log"
+    paths:
+      - libraries/migrate/projects/dxb/*.log
+    expire_in: 1 week
 
 deploy_gatsby_cloud_norway:
   extends: .deploy_gatsby_cloud
