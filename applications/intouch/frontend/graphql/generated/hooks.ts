@@ -269,6 +269,7 @@ export const CompanyAdminsFragmentFragmentDoc = gql`
           phone
           email
           photo
+          signedPhotoUrl
         }
       }
     }

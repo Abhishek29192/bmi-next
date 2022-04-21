@@ -115,6 +115,7 @@ export type CompanyAdminsFragmentFragment = {
         phone?: string | null;
         email: string;
         photo?: string | null;
+        signedPhotoUrl?: string | null;
       } | null;
     }>;
   };
@@ -288,6 +289,7 @@ export type UpdateCompanyDetailsMutation = {
             phone?: string | null;
             email: string;
             photo?: string | null;
+            signedPhotoUrl?: string | null;
           } | null;
         }>;
       };
@@ -2670,6 +2672,7 @@ export type CompanyPageDetailsFragmentFragment = {
         phone?: string | null;
         email: string;
         photo?: string | null;
+        signedPhotoUrl?: string | null;
       } | null;
     }>;
   };
@@ -2762,6 +2765,7 @@ export type GetCompaniesByMarketQuery = {
             phone?: string | null;
             email: string;
             photo?: string | null;
+            signedPhotoUrl?: string | null;
           } | null;
         }>;
       };
@@ -2863,6 +2867,7 @@ export type GetCompanyQuery = {
           phone?: string | null;
           email: string;
           photo?: string | null;
+          signedPhotoUrl?: string | null;
         } | null;
       }>;
     };
