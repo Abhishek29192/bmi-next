@@ -21,12 +21,14 @@ import { ProductsAndSystemsQuery } from "../../../graphql/generated/operations";
 import { ProductReport, SystemReport } from "../../Reports";
 import layoutStyles from "../../Layout/styles.module.scss";
 import styles from "./styles.module.scss";
+import { ProductTable } from "./ProductTable";
 
 type ProductsTabProps = {
   type: "product" | "system";
   items:
     | ProductsAndSystemsQuery["products"]
     | ProductsAndSystemsQuery["systems"];
+  members?: ProductsAndSystemsQuery["systemMembers"];
 };
 
 const projectFilters = [
@@ -69,7 +71,7 @@ const getValue = (t, type, value) => {
   }
 };
 
-const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
+const ProductTab = ({ items: ssrItems, type, members }: ProductsTabProps) => {
   const { t } = useTranslation("admin-products-systems");
   const { market } = useMarketContext();
 
@@ -86,6 +88,19 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
   const [selectedItem, setSelectedItem] = useState<
     Partial<Product> | Partial<System>
   >();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const filteredProducts =
+      members?.nodes
+        ?.filter((x) => {
+          return x.systemBmiRef === selectedItem?.bmiRef;
+        })
+        .map((member) => member.productByProductBmiRef) || [];
+
+    setProducts(filteredProducts);
+  }, [selectedItem, setSelectedItem]);
 
   const [udpateProduct] = useUpdateProductMutation({
     onCompleted: (data) => {
@@ -334,6 +349,9 @@ const ProductTab = ({ items: ssrItems, type }: ProductsTabProps) => {
                   </Typography>
                 </Grid>
               ))}
+              <Grid item xs={12}>
+                {products.length > 0 && <ProductTable products={products} />}
+              </Grid>
             </Grid>
           )}
         </div>

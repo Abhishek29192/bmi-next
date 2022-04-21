@@ -47,5 +47,9 @@
   "systemToUpdate": "Questi sistemi verranno aggiornati",
   "technology": "Tecnologia",
   "unpublished": "Inedito",
-  "updatedAt": "Ultimo aggiornamento"
+  "updatedAt": "Ultimo aggiornamento",
+  "productData": {
+    "uuid": "Numero identificativo del prodotto",
+    "name": "Nome del prodotto"
+  }
 }
