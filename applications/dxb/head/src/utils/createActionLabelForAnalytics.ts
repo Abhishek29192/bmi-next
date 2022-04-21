@@ -1,29 +1,12 @@
-import {
-  Classification,
-  ClassificationCodeEnum
-} from "../components/types/pim";
-import {
-  AttributeCodeMap,
-  extractFeatureValuesByClassification
-} from "./features-from-classifications-transfroms";
+import { Product } from "../types/pim";
 
 export const createActionLabel = (
-  productName: string,
-  classifications: Classification[],
-  config: AttributeCodeMap
+  name: Product["name"],
+  colour: Product["colour"],
+  textureFamily: Product["textureFamily"],
+  measurements: Product["measurements"]["label"] | null
 ): string => {
-  const measurementSymbol =
-    classifications?.filter(
-      ({ code }) => code === ClassificationCodeEnum.MEASUREMENTS
-    )[0]?.features[0]?.featureUnit?.symbol || "";
-  const classificationsPath = extractFeatureValuesByClassification(
-    classifications,
-    config
-  );
-
-  const result = [productName, ...classificationsPath]
-    .filter(Boolean)
-    .join("-")
-    .replace(/(x)$/, measurementSymbol);
-  return result;
+  return [name, colour, textureFamily, measurements]
+    .filter((attribute) => attribute)
+    .join("-");
 };

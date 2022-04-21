@@ -6,12 +6,12 @@ import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
 import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
 import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
 import { useConfig } from "../contexts/ConfigProvider";
+import { Product } from "../types/pim";
 import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
 import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { Data as SEOContentData } from "./SEOContent";
 import { Data as SiteData } from "./Site";
-import { Product, VariantOption } from "./types/pim";
 
 interface HeadProps {
   htmlAttributes: HelmetProps["htmlAttributes"];
@@ -19,10 +19,9 @@ interface HeadProps {
   defer?: boolean;
   ogImageUrl?: string;
   scripts?: Pick<SiteData, "headScripts" | "scriptOnetrust">;
-  seo?: SEOContentData | null;
-  path?: string;
-  baseProduct?: Product;
-  variantProduct?: VariantOption;
+  seo: SEOContentData | null;
+  path: string | null;
+  variantProduct?: Product;
   countryCode?: string;
 }
 
@@ -34,7 +33,6 @@ export const Head = ({
   scripts,
   seo,
   path,
-  baseProduct,
   variantProduct,
   countryCode
 }: HeadProps) => {
@@ -48,9 +46,7 @@ export const Head = ({
   const enableHubSpot = Boolean(!isPreviewMode && hubSpotId);
 
   const schemaOrgActivated =
-    Boolean(isSchemaORGActivated) &&
-    Boolean(baseProduct) &&
-    Boolean(variantProduct);
+    Boolean(isSchemaORGActivated) && Boolean(variantProduct);
 
   return (
     <Helmet
@@ -170,11 +166,7 @@ export const Head = ({
       {schemaOrgActivated && (
         <script type="application/ld+json">
           {JSON.stringify(
-            createSchemaOrgDataForPdpPage(
-              baseProduct,
-              variantProduct,
-              countryCode
-            )
+            createSchemaOrgDataForPdpPage(variantProduct, countryCode)
           )}
         </script>
       )}

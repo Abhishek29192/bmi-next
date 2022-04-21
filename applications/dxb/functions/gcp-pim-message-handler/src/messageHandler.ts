@@ -1,9 +1,10 @@
 import logger from "@bmi-digital/functions-logger";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import fetch from "node-fetch";
-import { PubSub, Topic } from "@google-cloud/pubsub";
 import { getProductsByMessageId, getSystemsByMessageId } from "@bmi/pim-api";
-import { DeleteItemType, ItemType, MessageType, ObjType } from "./types";
+import { Product, System } from "@bmi/pim-types";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { PubSub, Topic } from "@google-cloud/pubsub";
+import fetch from "node-fetch";
+import { DeleteItemType, ItemType, Message, ObjType } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, BUILD_TRIGGER_ENDPOINT } =
   process.env;
@@ -22,12 +23,8 @@ const getTopicPublisher = () => {
   return topicPublisher;
 };
 
-const publishMessage = async (
-  type: MessageType,
-  itemType: ItemType,
-  items: any[]
-) => {
-  const messageBuffer = Buffer.from(JSON.stringify({ type, itemType, items }));
+const publishMessage = async (message: Message) => {
+  const messageBuffer = Buffer.from(JSON.stringify(message));
 
   try {
     const messageId = await getTopicPublisher().publish(messageBuffer);
@@ -38,11 +35,11 @@ const publishMessage = async (
 };
 
 function getItemsFromMessageGenerator(
-  itemType: string
+  itemType: ItemType
 ): (
   messageId: string,
   messageData: any
-) => AsyncGenerator<{ items: any }, void, unknown> {
+) => AsyncGenerator<{ items: (Product | System)[] }, void> {
   if (itemType === "PRODUCTS") {
     return getProductsFromMessage;
   } else {
@@ -127,14 +124,13 @@ async function* getSystemsFromMessage(messageId: string, messageData: any) {
 const deleteItemsPublishMessage = async (
   entity: string[],
   objType: DeleteItemType["objType"],
-  type: MessageType,
   itemType: ItemType
 ) => {
   const items: DeleteItemType[] = entity.map((code: string) => ({
     code,
     objType
   }));
-  await publishMessage(type, itemType, items);
+  await publishMessage({ type: "DELETED", itemType, items });
 };
 
 export const handleRequest: HttpFunction = async (req, res) => {
@@ -190,31 +186,21 @@ export const handleRequest: HttpFunction = async (req, res) => {
       // Could Promise.all possibly if performance becomes an issue
       for await (const page of messagePages) {
         if (page.items) {
-          await publishMessage(type, itemType, page.items);
+          await publishMessage({ type, itemType, items: page.items as any });
         }
       }
     } else {
       if (base && base.length) {
-        await deleteItemsPublishMessage(
-          base,
-          ObjType.Base_product,
-          type,
-          itemType
-        );
+        await deleteItemsPublishMessage(base, ObjType.Base_product, itemType);
       }
       if (variant && variant.length) {
-        await deleteItemsPublishMessage(
-          variant,
-          ObjType.Variant,
-          type,
-          itemType
-        );
+        await deleteItemsPublishMessage(variant, ObjType.Variant, itemType);
       }
       if (system && system.length) {
-        await deleteItemsPublishMessage(system, ObjType.System, type, itemType);
+        await deleteItemsPublishMessage(system, ObjType.System, itemType);
       }
       if (layer && layer.length) {
-        await deleteItemsPublishMessage(layer, ObjType.Layer, type, itemType);
+        await deleteItemsPublishMessage(layer, ObjType.Layer, itemType);
       }
     }
 

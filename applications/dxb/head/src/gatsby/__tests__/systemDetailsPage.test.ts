@@ -64,7 +64,7 @@ describe("createSystemPages function", () => {
     graphql.mockResolvedValue({
       errors: null,
       data: {
-        allSystems: {
+        allSystem: {
           nodes: [system1, system2, systemUnApproved, systemCheck]
         }
       }
@@ -79,38 +79,23 @@ describe("createSystemPages function", () => {
 
     expect(graphql).toHaveBeenCalledWith(`
     {
-      allSystems {
+      allSystem {
         nodes {
-          id
+          code
           path
-          approvalStatus
-          systemReferences {
-            referenceType
-            target {
-              code
-            }
-          }
         }
       }
     }
   `);
     expect(createPage).toHaveBeenNthCalledWith(1, {
       component: expect.any(String),
-      context: {
-        systemPageId: system1.id,
-        siteId,
-        relatedSystemCodes: ["code2", "code3"]
-      },
+      context: { siteId: "foo", systemCode: undefined },
       path: getPathWithCountryCode(countryCode, system1.path)
     });
 
     expect(createPage).toHaveBeenNthCalledWith(2, {
       component: expect.any(String),
-      context: {
-        systemPageId: system2.id,
-        siteId,
-        relatedSystemCodes: ["code1", "code3"]
-      },
+      context: { siteId: "foo", systemCode: undefined },
       path: getPathWithCountryCode(countryCode, system2.path)
     });
 
@@ -139,7 +124,7 @@ describe("createSystemPages function", () => {
     graphql.mockResolvedValue({
       errors: null,
       data: {
-        allSystems: {
+        allSystem: {
           nodes: [system3]
         }
       }
@@ -154,28 +139,17 @@ describe("createSystemPages function", () => {
 
     expect(graphql).toHaveBeenCalledWith(`
     {
-      allSystems {
+      allSystem {
         nodes {
-          id
+          code
           path
-          approvalStatus
-          systemReferences {
-            referenceType
-            target {
-              code
-            }
-          }
         }
       }
     }
   `);
     expect(createPage).toHaveBeenNthCalledWith(1, {
       component: expect.any(String),
-      context: {
-        systemPageId: system3.id,
-        siteId,
-        relatedSystemCodes: ["code1"]
-      },
+      context: { siteId: "foo", systemCode: undefined },
       path: getPathWithCountryCode(countryCode, system3.path)
     });
   });
@@ -197,17 +171,10 @@ describe("createSystemPages function", () => {
 
     expect(graphql).toHaveBeenCalledWith(`
     {
-      allSystems {
+      allSystem {
         nodes {
-          id
+          code
           path
-          approvalStatus
-          systemReferences {
-            referenceType
-            target {
-              code
-            }
-          }
         }
       }
     }

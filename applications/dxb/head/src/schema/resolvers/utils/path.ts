@@ -1,6 +1,6 @@
-import { Context, Node, ResolveArgs } from "../types";
+import { Context, Node, ResolveArgs } from "../types/Gatsby";
 
-type Path = {
+export type Path = {
   id?: string;
   path?: string;
   label?: string;

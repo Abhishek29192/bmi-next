@@ -151,44 +151,6 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
       <div
         class="list-title-row"
       >
-        <p
-          class="MuiTypography-root document-title Typography MuiTypography-body1"
-        >
-          link-title
-        </p>
-      </div>
-      <div
-        class="list-download-row"
-      >
-        <p
-          class="MuiTypography-root document-type Typography MuiTypography-body1"
-        >
-          Technical Approvals
-        </p>
-        <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-72 iconButtonStyles-small-77 iconButtonStyles-text-74"
-          href="https://doesnt-exist.com"
-          rel="noopener noreferrer"
-          tabindex="0"
-          target="_blank"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              class="external-link-icon"
-            />
-          </span>
-        </a>
-      </div>
-    </div>
-    <div
-      class="list-item"
-    >
-      <div
-        class="list-title-row"
-      >
         <div
           class="list-icon"
         >
@@ -199,7 +161,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         <p
           class="MuiTypography-root document-title Typography MuiTypography-body1"
         >
-          zip-tile
+          Pim Document
         </p>
       </div>
       <div
@@ -208,13 +170,13 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
         <p
           class="MuiTypography-root document-type Typography MuiTypography-body1"
         >
-          Technical Approvals
+          asset-name
         </p>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 MuiButton-textPrimary"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"https://doesnt-exist.com\\"}"
-          href="https://doesnt-exist.com/"
+          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+          href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
@@ -222,7 +184,7 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
           <span
             class="MuiButton-label buttonStyles-label-64"
           >
-            234 B
+            10 B
             <span
               class="MuiButton-endIcon MuiButton-iconSizeMedium"
             >
@@ -239,61 +201,6 @@ exports[`DocumentSimpleTableResultsMobile component renders multiple documents o
             </span>
           </span>
         </a>
-      </div>
-    </div>
-    <div
-      class="list-item"
-    >
-      <div
-        class="list-title-row"
-      >
-        <div
-          class="list-icon"
-        >
-          <svg
-            class="download-icon"
-          />
-        </div>
-        <p
-          class="MuiTypography-root document-title Typography MuiTypography-body1"
-        >
-          dummy-title
-        </p>
-      </div>
-      <div
-        class="list-download-row"
-      >
-        <p
-          class="MuiTypography-root document-type Typography MuiTypography-body1"
-        >
-          Technical Approvals
-        </p>
-        <button
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 MuiButton-textPrimary"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\",\\\\\\"https://doesnt-exist.com\\\\\\"]\\"}"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label buttonStyles-label-64"
-          >
-            591 B
-            <span
-              class="MuiButton-endIcon MuiButton-iconSizeMedium"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                />
-              </svg>
-            </span>
-          </span>
-        </button>
       </div>
     </div>
   </div>
@@ -311,47 +218,6 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
       <div
         class="list-title-row"
       >
-        <p
-          class="MuiTypography-root document-title Typography MuiTypography-body1"
-        >
-          link-title
-        </p>
-      </div>
-      <div
-        class="list-download-row"
-      >
-        <p
-          class="MuiTypography-root document-type Typography MuiTypography-body1"
-        >
-          Technical Approvals
-        </p>
-        <a
-          aria-disabled="false"
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-52 iconButtonStyles-small-57 iconButtonStyles-text-54"
-          href="https://doesnt-exist.com"
-          rel="noopener noreferrer"
-          tabindex="0"
-          target="_blank"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              class="external-link-icon"
-            />
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </a>
-      </div>
-    </div>
-    <div
-      class="list-item"
-    >
-      <div
-        class="list-title-row"
-      >
         <div
           class="list-icon"
         >
@@ -362,7 +228,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         <p
           class="MuiTypography-root document-title Typography MuiTypography-body1"
         >
-          dummy-title
+          Pim Document
         </p>
       </div>
       <div
@@ -371,13 +237,13 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
         <p
           class="MuiTypography-root document-type Typography MuiTypography-body1"
         >
-          Technical Approvals
+          asset-name
         </p>
         <a
           aria-disabled="false"
           class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 MuiButton-textPrimary"
-          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"https://doesnt-exist.com\\"}"
-          href="https://doesnt-exist.com/"
+          data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+          href="http://pimdocument/"
           rel="noopener noreferrer"
           tabindex="0"
           target="_blank"
@@ -385,7 +251,7 @@ exports[`DocumentSimpleTableResultsMobile component renders pim documents correc
           <span
             class="MuiButton-label buttonStyles-label-44"
           >
-            234 B
+            10 B
             <span
               class="MuiButton-endIcon MuiButton-iconSizeMedium"
             >

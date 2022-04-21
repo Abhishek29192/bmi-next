@@ -1,41 +1,50 @@
 import createAsset from "./AssetHelper";
 import createCategory from "./CategoryHelper";
 import createClassification, {
-  createFeatureValue,
-  createFeatureUnit,
-  createFeature,
-  createScoringWeightAttributesClassification,
   createAppearanceAttributesClassification,
+  createFeature,
+  createFeatureUnit,
+  createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
+  createScoringWeightAttributesClassification,
   createTwoOneClassifications
 } from "./ClassificationHelper";
+import createIgnorableClassifications from "./createIgnorableClassifications";
 import createImage from "./ImageHelper";
-import createProduct from "./ProductHelper";
+import createProduct, { createFullyPopulatedProduct } from "./ProductHelper";
 import createProductsApiResponse from "./ProductsApiResonseHelper";
-import createSystem from "./SystemHelper";
+import createSystem, { createFullyPopulatedSystem } from "./SystemHelper";
 import {
   createSystemLayer,
   createSystemLayerProducts
 } from "./SystemLayersHelper";
 import createSystemReference from "./SystemReferencesHelper";
 import createSystemsApiResponse from "./SystemsApiResponseHelper";
-import createVariantOption from "./VariantOptionHelper";
+import createVariantOption, {
+  createFullyPopulatedVariantOption
+} from "./VariantOptionHelper";
 import {
   ApprovalStatus,
   Asset,
   AssetAssetType,
   AuthResponse,
+  BaseProduct,
   CatalogVersion,
   Category,
   CategoryImage,
+  CategoryType,
   Classification,
+  ClassificationCode,
   ErrorResponse,
   Feature,
+  FeatureCode,
   FeatureUnit,
   FeatureValue,
   Image,
+  ImageAssetType,
   ImageMime,
+  Mime,
   PimTypes,
   Product,
   ProductsApiResponse,
@@ -45,7 +54,6 @@ import {
   SystemReferenceTarget,
   SystemsApiResponse,
   VariantOption,
-  BaseProduct,
   TwoOneIgnoreDictionary,
   TwoOneAttribToIgnore,
   filterTwoOneAttributes
@@ -58,19 +66,23 @@ export {
   createFeatureValue,
   createFeatureUnit,
   createFeature,
+  createIgnorableClassifications,
   createScoringWeightAttributesClassification,
   createAppearanceAttributesClassification,
   createGeneralInformationClassification,
   createMeasurementsClassification,
   createImage,
   createProduct,
+  createFullyPopulatedProduct,
   createProductsApiResponse,
   createSystem,
+  createFullyPopulatedSystem,
   createSystemLayer,
   createSystemLayerProducts,
   createSystemReference,
   createSystemsApiResponse,
   createVariantOption,
+  createFullyPopulatedVariantOption,
   createTwoOneClassifications
 };
 
@@ -82,13 +94,18 @@ export {
   CatalogVersion,
   Category,
   CategoryImage,
+  CategoryType,
   Classification,
+  ClassificationCode,
   ErrorResponse,
   Feature,
+  FeatureCode,
   FeatureUnit,
   FeatureValue,
   Image,
+  ImageAssetType,
   ImageMime,
+  Mime,
   PimTypes,
   Product,
   ProductsApiResponse,

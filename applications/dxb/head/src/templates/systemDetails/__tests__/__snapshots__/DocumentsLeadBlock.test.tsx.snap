@@ -60,36 +60,30 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell"
                     >
-                      CAD name
+                      asset-name
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell"
                     >
-                      title
+                      pim-link-document-title
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignLeft"
                     >
                       <a
                         aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
-                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf\\"}"
-                        href="https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf"
+                        class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14"
+                        href="http://localhost/pim-link-document-id"
                         rel="noopener noreferrer"
                         tabindex="0"
                         target="_blank"
                       >
                         <span
-                          class="MuiButton-label buttonStyles-label-4"
+                          class="MuiIconButton-label"
                         >
-                          <span
-                            class="MuiButton-startIcon buttonStyles-startIcon-5 MuiButton-iconSizeMedium"
-                          >
-                            <svg
-                              class="download-icon"
-                            />
-                          </span>
-                          264.2 KB
+                          <svg
+                            class="external-link-icon"
+                          />
                         </span>
                         <span
                           class="MuiTouchRipple-root"
@@ -100,49 +94,9 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
                       class="MuiTableCell-root MuiTableCell-body table-cell MuiTableCell-alignCenter"
                     >
                       <span
-                        class=""
+                        class="no-document-icon"
                       >
-                        <div
-                          class="MuiFormControl-root Checkbox"
-                        >
-                          <label
-                            class="MuiFormControlLabel-root"
-                          >
-                            <span
-                              aria-disabled="false"
-                              class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                            >
-                              <span
-                                class="MuiIconButton-label"
-                              >
-                                <input
-                                  aria-label="MC: documentLibrary.download title"
-                                  class="PrivateSwitchBase-input-24"
-                                  data-indeterminate="false"
-                                  name="0"
-                                  type="checkbox"
-                                  value=""
-                                />
-                                <svg
-                                  aria-hidden="true"
-                                  class="MuiSvgIcon-root"
-                                  focusable="false"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                                  />
-                                </svg>
-                              </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
-                            </span>
-                            <span
-                              class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                            />
-                          </label>
-                        </div>
+                        -
                       </span>
                     </td>
                   </tr>
@@ -156,7 +110,7 @@ exports[`DocumentsLeadBlock tests should render correctly 1`] = `
         >
           <nav
             aria-label="pagination navigation"
-            class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-25"
+            class="MuiPagination-root pagination docResultsFooterStyles-paginationRoot-21"
           >
             <ul
               class="MuiPagination-ul"

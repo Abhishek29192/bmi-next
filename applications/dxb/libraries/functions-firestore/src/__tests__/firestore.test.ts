@@ -11,7 +11,7 @@ const mockGetFirestore = jest.fn();
 jest.mock("firebase-admin/firestore", () => {
   return {
     getFirestore: (...args: any[]) => {
-      return mockGetFirestore(...args);
+      return { getFirestore: mockGetFirestore(...args), settings: jest.fn() };
     }
   };
 });

@@ -1,12 +1,12 @@
-import { Data as DocumentResultsData } from "../../../components/DocumentResults";
+import { DocumentResultData } from "../../../components/DocumentResults";
 import { Source } from "../../../utils/filters";
 
 const sourceToSortMap: Record<
   Source,
-  (documents: DocumentResultsData) => DocumentResultsData
+  (documents: DocumentResultData[]) => DocumentResultData[]
 > = {
   ALL: (documents) =>
-    documents
+    (documents || [])
       .concat()
       .sort((a, b) =>
         a.assetType.name > b.assetType.name
@@ -20,21 +20,21 @@ const sourceToSortMap: Record<
           : 0
       ),
   PIM: (documents) =>
-    documents
+    (documents || [])
       .concat()
       .sort((a, b) =>
-        a.assetType.code > b.assetType.code
+        a.assetType.pimCode > b.assetType.pimCode
           ? a.title > b.title
             ? 1
             : a.title < b.title
             ? -1
             : 0
-          : a.assetType.code < b.assetType.code
+          : a.assetType.pimCode < b.assetType.pimCode
           ? -1
           : 0
       ),
   CMS: (documents) => {
-    const docs = documents.concat();
+    const docs = (documents || []).concat();
     const isAllDocsHaveBrand = docs.every((doc) => Boolean(doc["brand"]));
 
     if (isAllDocsHaveBrand) {

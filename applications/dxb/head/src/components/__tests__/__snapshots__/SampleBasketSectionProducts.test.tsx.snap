@@ -13,7 +13,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       <img
         alt="sample-1"
         class="product-image header-picture Media"
-        src="http://localhost:8000/image-real-file-name.jpg"
+        src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
@@ -38,9 +38,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               </p>
               <p
                 class="MuiTypography-root product-color Typography MuiTypography-body1"
-              >
-                classification-feature-feature-value-value
-              </p>
+              />
               <p
                 class="MuiTypography-root product-size Typography MuiTypography-body1"
               />
@@ -92,7 +90,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       <img
         alt="sample-2"
         class="product-image header-picture Media"
-        src="http://localhost:8000/image-real-file-name.jpg"
+        src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
@@ -117,11 +115,13 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               </p>
               <p
                 class="MuiTypography-root product-color Typography MuiTypography-body1"
-              />
+              >
+                Red | Matte
+              </p>
               <p
                 class="MuiTypography-root product-size Typography MuiTypography-body1"
               >
-                10x20 mm
+                10x20x30 mm
               </p>
             </div>
           </div>
@@ -171,7 +171,7 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
       <img
         alt="sample-3"
         class="product-image header-picture Media"
-        src="http://localhost:8000/image-real-file-name.jpg"
+        src="http://localhost:8000/image-main-source.jpg"
         style="object-fit: contain; object-position: center;"
       />
       <div
@@ -196,7 +196,9 @@ exports[`SampleBasketSectionProducts component renders correctly 1`] = `
               </p>
               <p
                 class="MuiTypography-root product-color Typography MuiTypography-body1"
-              />
+              >
+                Black
+              </p>
               <p
                 class="MuiTypography-root product-size Typography MuiTypography-body1"
               />

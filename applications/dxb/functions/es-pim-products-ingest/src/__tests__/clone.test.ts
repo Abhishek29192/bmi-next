@@ -1,21 +1,25 @@
-import mockConsole from "jest-mock-console";
 import {
   Classification,
-  createVariantOption,
-  createProduct as createPimProduct,
   createClassification,
   createFeature,
-  createFeatureValue,
   createFeatureUnit,
+  createFeatureValue,
+  createImage,
   createMeasurementsClassification,
-  createTwoOneClassifications
+  createProduct as createPimProduct,
+  createTwoOneClassifications,
+  createVariantOption,
+  Image
 } from "@bmi/pim-types";
+import mockConsole from "jest-mock-console";
 import {
   ESIndexObject,
+  findMainImage,
+  generateSubtitleValues,
+  getSizeLabel,
   groupBy,
   IndexedItemGroup,
   indexFeatures,
-  getSizeLabel,
   mapProductClassifications
 } from "../CLONE";
 
@@ -118,7 +122,6 @@ describe("CLONE tests", () => {
         product,
         PIM_CLASSIFICATION_CATALOGUE_NAMESPACE!
       );
-
       expect(mapedProductClassifications).toEqual({});
     });
 
@@ -327,6 +330,7 @@ describe("CLONE tests", () => {
       });
     });
   });
+
   describe("IndexFeatures tests", () => {
     it("should return empty object when empty array is passed", () => {
       const result: IndexedItemGroup<ESIndexObject> = indexFeatures("", []);
@@ -757,6 +761,232 @@ describe("CLONE tests", () => {
             });
           });
         });
+      });
+    });
+  });
+
+  describe("findMainImage tests", () => {
+    describe("when Images are empty array", () => {
+      it("should return empty string", () => {
+        const result = findMainImage([]);
+
+        expect(result).toEqual("");
+      });
+    });
+    describe("when Images are NOT empty array", () => {
+      describe("and Hero Desktop Tablet Image format exists", () => {
+        it("should return Hero Desktop Tablet Image format url string", () => {
+          const expectedUrl = "http://product-hero-small-desktop-tablet.com";
+          const images: Image[] = [
+            createImage({
+              format: "Product-Hero-Small-Desktop-Tablet",
+              url: expectedUrl
+            })
+          ];
+          const result = findMainImage(images);
+
+          expect(result).toEqual(expectedUrl);
+        });
+        describe("and Hero Desktop Tablet Image url is undefined", () => {
+          it("should return Hero Desktop Tablet Image format url string", () => {
+            const images: Image[] = [
+              createImage({
+                format: "Product-Hero-Small-Desktop-Tablet",
+                url: undefined
+              })
+            ];
+            const result = findMainImage(images);
+
+            expect(result).toEqual("");
+          });
+        });
+
+        describe("and an Image with Product Color Selector Mobile Url value is populated", () => {
+          it("should return main source using desktop tabled url as string", () => {
+            const expectedUrl = "http://product-hero-small-desktop-tablet.com";
+            const images: Image[] = [
+              createImage({
+                format: "Product-Color-Selector-Mobile",
+                url: "http://product-color-selector-mobile.com"
+              }),
+              createImage({
+                format: "Product-Hero-Small-Desktop-Tablet",
+                url: expectedUrl
+              })
+            ];
+            const result = findMainImage(images);
+
+            expect(result).toEqual(expectedUrl);
+          });
+        });
+      });
+    });
+  });
+
+  describe("generateSubtitleValues tests", () => {
+    describe("when classifications does not have eligible classifications", () => {
+      it("generates empty subtitle", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [],
+          code: "not-eligible-Attributes"
+        });
+        const classifications = [textureFamilyClassFeature];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("");
+      });
+    });
+
+    describe("when classifications does not have features", () => {
+      it("generates empty subtitle", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: undefined,
+          code: "appearanceAttributes"
+        });
+        const classifications = [textureFamilyClassFeature];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("");
+      });
+    });
+
+    describe("when classifications has colour appearance attributes", () => {
+      it("generates subtitle with colour value", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: [createFeatureValue({ value: "gray" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [textureFamilyClassFeature];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("gray");
+      });
+    });
+
+    describe("when classifications has multiple colour appearance attributes", () => {
+      it("generates subtitle with first avilable colour", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: [createFeatureValue({ value: "red" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const textureFamilyClassFeature2 = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: [createFeatureValue({ value: "gray" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [
+          textureFamilyClassFeature,
+          textureFamilyClassFeature2
+        ];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("red");
+      });
+    });
+
+    describe("when classifications has multiple colour appearance attributes but single one has feature value", () => {
+      it("generates subtitle with first avilable colour", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: undefined
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const textureFamilyClassFeature2 = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: [createFeatureValue({ value: "gray" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [
+          textureFamilyClassFeature,
+          textureFamilyClassFeature2
+        ];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("");
+      });
+    });
+
+    describe("when classifications has texturefamily appearance attribute", () => {
+      it("generates subtitle", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `texturefamily`,
+              featureValues: [createFeatureValue({ value: "glossy" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [textureFamilyClassFeature];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("glossy");
+      });
+    });
+
+    describe("when classifications has multiple texturefamily appearance attribute", () => {
+      it("generates subtitle", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `texturefamily`,
+              featureValues: [createFeatureValue({ value: "smooth" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const textureFamilyClassFeature2 = createClassification({
+          features: [
+            createFeature({
+              code: `texturefamily`,
+              featureValues: [createFeatureValue({ value: "glossy" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [
+          textureFamilyClassFeature,
+          textureFamilyClassFeature2
+        ];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("smooth");
+      });
+    });
+
+    describe("when classifications has colour and texturefamily appearance attributes", () => {
+      it("generates subtitle", () => {
+        const textureFamilyClassFeature = createClassification({
+          features: [
+            createFeature({
+              code: `colour`,
+              featureValues: [createFeatureValue({ value: "gray" })]
+            }),
+            createFeature({
+              code: `texturefamily`,
+              featureValues: [createFeatureValue({ value: "smooth" })]
+            })
+          ],
+          code: "appearanceAttributes"
+        });
+        const classifications = [textureFamilyClassFeature];
+        const result = generateSubtitleValues(classifications);
+        expect(result).toEqual("gray, smooth");
       });
     });
   });

@@ -1,14 +1,12 @@
+import { Button, Grid, OverviewCard, OverviewCardProps } from "@bmi/components";
 import React from "react";
-import { Button } from "@bmi/components";
-import { OverviewCard, OverviewCardProps } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
-import { Data as DocumentData } from "./Document";
-import RichText from "./RichText";
-import { useSiteContext } from "./Site";
+import { Data as DocumentData } from "../types/Document";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import { renderImage } from "./Image";
+import RichText from "./RichText";
+import { useSiteContext } from "./Site";
 
 type Props = {
   documents: DocumentData[];

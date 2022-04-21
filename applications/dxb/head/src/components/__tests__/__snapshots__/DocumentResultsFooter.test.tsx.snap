@@ -78,7 +78,7 @@ exports[`DocumentResultsFooter component renders correctly 1`] = `
     </a>
     <button
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-2 MuiButton-contained buttonStyles-contained-4 MuiButton-containedPrimary"
-      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (4)\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://localhost/pim-document-id\\\\\\",\\\\\\"http://localhost:8000/sdp-document-file-name.pdf\\\\\\"]\\"}"
+      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (4)\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >
@@ -200,7 +200,7 @@ exports[`DocumentResultsFooter component renders correctly if download item is a
     </a>
     <button
       class="MuiButtonBase-root MuiButton-root buttonStyles-root-23 MuiButton-contained buttonStyles-contained-25 MuiButton-containedPrimary"
-      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (2)\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-document-id\\\\\\",\\\\\\"http://localhost:8000/sdp-document-file-name.pdf\\\\\\"]\\"}"
+      data-gtm="{\\"id\\":\\"download3-button1\\",\\"label\\":\\"MC: downloadList.download (2)\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
       tabindex="0"
       type="button"
     >

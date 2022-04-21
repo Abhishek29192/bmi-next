@@ -1,7 +1,6 @@
 import { MediaData } from "@bmi/components";
 import { Data as ImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
-import { Asset } from "../components/types/pim";
 import { getDefaultPreviewImage } from "./product-details-transforms";
 
 export const getJpgImage = (ogImageUrl: string) => {
@@ -76,22 +75,4 @@ export const transformMediaSrc = (
         };
     }
   });
-};
-
-export const filterAndTransformVideoData = (
-  assets: readonly Asset[]
-): GalleryPimVideo[] => {
-  return (assets || [])
-    .filter((el) => el.assetType === "VIDEO")
-    .map((video) => {
-      return {
-        __typename: "PimVideo",
-        title: "",
-        label: video.name,
-        subtitle: null,
-        previewMedia: null,
-        videoRatio: null,
-        videoUrl: video.url ? video.url : ""
-      };
-    });
 };

@@ -1,30 +1,9 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Component from "../documentsLeadBlock";
-import { DocumentData } from "../types";
-import { FileContentTypeEnum } from "../../../components/types/pim";
+import createPimSystemDocument from "../../../__tests__/helpers/PimSystemDocumentHelper";
 
-const documents: DocumentData[] = [
-  {
-    __typename: "SDPDocument",
-    id: "0",
-    title: "title",
-    assetType: {
-      name: "CAD name",
-      pimCode: "CAD"
-    },
-    asset: {
-      file: {
-        fileName: "1344416763.pdf",
-        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf",
-        contentType: FileContentTypeEnum.APPLICATION_PDF,
-        details: {
-          size: 270539
-        }
-      }
-    }
-  }
-];
+const documents = [createPimSystemDocument()];
 
 describe("DocumentsLeadBlock tests", () => {
   it("should render correctly", () => {

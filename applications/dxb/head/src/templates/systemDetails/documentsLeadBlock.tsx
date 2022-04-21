@@ -1,20 +1,19 @@
-import React, { useState, useRef } from "react";
-import { LeadBlock } from "@bmi/components";
-import { DownloadList } from "@bmi/components";
+import React, { useRef, useState } from "react";
+import { DownloadList, LeadBlock } from "@bmi/components";
 import DocumentSimpleTableResults from "../../components/DocumentSimpleTableResults";
 import DocumentResultsFooter from "../../components/DocumentResultsFooter";
-import { DocumentData } from "./types";
+import { SystemDocument } from "../../types/pim";
 import styles from "./styles/documentsLeadBlock.module.scss";
 
 type Props = {
-  documents: DocumentData[];
+  documents: readonly SystemDocument[];
 };
 
 const DOCUMENTS_PER_PAGE = 24;
 const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
   +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
-const DocumnetsLeadBlock = ({ documents }: Props) => {
+const DocumentsLeadBlock = ({ documents }: Props) => {
   const resultsElement = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(1);
   const filteredDocuments = documents.filter(
@@ -22,7 +21,7 @@ const DocumnetsLeadBlock = ({ documents }: Props) => {
       (doc.assetType.pimCode !== "VIDEO" &&
         doc.assetType.pimCode !== "FIXING_TOOL" &&
         doc.assetType.pimCode !== "SPECIFICATION") ||
-      doc.asset.file.details.size
+      doc.fileSize
   );
   const count = Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE);
   const handlePageChange = (_, page) => {
@@ -58,4 +57,4 @@ const DocumnetsLeadBlock = ({ documents }: Props) => {
   );
 };
 
-export default DocumnetsLeadBlock;
+export default DocumentsLeadBlock;

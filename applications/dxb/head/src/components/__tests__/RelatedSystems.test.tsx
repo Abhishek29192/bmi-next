@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import RelatedSystems from "../RelatedSystems";
-import { ClassificationCodeEnum, System } from "../types/pim";
+import { System } from "../../types/pim";
+import createSystem from "../../__tests__/helpers/SystemHelper";
 
 describe("RelatedSystems component", () => {
   it("renders correctly with no systems", () => {
@@ -14,43 +15,7 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly with systems", () => {
-    const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      }
-    ];
+    const systems: System[] = [createSystem()];
 
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
@@ -59,37 +24,7 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders correctly without categories", () => {
-    const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      }
-    ];
+    const systems: System[] = [createSystem({ categories: null })];
 
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
@@ -98,27 +33,7 @@ describe("RelatedSystems component", () => {
   });
 
   it("renders systems correctly without classifications", () => {
-    const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      }
-    ];
+    const systems: System[] = [createSystem({ classifications: null })];
 
     const { container } = render(
       <RelatedSystems countryCode="en" systems={systems} />
@@ -127,76 +42,8 @@ describe("RelatedSystems component", () => {
   });
   it("renders correctly with scoringweight", () => {
     const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      },
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "3"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System2",
-        images: null,
-        name: "NO System 2",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test2"
-      }
+      createSystem({ scoringWeight: 2 }),
+      createSystem({ scoringWeight: 3 })
     ];
 
     const { container } = render(
@@ -207,76 +54,8 @@ describe("RelatedSystems component", () => {
 
   it("renders correctly with scoringweight equal", () => {
     const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      },
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System2",
-        images: null,
-        name: "NO System 2",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test2"
-      }
+      createSystem({ scoringWeight: 2 }),
+      createSystem({ scoringWeight: 2 })
     ];
 
     const { container } = render(
@@ -287,76 +66,8 @@ describe("RelatedSystems component", () => {
 
   it("renders correctly when scoringweight equal & names equal", () => {
     const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      },
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System2",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test2"
-      }
+      createSystem({ scoringWeight: 2, name: "system-1" }),
+      createSystem({ scoringWeight: 2, name: "system-1" })
     ];
 
     const { container } = render(
@@ -367,76 +78,8 @@ describe("RelatedSystems component", () => {
 
   it("renders correctly with scoringweight equal & names sorted opposite", () => {
     const systems: System[] = [
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System1",
-        images: null,
-        name: "NO System 2",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test"
-      },
-      {
-        approvalStatus: "approved",
-        assets: null,
-        longDescription: null,
-        systemBenefits: null,
-        categories: [
-          {
-            categoryType: "Brand",
-            code: "MONARFLX",
-            name: "Monarflex"
-          }
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiSystemsClassificationCatalog/1.0/ScoringWeightAttributes.scoring_weight",
-                featureValues: [
-                  {
-                    value: "2"
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ],
-        code: "Test_PIM_System2",
-        images: null,
-        name: "NO System 1",
-        shortDescription: "SDescription 1 NO",
-        path: "/s/test2"
-      }
+      createSystem({ scoringWeight: 2, name: "system-1" }),
+      createSystem({ scoringWeight: 2, name: "system-2" })
     ];
 
     const { container } = render(

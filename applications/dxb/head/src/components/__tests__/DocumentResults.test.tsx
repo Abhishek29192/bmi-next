@@ -1,50 +1,24 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import DocumentResults, {
-  Data as DocumentResultsData,
+  DocumentResultData,
   Format
 } from "../DocumentResults";
-import { PIMDocumentData, PIMLinkDocumentData } from "../types/PIMDocumentBase";
-import { Data as DocumentData } from "../../components/Document";
-import createPimDocument from "../../__tests__/PimDocumentHelper";
-import createProduct from "../../__tests__/PimDocumentProductHelper";
-import createCategory from "../../__tests__/CategoryHelper";
-import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
-import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 
 describe("DocumentResults component", () => {
-  let inputDataItems: DocumentResultsData;
+  let inputDataItems: DocumentResultData[];
   beforeEach(() => {
-    inputDataItems = Array<
-      PIMDocumentData | DocumentData | PIMLinkDocumentData
-    >();
+    inputDataItems = Array<DocumentResultData>();
     const baseUrl = "http://localhost/document/library/";
 
     const pimDocument = createPimDocument({
       id: `pim-doc-id-aero`,
-      url: `${baseUrl}pim-doc-url-aero`,
-      product: createProduct({
-        categories: [
-          createCategory({ categoryType: "Brand" }),
-          createCategory({ categoryType: "ProductFamily" })
-        ]
-      })
+      url: `${baseUrl}pim-doc-url-aero`
     });
 
     inputDataItems.push(pimDocument);
-
-    const pimLinkDocument = createPimLinkDocument({
-      id: `pim-doc-id-ico`,
-      url: `${baseUrl}pim-doc-url-ico`,
-      product: createProduct({
-        categories: [
-          createCategory({ categoryType: "Brand" }),
-          createCategory({ categoryType: "ProductFamily" })
-        ]
-      })
-    });
-
-    inputDataItems.push(pimLinkDocument);
 
     const contentfulDocument = createContentfulDocument();
 

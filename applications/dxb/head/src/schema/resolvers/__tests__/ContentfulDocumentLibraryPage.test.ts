@@ -1,12 +1,13 @@
 import ContentfulDocumentLibraryPage from "../ContentfulDocumentLibraryPage";
-import * as Documents from "../documents";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
+import * as Documents from "../utils/documents";
 
 const context: Context = {
   nodeModel: {
     findAll: jest.fn().mockResolvedValue({
       entries: [{ id: "asset-type-1" }, { id: "asset-type-2" }]
     }),
+    findOne: jest.fn(),
     getNodeById: jest.fn().mockResolvedValueOnce({ id: "asset-type-1" }),
     getNodesByIds: jest.fn()
   }
@@ -19,18 +20,31 @@ const source: Node = {
   internal: null
 };
 
-jest.mock("../documents", () => ({
-  resolveDocumentsFromProducts: jest
-    .fn()
-    .mockResolvedValue([{ id: "product-document-1" }]),
-  resolveDocumentsFromContentful: jest
-    .fn()
-    .mockResolvedValue([{ id: "contentful-document-1" }])
+const source2 = {
+  assetTypes___NODE: ["asset-type-1"],
+  children: null,
+  id: "source",
+  internal: null,
+  parent: null,
+  source: "ALL"
+};
+
+jest.mock("../utils/documents", () => ({
+  resolveDocumentsFromProducts: jest.fn().mockResolvedValue({
+    documents: [{ id: "product-document-1" }],
+    filters: []
+  }),
+  resolveDocumentsFromContentful: jest.fn().mockResolvedValue({
+    documents: [{ id: "contentful-document-1" }],
+    filters: []
+  })
 }));
 
 describe("ContentfulDocumentLibraryPage resolver", () => {
   it("should contain specific type", () => {
-    expect(ContentfulDocumentLibraryPage.documents.type).toEqual(["Document"]);
+    expect(ContentfulDocumentLibraryPage.documentsWithFilters.type).toEqual(
+      "DocumentsWithFiltersResponse"
+    );
   });
   it("should resolve assets for PIM source", async () => {
     jest.spyOn(Documents, "resolveDocumentsFromProducts");
@@ -38,12 +52,15 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     const sourcePIM = { ...source, source: "PIM" };
 
     expect(
-      await ContentfulDocumentLibraryPage.documents.resolve(
+      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
         sourcePIM,
         null,
         context
       )
-    ).toEqual([{ id: "product-document-1" }]);
+    ).toEqual({
+      documents: [{ id: "product-document-1" }],
+      filters: []
+    });
 
     expect(context.nodeModel.findAll).toBeCalledWith(
       { query: {}, type: "ContentfulAssetType" },
@@ -54,23 +71,28 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       {
         source: sourcePIM,
         context
-      }
+      },
+      []
     );
   });
   it("should resolve assets for CMS source", async () => {
     jest.spyOn(Documents, "resolveDocumentsFromContentful");
 
     expect(
-      await ContentfulDocumentLibraryPage.documents.resolve(
+      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
         { ...source, source: "CMS" },
         null,
         context
       )
-    ).toEqual([{ id: "contentful-document-1" }]);
+    ).toEqual({
+      documents: [{ id: "contentful-document-1" }],
+      filters: []
+    });
 
     expect(Documents.resolveDocumentsFromContentful).toBeCalledWith(
       [{ id: "asset-type-1" }, { id: "asset-type-2" }],
-      { context }
+      { source: { ...source, source: "CMS" }, context },
+      []
     );
     expect(context.nodeModel.findAll).toBeCalledWith(
       { query: {}, type: "ContentfulAssetType" },
@@ -84,24 +106,39 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     const sourceAll = { ...source, source: "ALL" };
 
     expect(
-      await ContentfulDocumentLibraryPage.documents.resolve(
+      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
         sourceAll,
         null,
         context
       )
-    ).toEqual([{ id: "contentful-document-1" }, { id: "product-document-1" }]);
+    ).toEqual({
+      documents: [
+        { id: "contentful-document-1" },
+        { id: "product-document-1" }
+      ],
+      filters: []
+    });
     expect(Documents.resolveDocumentsFromProducts).toHaveBeenCalledWith(
       [{ id: "asset-type-1" }, { id: "asset-type-2" }],
       {
         source: sourceAll,
         context
-      }
+      },
+      []
     );
     expect(Documents.resolveDocumentsFromContentful).toHaveBeenCalledWith(
       [{ id: "asset-type-1" }, { id: "asset-type-2" }],
       {
+        source: {
+          children: null,
+          id: "source",
+          internal: null,
+          parent: null,
+          source: "ALL"
+        },
         context
-      }
+      },
+      ["Brand", "AssetType"]
     );
   });
 
@@ -112,12 +149,18 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       assetTypes___NODE: ["asset-type-1"]
     };
     expect(
-      await ContentfulDocumentLibraryPage.documents.resolve(
+      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
         sourceAll,
         null,
         context
       )
-    ).toEqual([{ id: "contentful-document-1" }, { id: "product-document-1" }]);
+    ).toEqual({
+      documents: [
+        { id: "contentful-document-1" },
+        { id: "product-document-1" }
+      ],
+      filters: []
+    });
     expect(context.nodeModel.getNodeById).toBeCalledWith({
       id: "asset-type-1",
       type: "ContentfulAssetType"
@@ -127,21 +170,23 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       {
         source: sourceAll,
         context
-      }
+      },
+      []
     );
     expect(Documents.resolveDocumentsFromContentful).toHaveBeenCalledWith(
       [{ id: "asset-type-1" }],
-      { context }
+      { source: source2, context },
+      ["Brand", "AssetType"]
     );
   });
 
   it("should return empty array for invalid source", async () => {
     expect(
-      await ContentfulDocumentLibraryPage.documents.resolve(
+      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
         { ...source, source: "INVALID" },
         null,
         context
       )
-    ).toEqual([]);
+    ).toEqual({ documents: [], filters: [] });
   });
 });

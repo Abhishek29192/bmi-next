@@ -1,165 +1,87 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
-import Component, { BimContent } from "../tabLeadBlock";
-import createSystemDetails from "../../../test/systemDetailsMockData";
+import { render } from "@testing-library/react";
+import Component from "../tabLeadBlock";
 import { renderWithRouter } from "../../../test/renderWithRouter";
-import {
-  Classification,
-  ClassificationCodeEnum,
-  FileContentTypeEnum
-} from "../../../components/types/pim";
-import { DocumentData } from "../types";
+import createSystem from "../../../__tests__/helpers/SystemHelper";
+import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
 
-const techSpecValue = "accordion item value 1";
-const systemDetailsMockData = createSystemDetails();
-const technicalSpecClassifications: Classification[] = [
-  {
-    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-    features: [
-      {
-        code: "bmiSystemsClassificationCatalog/1.0/scoringWeightAttributes.roofbuildup",
-        name: "Promotional Content",
-        featureValues: [
-          {
-            value: techSpecValue
-          }
-        ]
-      }
-    ],
-    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
-  }
-];
-const bimContent: BimContent = {
-  title: "bmi iframe title",
-  description: {
-    raw: '{"nodeType":"document","data":{},"content":[]}',
-    references: []
-  },
-  bimIframeUrl: "https://google.com"
-};
-const documents: DocumentData[] = [
-  {
-    __typename: "SDPDocument",
-    id: "0",
-    title: "title",
-    assetType: {
-      name: "CAD name",
-      pimCode: "CAD"
-    },
-    asset: {
-      file: {
-        fileName: "1344416763.pdf",
-        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h92/h36/9012208173086/1344416763pdf",
-        contentType: FileContentTypeEnum.APPLICATION_PDF,
-        details: {
-          size: 270539
-        }
-      }
-    }
-  }
-];
+const systemDetailsMockData = createSystem({
+  code: "1234",
+  relatedSystems: [
+    createRelatedSystem({
+      code: "related-system-code",
+      brand: { code: "brand-code" },
+      name: "related-system-1",
+      scoringWeight: 1,
+      shortDescription: "related-short-desc",
+      path: "related-path"
+    })
+  ]
+});
 
 describe("TabLeadBlock tests", () => {
-  beforeEach(() => {
-    // resolve useDimensions (useState) hook in TechnicalSpecificationLeadBlock ProductFeatureTable
-    jest.mock("react", () => ({
-      ...(jest.requireActual("react") as any),
-      useState: (initial) => [initial, jest.fn()]
-    }));
-    jest
-      .spyOn(window, "requestAnimationFrame")
-      .mockImplementation((callback: FrameRequestCallback): number => {
-        callback(0);
-        return 0;
-      });
-  });
-
-  afterEach(() => {
-    cleanup();
-    jest.clearAllMocks();
-  });
-
   it("should render", () => {
     const { container, getByText } = render(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        technicalSpecClassifications={technicalSpecClassifications}
-      />
+      <Component system={systemDetailsMockData} />
     );
 
     const aboutTabButton = getByText("sdp.leadBlock.about", {
       exact: false
     });
-    const techSpecText = getByText(techSpecValue, { exact: false });
-
     expect(container).toMatchSnapshot();
     expect(aboutTabButton).toBeInTheDocument();
-    expect(techSpecText).toBeInTheDocument();
   });
 
   it("should render documents and downloads", () => {
     const { container } = renderWithRouter(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        documentsAndDownloads={documents}
-      />
+      <Component system={systemDetailsMockData} />
     );
     expect(container.querySelector("#tabpanel-three")).toMatchSnapshot();
   });
 
   it("should not render the documents and downloads", () => {
+    systemDetailsMockData.documents = null;
     const { container } = renderWithRouter(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        documentsAndDownloads={null}
-      />
+      <Component system={systemDetailsMockData} />
     );
     expect(container.querySelector("#tabpanel-three")).toBe(null);
   });
 
   it("should not render the documents and downloads when its empty array", () => {
+    systemDetailsMockData.documents = [];
     const { container } = renderWithRouter(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        documentsAndDownloads={[]}
-      />
+      <Component system={systemDetailsMockData} />
     );
     expect(container.querySelector("#tabpanel-three")).toBe(null);
   });
 
   it("should render the bimIframe tab", () => {
-    const { container, queryByText, queryByTestId } = renderWithRouter(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        bimContent={bimContent}
-      />
+    systemDetailsMockData.bim = {
+      name: "BIM_CODE",
+      url: "http://nowhere.com"
+    };
+    const { container, queryByTestId } = renderWithRouter(
+      <Component system={systemDetailsMockData} />
     );
     expect(container.querySelector("#tabpanel-four")).toMatchSnapshot();
-    expect(queryByText(bimContent.title)).toBeTruthy();
-    expect(container.querySelector("#tabpanel-four .RichText")).toBeTruthy();
     expect(queryByTestId("bmi-iframe")).toHaveAttribute(
       "src",
-      bimContent.bimIframeUrl
+      systemDetailsMockData.bim.url
     );
   });
 
   it("should not render the bimIframe tab", () => {
+    systemDetailsMockData.bim = null;
     const { container } = renderWithRouter(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        bimContent={{ ...bimContent, bimIframeUrl: null }}
-      />
+      <Component system={systemDetailsMockData} />
     );
+
     expect(container.querySelector("#tabpanel-four")).toBe(null);
   });
 
   it("should not render technical Specification tab", () => {
-    const { container } = render(
-      <Component
-        longDescription={systemDetailsMockData.longDescription}
-        technicalSpecClassifications={[]}
-      />
-    );
+    systemDetailsMockData.classifications = [];
+    const { container } = render(<Component system={systemDetailsMockData} />);
     const techSepcSection = container.querySelector(
       ".SystemDetailsTechnicalSpec"
     );

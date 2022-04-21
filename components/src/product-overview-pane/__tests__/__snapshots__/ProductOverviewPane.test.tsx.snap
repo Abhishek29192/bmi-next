@@ -236,7 +236,7 @@ exports[`ProductOverviewPane component renders correctly if attribute type === c
 </div>
 `;
 
-exports[`ProductOverviewPane component renders correctly if attributes === undefined 1`] = `
+exports[`ProductOverviewPane component renders correctly if attributesis empty array 1`] = `
 <div>
   <div
     class="ProductOverview"

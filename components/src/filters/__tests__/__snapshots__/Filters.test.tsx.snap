@@ -24,7 +24,7 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
         <div
           aria-disabled="false"
           aria-expanded="false"
-          aria-label="MC:product-1"
+          aria-label="group-label"
           class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-76"
           role="button"
           tabindex="0"
@@ -35,7 +35,7 @@ exports[`Filters component renders correct summaryLabel if filter.label is an em
             <h6
               class="MuiTypography-root Typography MuiTypography-h6"
             >
-              MC:product-1
+              group-label
             </h6>
           </div>
           <div
@@ -207,7 +207,7 @@ exports[`Filters component renders disabled filters 1`] = `
         <div
           aria-disabled="false"
           aria-expanded="false"
-          aria-label="Label 1"
+          aria-label="group-label"
           class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-46"
           role="button"
           tabindex="0"
@@ -218,7 +218,7 @@ exports[`Filters component renders disabled filters 1`] = `
             <h6
               class="MuiTypography-root Typography MuiTypography-h6"
             >
-              Label 1
+              group-label
             </h6>
           </div>
           <div
@@ -378,7 +378,7 @@ exports[`Filters component renders multiple filters 1`] = `
         <div
           aria-disabled="false"
           aria-expanded="false"
-          aria-label="Label 1"
+          aria-label="group-label"
           class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
           role="button"
           tabindex="0"
@@ -389,7 +389,7 @@ exports[`Filters component renders multiple filters 1`] = `
             <h6
               class="MuiTypography-root Typography MuiTypography-h6"
             >
-              Label 1
+              group-label
             </h6>
           </div>
           <div
@@ -536,7 +536,7 @@ exports[`Filters component renders multiple filters 1`] = `
         <div
           aria-disabled="false"
           aria-expanded="false"
-          aria-label="Label 2"
+          aria-label="group-label-2"
           class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-13"
           role="button"
           tabindex="0"
@@ -547,7 +547,7 @@ exports[`Filters component renders multiple filters 1`] = `
             <h6
               class="MuiTypography-root Typography MuiTypography-h6"
             >
-              Label 2
+              group-label-2
             </h6>
           </div>
           <div
@@ -707,7 +707,7 @@ exports[`Filters component renders selected filters 1`] = `
         <div
           aria-disabled="false"
           aria-expanded="false"
-          aria-label="Label 1"
+          aria-label="group-label"
           class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-31"
           role="button"
           tabindex="0"
@@ -718,7 +718,7 @@ exports[`Filters component renders selected filters 1`] = `
             <h6
               class="MuiTypography-root Typography MuiTypography-h6"
             >
-              Label 1
+              group-label
             </h6>
           </div>
           <div

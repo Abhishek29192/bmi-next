@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React from "react";
 import { renderWithRouter } from "../../test/renderWithRouter";
-import createService from "../../__tests__/ServiceHelper";
+import createService from "../../__tests__/helpers/ServiceHelper";
 import { DataTypeEnum } from "../Link";
 import Sections, { Data } from "../Sections";
 import { EntryTypeEnum } from "../Service";

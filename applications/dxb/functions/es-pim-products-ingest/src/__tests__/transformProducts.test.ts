@@ -4,10 +4,10 @@ import {
   createFeature,
   createFeatureValue,
   createGeneralInformationClassification,
+  createIgnorableClassifications,
   createMeasurementsClassification,
   createProduct as createPimProduct,
   createScoringWeightAttributesClassification,
-  createTwoOneClassifications,
   createVariantOption,
   Product
 } from "@bmi/pim-types";
@@ -341,7 +341,7 @@ describe("transformProduct", () => {
       });
       const transformedProduct = await transformProduct(product);
 
-      expect(transformedProduct[0].measurementValue).toBeUndefined();
+      expect(transformedProduct[0].measurementValue).toEqual("");
     });
 
     it("should transform width into measurementValue", async () => {
@@ -445,7 +445,7 @@ describe("transformProduct", () => {
         variantOptions: [
           createVariantOption({
             classifications: [
-              ...createTwoOneClassifications(),
+              ...createIgnorableClassifications,
               createMeasurementsClassification({
                 features: [
                   createFeature({

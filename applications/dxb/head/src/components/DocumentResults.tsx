@@ -1,18 +1,21 @@
-import React, { useMemo } from "react";
 import { graphql } from "gatsby";
+import React, { useMemo } from "react";
+import { Data as DocumentData } from "../types/Document";
+import {
+  ProductDocument as PIMDocument,
+  SystemDocument as PIMSystemDocument
+} from "../types/pim";
 import groupBy from "../utils/groupBy";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
-import { Data as DocumentData } from "./Document";
+import DocumentCardsResults from "./DocumentCardsResults";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
-import DocumentCardsResults from "./DocumentCardsResults";
 
-export type Data = (PIMDocumentData | DocumentData | PIMLinkDocumentData)[];
+export type DocumentResultData = PIMDocument | DocumentData | PIMSystemDocument;
 
 export type Format = "simpleTable" | "technicalTable" | "cards";
 
 type Props = {
-  data: Data;
+  data: DocumentResultData[];
   format: Format;
   page: number;
 };
@@ -30,17 +33,12 @@ const DocumentResults = ({ data, format, page }: Props) => {
   const ResultsComponent = documentResultsMap[format];
   const assetTypesCount = useMemo(
     () =>
-      Object.keys(groupBy(data, (document) => document.assetType.code)).length,
+      Object.keys(groupBy(data, (document) => document.assetType.pimCode))
+        .length,
     [data]
   );
   const tableHeaders = ["typeCode", "title", "download", "add"].filter(
-    (header) => {
-      if (assetTypesCount < 2 && header.includes("type")) {
-        return false;
-      }
-
-      return true;
-    }
+    (header) => !(assetTypesCount < 2 && header.includes("type"))
   );
 
   return (
@@ -62,6 +60,12 @@ export const query = graphql`
     __typename
     ...DocumentFragment
     ...PIMDocumentFragment
-    ...PIMLinkDocumentFragment
+    ... on PIMDocument {
+      productFilters {
+        code
+        filterCode
+        value
+      }
+    }
   }
 `;

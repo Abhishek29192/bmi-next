@@ -13,6 +13,7 @@ describe("removeIrrelevantFilters function", () => {
     const filters: Filter[] = [
       {
         name: "colour",
+        filterCode: "colour",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -32,6 +33,7 @@ describe("removeIrrelevantFilters function", () => {
     const updatedFilters = removeIrrelevantFilters(filters, aggregations);
     const result = [
       {
+        filterCode: "colour",
         name: "colour",
         label: "Colour",
         options: [{ label: "1", value: "colour1" }]
@@ -45,6 +47,7 @@ describe("removeIrrelevantFilters function", () => {
     const filters: Filter[] = [
       {
         name: "colour",
+        filterCode: "colour",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -87,6 +90,7 @@ describe("disableFiltersFromAggregations function", () => {
     const filters: Filter[] = [
       {
         name: "colour",
+        filterCode: "colour",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -109,6 +113,7 @@ describe("disableFiltersFromAggregations function", () => {
     );
     const result = [
       {
+        filterCode: "colour",
         name: "colour",
         label: "Colour",
         options: [
@@ -126,6 +131,7 @@ describe("compileElasticSearchQuery function", () => {
   const filters: Filter[] = [
     {
       name: "foo",
+      filterCode: "foo",
       label: "Foo",
       options: [
         { label: "1", value: "1" },
@@ -134,12 +140,14 @@ describe("compileElasticSearchQuery function", () => {
     },
     {
       name: "bar",
+      filterCode: "bar",
       label: "Bar",
       value: ["BAR"],
       options: [{ label: "1", value: "1" }]
     },
     {
       name: "colour",
+      filterCode: "colour",
       label: "Colour",
       value: ["Colour"],
       options: [{ label: "1", value: "colour1" }]

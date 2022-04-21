@@ -1,5 +1,5 @@
 import ContentfulPage from "../ContentfulPage";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 jest.mock("../utils/path", () => ({
   resolvePath: jest
@@ -14,7 +14,8 @@ const context: Context = {
   nodeModel: {
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
     getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    findOne: jest.fn()
   }
 };
 

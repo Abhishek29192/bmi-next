@@ -12,7 +12,7 @@ import {
 } from "../helpers";
 import { ServiceTypeFilter } from "../../Service";
 import { Data as ServiceType } from "../../ServiceType";
-import createService from "../../../__tests__/ServiceHelper";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 import * as devLog from "../../../utils/devLog";
 import { DEFAULT_MAP_CENTRE, EVENT_CAT_ID_SELECTOR_CARDS } from "../constants";
 

@@ -8,32 +8,33 @@ import {
   iconMap,
   Table
 } from "@bmi/components";
-import classnames from "classnames";
-import filesize from "filesize";
-import React, { Fragment, useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import axios from "axios";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { GetApp } from "@material-ui/icons";
-import withGTM from "../utils/google-tag-manager";
-import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
-import { downloadAs, getDownloadLink } from "../utils/client-download";
+import axios from "axios";
+import classnames from "classnames";
+import filesize from "filesize";
+import React, { useContext } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { Data as DocumentData } from "./Document";
-import { useSiteContext } from "./Site";
-import styles from "./styles/DocumentSimpleTableResults.module.scss";
-import { Format } from "./types";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
-import fileIconsMap from "./FileIconsMap";
-import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
-import { FileContentTypeEnum, Mime } from "./types/pim";
+import { Data as DocumentData } from "../types/Document";
+import {
+  ProductDocument as PIMDocument,
+  PseudoZipPIMDocument,
+  SystemDocument as PIMSystemDocument
+} from "../types/pim";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
+import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
+import { DocumentSimpleTableResultsMobile } from "./DocumentSimpleTableResultsMobile";
+import fileIconsMap from "./FileIconsMap";
+import { useSiteContext } from "./Site";
+import styles from "./styles/DocumentSimpleTableResults.module.scss";
 
 type AvailableHeader =
   | "typeCode"
@@ -45,16 +46,16 @@ type AvailableHeader =
 
 export type Document =
   | DocumentData
-  | PIMDocumentData
-  | PIMLinkDocumentData
-  | SDPDocumentData;
+  | PIMDocument
+  | PIMSystemDocument
+  | PseudoZipPIMDocument;
 
 export type Props = {
-  documents: Document[];
+  documents: readonly Document[];
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
-  documentsByAssetType?: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
+  // documentsByAssetType?: [string, (PIMDocument | PIMSystemDocument)[]][];
 };
 
 const GTMButton = withGTM<
@@ -63,24 +64,15 @@ const GTMButton = withGTM<
   }
 >(Button);
 
-function isLinkDocument(document: Document): document is PIMLinkDocumentData {
-  if ("isLinkDocument" in document) {
-    return document.isLinkDocument;
-  } else {
-    return document.__typename === "PIMLinkDocument";
-  }
-}
+const isLinkDocument = (document: Document): boolean =>
+  "isLinkDocument" in document && document.isLinkDocument;
 
-const getDocument = (
-  documents: Document[],
-  headers: AvailableHeader[],
-  multipleDocuments = false
-) => {
+const getDocument = (document: Document, headers: AvailableHeader[]) => {
   const { getMicroCopy } = useSiteContext();
-  const document = documents[0];
-  const { title, id } = document;
+  const { __typename, id } = document;
+
   return headers.map((header) => {
-    const key = `${title}-body-${header}`;
+    const key = `${__typename}-body-${header}`;
 
     if (header === "typeCode") {
       return (
@@ -99,14 +91,16 @@ const getDocument = (
         </Table.Cell>
       );
     }
-    if (
-      document.__typename === "PIMDocument" ||
-      document.__typename === "PIMLinkDocument"
-    ) {
-      if (header === "name") {
+
+    // TODO: Why not have change the value of title to be from docName in the resolver?
+    if (header === "name") {
+      if (
+        document.__typename === "PIMDocument" ||
+        document.__typename === "PIMSystemDocument"
+      ) {
         return (
           <Table.Cell className={styles["table-cell"]} key={key}>
-            {document.docName}
+            {document.title}
           </Table.Cell>
         );
       }
@@ -115,7 +109,7 @@ const getDocument = (
     if (header === "title") {
       return (
         <Table.Cell className={styles["table-cell"]} key={key}>
-          {title}
+          {document.title}
         </Table.Cell>
       );
     }
@@ -124,14 +118,8 @@ const getDocument = (
       return (
         <Table.Cell className={styles["table-cell"]} align="left" key={key}>
           {!isLinkDocument(document) ? (
-            multipleDocuments ? (
-              <MultipleAssetToFileDownload
-                assets={
-                  documents.filter(
-                    (asset) => asset.__typename === "PIMDocument"
-                  ) as PIMDocumentData[]
-                }
-              />
+            document.__typename === "PIMDocumentWithPseudoZip" ? (
+              <MultipleAssetToFileDownload document={document} />
             ) : (
               <FileDownloadButton {...mapAssetToFileDownload(document)} />
             )
@@ -141,7 +129,7 @@ const getDocument = (
               variant="text"
               action={{
                 model: "htmlLink",
-                href: document.url,
+                href: (document as PIMDocument).url,
                 target: "_blank",
                 rel: "noopener noreferrer"
               }}
@@ -155,8 +143,9 @@ const getDocument = (
         </Table.Cell>
       );
     }
+
     if (header === "add") {
-      return !multipleDocuments ? (
+      return !(document.__typename === "PIMDocumentWithPseudoZip") ? (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
@@ -166,9 +155,9 @@ const getDocument = (
               )}
               ariaLabel={`${getMicroCopy(
                 microCopy.DOCUMENT_LIBRARY_DOWNLOAD
-              )} ${title}`}
+              )} ${document.title}`}
               value={document}
-              fileSize={document[typenameToSizeMap[document.__typename]]}
+              fileSize={document[typenameToSizeMap[document.__typename]] || 0}
             />
           ) : (
             <span className={styles["no-document-icon"]}>-</span>
@@ -181,18 +170,11 @@ const getDocument = (
             maxLimitReachedLabel={getMicroCopy(
               microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
             )}
-            ariaLabel={`${getMicroCopy(
-              microCopy.DOCUMENT_LIBRARY_DOWNLOAD
-            )} ${title}`}
-            value={documents}
-            fileSize={documents.reduce(
-              (a, c) =>
-                a +
-                mapAssetToFileDownload(
-                  c as PIMDocumentData | DocumentData | SDPDocumentData
-                ).size,
-              0
-            )}
+            ariaLabel={`${getMicroCopy(microCopy.DOCUMENT_LIBRARY_DOWNLOAD)} ${
+              document.assetType.name
+            }`}
+            value={document.documentList}
+            fileSize={document.fileSize}
           />
         </Table.Cell>
       );
@@ -206,71 +188,22 @@ const getDocument = (
   });
 };
 
-const DocumentsByAssetType = ({ documentsByAssetType, list, headers }) => {
-  return documentsByAssetType.map(([assetCode, assets], index) => {
-    const key = `${
-      assets.find(({ assetType }) => assetType.code)?.assetType.code
-    }-${index}`;
-
-    const pimLinkAndZipDocuments = assets.filter(
-      (asset) =>
-        asset.__typename == "PIMLinkDocument" ||
-        (asset.__typename === "PIMDocument" && asset.extension === "zip")
-    );
-
-    const filteredDocuments = assets.filter(
-      (asset) => asset.__typename === "PIMDocument" && asset.extension !== "zip"
-    );
-
-    return (
-      <Fragment key={key}>
-        {pimLinkAndZipDocuments.length > 0 &&
-          pimLinkAndZipDocuments.map((asset, index) => {
-            const newKey = key + index;
-            return (
-              <Table.Row
-                key={newKey}
-                className={classnames(styles["row"], {
-                  // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[newKey]
-                })}
-                // eslint-disable-next-line security/detect-object-injection
-                selected={!!list[newKey]}
-              >
-                {getDocument([asset], headers)}
-              </Table.Row>
-            );
-          })}
-
-        {filteredDocuments.length > 0 && (
-          <Table.Row
-            key={key}
-            className={classnames(styles["row"], {
-              // eslint-disable-next-line security/detect-object-injection
-              [styles["row--checked"]]: !!list[key]
-            })}
-            // eslint-disable-next-line security/detect-object-injection
-            selected={!!list[key]}
-          >
-            {filteredDocuments.length === 1
-              ? getDocument(filteredDocuments, headers)
-              : getDocument(filteredDocuments, headers, true)}
-          </Table.Row>
-        )}
-      </Fragment>
-    );
-  });
-};
 export const mapAssetToFileDownload = (
-  data: DocumentData | PIMDocumentData | SDPDocumentData
+  data: DocumentData | PIMDocument | PIMSystemDocument
 ): FileDownloadButtonProps => {
-  if (data.__typename === "PIMDocument") {
+  if (
+    data.__typename === "PIMDocument" ||
+    data.__typename === "PIMSystemDocument"
+  ) {
     const { url, format, fileSize: size } = data;
 
     return {
       url,
       format,
-      size
+      size,
+      assetTypeName: data.assetType.name,
+      title: data.title,
+      isLinkDocument: data.isLinkDocument
     };
   }
 
@@ -281,23 +214,24 @@ export const mapAssetToFileDownload = (
   return {
     url: file.url,
     format: file.contentType,
-    size: file.details.size
+    size: file.details.size,
+    assetTypeName: data.assetType.name,
+    title: data.title,
+    isLinkDocument: false
   };
 };
 
 export const MultipleAssetToFileDownload = ({
-  assets,
+  document,
   isMobile = false
 }: {
-  assets: PIMDocumentData[];
+  document: PseudoZipPIMDocument;
   isMobile?: boolean;
 }): React.ReactElement => {
   const {
     config: { documentDownloadEndpoint }
   } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const format = "application/zip";
-  const size = assets.reduce((a, c) => a + c.fileSize, 0);
   const downloadMultipleFiles = async () => {
     try {
       if (!documentDownloadEndpoint) {
@@ -307,20 +241,19 @@ export const MultipleAssetToFileDownload = ({
       }
       const [currentTime] = new Date()
         .toJSON()
-        .replace(/-|:|T/g, "")
+        .replace(/[-:T]/g, "")
         .split(".");
-      let zipFileName = `BMI_${currentTime}.zip`;
-      if (assets.length > 0 && assets[0].product && assets[0].assetType) {
-        zipFileName = `${assets[0].product?.name} ${assets[0].assetType.name}.zip`;
+      let zipFileName = `BMI_${document.assetType.pimCode + currentTime}.zip`;
+      if (document.documentList.length > 0) {
+        zipFileName = `${
+          "productName" in document && `${document.productName} `
+        }${document.assetType.name}.zip`;
       }
 
       const token = await executeRecaptcha();
-      const pimDocumentAssets: PIMDocumentData[] = assets.filter(
-        (asset): asset is PIMDocumentData => asset.__typename === "PIMDocument"
-      );
       const assetFileCountMap: AssetUniqueFileCountMap =
-        createAssetFileCountMap(pimDocumentAssets);
-      const documents = pimDocumentAssets.map((asset, index) => ({
+        createAssetFileCountMap(document.documentList);
+      const documents = document.documentList.map((asset, index) => ({
         href: asset.url,
         name:
           asset.realFileName && asset.realFileName !== ""
@@ -349,7 +282,7 @@ export const MultipleAssetToFileDownload = ({
           id: "download1",
           label: "Download",
           action: JSON.stringify(
-            Object.values(assets).map((asset) => asset.url)
+            Object.values(document.documentList).map((asset) => asset.url)
           )
         }}
         variant="text"
@@ -359,7 +292,7 @@ export const MultipleAssetToFileDownload = ({
           onClick: downloadMultipleFiles
         }}
       >
-        {filesize(size)}
+        {filesize(document.fileSize)}
       </GTMButton>
     );
   }
@@ -369,7 +302,9 @@ export const MultipleAssetToFileDownload = ({
       gtm={{
         id: "download1",
         label: "Download",
-        action: JSON.stringify(Object.values(assets).map((asset) => asset.url))
+        action: JSON.stringify(
+          Object.values(document.documentList).map((asset) => asset.url)
+        )
       }}
       action={{
         model: "default"
@@ -379,24 +314,27 @@ export const MultipleAssetToFileDownload = ({
       accessibilityLabel="Download"
       startIcon={
         // eslint-disable-next-line security/detect-object-injection
-        fileIconsMap[format] && (
+        fileIconsMap[document.format] && (
           <Icon
             // eslint-disable-next-line security/detect-object-injection
-            source={fileIconsMap[format]}
+            source={fileIconsMap[document.format]}
             className={styles["download-icon"]}
           />
         )
       }
     >
-      {filesize(size)}
+      {filesize(document.fileSize)}
     </GTMButton>
   );
 };
 
 export type FileDownloadButtonProps = {
   url: string;
-  format: Format | Mime | FileContentTypeEnum;
+  format: string;
   size: number;
+  assetTypeName: string;
+  title: string;
+  isLinkDocument: boolean;
 };
 
 const FileDownloadButton = ({ url, format, size }: FileDownloadButtonProps) =>
@@ -427,19 +365,20 @@ export const getCount = (documents: Document[]): number => {
   return documents.length;
 };
 
-const typenameToSizeMap: Record<Document["__typename"], string | number> = {
+const typenameToSizeMap: Record<
+  (PIMDocument | DocumentData | PIMSystemDocument)["__typename"],
+  string | number
+> = {
   ContentfulDocument: "asset.file.details.size",
   PIMDocument: "fileSize",
-  PIMLinkDocument: 0,
-  SDPDocument: "fileSize"
+  PIMSystemDocument: "fileSize"
 };
 
 const DocumentSimpleTableResults = ({
   documents,
   page,
   documentsPerPage,
-  headers = ["typeCode", "title", "download", "add"],
-  documentsByAssetType
+  headers = ["typeCode", "title", "download", "add"]
 }: Props): React.ReactElement => {
   const { getMicroCopy } = useSiteContext();
   const theme = useTheme();
@@ -451,12 +390,7 @@ const DocumentSimpleTableResults = ({
   );
 
   if (isMobile) {
-    return (
-      <DocumentSimpleTableResultsMobile
-        documents={paginatedDocuments}
-        documentsByAssetType={documentsByAssetType}
-      />
-    );
+    return <DocumentSimpleTableResultsMobile documents={paginatedDocuments} />;
   }
 
   return (
@@ -477,31 +411,26 @@ const DocumentSimpleTableResults = ({
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          {documentsByAssetType ? (
-            <DocumentsByAssetType
-              documentsByAssetType={documentsByAssetType}
-              headers={headers}
-              list={list}
-            />
-          ) : (
-            paginatedDocuments.map((document, index) => {
-              const { id, title } = document;
+          {paginatedDocuments.map((document, index) => {
+            if (!document) {
+              return;
+            }
+            const { id, __typename } = document;
 
-              return (
-                <Table.Row
-                  key={`${title}-${index}`}
-                  className={classnames(styles["row"], {
-                    // eslint-disable-next-line security/detect-object-injection
-                    [styles["row--checked"]]: !!list[id]
-                  })}
+            return (
+              <Table.Row
+                key={`${__typename}-${index}`}
+                className={classnames(styles["row"], {
                   // eslint-disable-next-line security/detect-object-injection
-                  selected={!!list[id]}
-                >
-                  {getDocument([document], headers)}
-                </Table.Row>
-              );
-            })
-          )}
+                  [styles["row--checked"]]: !!list[id]
+                })}
+                // eslint-disable-next-line security/detect-object-injection
+                selected={!!list[id]}
+              >
+                {getDocument(document, headers)}
+              </Table.Row>
+            );
+          })}
         </Table.Body>
       </Table>
     </div>

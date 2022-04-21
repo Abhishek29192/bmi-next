@@ -8,16 +8,16 @@ import { Grid } from "@bmi/components";
 import { ButtonProps } from "@bmi/components/src";
 import withGTM from "../../utils/google-tag-manager";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
-import { Classification } from "../../components/types/pim";
 import RichText from "../../components/RichText";
 import Link from "../../components/Link";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
+import { Classification } from "../../types/pim";
 import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
 
 type Props = {
-  technicalSpecClassifications: Classification[];
+  technicalSpecClassifications: readonly Classification[];
   specificationNotes?: SDPSpecificationNotesData | null;
 };
 

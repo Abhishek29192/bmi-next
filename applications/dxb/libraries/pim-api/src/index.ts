@@ -1,6 +1,5 @@
 import { URLSearchParams } from "url";
 import { getSecret } from "@bmi-digital/functions-secret-client";
-import fetch, { RequestRedirect } from "node-fetch";
 import {
   AuthResponse,
   ErrorResponse,
@@ -8,6 +7,7 @@ import {
   ProductsApiResponse,
   SystemsApiResponse
 } from "@bmi/pim-types";
+import fetch, { RequestRedirect } from "node-fetch";
 
 const { PIM_CLIENT_ID, PIM_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
   process.env;
@@ -59,7 +59,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as AuthResponse;
 
   return data;
 };
@@ -89,7 +89,7 @@ export const fetchData = async (
 
   if (!response.ok) {
     if (response.status === 400) {
-      const body: ErrorResponse = await response.json();
+      const body = (await response.json()) as ErrorResponse;
       const errorMessage = [
         "[PIM] Error getting catalogue:",
         ...body.errors.map(({ type, message }) => `${type}: ${message}`)
@@ -107,7 +107,9 @@ export const fetchData = async (
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as
+    | ProductsApiResponse
+    | SystemsApiResponse;
 
   return data;
 };
@@ -139,7 +141,7 @@ const fetchDataByMessageId = async (
 
   if (!response.ok) {
     if (response.status === 400) {
-      const body: ErrorResponse = await response.json();
+      const body = (await response.json()) as ErrorResponse;
       const errorMessage = [
         "[PIM] Error getting catalogue:",
         ...body.errors.map(({ type, message }) => `${type}: ${message}`)
@@ -157,7 +159,9 @@ const fetchDataByMessageId = async (
     );
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as
+    | ProductsApiResponse
+    | SystemsApiResponse;
 
   return data;
 };

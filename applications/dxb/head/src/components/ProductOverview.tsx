@@ -1,8 +1,13 @@
 import React from "react";
-import { Grid } from "@bmi/components";
-import { ProductOverviewPane, ProductOverviewPaneProps } from "@bmi/components";
-import { Thumbnail, ThumbnailProps } from "@bmi/components";
-import { MediaGallery, MediaData } from "@bmi/components";
+import {
+  Grid,
+  MediaData,
+  MediaGallery,
+  ProductOverviewPane,
+  ProductOverviewPaneProps,
+  Thumbnail,
+  ThumbnailProps
+} from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import styles from "./styles/ProductOverview.module.scss";
@@ -12,40 +17,43 @@ import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 
 export type Data = {
   name: string;
-  brandName: string;
+  brandCode: string;
   nobb: string | null;
   images: readonly MediaData[];
-  attributes: ProductOverviewPaneProps["attributes"] | null;
-  isRecapchaShown?: boolean;
+  attributes: ProductOverviewPaneProps["attributes"];
+  isRecaptchaShown?: boolean;
   videos?: MediaData[];
 };
+
+type Props = {
+  data: Data;
+  children?: React.ReactNode;
+};
+
+const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+  action: "imageSource",
+  label: "altText"
+});
+
+const GTMMediaThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
+  label: "media",
+  action: "media"
+});
 
 const ProductOverview = ({
   data: {
     name,
-    brandName,
+    brandCode,
     nobb,
     images,
     attributes,
-    isRecapchaShown,
+    isRecaptchaShown,
     videos = []
   },
   children
-}: {
-  data: Data;
-  children?: React.ReactNode;
-}) => {
+}: Props) => {
   const { getMicroCopy } = useSiteContext();
 
-  const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
-    action: "imageSource",
-    label: "altText"
-  });
-
-  const GTMMediaThumbnail = withGTM<ThumbnailProps>(Thumbnail, {
-    label: "media",
-    action: "media"
-  });
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
@@ -61,18 +69,18 @@ const ProductOverview = ({
         <Grid item xs={12} md={12} lg={4}>
           <ProductOverviewPane
             // eslint-disable-next-line security/detect-object-injection
-            brandLogo={iconMap[brandName]}
+            brandLogo={iconMap[brandCode]}
             name={name}
             nobb={nobb}
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMThumbnail gtm={{ id: "thumbnail1" }} {...props} />
             )}
             nobbLabel={getMicroCopy(microCopy.PDP_NOBB_LABEL)}
-            attributes={attributes || undefined}
+            attributes={attributes}
           >
             {children}
           </ProductOverviewPane>
-          {isRecapchaShown && (
+          {isRecaptchaShown && (
             <RecaptchaPrivacyLinks
               className={styles["keyAssetTypesDownload"]}
             />

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import {
   Button,
@@ -9,38 +9,21 @@ import {
   SectionBackgroundColor
 } from "@bmi/components";
 import { Add as AddIcon } from "@material-ui/icons";
-import uniqBy from "lodash-es/uniqBy";
-import withGTM from "../utils/google-tag-manager";
+import { RelatedSystem } from "../types/pim";
+import withGTM, { GTM } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
-import { findMasterImageUrl } from "../utils/product-details-transforms";
 import { microCopy } from "../constants/microCopies";
 import { renderMedia } from "../utils/renderMedia";
 import { iconMap } from "./Icon";
 import styles from "./styles/RelatedSystems.module.scss";
-import { System } from "./types/pim";
 import { useSiteContext } from "./Site";
 
 export type SystemCardProps = {
-  system: Partial<System>;
+  system: RelatedSystem;
   countryCode: string;
   path: string;
-  gtm: {
-    event?: string;
-    id: string;
-    label?: string;
-    action?: string;
-  };
-} & Partial<OverviewCardProps>;
-
-const findSystemBrandLogoCode = (system: Partial<System>) => {
-  //check if system is tagged to more than one brand
-  const totalBrand = system.categories?.filter(
-    (category) => category.categoryType === "Brand"
-  );
-  if (totalBrand?.length === 1) {
-    return totalBrand[0].code;
-  }
-  return null;
+  gtm: GTM;
+  isHighlighted?: boolean;
 };
 
 const getSystemUrl = (countryCode, path) =>
@@ -51,15 +34,14 @@ export const SystemCard = ({
   countryCode,
   path,
   gtm,
-  isHighlighted,
+  isHighlighted = false,
   ...rest
 }: SystemCardProps) => {
   const { getMicroCopy } = useSiteContext();
-  const brandLogoCode = findSystemBrandLogoCode(system);
   // eslint-disable-next-line security/detect-object-injection
-  const brandLogo = iconMap[brandLogoCode];
+  const brandLogo = iconMap[system.brand?.code];
   const systemUrl = getSystemUrl(countryCode, path);
-  const mainImage = findMasterImageUrl([...(system.images || [])]);
+  const mainImage = system.images[0]?.mainSource;
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
 
   return (
@@ -90,26 +72,6 @@ export const SystemCard = ({
   );
 };
 
-const getWeightedSystems = (systems: ReadonlyArray<System>) =>
-  uniqBy(systems, (system) => system.name).sort((a, b) => {
-    const getWeightValue = (system) =>
-      system.classifications?.find(
-        ({ code }) => code === "ScoringWeightAttributes"
-      )?.features[0]?.featureValues[0]?.value || 0;
-
-    const weightA = getWeightValue(a);
-    const weightB = getWeightValue(b);
-    if (weightB === weightA) {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-    }
-
-    return weightB - weightA;
-  });
 const SystemListing = ({
   countryCode,
   systems,
@@ -117,7 +79,7 @@ const SystemListing = ({
   pageSize = 8
 }: {
   countryCode: string;
-  systems: ReadonlyArray<System>;
+  systems: readonly RelatedSystem[];
   initialNumberShown?: number;
   pageSize?: number;
 }) => {
@@ -128,12 +90,10 @@ const SystemListing = ({
     setNumberShown((numberShown) => numberShown + pageSize);
   };
 
-  const weightedSystems = useMemo(() => getWeightedSystems(systems), [systems]);
-
   return (
     <>
       <Grid container spacing={3}>
-        {weightedSystems.slice(0, numberShown).map((system) => {
+        {systems.slice(0, numberShown).map((system) => {
           return (
             <SystemCard
               key={`${system.code}`}
@@ -152,7 +112,7 @@ const SystemListing = ({
           );
         })}
       </Grid>
-      {numberShown < weightedSystems.length ? (
+      {numberShown < systems.length ? (
         <div className={styles["load-more-wrapper"]}>
           <Button onClick={onLoadMore} variant="outlined" endIcon={<AddIcon />}>
             {getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_SHOW_MORE)}
@@ -164,7 +124,7 @@ const SystemListing = ({
 };
 
 export type Props = {
-  systems: ReadonlyArray<System>;
+  systems: readonly RelatedSystem[];
   countryCode: string;
   sectionTitle?: string;
   sectionDescription?: string;
@@ -180,11 +140,6 @@ const RelatedSystems = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
-  //populate other fields of systems in the array
-
-  if (Object.entries(systems).length === 0) {
-    return null;
-  }
   return (
     <Section backgroundColor={sectionBackgroundColor || "alabaster"}>
       <div className={styles["RelatedSystems"]}>
@@ -201,64 +156,17 @@ const RelatedSystems = ({
 export default RelatedSystems;
 
 export const query = graphql`
-  fragment RelatedSystemsFragment on Systems {
-    name
-    shortDescription
-    longDescription
-    systemBenefits
-    approvalStatus
-    systemReferences {
-      preselected
-      referenceType
-      target {
-        code
-        name
-      }
-    }
-    path
-    assets {
-      allowedToDownload
-      assetType
-      fileSize
-      mime
-      name
-      realFileName
-      url
-    }
-    categories {
-      categoryType
-      name
-      image {
-        url
-        name
-        mime
-        fileSize
-        allowedToDownload
-      }
-    }
-    classifications {
+  fragment RelatedSystemFragment on System {
+    brand {
       code
-      features {
-        code
-        featureValues {
-          value
-        }
-        name
-        featureUnit {
-          symbol
-        }
-      }
-      name
     }
+    code
     images {
-      assetType
-      fileSize
-      mime
-      name
-      realFileName
-      url
-      format
-      containerId
+      ...PIMImageFragment
     }
+    name
+    path
+    scoringWeight
+    shortDescription
   }
 `;

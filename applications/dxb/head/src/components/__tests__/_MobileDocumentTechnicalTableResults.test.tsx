@@ -1,35 +1,20 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
-import { Data as AssetTypeData } from "../AssetType";
-import { PIMDocumentData, PIMLinkDocumentData } from "../types/PIMDocumentBase";
+import { Data as AssetTypeData } from "../../types/AssetType";
 import createAssetType, {
   createAssetTypeInvalid
-} from "../../__tests__/AssetTypeHelper";
-import createPimDocument from "../../__tests__/PimLinkDocumentHelper";
-import createPimLinkDocument from "../../__tests__/PimLinkDocumentHelper";
+} from "../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import fileIconsMap from "../FileIconsMap";
-import createProduct from "../../__tests__/PimDocumentProductHelper";
-
-const createNonPimLinkDocument = (): any => ({
-  __typename: "NON_PIMLinkDocument",
-  id: "pim-link-document-id",
-  title: "pim-link-document-title",
-  product: createProduct(),
-  url: "http://localhost/pim-link-document-id",
-  assetType: createAssetType()
-});
+import { ProductDocument } from "../../types/pim";
 
 describe("MobileDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
     it("when only single documents are present for asset types", () => {
       const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [
-        string,
-        (PIMDocumentData | PIMLinkDocumentData)[]
-      ][] = [
+      const documentsByProduct: [string, ProductDocument[]][] = [
         ["product1", [createPimDocument()]],
-        ["product2", [createPimLinkDocument()]],
         ["product3", []]
       ];
 
@@ -52,12 +37,8 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           name: "doesn't matter but looks good"
         })
       ];
-      const documentsByProduct: [
-        string,
-        (PIMDocumentData | PIMLinkDocumentData)[]
-      ][] = [
+      const documentsByProduct: [string, ProductDocument[]][] = [
         ["product1", [createPimDocument({ assetType: assetTypes[0] })]],
-        ["product2", [createPimLinkDocument({ assetType: assetTypes[1] })]],
         ["product3", []]
       ];
 
@@ -74,12 +55,8 @@ describe("MobileDocumentTechnicalTableResults component", () => {
 
     it("when multiple documents are present for asset types", () => {
       const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [
-        string,
-        (PIMDocumentData | PIMLinkDocumentData)[]
-      ][] = [
+      const documentsByProduct: [string, ProductDocument[]][] = [
         ["product1", [createPimDocument(), createPimDocument()]],
-        ["product2", [createPimLinkDocument(), createPimLinkDocument()]],
         ["product3", []]
       ];
 
@@ -95,15 +72,25 @@ describe("MobileDocumentTechnicalTableResults component", () => {
     });
 
     it("when valid asset types are used", () => {
-      const assetTypes: AssetTypeData[] = [createAssetType()];
-      const documentsByProduct: [
-        string,
-        (PIMDocumentData | PIMLinkDocumentData)[]
-      ][] = [
-        ["product1", [createNonPimLinkDocument(), createNonPimLinkDocument()]]
+      const assetTypes: AssetTypeData[] = [
+        createAssetType({ pimCode: "pim-code", id: "id" })
       ];
-
-      documentsByProduct[0][1]["format"] = "image/jpg";
+      const documentsByProduct: [string, ProductDocument[]][] = [
+        [
+          "product1",
+          [
+            createPimDocument({
+              assetType: { pimCode: "pim-code", name: "pim-code", id: "id" },
+              isLinkDocument: false
+            }),
+            createPimDocument({
+              assetType: { pimCode: "pim-code", name: "pim-code", id: "id-2" },
+              isLinkDocument: false,
+              format: "image/jpg"
+            })
+          ]
+        ]
+      ];
 
       const wrapper = render(
         <MobileDocumentTechnicalTableResults
@@ -120,12 +107,21 @@ describe("MobileDocumentTechnicalTableResults component", () => {
     });
 
     it("when invalid asset types are used", () => {
-      const assetTypes: AssetTypeData[] = [createAssetTypeInvalid()];
-      const documentsByProduct: [
-        string,
-        (PIMDocumentData | PIMLinkDocumentData)[]
-      ][] = [
-        ["product1", [createNonPimLinkDocument(), createNonPimLinkDocument()]]
+      const assetTypes: AssetTypeData[] = [
+        createAssetTypeInvalid({ id: "id" })
+      ];
+      const documentsByProduct: [string, ProductDocument[]][] = [
+        [
+          "product1",
+          [
+            createPimDocument({
+              assetType: { pimCode: "inValid", name: "inValid", id: "id" }
+            }),
+            createPimDocument({
+              assetType: { pimCode: "inValid-2", name: "inValid-2", id: "id-2" }
+            })
+          ]
+        ]
       ];
 
       documentsByProduct[0][1]["format"] = "onlv";

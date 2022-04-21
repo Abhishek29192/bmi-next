@@ -10,12 +10,7 @@ import React from "react";
 import { microCopy } from "../constants/microCopies";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
-import {
-  findMasterImageUrl,
-  findUniqueVariantClassifications,
-  getProductUrl,
-  mapClassificationValues
-} from "../utils/product-details-transforms";
+import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
@@ -57,19 +52,14 @@ const ProductsGridView = ({
         const brandLogoCode = variant.brandCode;
         // eslint-disable-next-line security/detect-object-injection
         const brandLogo = iconMap[brandLogoCode];
-        const mainImage = findMasterImageUrl(variant.images);
+        const mainImage = variant.images;
         const product = variant.baseProduct;
-        const productUrl = `${getProductUrl(
+        const productUrl = `${getPathWithCountryCode(
           pageContext.countryCode,
           variantCodeToPathMap[variant.code]
         )}${searchParams}`;
 
-        const uniqueClassifications = mapClassificationValues(
-          findUniqueVariantClassifications(
-            { ...variant, _product: product },
-            pageContext.pimClassificationCatalogueNamespace
-          )
-        );
+        const uniqueClassifications = product.subTitle || "";
 
         return (
           <Grid

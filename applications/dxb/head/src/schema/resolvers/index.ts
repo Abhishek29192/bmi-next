@@ -1,23 +1,23 @@
 import ContentfulDocumentLibraryPage from "./ContentfulDocumentLibraryPage";
-import ContentfulPage from "./ContentfulPage";
+import ContentfulFormSection from "./ContentfulFormSection";
 import ContentfulHomePage from "./ContentfulHomePage";
+import ContentfulImage from "./ContentfulImage";
+import ContentfulLink from "./ContentfulLink";
+import ContentfulPage from "./ContentfulPage";
 import ContentfulServiceLocatorSection from "./ContentfulServiceLocatorSection";
 import ContentfulSite from "./ContentfulSite";
 import ContentfulSystemConfiguratorBlock from "./ContentfulSystemConfiguratorBlock";
 import ContentfulVideo from "./ContentfulVideo";
-import ContentfulFormSection from "./ContentfulFormSection";
-import Products from "./Products";
-import ContentfulLink from "./ContentfulLink";
-import ContentfulImage from "./ContentfulImage";
+import Product from "./Product";
 import Query from "./Query";
-import Systems from "./Systems";
+import System from "./System";
 
 const {
-  ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
-  ContentfulSimplePage,
+  ContentfulBrandLandingPage,
   ContentfulContactUsPage,
+  ContentfulDocumentLibraryPage: ContentfulDocumentLibraryPageCommon,
   ContentfulProductListerPage,
-  ContentfulBrandLandingPage
+  ContentfulSimplePage
 } = ContentfulPage;
 
 /**
@@ -26,27 +26,34 @@ const {
  * exported for SystemLayer.
  */
 export default {
+  ContentfulBrandLandingPage,
+  ContentfulContactUsPage,
   ContentfulDocumentLibraryPage: {
     ...ContentfulDocumentLibraryPage,
     ...ContentfulDocumentLibraryPageCommon
   },
-  ContentfulSimplePage,
-  ContentfulContactUsPage,
+  ContentfulFormSection,
+  ContentfulHomePage,
   ContentfulProductListerPage,
-  ContentfulBrandLandingPage,
   ContentfulServiceLocatorSection,
+  ContentfulSimplePage,
   ContentfulSite,
   ContentfulSystemConfiguratorBlock,
-  ContentfulHomePage,
   ContentfulVideo,
-  ContentfulFormSection,
-  Products,
+  Product,
+  RelatedVariant: {
+    path: Product.path
+  },
   ContentfulLink,
   ContentfulImage,
   Query,
-  Systems: { path: Systems.path },
+  System: {
+    documents: System.documents,
+    path: System.path,
+    relatedSystems: System.relatedSystems
+  },
   SystemLayer: {
-    relatedProducts: Systems.relatedProducts,
-    relatedOptionalProducts: Systems.relatedOptionalProducts
+    relatedProducts: System.relatedProducts,
+    relatedOptionalProducts: System.relatedOptionalProducts
   }
 };

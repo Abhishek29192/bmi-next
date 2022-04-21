@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import Accordion from "../accordion/Accordion";
 import DefaultCheckbox from "../checkbox/Checkbox";
-import { getMicroCopy, MicroCopyContext } from "../micro-copy/MicroCopy";
 import Typography from "../typography/Typography";
 import styles from "./Filters.module.scss";
 
@@ -12,10 +11,16 @@ type FilterOption = {
 };
 
 export type Filter = {
+  filterCode: string;
   label: string;
   name: string;
   value?: ReadonlyArray<string>;
   options: ReadonlyArray<FilterOption>;
+};
+
+export type PLPFilterResponse = {
+  filters: ReadonlyArray<Filter>;
+  allowFilterBy: string[] | undefined;
 };
 
 export type Props = {
@@ -31,8 +36,6 @@ const Filters = ({
   checkboxComponent: Checkbox = DefaultCheckbox,
   accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
-  const copy = useContext(MicroCopyContext);
-
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
   };
@@ -53,13 +56,7 @@ const Filters = ({
             }
           );
 
-          const summaryLabel = getMicroCopy(
-            copy,
-            filter.label || filter.name,
-            {},
-            !filter.label
-          );
-
+          const summaryLabel = filter.label;
           return (
             <Accordion.Item key={filter.name}>
               <AccordionSummary aria-label={summaryLabel}>

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Section } from "@bmi/components";
-import { LeadBlock } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
-import { IconList } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  IconList,
+  LeadBlock,
+  Section,
+  Typography
+} from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { SVGImport } from "@bmi-digital/svg-import";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";
 import Link, { Data as LinkData } from "../../components/Link";
-import { Data as ImageData } from "../../components/Image";
 import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
-import { Category, Classification, Feature } from "../../components/types/pim";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
@@ -29,57 +30,16 @@ const BlueCheckIcon = (
 
 type Props = {
   name: string;
-  categories: readonly Category[];
-  classifications: readonly Classification[];
   cta?: LinkData;
-  uniqueSellingPropositions?: Feature;
+  promotionalContent?: string;
+  uniqueSellingPropositions?: readonly string[];
   brandLogo?: SVGImport;
-};
-
-const getBrandLogo = (categories: readonly Category[]): null | ImageData => {
-  const brandCategory = categories.find((c) => c.categoryType === "Brand");
-  if (!brandCategory) return null;
-
-  return {
-    __typename: "ContentfulImage",
-    type: null,
-    altText: null,
-    image: {
-      file: {
-        fileName: brandCategory.image?.realFileName,
-        url: brandCategory.image?.url
-      }
-    },
-    caption: null,
-    focalPoint: null
-  };
-};
-
-const getPromotionalContent = (
-  classifications?: readonly Classification[]
-): string | null => {
-  const systemAttributes = classifications?.find(
-    (c) => c.code === "systemAttributes"
-  );
-  if (!systemAttributes) return null;
-
-  const { features } = systemAttributes;
-
-  const content = features.find(
-    (feature) =>
-      feature.code ===
-      "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent"
-  );
-  if (!content) return null;
-
-  return content.featureValues[0].value;
 };
 
 const LeadBlockSection = ({
   name,
-  categories,
-  classifications,
   cta,
+  promotionalContent,
   uniqueSellingPropositions,
   brandLogo: BrandLogo
 }: Props) => {
@@ -87,8 +47,6 @@ const LeadBlockSection = ({
   const [selectedSystemId, setSelectedSystemId] = useState("");
   const [prevPagePath, setPrevPagePath] = useState("");
   const [referer, setReferer] = useState("");
-  const brandLogo = getBrandLogo(categories);
-  const promotionalContent = getPromotionalContent(classifications);
   const location = useLocation();
 
   const GTMButton = withGTM<ButtonProps>(Button);
@@ -112,7 +70,7 @@ const LeadBlockSection = ({
     <Section backgroundColor="white" className={styles["LeadBlockSection"]}>
       <LeadBlock>
         <LeadBlock.Content>
-          {brandLogo && (
+          {BrandLogo && (
             <LeadBlock.Content.Section>
               <BrandLogo className={styles["brandLogo"]} />
             </LeadBlock.Content.Section>
@@ -176,7 +134,7 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        {uniqueSellingPropositions?.featureValues?.length && (
+        {uniqueSellingPropositions?.length && (
           <LeadBlock.Card
             className={styles["card"]}
             theme="pearl"
@@ -185,16 +143,14 @@ const LeadBlockSection = ({
             <LeadBlock.Card.Section>
               <div className={styles["iconList"]}>
                 <IconList>
-                  {uniqueSellingPropositions.featureValues.map(
-                    ({ value }, id) => (
-                      <IconList.Item
-                        isCompact
-                        icon={BlueCheckIcon}
-                        title={value}
-                        key={`unique-selling-proposition-${id}`}
-                      />
-                    )
-                  )}
+                  {uniqueSellingPropositions.map((value, id) => (
+                    <IconList.Item
+                      isCompact
+                      icon={BlueCheckIcon}
+                      title={value}
+                      key={`unique-selling-proposition-${id}`}
+                    />
+                  ))}
                 </IconList>
               </div>
             </LeadBlock.Card.Section>
