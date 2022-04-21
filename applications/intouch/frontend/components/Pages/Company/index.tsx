@@ -64,15 +64,6 @@ export const CompanyPage = ({
               />
             }
           />
-        </Grid>
-        <Grid item xs={12} lg={5} xl={4}>
-          <CompanyRegisteredDetails
-            company={company}
-            mapsApiKey={mapsApiKey}
-            onCompanyUpdateSuccess={onCompanyUpdateSuccess}
-          />
-        </Grid>
-        <Grid item xs={12} lg={7} xl={8}>
           <CompanyAdmins
             admins={company.companyMembers.nodes.filter(
               ({ account }) => account.role === ROLES.COMPANY_ADMIN
@@ -94,6 +85,11 @@ export const CompanyPage = ({
           />
         </Grid>
         <Grid item xs={12} lg={5} xl={4}>
+          <CompanyRegisteredDetails
+            company={company}
+            mapsApiKey={mapsApiKey}
+            onCompanyUpdateSuccess={onCompanyUpdateSuccess}
+          />
           <SupportContactCard
             contactDetailsCollection={contactDetailsCollection}
           />
