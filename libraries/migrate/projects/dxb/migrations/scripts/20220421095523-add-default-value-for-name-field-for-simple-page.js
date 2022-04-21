@@ -1,9 +1,10 @@
-module.exports.description = "Copy title to name field for team category";
+module.exports.description =
+  "add default valur for nam files if empty title for simple page";
 const titleNotFound = "Untitled";
 
 module.exports.up = (migration) => {
   migration.transformEntries({
-    contentType: "teamCategory",
+    contentType: "page",
     from: ["title"],
     to: ["name"],
     transformEntryForLocale: async ({ title }, currentLocale) => {
@@ -24,7 +25,7 @@ module.exports.up = (migration) => {
 
 module.exports.down = (migration) => {
   migration.transformEntries({
-    contentType: "teamCategory",
+    contentType: "page",
     from: ["name", "title"],
     to: ["title"],
     shouldPublish: "preserve",

@@ -1,13 +1,23 @@
 module.exports.description = "Copy title to name field for carousel section";
+const titleNotFound = "Untitled";
 
 module.exports.up = (migration) => {
   migration.transformEntries({
     contentType: "carouselSection",
     from: ["title"],
     to: ["name"],
-    transformEntryForLocale: async ({ title }, currentLocale) => ({
-      name: (title && title[currentLocale]).replace(/\|/gi, "")
-    }),
+    transformEntryForLocale: async ({ title }, currentLocale) => {
+      if (!title) {
+        return {
+          name: titleNotFound,
+          title: titleNotFound
+        };
+      }
+      return {
+        name: title[currentLocale].replace(/\|/gi, ""),
+        title: title[currentLocale]
+      };
+    },
     shouldPublish: "preserve"
   });
 };
@@ -15,11 +25,25 @@ module.exports.up = (migration) => {
 module.exports.down = (migration) => {
   migration.transformEntries({
     contentType: "carouselSection",
-    from: ["name"],
+    from: ["name", "title"],
     to: ["title"],
-    transformEntryForLocale: async ({ name }, currentLocale) => ({
-      title: name && name[currentLocale]
-    }),
-    shouldPublish: "preserve"
+    shouldPublish: "preserve",
+    transformEntryForLocale: async ({ name, title }, currentLocale) => {
+      if (title[currentLocale]) {
+        return {
+          name: title[currentLocale].replace(/\|/gi, "")
+        };
+      }
+      if (!name) {
+        return {
+          name: titleNotFound,
+          title: titleNotFound
+        };
+      }
+      return {
+        title: name[currentLocale],
+        name: name[currentLocale]
+      };
+    }
   });
 };
