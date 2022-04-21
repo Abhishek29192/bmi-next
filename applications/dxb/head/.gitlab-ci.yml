@@ -512,6 +512,50 @@ deploy_gatsby_cloud_turkey:
       changes:
         - libraries/migrate/projects/dxb/**/*
 
+migrate_content_spain:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "ES"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ES is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_spain:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_spain
+  variables:
+    DXB_MARKET_ID: "ES"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ES is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+migrate_content_portugal:
+  extends: .migrate_content
+  needs:
+    - install
+  variables:
+    DXB_MARKET_ID: "PT"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as PT is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_portugal:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_portugal
+  variables:
+    DXB_MARKET_ID: "PT"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as PT is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
 migrate_content_group:
   extends: .migrate_content
   needs:
