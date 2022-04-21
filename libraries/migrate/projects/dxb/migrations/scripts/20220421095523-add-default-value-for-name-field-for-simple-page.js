@@ -1,8 +1,9 @@
-module.exports.description = "Copy title to name field for product lister page";
+module.exports.description =
+  "add default valur for nam files if empty title for simple page";
 
 module.exports.up = (migration) => {
   migration.transformEntries({
-    contentType: "productListerPage",
+    contentType: "page",
     from: ["title"],
     to: ["name"],
     transformEntryForLocale: async ({ title }, currentLocale) => {
@@ -17,7 +18,7 @@ module.exports.up = (migration) => {
 
 module.exports.down = (migration) => {
   migration.transformEntries({
-    contentType: "productListerPage",
+    contentType: "page",
     from: ["name", "title"],
     to: ["title"],
     shouldPublish: "preserve",
@@ -29,8 +30,8 @@ module.exports.down = (migration) => {
       }
 
       return {
-        title: (name && name[currentLocale]) || "Untitled",
-        name: (name && name[currentLocale]) || "Untitled"
+        name: (name && name[currentLocale]) || "Untitled",
+        title: (name && name[currentLocale]) || "Untitled"
       };
     }
   });
