@@ -1,5 +1,6 @@
 module.exports.description =
   "add default valur for nam files if empty title for simple page";
+const titleNotFound = "Untitled";
 
 module.exports.up = (migration) => {
   migration.transformEntries({
@@ -7,9 +8,15 @@ module.exports.up = (migration) => {
     from: ["title"],
     to: ["name"],
     transformEntryForLocale: async ({ title }, currentLocale) => {
+      if (!title) {
+        return {
+          name: titleNotFound,
+          title: titleNotFound
+        };
+      }
       return {
-        name: (title && title[currentLocale]).replace(/\|/gi, "") || "Untitled",
-        title: !title[currentLocale] ? "Untitled" : title[currentLocale]
+        name: title[currentLocale].replace(/\|/gi, ""),
+        title: title[currentLocale]
       };
     },
     shouldPublish: "preserve"
@@ -28,10 +35,15 @@ module.exports.down = (migration) => {
           name: title[currentLocale].replace(/\|/gi, "")
         };
       }
-
+      if (!name) {
+        return {
+          name: titleNotFound,
+          title: titleNotFound
+        };
+      }
       return {
-        name: (name && name[currentLocale]) || "Untitled",
-        title: (name && name[currentLocale]) || "Untitled"
+        title: name[currentLocale],
+        name: name[currentLocale]
       };
     }
   });
