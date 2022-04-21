@@ -19009,6 +19009,7 @@ type Mutation {
     """
     input: DeleteInvitationByNodeIdInput!
   ): DeleteInvitationPayload
+  deleteInvitedUser(email: String!): String
 
   """
   Deletes a single `Market` using a unique key.
@@ -19926,6 +19927,7 @@ type Mutation {
     input: UpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdInput!
   ): UpdateSystemMemberPayload
   updateTraining(lastUpdateDate: String): String
+  validateSignupUser(email: String!): Boolean
 }
 
 """

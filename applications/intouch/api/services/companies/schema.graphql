@@ -8319,6 +8319,8 @@ type Mutation {
     """
     input: resetPasswordImportedUsersInput
   ): resetPasswordImportedUsersResult
+  validateSignupUser(email: String!): Boolean
+  deleteInvitedUser(email: String!): String
   completeInvitation(companyId: Int!): Account
   bulkImport(
     """

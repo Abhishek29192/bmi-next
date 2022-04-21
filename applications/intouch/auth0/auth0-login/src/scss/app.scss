@@ -2,22 +2,26 @@
   $primary: #007bbd,
   $secondary: #007bbd,
   $on-primary: #ffffff,
-  $on-secondary: #ffffff,
+  $on-secondary: #ffffff
 );
 
+@use "@material/rtl";
 @use "@material/floating-label/mdc-floating-label";
 @use "@material/line-ripple/mdc-line-ripple";
 @use "@material/notched-outline/mdc-notched-outline";
 @use "@material/textfield";
-@use "@material/button/styles" as button-styles;
-@use "@material/tooltip/styles" as tooltip-styles;
-@use "@material/radio/styles";
+@use "@material/button/mdc-button";
+@use "@material/tooltip";
+@use "@material/radio";
 @use "@material/form-field";
 @use "@material/checkbox";
+@use "@material/dialog";
 
+@include theme.core-styles;
 @include checkbox.core-styles;
 @include form-field.core-styles;
 @include textfield.core-styles;
+@include dialog.core-styles;
 
 @import "base/reset";
 
@@ -85,6 +89,12 @@ a {
 
   &__underlined {
     text-decoration: underline;
+  }
+
+  &--outlined {
+    &:not(:disabled) {
+      border-color: rgba(0, 114, 176, 0.5);
+    }
   }
 }
 
@@ -229,5 +239,20 @@ p {
 
   a {
     color: #70706f;
+  }
+}
+
+.mdc-touch-target-wrapper {
+  margin: auto 5px;
+}
+
+.mdc-dialog__surface {
+  padding: 0 15px 10px 15px;
+}
+
+.mdc-dialog__title {
+  line-height: 1rem;
+  .underlined-heading:after {
+    bottom: -1.5rem;
   }
 }

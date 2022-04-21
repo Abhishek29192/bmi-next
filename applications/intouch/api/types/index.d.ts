@@ -11688,6 +11688,7 @@ export type Mutation = {
   deleteInvitation?: Maybe<DeleteInvitationPayload>;
   /** Deletes a single `Invitation` using its globally unique id. */
   deleteInvitationByNodeId?: Maybe<DeleteInvitationPayload>;
+  deleteInvitedUser?: Maybe<Scalars["String"]>;
   /** Deletes a single `Market` using a unique key. */
   deleteMarket?: Maybe<DeleteMarketPayload>;
   /** Deletes a single `Market` using a unique key. */
@@ -11872,6 +11873,7 @@ export type Mutation = {
   /** Updates a single `SystemMember` using a unique key and a patch. */
   updateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketId?: Maybe<UpdateSystemMemberPayload>;
   updateTraining?: Maybe<Scalars["String"]>;
+  validateSignupUser?: Maybe<Scalars["Boolean"]>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12274,6 +12276,11 @@ export type MutationDeleteInvitationArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteInvitationByNodeIdArgs = {
   input: DeleteInvitationByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteInvitedUserArgs = {
+  email: Scalars["String"];
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12757,6 +12764,11 @@ export type MutationUpdateSystemMemberBySystemBmiRefAndProductBmiRefAndMarketIdA
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateTrainingArgs = {
   lastUpdateDate?: InputMaybe<Scalars["String"]>;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationValidateSignupUserArgs = {
+  email: Scalars["String"];
 };
 
 /** An object with a globally unique `ID`. */
