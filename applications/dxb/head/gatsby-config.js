@@ -507,7 +507,7 @@ module.exports = {
     ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-google-tagmanager",
+            resolve: "@bmi/gatsby-plugin-google-tagmanager",
             options: {
               id: process.env.GOOGLE_TAGMANAGER_ID,
               includeInDevelopment: true,
@@ -523,7 +523,7 @@ module.exports = {
     !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-google-tagmanager",
+            resolve: "@bmi/gatsby-plugin-google-tagmanager",
             options: {
               id: process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID,
               includeInDevelopment: true,
