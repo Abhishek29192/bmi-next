@@ -353,7 +353,27 @@ describe("Account", () => {
     }
   });
   describe("Docebo SSO", () => {
+    const data = {
+      data: {
+        accountByEmail: {
+          id: 1,
+          market: {
+            domain: "no"
+          }
+        }
+      }
+    };
     it("should generate Docebo SSO url based on path query path", async () => {
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            accountByEmail: {
+              id: 1,
+              market: {}
+            }
+          }
+        })
+      );
       mockMutate.mockImplementationOnce(() =>
         Promise.resolve({
           data: {
@@ -381,6 +401,15 @@ describe("Account", () => {
       expect(mockMutate).toBeCalledTimes(1);
     });
     it("should generate Docebo SSO url", async () => {
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            accountByEmail: {
+              id: 1
+            }
+          }
+        })
+      );
       mockMutate.mockImplementationOnce(() =>
         Promise.resolve({
           data: {
@@ -406,6 +435,7 @@ describe("Account", () => {
       expect(mockMutate).toBeCalledTimes(1);
     });
     it("check if data from Docebo is available", async () => {
+      mockQuery.mockImplementationOnce(() => Promise.resolve(data));
       mockMutate.mockImplementationOnce(() => Promise.resolve({}));
       await accountSrv.createDoceboSSOUrl(
         { query: {} },
@@ -420,11 +450,12 @@ describe("Account", () => {
         mutation: mutationDoceboCreateSSOUrl,
         variables: {
           username: "emamil@email.com",
-          path: "/undefined/learn/mycourses"
+          path: "/no/learn/mycourses"
         }
       });
     });
     it("createDoceboSSOUrl exception", async () => {
+      mockQuery.mockImplementationOnce(() => Promise.resolve(data));
       const error = { errorMessage: "error" };
       mockMutate.mockRejectedValueOnce(error);
       try {

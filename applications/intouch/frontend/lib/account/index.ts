@@ -206,11 +206,15 @@ export default class AccountService {
   createDoceboSSOUrl = async (req, session): Promise<string> => {
     try {
       const { user } = session;
-      const { email, marketCode } = parseAccount(user);
+      const { email } = parseAccount(user);
+
+      // Fetch the account
+      const account = await this.getAccount(session);
+      const marketDomain = account.market?.domain ?? "en";
 
       const path = req.query.path
-        ? `/${marketCode}${req.query.path}`
-        : `/${marketCode}/learn/mycourses`;
+        ? `/${marketDomain}${req.query.path}`
+        : `/${marketDomain}/learn/mycourses`;
 
       const { data: { createSSOUrl: { url = null } = {} } = {} } =
         await this.apolloClient.mutate({
