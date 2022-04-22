@@ -6,7 +6,7 @@ import {
   Product as PIMProduct,
   VariantOption as PIMVariant,
   BaseProduct,
-  TwoOneIgnoreDictionary
+  filterTwoOneAttributes
 } from "@bmi/pim-types";
 import type { ProductVariant as ESProduct } from "./es-model";
 import {
@@ -17,8 +17,7 @@ import {
   indexFeatures,
   IndexedItemGroup,
   groupBy,
-  ESIndexObject,
-  extractFeatureCode
+  ESIndexObject
 } from "./CLONE";
 
 // Can't use lodash pick as it's not type-safe
@@ -32,31 +31,6 @@ const {
   // TODO: Remove this fallback once the environment variable is correctly set.
   PIM_CLASSIFICATION_CATALOGUE_NAMESPACE = "bmiClassificationCatalog/1.0"
 } = process.env;
-
-const filterTwoOneAttributes = (
-  classificationCode: string,
-  origFeatures: Feature[]
-) => {
-  const excludeAttributes = TwoOneIgnoreDictionary[classificationCode];
-  return origFeatures.filter((feature) => {
-    const featureCode = extractFeatureCode(
-      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
-      feature.code
-    );
-    const attributeName = featureCode
-      .replace(`${classificationCode}.`, "")
-      .toLowerCase();
-    if (
-      excludeAttributes &&
-      excludeAttributes.some(
-        (attribute) => attribute.toLowerCase() === attributeName
-      )
-    ) {
-      return false;
-    }
-    return true;
-  });
-};
 
 // Combines all the classification representing a variant, which includes the classifications from base product, which are overwritten by variant ones.
 const combineVariantClassifications = (
@@ -103,6 +77,7 @@ const combineVariantClassifications = (
       }
     });
     variantClassification.features = filterTwoOneAttributes(
+      PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
       variantClassification.code,
       Array.from(mergedFeaturesMap.values())
     );
@@ -115,6 +90,7 @@ const combineVariantClassifications = (
     if (vairantClassificationsMap.get(key) === undefined) {
       const origFeatures = classification.features || [];
       classification.features = filterTwoOneAttributes(
+        PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
         classification.code,
         origFeatures
       );

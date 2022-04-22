@@ -292,3 +292,37 @@ export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
     TwoOneAttribToIgnore.uomType
   ]
 };
+
+const extractFeatureCode = (
+  pimClassificationNameSpace: string,
+  code: string
+) => {
+  return code.replace(`${pimClassificationNameSpace}/`, "");
+};
+
+export const filterTwoOneAttributes = (
+  pimClassificationCatalogueNamespace: string,
+  classificationCode: string,
+  origFeatures: Feature[]
+) => {
+  // eslint-disable-next-line security/detect-object-injection
+  const excludeAttributes = TwoOneIgnoreDictionary[classificationCode];
+  return origFeatures.filter((feature) => {
+    const featureCode = extractFeatureCode(
+      pimClassificationCatalogueNamespace,
+      feature.code
+    );
+    const attributeName = featureCode
+      .replace(`${classificationCode}.`, "")
+      .toLowerCase();
+    if (
+      excludeAttributes &&
+      excludeAttributes.some(
+        (attribute) => attribute.toLowerCase() === attributeName
+      )
+    ) {
+      return false;
+    }
+    return true;
+  });
+};
