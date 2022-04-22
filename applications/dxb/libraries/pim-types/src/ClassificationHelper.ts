@@ -3,6 +3,7 @@ import {
   Feature,
   FeatureUnit,
   FeatureValue,
+  TwoOneClassToIgnore,
   TwoOneIgnoreDictionary
 } from "./types";
 
@@ -147,6 +148,36 @@ export const createTwoOneClassifications = (
 
     return classification;
   });
+};
+
+export const createTwoOneClassification = (
+  pimClassificationNamepspace:
+    | string
+    | undefined = PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
+  twoOneClassificationKey: TwoOneClassToIgnore
+): Classification => {
+  // eslint-disable-next-line security/detect-object-injection
+  const twoOneClassResult = TwoOneIgnoreDictionary[twoOneClassificationKey];
+  if (twoOneClassResult) {
+    const classification: Classification = {
+      code: twoOneClassificationKey,
+      name: twoOneClassificationKey
+    };
+    const featuresToIgnore = twoOneClassResult.map((attributeKey) => {
+      return createFeature({
+        code: `${pimClassificationNamepspace}/${twoOneClassificationKey}.${attributeKey}`,
+        featureValues: [createFeatureValue({ value: `${attributeKey}-value` })],
+        featureUnit: createFeatureUnit({
+          name: "featureUnit",
+          symbol: "N",
+          unitType: "Newton"
+        })
+      });
+    });
+    classification.features = featuresToIgnore;
+    return classification;
+  }
+  return createClassification();
 };
 
 const createClassification = (

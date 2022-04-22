@@ -94,7 +94,10 @@ const createProductPages = async (
       ).code;
 
       let relatedProductCodes = [];
-      if (productFamilyCode) {
+      if (
+        productFamilyCode &&
+        process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS !== "true"
+      ) {
         const result = await graphql(`
       {
         categoryProducts: allProducts(
@@ -138,7 +141,6 @@ const createProductPages = async (
               countryCode,
               variantOption.oldPath
             );
-            console.log(`creating redirect from '${oldPath}' to '${path}'`);
             createRedirect({
               fromPath: oldPath,
               toPath: path,

@@ -23,3 +23,6 @@ applications/intouch/api/db-migrations/migration-training
 
 # Only brought in as a quick fix in testing purposes for https://bmigroup.atlassian.net/browse/DXB-3373.
 applications/dxb/libraries/gatsby-plugin-google-tagmanager
+
+# Only brought in as a quick fix for upstream. Can be removed when https://github.com/gatsbyjs/gatsby/pull/35428 is merged in
+applications/dxb/libraries/gatsby-plugin-sitemap

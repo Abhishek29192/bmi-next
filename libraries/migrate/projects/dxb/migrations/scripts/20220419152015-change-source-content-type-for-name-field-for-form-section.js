@@ -5,9 +5,12 @@ module.exports.up = (migration) => {
     contentType: "form",
     from: ["title"],
     to: ["name"],
-    transformEntryForLocale: async ({ title }, currentLocale) => ({
-      name: (title && title[currentLocale]).replace(/\|/gi, "")
-    }),
+    transformEntryForLocale: async ({ title }, currentLocale) => {
+      return {
+        name: (title && title[currentLocale]).replace(/\|/gi, "") || "Untitled",
+        title: !title[currentLocale] ? "Untitled" : title[currentLocale]
+      };
+    },
     shouldPublish: "preserve"
   });
 };
@@ -15,11 +18,20 @@ module.exports.up = (migration) => {
 module.exports.down = (migration) => {
   migration.transformEntries({
     contentType: "form",
-    from: ["name"],
+    from: ["name", "title"],
     to: ["title"],
-    transformEntryForLocale: async ({ name }, currentLocale) => ({
-      title: name && name[currentLocale]
-    }),
-    shouldPublish: "preserve"
+    shouldPublish: "preserve",
+    transformEntryForLocale: async ({ name, title }, currentLocale) => {
+      if (title[currentLocale]) {
+        return {
+          name: title[currentLocale].replace(/\|/gi, "")
+        };
+      }
+
+      return {
+        title: (name && name[currentLocale]) || "Untitled",
+        name: (name && name[currentLocale]) || "Untitled"
+      };
+    }
   });
 };

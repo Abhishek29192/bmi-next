@@ -69,7 +69,7 @@
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sass": "^5.10.0",
     "gatsby-plugin-sharp": "^4.10.1",
-    "gatsby-plugin-sitemap": "^5.10.0",
+    "@bmi/gatsby-plugin-sitemap": "0.0.0",
     "gatsby-plugin-typescript": "^4.10.0",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.27",
     "gatsby-remark-images-contentful": "^5.10.0",

@@ -250,3 +250,33 @@
     :why: Gatsby 4 brings in `gatsby-parcel-config` which brings this in
     :versions: []
     :when: 2022-03-07 15:02:13.432143100 Z
+- - :approve
+  - "lmdb-darwin-arm64"
+  - :who: Benjamin Sproule
+    :why: Needed for gatsby-plugin-sitemap
+    :versions: []
+    :when: 2022-04-19 12:34:21.321254310 Z
+- - :approve
+  - "lmdb-darwin-x64"
+  - :who: Benjamin Sproule
+    :why: Needed for gatsby-plugin-sitemap
+    :versions: []
+    :when: 2022-04-19 12:34:21.321254310 Z
+- - :approve
+  - "lmdb-linux-arm"
+  - :who: Benjamin Sproule
+    :why: Needed for gatsby-plugin-sitemap
+    :versions: []
+    :when: 2022-04-19 12:34:21.321254310 Z
+- - :approve
+  - "lmdb-linux-arm64"
+  - :who: Benjamin Sproule
+    :why: Needed for gatsby-plugin-sitemap
+    :versions: []
+    :when: 2022-04-19 12:34:21.321254310 Z
+- - :approve
+  - "lmdb-win32-x64"
+  - :who: Benjamin Sproule
+    :why: Needed for gatsby-plugin-sitemap
+    :versions: []
+    :when: 2022-04-19 12:34:21.321254310 Z
