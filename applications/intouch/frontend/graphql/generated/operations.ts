@@ -2620,6 +2620,24 @@ export type ProductsAndSystemsQuery = {
   } | null;
 };
 
+export type DeleteInvitedUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type DeleteInvitedUserMutation = {
+  __typename?: "Mutation";
+  deleteInvitedUser?: string | null;
+};
+
+export type ValidateSignupUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type ValidateSignupUserMutation = {
+  __typename?: "Mutation";
+  validateSignupUser?: boolean | null;
+};
+
 export type CompanyPageDetailsFragmentFragment = {
   __typename?: "Company";
   id: number;

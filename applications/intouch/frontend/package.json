@@ -38,6 +38,7 @@
     "apollo-upload-client": "^16.0.0",
     "classnames": "^2.2.6",
     "concurrently": "^6.2.0",
+    "cors": "^2.8.5",
     "css-loader": "^3.2.0",
     "css-minimizer-webpack-plugin": "^2.0.0",
     "dayjs": "^1.10.6",
