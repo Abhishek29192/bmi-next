@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import {
   mockRequest,
   mockResponse,
@@ -30,6 +31,7 @@ const build = async (req: Partial<Request>, res: Partial<Response>) =>
 describe("Error responses", () => {
   beforeEach(() => {
     fetchMock.mockReset();
+    mockConsole();
   });
   it("Return error, when preivew is set but preview build webhooks are not set", async () => {
     const previewBuildWebhooks = process.env.PREVIEW_BUILD_WEBHOOKS;
@@ -120,25 +122,19 @@ describe("Error responses", () => {
     expect(mockRes.sendStatus).toBeCalledWith(401);
   });
 
-  it.each([
-    "GET",
-    "HEAD",
-    "PUT",
-    "DELETE",
-    "CONNECT",
-    "OPTIONS",
-    "TRACE",
-    "PATCH"
-  ])("Returns 405, when request method is %s", async (method) => {
-    const mockReq = mockRequest(method);
-    const mockRes = mockResponse();
+  it.each(["GET", "HEAD", "PUT", "DELETE", "CONNECT", "TRACE", "PATCH"])(
+    "Returns 405, when request method is %s",
+    async (method) => {
+      const mockReq = mockRequest(method);
+      const mockRes = mockResponse();
 
-    await build(mockReq, mockRes);
+      await build(mockReq, mockRes);
 
-    expect(mockRes.sendStatus).toBeCalledWith(405);
-  });
+      expect(mockRes.sendStatus).toBeCalledWith(405);
+    }
+  );
   it.each([null, undefined])(
-    "Returns 404, wwhen build webhook is %s",
+    "Returns 404, when build webhook is %s",
     async (param) => {
       const mockReq = mockRequest("POST", {
         authorization: `Bearer ${REQUEST_SECRET}`
@@ -151,11 +147,77 @@ describe("Error responses", () => {
       expect(mockRes.sendStatus).toBeCalledWith(404);
     }
   );
+
+  it("Returns 500, when build webhook fetch returns an error", async () => {
+    const buildWebhook = "https://norway.local";
+    const mockReq = mockRequest("POST", {
+      authorization: `Bearer ${REQUEST_SECRET}`
+    });
+    const mockRes = mockResponse();
+    FindBuildWebhook.mockReturnValueOnce(buildWebhook);
+    fetchMock.mock(buildWebhook, { throws: new Error("error") });
+
+    await build(mockReq, mockRes);
+
+    expect(mockRes.status).toBeCalledWith(500);
+  });
+});
+
+describe("Making an OPTIONS request", () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+    mockConsole();
+  });
+
+  it("Sends CORS headers", async () => {
+    const req = mockRequest("OPTIONS");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.set).toHaveBeenNthCalledWith(
+      1,
+      "Access-Control-Allow-Origin",
+      "*"
+    );
+    expect(res.set).toHaveBeenNthCalledWith(
+      2,
+      "Access-Control-Allow-Methods",
+      "POST,OPTIONS"
+    );
+    expect(res.set).toHaveBeenNthCalledWith(
+      3,
+      "Access-Control-Allow-Headers",
+      "content-type,x-preview-auth-token,x-preview-update-source"
+    );
+  });
+
+  it("Sends 204 response", async () => {
+    const req = mockRequest("OPTIONS");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.status).toBeCalledWith(204);
+  });
 });
 
 describe("Making a POST request", () => {
   beforeEach(() => {
     fetchMock.mockReset();
+    mockConsole();
+  });
+
+  it("Sends 204 if preview and request body is empty", async () => {
+    const IsPreview = process.env.PREVIEW_BUILD;
+    process.env.PREVIEW_BUILD = "true";
+    const req = mockRequest("POST", undefined, undefined, "{}");
+    const res = mockResponse();
+
+    await build(req, res);
+
+    expect(res.status).toBeCalledWith(204);
+    process.env.PREVIEW_BUILD = IsPreview;
   });
 
   it("Calls gatbsy cloud build, if called with a recognised tag, ", async () => {
@@ -199,16 +261,24 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
-      body: mockContentfulWebhook,
-      headers: reqHeaders
+      body: JSON.stringify(mockContentfulWebhook),
+      headers: expect.any(Object)
     });
   });
 
-  it("sends original request headers to the POST request", async () => {
+  it("sends contentful request headers to the POST request", async () => {
     const requestHeaders = {
       "x-some-header-1": "some header value",
       "x-some-header-2": "some header value 2",
-      authorization: `Bearer ${REQUEST_SECRET}`
+      authorization: `Bearer ${REQUEST_SECRET}`,
+      "x-contentful-topic": "some value1",
+      "x-contentful-webhook-name": "some value 2",
+      "content-type": "application/json"
+    };
+    const contentfulRequestHeaders = {
+      "X-Contentful-Topic": "some value1",
+      "X-Contentful-Webhook-Name": "some value 2",
+      "Content-Type": "application/vnd.contentful.management.v1+json"
     };
     const req = mockRequest(
       "POST",
@@ -229,8 +299,8 @@ describe("Making a POST request", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toBeCalledWith("https://norway.local/abcd", {
       method: "POST",
-      body: mockContentfulWebhook,
-      headers: requestHeaders
+      body: JSON.stringify(mockContentfulWebhook),
+      headers: contentfulRequestHeaders
     });
   });
 });
