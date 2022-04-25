@@ -5,10 +5,10 @@ Since the whole component is considerable as an input, you'll still need to wrap
 
 ### Newsletter
 
-At the moment, this is the only case where the `InputBanner` has been used.
+At the moment, this is the only case where the `SignupBlock` has been used.
 
 ```jsx
-<InputBanner
+<SignupBlock
   title="Sign up for our newsletter"
   description="Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox."
   inputLabel="Email address"
@@ -19,7 +19,7 @@ At the moment, this is the only case where the `InputBanner` has been used.
 
 ### With confirmation dialog
 
-You can use the Dialog component to create some confirmation logic around the `InputBanner`.
+You can use the Dialog component to create some confirmation logic around the `SignupBlock`.
 
 ```jsx
 import Dialog from "../dialog";
@@ -57,7 +57,7 @@ const [secondDialogOpen, setSecondDialogOpen] = React.useState(false);
     />
   </Dialog>
 
-  <InputBanner
+  <SignupBlock
     title="Sign up for our newsletter"
     description="Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox."
     inputLabel="Email address"

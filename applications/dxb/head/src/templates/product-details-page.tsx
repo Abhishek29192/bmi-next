@@ -139,7 +139,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner: resources.pdpInputBanner,
+    signupBlock: resources.pdpSignupBlock,
     seo: null,
     path: null // won't work with PDPs currently
   };

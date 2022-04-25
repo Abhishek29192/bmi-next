@@ -261,7 +261,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
   return (
     <Page
       title={pageTitle}
-      pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={contentfulSite}
       isSearchPage
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}

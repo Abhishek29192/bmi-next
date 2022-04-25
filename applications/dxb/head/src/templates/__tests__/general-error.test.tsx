@@ -59,7 +59,7 @@ describe("General Error", () => {
         sdpSidebarItems: null,
         sdpBimDescription: null,
         visualiserShareWidget: null,
-        pdpInputBanner: null,
+        pdpSignupBlock: null,
         documentDisplayFormat: null,
         searchPageSearchTips: null,
         searchPageSidebarItems: null,

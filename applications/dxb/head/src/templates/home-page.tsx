@@ -79,12 +79,12 @@ const HomePage = ({ data, pageContext }: Props) => {
     overlapCards,
     brands,
     sections,
-    inputBanner,
+    signupBlock,
     seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
     breadcrumbs: null,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulHomePage.path
   };
@@ -163,8 +163,8 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      inputBanner {
-        ...InputBannerFragment
+      signupBlock {
+        ...SignupBlockFragment
       }
       seo {
         ...SEOContentFragment

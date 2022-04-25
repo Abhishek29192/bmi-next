@@ -1,7 +1,7 @@
 Footer is a component that can be split in three different sections: Newsletter, Main Navigation, and Secondary Navigation.
 
 ```jsx
-import InputBanner from "../input-banner";
+import SignupBlock from "../signup-block";
 import { Facebook, LinkedIn, YouTube, Phone, Mail } from "../icon";
 import { BMI as BmiIcon } from "../logo";
 
@@ -126,11 +126,10 @@ const secondaryNavigation = [
 ];
 
 <>
-  <InputBanner
+  <SignupBlock
     title="Sign up for our newsletter"
     description="Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox."
-    inputLabel="Email address"
-    inputCallToAction="Sign up"
+    signupLabel="Sign up"
   />
   <Footer
     mainNavigation={mainNavigation}

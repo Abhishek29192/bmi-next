@@ -109,7 +109,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner: data.contentfulSimplePage.inputBanner,
+    signupBlock: data.contentfulSimplePage.signupBlock,
     seo,
     path: data.contentfulSimplePage.path
   };
