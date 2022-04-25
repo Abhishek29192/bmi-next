@@ -76,3 +76,6 @@ target/
 package-lock.json
 
 **/gl-dast-report.json
+
+log-error.txt
+log-success.txt

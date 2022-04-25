@@ -1,4 +1,4 @@
 *.tsv
-!__tests__/data/
+!__tests__/data/*
 !example.tsv
 log-*.txt
