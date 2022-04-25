@@ -29,7 +29,8 @@ export const getFeatures = (
   options: Options
 ) => {
   const classification = classifications.find(
-    (classification) => classification.code === options.code
+    (classification) =>
+      classification.code.toLowerCase() === options.code.toLowerCase()
   );
 
   if (!classification) {
