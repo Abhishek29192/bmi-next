@@ -3,12 +3,11 @@ import { Context } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest
+    findAll: jest
       .fn()
-      .mockResolvedValue([{ type: "ContentfulBrandLandingPage" }]),
+      .mockResolvedValue({ entries: [{ type: "ContentfulBrandLandingPage" }] }),
     getNodeById: jest.fn(),
-    getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    getNodesByIds: jest.fn()
   }
 };
 

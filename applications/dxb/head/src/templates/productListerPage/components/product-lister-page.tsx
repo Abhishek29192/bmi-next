@@ -1,13 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import { AnchorLink } from "@bmi/components";
-import { HeroItem } from "@bmi/components";
-import { LeadBlock } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Filter } from "@bmi/components";
+import {
+  AnchorLink,
+  Filter,
+  Grid,
+  HeroItem,
+  IconList,
+  LeadBlock,
+  Section,
+  Typography
+} from "@bmi/components";
 import CheckIcon from "@material-ui/icons/Check";
 import queryString from "query-string";
 import { useLocation } from "@reach/router";
@@ -32,9 +34,9 @@ import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
 import {
-  queryElasticSearch,
+  compileElasticSearchQuery,
   disableFiltersFromAggregations,
-  compileElasticSearchQuery
+  queryElasticSearch
 } from "../../../utils/elasticSearch";
 import {
   compileESQueryPLP,
@@ -59,6 +61,7 @@ import {
 } from "../utils/productListerPageUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
 import { microCopy } from "../../../constants/microCopies";
+import { useConfig } from "../../../contexts/ConfigProvider";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PRODUCTS;
@@ -134,6 +137,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     breadcrumbTitle
   );
   const initialProducts = data.initialProducts || [];
+  const {
+    config: { isLegacyFiltersUsing, isPreviewMode, isBrandProviderEnabled }
+  } = useConfig();
 
   const heroProps: HeroItem = generateHeroProps(
     title,
@@ -174,9 +180,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
   //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
   // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
   const getResolvedFilters = () => {
-    return process.env.GATSBY_USE_LEGACY_FILTERS === "true"
-      ? resolvedFilters
-      : resolvedNewPLPFilters;
+    return isLegacyFiltersUsing ? resolvedFilters : resolvedNewPLPFilters;
   };
 
   const [filters, setFilters] = useState(getResolvedFilters());
@@ -212,7 +216,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
     if (result && result.aggregations) {
       setFilters(
-        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
+        isLegacyFiltersUsing
           ? xferFilterValue(
               newFilters,
               disableFiltersFromAggregations(filters, result.aggregations)
@@ -262,7 +266,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       return;
     }
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       alert("You cannot search on the preview environment.");
       return;
     }
@@ -271,16 +275,15 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     //TODO: remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch of code
     // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-    const query =
-      process.env.GATSBY_USE_LEGACY_FILTERS === "true"
-        ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
-        : compileESQueryPLP({
-            filters, //these are updated filters with user's selection from UI!
-            allowFilterBy,
-            categoryCodes,
-            page,
-            pageSize
-          });
+    const query = isLegacyFiltersUsing
+      ? compileElasticSearchQuery(filters, categoryCodes, page, pageSize)
+      : compileESQueryPLP({
+          filters, //these are updated filters with user's selection from UI!
+          allowFilterBy,
+          categoryCodes,
+          page,
+          pageSize
+        });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -311,10 +314,9 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.aggregations) {
       // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters =
-        process.env.GATSBY_USE_LEGACY_FILTERS === "true"
-          ? disableFiltersFromAggregations(filters, results.aggregations)
-          : disableFiltersFromAggregationsPLP(filters, results.aggregations);
+      const newFilters = isLegacyFiltersUsing
+        ? disableFiltersFromAggregations(filters, results.aggregations)
+        : disableFiltersFromAggregationsPLP(filters, results.aggregations);
 
       setFilters(newFilters);
     }
@@ -376,6 +378,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const isFeaturesArrayExist = features?.length > 0;
   const isKeyFeatureBlockVisible = isFeaturesArrayExist || featuresLink;
+  const isHeroKeyLine = Boolean(isBrandProviderEnabled && brandLogo);
   return (
     <Page
       brand={brandLogo}
@@ -392,13 +395,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
               <ProgressIndicator theme="light" />
             </Scrim>
           ) : null}
-          {renderHero(
-            heroProps,
-            breadcrumbsNode,
-            heroLevel,
-            brandLogo,
-            heroType
-          )}
+          {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
+            isHeroKeyLine: isHeroKeyLine,
+            isSpotlightHeroKeyLine: isHeroKeyLine
+          })}
           <Section backgroundColor="white">
             <LeadBlock>
               <LeadBlock.Content>
@@ -468,7 +468,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
                 ref={resultsElement}
               >
                 <Grid container spacing={3}>
-                  {products.length === 0 && (
+                  {!isLoading && products.length === 0 && (
                     <Typography>
                       {getMicroCopy(microCopy.PLP_PRODUCT_NO_RESULTS_FOUND)}
                     </Typography>

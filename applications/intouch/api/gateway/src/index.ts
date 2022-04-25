@@ -12,12 +12,20 @@ import config from "./config";
 
 const { PORT = 4000 } = process.env;
 
+// You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+const MAX_FILE_SIZE = 40;
+
 (async () => {
   try {
     const gateway = await gatewayService();
     const app = express();
     app.use(WinstonLogger);
-    app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
+    app.use(
+      graphqlUploadExpress({
+        maxFileSize: MAX_FILE_SIZE * (1024 * 1024),
+        maxFiles: 10
+      })
+    );
 
     const server = new ApolloServer({
       gateway,

@@ -94,7 +94,10 @@ const createProductPages = async (
       ).code;
 
       let relatedProductCodes = [];
-      if (productFamilyCode) {
+      if (
+        productFamilyCode &&
+        process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS !== "true"
+      ) {
         const result = await graphql(`
       {
         categoryProducts: allProducts(
@@ -138,7 +141,6 @@ const createProductPages = async (
               countryCode,
               variantOption.oldPath
             );
-            console.log(`creating redirect from '${oldPath}' to '${path}'`);
             createRedirect({
               fromPath: oldPath,
               toPath: path,
@@ -202,7 +204,6 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               path
               title
-
               ... on ContentfulProductListerPage {
                 categoryCodes
                 allowFilterBy
@@ -325,12 +326,14 @@ exports.createPages = async ({ graphql, actions }) => {
     const redirectsToml = fs.readFileSync(redirectsTomlFile);
 
     const redirects = toml.parse(redirectsToml.toString());
-    redirects.redirects.forEach((redirect) =>
-      createRedirect({
-        fromPath: redirect.from,
-        toPath: redirect.to,
-        isPermanent: !redirect.status || redirect.status == "301"
-      })
+    await Promise.all(
+      redirects.redirects.map((redirect) =>
+        createRedirect({
+          fromPath: redirect.from,
+          toPath: redirect.to,
+          isPermanent: !redirect.status || redirect.status === "301"
+        })
+      )
     );
   }
 };

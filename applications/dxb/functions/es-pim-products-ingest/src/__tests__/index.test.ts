@@ -2,6 +2,7 @@ import { RequestParams } from "@elastic/elasticsearch";
 import mockConsole from "jest-mock-console";
 import {
   createProduct as createPimProduct,
+  createSystem as createPimSystem,
   Product,
   System
 } from "@bmi/pim-types";
@@ -13,8 +14,9 @@ import {
 import { ProductVariant } from "../es-model";
 import { DeleteMessage, ProductMessage, SystemMessage } from "../types";
 import { EsSystem } from "../transformSystems";
-import { buildEsProducts } from "../index";
+import { buildEsProducts, buildEsSystems } from "../index";
 import createProductVariant from "./helpers/ProductVariantHelper";
+import { createEsSystem } from "./helpers/EsSystemHelper";
 
 const createEvent = (
   message?: ProductMessage | SystemMessage | DeleteMessage
@@ -158,7 +160,7 @@ describe("handleMessage", () => {
     expect(count).toBeCalledTimes(0);
   });
 
-  it("should execute updateElasticSearch function if type of message is 'UPDATED'", async () => {
+  it("should execute updateElasticSearch function if type of message is 'UPDATED'-'PRODUCTS'", async () => {
     ping.mockImplementation((args) => {
       args();
     });
@@ -174,6 +176,24 @@ describe("handleMessage", () => {
     const expectedVariant = buildEsProducts([createPimProduct()]);
 
     expect(updateElasticSearch).toBeCalledWith("PRODUCTS", expectedVariant);
+  });
+
+  it("should execute updateElasticSearch function if type of message is 'UPDATED'-'SYSTEMS'", async () => {
+    ping.mockImplementation((args) => {
+      args();
+    });
+    transformProduct.mockReturnValue([createEsSystem()]);
+
+    const message: SystemMessage = {
+      type: "UPDATED",
+      itemType: "SYSTEMS",
+      items: [createPimSystem()]
+    };
+    await handleMessage(createEvent(message), createContext());
+
+    const expectedVariant = buildEsSystems([createPimSystem()]);
+
+    expect(updateElasticSearch).toBeCalledWith("SYSTEMS", expectedVariant);
   });
 
   describe("delete operation", () => {

@@ -35,7 +35,17 @@ const WhiteAutocomplete = withStyles({
   }
 })(Autocomplete);
 
-const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
+type InvitationDialogProps = {
+  styles: any;
+  dialogOpen: boolean;
+  onCloseClick: () => void;
+};
+
+const InvitationDialog = ({
+  styles,
+  dialogOpen,
+  onCloseClick
+}: InvitationDialogProps) => {
   const { t } = useTranslation(["error-page", "team-page"]);
   const [alertState, setAlertState] = useState<AlertStateProp>({
     open: false
@@ -47,7 +57,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
       setAlertState({
         open: true,
         severity: "error",
-        message: t(`error-page:${error.message}`)
+        message: t("team-page:invitation.dialog.errorCommonFailure")
       });
     },
     onCompleted: () =>
@@ -63,7 +73,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
     inviteUsers({
       variables: {
         input: {
-          emails: emails || []
+          emails: emails
         }
       }
     });
@@ -118,7 +128,7 @@ const InvitationDialog = ({ styles, dialogOpen, onCloseClick }: any) => {
       }}
       className={styles.dialog}
       open={dialogOpen}
-      data-testid="dialog"
+      data-testid="members-invitation-dialog"
     >
       <Dialog.Title hasUnderline>
         {t("team-page:invitation.dialog.title")}

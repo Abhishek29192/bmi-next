@@ -7,10 +7,9 @@ import createAsset from "../../../__tests__/AssetHelper";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    findAll: jest.fn()
   }
 };
 
@@ -43,11 +42,13 @@ describe("documents resolver utils", () => {
     };
     process.env.SPACE_MARKET_CODE = "SPACE_MARKET_CODE";
     it("should return empty array if no products found", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assets: {
@@ -73,11 +74,13 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       expect(
         await resolveDocumentsFromProducts([], { source, context })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {}
         },
@@ -85,7 +88,9 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query without pimCodes or categoryCodes if no provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] });
       const sourceWitoutCodes: Partial<Node> = {
         ...source,
         pimCodes: undefined,
@@ -97,7 +102,7 @@ describe("documents resolver utils", () => {
           context
         })
       ).toEqual([]);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assets: {
@@ -159,7 +164,9 @@ describe("documents resolver utils", () => {
         }
       ];
 
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(products);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValue({ entries: products });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
       ).toEqual([
@@ -168,10 +175,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-1",
           internal: {
-            contentDigest: "73d2ab1208ca6f224b8255f6fbce144f",
+            contentDigest: "bab90058677bb11e0a14c2fdc4788b99",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "asset-1",
@@ -182,10 +190,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-2",
           internal: {
-            contentDigest: "a800e9f8c1ddd35fefe36bbda032c3aa",
+            contentDigest: "827e3e7a40105c38bde2d1370ec1e174",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "asset-2",
@@ -199,10 +208,11 @@ describe("documents resolver utils", () => {
           format: "application/pdf",
           id: "product-1-nameasset-3",
           internal: {
-            contentDigest: "8d6022774e3b95762db734c740da0b63",
+            contentDigest: "8ce431c74abbe3fc435249dbbc2b2a1b",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source-id",
           product___NODE: "product-1",
           realFileName: "asset-real-file-name.pdf",
@@ -217,10 +227,11 @@ describe("documents resolver utils", () => {
           format: "application/pdf",
           id: "product-1-nameasset-4",
           internal: {
-            contentDigest: "ad930188ca49d9dd9fb5a9360977fbfe",
+            contentDigest: "8d2daadbab0f59acf7ce7766becc150d",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source-id",
           product___NODE: "product-1",
           realFileName: "asset-real-file-name.pdf",
@@ -232,10 +243,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-name",
           internal: {
-            contentDigest: "8670195ad3a9d4b2b63dfac28841839b",
+            contentDigest: "ba1d773a5aa6b19d4f4132324f7776bc",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "product-1-name asset-type-name-1",
@@ -256,11 +268,15 @@ describe("documents resolver utils", () => {
           ]
         }
       ];
-      context.nodeModel.runQuery = jest
+      context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValueOnce(products)
+        .mockResolvedValueOnce({ entries: products })
         .mockResolvedValueOnce({
-          productDocumentNameMap: "Product name + asset type"
+          entries: [
+            {
+              productDocumentNameMap: "Product name + asset type"
+            }
+          ]
         });
       expect(
         await resolveDocumentsFromProducts(assetTypes, { source, context })
@@ -270,10 +286,11 @@ describe("documents resolver utils", () => {
           children: [],
           id: "product-1-nameasset-1",
           internal: {
-            contentDigest: "8670195ad3a9d4b2b63dfac28841839b",
+            contentDigest: "ba1d773a5aa6b19d4f4132324f7776bc",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source-id",
           product___NODE: "product-1",
           title: "product-1-name asset-type-name-1",
@@ -290,11 +307,13 @@ describe("documents resolver utils", () => {
     ];
     const documents = [{ id: "document-1" }, { id: "document-2" }];
     it("should return documents", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: documents });
       expect(
         await resolveDocumentsFromContentful(assetTypes, { context })
       ).toEqual(documents);
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
             assetType: {
@@ -308,11 +327,13 @@ describe("documents resolver utils", () => {
       });
     });
     it("should run query with empty filter if no assetTypes provided", async () => {
-      context.nodeModel.runQuery = jest.fn().mockResolvedValueOnce(documents);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: documents });
       expect(await resolveDocumentsFromContentful([], { context })).toEqual(
         documents
       );
-      expect(context.nodeModel.runQuery).toHaveBeenCalledWith({
+      expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {}
         },

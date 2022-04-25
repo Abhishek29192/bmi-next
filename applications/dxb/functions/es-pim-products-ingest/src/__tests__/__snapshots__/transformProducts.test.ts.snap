@@ -141,319 +141,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-        Object {
-          "categoryType": "Brand",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "scoringWeightAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "1.0",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "red",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "glossy",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "generalInformation",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "concrete",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "measurements",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.length",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "10",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.width",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "20",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.height",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "30",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "variant-code",
-              "features": Array [
-                Object {
-                  "code": "classification-feature-code",
-                  "featureUnit": Object {
-                    "name": "unit-name",
-                    "symbol": "symbol",
-                    "unitType": "unit-type",
-                  },
-                  "featureValues": Array [
-                    Object {
-                      "code": "code",
-                      "value": "value",
-                    },
-                  ],
-                  "name": "name",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": "BMI-brand-code",
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
@@ -613,19 +304,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": "code",
-    "colourfamilyValue": "red",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [
-      "classification-feature-code",
-      "appearanceAttributes.colourfamily",
-      "appearanceAttributes.texturefamily",
-      "generalInformation.materials",
-      "measurements.length",
-      "measurements.width",
-      "measurements.height",
-    ],
     "generalInformation.materials": Array [
       Object {
         "code": "codesymbol",
@@ -658,8 +338,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": "code",
-    "materialsValue": "concrete",
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
@@ -698,50 +376,13 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 1,
-    "scoringWeight": "1.0",
-    "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": "code",
-    "texturefamilyValue": "glossy",
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
@@ -856,165 +497,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "appearanceAttributes",
-          "features": undefined,
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "appearanceAttributes",
-              "features": Array [],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classifications": Array [
       Object {
         "code": "appearanceAttributes",
@@ -1023,11 +509,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": undefined,
-    "colourfamilyValue": undefined,
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -1054,8 +537,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": undefined,
-    "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
     "parent-category-code": Array [
@@ -1072,50 +553,13 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 0,
-    "scoringWeight": "0",
-    "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": undefined,
-    "texturefamilyValue": undefined,
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
@@ -1230,165 +674,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "generalInformation",
-          "features": undefined,
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "generalInformation",
-              "features": Array [],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classifications": Array [
       Object {
         "code": "generalInformation",
@@ -1397,11 +686,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": undefined,
-    "colourfamilyValue": undefined,
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -1428,8 +714,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": undefined,
-    "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
     "parent-category-code": Array [
@@ -1446,50 +730,13 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 0,
-    "scoringWeight": "0",
-    "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": undefined,
-    "texturefamilyValue": undefined,
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
@@ -1513,225 +760,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": undefined,
-      "classifications": Array [
-        Object {
-          "code": "scoringWeightAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "1.0",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "red",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "glossy",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "generalInformation",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "concrete",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "measurements",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.length",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "10",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.width",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "20",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.height",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "30",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "variant-code",
-              "features": Array [
-                Object {
-                  "code": "classification-feature-code",
-                  "featureUnit": Object {
-                    "name": "unit-name",
-                    "symbol": "symbol",
-                    "unitType": "unit-type",
-                  },
-                  "featureValues": Array [
-                    Object {
-                      "code": "code",
-                      "value": "value",
-                    },
-                  ],
-                  "name": "name",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [],
-    "category.codes": Array [],
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
@@ -1891,19 +923,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": "code",
-    "colourfamilyValue": "red",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [
-      "classification-feature-code",
-      "appearanceAttributes.colourfamily",
-      "appearanceAttributes.texturefamily",
-      "generalInformation.materials",
-      "measurements.length",
-      "measurements.width",
-      "measurements.height",
-    ],
     "generalInformation.materials": Array [
       Object {
         "code": "codesymbol",
@@ -1936,8 +957,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": "code",
-    "materialsValue": "concrete",
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
@@ -1958,17 +977,13 @@ Array [
       },
     ],
     "name": "name",
-    "plpCategories": Array [],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 1,
-    "scoringWeight": "1.0",
-    "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": "code",
-    "texturefamilyValue": "glossy",
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
@@ -2083,160 +1098,14 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-      ],
-      "classifications": undefined,
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": undefined,
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classifications": Array [],
     "code": "code",
-    "colourfamilyCode": undefined,
-    "colourfamilyValue": undefined,
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -2263,8 +1132,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": undefined,
-    "materialsValue": undefined,
     "measurementValue": undefined,
     "name": "name",
     "parent-category-code": Array [
@@ -2281,50 +1148,13 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 0,
-    "scoringWeight": "0",
-    "scoringWeightInt": 0,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": undefined,
-    "texturefamilyValue": undefined,
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
@@ -2451,281 +1281,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "scoringWeightAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "1.0",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "red",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "glossy",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "generalInformation",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "concrete",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "measurements",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.length",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "10",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.width",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "20",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.height",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "30",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": undefined,
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "variant-code",
-              "features": Array [
-                Object {
-                  "code": "classification-feature-code",
-                  "featureUnit": Object {
-                    "name": "unit-name",
-                    "symbol": "symbol",
-                    "unitType": "unit-type",
-                  },
-                  "featureValues": Array [
-                    Object {
-                      "code": "code",
-                      "value": "value",
-                    },
-                  ],
-                  "name": "name",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": undefined,
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
@@ -2885,19 +1444,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": "code",
-    "colourfamilyValue": "red",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [
-      "classification-feature-code",
-      "appearanceAttributes.colourfamily",
-      "appearanceAttributes.texturefamily",
-      "generalInformation.materials",
-      "measurements.length",
-      "measurements.width",
-      "measurements.height",
-    ],
     "generalInformation.materials": Array [
       Object {
         "code": "codesymbol",
@@ -2907,8 +1455,6 @@ Array [
     "images": Array [],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": "code",
-    "materialsValue": "concrete",
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
@@ -2943,54 +1489,19 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 1,
-    "scoringWeight": "1.0",
-    "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": "code",
-    "texturefamilyValue": "glossy",
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]
 `;
+
+exports[`transformProduct original transform tests should not transform full product without Variant products 1`] = `Array []`;
 
 exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
 Array [
@@ -3113,305 +1624,10 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "approvalStatus": "approved",
-      "assets": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "ASSEMBLY_INSTRUCTIONS",
-          "fileSize": 10,
-          "format": "pdf",
-          "mime": "application/pdf",
-          "name": "name",
-          "realFileName": "real-file-name.pdf",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "categories": Array [
-        Object {
-          "categoryType": "Category",
-          "code": "parent-category-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductFamily",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "ProductLine",
-          "code": "code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "parent-category-code",
-        },
-        Object {
-          "categoryType": "Category",
-          "code": "BMI-brand-code",
-          "image": Object {
-            "allowedToDownload": true,
-            "fileSize": 10,
-            "mime": "image/png",
-            "name": "name",
-            "realFileName": "real-file-name.png",
-            "url": "http://localhost:8000",
-          },
-          "name": "name",
-          "parentCategoryCode": "BMI_Brands",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "scoringWeightAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "1.0",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "red",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "glossy",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "generalInformation",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/generalInformation.materials",
-              "featureUnit": Object {
-                "name": "unit-name",
-                "symbol": "symbol",
-                "unitType": "unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "concrete",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-        Object {
-          "code": "measurements",
-          "features": Array [
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.length",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "10",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.width",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "20",
-                },
-              ],
-              "name": "name",
-            },
-            Object {
-              "code": "bmiClassificationCatalog/1.0/measurements.height",
-              "featureUnit": Object {
-                "name": "millimeter",
-                "symbol": "mm",
-                "unitType": "space",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "code",
-                  "value": "30",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "name": "name",
-        },
-      ],
       "code": "code",
-      "description": "<p>Some description</p>",
-      "externalProductCode": "external-product-code",
-      "images": Array [
-        Object {
-          "allowedToDownload": true,
-          "assetType": "MASTER_IMAGE",
-          "containerId": "container-id",
-          "fileSize": 10,
-          "format": "Product-Hero-Small-Desktop-Tablet",
-          "mime": "image/jpeg",
-          "name": "name",
-          "realFileName": "real-file-name.jpeg",
-          "url": "http://localhost:8000",
-        },
-      ],
-      "isSampleOrderAllowed": true,
-      "longDescription": "<p>Some very long description</p>",
       "name": "name",
-      "shortDescription": "Short description",
-      "summary": "Summary",
-      "variantOptions": Array [
-        Object {
-          "approvalStatus": "approved",
-          "classifications": Array [
-            Object {
-              "code": "variant-code",
-              "features": Array [
-                Object {
-                  "code": "classification-feature-code",
-                  "featureUnit": Object {
-                    "name": "unit-name",
-                    "symbol": "symbol",
-                    "unitType": "unit-type",
-                  },
-                  "featureValues": Array [
-                    Object {
-                      "code": "code",
-                      "value": "value",
-                    },
-                  ],
-                  "name": "name",
-                },
-              ],
-              "name": "name",
-            },
-          ],
-          "code": "code",
-          "externalProductCode": "external-product-code",
-          "images": Array [
-            Object {
-              "allowedToDownload": true,
-              "assetType": "MASTER_IMAGE",
-              "containerId": "container-id",
-              "fileSize": 10,
-              "format": "Product-Hero-Small-Desktop-Tablet",
-              "mime": "image/jpeg",
-              "name": "name",
-              "realFileName": "real-file-name.jpeg",
-              "url": "http://localhost:8000",
-            },
-          ],
-          "isSampleOrderAllowed": true,
-          "longDescription": "<p>Long description</p>",
-          "productBenefits": Array [
-            "product-benefits",
-          ],
-          "shortDescription": "Short description",
-        },
-      ],
     },
     "brandCode": undefined,
-    "categories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
-    "category.codes": Array [
-      "parent-category-code",
-      "code",
-      "BMI-brand-code",
-    ],
     "classification-feature-code": Array [
       Object {
         "code": "codesymbol",
@@ -3571,19 +1787,8 @@ Array [
       },
     ],
     "code": "code",
-    "colourfamilyCode": "code",
-    "colourfamilyValue": "red",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "feature.codes": Array [
-      "classification-feature-code",
-      "appearanceAttributes.colourfamily",
-      "appearanceAttributes.texturefamily",
-      "generalInformation.materials",
-      "measurements.length",
-      "measurements.width",
-      "measurements.height",
-    ],
     "generalInformation.materials": Array [
       Object {
         "code": "codesymbol",
@@ -3616,8 +1821,6 @@ Array [
     ],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
-    "materialsCode": "code",
-    "materialsValue": "concrete",
     "measurementValue": undefined,
     "measurements.height": Array [
       Object {
@@ -3652,50 +1855,13 @@ Array [
         "name": "name",
       },
     ],
-    "plpCategories": Array [
-      Object {
-        "code": "code",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductFamily",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-      Object {
-        "categoryType": "ProductLine",
-        "code": "code",
-        "image": Object {
-          "allowedToDownload": true,
-          "fileSize": 10,
-          "mime": "image/png",
-          "name": "name",
-          "realFileName": "real-file-name.png",
-          "url": "http://localhost:8000",
-        },
-        "name": "name",
-        "parentCategoryCode": "parent-category-code",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
     "productScoringWeightInt": 1,
-    "scoringWeight": "1.0",
-    "scoringWeightInt": 1,
     "shortDescription": "Short description",
     "summary": "Summary",
-    "texturefamilyCode": "code",
-    "texturefamilyValue": "glossy",
+    "totalVariantCount": 1,
     "variantScoringWeightInt": 0,
   },
 ]

@@ -34,7 +34,7 @@ describe("schemaOrgPDPpage tests", () => {
       const expectedResult = {
         "@context": "https://schema.org",
         "@type": "Product",
-        url: "/no/p/some-product-path",
+        url: "/no/p/some-product-path/",
         award: undefined,
         brand: undefined,
         color: undefined,
@@ -373,7 +373,7 @@ describe("schemaOrgPDPpage tests", () => {
         },
         productID: "variant-code",
         size: "variant-length-valuevariant-length-feature-unit-symbol x variant-thickness-valuevariant-thickness-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
-        url: "/no/p/some-product-path",
+        url: "/no/p/some-product-path/",
         weight: {
           "@type": "QuantitativeValue",
           value: "variant-weight-per-price-value",
@@ -691,7 +691,7 @@ describe("schemaOrgPDPpage tests", () => {
         },
         productID: "variant-code",
         size: "variant-length-valuevariant-length-feature-unit-symbol x variant-width-valuevariant-width-feature-unit-symbol x variant-height-valuevariant-height-feature-unit-symbol",
-        url: "/no/p/some-product-path",
+        url: "/no/p/some-product-path/",
         weight: {
           "@type": "QuantitativeValue",
           value: "variant-weight-per-price-value",
@@ -878,7 +878,7 @@ describe("schemaOrgPDPpage tests", () => {
         potentialAction: undefined,
         productID: "variant-code",
         size: "undefinedxundefinedundefined",
-        url: "/no/p/some-product-path",
+        url: "/no/p/some-product-path/",
         weight: {
           "@type": "QuantitativeValue",
           value: undefined,
@@ -932,7 +932,7 @@ describe("schemaOrgPDPpage tests", () => {
         potentialAction: undefined,
         productID: "variant-code",
         size: undefined,
-        url: "/no/some-path",
+        url: "/no/some-path/",
         weight: undefined,
         width: undefined
       };

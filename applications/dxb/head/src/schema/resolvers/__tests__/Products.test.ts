@@ -9,16 +9,15 @@ import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    runQuery: jest.fn().mockImplementation(({ query }) => {
-      const { categoryCodes } = query.filter;
+    findAll: jest.fn().mockImplementation(({ query }) => {
+      const { categoryCodes } = query && query.filter;
 
       if (!categoryCodes.in.length) {
-        return [];
+        return { entries: [] };
       }
-      return [{ type: "parentFamily" }];
+      return { entries: [{ type: "parentFamily" }] };
     })
   }
 };
@@ -279,6 +278,9 @@ describe("Products resolver", () => {
     });
 
     it("should resolve empty array if no assets provided", async () => {
+      context.nodeModel.findAll = jest.fn().mockImplementation(() => {
+        return { entries: [{ type: "parentFamily" }] };
+      });
       expect(
         await Products.documents.resolve(
           { ...source, assets: null },
@@ -289,24 +291,27 @@ describe("Products resolver", () => {
     });
 
     it("should resolve documents", async () => {
-      context.nodeModel.getAllNodes = jest.fn().mockResolvedValue([
-        {
-          pimCode: "ASSEMBLY_INSTRUCTIONS",
-          id: "asset-type-1",
-          name: "asset-type-name-1"
-        },
-        { pimCode: "AWARDS", id: "asset-type-2", name: "asset-type-name-2" }
-      ]);
+      context.nodeModel.findAll = jest.fn().mockResolvedValue({
+        entries: [
+          {
+            pimCode: "ASSEMBLY_INSTRUCTIONS",
+            id: "asset-type-1",
+            name: "asset-type-name-1"
+          },
+          { pimCode: "AWARDS", id: "asset-type-2", name: "asset-type-name-2" }
+        ]
+      });
       expect(await Products.documents.resolve(source, null, context)).toEqual([
         {
           assetType___NODE: "asset-type-1",
           children: [],
           id: "source-nameasset-name",
           internal: {
-            contentDigest: "a895e349ad68f3d19a6d289b59ef06ac",
+            contentDigest: "ee5f1b0abc7ab18bac700cb981d7e862",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
+          isLinkDocument: true,
           parent: "source",
           product___NODE: "source",
           title: "source-name asset-type-name-1",
@@ -320,10 +325,11 @@ describe("Products resolver", () => {
           format: "application/pdf",
           id: "source-nameasset-2",
           internal: {
-            contentDigest: "8d80a532ce9c4f312668ad39cc962245",
+            contentDigest: "32e75455a8c914e23a98263b3f92780f",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source",
           product___NODE: "source",
           title: "source-name asset-type-name-1",
@@ -337,10 +343,11 @@ describe("Products resolver", () => {
           format: "application/pdf",
           id: "source-nameasset-3",
           internal: {
-            contentDigest: "8d80a532ce9c4f312668ad39cc962245",
+            contentDigest: "32e75455a8c914e23a98263b3f92780f",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
+          isLinkDocument: false,
           parent: "source",
           product___NODE: "source",
           title: "source-name asset-type-name-1",

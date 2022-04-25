@@ -1,12 +1,11 @@
 import React from "react";
-import "@testing-library/jest-dom";
 import { render, RenderResult } from "@testing-library/react";
 import {
   createHistory,
   createMemorySource,
   LocationProvider
 } from "@reach/router";
-import SimplePage, { Data } from "../components/simple-page";
+import SimplePage, { Data, Props } from "../components/simple-page";
 import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import { Data as ShareWidgetSectionData } from "../../../components/ShareWidgetSection";
 import { Data as SectionsData } from "../../../components/Sections";
@@ -14,45 +13,41 @@ import { Data as NextBestActionsData } from "../../../components/NextBestActions
 import { Data as ExploreBarData } from "../../../components/ExploreBar";
 import { Data as LinkColumnsSectionData } from "../../../components/LinkColumnsSection";
 import { Data as LinkData } from "../../../components/Link";
-import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import {
   cta,
   exploreBarData,
   featuredMedia,
+  inputBanner,
+  leadBlockData,
   linkColumnsData,
   nextBestActions,
   pageContext,
   sections,
-  shareWidgetData,
-  leadBlockData,
-  inputBanner
-} from "../__mocks__/mocks";
+  shareWidgetData
+} from "../__mocks__/simplePage";
 import { createMockSiteData } from "../../../test/mockSiteData";
-
-process.env.GATSBY_USE_LEGACY_FILTERS = "true";
-process.env.GATSBY_RECAPTCHA_KEY = "test";
-process.env.GATSBY_VISUALISER_ASSETS_URL = "jest-test-page";
+import { ConfigProvider } from "../../../contexts/ConfigProvider";
+import { Data as SiteData } from "../../../components/Site";
 
 const route = "/jest-test-page";
 const history = createHistory(createMemorySource(route));
 
 const renderWithStylesAndLocationProvider = (
-  pageData: any,
-  pageContext: PageContextType
-): RenderResult => {
-  return render(
-    <ProvideStyles>
-      <LocationProvider history={history}>
-        <SimplePage data={pageData} pageContext={pageContext} />
-      </LocationProvider>
-    </ProvideStyles>
+  pageData: Props["data"],
+  pageContext: Props["pageContext"]
+): RenderResult =>
+  render(
+    <ConfigProvider configObject={{ isBrandProviderEnabled: true }}>
+      <ProvideStyles>
+        <LocationProvider history={history}>
+          <SimplePage data={pageData} pageContext={pageContext} />
+        </LocationProvider>
+      </ProvideStyles>
+    </ConfigProvider>
   );
-};
 
-const OLD_ENV = process.env;
-
-const data: { contentfulSimplePage: Data; contentfulSite: any } = {
+const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
   contentfulSimplePage: {
     // Data
     id: "simplePage",
@@ -96,15 +91,11 @@ const data: { contentfulSimplePage: Data; contentfulSite: any } = {
 
 describe("Simple page", () => {
   afterEach(() => {
-    process.env = OLD_ENV; // Restore old environment
-
     jest.restoreAllMocks();
   });
 
   beforeEach(() => {
-    jest.resetModules(); // Most important - it clears the cache
-    process.env = { ...OLD_ENV }; // Make a copy
-    process.env.GATSBY_ENABLE_BRAND_PROVIDER = "true";
+    jest.resetModules();
   });
 
   it("renders correctly with full data", () => {
@@ -120,7 +111,7 @@ describe("Simple page", () => {
       ...data,
       contentfulSimplePage: {
         ...data.contentfulSimplePage,
-        heroType: "Spotlight",
+        heroType: "Spotlight" as const,
         sections: [],
         exploreBarData: null,
         leadBlock: null

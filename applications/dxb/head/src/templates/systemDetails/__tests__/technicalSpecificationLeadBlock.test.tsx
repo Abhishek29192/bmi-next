@@ -6,7 +6,6 @@ import {
   ClassificationCodeEnum,
   Feature
 } from "../../../components/types/pim";
-import "@testing-library/jest-dom";
 
 const technicalSpecClassifications: Classification[] = [
   {

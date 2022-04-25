@@ -46,6 +46,16 @@ const Thumbnail = ({
     state !== StateEnum.ENABLED && styles[`Thumbnail--${state}`],
     size === SizeEnum.LARGE && styles["Thumbnail--large"]
   );
+  const backgroundImage =
+    (imageSource && isVideo) || (imageSource && !media)
+      ? { backgroundImage: `url("${imageSource}")` }
+      : {};
+
+  const accessibilityText =
+    (altText && isVideo) || (altText && !media) ? (
+      <span className={styles["accessibility-text"]}>{altText}</span>
+    ) : null;
+
   return (
     <ButtonBase
       disabled={state === StateEnum.DISABLED}
@@ -54,13 +64,11 @@ const Thumbnail = ({
       {...rest}
       style={{
         backgroundColor: color,
-        backgroundImage: imageSource && `url("${imageSource}")`
+        ...backgroundImage
       }}
     >
-      {altText && (
-        <span className={styles["accessibility-text"]}>{altText}</span>
-      )}
-      {media && <Media>{media}</Media>}
+      {accessibilityText}
+      {media && !isVideo && <Media>{media}</Media>}
       {isVideo && (
         <Icon
           source={iconMap.PlayArrow}

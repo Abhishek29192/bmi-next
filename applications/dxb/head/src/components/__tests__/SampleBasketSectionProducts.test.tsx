@@ -100,6 +100,6 @@ describe("SampleBasketSectionProducts component", () => {
 
     fireEvent.click(screen.queryByText("sample-1"));
 
-    expect(Gatsby.navigate).toBeCalledWith("/en/sample-1-details");
+    expect(Gatsby.navigate).toBeCalledWith("/en/sample-1-details/");
   });
 });

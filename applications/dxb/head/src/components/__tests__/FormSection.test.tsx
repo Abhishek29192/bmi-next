@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
@@ -6,6 +5,7 @@ import * as Gatsby from "gatsby";
 import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -143,7 +143,6 @@ jest.mock("react-google-recaptcha-v3", () => ({
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT = "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
 const onSuccess = jest.fn();
 jest.spyOn(Gatsby, "navigate").mockImplementation();
 axios.CancelToken.source = jest.fn().mockReturnValue({
@@ -153,7 +152,6 @@ axios.CancelToken.source = jest.fn().mockReturnValue({
 
 afterEach(() => {
   jest.restoreAllMocks();
-  delete process.env.GATSBY_PREVIEW;
 });
 
 describe("FormSection component", () => {
@@ -302,10 +300,11 @@ describe("FormSection component", () => {
   });
 
   it("test submit when preview is on", () => {
-    process.env.GATSBY_PREVIEW = "GATSBY_PREVIEW";
     jest.spyOn(window, "alert").mockImplementation();
     const { container } = render(
-      <FormSection data={data} backgroundColor="white" />
+      <ConfigProvider configObject={{ isPreviewMode: true }}>
+        <FormSection data={data} backgroundColor="white" />
+      </ConfigProvider>
     );
     fireEvent.submit(container.querySelector("form"));
     expect(window.alert).toHaveBeenCalledWith(
@@ -326,13 +325,19 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <MockSiteContext>
-        <FormSection
-          data={specificData}
-          backgroundColor="white"
-          onSuccess={onSuccess}
-        />
-      </MockSiteContext>
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={onSuccess}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);
@@ -374,13 +379,19 @@ describe("FormSection component", () => {
     };
     jest.spyOn(Gatsby, "navigate").mockImplementation();
     const { container } = render(
-      <MockSiteContext>
-        <FormSection
-          data={specificData}
-          backgroundColor="white"
-          onSuccess={jest.fn()}
-        />
-      </MockSiteContext>
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={specificData}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
     );
 
     const textInput = container.querySelector(`input[name="text"]`);
@@ -511,6 +522,30 @@ describe("Hubspot FormSection component", () => {
     const { container } = render(
       <FormSection data={dataHubSpot} backgroundColor="white" />
     );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with sampleIds", () => {
+    const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
+
+    window.addEventListener = jest.fn();
+    const onFormReadyEvent = new MessageEvent("message", {
+      data: {
+        type: "hsFormCallback",
+        eventName: "onFormReady"
+      }
+    });
+
+    const { container } = render(
+      <FormSection
+        data={dataHubSpot}
+        sampleIds={sampleIds}
+        backgroundColor="white"
+      />
+    );
+    window.dispatchEvent(onFormReadyEvent);
+    expect(window.addEventListener).toBeCalled();
 
     expect(container).toMatchSnapshot();
   });

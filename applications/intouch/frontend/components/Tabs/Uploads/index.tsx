@@ -15,6 +15,7 @@ import {
 } from "@bmi/intouch-api-types";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { Project } from "@bmi/intouch-api-types";
 import {
   useAddEvidencesMutation,
   GetProjectDocument,
@@ -77,8 +78,8 @@ const getUploads = (project: GetProjectQuery["project"]) => {
 
   //Default custom guarantee types
   const evidenceCategories =
-    findProjectGuarantee(project)?.guaranteeType?.evidenceCategoriesCollection
-      ?.items || [];
+    findProjectGuarantee(project as DeepPartial<Project>)?.guaranteeType
+      ?.evidenceCategoriesCollection?.items || [];
   for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
     uploads.set(evidenceCategory.name, {
       evidences: [],
@@ -143,7 +144,9 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
   const { t } = useTranslation("project-page");
 
   const { id: projectId } = project;
-  const currentGuarantee = findProjectGuarantee(project);
+  const currentGuarantee = findProjectGuarantee(
+    project as DeepPartial<Project>
+  );
   const customEvidenceAvailable = isCustomEvidenceAvailable(currentGuarantee);
 
   const [isEvidenceDialogOpen, setEvidenceDialogOpen] = useState(false);

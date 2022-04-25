@@ -1,1 +1,3 @@
 .yarn/**
+# Needed only until we can use upstream fixes or we take this into our own setup properly
+applications/dxb/libraries/gatsby-plugin-sitemap/*.js

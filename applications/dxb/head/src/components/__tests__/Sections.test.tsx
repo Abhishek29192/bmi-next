@@ -58,6 +58,7 @@ describe("Sections component", () => {
         items: [
           {
             __typename: "ContentfulTitleWithContent",
+            name: "hello",
             title: "hello",
             content: {
               raw: contentMock,
@@ -74,6 +75,7 @@ describe("Sections component", () => {
         items: [
           {
             __typename: "ContentfulTitleWithContent",
+            name: "hello",
             title: "hello",
             content: {
               raw: contentMock,
@@ -230,7 +232,11 @@ describe("Sections component", () => {
                 }
               },
               thumbnail: {
-                src: "//images.asset.jpg"
+                src: "//images.asset.jpg",
+                file: {
+                  fileName: "Lorem ipsum",
+                  url: "//images.asset.jpg"
+                }
               }
             },
             featuredVideo: null
@@ -315,7 +321,11 @@ describe("Sections component", () => {
           caption: null,
           focalPoint: null,
           thumbnail: {
-            src: "//images.asset.jpg"
+            src: "//images.asset.jpg",
+            file: {
+              fileName: "Lorem ipsum",
+              url: "//images.asset.jpg"
+            }
           }
         },
         cta: null,

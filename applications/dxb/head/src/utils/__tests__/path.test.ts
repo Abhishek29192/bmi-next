@@ -16,7 +16,7 @@ describe("getPathWithCountryCode", () => {
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode);
 
-    expect(pathWithCountryCode).toStrictEqual("/no");
+    expect(pathWithCountryCode).toStrictEqual("/no/");
   });
 
   it("should return just the provided country code if null is passed into path", async () => {
@@ -24,25 +24,34 @@ describe("getPathWithCountryCode", () => {
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode, null);
 
-    expect(pathWithCountryCode).toStrictEqual("/no");
+    expect(pathWithCountryCode).toStrictEqual("/no/");
   });
 
   it("should prepend the path with the provided country code", async () => {
     const countryCode = "no";
-    const path = "/some/page";
+    const path = "/some/page/";
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
 
-    expect(pathWithCountryCode).toStrictEqual("/no/some/page");
+    expect(pathWithCountryCode).toStrictEqual("/no/some/page/");
   });
 
   it("should prepend the relative path with the provided country code", async () => {
+    const countryCode = "no";
+    const path = "some/page/";
+
+    const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
+
+    expect(pathWithCountryCode).toStrictEqual("/no/some/page/");
+  });
+
+  it("should append the trailing slash if it does not exist", async () => {
     const countryCode = "no";
     const path = "some/page";
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
 
-    expect(pathWithCountryCode).toStrictEqual("/no/some/page");
+    expect(pathWithCountryCode).toStrictEqual("/no/some/page/");
   });
 
   it("should return the root path if path is not provided and GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
@@ -66,20 +75,20 @@ describe("getPathWithCountryCode", () => {
   it("should not prepend the path with the provided country code if GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
     process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
     const countryCode = "no";
-    const path = "/some/page";
+    const path = "/some/page/";
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
 
-    expect(pathWithCountryCode).toStrictEqual("/some/page");
+    expect(pathWithCountryCode).toStrictEqual("/some/page/");
   });
 
   it("should not prepend the relative path with the provided country code if GATSBY_DONT_USE_COUNTRY_CODE is true", async () => {
     process.env.GATSBY_DONT_USE_COUNTRY_CODE = "true";
     const countryCode = "no";
-    const path = "/some/page";
+    const path = "/some/page/";
 
     const pathWithCountryCode = await getPathWithCountryCode(countryCode, path);
 
-    expect(pathWithCountryCode).toStrictEqual("/some/page");
+    expect(pathWithCountryCode).toStrictEqual("/some/page/");
   });
 });

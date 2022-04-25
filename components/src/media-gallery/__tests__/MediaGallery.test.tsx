@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import React from "react";
 import { fireEvent, render, waitFor } from "@testing-library/react";
 import MediaGallery from "../MediaGallery";
@@ -64,51 +63,6 @@ describe("MediaGallery component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("test click on sortable thumbnails", () => {
-    const data = [
-      {
-        media: (
-          <YoutubeVideo
-            label="test video 1"
-            videoId="A-RfHC91Ewc"
-            embedHeight={720}
-            embedWidth={1280}
-            layout="dialog"
-          />
-        ),
-        thumbnail: "https://thumbnail1.jpg",
-        caption: undefined,
-        isVideo: true
-      },
-      {
-        media: (
-          <YoutubeVideo
-            label="test video 2"
-            videoId="A-RfHC91Awc"
-            embedHeight={720}
-            embedWidth={1280}
-            layout="dialog"
-          />
-        ),
-        thumbnail: "https://thumbnail2.jpg",
-        caption: "This is videos caption  2",
-        altText: "test alt text 2",
-        isVideo: true
-      }
-    ];
-    const wrapper = render(<MediaGallery media={data} needToSort={true} />);
-    const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
-    const previewImage = wrapper.container.querySelector(".preview-image");
-    expect(previewImage).toHaveAttribute("alt", "test video 2");
-    expect(thumbnails).toHaveLength(2);
-    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
-    fireEvent.click(thumbnails[1]);
-    expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--large");
-    expect(previewImage).toHaveAttribute("alt", "test video 1");
-    expect(wrapper.container).toMatchSnapshot();
-  });
-
   it("test click on nonsortable thumbnails", () => {
     const data = [
       {
@@ -148,21 +102,27 @@ describe("MediaGallery component", () => {
     expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
     fireEvent.click(thumbnails[1]);
     expect(thumbnails[1]).toHaveClass("Thumbnail--selected");
-    expect(thumbnails[0]).toHaveClass("Thumbnail--large");
+    expect(thumbnails[1]).toHaveClass("Thumbnail--large");
     expect(previewImage).toHaveAttribute("alt", "test video 2");
     expect(wrapper.container).toMatchSnapshot();
   });
 
-  it("test click on play icon", () => {
+  it("test click on play icon", async () => {
     const wrapper = render(<MediaGallery media={mockMedia} />);
     const playIcon = wrapper.container.querySelector(".play-icon");
     const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
     expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
-    fireEvent.click(thumbnails[0]);
+    fireEvent.click(thumbnails[1]);
     fireEvent.click(playIcon as Element);
-    waitFor(() =>
-      expect(document.querySelector(".ContainerDialog")).toBeInTheDocument()
-    );
+    expect(
+      await waitFor(() => document.querySelector(".ContainerDialog"))
+    ).toBeInTheDocument();
+  });
+
+  it("test first element of media array is selected by default", () => {
+    const wrapper = render(<MediaGallery media={mockMedia} />);
+    const thumbnails = wrapper.container.querySelectorAll(".Thumbnail");
+    expect(thumbnails[0]).toHaveClass("Thumbnail--selected");
   });
 
   it("renders MobileThumbnails if isTouchDevice is true", () => {

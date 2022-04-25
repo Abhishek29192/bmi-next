@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import { Arrow } from "../../icon";
 import Clickable from "../../clickable/Clickable";
 import Navigation from "../Navigation";

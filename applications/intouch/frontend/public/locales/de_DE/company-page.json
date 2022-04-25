@@ -48,6 +48,7 @@
       "evidence_category": "Kategorie hochladen",
       "fileAlreadyExisting": "Dateiname existiert bereits",
       "fileValidationMessage": "Sie können keine Dateien hochladen, die größer als {{fileSize}} sind",
+      "total_files_size": "Gesamtgröße der Dateien überschritten - {{totalSize}}",
       "genericError": "Allgemeiner Fehler",
       "instruction": "Sie können Dateien hinzufügen",
       "microcopy": {
@@ -167,5 +168,7 @@
       "ALPHABETICAL": "Alphabetisch",
       "UPDATED": "Zuletzt aktualisiert"
     }
-  }
+  },
+  "companyAdministrators": "Unternehmensadministratoren",
+  "companyMembers": "Mitglieder"
 }

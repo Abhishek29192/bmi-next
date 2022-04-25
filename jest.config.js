@@ -37,18 +37,20 @@ module.exports = {
     "(?<!\\.module)\\.s?css$": require.resolve("./jest/src/GlobalCSS.ts"),
     "\\.svg$": require.resolve("./jest/src/SVGImport.tsx"),
     "\\.(woff2|ttf)$": require.resolve("./jest/src/FontImport.ts"),
-    "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src"
+    "^@bmi/(?!visualiser/data)(.*)$": "<rootDir>/node_modules/@bmi/$1/src",
+    "^gatsby-page-utils/(.*)$":
+      "<rootDir>/node_modules/gatsby-page-utils/dist/$1" // Workaround for https://github.com/facebook/jest/issues/9771
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   transformIgnorePatterns: ["node_modules/(?!(three|lodash-es)/)"],
-  setupFiles: [
-    "<rootDir>/jest/src/setEnvVars.ts",
+  setupFiles: ["<rootDir>/jest/src/setEnvVars.ts"],
+  setupFilesAfterEnv: [
+    "jest-mock-console/dist/setupTestFramework.js",
     "<rootDir>/jest/src/setupTests.ts"
   ],
-  setupFilesAfterEnv: ["jest-mock-console/dist/setupTestFramework.js"],
   coverageThreshold: {
     global: {
       statements: "100",

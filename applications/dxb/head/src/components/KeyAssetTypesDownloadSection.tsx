@@ -6,6 +6,7 @@ import { GetApp } from "@material-ui/icons";
 import { getDownloadLink, downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
 import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
+import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
 import Icon from "./Icon";
 
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
@@ -38,8 +39,10 @@ const GTMButton = withGTM<
 
 export const handleDownloadClick = async (
   list: CommonData[],
-  token: string
+  token: string,
+  config: EnvConfig["config"]
 ) => {
+  const { isPreviewMode, documentDownloadEndpoint } = config;
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
   if (list.length === 0) {
@@ -48,7 +51,7 @@ export const handleDownloadClick = async (
     };
   }
 
-  if (process.env.GATSBY_PREVIEW) {
+  if (isPreviewMode) {
     alert("You cannot download documents on the preview enviornment.");
 
     return () => {
@@ -57,7 +60,7 @@ export const handleDownloadClick = async (
   }
 
   try {
-    if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+    if (!documentDownloadEndpoint) {
       throw Error(
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
@@ -69,7 +72,7 @@ export const handleDownloadClick = async (
     });
 
     const response = await axios.post(
-      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+      documentDownloadEndpoint,
       { documents },
       { responseType: "text", headers: { "X-Recaptcha-Token": token } }
     );
@@ -117,6 +120,7 @@ export const mapAssetToCommonData = (data: Data): CommonData => {
 const KeyAssetTypesDownloadSection = (props: Props) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const { assetTypes, documents } = props;
+  const { config } = useConfig();
 
   return (
     <div className={styles["container"]}>
@@ -154,7 +158,7 @@ const KeyAssetTypesDownloadSection = (props: Props) => {
                 (async () => {
                   const token = await executeRecaptcha();
 
-                  handleDownloadClick(mappedDocuments, token);
+                  handleDownloadClick(mappedDocuments, token, config);
                 })
               }
             >

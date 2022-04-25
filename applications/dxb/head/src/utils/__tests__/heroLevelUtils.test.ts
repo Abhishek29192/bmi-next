@@ -1,8 +1,16 @@
 import React from "react";
 import { generateHeroLevel, generateHeroProps } from "../heroLevelUtils";
 import { Data as LinkData, DataTypeEnum } from "../../components/Link";
-import { ContentfulVideoData } from "../../components/Video";
+import {
+  ContentfulVideoData,
+  renderVideo as mockRenderVideo
+} from "../../components/Video";
 import { Data as ImageData } from "../../components/Image";
+
+jest.mock("../../components/Video", () => ({
+  ...(jest.requireActual("../../components/Video") as any),
+  renderVideo: jest.fn()
+}));
 
 const mockBreadCrumbs = [
   { id: "id-mock", label: "mock-breadcrumb", slug: "slug-mock" }
@@ -118,12 +126,7 @@ describe("generateHeroProps test", () => {
       })
     );
 
-    expect(result.media.props).toEqual(
-      expect.objectContaining({
-        videoId: "TDNEwZbm_Nk",
-        subtitle: "video subtitle"
-      })
-    );
+    expect(mockRenderVideo).toBeCalledWith(featureVideo);
 
     expect((result.cta as React.ReactElement).props).toEqual(
       expect.objectContaining({

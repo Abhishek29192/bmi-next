@@ -28,8 +28,8 @@ exports[`RelatedSystems component renders correctly when scoringweight equal & n
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -108,8 +108,8 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -156,8 +156,8 @@ exports[`RelatedSystems component renders correctly with scoringweight 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
-                href="/en/s/test2"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2/\\"}"
+                href="/en/s/test2/"
                 role="button"
                 tabindex="0"
               >
@@ -234,8 +234,8 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
-                href="/en/s/test2"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2/\\"}"
+                href="/en/s/test2/"
                 role="button"
                 tabindex="0"
               >
@@ -282,8 +282,8 @@ exports[`RelatedSystems component renders correctly with scoringweight equal & n
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -360,8 +360,8 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -408,8 +408,8 @@ exports[`RelatedSystems component renders correctly with scoringweight equal 1`]
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2\\"}"
-                href="/en/s/test2"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 2 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test2/\\"}"
+                href="/en/s/test2/"
                 role="button"
                 tabindex="0"
               >
@@ -486,8 +486,8 @@ exports[`RelatedSystems component renders correctly with systems 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -564,8 +564,8 @@ exports[`RelatedSystems component renders correctly without categories 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >
@@ -642,8 +642,8 @@ exports[`RelatedSystems component renders systems correctly without classificati
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test\\"}"
-                href="/en/s/test"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"NO System 1 - MC: sdp.system.readMore\\",\\"action\\":\\"/en/s/test/\\"}"
+                href="/en/s/test/"
                 role="button"
                 tabindex="0"
               >

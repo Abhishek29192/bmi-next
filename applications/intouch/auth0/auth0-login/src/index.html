@@ -550,7 +550,9 @@
           success: "Success",
           terms_missing: "Please accept terms & condition",
           PasswordStrengthError:
-            "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)"
+            "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)",
+          ValidationError:
+            "User accounts updated. Please reset your password. Contact BMI if the problem persists."
         },
         no: {
           intouch_title: "InTouch - Logg inn/Registrering",
@@ -581,14 +583,16 @@
           email_password_missing: "E-post og passord mangler",
           registration_tooltip:
             "Velg kun firmakonto hvis du er sikker på at firmaet ditt ikke allerede er registrert i InTouch. Individuelle kontoer får tilgang til opplæring og kan bli medlemmer av registrerte selskaper.",
-          i_agree_to: "Jeg er enig i BMI's",
+          i_agree_to: "Jeg er enig i BMI",
           terms_and_conditions: "Betingelser og vilkår",
           and: "og",
           privacy_policy: "Personvernerklæring",
-          success: "Suksess",
           terms_missing: "Godta vilkår og betingelser",
+          success: "Suksess",
           PasswordStrengthError:
-            "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)"
+            "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)",
+          ValidationError:
+            "Brukerkontoer oppdatert. Tilbakestill passordet ditt. Kontakt BMI hvis problemet vedvarer"
         },
         it: {
           intouch_title: "InTouch - Accesso/Registrazione",
@@ -623,10 +627,12 @@
           terms_and_conditions: "Termini e Condizioni",
           and: "e",
           privacy_policy: "Politica sulla privacy",
-          success: "Successo",
           terms_missing: "Si prega di accettare i termini e le condizioni",
+          success: "Successo",
           PasswordStrengthError:
-            "Si prega di utilizzare una password di almeno 8 caratteri e che contenga almeno 3 dei seguenti 4 tipi di caratteri: lettere minuscole (a-z), lettere maiuscole (A-Z), numeri (es. 0-9), caratteri speciali (es. !@#$%^&*)"
+            "Si prega di utilizzare una password di almeno 8 caratteri e che contenga almeno 3 dei seguenti 4 tipi di caratteri: lettere minuscole (a-z), lettere maiuscole (A-Z), numeri (es. 0-9), caratteri speciali (es. !@#$%^&*)",
+          ValidationError:
+            "L'account è stato aggiornato, per favore fai il reset della password. Se il problema persiste contattaci."
         },
         dk: {
           intouch_title: "InTouch - Login / Registrering",
@@ -665,7 +671,7 @@
           terms_missing: "Accepter vilkår og betingelser",
           PasswordStrengthError:
             "Brug en adgangskode med mindst 8 tegn og indeholder mindst 3 af følgende 4 typer tegn: små bogstaver (az), store bogstaver (AZ), tal (dvs. 0-9), specialtegn (f.eks. @ # $% ^ & * )"
-          },
+        },
         de: {
           intouch_title: "InTouch - Log-in / Registrieren",
           signup_welcome: "Willkommen",
@@ -703,6 +709,44 @@
           terms_missing: "Bitte akzeptieren Sie die Nutzungsbedingungen",
           PasswordStrengthError:
             "Bitte verwenden Sie ein Passwort mit mindestens 8 Zeichen Länge und enthalten mindestens 3 der folgenden 4 Zeichenarten: Kleinbuchstaben (a-z), Großbuchstaben (A-Z), Zahlen (zB 0-9), Sonderzeichen (zB !@#$%^&*)"
+        },
+        es: {
+          intouch_title: "InTouch - inicio de sesión / registro",
+          signup_welcome: "Bienvenido/a",
+          intouch_role: "Seleccione su tipo de registro",
+          installer: "Cuenta individual",
+          company: "Cuenta de empresa",
+          first_name: "Nombre",
+          last_name: "Apellido",
+          enter_email: "Dirección de correo electrónico",
+          enter_password: "Contraseña",
+          sign_up: "Inscribirse",
+          already_registered: "¿Ya está registrado/a?",
+          login_welcome: "Bienvenido/a",
+          log_in: "Iniciar sesión",
+          forgot_password: "¿Olvido la contraseña?",
+          not_registered: "¿Ya está registrado/a?",
+          new_password: "Cambiar contraseña",
+          new_password_text:
+            "Ingrese su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña",
+          reset_password: "Cree una contraseña",
+          back_to_login: "Atrás para iniciar sesión",
+          reset_password_success: "Consultar su correo electrónico",
+          email_missing: "Por favor, introduzca su dirección de correo electrónico",
+          generic_error:
+            "¿Añadió la información correctamente? Por favor contáctenos si el problema persiste",
+          name_surname_missing: "Falta nombre y apellido",
+          email_password_missing: "Falta el correo electrónico y la contraseña",
+          registration_tooltip:
+            "Solo seleccione Cuenta de empresa si está seguro de que su empresa aún no está registrada en InTouch. Las cuentas individuales tendrán acceso a la formación y podrán convertirse en miembros de empresas registradas.",
+          i_agree_to: "Acepto los",
+          terms_and_conditions: "Términos y condiciones de BMI",
+          and: "y",
+          privacy_policy: "Política de privacidad de BMI",
+          success: "Éxito",
+          terms_missing: "Por favor acepte los términos y condiciones de BMI",
+          PasswordStrengthError:
+            "Utilice una contraseña con al menos 8 caracteres de longitud y que contenga al menos 3 de los siguientes 4 tipos de caracteres: letras minúsculas (az), letras mayúsculas (AZ), números (es decir, 0-9), caracteres especiales (p. ej. !@#$%^&*)"
         }
       };
 
@@ -724,7 +768,8 @@
           no: true, // project active
           it: true,
           dk: true,
-          de: true,
+          de: false,
+          es: true,
           en: false // project not active
         };
 

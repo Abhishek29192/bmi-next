@@ -614,7 +614,7 @@ exports[`Pagination component renders with page buttons, go-to-first, go-to-last
       </li>
       <li>
         <div
-          class="PaginationItem MuiPaginationItem-root"
+          class="PaginationItem MuiPaginationItem-root MuiPaginationItem-ellipsis"
         >
           <svg
             style="font-size: 16px;"

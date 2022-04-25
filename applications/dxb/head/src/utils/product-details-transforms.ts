@@ -1,19 +1,19 @@
 import { Link } from "gatsby";
-import { ProductOverviewPaneProps } from "@bmi/components";
-import { Image as ImageGalleryImage } from "@bmi/components";
+import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import React from "react";
+import { filterTwoOneAttributes } from "@bmi/pim-types";
 import {
   Category,
   Classification,
+  ClassificationCodeEnum,
+  FeatureCodeEnum,
   FeatureValue,
   Image,
+  ImageAssetTypesEnum,
   ImageFormatEnum,
   Product,
   VariantOption,
-  VariantOptionWithProduct,
-  ImageAssetTypesEnum,
-  ClassificationCodeEnum,
-  FeatureCodeEnum
+  VariantOptionWithProduct
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
 import { getPathWithCountryCode } from "./path";
@@ -30,8 +30,7 @@ const getProductProp = (classifications, productCode, propName) =>
 // Returns an array of all the values of a certain prop
 const getAllValues = (
   classifications: ClassificationsPerProductMap,
-  propName: string,
-  enableSorting = false
+  propName: string
 ) => {
   const alreadyFoundProps = new Set();
 
@@ -56,26 +55,24 @@ const getAllValues = (
     },
     []
   );
-  if (enableSorting) {
-    return allValuesArray.sort((a, b) => {
-      const isMeasurements = propName === ClassificationCodeEnum.MEASUREMENTS;
-      if (isMeasurements) {
-        // sort Measurements object on the same level by string number value
-        return Object.keys(a).reduce((prev, _, index) => {
-          // return the prev result if result has been decided.
-          if (prev !== 0) return prev;
-          // eslint-disable-next-line security/detect-object-injection
-          const valueA = parseInt(a[Object.keys(a)[index]]?.value.value.value);
-          // eslint-disable-next-line security/detect-object-injection
-          const valueB = parseInt(b[Object.keys(b)[index]]?.value.value.value);
-          if (!valueA || !valueB) return 0;
-          return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
-        }, 0);
-      }
-      return a.value.value < b.value.value ? -1 : 1;
-    });
-  }
-  return allValuesArray;
+
+  return allValuesArray.sort((a, b) => {
+    const isMeasurements = propName === ClassificationCodeEnum.MEASUREMENTS;
+    if (isMeasurements) {
+      // sort Measurements object on the same level by string number value
+      return Object.keys(a).reduce((prev, _, index) => {
+        // return the prev result if result has been decided.
+        if (prev !== 0) return prev;
+        // eslint-disable-next-line security/detect-object-injection
+        const valueA = parseInt(a[Object.keys(a)[index]]?.value.value.value);
+        // eslint-disable-next-line security/detect-object-injection
+        const valueB = parseInt(b[Object.keys(b)[index]]?.value.value.value);
+        if (!valueA || !valueB) return 0;
+        return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
+      }, 0);
+    }
+    return a.value.value < b.value.value ? -1 : 1;
+  });
 };
 
 // String represenatation of a measurement without unit to be used as a key
@@ -119,7 +116,7 @@ export const findProductBrandLogoCode = (product: Product) =>
 
 export const transformImages = (
   images: readonly GalleryImageType[]
-): readonly ImageGalleryImage[] => {
+): readonly MediaData[] => {
   return images.map(({ mainSource, thumbnail, altText }) => ({
     media: React.createElement("img", {
       src: mainSource,
@@ -462,8 +459,7 @@ export const getProductAttributes = (
   );
   const allSurfaceTreatments = getAllValues(
     productClassifications,
-    FeatureCodeEnum.TEXTURE_FAMILY,
-    true
+    FeatureCodeEnum.TEXTURE_FAMILY
   ).filter(Boolean);
 
   const selectedColour = getProductProp(
@@ -473,8 +469,7 @@ export const getProductAttributes = (
   );
   const allColours = getAllValues(
     productClassifications,
-    FeatureCodeEnum.COLOUR,
-    true
+    FeatureCodeEnum.COLOUR
   ).filter(Boolean);
 
   const selectedSize = getProductProp(
@@ -485,8 +480,7 @@ export const getProductAttributes = (
 
   const allSizes = getAllValues(
     productClassifications,
-    ClassificationCodeEnum.MEASUREMENTS,
-    true
+    ClassificationCodeEnum.MEASUREMENTS
   ).filter(Boolean);
 
   const selectedVariantAttribute = getProductProp(
@@ -497,8 +491,7 @@ export const getProductAttributes = (
 
   const allVariantAttributes = getAllValues(
     productClassifications,
-    FeatureCodeEnum.VARIANT_ATTRIBUTE,
-    true
+    FeatureCodeEnum.VARIANT_ATTRIBUTE
   ).filter(Boolean);
 
   const propHierarchy = [
@@ -808,7 +801,9 @@ export const getValidClassification = (
 
   const classificationsToReturn = classifications.filter(
     ({ features }) =>
-      !IGNORED_CLASSIFICATIONS.includes(features && features[0].code)
+      !IGNORED_CLASSIFICATIONS.includes(
+        features && features.length && features[0].code
+      )
   );
   return classificationsToReturn;
 };
@@ -1028,7 +1023,7 @@ export const findUniqueVariantClassifications = (
   return findUniqueClassificationsOnVariant(
     allClassificationValues,
     classifications[variant.code] || {},
-    variant._product.variantOptions.length
+    variant._product.totalVariantCount || 1
   );
 };
 
@@ -1039,7 +1034,7 @@ export const getMergedClassifications = (
   selfProduct: Product | VariantOption,
   product: Product
 ) => {
-  const unionClassifications = [
+  const unionClassifications: Classification[] = [
     ...(selfProduct.classifications || []),
     ...(product.classifications || [])
   ].reduce((classifications, classification) => {
@@ -1056,7 +1051,11 @@ export const getMergedClassifications = (
   >(groupedClassifications).map((classifications: Classification[]) =>
     classifications.reduce<Classification>(
       (prevValue, currValue) => {
-        const mergedFeatures = [...prevValue.features, ...currValue.features]
+        const mergedFeatures = filterTwoOneAttributes(
+          pimClassificationCatalogueNamespace,
+          currValue.code,
+          [...prevValue.features, ...currValue.features]
+        )
           .reduce((features, feature) => {
             features.find((feat) => feat.code === feature.code) ||
               features.push(feature);
@@ -1080,12 +1079,14 @@ export const getMergedClassifications = (
         classifications.push(classification);
       return classifications;
     }, [])
-  ).sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
+  )
+    .filter((classification) => classification.features.length)
+    .sort((a, b) => (a.code > b.code ? 1 : a.code < b.code ? -1 : 0));
 };
 
-export const getYoutubeId = (urlOrCode) => {
+export const getYoutubeId = (urlOrCode: string) => {
   const regExp =
     /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
-  const urlMatch = urlOrCode.match(regExp);
-  return urlMatch && urlMatch.length > 0 ? urlMatch[1] : urlOrCode;
+  const match = urlOrCode.match(regExp);
+  return match && match.length > 0 ? match[1] : urlOrCode;
 };

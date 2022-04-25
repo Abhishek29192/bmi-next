@@ -27,6 +27,7 @@ import React, { FormEvent, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 import withGTM, { GTM } from "../utils/google-tag-manager";
 import { isValidEmail } from "../utils/emailUtils";
 import { microCopy } from "../constants/microCopies";
@@ -50,6 +51,7 @@ export type Data = {
   successRedirect: LinkData | null;
   source: SourceType | null;
   hubSpotFormGuid?: string | null;
+  sample_ids?: string | null;
 };
 
 const InputTypes = [
@@ -117,6 +119,9 @@ const Input = ({
   accept = ".pdf, .jpg, .jpeg, .png",
   maxSize
 }: Omit<InputType, "width">) => {
+  const {
+    config: { gcpFormUploadEndpoint }
+  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -161,7 +166,7 @@ const Input = ({
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED
           )}
-          uri={process.env.GATSBY_GCP_FORM_UPLOAD_ENDPOINT}
+          uri={gcpFormUploadEndpoint}
           headers={{
             "Content-Type": "application/octet-stream"
           }}
@@ -310,7 +315,9 @@ const HubspotForm = ({
   backgroundColor,
   showTitle,
   title,
-  description
+  description,
+  onSuccess,
+  sampleIds
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -318,14 +325,53 @@ const HubspotForm = ({
   showTitle: boolean;
   title: string;
   description: RichTextData;
+  onSuccess: FormSectionProps["onSuccess"];
+  sampleIds: FormSectionProps["sampleIds"];
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
+  const {
+    config: { hubSpotId }
+  } = useConfig();
 
+  // Uses the HS script to bring in the form. This will create an iframe regardless
+  // of styling options, but will only _use_ the iframe if it's _not_ raw HTML (empty
+  // iframe otherwise).
   useHubspotForm({
-    portalId: process.env.GATSBY_HUBSPOT_ID,
+    portalId: hubSpotId || "",
     formId: hubSpotFormGuid,
     target: `#${hubSpotFormID}`
   });
+
+  typeof window !== "undefined" &&
+    window.addEventListener("message", (event: MessageEvent) => {
+      if (
+        event.data.type === "hsFormCallback" &&
+        event.data.eventName === "onFormReady"
+      ) {
+        if (sampleIds?.length) {
+          const sampleIdsInput = document.querySelector<HTMLInputElement>(
+            'input[name="sample_ids"]'
+          );
+
+          if (sampleIdsInput) {
+            sampleIdsInput.value = sampleIds;
+          } else {
+            const iframeElement = document.querySelector<HTMLIFrameElement>(
+              `#${hubSpotFormID} iframe`
+            );
+            const hiddenInput =
+              iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
+                'input[name="sample_ids"]'
+              );
+            hiddenInput && (hiddenInput.value = sampleIds);
+          }
+        }
+      }
+
+      if (event.data.eventName === "onFormSubmitted") {
+        onSuccess && onSuccess();
+      }
+    });
 
   return (
     <Section backgroundColor={backgroundColor}>
@@ -334,6 +380,17 @@ const HubspotForm = ({
       <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
     </Section>
   );
+};
+
+type FormSectionProps = {
+  id?: string;
+  data: Data;
+  backgroundColor: "pearl" | "white";
+  additionalValues?: Record<string, string>;
+  sampleIds?: string;
+  isSubmitDisabled?: boolean;
+  gtmOverride?: Partial<GTM>;
+  onSuccess?: () => void;
 };
 
 const FormSection = ({
@@ -351,18 +408,14 @@ const FormSection = ({
   },
   backgroundColor,
   additionalValues,
+  sampleIds,
   isSubmitDisabled,
   gtmOverride,
   onSuccess
-}: {
-  id?: string;
-  data: Data;
-  backgroundColor: "pearl" | "white";
-  additionalValues?: Record<string, string>;
-  isSubmitDisabled?: boolean;
-  gtmOverride?: Partial<GTM>;
-  onSuccess?: () => void;
-}) => {
+}: FormSectionProps) => {
+  const {
+    config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
+  } = useConfig();
   const { countryCode, getMicroCopy, node_locale } = useSiteContext();
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -377,12 +430,13 @@ const FormSection = ({
   ) => {
     event.preventDefault();
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       alert("You cannot submit a form on a preview environment.");
       return;
     }
 
     setIsSubmitting(true);
+
     Object.assign(values, additionalValues);
     const recipientsFromValues = (values.recipients as string) || "";
     const isEmailPresent = ["@", "="].every((char) =>
@@ -400,7 +454,7 @@ const FormSection = ({
       const token = await executeRecaptcha();
 
       await axios.post(
-        process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT,
+        gcpFormSubmitEndpoint,
         {
           locale: node_locale,
           title,
@@ -437,7 +491,7 @@ const FormSection = ({
   ) => {
     event.preventDefault();
 
-    if (process.env.GATSBY_PREVIEW) {
+    if (isPreviewMode) {
       alert("You cannot submit a form on a preview environment.");
       return;
     }
@@ -497,17 +551,14 @@ const FormSection = ({
     };
 
     try {
-      await axios.post(
-        `${process.env.GATSBY_HUBSPOT_API_URL}${process.env.GATSBY_HUBSPOT_ID}/${hubSpotFormGuid}`,
-        {
-          ...hsPayload,
-          ...(hsLegalFields
-            ? {
-                legalConsentOptions: getLegalOptions(hsLegalFields)
-              }
-            : {})
-        }
-      );
+      await axios.post(`${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`, {
+        ...hsPayload,
+        ...(hsLegalFields
+          ? {
+              legalConsentOptions: getLegalOptions(hsLegalFields)
+            }
+          : {})
+      });
 
       setIsSubmitting(false);
       if (successRedirect) {
@@ -535,6 +586,8 @@ const FormSection = ({
           showTitle={showTitle}
           title={title}
           description={description}
+          onSuccess={onSuccess}
+          sampleIds={sampleIds}
         />
       </HubspotProvider>
     );

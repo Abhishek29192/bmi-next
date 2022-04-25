@@ -48,6 +48,7 @@
       "evidence_category": "Evidence Category",
       "fileAlreadyExisting": "Filename already exists",
       "fileValidationMessage": "You cannot upload  files larger than {{fileSize}}",
+      "total_files_size": "Total files size exceeded - {{totalSize}}",
       "genericError": "Generic error",
       "instruction": "You can add files",
       "microcopy": {
@@ -75,6 +76,7 @@
             "upload": "Upload new photo"
           },
           "fileSizeMessage": "Max file size of 3mb.",
+          "fileSizeValidationMessage": "You cannot upload files larger than",
           "fileTypesMessage": "You can upload jpg, gif or png files.",
           "label": "Logo"
         },
@@ -167,5 +169,7 @@
       "ALPHABETICAL": "Alphabetical",
       "UPDATED": "Last Updated"
     }
-  }
+  },
+  "companyAdministrators": "Company Administrators",
+  "companyMembers": "Members"
 }

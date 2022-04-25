@@ -15,7 +15,8 @@ import Card, {
   CardActions,
   CardContent,
   CardHeader,
-  CardMedia
+  CardMedia,
+  CardProps
 } from "./card";
 import CardCheckboxGroup from "./card-checkbox-group";
 import CardInput, { CardInputProps } from "./card-input";
@@ -127,7 +128,6 @@ import Icon, {
   YouTube
 } from "./icon";
 import IconList from "./icon-list";
-import ImageGallery, { Image } from "./image-gallery";
 import InputBanner from "./input-banner";
 import InputGroup from "./input-group";
 import LanguageSelection, {
@@ -305,7 +305,6 @@ export type {
   GridSize,
   HeroItem,
   IconName,
-  Image,
   LanguageSelectionItem,
   LanguageSelectionList,
   LinkCardProps,
@@ -335,7 +334,8 @@ export type {
   VerticalRollerSlide,
   VillainProps,
   Layout,
-  YoutubeVideoProps
+  YoutubeVideoProps,
+  CardProps
 };
 
 export {
@@ -431,7 +431,6 @@ export {
   FolderZip,
   iconMap,
   IconList,
-  ImageGallery,
   InputBanner,
   InputGroup,
   LanguageSelection,

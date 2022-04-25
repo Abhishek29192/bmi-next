@@ -3,7 +3,7 @@ import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import QueryString from "qs";
 import fetch from "node-fetch";
-import { Answer, NextStep, Type, Response } from "./types";
+import { Answer, NextStep, Response, Type } from "./types";
 
 const {
   CONTENTFUL_DELIVERY_TOKEN_SECRET,
@@ -30,7 +30,8 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
     type: null,
     title,
     answers: null,
-    recommendedSystems: null
+    recommendedSystems: null,
+    content: null
   };
 
   if (nextStepData.__typename === "SystemConfiguratorBlock") {
@@ -66,7 +67,8 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
 
   return {
     __typename: `ContentfulTitleWithContent`,
-    ...data
+    ...data,
+    content: { raw: JSON.stringify(nextStepData.content.json) }
   };
 };
 
@@ -78,7 +80,7 @@ const runQuery = async (
     CONTENTFUL_DELIVERY_TOKEN_SECRET!
   );
 
-  return fetch(
+  const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`,
     {
       method: "POST",
@@ -91,20 +93,19 @@ const runQuery = async (
         variables
       })
     }
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      if (response.errors) {
-        throw Error(response.errors[0].message);
-      }
+  );
 
-      return response.data.systemConfiguratorBlock;
-    });
+  const json = await response.json();
+  if (json.errors) {
+    throw Error(json.errors[0].message);
+  }
+
+  return json.data.systemConfiguratorBlock;
 };
 
 const generateError = (message: string) => {
   const error = Error(message);
-  logger.error({ message: error.message });
+  logger.error({ message: (error as Error).message });
 
   return error;
 };
@@ -154,6 +155,9 @@ fragment TitleWithContentFragment on TitleWithContent {
     id
   }
   title
+  content {
+    json
+  }
 }
 
 fragment AssetFragment on Asset {
@@ -280,9 +284,8 @@ export const nextStep: HttpFunction = async (request, response) => {
   do {
     try {
       data = await runQuery(query(page), { answerId, locale });
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      logger.error({ message: error.message });
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
       return response.status(500).send(error);
     }
 

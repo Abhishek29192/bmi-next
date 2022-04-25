@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi/components";
+import { Dialog, Typography } from "@bmi/components";
 import { Upload } from "@bmi/components";
 import { Select, SelectMenuItem } from "@bmi/components";
 import {
@@ -9,6 +9,7 @@ import {
   EvidenceCategoryType
 } from "@bmi/intouch-api-types";
 import { DeepPartial } from "../../../lib/utils/types";
+import styles from "./styles.module.scss";
 
 type AddEvidenceDialogProps = {
   isOpen: boolean;
@@ -21,7 +22,7 @@ type AddEvidenceDialogProps = {
     files: File[]
   ) => void;
 };
-//You cannot upload  files larger than <MAX_FILE_SIZE> MB (It's megabyte)
+// You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
 const MAX_FILE_SIZE = 40;
 
 type EvidenceCategoryKey = CustomEvidenceCategoryKey | "MISCELLANEOUS";
@@ -35,8 +36,12 @@ export const AddEvidenceDialog = ({
 }: AddEvidenceDialogProps) => {
   const { t } = useTranslation("project-page");
   const [files, setFiles] = useState<File[]>([]);
+  const [hasMaxFileSizeReached, setHasMaxFileSizeReached] = useState(false);
+  const [hasMaxTotalSizeReached, setHasMaxTotalSizeReached] = useState(false);
   const [evidenceCategoryKey, setEvidenceCategoryKey] =
     useState<EvidenceCategoryKey>("MISCELLANEOUS");
+
+  let totalSize = 0;
 
   const onSelectChangeHandler = (id: EvidenceCategoryKey) => {
     setEvidenceCategoryKey(id);
@@ -54,6 +59,20 @@ export const AddEvidenceDialog = ({
   useEffect(() => {
     setEvidenceCategoryKey("MISCELLANEOUS");
   }, []);
+
+  useEffect(() => {
+    setHasMaxFileSizeReached(false);
+    setHasMaxTotalSizeReached(false);
+    files.map(function (item) {
+      if (item.size > MAX_FILE_SIZE * (1024 * 1024)) {
+        setHasMaxFileSizeReached(true);
+      }
+      totalSize += item.size;
+    });
+    if (totalSize > MAX_FILE_SIZE * (1024 * 1024)) {
+      setHasMaxTotalSizeReached(true);
+    }
+  }, [files]);
 
   return (
     <Dialog open={isOpen} onCloseClick={onCloseClick}>
@@ -111,11 +130,23 @@ export const AddEvidenceDialog = ({
               : null
           }
         />
+        {hasMaxTotalSizeReached && (
+          <Typography variant="default" className={styles.validationMessage}>
+            {t("upload_tab.add_evidence_modal.total_files_size", {
+              totalSize: `${MAX_FILE_SIZE}MB`
+            })}
+          </Typography>
+        )}
       </Dialog.Content>
       <Dialog.Actions
         confirmLabel={t("upload_tab.add_evidence_modal.confirm_label")}
         onConfirmClick={addEvidenceHandler}
-        isConfirmButtonDisabled={loading || files.length === 0}
+        isConfirmButtonDisabled={
+          loading ||
+          files.length === 0 ||
+          hasMaxFileSizeReached ||
+          hasMaxTotalSizeReached
+        }
         cancelLabel={t("upload_tab.add_evidence_modal.cancel_label")}
         onCancelClick={() => onCloseClick()}
       />

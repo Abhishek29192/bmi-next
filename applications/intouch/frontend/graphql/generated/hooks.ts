@@ -196,6 +196,22 @@ export const MediaToolDetailsFragmentDoc = gql`
   }
   ${ImageFragmentFragmentDoc}
 `;
+export const ArticleContentLinksFragmentFragmentDoc = gql`
+  fragment ArticleContentLinksFragment on ContentArticleBodyLinks {
+    assets {
+      block {
+        sys {
+          id
+        }
+        url
+        title
+        width
+        height
+        description
+      }
+    }
+  }
+`;
 export const CompanyDetailsFragmentFragmentDoc = gql`
   fragment CompanyDetailsFragment on Company {
     name
@@ -457,7 +473,7 @@ export const GetGlobalDataDocument = gql`
         externalLinkLabel
       }
     }
-    notifications(condition: { accountId: $accountId }) {
+    notifications(last: 125, condition: { accountId: $accountId }) {
       nodes {
         body
         sendDate
@@ -3936,10 +3952,14 @@ export const GetContentArticleContentDocument = gql`
         title
         body {
           json
+          links {
+            ...ArticleContentLinksFragment
+          }
         }
       }
     }
   }
+  ${ArticleContentLinksFragmentFragmentDoc}
 `;
 
 /**

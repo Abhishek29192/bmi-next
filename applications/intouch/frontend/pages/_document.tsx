@@ -40,17 +40,6 @@ class BMIDocument extends Document<Props> {
     return (
       <Html lang={lang}>
         <Head>
-          <script
-            async
-            src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
-            type="text/javascript"
-            data-domain-script={process.env.ONE_TRUST_GUID}
-          />
-          <script type="text/javascript">
-            {function OptanonWrapper() {
-              // no-op
-            }}
-          </script>
           {!!gtmID && (
             <script
               dangerouslySetInnerHTML={{

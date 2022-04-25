@@ -22,6 +22,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -362,7 +367,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -2665,8 +2670,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 buttonStyles-textDarkBg-168 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -2854,6 +2859,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -2930,8 +2937,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -2959,6 +2966,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -3017,8 +3026,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -3046,6 +3055,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -3146,8 +3157,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -3512,8 +3523,8 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-163 MuiButton-text buttonStyles-text-164 buttonStyles-textDarkBg-168 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -3592,6 +3603,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3610,6 +3622,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3628,6 +3641,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3646,6 +3660,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3665,6 +3680,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -3932,7 +3948,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -6235,8 +6251,8 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -6407,6 +6423,8 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -6481,8 +6499,8 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -6847,8 +6865,8 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 buttonStyles-textDarkBg-6 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -6927,6 +6945,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6945,6 +6964,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6963,6 +6983,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -6981,6 +7002,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -7000,6 +7022,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -7267,7 +7290,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -9570,8 +9593,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 buttonStyles-textDarkBg-87 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -9817,8 +9840,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -9846,6 +9869,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -9904,8 +9929,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -9933,6 +9958,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -10033,8 +10060,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -10399,8 +10426,8 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 buttonStyles-textDarkBg-87 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -10479,6 +10506,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10497,6 +10525,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10515,6 +10544,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10533,6 +10563,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -10552,6 +10583,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -10819,7 +10851,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -13122,8 +13154,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 buttonStyles-textDarkBg-141 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -13198,8 +13230,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                             <a
                               aria-disabled="false"
                               class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-outlined buttonStyles-outlinedDarkBg-142 cta MuiButton-outlinedPrimary"
-                              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/ContentfulSimplePagePath\\"}"
-                              href="/en/ContentfulSimplePagePath"
+                              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/ContentfulSimplePagePath/\\"}"
+                              href="/en/ContentfulSimplePagePath/"
                               role="button"
                               tabindex="0"
                             >
@@ -13343,8 +13375,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -13372,6 +13404,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -13430,8 +13464,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -13459,6 +13493,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -13559,8 +13595,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -13925,8 +13961,8 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 buttonStyles-textDarkBg-141 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -14005,6 +14041,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14023,6 +14060,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14041,6 +14079,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14059,6 +14098,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -14078,6 +14118,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -14345,7 +14386,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -16648,8 +16689,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 buttonStyles-textDarkBg-195 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -16893,8 +16934,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -16922,6 +16963,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -16980,8 +17023,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -17009,6 +17052,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -17109,8 +17154,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -17475,8 +17520,8 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-190 MuiButton-text buttonStyles-text-191 buttonStyles-textDarkBg-195 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -17555,6 +17600,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17573,6 +17619,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17591,6 +17638,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17609,6 +17657,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -17628,6 +17677,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -17895,7 +17945,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -20198,8 +20248,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -20370,6 +20420,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -20446,8 +20498,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -20475,6 +20527,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -20533,8 +20587,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -20562,6 +20616,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -20634,8 +20690,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -21000,8 +21056,8 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 buttonStyles-textDarkBg-33 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -21080,6 +21136,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21098,6 +21155,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21116,6 +21174,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21134,6 +21193,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -21153,6 +21213,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -21420,7 +21481,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -23723,8 +23784,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 buttonStyles-textDarkBg-60 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -23895,6 +23956,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="label"
@@ -23971,8 +24034,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -24000,6 +24063,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -24058,8 +24123,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -24087,6 +24152,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -24187,8 +24254,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -24553,8 +24620,8 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 buttonStyles-textDarkBg-60 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -24633,6 +24700,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24651,6 +24719,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24669,6 +24738,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24687,6 +24757,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -24706,6 +24777,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -24973,7 +25045,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -27276,8 +27348,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 buttonStyles-textDarkBg-114 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -27523,8 +27595,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -27552,6 +27624,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -27610,8 +27684,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -27639,6 +27713,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -27739,8 +27815,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -28105,8 +28181,8 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 buttonStyles-textDarkBg-114 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -28185,6 +28261,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28203,6 +28280,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28221,6 +28299,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28239,6 +28318,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -28258,6 +28338,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -28525,7 +28606,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -30828,8 +30909,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 buttonStyles-textDarkBg-222 button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -31090,8 +31171,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -31119,6 +31200,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -31177,8 +31260,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root top-box"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page\\"}"
-                    href="/en/some-page"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Call to action\\",\\"action\\":\\"/en/some-page/\\"}"
+                    href="/en/some-page/"
                     role="button"
                     tabindex="0"
                   >
@@ -31206,6 +31289,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                   >
                     <div
                       class="YoutubeVideo"
+                      data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=youtubeId-label\\",\\"action\\":\\"Play\\"}"
+                      data-testid="youtube-dialog-wrapper"
                     >
                       <button
                         aria-label="label"
@@ -31306,8 +31391,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 button link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                  href="/en"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                  href="/en/"
                   role="button"
                   tabindex="0"
                 >
@@ -31672,8 +31757,8 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-217 MuiButton-text buttonStyles-text-218 buttonStyles-textDarkBg-222 link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >

@@ -11,11 +11,11 @@ import styles from "./styles.module.scss";
 type Notification = Pick<NotificationType, "id" | "body" | "sendDate" | "read">;
 
 export type NotificationsPanelProps = {
-  notifications?: ReadonlyArray<Notification>;
+  notifications?: Array<Notification>;
 };
 
 type NotificationsSetProps = {
-  notifications?: ReadonlyArray<Notification>;
+  notifications?: Array<Notification>;
   title: string;
 };
 
@@ -42,6 +42,10 @@ function sortNotifications(notifications) {
       older.push(notification);
     }
   });
+
+  today.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
+  earlier.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
+  older.sort((a, b) => (dayjs(a).isAfter(dayjs(b)) ? 1 : -1));
 
   return {
     today,

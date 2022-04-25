@@ -39,6 +39,25 @@ describe("getRecaptchaPrivacyContent tests", () => {
     });
   });
 
+  describe("When country code 'nl' is passed", () => {
+    test("returns Netherlands recaptcha content", () => {
+      const result = getRecaptchaPrivacyContent("nl");
+      expect(result.startText).toEqual(
+        "Deze site wordt beschermd door reCAPTCHA en Google "
+      );
+      expect(result.privacyPloicyText).toEqual("Privacybeleid");
+      expect(result.andText).toEqual(" en ");
+      expect(result.termsOfServiceText).toEqual("Servicevoorwaarden");
+      expect(result.endText).toEqual(" zijn van toepassing.");
+      expect(result.privacyPolicyUrl).toEqual(
+        "https://policies.google.com/privacy?hl=nl"
+      );
+      expect(result.termsOfServiceUrl).toEqual(
+        "https://policies.google.com/terms?hl=nl"
+      );
+    });
+  });
+
   describe("When country code 'fi' is passed", () => {
     test("returns Finnish recaptcha content", () => {
       const result = getRecaptchaPrivacyContent("fi");

@@ -50,6 +50,7 @@ type HeaderProps = {
   navigationButtonComponent?: React.ComponentType<any>; // TODO
   promoButtonComponent?: React.ComponentType<any>; // TODO
   tabComponent?: React.ComponentType<any>; // TODO
+  navUtilityLinkButton?: React.ComponentType<any>; //TODO
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   isBasketEmpty?: boolean;
@@ -92,7 +93,8 @@ const Header = ({
   mainMenuTitleLabel,
   mainMenuDefaultLabel,
   languageLabel,
-  languageIntroduction
+  languageIntroduction,
+  navUtilityLinkButton: NavUtilityLinkButton = Button
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -210,13 +212,13 @@ const Header = ({
           <ul>
             {utilities.map(({ label, action }, key) => (
               <li key={`utilities-link-${key}`} className={styles["nav-item"]}>
-                <Button
+                <NavUtilityLinkButton
                   className={styles["utilities-button"]}
                   action={action}
                   variant="text"
                 >
                   {label}
-                </Button>
+                </NavUtilityLinkButton>
               </li>
             ))}
             {language && languages && (

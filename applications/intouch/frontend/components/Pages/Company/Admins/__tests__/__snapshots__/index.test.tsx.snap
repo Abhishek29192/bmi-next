@@ -1,0 +1,779 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompanyAdmins Components check for correct behavior on Show More button click 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Ben Afleck
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+4@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+4@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Dom Perignon
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+3@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+3@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Steve Jobs
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+5@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+5@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://www.bdfutbol.com/i/j/92223b.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Umit Davala
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.INSTALLER
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+6@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+6@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="more"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-4"
+        >
+          button.less
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyAdmins Components render correctly if there is members 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Ben Afleck
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+4@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+4@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://vinepair.com/wp-content/uploads/2017/01/domperignon-internal.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Dom Perignon
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+3@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+3@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2021/02/Tim-Cook-remembers-Steve-Jobs.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Steve Jobs
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.COMPANY_ADMIN
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+5@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+5@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
+      >
+        <div
+          class="main"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="MuiAvatar-root MuiAvatar-circular"
+            >
+              <img
+                class="MuiAvatar-img"
+                src="https://www.bdfutbol.com/i/j/92223b.jpg"
+              />
+            </div>
+            <div
+              class="nameTag"
+            >
+              <p
+                class="MuiTypography-root name Typography MuiTypography-body1"
+              >
+                Umit Davala
+              </p>
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1"
+              >
+                roles.INSTALLER
+              </p>
+            </div>
+          </div>
+          <div
+            class="body"
+          >
+            <a
+              href="tel:1234567"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  1234567
+                </p>
+              </div>
+            </a>
+            <a
+              href="mailto:devs+6@digitaldetox.co.uk"
+              rel="noopener noreferrer"
+              target="self"
+            >
+              <div
+                class="main"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                  focusable="false"
+                  style="font-size: 24px;"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body1"
+                >
+                  devs+6@digitaldetox.co.uk
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CompanyAdmins Components render correctly if there is no members 1`] = `
+<div>
+  <div
+    class="wrapper"
+  >
+    <div
+      class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+    />
+  </div>
+</div>
+`;

@@ -71,11 +71,13 @@ export const getDetails = (
 const IntegratedLocationCard = ({
   anchorComponent,
   data,
-  isFlat
+  isFlat,
+  gtmLabel
 }: {
   data: Data;
   isFlat?: boolean;
   anchorComponent?: React.ComponentType<any>; // TODO
+  gtmLabel?: string;
 }): React.ReactElement => {
   const { title, address, phoneNumber, email, otherInformation } = data;
   const details = getDetails(address, phoneNumber, email);
@@ -96,7 +98,10 @@ const IntegratedLocationCard = ({
         <GTMAnchorLink
           gtm={{
             id: "cta-click1",
-            action: props?.action?.href
+            action: props?.action?.href,
+            label:
+              gtmLabel &&
+              `${gtmLabel}${props?.children ? ` - ${props.children}` : ""}`
           }}
           {...props}
         />

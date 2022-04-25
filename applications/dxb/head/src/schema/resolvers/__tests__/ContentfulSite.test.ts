@@ -3,10 +3,11 @@ import { Context } from "../types";
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest.fn().mockResolvedValue([{ type: "ContentfulSite" }]),
+    findAll: jest
+      .fn()
+      .mockResolvedValue({ entries: [{ type: "ContentfulSite" }] }),
     getNodeById: jest.fn(),
-    getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    getNodesByIds: jest.fn()
   }
 };
 
@@ -19,8 +20,8 @@ describe("ContentfulSite resolver", () => {
       { type: "ContentfulSite" }
     ]);
 
-    expect(context.nodeModel.getAllNodes).toHaveBeenCalledWith(
-      { type: "RegionJson" },
+    expect(context.nodeModel.findAll).toHaveBeenCalledWith(
+      { query: {}, type: "RegionJson" },
       { connectionType: "RegionJson" }
     );
   });

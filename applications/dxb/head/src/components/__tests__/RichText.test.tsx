@@ -329,6 +329,21 @@ describe("RichText component", () => {
     expect(container).toMatchSnapshot();
   });
 
+  it("renders correctly with gtmLabel", () => {
+    const { container } = render(
+      <RichText gtmLabel="gtmLabelTest" document={document} />
+    );
+
+    const expectedDataGtm = JSON.stringify({
+      id: "cta-click1",
+      label: "gtmLabelTest - External",
+      action: "https://google.co.uk"
+    });
+
+    const elemsWithGTM = container.querySelectorAll(".Anchorlink");
+    expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
+  });
+
   it("renders when dialog clicked", () => {
     const { container, getByText } = render(<RichText document={document} />);
     const openDialogButton = getByText("Open dialog");

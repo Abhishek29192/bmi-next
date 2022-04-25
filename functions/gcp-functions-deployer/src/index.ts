@@ -89,8 +89,7 @@ export const deploy = async (file: { bucket: string; name: string }) => {
         message: `Metadata file not found for ${file.name} source`
       });
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    logger.error({ message: error.message });
+  } catch (error) {
+    logger.error({ message: (error as Error).message });
   }
 };

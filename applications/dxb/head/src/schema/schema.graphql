@@ -426,7 +426,7 @@ Represents a combination of Title, Description, Image, and Link combination.
 """
 type ContentfulPromo implements Node {
   "The display name of this promo."
-  name: String
+  name: String!
 
   "The title of this promo."
   title: String
@@ -488,6 +488,7 @@ union ContentfulRichTextReference =
   | ContentfulSimplePage
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
+  | ContentfulBrandLandingPage
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
@@ -779,8 +780,8 @@ type ContentfulServiceLocatorSection implements Node {
 Represents an inline video section.
 """
 type ContentfulVideoSection implements Node {
-  "The internal nam for this section."
-  name: String
+  "The internal name for this section."
+  name: String!
 
   "The title for this section."
   title: String
@@ -850,11 +851,13 @@ type ContentfulVillainSection implements Node {
 type ContentfulTitleWithContent implements Node {
   id: ID!
 
+  name: String!
+
   "The title for this title with content."
   title: String
 
   "The content for this title with content."
-  content: ContentfulRichText
+  content: ContentfulRichText!
 }
 
 """
@@ -864,7 +867,7 @@ type ContentfulTeamMember implements Node {
   id: ID!
 
   "The name for this member."
-  name: String
+  name: String!
 
   "The picture for this member."
   profileImage: ContentfulImage @link(from: "profileImage___NODE")
@@ -1111,6 +1114,24 @@ type ContentfulInputBanner implements Node {
 Represents a site settings and its pages.
 """
 type ContentfulSite implements Node {
+  node_locale: String!
+
+  countryCode: String!
+
+  menuUtilities: ContentfulNavigation @link(from: "menuUtilities___NODE")
+
+  menuNavigation: ContentfulNavigation! @link(from: "menuNavigation___NODE")
+
+  homePage: ContentfulHomePage! @link(from: "homePage___NODE")
+
+  pages: [ContentfulPage] @link(from: "pages___NODE")
+
+  footerMainNavigation: ContentfulNavigation
+    @link(from: "footerMainNavigation___NODE")
+
+  footerSecondaryNavigation: ContentfulNavigation
+    @link(from: "footerSecondaryNavigation___NODE")
+
   "The global settings for this site."
   resources: ContentfulResources @link(from: "resources___NODE")
 
@@ -1233,7 +1254,7 @@ type ContentfulAssetType implements Node {
   id: ID!
 
   "The asset type name."
-  name: String
+  name: String!
 
   "The asset type code."
   code: String
@@ -1302,6 +1323,8 @@ type PIMDocument implements Node {
 
   "The real filename for this document."
   realFileName: String
+
+  isLinkDocument: Boolean
 }
 
 """
@@ -1321,6 +1344,8 @@ type PIMLinkDocument implements Node {
 
   "The product this document belongs to."
   product: Products @link(from: "product___NODE")
+
+  isLinkDocument: Boolean
 }
 
 union Document = ContentfulDocument | PIMDocument | PIMLinkDocument
@@ -1498,7 +1523,8 @@ type Feature {
 }
 
 type FeatureValue {
-  value: String
+  value: String!
+  code: String
 }
 
 type FeatureUnit {
@@ -1520,33 +1546,44 @@ type SystemImage {
 }
 
 type Products implements Node {
+  approvalStatus: String!
+  assets: [PimAsset!]
+  categories: [Categories!]
+  classifications: [Classification!]
+  code: String!
+  description: String
   "The documents for this product."
   documents: [ProductDocument]! @link(from: "documents___NODE")
-
   "The external code for this product AKA NOBB number"
   externalProductCode: String
-
+  images: [PimImage!]
   "The isSampleOrderAllowed value for this product."
   isSampleOrderAllowed: Boolean
+  name: String
+  productBenefits: [String]
+  shortDescription: String
+  summary: String
+  variantOptions: [ProductsVariantOptions!]
 }
 
 type ProductsVariantOptions implements Node {
-  "The external code for this product AKA NOBB number"
-  externalProductCode: String
-
-  productBenefits: [String]
-
-  "The path for this product."
-  path: String
-
-  "The old path for this product."
-  oldPath: String
-
+  approvalStatus: String!
   "The breadcrumbs for this product."
   breadcrumbs: JSON
-
+  classifications: [Classification!]
+  code: String!
+  "The external code for this product AKA NOBB number"
+  externalProductCode: String
+  images: [PimImage!]
   "The isSampleOrderAllowed value for this product."
   isSampleOrderAllowed: Boolean
+  longDescription: String
+  "The old path for this product."
+  oldPath: String
+  "The path for this product."
+  path: String
+  productBenefits: [String]
+  shortDescription: String
 }
 
 """
@@ -1669,7 +1706,7 @@ type ContentfulService implements Node {
   entryType: String
 
   "The name for this service."
-  name: String
+  name: String!
 
   "The location for this service."
   location: Location
@@ -1772,7 +1809,7 @@ type ContentfulImage implements Node {
   altText: String
 
   "The actual Asset for this Image."
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  image: ContentfulAsset! @link(by: "id", from: "image___NODE")
 
   "The caption for this Image."
   caption: contentfulImageCaptionTextNode
@@ -1780,18 +1817,16 @@ type ContentfulImage implements Node {
 
   "The focal point for this Image."
   focalPoint: FocalPoint
-}
 
-type ProductsVariantOptionsClassificationsFeaturesFeatureValues implements Node {
-  value: String
-  code: String
+  "The thumbnail Image."
+  thumbnail: ContentfulAsset
 }
 
 type ContentfulIframe implements Node {
   id: ID!
 
   "The title for video"
-  name: String
+  name: String!
 
   "The label for the video"
   title: String
@@ -1817,8 +1852,12 @@ type RegionJson implements Node @dontInfer {
   menu: [CountryJSON]!
 }
 
+union NextStep = ContentfulSystemConfiguratorBlock | ContentfulTitleWithContent
+
 type ContentfulSystemConfiguratorBlock implements Node {
   id: ID!
+
+  node_locale: String!
 
   "The label for the System Configurator block"
   label: String
@@ -1840,4 +1879,6 @@ type ContentfulSystemConfiguratorBlock implements Node {
     @link(from: "noResultItems___NODE")
 
   recommendedSystems: [String!]
+
+  nextStep: NextStep @link(from: "nextStep___NODE")
 }

@@ -23,11 +23,12 @@ const availableTypenames = [
 type Props = {
   node: Inline;
   children: React.ReactNode;
+  gtmLabel?: string;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
 
-const InlineHyperlink = ({ node, children }: Props) => {
+const InlineHyperlink = ({ node, children, gtmLabel }: Props) => {
   const { countryCode } = useSiteContext();
   const { open: openVisualiser } = useContext(VisualiserContext);
   const { open: openCalculator } = useContext(CalculatorContext);
@@ -43,6 +44,8 @@ const InlineHyperlink = ({ node, children }: Props) => {
   if (!(fields && availableTypenames.includes(fields.__typename))) {
     return <>{children}</>;
   }
+
+  const label = gtmLabel ? `${gtmLabel} - ${children[0][1]}` : children[0][1];
 
   if (fields.__typename === "ContentfulLink") {
     const { linkedPage, url, asset, type, parameters } = fields;
@@ -69,7 +72,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
           )}
           gtm={{
             id: "cta-click1",
-            label: children[0][1],
+            label,
             action: url
           }}
         >
@@ -95,7 +98,7 @@ const InlineHyperlink = ({ node, children }: Props) => {
         )}
         gtm={{
           id: "cta-click1",
-          label: children[0][1],
+          label,
           action: `https:${file.url}`
         }}
       >
@@ -103,24 +106,21 @@ const InlineHyperlink = ({ node, children }: Props) => {
       </GTMAnchorLink>
     );
   }
-
+  const action = getPathWithCountryCode(countryCode, fields.path).replace(
+    /\/+/gi,
+    "/"
+  );
   return (
     <GTMAnchorLink
       action={{
         model: "routerLink",
-        to: getPathWithCountryCode(countryCode, fields.path).replace(
-          /\/+/gi,
-          "/"
-        ),
+        to: action,
         linkComponent: Link
       }}
       gtm={{
         id: "cta-click1",
-        label: children[0][1],
-        action: getPathWithCountryCode(countryCode, fields.path).replace(
-          /\/+/gi,
-          "/"
-        )
+        label,
+        action
       }}
     >
       {children}

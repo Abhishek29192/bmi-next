@@ -46,4 +46,11 @@
       color: $color-theme-inter;
     }
   }
+
+  :global {
+    [class*="MuiChip-label"] {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
 }

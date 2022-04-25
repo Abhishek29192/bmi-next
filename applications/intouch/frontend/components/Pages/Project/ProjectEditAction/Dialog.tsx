@@ -3,6 +3,8 @@ import { useTranslation } from "next-i18next";
 import { Dialog } from "@bmi/components";
 import { gql } from "@apollo/client";
 import { ProjectSiteAddressIdFkeyInput } from "@bmi/intouch-api-types";
+import { Project } from "@bmi/intouch-api-types";
+import { DeepPartial } from "applications/intouch/frontend/lib/utils/types";
 import { useUpdateProjectMutation } from "../../../../graphql/generated/hooks";
 import { GetProjectQuery } from "../../../../graphql/generated/operations";
 import { spreadObjectKeys } from "../../../../lib/utils/object";
@@ -26,7 +28,7 @@ export const ProjectEditActionDialog = ({
   onCompleted
 }: ProjectEditActionDialogProps) => {
   const { t } = useTranslation();
-  const guarantee = findProjectGuarantee(project);
+  const guarantee = findProjectGuarantee(project as DeepPartial<Project>);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [updateProject] = useUpdateProjectMutation({
     onError: (error) => {

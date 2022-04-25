@@ -11,6 +11,7 @@ exports[`ContactTopics component renders correctly 1`] = `
       <div
         aria-label="Did you know?1"
         class="MuiPaper-root MuiCard-root ExpandableCard MuiPaper-elevation1 MuiPaper-rounded"
+        data-gtm="{\\"id\\":\\"selector-cards2\\",\\"label\\":\\"Did you know?1\\",\\"action\\":\\"Selector - Cards\\"}"
         role="button"
         style="min-height: 100%;"
       >

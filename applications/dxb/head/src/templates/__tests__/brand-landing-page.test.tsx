@@ -213,7 +213,11 @@ describe("Brand Landing Page Template", () => {
         }
       },
       thumbnail: {
-        src: "//images.asset.jpg"
+        src: "//images.asset.jpg",
+        file: {
+          fileName: "Lorem ipsum",
+          url: "//images.asset.jpg"
+        }
       }
     };
     const { container } = renderWithRouter(
@@ -270,7 +274,11 @@ describe("Brand Landing Page Template", () => {
             }
           },
           thumbnail: {
-            src: "//images.asset.jpg"
+            src: "//images.asset.jpg",
+            file: {
+              fileName: "Lorem ipsum",
+              url: "//images.asset.jpg"
+            }
           }
         }
       }

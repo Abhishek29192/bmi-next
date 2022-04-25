@@ -1765,6 +1765,27 @@ exports[`Hubspot FormSection component renders correctly 1`] = `
 </div>
 `;
 
+exports[`Hubspot FormSection component renders correctly with sampleIds 1`] = `
+<div>
+  <div
+    class="Section Section--white"
+  >
+    <div
+      class="Container"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthXl"
+      >
+        <div
+          class="Form--hubSpot"
+          id="bmi-hubspot-form-no-id"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Hubspot FormSection component test submit when preview is on 1`] = `
 <div>
   <div

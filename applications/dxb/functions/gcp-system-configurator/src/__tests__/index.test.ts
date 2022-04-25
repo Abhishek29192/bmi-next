@@ -114,6 +114,7 @@ describe("HTTP function:", () => {
         }
       ]
     },
+    content: null,
     answers: null,
     recommendedSystems: null
   };
@@ -1212,6 +1213,7 @@ describe("HTTP function:", () => {
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      content: null,
       type: "Question",
       description: {
         raw: JSON.stringify({
@@ -1360,6 +1362,7 @@ describe("HTTP function:", () => {
       id: "question2",
       title: "Question 2",
       type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1559,6 +1562,7 @@ describe("HTTP function:", () => {
       contentful_id: "question2",
       id: "question2",
       title: "Question 2",
+      content: null,
       type: "Question",
       description: {
         raw: JSON.stringify({
@@ -1600,6 +1604,7 @@ describe("HTTP function:", () => {
           id: "answer1",
           type: "Answer",
           title: "Answer 1",
+          content: null,
           description: {
             raw: '{"data":{},"content":[{"data":{},"marks":[],"content":[{"data":{},"marks":[],"value":"Answer 1 rich text.","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
             references: [
@@ -1810,6 +1815,7 @@ describe("HTTP function:", () => {
       id: "question2",
       title: "Question 2",
       type: "Question",
+      content: null,
       description: {
         raw: JSON.stringify({
           data: {},
@@ -1916,7 +1922,28 @@ describe("HTTP function:", () => {
                 id: "titleWithContent2"
               },
               __typename: "TitleWithContent",
-              title: "Title with content 2"
+              title: "Title with content 2",
+              content: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "No result",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: null
+              }
             }
           }
         }
@@ -1935,7 +1962,27 @@ describe("HTTP function:", () => {
       type: null,
       title: "Title with content 2",
       answers: null,
-      recommendedSystems: null
+      recommendedSystems: null,
+      content: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "No result",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        })
+      }
     });
     expect(fetchMock).toHaveFetched(
       "begin:https://recaptcha.google.com/recaptcha/api/siteverify"

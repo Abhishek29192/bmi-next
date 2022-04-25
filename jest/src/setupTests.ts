@@ -1,3 +1,4 @@
 import mockConsole from "jest-mock-console";
+import "@testing-library/jest-dom";
 
-mockConsole();
+mockConsole(["error", "warn"]);

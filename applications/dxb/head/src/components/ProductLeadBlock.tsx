@@ -1,25 +1,23 @@
 import React, { useMemo, useRef, useState } from "react";
-import { LeadBlock } from "@bmi/components";
+import { LeadBlock, MediaData, MediaGallery } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { IconList } from "@bmi/components";
 import { Tabs } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { DownloadList } from "@bmi/components";
 import { Icon } from "@bmi/components";
-import { ImageGallery, Image } from "@bmi/components";
 import { AnchorLink, AnchorLinkProps } from "@bmi/components";
 import { Launch } from "@material-ui/icons";
 import CheckIcon from "@material-ui/icons/Check";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import RichText, { RichTextData } from "./RichText";
 import styles from "./styles/ProductLeadBlock.module.scss";
 import { useSiteContext } from "./Site";
 import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
-import DocumentResultsFooter, {
-  handleDownloadClick
-} from "./DocumentResultsFooter";
+import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { Asset, Classification } from "./types/pim";
 import ProductTechnicalSpec from "./ProductTechnicalSpec";
@@ -44,7 +42,7 @@ type Props = {
   documents: (PIMDocumentData | PIMLinkDocumentData)[];
   validClassifications: Classification[];
   classificationNamespace: string;
-  techDrawings: readonly Image[];
+  techDrawings: readonly MediaData[];
   fixingToolIframeUrl?: string;
   pdpFixingToolTitle?: string | null;
   pdpFixingToolDescription?: RichTextData | null;
@@ -54,8 +52,6 @@ type Props = {
 };
 
 const DOCUMENTS_PER_PAGE = 24;
-const GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT =
-  +process.env.GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT || 100;
 
 export const getCountsOfDocuments = (
   documentsByAssetType: [string, (PIMDocumentData | PIMLinkDocumentData)[]][]
@@ -107,6 +103,9 @@ const ProductLeadBlock = ({
   pdpSpecificationTitle,
   pdpSpecificationDescription
 }: Props) => {
+  const {
+    config: { documentDownloadMaxLimit }
+  } = useConfig();
   const { getMicroCopy, countryCode } = useSiteContext();
   const [page, setPage] = useState(1);
   const resultsElement = useRef<HTMLDivElement>(null);
@@ -206,11 +205,15 @@ const ProductLeadBlock = ({
                 <LeadBlock.Content.Section
                   className={styles["GuaranteesAndAwardsAsset"]}
                 >
-                  <LeadBlock.Content.Heading>
-                    {getMicroCopy(
-                      microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
-                    )}
-                  </LeadBlock.Content.Heading>
+                  {guaranteesImages?.length ||
+                  guaranteesAndWarrantiesLinks?.length ? (
+                    <LeadBlock.Content.Heading>
+                      {getMicroCopy(
+                        microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES
+                      )}
+                    </LeadBlock.Content.Heading>
+                  ) : null}
+
                   {guaranteesImages?.map((item, i) => (
                     <img
                       key={`guarentee-img-${i}`}
@@ -356,9 +359,7 @@ const ProductLeadBlock = ({
           index="three"
         >
           <div className={styles["document-library"]} ref={resultsElement}>
-            <DownloadList
-              maxSize={GATSBY_DOCUMENT_DOWNLOAD_MAX_LIMIT * 1048576}
-            >
+            <DownloadList maxSize={documentDownloadMaxLimit * 1048576}>
               <DocumentSimpleTableResults
                 documents={filteredDocuments}
                 page={page}
@@ -369,7 +370,6 @@ const ProductLeadBlock = ({
               <DocumentResultsFooter
                 page={page}
                 count={count}
-                onDownloadClick={handleDownloadClick}
                 onPageChange={handlePageChange}
               />
             </DownloadList>
@@ -392,7 +392,7 @@ const ProductLeadBlock = ({
             <LeadBlock justify="center">
               <LeadBlock.Content>
                 <LeadBlock.Content.Section>
-                  <ImageGallery images={techDrawings} />
+                  <MediaGallery media={techDrawings} />
                 </LeadBlock.Content.Section>
               </LeadBlock.Content>
             </LeadBlock>

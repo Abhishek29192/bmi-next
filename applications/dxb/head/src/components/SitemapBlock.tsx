@@ -64,11 +64,11 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
 
   return (
     <WrapperComponent isChild={level > 0}>
-      {validSitemapLinks?.map((link) => {
-        const { __typename } = link;
+      {validSitemapLinks?.map((linkData) => {
+        const { __typename } = linkData;
 
         if (__typename === "ContentfulLink") {
-          const { label, linkedPage, url } = link as LinkData;
+          const { label, linkedPage, url } = linkData as LinkData;
 
           return (
             <Typography
@@ -92,7 +92,7 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
         }
 
         if (__typename === "ContentfulNavigation") {
-          const { links, label } = link as NavigationData;
+          const { links, label, link } = linkData as NavigationData;
 
           return (
             <div key={`${level}-${label}`}>
@@ -101,7 +101,21 @@ const SitemapBlock = ({ links, label, level = 0 }: Props) => {
                   variant={levelVariantMap[level.toString()].label}
                   gutterBottom
                 >
-                  {label}
+                  {link ? (
+                    <AnchorLink
+                      action={getClickableActionFromUrl(
+                        link.linkedPage,
+                        link.url,
+                        countryCode,
+                        null,
+                        link.label
+                      )}
+                    >
+                      {label}
+                    </AnchorLink>
+                  ) : (
+                    label
+                  )}
                 </Typography>
               )}
               <SitemapBlock

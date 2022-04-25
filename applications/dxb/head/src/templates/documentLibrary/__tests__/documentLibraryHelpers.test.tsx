@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { sourceToSortMap } from "../helpers/documnetLibraryHelpers";
 import createPimDocument from "../../../__tests__/PimDocumentHelper";
 import createProduct from "../../../__tests__/PimDocumentProductHelper";
@@ -71,46 +70,62 @@ describe("documentLibraryHelpers", () => {
     it("sort documents correctly using ALL", () => {
       const result = sourceToSortMap["ALL"](documents);
 
-      expect(result).toEqual(
-        expect.arrayContaining([
-          documents[5],
-          documents[0],
-          documents[2],
-          documents[1],
-          documents[3],
-          documents[4]
-        ])
-      );
+      expect(result).toEqual([
+        documents[5],
+        documents[0],
+        documents[2],
+        documents[1],
+        documents[3],
+        documents[4]
+      ]);
     });
 
     it("sort documents correctly using PIM", () => {
       const result = sourceToSortMap["PIM"](documents);
 
-      expect(result).toEqual(
-        expect.arrayContaining([
-          documents[5],
-          documents[0],
-          documents[2],
-          documents[1],
-          documents[3],
-          documents[4]
-        ])
-      );
+      expect(result).toEqual([
+        documents[5],
+        documents[0],
+        documents[2],
+        documents[1],
+        documents[3],
+        documents[4]
+      ]);
     });
 
     it("sort documents correctly using CMS", () => {
       const result = sourceToSortMap["CMS"](documents);
 
-      expect(result).toEqual(
-        expect.arrayContaining([
-          documents[5],
-          documents[0],
-          documents[2],
-          documents[1],
-          documents[3],
-          documents[4]
-        ])
-      );
+      expect(result).toEqual([
+        documents[5],
+        documents[0],
+        documents[2],
+        documents[1],
+        documents[3],
+        documents[4]
+      ]);
+    });
+    it("sort documents correctly using CMS if at least one document's brand is null", () => {
+      const testDoc = {
+        ...pimDocument,
+        id: "77",
+        url: "88",
+        title: "AdocumentTitleTest1",
+        assetType: createAssetType({ name: "test", code: "code" }),
+        brand: null
+      };
+      const docs = [...documents, testDoc];
+      const result = sourceToSortMap["CMS"](docs);
+
+      expect(result).toEqual([
+        testDoc,
+        documents[5],
+        documents[1],
+        documents[0],
+        documents[4],
+        documents[2],
+        documents[3]
+      ]);
     });
   });
 });

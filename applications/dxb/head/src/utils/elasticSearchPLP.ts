@@ -77,7 +77,6 @@ export const compileESQueryPLP = ({
       "_score",
       { productScoringWeightInt: "desc" },
       { variantScoringWeightInt: "desc" },
-      { scoringWeightInt: "desc" },
       { "name.keyword": "asc" }
     ],
     aggs: {

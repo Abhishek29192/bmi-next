@@ -41,6 +41,7 @@ type TitleWithContent = {
     id: string;
   };
   title: string;
+  content: { json: any; links: null };
 };
 
 type Asset = {
@@ -80,11 +81,13 @@ export type Response = {
       description: ResponseRichText | null;
       answers: Response[] | null;
       recommendedSystems: string[] | null;
+      content: null;
     }
   | {
       __typename: `ContentfulTitleWithContent`;
       type: null;
       answers: null;
       recommendedSystems: null;
+      content: { raw: string };
     }
 );

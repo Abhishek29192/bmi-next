@@ -1,7 +1,7 @@
 import React from "react";
-import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
+import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import {
   BasketContextProvider,
   Sample
@@ -11,21 +11,29 @@ import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
-import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import { ClassificationCodeEnum } from "../types/pim";
+import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
-const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
+const MockSiteContext = ({
+  mockEnvConfig = { gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT" },
+  children
+}: {
+  mockEnvConfig?: EnvConfig["config"];
+  children: React.ReactNode;
+}) => {
   return (
-    <SiteContextProvider
-      value={{
-        ...getMockSiteContext("no"),
-        reCaptchaKey: "1234",
-        reCaptchaNet: false
-      }}
-    >
-      {children}
-    </SiteContextProvider>
+    <ConfigProvider configObject={mockEnvConfig}>
+      <SiteContextProvider
+        value={{
+          ...getMockSiteContext("no"),
+          reCaptchaKey: "1234",
+          reCaptchaNet: false
+        }}
+      >
+        {children}
+      </SiteContextProvider>
+    </ConfigProvider>
   );
 };
 
@@ -100,9 +108,10 @@ const data: Data = {
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-axios.CancelToken.source = jest
-  .fn()
-  .mockReturnValue({ token: "this", cancel: () => {} });
+axios.CancelToken.source = jest.fn().mockReturnValue({
+  token: "this",
+  cancel: () => {}
+});
 
 jest.mock("react-google-recaptcha-v3", () => ({
   useGoogleReCaptcha: () => ({
@@ -153,8 +162,6 @@ describe("SampleBasketSection component", () => {
 
 describe("SampleBasketSection with form", () => {
   it("should submit form with provided samples", async () => {
-    process.env.GATSBY_GCP_FORM_SUBMIT_ENDPOINT =
-      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT";
     const { container } = render(
       <MockSiteContext>
         <BasketContextProvider>
@@ -182,7 +189,7 @@ describe("SampleBasketSection with form", () => {
           title: "Complete form",
           values: {
             samples:
-              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details<br>color: green<br>texture: rough",
+              "id: sample-1<br>title: sample-1<br>url: http://localhost/no/sample-1-details/<br>color: green<br>texture: rough",
             text: "Text"
           }
         },

@@ -17,6 +17,15 @@
     color: $color-theme-inter;
   }
 
+  &:global([class*="MuiPaginationItem-ellipsis"]),
+  &:global([class*="iconButtonStyles-text"]) {
+    fill: $color-theme-inter;
+  }
+
+  &:global([class*="Mui-disabled"]) {
+    opacity: 0.38;
+  }
+
   &:global([class*="Mui-selected"]) {
     color: $color-white;
   }
@@ -24,5 +33,6 @@
   &--first:global([class*="MuiPaginationItem-root"]),
   &--last:global([class*="MuiPaginationItem-root"]) {
     background-color: transparent;
+    fill: $color-theme-inter;
   }
 }

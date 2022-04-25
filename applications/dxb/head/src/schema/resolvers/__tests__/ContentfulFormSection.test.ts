@@ -10,7 +10,7 @@ const source: Node = {
 
 const context: Context = {
   nodeModel: {
-    getAllNodes: jest
+    findAll: jest
       .fn()
       .mockResolvedValue([{ id: "asset-type-1" }, { id: "asset-type-2" }]),
     getNodeById: jest.fn().mockImplementation(({ id }: { id: string }) =>
@@ -18,8 +18,7 @@ const context: Context = {
         id
       })
     ),
-    getNodesByIds: jest.fn(),
-    runQuery: jest.fn()
+    getNodesByIds: jest.fn()
   }
 };
 

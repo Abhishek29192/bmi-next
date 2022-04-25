@@ -18,6 +18,16 @@ const defaultContent: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms"
 };
 
+const recaptchaContent_NL: RecaptchaPolicyContentType = {
+  startText: "Deze site wordt beschermd door reCAPTCHA en Google ",
+  privacyPloicyText: "Privacybeleid",
+  andText: " en ",
+  termsOfServiceText: "Servicevoorwaarden",
+  endText: " zijn van toepassing.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=nl",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=nl"
+};
+
 const recaptchaContent_NO: RecaptchaPolicyContentType = {
   startText: "Dette nettstedet er beskyttet av reCAPTCHA og Googles ",
   privacyPloicyText: "Personvernregler",
@@ -86,6 +96,7 @@ RecaptchaPrivacyContentMap["it"] = recaptchaContent_IT;
 RecaptchaPrivacyContentMap["fr"] = recaptchaContent_FR;
 RecaptchaPrivacyContentMap["de"] = recaptchaContent_DE;
 RecaptchaPrivacyContentMap["at"] = recaptchaContent_AT;
+RecaptchaPrivacyContentMap["nl"] = recaptchaContent_NL;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string

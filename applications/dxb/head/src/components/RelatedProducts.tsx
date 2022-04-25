@@ -119,6 +119,10 @@ const ProductListing = ({
 
           const altText = `${uniqueClassifications} ${product.name}`;
 
+          const gtmLabel = `${product.name}${
+            uniqueClassifications ? ` - ${uniqueClassifications}` : ""
+          } - ${getMicroCopy(microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS)}`;
+
           return (
             <Grid
               item
@@ -142,9 +146,7 @@ const ProductListing = ({
                 }}
                 gtm={{
                   id: "cta-click1",
-                  label: getMicroCopy(
-                    microCopy.PDP_RELATED_PRODUCTS_VIEW_DETAILS
-                  ),
+                  label: gtmLabel,
                   action: productUrl
                 }}
                 footer={
@@ -198,10 +200,7 @@ const RelatedProducts = ({
 
   const productGroups = groupProductsByCategory(products);
 
-  const isRelatedProductsHide =
-    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS === "true";
-
-  if (!Object.keys(productGroups).length || isRelatedProductsHide) {
+  if (!Object.keys(productGroups).length) {
     return null;
   }
 

@@ -10,6 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import classnames from "classnames";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
+import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
@@ -18,6 +20,7 @@ import createAssetFileCountMap, {
 import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import styles from "./styles/DocumentResultsFooter.module.scss";
+import { Data } from "./DocumentResults";
 
 export const useGlobalDocResFooterStyles = makeStyles(
   () => ({
@@ -34,11 +37,7 @@ type Props = {
   page: number;
   count: number;
   onPageChange: (event: React.ChangeEvent<unknown>, page: number) => void;
-  onDownloadClick?: (
-    list: Record<string, any>,
-    token: string,
-    callback?: () => void
-  ) => void;
+  isDownloadButton?: boolean;
 };
 
 const GTMButton = withGTM<ButtonProps>(Button);
@@ -46,28 +45,26 @@ const GTMButton = withGTM<ButtonProps>(Button);
 export const handleDownloadClick = async (
   list: Record<string, any>,
   token: string,
+  config: EnvConfig["config"],
   callback?: () => void
 ) => {
+  const { isPreviewMode, documentDownloadEndpoint } = config;
   const listValues = Object.values(list).filter(Boolean);
   const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
 
   if (listValues.length === 0) {
-    return () => {
-      // no-op
-    };
+    return;
   }
 
-  if (process.env.GATSBY_PREVIEW) {
+  if (isPreviewMode) {
     alert("You cannot download documents on the preview enviornment.");
     callback();
 
-    return () => {
-      // no-op
-    };
+    return;
   }
 
   try {
-    if (!process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT) {
+    if (!documentDownloadEndpoint) {
       throw Error(
         "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
       );
@@ -102,7 +99,7 @@ export const handleDownloadClick = async (
     );
 
     const response = await axios.post(
-      process.env.GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT,
+      documentDownloadEndpoint,
       { documents: documents },
       { responseType: "text", headers: { "X-Recaptcha-Token": token } }
     );
@@ -113,19 +110,48 @@ export const handleDownloadClick = async (
       callback();
     }
   } catch (error) {
-    console.error("DocumentResults", error); // eslint-disable-line
+    devLog(`DocumentResults: ${error.message}`);
   }
+};
+
+const extractUrl = (el) => {
+  return el.__typename === "PIMDocument" ? el.url : el.asset.file.url;
+};
+
+const getListOfUrl = (item: Data) => {
+  return item
+    .map((el) => {
+      return extractUrl(el);
+    })
+    .join(",");
+};
+
+const getAction = (list: Record<string, Data>) => {
+  return JSON.stringify(
+    Object.values(list)
+      .map((item) => {
+        if (item) {
+          if (Array.isArray(item)) {
+            return getListOfUrl(item);
+          } else {
+            return extractUrl(item);
+          }
+        }
+      })
+      .filter(Boolean)
+  );
 };
 
 const DocumentResultsFooter = ({
   page,
   count,
   onPageChange,
-  onDownloadClick
+  isDownloadButton = true
 }: Props) => {
   const globalClasses = useGlobalDocResFooterStyles();
   const { getMicroCopy } = useSiteContext();
   const { resetList, list } = useContext(DownloadListContext);
+  const { config } = useConfig();
   const { executeRecaptcha } = useGoogleReCaptcha();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -141,7 +167,7 @@ const DocumentResultsFooter = ({
           globalClasses.paginationRoot
         )}
       />
-      {onDownloadClick && !isMobile && (
+      {isDownloadButton && !isMobile && (
         <>
           <DownloadList.Clear
             label={getMicroCopy(microCopy.DOWNLOAD_LIST_CLEAR)}
@@ -153,11 +179,7 @@ const DocumentResultsFooter = ({
                 gtm={{
                   id: "download3-button1",
                   label: props.children[0],
-                  action: JSON.stringify(
-                    Object.values(list).map((item) =>
-                      Array.isArray(item) ? item[0].url : item.url
-                    )
-                  )
+                  action: getAction(list)
                 }}
                 {...props}
               />
@@ -168,7 +190,7 @@ const DocumentResultsFooter = ({
             onClick={async (list) => {
               const token = await executeRecaptcha();
 
-              onDownloadClick(list, token, resetList);
+              await handleDownloadClick(list, token, config, resetList);
             }}
           />
           <RecaptchaPrivacyLinks />

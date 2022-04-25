@@ -1,0 +1,60 @@
+{
+  "genericError": "Ocurrió un error. Vuelva a intentarlo o comuníquese con un administrador de BMI.",
+  "invitation": {
+    "dialog": {
+      "cancel": "Cancelar",
+      "emails": {
+        "helperText": "Añada varios miembros del equipo separando cada dirección de correo electrónico con una coma",
+        "label": "Dirección email del destinatario"
+      },
+      "errorAlreadyMember": "El usuario ya es miembro de otra empresa",
+      "errorInvitationNotFound": "Invitación no encontrada",
+      "errorCommonFailure": "Respuesta fallida. Verifique los detalles y vuelva a intentarlo, o comuníquese con su administrador local de BMI.",
+      "personalNote": {
+        "label": "Mensaje (opcional)"
+      },
+      "send": "Enviar correo electrónico",
+      "success": "La invitación ha sido enviada.",
+      "title": "Invitar a miembros del equipo"
+    }
+  },
+  "lastCompanyAdminError": "No puede eliminar al último administrador de la empresa de una empresa a menos que BMI lo haya desactivado.",
+  "memberRemoved": "Miembro eliminado con éxito de la empresa",
+  "report": "Descargar listado de equipos",
+  "sidePanel": {
+    "inviteLabel": " + Invitar a miembros del equipo",
+    "search": {
+      "label": "Buscar un usuario",
+      "noResult": "Usuario no encontrado"
+    }
+  },
+  "table": {
+    "certification": "Certificación BMI",
+    "noResults": "El usuario no tiene certificaciones BMI",
+    "title": "Certificaciones BMI",
+    "type": "Tipo",
+    "validity": "Validez"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Activar usuario",
+      "deactivate": "Desactivar usuario"
+    },
+    "title": "Acciones del usuario"
+  },
+  "user_card": {
+    "add_admin": "Asignar como administrador de la empresa",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "remove": "Eliminar de la empresa",
+    "remove_admin": "Eliminar como administrador de la empresa",
+    "remove_user_dialog": {
+      "text": "¿Desea eliminar a este miembro de la empresa?",
+      "title": "Eliminar miembro de la empresa"
+    },
+    "role_dialog": {
+      "text": "¿Quieres cambiar el rol del usuario?",
+      "title": "Cambiar rol de usuario"
+    }
+  }
+}

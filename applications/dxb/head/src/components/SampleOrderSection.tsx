@@ -77,8 +77,8 @@ const SampleOrderSection = ({
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
-    <div className={styles["SampleOrderSection"]}>
-      {(isSampleOrderAllowed || basketHasProducts) && (
+    (isSampleOrderAllowed || basketHasProducts) && (
+      <div className={styles["SampleOrderSection"]}>
         <div className={styles["container"]}>
           <Section backgroundColor="white" spacing="none" hasNoPadding>
             {basketHasProducts && (
@@ -124,8 +124,8 @@ const SampleOrderSection = ({
             </div>
           </Section>
         </div>
-      )}
-    </div>
+      </div>
+    )
   );
 };
 

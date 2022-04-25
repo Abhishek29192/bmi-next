@@ -9,6 +9,7 @@ import createSystemDetails from "../../test/systemDetailsMockData";
 import { Image } from "../types/pim";
 import { Asset } from "../types/pim";
 import { PIMDocumentData, PIMLinkDocumentData } from "../types/PIMDocumentBase";
+import { microCopy } from "../../constants/microCopies";
 
 const systemDetailsMockData = createSystemDetails();
 const awardsAndCertificatesAssets: Asset[] = [
@@ -118,7 +119,7 @@ describe("ProductLeadBlock tests", () => {
     jest.clearAllMocks();
   });
 
-  it("should render guarantees & warranties images & links on on about tab", () => {
+  it("should render guarantees & warranties images & links on about tab", () => {
     const { container } = render(
       <ProductLeadBlock
         documents={[]}
@@ -130,6 +131,38 @@ describe("ProductLeadBlock tests", () => {
       />
     );
     expect(container).toMatchSnapshot();
+  });
+  it("shouldn't render guarantees & warranties block on about tab if it consist of pdf files", async () => {
+    const guaranteesAndWarrantiesAssetsWithPdf: Asset[] = [
+      {
+        allowedToDownload: true,
+        assetType: "WARRANTIES",
+        name: "Monier garanti 30 år",
+        realFileName: "Monier garanti 30 år.pdf",
+        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hbc/hd9/9009904058398/Monier-garanti-30-arjpg"
+      },
+      {
+        allowedToDownload: true,
+        assetType: "GUARANTIES",
+        name: "Test_Guarantee",
+        realFileName: "Test_Guarantee.pdf",
+        url: "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h6c/hba/9021243785246/Test-Guaranteepng"
+      }
+    ];
+    const { queryByText } = render(
+      <ProductLeadBlock
+        documents={[]}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        guaranteesAndWarranties={guaranteesAndWarrantiesAssetsWithPdf}
+        awardsAndCertificates={awardsAndCertificatesAssets}
+      />
+    );
+    const title = queryByText(
+      `MC: ${microCopy.PDP_LEAD_BLOCK_GUARANTEES_WARRANTIES}`
+    );
+    expect(title).toBeNull();
   });
 
   it("should render the technical draws tab", () => {

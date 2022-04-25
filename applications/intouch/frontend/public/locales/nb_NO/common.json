@@ -81,5 +81,10 @@
     "T3": "Expert",
     "T4": "Elite"
   },
-  "visitWebsite": "Besøk nettsiden"
+  "visitWebsite": "Besøk nettsiden",
+  "button": {
+    "more": "Vis mer",
+    "less": "Vis mindre"
+  },
+  "requiredInformation": "nødvendig informasjon"
 }

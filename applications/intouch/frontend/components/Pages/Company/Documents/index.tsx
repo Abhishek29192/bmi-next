@@ -132,12 +132,7 @@ export const CompanyDocuments = ({
   return (
     <div className={styles.main}>
       <SimpleCard>
-        <Typography
-          variant="h4"
-          hasUnderline
-          color="primary"
-          style={{ fontSize: "1.2rem" }}
-        >
+        <Typography variant="h4" hasUnderline style={{ fontSize: "1.2rem" }}>
           {t("document.title")}
         </Typography>
         <div className={styles.header}>

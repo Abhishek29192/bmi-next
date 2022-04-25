@@ -42,6 +42,15 @@
 {% assign unblock_account_message = "um Ihr Konto zu entsperren. Andernfalls ignorieren Sie diese E-Mail." %} 
 {% assign thanks = "Danke!" %} 
 {% assign warning_message = "Wenn Sie diese Anfrage nicht gestellt haben, wenden Sie sich bitte an einen BMI-Administrator, indem Sie auf diese E-Mail antworten." %} 
+{% elsif language == "es" %} 
+{% assign blocked_access = "Intento de acceso bloqueado" %}
+{% assign suspicious_activity_detect = "Detectamos actividad sospechosa de la ip:" %}
+{% assign from = "de" %}
+{% assign is_your_ip = "Si esa es su dirección IP" %}
+{% assign click_here = "haga clic aquí" %}
+{% assign unblock_account_message = "para desbloquear su cuenta. De lo contrario, ignore este correo electrónico." %}
+{% assign thanks = "¡Gracias!" %}
+{% assign warning_message = "Si no realizó esta solicitud, contáctenos respondiendo a este correo." %}
 {% endif %}
 
 <html>

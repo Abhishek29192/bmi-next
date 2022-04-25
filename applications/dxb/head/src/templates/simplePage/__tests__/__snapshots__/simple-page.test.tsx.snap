@@ -22,6 +22,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -40,6 +41,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -58,6 +60,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -76,6 +79,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -95,6 +99,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -362,7 +367,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -2665,8 +2670,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -2892,8 +2897,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -3384,8 +3389,8 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >
@@ -3464,6 +3469,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3482,6 +3488,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3500,6 +3507,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3518,6 +3526,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             >
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -3537,6 +3546,7 @@ exports[`Simple page renders correctly with full data 1`] = `
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Contact Us\\",\\"action\\":\\"/en/kontakt-oss/\\"}"
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
@@ -3804,7 +3814,7 @@ exports[`Simple page renders correctly with full data 1`] = `
             <a
               aria-label="MC: global.logoLabel"
               class="logo-link"
-              href="/en"
+              href="/en/"
             >
               <svg
                 class="logo"
@@ -6107,8 +6117,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -6334,6 +6344,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                       >
                         <div
                           class="YoutubeVideo"
+                          data-gtm="{\\"id\\":\\"cta-click--video-youtube\\",\\"label\\":\\"https://www.youtube.com/watch?v=TDNEwZbm_Nk-BMI Group VIDEO LABEL\\",\\"action\\":\\"Play\\"}"
+                          data-testid="youtube-dialog-wrapper"
                         >
                           <button
                             aria-label="BMI Group VIDEO LABEL"
@@ -6528,8 +6540,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text button link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en\\",\\"label\\":\\"Home\\"}"
-                    href="/en"
+                    data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/en/\\",\\"label\\":\\"Home\\"}"
+                    href="/en/"
                     role="button"
                     tabindex="0"
                   >
@@ -7020,8 +7032,8 @@ exports[`Simple page renders correctly with full data 1`] = `
                 <a
                   aria-disabled="false"
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text buttonStyles-textDarkBg link MuiButton-textPrimary"
-                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap\\"}"
-                  href="/en/sitemap"
+                  data-gtm="{\\"id\\":\\"nav-footer1\\",\\"label\\":\\"MC: global.sitemap\\",\\"action\\":\\"/en/sitemap/\\"}"
+                  href="/en/sitemap/"
                   role="button"
                   tabindex="0"
                 >

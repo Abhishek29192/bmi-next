@@ -2,140 +2,296 @@
 
 exports[`RadioPane component renders expanded with children 1`] = `
 <div>
-  <label
-    class="RadioPane"
+  <div
+    class="RadioPaneContainer"
   >
-    <input
-      class="input"
-      name="f1"
-      type="radio"
-      value="v1"
-    />
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root pane"
-      role="button"
-      tabindex="-1"
+    <label
+      class="RadioPane"
     >
-      <div
-        class="header"
-      >
-        <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
-        >
-          Value 1
-        </h6>
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root checkedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-          />
-        </svg>
-      </div>
-      <div
-        class="content"
-      >
-        <hr
-          class="MuiDivider-root hr"
-        />
-        expanded content
-      </div>
-      <span
-        class="MuiTouchRipple-root"
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
       />
-    </div>
-  </label>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <div
+          class="content"
+        >
+          <hr
+            class="MuiDivider-root hr"
+          />
+          expanded content
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+  </div>
 </div>
 `;
 
 exports[`RadioPane component renders with className 1`] = `
 <div>
-  <label
-    class="RadioPane custom-classname"
+  <div
+    class="RadioPaneContainer"
   >
-    <input
-      class="input"
-      name="f1"
-      type="radio"
-      value="v1"
-    />
+    <label
+      class="RadioPane custom-classname"
+    >
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
+      />
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`RadioPane component renders with collapse feature 1`] = `
+<div>
+  <div
+    class="RadioPaneContainer CollapseFeature"
+  >
+    <label
+      class="RadioPane"
+    >
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
+      />
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <div
+          class="description-container"
+          style="height: 0px;"
+        >
+          <div
+            class="content"
+            data-testid="expanded"
+          >
+            <hr
+              class="MuiDivider-root hr"
+            />
+            expanded content
+          </div>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
     <div
-      aria-disabled="false"
-      class="MuiButtonBase-root pane"
-      role="button"
-      tabindex="-1"
+      class="btn-container"
+    >
+      <button
+        class="MuiButtonBase-root MuiIconButton-root icon-btn"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root cancel-icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RadioPane component renders with collapse feature withoud description 1`] = `
+<div>
+  <div
+    class="RadioPaneContainer CollapseFeature"
+  >
+    <label
+      class="RadioPane"
+    >
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
+      />
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+    <div
+      class="btn-container"
     >
       <div
-        class="header"
-      >
-        <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
-        >
-          Value 1
-        </h6>
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root checkedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-          />
-        </svg>
-      </div>
-      <span
-        class="MuiTouchRipple-root"
+        class="icon-btn"
       />
     </div>
-  </label>
+  </div>
 </div>
 `;
 
 exports[`RadioPane component renders without children 1`] = `
 <div>
-  <label
-    class="RadioPane"
+  <div
+    class="RadioPaneContainer"
   >
-    <input
-      class="input"
-      name="f1"
-      type="radio"
-      value="v1"
-    />
-    <div
-      aria-disabled="false"
-      class="MuiButtonBase-root pane"
-      role="button"
-      tabindex="-1"
+    <label
+      class="RadioPane"
     >
-      <div
-        class="header"
-      >
-        <h6
-          class="MuiTypography-root title Typography MuiTypography-h6"
-        >
-          Value 1
-        </h6>
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root checkedIcon"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-          />
-        </svg>
-      </div>
-      <span
-        class="MuiTouchRipple-root"
+      <input
+        class="input"
+        name="f1"
+        type="radio"
+        value="v1"
       />
-    </div>
-  </label>
+      <div
+        aria-disabled="false"
+        class="MuiButtonBase-root pane"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="header"
+        >
+          <h6
+            class="MuiTypography-root title Typography MuiTypography-h6"
+          >
+            Value 1
+          </h6>
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root checkedIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            />
+          </svg>
+        </div>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </label>
+  </div>
 </div>
 `;

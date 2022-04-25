@@ -3,7 +3,7 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import fetch from "node-fetch";
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import { getProductsByMessageId, getSystemsByMessageId } from "@bmi/pim-api";
-import { ItemType, MessageType, DeleteItemType, ObjType } from "./types";
+import { DeleteItemType, ItemType, MessageType, ObjType } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, BUILD_TRIGGER_ENDPOINT } =
   process.env;
@@ -32,8 +32,8 @@ const publishMessage = async (
   try {
     const messageId = await getTopicPublisher().publish(messageBuffer);
     logger.info({ message: `PUB SUB MESSAGE PUBLISHED: ${messageId}` });
-  } catch (err: any) {
-    logger.error({ message: err.message });
+  } catch (error) {
+    logger.error({ message: (error as Error).message });
   }
 };
 
@@ -159,22 +159,26 @@ export const handleRequest: HttpFunction = async (req, res) => {
   const { message } = req.body;
 
   const messageData = JSON.parse(
-    Buffer.from(message.data, "base64").toString("ascii")
+    Buffer.from(message.data, "base64").toString("utf8")
   );
 
   logger.info({
-    message: `Message data: ${message.messageId}, ${messageData}`
+    message: `Message data: ${message.messageId}, ${JSON.stringify(
+      messageData
+    )}`
   });
 
   try {
     const { type, itemType, base, variant, system, layer } = messageData;
 
     if (!["PRODUCTS", "SYSTEMS"].includes(itemType)) {
-      throw new Error(`[PIM] Unrecognised itemType [${itemType}]`);
+      logger.error({ message: `[PIM] Unrecognised itemType [${itemType}]` });
+      return res.status(200).send("ok");
     }
 
     if (!["UPDATED", "DELETED"].includes(type)) {
-      throw new Error(`[PIM] Undercognised message type [${type}]`);
+      logger.error({ message: `[PIM] Unrecognised message type [${type}]` });
+      return res.status(200).send("ok");
     }
 
     if (type === "UPDATED") {
@@ -236,8 +240,8 @@ export const handleRequest: HttpFunction = async (req, res) => {
       },
       body: JSON.stringify({ data: "filler data" })
     });
-  } catch (error: any) {
-    logger.error({ message: error.message });
+  } catch (error) {
+    logger.error({ message: (error as Error).message });
   }
 
   res.status(200).send("ok");

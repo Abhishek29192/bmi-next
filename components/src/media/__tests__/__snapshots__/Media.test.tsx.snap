@@ -25,6 +25,7 @@ exports[`Media component renders correctly if child youtube video 1`] = `
   >
     <div
       class="YoutubeVideo"
+      data-testid="youtube-dialog-wrapper"
     >
       <button
         aria-label="label"

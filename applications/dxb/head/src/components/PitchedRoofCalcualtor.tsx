@@ -4,6 +4,7 @@ import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
+import { useConfig } from "../contexts/ConfigProvider";
 import { Data } from "./pitched-roof-calculator/types";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";
@@ -36,6 +37,13 @@ type Props = {
 const CalculatorProvider = ({ children, onError }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
+  const {
+    config: {
+      webtoolsCalculatorDataUrl,
+      isWebToolsCalculatorEnabled,
+      webToolsCalculatorApsisEndpoint
+    }
+  } = useConfig();
 
   const open: Context["open"] = (params = {}) => {
     setParameters(params);
@@ -54,17 +62,16 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     const cancelTokenSouce = axios.CancelToken.source();
 
     const fetchAndSetData = async () => {
-      if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL) {
+      if (!webtoolsCalculatorDataUrl) {
         devLog("Calculator data url was not found, using sample data instead.");
         setData(sampleData as Data);
         return;
       }
 
       try {
-        const response = await axios.get(
-          process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL,
-          { cancelToken: cancelTokenSouce.token }
-        );
+        const response = await axios.get(webtoolsCalculatorDataUrl, {
+          cancelToken: cancelTokenSouce.token
+        });
 
         setData(response.data);
       } catch (error) {
@@ -82,12 +89,11 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     <CalculatorContext.Provider
       value={{
         isOpen,
-        open:
-          process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR === "true"
-            ? open
-            : () => {
-                // no-op
-              }
+        open: isWebToolsCalculatorEnabled
+          ? open
+          : () => {
+              // no-op
+            }
       }}
     >
       {children}
@@ -102,7 +108,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
               data={data}
               onAnalyticsEvent={pushToDataLayer}
               sendEmailAddress={async (values) => {
-                if (!process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT) {
+                if (!webToolsCalculatorApsisEndpoint) {
                   devLog(
                     "WebTools calculator api endpoint for apsis isn't configured"
                   );
@@ -112,15 +118,11 @@ const CalculatorProvider = ({ children, onError }: Props) => {
                 const token = await executeRecaptcha();
 
                 try {
-                  await axios.post(
-                    process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,
-                    values,
-                    {
-                      headers: {
-                        "X-Recaptcha-Token": token
-                      }
+                  await axios.post(webToolsCalculatorApsisEndpoint, values, {
+                    headers: {
+                      "X-Recaptcha-Token": token
                     }
-                  );
+                  });
                 } catch (error) {
                   // Ignore errors if any as this isn't necessary for PDF download to proceed
                   devLog("WebTools calculator api endpoint error", error);

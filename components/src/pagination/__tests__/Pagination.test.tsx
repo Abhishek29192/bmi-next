@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import * as all from "@bmi-digital/use-dimensions";
 import Pagination from "../Pagination";
 

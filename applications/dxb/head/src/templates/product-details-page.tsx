@@ -5,7 +5,7 @@ import {
   CTACard,
   Grid,
   GridSize,
-  Image as ImageGalleryImage,
+  MediaData,
   Section
 } from "@bmi/components";
 import Page, { Data as PageData } from "../components/Page";
@@ -45,6 +45,7 @@ import KeyAssetTypesDownloadSection from "../components/KeyAssetTypesDownloadSec
 import { getAssetsIframeUrl } from "../components/AssetsIframe";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { combineVariantClassifications } from "../utils/filters";
+import { useConfig } from "../contexts/ConfigProvider";
 import { microCopy } from "../constants/microCopies";
 import { filterAndTransformVideoData, transformMediaSrc } from "../utils/media";
 
@@ -103,6 +104,9 @@ const getVariant = (product: Product, variantCode: string) => {
 
 const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { product, relatedProducts, contentfulSite } = data;
+  const {
+    config: { isSampleOrderingEnabled }
+  } = useConfig();
 
   // Which variant (including base) are we looking at
   // TODO: Merge data here!
@@ -164,7 +168,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     );
 
   const getSampleOrderAllowed = () => {
-    if (process.env.GATSBY_ENABLE_SAMPLE_ORDERING === "true") {
+    if (isSampleOrderingEnabled) {
       return (
         selfProduct.isSampleOrderAllowed ??
         product.isSampleOrderAllowed ??
@@ -177,7 +181,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const getTechDrawings = (
     images: readonly Image[],
     selfProdImages: readonly Image[]
-  ): readonly ImageGalleryImage[] => {
+  ): readonly MediaData[] => {
     const imagesByFormat: Image[][] = Object.values(
       groupImage([...(images || []), ...(selfProdImages || [])], "containerId")
     );
@@ -279,20 +283,18 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   isRecapchaShown: hasFiltredKeyAssetsDocuments
                 }}
               >
-                {
-                  <SampleOrderSection
-                    isSampleOrderAllowed={getSampleOrderAllowed()}
-                    product={product}
-                    variant={getVariant(product, pageContext.variantCode)}
-                    maximumSamples={maximumSamples}
-                    sampleBasketLinkInfo={sampleBasketLink}
-                    actionLabel={createActionLabel(
-                      product.name,
-                      combineVariantClassifications(product, selfProduct),
-                      classificationConfig
-                    )}
-                  />
-                }
+                <SampleOrderSection
+                  isSampleOrderAllowed={getSampleOrderAllowed()}
+                  product={product}
+                  variant={getVariant(product, pageContext.variantCode)}
+                  maximumSamples={maximumSamples}
+                  sampleBasketLinkInfo={sampleBasketLink}
+                  actionLabel={createActionLabel(
+                    product.name,
+                    combineVariantClassifications(product, selfProduct),
+                    classificationConfig
+                  )}
+                />
                 {hasFiltredKeyAssetsDocuments && (
                   <KeyAssetTypesDownloadSection
                     assetTypes={resources.keyAssetTypes}
@@ -357,7 +359,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       index,
                       cards
                     ) => {
-                      const cta = getCTA(data, countryCode);
+                      const cta = getCTA(data, countryCode, title);
                       return (
                         <Grid
                           item

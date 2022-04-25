@@ -7,11 +7,15 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 const listItemTestId = "GTMIntegratedLinkCard-test-id";
+const handlePageChange = jest.fn();
 
 describe("ServiceLocatorResultList component", () => {
   it("should renders empty list with NO service", () => {
     const { getByRole } = render(
       <ServiceLocatorResultList
+        page={1}
+        pageCount={1}
+        onPageChange={handlePageChange}
         roofersList={[]}
         getCompanyDetails={jest.fn()}
         onCloseCard={jest.fn()}
@@ -41,6 +45,9 @@ describe("ServiceLocatorResultList component", () => {
     } - selected`;
     const { getByTestId } = render(
       <ServiceLocatorResultList
+        page={1}
+        pageCount={1}
+        onPageChange={handlePageChange}
         roofersList={[service]}
         getCompanyDetails={jest.fn()}
         onCloseCard={jest.fn()}
@@ -59,6 +66,9 @@ describe("ServiceLocatorResultList component", () => {
     const onListItemClick = jest.fn();
     const { getByTestId } = render(
       <ServiceLocatorResultList
+        page={1}
+        pageCount={1}
+        onPageChange={handlePageChange}
         roofersList={[service]}
         getCompanyDetails={jest.fn()}
         onCloseCard={jest.fn()}
@@ -76,6 +86,9 @@ describe("ServiceLocatorResultList component", () => {
     const onListItemClick = jest.fn();
     const { getByText } = render(
       <ServiceLocatorResultList
+        page={1}
+        pageCount={1}
+        onPageChange={handlePageChange}
         roofersList={[service]}
         getCompanyDetails={jest.fn()}
         onCloseCard={jest.fn()}
@@ -88,11 +101,36 @@ describe("ServiceLocatorResultList component", () => {
 
     expect(listItem).toBeDefined();
   });
+
+  it("should render correctly if pageCount larger then 1", () => {
+    const service = createService({ certification: "expert" });
+    const onListItemClick = jest.fn();
+    const { container } = render(
+      <ServiceLocatorResultList
+        page={5}
+        pageCount={5}
+        onPageChange={handlePageChange}
+        roofersList={[service]}
+        getCompanyDetails={jest.fn()}
+        onCloseCard={jest.fn()}
+        onListItemClick={onListItemClick}
+        selectedRoofer={null}
+        shouldListCertification={false}
+      />
+    );
+
+    const pagination = container.querySelector(".pagination");
+
+    expect(pagination).toBeDefined();
+  });
   it("should trigger popup when selectedRoofer.id === service.id", () => {
     const service = createService({ id: "testServiceId" });
     const onListItemClick = jest.fn();
     const { getByTestId } = render(
       <ServiceLocatorResultList
+        page={1}
+        pageCount={1}
+        onPageChange={handlePageChange}
         roofersList={[service]}
         getCompanyDetails={jest.fn()}
         onCloseCard={jest.fn()}

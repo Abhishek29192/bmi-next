@@ -13,7 +13,7 @@
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=handleMessage"
   },
   "dependencies": {
-    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/functions-framework": "^3.0.0",
     "@bmi/functions-firestore": "0.0.0",
     "@bmi/gcp-pim-message-handler": "0.0.0",
     "@bmi-digital/functions-logger": "1.1.1",
@@ -25,7 +25,7 @@
     "inspectpack": "^4.7.1",
     "js-yaml": "^4.0.0",
     "process-top": "^1.2.0",
-    "webpack": "^5.33.2",
+    "webpack": "^5.70.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2"
   }

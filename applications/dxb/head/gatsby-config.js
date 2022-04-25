@@ -77,14 +77,14 @@ const queries = [
       if (!data) {
         throw new Error("No data");
       }
-
       return data.allSitePage.edges
         .map(({ node }) => {
-          const cacheJSONFilename = node.path.replace(/\//g, "_") + ".json";
+          const contentNodeFolderName = `${node.path}${
+            node.path.endsWith("/") ? "" : "/"
+          }`;
           const dataJSONPath = path.resolve(
             __dirname,
-            ".cache/json",
-            cacheJSONFilename
+            `public/page-data/${contentNodeFolderName}page-data.json`
           );
 
           try {
@@ -94,7 +94,7 @@ const queries = [
             // Ignore contentfulSite as it's global data
             // eslint-disable-next-line no-unused-vars
             const { contentfulSite, ...pageData } =
-              (dataJSON && dataJSON.data) || {};
+              (dataJSON && dataJSON.result && dataJSON.result.data) || {};
 
             // Get something that might be the page data.
             // Also acts to specify what pages are handled
@@ -149,6 +149,9 @@ const queries = [
   process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS && {
     query: documentsQuery,
     transformer: ({ data }) => {
+      function isLinkDocument(document) {
+        return !!document.url && !document.fileSize && !document.realFileName;
+      }
       if (!data) {
         throw new Error("No data");
       }
@@ -158,11 +161,13 @@ const queries = [
       return [
         ...allPIMDocument.map((item) => ({
           titleAndSize: `${item.title}_${item.fileSize}`,
+          isLinkDocument: isLinkDocument(item),
           ...item
         })),
         ...allContentfulDocument.edges.map(({ node }) => ({
           titleAndSize: `${node.title}_${node.asset.file.details.size}`,
           realFileName: `${node.asset.file.fileName}`,
+          isLinkDocument: isLinkDocument(node),
           ...node
         }))
       ];
@@ -194,7 +199,7 @@ module.exports = {
     title: `BMI dxb`,
     description: ``,
     author: `bmi`,
-    siteUrl: `https://www.bmigroup.com`
+    siteUrl: process.env.GATSBY_SITE_URL
   },
   assetPrefix: process.env.GATSBY_ASSET_PREFIX,
   plugins: [
@@ -207,6 +212,12 @@ module.exports = {
       }
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: process.env.GATSBY_SITE_URL
+      }
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -362,45 +373,52 @@ module.exports = {
         }
       })
     ),
-    {
-      resolve: "@bmi/gatsby-plugin-firestore",
-      options: {
-        credential: {
-          type: "service_account",
-          project_id: process.env.GCP_PROJECT_ID,
-          private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
-          private_key: process.env.FIRESTORE_PRIVATE_KEY.replace(/\\n/gm, "\n"),
-          client_email: process.env.FIRESTORE_CLIENT_EMAIL,
-          client_id: process.env.FIRESTORE_CLIENT_ID,
-          auth_uri: process.env.FIRESTORE_AUTH_URI,
-          token_uri: process.env.FIRESTORE_TOKEN_URI,
-          auth_provider_x509_cert_url:
-            process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
-          client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
-        },
-        // TODO: Can we type these better?
-        types: [
+    ...(process.env.DISABLE_PIM_DATA === "true"
+      ? []
+      : [
           {
-            type: "Products",
-            collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
-            map: (doc) => ({
-              // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
-              // Certain things (the arrays) should be split into collections?
-              ...doc
-            })
-          },
-          {
-            type: "Systems",
-            collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
-            map: (doc) => {
-              return {
-                ...doc
-              };
+            resolve: "@bmi/gatsby-plugin-firestore",
+            options: {
+              credential: {
+                type: "service_account",
+                project_id: process.env.GCP_PROJECT_ID,
+                private_key_id: process.env.FIRESTORE_PRIVATE_KEY_ID,
+                private_key: (process.env.FIRESTORE_PRIVATE_KEY || "").replace(
+                  /\\n/gm,
+                  "\n"
+                ),
+                client_email: process.env.FIRESTORE_CLIENT_EMAIL,
+                client_id: process.env.FIRESTORE_CLIENT_ID,
+                auth_uri: process.env.FIRESTORE_AUTH_URI,
+                token_uri: process.env.FIRESTORE_TOKEN_URI,
+                auth_provider_x509_cert_url:
+                  process.env.FIRESTORE_AUTH_PROVIDER_X509_CERT_URL,
+                client_x509_cert_url: process.env.FIRESTORE_CLIENT_X509_CERT_URL
+              },
+              // TODO: Can we type these better?
+              types: [
+                {
+                  type: "Products",
+                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/products`,
+                  map: (doc) => ({
+                    // TODO: More explicit data mapping? Any data mapping at all? This is a big complex document.
+                    // Certain things (the arrays) should be split into collections?
+                    ...doc
+                  })
+                },
+                {
+                  type: "Systems",
+                  collection: `${process.env.FIRESTORE_ROOT_COLLECTION}/root/systems`,
+                  map: (doc) => {
+                    return {
+                      ...doc
+                    };
+                  }
+                }
+              ]
             }
           }
-        ]
-      }
-    },
+        ]),
     ...elasticSearchPlugin,
     {
       resolve: `gatsby-plugin-sass`,
@@ -427,12 +445,12 @@ module.exports = {
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
-                ? `/${process.env.SPACE_MARKET_CODE}/sitemap.xml`
-                : `/sitemap.xml`,
-              sitemapSize: 50000
+                ? `/${process.env.SPACE_MARKET_CODE}`
+                : "/",
+              ignoreSitemapPathPrefix: true
             }
           }
         ]
@@ -440,39 +458,47 @@ module.exports = {
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
       ? [
           {
-            resolve: "gatsby-plugin-sitemap",
+            resolve: "@bmi/gatsby-plugin-sitemap",
             options: {
               output: useCountryCode
-                ? `/${process.env.SPACE_MARKET_CODE}/images.xml`
-                : `/images.xml`,
-              sitemapSize: 50000,
+                ? `/${process.env.SPACE_MARKET_CODE}/images`
+                : `/images`,
+              entryLimit: 50000,
               query: `
-              {
-                site {
-                  siteMetadata {
-                    siteUrl
-                  }
-                }
-                allSitePage {
-                  nodes {
-                    path
-                  }
-                }
-                allContentfulAsset {
-                  nodes {
-                    file {
-                      url
+                {
+                  site {
+                    siteMetadata {
+                      siteUrl
                     }
                   }
-                }
-              }`,
+                  allSitePage {
+                    nodes {
+                      path
+                    }
+                  }
+                  allContentfulAsset {
+                    nodes {
+                      file {
+                        url
+                      }
+                    }
+                  }
+                }`,
               resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-              serialize: ({ allContentfulAsset }) =>
-                allContentfulAsset.nodes.map((node) => ({
-                  url: `https:${node.file.url}`,
+              serialize: ({ allContentfulAsset }) => {
+                if (!allContentfulAsset) {
+                  return [];
+                }
+                return allContentfulAsset.nodes.map((node) => ({
+                  url:
+                    node && node.file && node.file.url
+                      ? `https:${node.file.url}`
+                      : "",
                   changefreq: "daily",
                   priority: 0.7
-                }))
+                }));
+              },
+              ignoreSitemapPathPrefix: true
             }
           }
         ]
@@ -575,6 +601,6 @@ module.exports = {
     FAST_DEV: true,
     PARALLEL_SOURCING: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PRESERVE_WEBPACK_CACHE: true
+    PARALLEL_QUERY_RUNNING: true
   }
 };

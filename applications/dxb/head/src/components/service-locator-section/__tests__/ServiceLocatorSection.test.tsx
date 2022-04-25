@@ -1,5 +1,5 @@
 import React from "react";
-import { act, fireEvent, screen } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import { EntryTypeEnum } from "../../Service";
 import { Data as ServiceType } from "../../ServiceType";
@@ -486,6 +486,40 @@ describe("ServiceLocatorSection component", () => {
       );
       expect(container).toMatchSnapshot();
     });
+
+    it("sholud execute handlePageChange correctly", () => {
+      const data: serviceLocatorDataType = {
+        __typename: "ContentfulServiceLocatorSection",
+        type: EntryTypeEnum.ROOFER_TYPE,
+        showDefaultResultList: true,
+        title: "service locator section",
+        label: "Main",
+        body: null,
+        position: 1,
+        centre: null,
+        zoom: 8,
+        services: [...Array(25)].map((x) =>
+          createService({
+            name: "test name 1",
+            serviceTypes: [
+              { __typename: "ContentfulServiceType", name: "Flat Roof 1" }
+            ]
+          })
+        )
+      };
+
+      const wrapper = renderWithRouter(<ServiceLocatorSection data={data} />);
+
+      const paginationButton = wrapper.getByRole("button", {
+        name: `Go to page 2`
+      });
+
+      paginationButton.click();
+
+      const roofersCount = wrapper.getAllByText("test name 1");
+
+      expect(roofersCount).toHaveLength(1);
+    });
   });
 
   it("searchs for a service", () => {
@@ -585,7 +619,7 @@ describe("ServiceLocatorSection component", () => {
     expect(global.window["dataLayer"]).toEqual([
       {
         action: "roofer 1",
-        event: "gtm.click",
+        event: "dxb.button_click",
         id: "filter-service-locator",
         label: "MC: findARoofer.companyFieldLabel"
       }
@@ -1239,7 +1273,7 @@ describe("ServiceLocatorSection component", () => {
       chipButton.click();
 
       expect(getAllByText(roofer1.name)).toHaveLength(1);
-      expect(queryByText(roofer2.name)).toBeFalsy();
+      waitFor(() => expect(queryByText(roofer2.name)).toBeFalsy());
     });
 
     it("should not render results list panel on page load if selected chips do not exist in query params", () => {

@@ -133,9 +133,8 @@ export const upload: HttpFunction = async (request, response) => {
       const upload = await environment.createUpload({ file: request.body });
 
       return response.send(upload);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (error: any) {
-      logger.error({ message: error.message });
+    } catch (error) {
+      logger.error({ message: (error as Error).message });
       return response.sendStatus(500);
     }
   }
