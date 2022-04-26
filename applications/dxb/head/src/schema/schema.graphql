@@ -489,6 +489,7 @@ union ContentfulRichTextReference =
   | ContentfulProductListerPage
   | ContentfulDocumentLibraryPage
   | ContentfulBrandLandingPage
+  | ContentfulTableEditor
 
 union ContentfulMediasTypes = ContentfulImage | ContentfulVideo
 
@@ -1701,6 +1702,16 @@ type ContentfulTable implements Node {
   contentful_id: String!
 
   data: contentfulTableDataJsonNode @link(by: "id", from: "data___NODE")
+}
+
+type contentfulTableEditorDataJsonNode implements Node {
+  tableData: [[String]]
+}
+
+type ContentfulTableEditor implements Node {
+  contentful_id: String!
+
+  data: contentfulTableEditorDataJsonNode @link(by: "id", from: "data___NODE")
 }
 
 """

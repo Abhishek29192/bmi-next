@@ -1,0 +1,28 @@
+@import "~@bmi-digital/styles";
+
+.EmbeddedTableEditor {
+  margin: 24px 0;
+  table {
+    table-layout: fixed;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: $color-theme-inter;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    font-size: inherit;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &:hover {
+    color: $color-theme-focus;
+    transition: text-decoration-color 250ms ease-out, color 250ms ease-out;
+  }
+}
