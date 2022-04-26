@@ -238,6 +238,5 @@ const generateEmailSubject = (
     result = result.replace(field, value);
   });
 
-  const title = [formTitle, result].filter(Boolean);
-  return title.join(" - ");
+  return result ? result : formTitle;
 };
