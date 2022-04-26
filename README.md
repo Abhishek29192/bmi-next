@@ -17,4 +17,4 @@ Monorepo for BMI websites that includes a component library.
 - [Head](applications/head/README.md)
 - [InTouch](applications/intouch/README.md)
 - [Migrations](libraries/migrate/README.md)
-- [Netlify](doc/netlify.md)
+- [Netlify](doc/netlify.md) decommission  
