@@ -25,6 +25,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-76"
@@ -44,6 +45,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-76"
@@ -63,6 +65,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-76"
@@ -719,6 +722,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -738,6 +742,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -757,6 +762,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -787,6 +793,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -805,6 +812,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -824,6 +832,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-73 MuiButton-text buttonStyles-text-74 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -999,6 +1008,7 @@ exports[`Header component opens menu two deep 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-52"
@@ -1018,6 +1028,7 @@ exports[`Header component opens menu two deep 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-52"
@@ -1037,6 +1048,7 @@ exports[`Header component opens menu two deep 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-52"
@@ -1693,6 +1705,7 @@ exports[`Header component opens menu two deep 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -1712,6 +1725,7 @@ exports[`Header component opens menu two deep 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -1731,6 +1745,7 @@ exports[`Header component opens menu two deep 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -1761,6 +1776,7 @@ exports[`Header component opens menu two deep 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -1779,6 +1795,7 @@ exports[`Header component opens menu two deep 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -1798,6 +1815,7 @@ exports[`Header component opens menu two deep 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-49 MuiButton-text buttonStyles-text-50 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -1973,6 +1991,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-28"
@@ -1992,6 +2011,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-28"
@@ -2011,6 +2031,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-28"
@@ -2667,6 +2688,7 @@ exports[`Header component opens menu when clicked 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -2686,6 +2708,7 @@ exports[`Header component opens menu when clicked 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -2705,6 +2728,7 @@ exports[`Header component opens menu when clicked 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2735,6 +2759,7 @@ exports[`Header component opens menu when clicked 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2753,6 +2778,7 @@ exports[`Header component opens menu when clicked 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -2772,6 +2798,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-25 MuiButton-text buttonStyles-text-26 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -2947,6 +2974,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -2966,6 +2994,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -2985,6 +3014,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -3641,6 +3671,7 @@ exports[`Header component renders correctly 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -3660,6 +3691,7 @@ exports[`Header component renders correctly 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -3679,6 +3711,7 @@ exports[`Header component renders correctly 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -3709,6 +3742,7 @@ exports[`Header component renders correctly 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -3727,6 +3761,7 @@ exports[`Header component renders correctly 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -3749,6 +3784,7 @@ exports[`Header component renders correctly 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -3927,6 +3963,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -3946,6 +3983,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -3965,6 +4003,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -4621,6 +4660,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -4640,6 +4680,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -4659,6 +4700,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -4689,6 +4731,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -4707,6 +4750,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -4726,6 +4770,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -4901,6 +4946,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -4920,6 +4966,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -4939,6 +4986,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-100"
@@ -5595,6 +5643,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -5614,6 +5663,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5633,6 +5683,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5663,6 +5714,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5681,6 +5733,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -5700,6 +5753,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-97 MuiButton-text buttonStyles-text-98 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -5875,6 +5929,7 @@ exports[`Header component toggle search 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -5894,6 +5949,7 @@ exports[`Header component toggle search 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -5913,6 +5969,7 @@ exports[`Header component toggle search 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -6569,6 +6626,7 @@ exports[`Header component toggle search 1`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -6588,6 +6646,7 @@ exports[`Header component toggle search 1`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -6607,6 +6666,7 @@ exports[`Header component toggle search 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -6637,6 +6697,7 @@ exports[`Header component toggle search 1`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -6655,6 +6716,7 @@ exports[`Header component toggle search 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -6677,6 +6739,7 @@ exports[`Header component toggle search 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -6908,6 +6971,7 @@ exports[`Header component toggle search 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -6927,6 +6991,7 @@ exports[`Header component toggle search 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -6946,6 +7011,7 @@ exports[`Header component toggle search 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-124"
@@ -7602,6 +7668,7 @@ exports[`Header component toggle search 2`] = `
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -7621,6 +7688,7 @@ exports[`Header component toggle search 2`] = `
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -7640,6 +7708,7 @@ exports[`Header component toggle search 2`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -7670,6 +7739,7 @@ exports[`Header component toggle search 2`] = `
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -7688,6 +7758,7 @@ exports[`Header component toggle search 2`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -7710,6 +7781,7 @@ exports[`Header component toggle search 2`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -7888,6 +7960,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -7907,6 +7980,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -7926,6 +8000,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -8583,6 +8658,7 @@ exports[`Header component toggles language selection: Language selection closed 
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -8602,6 +8678,7 @@ exports[`Header component toggles language selection: Language selection closed 
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -8621,6 +8698,7 @@ exports[`Header component toggles language selection: Language selection closed 
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -8651,6 +8729,7 @@ exports[`Header component toggles language selection: Language selection closed 
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -8669,6 +8748,7 @@ exports[`Header component toggles language selection: Language selection closed 
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -8691,6 +8771,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >
@@ -8869,6 +8950,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -8888,6 +8970,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -8907,6 +8990,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 utilities-button MuiButton-textPrimary"
                 href="#"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-148"
@@ -9564,6 +9648,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                                 <button
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -9583,6 +9668,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                           <button
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -9602,6 +9688,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -9632,6 +9719,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -9650,6 +9738,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                       to="/documentation/"
                       type="button"
                     >
@@ -9672,6 +9761,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-145 MuiButton-text buttonStyles-text-146 NavigationListButton MuiButton-textPrimary"
                 role="button"
                 tabindex="0"
+                target="_blank"
                 to="/clay/"
                 type="button"
               >

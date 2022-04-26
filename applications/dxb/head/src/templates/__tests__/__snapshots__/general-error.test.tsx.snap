@@ -26,6 +26,7 @@ exports[`General Error render correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -430,6 +431,7 @@ exports[`General Error render correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -741,6 +743,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"https://www.external.co.uk\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-31"
@@ -1145,6 +1148,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="https://www.external.co.uk"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-31"
