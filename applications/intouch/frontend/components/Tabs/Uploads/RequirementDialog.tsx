@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
-import { Dialog } from "@bmi/components";
+import { Button, Dialog } from "@bmi/components";
 import { Document } from "@contentful/rich-text-types";
 import { RichText } from "../../RichText";
 
@@ -8,12 +8,14 @@ export type RequirementDialogProps = {
   isOpen: boolean;
   description: Document;
   onCloseClick: () => void;
+  onUploadButtonClick: () => void;
 };
 
 const RequirementDialog = ({
   isOpen,
   description,
-  onCloseClick
+  onCloseClick,
+  onUploadButtonClick
 }: RequirementDialogProps) => {
   const { t } = useTranslation("project-page");
 
@@ -24,6 +26,9 @@ const RequirementDialog = ({
       </Dialog.Title>
       <Dialog.Content data-testid="requirement-modal-content">
         <RichText content={description} />
+        <Button variant="outlined" onClick={onUploadButtonClick}>
+          {t("upload_tab.header")}
+        </Button>
       </Dialog.Content>
     </Dialog>
   );
