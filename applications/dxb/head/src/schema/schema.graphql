@@ -1312,6 +1312,9 @@ type PIMDocument implements Node {
   "The title for this document."
   title: String
 
+  "The name for this document."
+  docName: String
+
   "The URL for this document."
   url: String
 
@@ -1344,6 +1347,9 @@ type PIMLinkDocument implements Node {
 
   "The title for this document."
   title: String
+
+  "The name for this document."
+  docName: String
 
   "The URL for this document."
   url: String

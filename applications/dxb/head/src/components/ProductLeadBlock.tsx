@@ -25,6 +25,7 @@ import AssetsIframe from "./AssetsIframe";
 import { getClickableActionFromUrl, isExternalUrl } from "./Link";
 import { All_FORMATS, NO_DOCUMENT_FORMAT } from "./types";
 import { groupDocuments } from "./DocumentTechnicalTableResults";
+import { DocumentDisplayFormatType } from "./Resources";
 
 const BlueCheckIcon = (
   <Icon source={CheckIcon} style={{ color: "var(--color-theme-accent-300)" }} />
@@ -50,6 +51,7 @@ type Props = {
   pdpSpecificationTitle?: string | null;
   pdpSpecificationDescription?: RichTextData | null;
   isSingleVariant?: boolean;
+  documentDisplayFormat?: DocumentDisplayFormatType;
 };
 
 const DOCUMENTS_PER_PAGE = 24;
@@ -103,7 +105,8 @@ const ProductLeadBlock = ({
   specificationIframeUrl,
   pdpSpecificationTitle,
   pdpSpecificationDescription,
-  isSingleVariant
+  isSingleVariant,
+  documentDisplayFormat
 }: Props) => {
   const {
     config: { documentDownloadMaxLimit }
@@ -135,9 +138,13 @@ const ProductLeadBlock = ({
       ),
     [filteredDocuments]
   );
-  const count = Math.ceil(
-    getCountsOfDocuments(documentsByAssetType) / DOCUMENTS_PER_PAGE
-  );
+  const displayDocumentsByName =
+    documentDisplayFormat && documentDisplayFormat === "Asset name";
+  const count = displayDocumentsByName
+    ? Math.ceil(filteredDocuments.length / DOCUMENTS_PER_PAGE)
+    : Math.ceil(
+        getCountsOfDocuments(documentsByAssetType) / DOCUMENTS_PER_PAGE
+      );
 
   const isImageAsset = (asset: Asset) => {
     return (
@@ -375,8 +382,14 @@ const ProductLeadBlock = ({
                 documents={filteredDocuments}
                 page={page}
                 documentsPerPage={DOCUMENTS_PER_PAGE}
-                headers={["type", "download", "add"]}
-                documentsByAssetType={documentsByAssetType}
+                headers={[
+                  displayDocumentsByName ? "name" : "type",
+                  "download",
+                  "add"
+                ]}
+                documentsByAssetType={
+                  displayDocumentsByName ? null : documentsByAssetType
+                }
               />
               <DocumentResultsFooter
                 page={page}

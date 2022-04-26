@@ -35,7 +35,13 @@ import createAssetFileCountMap, {
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
 
-type AvailableHeader = "typeCode" | "type" | "title" | "download" | "add";
+type AvailableHeader =
+  | "typeCode"
+  | "type"
+  | "name"
+  | "title"
+  | "download"
+  | "add";
 
 export type Document =
   | DocumentData
@@ -92,6 +98,18 @@ const getDocument = (
           {document.assetType.name}
         </Table.Cell>
       );
+    }
+    if (
+      document.__typename === "PIMDocument" ||
+      document.__typename === "PIMLinkDocument"
+    ) {
+      if (header === "name") {
+        return (
+          <Table.Cell className={styles["table-cell"]} key={key}>
+            {document.docName}
+          </Table.Cell>
+        );
+      }
     }
 
     if (header === "title") {

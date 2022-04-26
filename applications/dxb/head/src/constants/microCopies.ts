@@ -38,6 +38,7 @@ export const microCopy = {
   DOCUMENT_LIBRARY_HEADERS_ALL_FILES: "documentLibrary.headers.allFiles",
   DOCUMENT_LIBRARY_HEADERS_TYPE_CODE: "documentLibrary.headers.typeCode",
   DOCUMENT_LIBRARY_HEADERS_TYPE: "documentLibrary.headers.type",
+  DOCUMENT_LIBRARY_HEADERS_NAME: "documentLibrary.headers.name",
   DOCUMENT_LIBRARY_HEADERS_TITLE: "documentLibrary.headers.title",
   DOCUMENT_LIBRARY_HEADERS_DOWNLOAD: "documentLibrary.headers.download",
   DOCUMENT_LIBRARY_HEADERS_ADD: "documentLibrary.headers.add",
