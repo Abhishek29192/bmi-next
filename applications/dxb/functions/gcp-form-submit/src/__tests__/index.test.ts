@@ -1338,7 +1338,7 @@ describe("Making a POST request", () => {
         title: "Form title",
         locale: locale,
         emailSubjectFormat:
-          "custom title format - {{a}} - {{name}} - {{unknown-field}}",
+          "custom title format | {{a}} | {{name}} | {{unknown-field}}",
         recipients: "email@email.com",
         values: { files: ["path/to/file"], a: "b", name: "first-name" }
       },
@@ -1388,7 +1388,7 @@ describe("Making a POST request", () => {
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
-      subject: "Form title - custom title format - b - first-name - ",
+      subject: "custom title format | b | first-name | ",
       text: JSON.stringify({
         a: "b",
         name: "first-name",
@@ -1455,7 +1455,7 @@ describe("Making a POST request", () => {
     expect(send).toBeCalledWith({
       to: ["email@email.com"],
       from: process.env.SENDGRID_FROM_EMAIL,
-      subject: "Form title - custom title format",
+      subject: "custom title format",
       text: JSON.stringify({
         a: "b",
         name: "first-name",
