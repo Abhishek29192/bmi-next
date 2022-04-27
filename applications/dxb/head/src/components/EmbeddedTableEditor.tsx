@@ -13,36 +13,6 @@ type Props = {
   fields: TableEditorFields;
 };
 
-type CellProps = {
-  cellArray: string[];
-};
-
-const EmbeddedTableEditorCell = ({ cellArray }: CellProps): JSX.Element => {
-  return (
-    <>
-      {cellArray.map((cellTextArray, cellIndex) => (
-        <Table.Cell key={cellIndex}>
-          {JSON.parse(cellTextArray).map((cellElement, cellElIndex) => {
-            if (cellElement.attributes.link) {
-              return (
-                <a
-                  rel="noreferrer"
-                  target="_blank"
-                  key={cellElIndex}
-                  href={cellElement.attributes.link}
-                >
-                  {cellElement.insert}
-                </a>
-              );
-            }
-            return <span key={cellElIndex}>{cellElement.insert}</span>;
-          })}
-        </Table.Cell>
-      ))}
-    </>
-  );
-};
-
 const EmbeddedTableEditor = ({ fields }: Props) => {
   const {
     data: { tableData }
@@ -58,7 +28,29 @@ const EmbeddedTableEditor = ({ fields }: Props) => {
       <Table>
         <Table.Head>
           <Table.Row>
-            <EmbeddedTableEditorCell cellArray={head} />
+            {head.map((cellValue, cellIndex) => (
+              <Table.Cell key={cellIndex}>
+                {cellValue && cellValue.includes("[{")
+                  ? JSON.parse(cellValue).map((cellElement, cellElIndex) => {
+                      if (cellElement.attributes.link) {
+                        return (
+                          <a
+                            rel="noreferrer"
+                            target="_blank"
+                            key={cellElIndex}
+                            href={cellElement.attributes.link}
+                          >
+                            {cellElement.insert}
+                          </a>
+                        );
+                      }
+                      return (
+                        <span key={cellElIndex}>{cellElement.insert}</span>
+                      );
+                    })
+                  : cellValue}
+              </Table.Cell>
+            ))}
           </Table.Row>
         </Table.Head>
 
@@ -66,7 +58,33 @@ const EmbeddedTableEditor = ({ fields }: Props) => {
           <Table.Body>
             {rows.map((row, rowIndex) => (
               <Table.Row key={rowIndex}>
-                <EmbeddedTableEditorCell cellArray={row} />
+                {row.map((cellValue, cellIndex) => (
+                  <Table.Cell key={cellIndex}>
+                    {cellValue && cellValue.includes("[{")
+                      ? JSON.parse(cellValue).map(
+                          (cellElement, cellElIndex) => {
+                            if (cellElement.attributes.link) {
+                              return (
+                                <a
+                                  rel="noreferrer"
+                                  target="_blank"
+                                  key={cellElIndex}
+                                  href={cellElement.attributes.link}
+                                >
+                                  {cellElement.insert}
+                                </a>
+                              );
+                            }
+                            return (
+                              <span key={cellElIndex}>
+                                {cellElement.insert}
+                              </span>
+                            );
+                          }
+                        )
+                      : cellValue}
+                  </Table.Cell>
+                ))}
               </Table.Row>
             ))}
           </Table.Body>

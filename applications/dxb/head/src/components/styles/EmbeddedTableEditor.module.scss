@@ -2,9 +2,6 @@
 
 .EmbeddedTableEditor {
   margin: 24px 0;
-  table {
-    table-layout: fixed;
-  }
 
   &:last-child {
     margin-bottom: 0;
@@ -15,9 +12,6 @@
     text-decoration: underline;
     text-decoration-color: currentColor;
     font-size: inherit;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
     cursor: pointer;
   }
 
