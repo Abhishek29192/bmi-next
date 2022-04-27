@@ -46,7 +46,7 @@ wait_until_head_deployed_to_gatsby:
         - libraries/**/*
   needs: []
   cache: {}
-  timeout: 15m
+  timeout: 25m
   before_script:
     - apt-get update
     - apt-get install -y jq
