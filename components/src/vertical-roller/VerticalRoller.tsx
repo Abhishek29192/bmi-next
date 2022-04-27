@@ -10,6 +10,7 @@ import Media, { AcceptedNode } from "../media/Media";
 import RollerSelector from "../roller-selector/RollerSelector";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
+import transformHyphens from "../utils";
 import styles from "./VerticalRoller.module.scss";
 
 export type Slide = {
@@ -38,7 +39,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
         <Grid item xs={12} md={6}>
           <div className={styles["left-column"]}>
             <Typography variant="h2" hasUnderline>
-              {title}
+              {transformHyphens(title)}
             </Typography>
             <div className={styles["selectors"]}>
               {slides.map(({ title }, index) => {
@@ -53,7 +54,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                     }
                     onClick={() => setActivePage(index)}
                   >
-                    {title}
+                    {transformHyphens(title)}
                   </RollerSelector>
                 );
               })}
@@ -83,7 +84,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                       </div>
                       {description && (
                         <Typography className={styles["description"]}>
-                          {description}
+                          {transformHyphens(description)}
                         </Typography>
                       )}
                       {cta && (
@@ -92,7 +93,7 @@ const VerticalRoller = ({ title, slides, rollerSectionComponent }: Props) => {
                           action={cta.action}
                           endIcon={<ArrowForward />}
                         >
-                          {cta.label}
+                          {transformHyphens(cta.label)}
                         </Button>
                       )}
                     </Carousel.Slide>

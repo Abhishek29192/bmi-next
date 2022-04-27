@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import { TwoPaneCarousel, TwoPaneCarouselSlide } from "@bmi/components";
-import { VerticalRoller, VerticalRollerSlide } from "@bmi/components";
+import {
+  VerticalRoller,
+  VerticalRollerSlide,
+  transformHyphens
+} from "@bmi/components";
 import { Section } from "@bmi/components";
 import { Button } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
@@ -122,7 +126,7 @@ const CarouselSection = ({
           className={styles["link"]}
           endIcon={<ArrowForwardIcon />}
         >
-          {link.label}
+          {transformHyphens(link.label)}
         </Button>
       )}
     </Section>

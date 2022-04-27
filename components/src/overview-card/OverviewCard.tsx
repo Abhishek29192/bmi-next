@@ -120,16 +120,16 @@ const OverviewCard = ({
             !brandImageSource && styles["title--no-brand-logo"]
           )}
         >
-          <Title>{title}</Title>
+          <Title>{transformHyphens(title)}</Title>
         </Typography>
         {!moreOptionsAvailable && subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
-            {subtitle}
+            {transformHyphens(subtitle)}
           </Typography>
         )}
         {moreOptionsAvailable && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
-            {moreOptionsAvailable}
+            {transformHyphens(moreOptionsAvailable)}
           </Typography>
         )}
         <div
