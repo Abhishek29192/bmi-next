@@ -1,0 +1,11 @@
+test_contentful-tag-utility:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/contentful-tag-utility"
+    ROOT_DIR: "applications/dxb/libraries/contentful-tag-utility"
+
+build_contentful-tag-utility:
+  extends: .build
+  variables:
+    WORKSPACE: "@bmi/contentful-tag-utility"
+    ROOT_DIR: "applications/dxb/libraries/contentful-tag-utility"
