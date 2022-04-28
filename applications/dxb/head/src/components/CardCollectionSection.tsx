@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
-import { AnchorLink } from "@bmi/components";
+import { AnchorLink, transformHyphens } from "@bmi/components";
 import { Button, ButtonProps } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { OverviewCard } from "@bmi/components";
@@ -65,10 +65,10 @@ const CardCollectionItem = ({
     featuredVideo
   } = transformCard(card);
 
-  const transformedCardLabel = label
+  let transformedCardLabel = label
     ? label.replace(/{{title}}/g, title || name)
     : link?.label;
-
+  transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
   const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
 

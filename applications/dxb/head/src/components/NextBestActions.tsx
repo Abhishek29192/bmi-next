@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Section } from "@bmi/components";
+import { Section, transformHyphens } from "@bmi/components";
 import { Grid } from "@bmi/components";
 import { NBACard } from "@bmi/components";
 import { AnchorLink } from "@bmi/components";
@@ -53,7 +53,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
                   cta && cta.label ? (
                     <div style={{ fontSize: "1rem" }}>
                       <AnchorLink component="span" iconStart>
-                        {cta.label}
+                        {transformHyphens(cta.label)}
                       </AnchorLink>
                     </div>
                   ) : undefined
@@ -61,7 +61,7 @@ const NextBestActions = ({ data }: { data: Data }) => {
                 buttonComponent={buttonComponent}
                 isClickable={!!buttonComponent}
               >
-                {subtitle}
+                {transformHyphens(subtitle)}
               </NBACard>
             </Grid>
           );
