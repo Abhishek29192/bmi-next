@@ -4,49 +4,9 @@ exports.__esModule = true;
 exports.onInitialClientRender = onInitialClientRender;
 exports.onRouteUpdate = onRouteUpdate;
 
-function _getRequireWildcardCache(nodeInterop) {
-  if (typeof WeakMap !== "function") return null;
-  var cacheBabelInterop = new WeakMap();
-  var cacheNodeInterop = new WeakMap();
-  return (_getRequireWildcardCache = function _getRequireWildcardCache(
-    nodeInterop
-  ) {
-    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
-  })(nodeInterop);
-}
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-function _interopRequireWildcard(obj, nodeInterop) {
-  if (!nodeInterop && obj && obj.__esModule) {
-    return obj;
-  }
-  if (obj === null || (typeof obj !== "object" && typeof obj !== "function")) {
-    return { default: obj };
-  }
-  var cache = _getRequireWildcardCache(nodeInterop);
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-  var newObj = {};
-  var hasPropertyDescriptor =
-    Object.defineProperty && Object.getOwnPropertyDescriptor;
-  for (var key in obj) {
-    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor
-        ? Object.getOwnPropertyDescriptor(obj, key)
-        : null;
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-  newObj.default = obj;
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-  return newObj;
-}
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var listOfMetricsSend = new Set();
 
@@ -57,11 +17,7 @@ function debounce(fn, timeout) {
       clearTimeout(timer);
     }
 
-    for (
-      var _len = arguments.length, args = new Array(_len), _key = 0;
-      _key < _len;
-      _key++
-    ) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
@@ -85,30 +41,28 @@ function sendWebVitals(dataLayerName) {
     sendToGTM(data, win[dataLayerName]);
   }
 
-  return Promise.resolve()
-    .then(function () {
-      return _interopRequireWildcard(require("web-vitals/base"));
-    })
-    .then(function (_ref) {
-      var getLCP = _ref.getLCP,
+  return Promise.resolve().then(function () {
+    return _interopRequireWildcard(require("web-vitals/base"));
+  }).then(function (_ref) {
+    var getLCP = _ref.getLCP,
         getFID = _ref.getFID,
         getCLS = _ref.getCLS;
-      var debouncedCLS = debounce(sendData, 3000); // we don't need to debounce FID - we send it when it happens
+    var debouncedCLS = debounce(sendData, 3000); // we don't need to debounce FID - we send it when it happens
 
-      var debouncedFID = sendData; // LCP can occur multiple times so we debounce it
+    var debouncedFID = sendData; // LCP can occur multiple times so we debounce it
 
-      var debouncedLCP = debounce(sendData, 3000); // With the true flag, we measure all previous occurences too, in case we start listening to late.
+    var debouncedLCP = debounce(sendData, 3000); // With the true flag, we measure all previous occurences too, in case we start listening to late.
 
-      getCLS(debouncedCLS, true);
-      getFID(debouncedFID, true);
-      getLCP(debouncedLCP, true);
-    });
+    getCLS(debouncedCLS, true);
+    getFID(debouncedFID, true);
+    getLCP(debouncedLCP, true);
+  });
 }
 
 function sendToGTM(_ref2, dataLayer) {
   var name = _ref2.name,
-    value = _ref2.value,
-    id = _ref2.id;
+      value = _ref2.value,
+      id = _ref2.id;
   dataLayer.push({
     event: "core-web-vitals",
     webVitalsMeasurement: {
@@ -126,36 +80,22 @@ function sendToGTM(_ref2, dataLayer) {
   });
 }
 
-function triggerGatsbyRouteChangeEvent(pluginOptions) {
-  // wrap inside a timeout to ensure the title has properly been changed
-  setTimeout(function () {
-    var data = pluginOptions.dataLayerName
-      ? window[pluginOptions.dataLayerName]
-      : window.dataLayer;
-    var eventName = pluginOptions.routeChangeEventName
-      ? pluginOptions.routeChangeEventName
-      : "gatsby-route-change";
-    data.push({
-      event: eventName
-    });
-  }, 50);
-} // onRouteUpdate can occur multiple times in case there are several GTM containers connected, so we debounce it
-
 function onRouteUpdate(apiCallbackContext, pluginOptions) {
-  if (
-    process.env.NODE_ENV === "production" ||
-    pluginOptions.includeInDevelopment
-  ) {
-    debounce(triggerGatsbyRouteChangeEvent(pluginOptions));
+  if (process.env.NODE_ENV === "production" || pluginOptions.includeInDevelopment) {
+    // wrap inside a timeout to ensure the title has properly been changed
+    setTimeout(function () {
+      var data = pluginOptions.dataLayerName ? window[pluginOptions.dataLayerName] : window.dataLayer;
+      var eventName = pluginOptions.routeChangeEventName ? pluginOptions.routeChangeEventName : "gatsby-route-change";
+      data.push({
+        event: eventName
+      });
+    }, 50);
   }
 }
 
 function onInitialClientRender(_, pluginOptions) {
   // we only load the polyfill in production so we can't enable it in development
-  if (
-    process.env.NODE_ENV === "production" &&
-    pluginOptions.enableWebVitalsTracking
-  ) {
+  if (process.env.NODE_ENV === "production" && pluginOptions.enableWebVitalsTracking) {
     sendWebVitals(pluginOptions.dataLayerName);
   }
 }

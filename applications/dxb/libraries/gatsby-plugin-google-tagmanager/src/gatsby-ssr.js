@@ -39,7 +39,7 @@ const generateDefaultDataLayer = (dataLayer, reporter, dataLayerName) => {
 exports.onRenderBody = (
   { setHeadComponents, setPreBodyComponents, reporter },
   {
-    id,
+    ids = [],
     includeInDevelopment = false,
     gtmAuth,
     gtmPreview,
@@ -69,6 +69,38 @@ exports.onRenderBody = (
     selfHostedOrigin = selfHostedOrigin.replace(/\/$/, ``);
 
     const inlineScripts = [];
+    const preBodyComponents = [];
+
+    ids.forEach((id) => {
+      inlineScripts.push(
+        <script
+          key="plugin-google-tagmanager"
+          dangerouslySetInnerHTML={{
+            __html: oneLine`
+          ${defaultDataLayerCode}
+          ${generateGTM({
+            id,
+            environmentParamStr,
+            dataLayerName,
+            selfHostedOrigin
+          })}`
+          }}
+        />
+      );
+      preBodyComponents.push(
+        <noscript
+          key="plugin-google-tagmanager"
+          dangerouslySetInnerHTML={{
+            __html: generateGTMIframe({
+              id,
+              environmentParamStr,
+              selfHostedOrigin
+            })
+          }}
+        />
+      );
+    });
+
     if (enableWebVitalsTracking) {
       // web-vitals/polyfill (necessary for non chromium browsers)
       // @seehttps://www.npmjs.com/package/web-vitals#how-the-polyfill-works
@@ -85,35 +117,7 @@ exports.onRenderBody = (
       );
     }
 
-    inlineScripts.push(
-      <script
-        key="plugin-google-tagmanager"
-        dangerouslySetInnerHTML={{
-          __html: oneLine`
-          ${defaultDataLayerCode}
-          ${generateGTM({
-            id,
-            environmentParamStr,
-            dataLayerName,
-            selfHostedOrigin
-          })}`
-        }}
-      />
-    );
-
     setHeadComponents(inlineScripts);
-
-    setPreBodyComponents([
-      <noscript
-        key="plugin-google-tagmanager"
-        dangerouslySetInnerHTML={{
-          __html: generateGTMIframe({
-            id,
-            environmentParamStr,
-            selfHostedOrigin
-          })
-        }}
-      />
-    ]);
+    setPreBodyComponents(preBodyComponents);
   }
 };
