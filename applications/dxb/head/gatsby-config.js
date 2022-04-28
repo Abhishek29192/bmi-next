@@ -196,6 +196,27 @@ const elasticSearchPlugin =
         }
       ];
 
+const ids = [
+  process.env.GOOGLE_TAGMANAGER_ID,
+  process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID
+].filter(Boolean);
+
+const googleTagManagerPlugin = !process.env.GATSBY_PREVIEW
+  ? [
+      {
+        resolve: "@bmi/gatsby-plugin-google-tagmanager",
+        options: {
+          ids,
+          includeInDevelopment: true,
+          defaultDataLayer: {
+            platform: "gatsby",
+            env: process.env.NODE_ENV
+          }
+        }
+      }
+    ]
+  : [];
+
 module.exports = {
   siteMetadata: {
     title: `BMI dxb`,
@@ -505,37 +526,7 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
-      ? [
-          {
-            resolve: "@bmi/gatsby-plugin-google-tagmanager",
-            options: {
-              id: process.env.GOOGLE_TAGMANAGER_ID,
-              includeInDevelopment: true,
-              defaultDataLayer: {
-                platform: "gatsby",
-                env: process.env.NODE_ENV
-              }
-            }
-          }
-        ]
-      : []),
-    ...(process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID &&
-    !process.env.GATSBY_PREVIEW
-      ? [
-          {
-            resolve: "@bmi/gatsby-plugin-google-tagmanager",
-            options: {
-              id: process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID,
-              includeInDevelopment: true,
-              defaultDataLayer: {
-                platform: "gatsby",
-                env: process.env.NODE_ENV
-              }
-            }
-          }
-        ]
-      : []),
+    ...googleTagManagerPlugin,
     ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
           {
