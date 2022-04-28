@@ -10,6 +10,8 @@ import { Data as InputBannerData } from "./InputBanner";
 import { Data as NextBestActionsData } from "./NextBestActions";
 import { RichTextData } from "./RichText";
 
+export type DocumentDisplayFormatType = "Asset type" | "Asset name";
+
 export type Data = {
   microCopy: MicroCopyData[] | null;
   pdpSidebarItems: TitleWithContentData[] | null;
@@ -40,6 +42,7 @@ export type Data = {
   pdpFixingToolDescription: RichTextData | null;
   pdpSpecificationTitle: string | null;
   pdpSpecificationDescription: RichTextData | null;
+  documentDisplayFormat: DocumentDisplayFormatType | null;
 };
 
 export const query = graphql`
@@ -53,6 +56,7 @@ export const query = graphql`
     pdpCardsTitle
     keyAssetTypes
     maximumSamples
+    documentDisplayFormat
     sampleBasketLink {
       ... on ContentfulSimplePage {
         ...PageInfoFragment

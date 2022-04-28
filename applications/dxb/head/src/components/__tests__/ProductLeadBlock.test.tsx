@@ -66,6 +66,7 @@ const document: PIMDocumentData = {
   id: "dummy-id",
   url: "https://doesnt-exist.com",
   title: "dummy-title",
+  docName: "doc-name",
   realFileName: null,
   product: {
     name: "dummy-product",
@@ -84,6 +85,7 @@ const linkdocument: PIMLinkDocumentData = {
   __typename: "PIMLinkDocument",
   id: "dummy-id",
   url: "https://doesnt-exist.com",
+  docName: "linkdoc-name",
   title: "dummy-title",
   product: {
     name: "dummy-product",
@@ -360,6 +362,40 @@ describe("ProductLeadBlock tests", () => {
       />
     );
     expect(container.getElementsByClassName("row").length).toBe(3);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders correctly when document display format is by asset name", () => {
+    const documents = [document, linkdocument];
+    const { container, queryByText } = render(
+      <ProductLeadBlock
+        documents={documents}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        documentDisplayFormat="Asset name"
+      />
+    );
+    expect(container.getElementsByClassName("row").length).toBe(2);
+    expect(queryByText("doc-name")).toBeTruthy();
+    expect(queryByText("MC: documentLibrary.headers.name")).toBeTruthy();
+    expect(queryByText("MC: documentLibrary.headers.type")).toBeFalsy();
+    expect(container).toMatchSnapshot();
+  });
+  it("renders correctly when document display format is by asset type", () => {
+    const documents = [document, linkdocument];
+    const { container, queryByText, queryAllByText } = render(
+      <ProductLeadBlock
+        documents={documents}
+        validClassifications={[]}
+        classificationNamespace=""
+        techDrawings={[]}
+        documentDisplayFormat="Asset type"
+      />
+    );
+    expect(queryByText("doc-name")).toBeFalsy();
+    expect(queryAllByText("Technical Approvals")).toHaveLength(2);
+    expect(queryByText("MC: documentLibrary.headers.name")).toBeFalsy();
+    expect(queryByText("MC: documentLibrary.headers.type")).toBeTruthy();
     expect(container).toMatchSnapshot();
   });
 });

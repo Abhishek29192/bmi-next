@@ -15,6 +15,7 @@ export type PIMDocumentBase = {
   url: string;
   assetType: AssetTypeData;
   isLinkDocument?: boolean;
+  docName?: string;
 };
 
 export type PIMLinkDocumentData = PIMDocumentBase & {

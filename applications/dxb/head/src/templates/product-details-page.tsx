@@ -149,9 +149,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpFixingToolDescription,
     pdpFixingToolTitle,
     pdpSpecificationTitle,
-    pdpSpecificationDescription
+    pdpSpecificationDescription,
+    documentDisplayFormat
   } = resources;
-
   const bimIframeUrl = getAssetsIframeUrl(product.assets, "BIM");
   const fixingToolIframeUrl = getAssetsIframeUrl(product.assets, "FIXING_TOOL");
   const specificationIframeUrl = getAssetsIframeUrl(
@@ -341,6 +341,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 pdpSpecificationTitle={pdpSpecificationTitle}
                 pdpSpecificationDescription={pdpSpecificationDescription}
                 isSingleVariant={product.variantOptions.length === 1}
+                documentDisplayFormat={documentDisplayFormat}
               />
             </Section>
             <RelatedProducts

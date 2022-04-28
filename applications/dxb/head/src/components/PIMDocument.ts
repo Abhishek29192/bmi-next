@@ -39,5 +39,6 @@ export const query = graphql`
     extension
     realFileName
     isLinkDocument
+    docName
   }
 `;
