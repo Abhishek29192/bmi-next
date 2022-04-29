@@ -312,5 +312,6 @@ export default gql`
       input: ImportAccountsCompaniesFromCSVInput!
     ): ImportAccountsCompaniesFromCSVResult
     sendReminderToIncompleteCompanyProfile: String
+    restartSolutionGuarantee(projectId: Int!): String
   }
 `;

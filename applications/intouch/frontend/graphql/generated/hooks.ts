@@ -402,6 +402,55 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
+export const RestartSolutionGuaranteeDocument = gql`
+  mutation RestartSolutionGuarantee($projectId: Int!) {
+    restartSolutionGuarantee(projectId: $projectId)
+  }
+`;
+export type RestartSolutionGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.RestartSolutionGuaranteeMutation,
+  OperationTypes.RestartSolutionGuaranteeMutationVariables
+>;
+
+/**
+ * __useRestartSolutionGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useRestartSolutionGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRestartSolutionGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [restartSolutionGuaranteeMutation, { data, loading, error }] = useRestartSolutionGuaranteeMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *   },
+ * });
+ */
+export function useRestartSolutionGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.RestartSolutionGuaranteeMutation,
+    OperationTypes.RestartSolutionGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.RestartSolutionGuaranteeMutation,
+    OperationTypes.RestartSolutionGuaranteeMutationVariables
+  >(RestartSolutionGuaranteeDocument, options);
+}
+export type RestartSolutionGuaranteeMutationHookResult = ReturnType<
+  typeof useRestartSolutionGuaranteeMutation
+>;
+export type RestartSolutionGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.RestartSolutionGuaranteeMutation>;
+export type RestartSolutionGuaranteeMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.RestartSolutionGuaranteeMutation,
+    OperationTypes.RestartSolutionGuaranteeMutationVariables
+  >;
 export const MarkAllNotificationsAsReadDocument = gql`
   mutation markAllNotificationsAsRead($accountId: Int!) {
     markAllNotificationsAsRead(input: { accountToUpdateId: $accountId }) {

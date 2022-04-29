@@ -5,8 +5,13 @@ import { Card, CardContent, CardActions } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { GuaranteeEventType } from "@bmi/intouch-api-types";
-import { useUpdateProjectHiddenMutation } from "../../../graphql/generated/hooks";
+import {
+  useUpdateProjectHiddenMutation,
+  useRestartSolutionGuaranteeMutation,
+  useAddProjectNoteMutation
+} from "../../../graphql/generated/hooks";
 import log from "../../../lib/logger";
+import AccessControl from "../../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 import Dialog, { DialogProps } from "./Dialog";
 
@@ -28,14 +33,12 @@ export const ProjectActionsCard = ({
     description: null,
     onConfirm: null
   });
-
   const closeDialog = () => {
     setDialogState((prev) => ({
       ...prev,
       open: false
     }));
   };
-
   const [updateProjectHidden] = useUpdateProjectHiddenMutation({
     onError: (error) => {
       log({
@@ -50,7 +53,6 @@ export const ProjectActionsCard = ({
       });
     }
   });
-
   const toggleProjectArchive = () => {
     updateProjectHidden({
       variables: {
@@ -59,6 +61,34 @@ export const ProjectActionsCard = ({
       }
     });
   };
+  const [addProjectNote, { loading }] = useAddProjectNoteMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error adding note to project: ${error.toString()}`
+      });
+    }
+  });
+  const [restartSolutionGuarantee] = useRestartSolutionGuaranteeMutation({
+    onError: (error) => {
+      log({
+        severity: "ERROR",
+        message: `There was an error restart solution guarantee: ${error.toString()}`
+      });
+    },
+    onCompleted: () => {
+      addProjectNote({
+        variables: {
+          input: {
+            note: {
+              projectId: projectId,
+              body: t("guaranteeRestart.note")
+            }
+          }
+        }
+      });
+    }
+  });
 
   return (
     <Card className={styles.main}>
@@ -73,10 +103,29 @@ export const ProjectActionsCard = ({
             ? t("projectActions.cta.unarchive")
             : t("projectActions.cta.archive")}
         </Button>
+        <AccessControl dataModel="project" action="restartSolutionGuarantee">
+          <Button
+            disabled={loading}
+            onClick={() => {
+              setDialogState({
+                open: true,
+                title: t("guaranteeRestart.confirm.title"),
+                description: t("guaranteeRestart.confirm.description"),
+                onConfirm: () => {
+                  restartSolutionGuarantee({ variables: { projectId } });
+                  closeDialog();
+                }
+              });
+            }}
+          >
+            {t("guaranteeRestart.buttonLabel")}
+          </Button>
+        </AccessControl>
         {guaranteeEventHandler && (
           <>
             <Button
               variant="outlined"
+              disabled={loading}
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -92,6 +141,7 @@ export const ProjectActionsCard = ({
               {t("projectActions.cta.requestInformation")}
             </Button>
             <Button
+              disabled={loading}
               onClick={() => {
                 setDialogState({
                   open: true,
@@ -122,5 +172,11 @@ export const UpdateProjectHidden = gql`
         hidden
       }
     }
+  }
+`;
+
+export const RestartSolutionGuaranteeMutation = gql`
+  mutation RestartSolutionGuarantee($projectId: Int!) {
+    restartSolutionGuarantee(projectId: $projectId)
   }
 `;

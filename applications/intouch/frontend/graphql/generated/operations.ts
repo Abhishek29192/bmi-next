@@ -34,6 +34,15 @@ export type UpdateProjectHiddenMutation = {
   } | null;
 };
 
+export type RestartSolutionGuaranteeMutationVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type RestartSolutionGuaranteeMutation = {
+  __typename?: "Mutation";
+  restartSolutionGuarantee?: string | null;
+};
+
 export type ContactDetailsCollectionFragmentFragment = {
   __typename?: "ContactDetailsCollection";
   items: Array<{

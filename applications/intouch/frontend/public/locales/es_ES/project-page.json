@@ -383,5 +383,13 @@
     "requirementModal": {
       "title": "¿Qué se requiere?"
     }
+  },
+  "guaranteeRestart": {
+    "note": "Se ha reiniciado la garantía asociada a este proyecto, por lo que se puede solicitar una nueva garantía",
+    "buttonLabel": "Restart guarantee",
+    "confirm": {
+      "title": "Restart Guarantee?",
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
+    }
   }
 }
