@@ -1400,6 +1400,61 @@ describe("Making a POST request", () => {
     expect(res.sendStatus).toBeCalledWith(200);
   });
 
+  it("returns status 200 and successfully sends email when emailSubjectFormat is used even if replaces result in empty string", async () => {
+    const req = mockRequest(
+      {
+        title: "Form title",
+        locale: locale,
+        emailSubjectFormat: "{{a}}",
+        recipients: "email@email.com",
+        values: { a: "" }
+      },
+      { "x-recaptcha-token": validToken }
+    );
+    const res = mockResponse();
+
+    getSecret
+      .mockResolvedValueOnce(recaptchaSecret)
+      .mockResolvedValueOnce(managementTokenSecret)
+      .mockResolvedValueOnce(sendGridSecret);
+
+    mockResponses(fetchMock, {
+      method: "POST",
+      url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      body: JSON.stringify({
+        success: true,
+        score: process.env.RECAPTCHA_MINIMUM_SCORE
+      })
+    });
+
+    await submit(req, res);
+
+    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
+    expect(fetchMock).toHaveFetched(
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+      { method: "POST" }
+    );
+    expect(getSecret).toBeCalledWith(
+      process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET
+    );
+    expect(getSpace).toBeCalledWith(process.env.CONTENTFUL_SPACE_ID);
+    expect(getEnvironment).toBeCalledWith(process.env.CONTENTFUL_ENVIRONMENT);
+    expect(getSecret).toBeCalledWith(process.env.SENDGRID_API_KEY_SECRET);
+    expect(setApiKey).toBeCalledWith(sendGridSecret);
+    expect(send).toBeCalledWith({
+      to: ["email@email.com"],
+      from: process.env.SENDGRID_FROM_EMAIL,
+      subject: "Form title",
+      text: JSON.stringify({
+        a: "",
+        uploadedAssets: []
+      }),
+      html: '<ul><li><b>a</b>: ""</li><li><b>uploadedAssets</b>: []</li></ul>'
+    });
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
+    expect(res.sendStatus).toBeCalledWith(200);
+  });
+
   it("returns status 200 when successfully sends email and the email subject should skip emailSubjectFormat if no customization provided", async () => {
     const req = mockRequest(
       {
