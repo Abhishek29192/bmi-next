@@ -68,15 +68,20 @@
       src="https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/js/app.js"
     ></script>
     <link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+    />
+    <link
       href="https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/css/app.css"
       rel="stylesheet"
     />
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
       function OptanonWrapper() {}
     </script>
   </head>
   <body>
-    <div id="login-screen" class="login-screen" x-data="{step: 'login'}">
+    <div id="login-screen" class="login-screen" x-data="body">
       <form onsubmit="return false;" method="post">
         <div class="login-box" x-show="step == 'login'">
           <h1 class="underlined-heading" x-text="$t('signup_welcome')">
@@ -293,7 +298,7 @@
               type="email"
               class="mdc-text-field__input"
               aria-labelledby="signup-email-label"
-              id="signup-email"
+              x-bind="trigger"
           /></label>
           <label class="mdc-text-field mdc-text-field--outlined"
             ><span class="mdc-notched-outline"
@@ -446,6 +451,56 @@
         </div>
       </form>
       <div class="captcha-container form-group"></div>
+      <div id="signup-alert" class="mdc-dialog">
+        <div class="mdc-dialog__container">
+          <div
+            class="mdc-dialog__surface"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content"
+          >
+            <div class="mdc-dialog__title">
+              <h1 class="underlined-heading" x-text="$t('alertSignupTitle')">
+                Already invited?
+              </h1>
+            </div>
+            <div
+              class="mdc-dialog__content"
+              x-text="$t('alertSignupDescription', {email: signupEmail})"
+            >
+              An invitation to register was sent to {email} and is still
+              pending. Select ‘Cancel’ to find the email and accept the
+              invitation or select ‘Confirm’ to decline the invitation and
+              register an individual account.
+            </div>
+            <div class="mdc-dialog__actions">
+              <div class="mdc-touch-target-wrapper">
+                <button
+                  class="mdc-button mdc-button--outlined"
+                  id="btn-cancel-signup"
+                  data-mdc-dialog-action="close"
+                >
+                  <span class="mdc-button__label" x-text="$t('cancel')"
+                    >Cancel</span
+                  >
+                </button>
+              </div>
+              <div class="mdc-touch-target-wrapper">
+                <button
+                  class="mdc-button mdc-button--unelevated"
+                  id="btn-confirm-signup"
+                >
+                  <span class="mdc-button__label" x-text="$t('confirm')"
+                    >Confirm</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+      </div>
     </div>
     <!--[if IE 8]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script> <!
@@ -470,6 +525,10 @@
           return new MDCTooltip(el);
         }
       );
+    </script>
+    <script>
+      const MDCDialog = mdc.dialog.MDCDialog;
+      const dialog = new MDCDialog(document.querySelector(".mdc-dialog"));
     </script>
     <script>
       const messages = {
@@ -512,6 +571,11 @@
             "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)",
           ValidationError:
             "User accounts updated. Please reset your password. Contact BMI if the problem persists.",
+          alertSignupTitle: "Already invited?",
+          alertSignupDescription:
+            "An invitation to register was sent to {email} and is still pending. Select ‘Cancel’ to find the email and accept the invitation or select ‘Confirm’ to decline the invitation and register an individual account.",
+          cancel: "Cancel",
+          confirm: "Confirm"
         },
         no: {
           intouch_title: "InTouch - Logg inn/Registrering",
@@ -546,12 +610,16 @@
           terms_and_conditions: "Betingelser og vilkår",
           and: "og",
           privacy_policy: "Personvernerklæring",
-          success: "Suksess",
           terms_missing: "Godta vilkår og betingelser",
+          success: "Suksess",
           PasswordStrengthError:
             "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)",
           ValidationError:
             "Brukerkontoer oppdatert. Tilbakestill passordet ditt. Kontakt BMI hvis problemet vedvarer",
+          alertSignupTitle: "Allerede invitert?",
+          alertSignupDescription: `En invitasjon til å registrere seg ble sendt til {email} og venter fortsatt. Velg "Avbryt" for å finne e-posten og godta invitasjonen, eller velg "Bekrefte" for å avslå invitasjonen og registrere en individuell konto.`,
+          cancel: "Avbryt",
+          confirm: "Bekrefte"
         },
         it: {
           intouch_title: "InTouch - Accesso/Registrazione",
@@ -585,13 +653,17 @@
           i_agree_to: "Accetto i",
           terms_and_conditions: "Termini e Condizioni",
           and: "e",
-          privacy_policy: "Politica sulla privacy",          
-          success: "Successo",
+          privacy_policy: "Politica sulla privacy",
           terms_missing: "Si prega di accettare i termini e le condizioni",
+          success: "Successo",
           PasswordStrengthError:
             "Si prega di utilizzare una password di almeno 8 caratteri e che contenga almeno 3 dei seguenti 4 tipi di caratteri: lettere minuscole (a-z), lettere maiuscole (A-Z), numeri (es. 0-9), caratteri speciali (es. !@#$%^&*)",
           ValidationError:
             "L'account è stato aggiornato, per favore fai il reset della password. Se il problema persiste contattaci.",
+          alertSignupTitle: "Già invitato?",
+          alertSignupDescription: `Un invito a registrarsi è stato inviato a {email} ed è ancora in sospeso. Seleziona "Annulla" per trovare l'e-mail e accettare l'invito oppure seleziona "Conferma" per rifiutare l'invito e registrare un account individuale.`,
+          cancel: "Annulla",
+          confirm: "Conferma"
         },
         dk: {
           intouch_title: "InTouch - Login / Registrering",
@@ -630,6 +702,10 @@
           terms_missing: "Accepter vilkår og betingelser",
           PasswordStrengthError:
             "Brug en adgangskode med mindst 8 tegn og indeholder mindst 3 af følgende 4 typer tegn: små bogstaver (az), store bogstaver (AZ), tal (dvs. 0-9), specialtegn (f.eks. @ # $% ^ & * )",
+          alertSignupTitle: "Allerede inviteret?",
+          alertSignupDescription: `En invitation til registrering blev sendt til {email} og afventer stadig. Vælg 'Annullér' for at finde e-mailen og acceptere invitationen, eller vælg 'Bekræfte' for at afvise invitationen og registrere en individuel konto.`,
+          cancel: "Annullér",
+          confirm: "Bekræfte"
         },
         de: {
           intouch_title: "InTouch - Log-in / Registrieren",
@@ -668,6 +744,10 @@
           terms_missing: "Bitte akzeptieren Sie die Nutzungsbedingungen",
           PasswordStrengthError:
             "Bitte verwenden Sie ein Passwort mit mindestens 8 Zeichen Länge und enthalten mindestens 3 der folgenden 4 Zeichenarten: Kleinbuchstaben (a-z), Großbuchstaben (A-Z), Zahlen (zB 0-9), Sonderzeichen (zB !@#$%^&*)",
+          alertSignupTitle: "Schon eingeladen?",
+          alertSignupDescription: `Eine Einladung zur Registrierung wurde an {email} gesendet und steht noch aus. Wählen Sie „Abbrechen“, um die E-Mail zu finden und die Einladung anzunehmen, oder wählen Sie „Bestätigen“, um die Einladung abzulehnen und ein individuelles Konto zu registrieren.`,
+          cancel: "Abbrechen",
+          confirm: "Bestätigen"
         },
         es: {
           intouch_title: "InTouch - inicio de sesión / registro",
@@ -707,7 +787,11 @@
           terms_missing: "Por favor acepte los términos y condiciones de BMI",
           PasswordStrengthError:
             "Utilice una contraseña con al menos 8 caracteres de longitud y que contenga al menos 3 de los siguientes 4 tipos de caracteres: letras minúsculas (az), letras mayúsculas (AZ), números (es decir, 0-9), caracteres especiales (p. ej. !@#$%^&*)",
-        },
+          alertSignupTitle: "¿Ya estás invitado?",
+          alertSignupDescription: `Se envió una invitación para registrarse a {email} y aún está pendiente. Seleccione 'Cancelar' para buscar el correo electrónico y aceptar la invitación o seleccione 'Confirmar' para rechazar la invitación y registrar una cuenta individual.`,
+          cancel: "Cancelar",
+          confirm: "Confirmar"
+        }
       };
 
       const getMarket = (config) => {
@@ -730,7 +814,7 @@
           dk: true,
           de: false,
           es: true,
-          en: false, // project not active
+          en: false // project not active
         };
 
         // Map projects status / image
@@ -738,7 +822,7 @@
           projectActive:
             "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/images/bmi_roofpro_intouch.jpg",
           projectNotActive:
-            "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/images/bmi_non_roofpro_intouch.jpg",
+            "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/images/bmi_non_roofpro_intouch.jpg"
         };
 
         if (document.getElementsByClassName("login-screen").length) {
@@ -762,6 +846,15 @@
       });
 
       window.addEventListener("load", function () {
+        Alpine.data("body", () => ({
+          step: "login",
+          signupEmail: "",
+          trigger: {
+            ["@change"]() {
+              this.signupEmail = document.getElementById("signup-email").value;
+            }
+          }
+        }));
         Alpine.start();
 
         window.setTimeout(() => {
@@ -805,12 +898,12 @@
           {
             overrides: {
               __tenant: config.auth0Tenant,
-              __token_issuer: config.authorizationServer.issuer,
+              __token_issuer: config.authorizationServer.issuer
             },
             domain: config.auth0Domain,
             clientID: config.clientID,
             redirectUri: config.callbackURL,
-            responseType: "code",
+            responseType: "code"
           },
           config.internalOptions
         );
@@ -883,7 +976,7 @@
               realm: databaseConnection,
               username: username,
               password: password,
-              captcha: captcha.getValue(),
+              captcha: captcha.getValue()
             },
             function (err) {
               button.disabled = false;
@@ -893,7 +986,54 @@
           );
         }
 
-        function signup() {
+        const graphqlOptions = {
+          type: "POST",
+          contentType: "application/x-www-form-urlencoded"
+        };
+
+        async function validateSignupUser(email) {
+          if (email) {
+            try {
+              const response = await $.ajax({
+                ...graphqlOptions,
+                url: "@@base_url@@/api/validate-user".replace(
+                  "{market}",
+                  market
+                ),
+                data: { email }
+              });
+              if (response) {
+                return response.data;
+              }
+            } catch (err) {
+              displayError(err.code, "form-signup");
+            }
+          }
+        }
+
+        async function confirmSignup() {
+          const email = document.getElementById("signup-email").value;
+          if (email) {
+            try {
+              const response = await $.ajax({
+                ...graphqlOptions,
+                url: "@@base_url@@/api/confirm-signup".replace(
+                  "{market}",
+                  market
+                ),
+                data: { email }
+              });
+              if (response && response?.data === "ok") {
+                signup();
+              }
+            } catch (err) {
+              this.disabled = false;
+              displayError(err.code, "form-signup");
+            }
+          }
+        }
+
+        async function signup() {
           // Get the form
           const form = document.querySelectorAll("#signup-form")[0];
           const terms = document.querySelectorAll("#terms-and-conditions")[0];
@@ -916,28 +1056,39 @@
             displayError("name_surname_missing", "form-signup");
             return;
           }
+          try {
+            const { data } = await validateSignupUser(email);
 
-          webAuth.redirect.signupAndLogin(
-            {
-              connection: databaseConnection,
-              email: email,
-              password: password,
-              captcha: captcha.getValue(),
-              user_metadata: {
-                intouch_role: radios.value,
-                first_name,
-                last_name,
-                market:
-                  config.extraParams.market === "intouch"
-                    ? "no"
-                    : config.extraParams.market,
-              },
-            },
-            function (err) {
+            if (data !== true) {
+              dialog.open();
               button.disabled = false;
-              if (err) displayError(err.name, "form-signup");
+            } else {
+              webAuth.redirect.signupAndLogin(
+                {
+                  connection: databaseConnection,
+                  email: email,
+                  password: password,
+                  captcha: captcha.getValue(),
+                  user_metadata: {
+                    intouch_role: radios.value,
+                    first_name,
+                    last_name,
+                    market:
+                      config.extraParams.market === "intouch"
+                        ? "no"
+                        : config.extraParams.market
+                  }
+                },
+                function (err) {
+                  button.disabled = false;
+                  if (err) displayError(err.code, "form-signup");
+                }
+              );
             }
-          );
+          } catch (err) {
+            button.disabled = false;
+            if (err) displayError(err.code, "form-signup");
+          }
         }
 
         function resetPassword(e) {
@@ -955,7 +1106,7 @@
           webAuth.changePassword(
             {
               connection: databaseConnection,
-              email: email,
+              email: email
             },
             function (err, resp) {
               button.disabled = false;
@@ -971,6 +1122,9 @@
         document.getElementById("btn-login").addEventListener("click", login);
         document.getElementById("btn-signup").addEventListener("click", signup);
         document
+          .getElementById("btn-confirm-signup")
+          .addEventListener("click", confirmSignup);
+        document
           .getElementById("btn-reset-password")
           .addEventListener("click", resetPassword);
 
@@ -981,7 +1135,7 @@
           dk: "7b88b89f-d776-49b4-8cd3-aabbc1f84ba2-test",
           de: "1810f8b2-1df6-424e-98c2-5215b272935e-test",
           es: "",
-          en: "",
+          en: ""
         };
 
         // Define head element from document.
