@@ -2,10 +2,11 @@
 
 .Filters {
   .scroll-bar {
-    @media (min-width: $breakpoint-xl) {
+    @media (min-width: $breakpoint-lg) {
       position: sticky;
       max-height: calc(100vh - 200px);
-      overflow: hidden;
+      overflow: hidden auto;
+      touch-action: auto;
     }
   }
 

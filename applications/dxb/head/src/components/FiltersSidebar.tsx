@@ -4,7 +4,6 @@ import { Button } from "@bmi/components";
 import { Checkbox, CheckboxProps } from "@bmi/components";
 import { Typography } from "@bmi/components";
 import { Filters, FilterProps } from "@bmi/components";
-import { PerfectScrollbar } from "@bmi/components";
 import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
 import { useSiteContext } from "./Site";
@@ -33,12 +32,13 @@ const FiltersSidebar = ({
   );
 
   return (
-    <PerfectScrollbar
+    <div
       style={{
         position: "sticky",
         top: "180px",
         maxHeight: "calc(100vh - 200px)",
-        overflow: "hidden"
+        overflow: "hidden auto",
+        touchAction: "auto"
       }}
     >
       <div
@@ -90,7 +90,7 @@ const FiltersSidebar = ({
           />
         )}
       />
-    </PerfectScrollbar>
+    </div>
   );
 };
 

@@ -197,7 +197,6 @@ import Navigation, {
 import NBACard, { NBACardProps } from "./nba-card";
 import OverviewCard, { OverviewCardProps } from "./overview-card";
 import Pagination from "./pagination";
-import PerfectScrollbar from "./perfect-scrollbar";
 import PostItCard from "./post-it-card";
 import ProductDetailsCard from "./product-details-card";
 import ProductOverviewPane, {
@@ -495,7 +494,6 @@ export {
   NBACard,
   OverviewCard,
   Pagination,
-  PerfectScrollbar,
   PostItCard,
   ProductDetailsCard,
   ProductOverviewPane,

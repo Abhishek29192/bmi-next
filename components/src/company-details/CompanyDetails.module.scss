@@ -8,6 +8,11 @@
   max-height: 100%;
   flex: 1;
 
+  .scrollbar {
+    overflow: hidden auto;
+    touch-action: auto;
+  }
+
   .title {
     margin-bottom: 30px;
   }

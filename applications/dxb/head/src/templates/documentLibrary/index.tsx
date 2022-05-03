@@ -8,10 +8,10 @@ import {
   Hero,
   Section
 } from "@bmi/components";
-import { microCopy } from "../../constants/microCopies";
 import { Data as SiteData } from "../../components/Site";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import Page, { Data as PageData } from "../../components/Page";
+import { microCopy } from "../../constants/microCopies";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../components/Breadcrumbs";
