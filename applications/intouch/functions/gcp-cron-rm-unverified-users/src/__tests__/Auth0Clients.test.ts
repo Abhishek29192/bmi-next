@@ -32,17 +32,85 @@ describe("Auth0Client", () => {
 
   describe("private function", () => {
     describe("errorLogger", () => {
-      it("log response message", async () => {
+      it("log response data message", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "data message: fetch token error";
+        const erorrObject = new Error("default message");
+        (erorrObject as any).response = {
+          data: { message: errorMessage, error: "data error" }
+        };
+
+        axiosMock.mockRejectedValueOnce(erorrObject);
+
+        await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
+
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          1,
+          "Error fetching token:",
+          errorMessage
+        );
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          2,
+          "Error fetching unverified users:",
+          errorMessage
+        );
+      });
+
+      it("log response data error when no data message", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "data error: fetch token error";
         const erorrObject = new Error("default message");
-        (erorrObject as any).response = { data: { message: errorMessage } };
+        (erorrObject as any).response = { data: { error: errorMessage } };
 
-        axiosMock.mockImplementationOnce(() => Promise.reject(erorrObject));
+        axiosMock.mockRejectedValueOnce(erorrObject);
 
-        await expect(auth0.getUnverifiedUser()).rejects.toThrow(
-          "default message"
+        await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
+
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          1,
+          "Error fetching token:",
+          errorMessage
         );
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          2,
+          "Error fetching unverified users:",
+          errorMessage
+        );
+      });
+
+      it("log error message", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "data error: fetch token error";
+        const erorrObject = new Error("default message");
+        (erorrObject as any).message = errorMessage;
+
+        axiosMock.mockRejectedValueOnce(erorrObject);
+
+        await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
+
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          1,
+          "Error fetching token:",
+          errorMessage
+        );
+        expect(consoleLogSpy).toHaveBeenNthCalledWith(
+          2,
+          "Error fetching unverified users:",
+          errorMessage
+        );
+      });
+
+      it("log whole error when contains no response and messsgae", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "plain error: fetch token error";
+
+        axiosMock.mockRejectedValueOnce(errorMessage);
+
+        try {
+          await auth0.getUnverifiedUser();
+        } catch (error) {
+          expect(error).toBe(errorMessage);
+        }
 
         expect(consoleLogSpy).toHaveBeenNthCalledWith(
           1,
@@ -231,6 +299,25 @@ describe("Auth0Client", () => {
           new Error(errorMessage),
           `Error deleting user with ${email}:`
         );
+      });
+
+      it("request token when error status is 429", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "failed to delete user";
+        const errorObject = new Error(errorMessage);
+        const resultMessage = "result";
+        (errorObject as any).data = { statusCode: 429 };
+        axiosMock
+          .mockReturnValueOnce({ data: { access_token: token } })
+          .mockRejectedValueOnce(errorObject)
+          .mockReturnValueOnce({ data: { access_token: token } })
+          .mockReturnValueOnce(resultMessage);
+
+        const result = await auth0.deleteUser({ id: "1", email });
+
+        expect(axiosMock).toHaveBeenCalledTimes(4);
+        expect(errorLoggerSpy).toHaveBeenCalledTimes(0);
+        expect(result).toBe(resultMessage);
       });
     });
   });

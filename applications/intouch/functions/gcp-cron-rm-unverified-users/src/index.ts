@@ -18,6 +18,7 @@ export const removeAuth0UnverifiedAccount = async (
     const users: User[] = await auth0.getUnverifiedUser();
 
     if (users && users.length) {
+      console.log(`succesfully fetched uninvited ${users.length} users`);
       const invitationExpiredUser = users.filter(
         ({ created_at: createdAt }) => {
           return (
@@ -28,17 +29,31 @@ export const removeAuth0UnverifiedAccount = async (
       );
 
       if (invitationExpiredUser.length) {
-        const promises = invitationExpiredUser.map(
-          ({ user_id: userId, email }) =>
-            auth0.deleteUser({ id: userId, email })
+        const pending = invitationExpiredUser.map(
+          ({ user_id: userId, email }) => ({ id: userId, email })
         );
-        await Promise.allSettled(promises).then((value) => {
-          const rejected = value.filter(({ status }) => status === "rejected");
-          if (rejected.length) {
-            const message = rejected.map((value) => (value as any).reason);
-            throw message;
-          }
-        });
+        while (pending.length) {
+          //limit call to 2 to avoid too many request
+          const userInfo = pending.splice(0, 2);
+          await Promise.allSettled([
+            ...userInfo.map((user) => auth0.deleteUser(user))
+          ]).then((value) => {
+            value.map(({ reason }: any, id) => {
+              if (reason) {
+                console.log(reason.message);
+              }
+              console.log(
+                `successfully deleted user with email ${
+                  userInfo[`${id}`].email
+                } auth0 Id: ${userInfo[`${id}`].id}`
+              );
+            });
+          });
+          // delay call to avoid rate limit
+          await new Promise((resolve) =>
+            setTimeout(() => resolve("delayed"), 1000)
+          );
+        }
       }
     }
   } catch (error) {

@@ -29,6 +29,10 @@ describe("removeAuth0UnverifiedAccount", () => {
 
     await removeAuth0UnverifiedAccount();
 
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(
+      1,
+      `succesfully fetched uninvited 1 users`
+    );
     expect(getUnverifiedUserSpy).toHaveBeenCalledTimes(1);
     expect(deleteUserSpy).toHaveBeenCalledTimes(1);
   });
@@ -98,13 +102,16 @@ describe("removeAuth0UnverifiedAccount", () => {
   it("fails to delete user", async () => {
     const errorMessage = "fails to delete user";
     const errorObject = new Error(errorMessage);
-    getUnverifiedUserSpy.mockImplementationOnce(() =>
-      Promise.resolve([userFactory()])
-    );
+    const user = userFactory();
+    getUnverifiedUserSpy.mockImplementationOnce(() => Promise.resolve([user]));
     deleteUserSpy.mockImplementationOnce(() => Promise.reject(errorObject));
 
     await removeAuth0UnverifiedAccount();
 
-    expect(consoleLogSpy).toHaveBeenCalledWith([errorObject]);
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(2, errorMessage);
+    expect(consoleLogSpy).toHaveBeenNthCalledWith(
+      3,
+      `successfully deleted user with email ${user.email} auth0 Id: ${user.user_id}`
+    );
   });
 });
