@@ -8,8 +8,11 @@ export default class Auht0Client {
   private errorLogger(error: AxiosError, message: string) {
     const responseMessage = error.response
       ? error.response.data.message
-      : error.message;
-    // console.debug(error.response?.data?.message);
+        ? error.response.data.message
+        : error.response.data.error
+      : error.message
+      ? error.message
+      : error;
     console.log(message, responseMessage);
   }
 
@@ -81,8 +84,18 @@ export default class Auht0Client {
         url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
       });
     } catch (error) {
-      this.errorLogger(error, `Error deleting user with ${email}:`);
-      throw error;
+      // if it reaches rate limit, reset token and retry
+      if (error.data?.statusCode === 429) {
+        this.token = undefined;
+
+        return await this.requestCall({
+          method: "DELETE",
+          url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
+        });
+      } else {
+        this.errorLogger(error, `Error deleting user with ${email}:`);
+        throw error;
+      }
     }
   }
 }
