@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 import withCors from "../../lib/middleware/withCors";
 import { initializeApollo } from "../../lib/apolloClient";
+import { getSecret } from "../../lib/utils/secrets";
 
 export const config = {
   api: {
@@ -19,7 +20,16 @@ export const handler = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const apolloClient = initializeApollo(null, { req, res });
+    const GATEWAY_API_KEY = await getSecret(
+      process.env.GCP_SECRET_PROJECT,
+      "GATEWAY_API_KEY"
+    );
+    const headers = {
+      ...req.headers,
+      "x-api-key": GATEWAY_API_KEY,
+      authorization: "Bearer undefined"
+    };
+    const apolloClient = initializeApollo(null, { req, res, headers });
     const { data } = await apolloClient.mutate({
       mutation: VALIDATE_USER,
       variables: {
