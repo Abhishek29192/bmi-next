@@ -162,11 +162,21 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
 
   const videos = filterAndTransformVideoData(product.assets);
 
+  const getVariantCodePath = (path: string) => {
+    const isSSR = typeof window === "undefined";
+
+    if (isSSR) {
+      return path;
+    }
+
+    return `${path}${window.location.search ?? ""}`;
+  };
+
   const variantCodeToPathMap: VariantCodeToPathMap =
     product.variantOptions.reduce(
       (carry, { code, path }) => ({
         ...carry,
-        [code]: `${path}${window?.location.search ?? ""}`
+        [code]: getVariantCodePath(path)
       }),
       {}
     );

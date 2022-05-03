@@ -279,7 +279,9 @@ const SearchTabPanelPages = (props: Props) => {
               key={index}
               title={result.title}
               subtitle={result.subtitle}
-              path={`${result.path}${window.location.search}`}
+              path={`${result.path}${
+                typeof window === "undefined" ? "" : window.location.search
+              }`}
               countryCode={pageContext.countryCode}
             />
           ))}

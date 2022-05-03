@@ -25,7 +25,10 @@ const BackToResults: FC<Props> = ({
   isDarkThemed = false
 }: Props) => {
   const { countryCode, getMicroCopy } = useSiteContext();
-  const urlParams = new URLSearchParams(window.location.search);
+
+  const isSSR = typeof window === "undefined";
+
+  const urlParams = new URLSearchParams(isSSR ? "" : window.location.search);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 

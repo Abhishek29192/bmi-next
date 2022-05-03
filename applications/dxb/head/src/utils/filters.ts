@@ -972,4 +972,6 @@ export const getBackToResultsPath = (countryCode: string): string => {
 };
 
 export const getWindowLocationFilters = (): FiltersLocation =>
-  window?.location ?? { search: "", pathname: "" };
+  typeof window !== "undefined"
+    ? window.location
+    : { search: "", pathname: "" };
