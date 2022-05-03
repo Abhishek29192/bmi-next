@@ -45,7 +45,7 @@ package_gcp-intouch-remove-unverified-users:
     - mkdir -p dist/applications/intouch/functions
   script:
     - cd applications/intouch/functions/gcp-cron-rm-unverified-users
-    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-rm-unverified-users.zip dist/
+    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-rm-unverified-users.zip package.json dist/
     - cd $CI_PROJECT_DIR
   artifacts:
     paths:
