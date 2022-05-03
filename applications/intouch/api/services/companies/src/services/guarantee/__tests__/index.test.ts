@@ -38,6 +38,13 @@ jest.mock("file-type", () => {
   };
 });
 
+const mockGetDbPoolQuery = jest.fn();
+jest.mock("../../../db", () => ({
+  getDbPool: () => ({
+    query: (...params) => mockGetDbPoolQuery(...params)
+  })
+}));
+
 const evidenceItemInputs = [
   {
     name: "file1.jpg",
@@ -302,6 +309,10 @@ describe("Guarantee", () => {
       context.user.can = () => true;
       mockGuarante.status = "NEW";
 
+      mockGetDbPoolQuery.mockReturnValueOnce({
+        rows: [{ email: "test@mail.me", id: 1 }]
+      });
+
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
       const { patch } = args.input;
@@ -317,6 +328,10 @@ describe("Guarantee", () => {
         input: { ...guaranteeUpdateInput }
       };
       mockGuarante.status = "REJECTED";
+
+      mockGetDbPoolQuery.mockReturnValueOnce({
+        rows: [{ email: "test2@mail.me", id: 2 }]
+      });
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
