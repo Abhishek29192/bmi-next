@@ -176,7 +176,8 @@ describe("Contact us page", () => {
       },
       seo: {
         metaTitle: "BMI - Contact Us",
-        metaDescription: "How can we help?"
+        metaDescription: "How can we help?",
+        noIndex: false
       },
       sections: [
         {
@@ -233,7 +234,8 @@ describe("Contact us page", () => {
               backgroundColor: null
             }
           ],
-          justifyCenter: null
+          justifyCenter: null,
+          displaySingleRow: null
         }
       ],
       locationsTitle: "Locations",

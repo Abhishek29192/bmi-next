@@ -51,6 +51,9 @@ type HeaderProps = {
   promoButtonComponent?: React.ComponentType<any>; // TODO
   tabComponent?: React.ComponentType<any>; // TODO
   navUtilityLinkButton?: React.ComponentType<any>; //TODO
+  closeButtonComponent?: React.ComponentType<any>; //TODO
+  onToggleLanguageSelection?: (showLanguageSelection: boolean) => void;
+  onCountrySelection?: (label: string, code: string) => void;
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   isBasketEmpty?: boolean;
@@ -94,7 +97,10 @@ const Header = ({
   mainMenuDefaultLabel,
   languageLabel,
   languageIntroduction,
-  navUtilityLinkButton: NavUtilityLinkButton = Button
+  navUtilityLinkButton: NavUtilityLinkButton = Button,
+  closeButtonComponent: CloseButtonComponent = Button,
+  onToggleLanguageSelection,
+  onCountrySelection
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -144,8 +150,10 @@ const Header = ({
     }
   };
 
-  const toggleLanguageSelection = () =>
+  const toggleLanguageSelection = () => {
+    onToggleLanguageSelection?.(showLanguageSelection);
     setShowLanguageSelection(!showLanguageSelection);
+  };
 
   const toggleSearch = () => {
     if (!showSearch) {
@@ -275,14 +283,14 @@ const Header = ({
           <div
             className={classnames(styles["drawer"], styles["language-drawer"])}
           >
-            <Button
+            <CloseButtonComponent
               accessibilityLabel={closeLabel}
               className={styles["close-button"]}
               isIconButton
               onClick={hideAll}
             >
               <Icon source={Close} />
-            </Button>
+            </CloseButtonComponent>
             <div className={styles["back-navigation"]}>
               <NavigationListButton
                 component={Button}
@@ -300,6 +308,7 @@ const Header = ({
                 introduction={languageIntroduction}
                 languages={languages}
                 forceMobile={!sizes.length}
+                onCountrySelection={onCountrySelection}
               />
             </Container>
           </div>

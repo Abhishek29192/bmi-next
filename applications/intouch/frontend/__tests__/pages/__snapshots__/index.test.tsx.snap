@@ -994,11 +994,14 @@ exports[`homepage interval set to 5000 when 2 heroitems 1`] = `
                                 <div
                                   class="body"
                                 >
-                                  <img
-                                    alt=""
+                                  <div
                                     class="brand-logo brand-logo--negative"
-                                    src="partner brand logo url"
-                                  />
+                                  >
+                                    <img
+                                      alt=""
+                                      src="partner brand logo url"
+                                    />
+                                  </div>
                                   <h4
                                     class="MuiTypography-root title Typography MuiTypography-h4"
                                   >
@@ -1693,11 +1696,14 @@ exports[`homepage render correctly 1`] = `
                                 <div
                                   class="body"
                                 >
-                                  <img
-                                    alt=""
+                                  <div
                                     class="brand-logo brand-logo--negative"
-                                    src="partner brand logo url"
-                                  />
+                                  >
+                                    <img
+                                      alt=""
+                                      src="partner brand logo url"
+                                    />
+                                  </div>
                                   <h4
                                     class="MuiTypography-root title Typography MuiTypography-h4"
                                   >

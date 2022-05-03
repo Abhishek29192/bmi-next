@@ -1,0 +1,5099 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add/Edit project form Check APPROVED guarantee status snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="Form form Form--rightAlignButton"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <h5
+              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            >
+              addProject.dialog.sections.projectDetails.title
+            </h5>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <p
+              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            >
+              * 
+              requiredInformation
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.name
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="name"
+              required=""
+              type="text"
+              value="Project"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+              >
+                <span>
+                  addProject.dialog.form.fields.name
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="input"
+        >
+          <h6
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          >
+            addProject.dialog.form.fields.technology
+          </h6>
+          <div
+            class="RadioGroup input"
+          >
+            <div
+              class="container"
+            >
+              <div
+                class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton RadioButton--disabled"
+                  >
+                    <input
+                      class="input"
+                      disabled=""
+                      id="radio-technology-PITCHED"
+                      name="technology"
+                      type="radio"
+                      value="PITCHED"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-PITCHED"
+                    >
+                      <div
+                        aria-disabled="true"
+                        class="MuiButtonBase-root text Mui-disabled"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                        />
+                        addProject.dialog.form.values.technology.PITCHED
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.PITCHED
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton RadioButton--disabled"
+                  >
+                    <input
+                      class="input"
+                      disabled=""
+                      id="radio-technology-FLAT"
+                      name="technology"
+                      type="radio"
+                      value="FLAT"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-FLAT"
+                    >
+                      <div
+                        aria-disabled="true"
+                        class="MuiButtonBase-root text Mui-disabled"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                          viewBox="0 7 48 48"
+                        />
+                        addProject.dialog.form.values.technology.FLAT
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.FLAT
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.roofArea
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              min="1"
+              name="roofArea"
+              required=""
+              step="1"
+              type="number"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.roofArea
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.description
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+          >
+            <textarea
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+              disabled=""
+              name="description"
+              rows="6"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.description
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.sections.dates.title
+        </h6>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.startDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                  disabled=""
+                  name="startDate"
+                  required=""
+                  type="date"
+                  value="2021-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.startDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.endDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                  disabled=""
+                  name="endDate"
+                  required=""
+                  type="date"
+                  value="2022-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.endDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        >
+          addProject.dialog.sections.siteAddress.title
+        </h5>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.firstLine
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="siteAddress.firstLine"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.firstLine
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.secondLine
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="siteAddress.secondLine"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.secondLine
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.town
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="siteAddress.town"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.town
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.siteAddress.postcode
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                  disabled=""
+                  name="siteAddress.postcode"
+                  required=""
+                  type="text"
+                  value="12345"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.siteAddress.postcode
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.region
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="siteAddress.region"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.region
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.siteAddress.country
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+              disabled=""
+              name="siteAddress.country"
+              required=""
+              type="text"
+              value="UK"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.country
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="ButtonWrapper"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-32"
+            >
+              addProject.dialog.form.actions.submit
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="Form form Form--rightAlignButton"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <h5
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          >
+            addProject.dialog.sections.projectDetails.title
+          </h5>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <p
+            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+          >
+            * 
+            requiredInformation
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.name
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="name"
+            required=""
+            type="text"
+            value="Project"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+            >
+              <span>
+                addProject.dialog.form.fields.name
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="input"
+      >
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.form.fields.technology
+        </h6>
+        <div
+          class="RadioGroup input"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton RadioButton--disabled"
+                >
+                  <input
+                    class="input"
+                    disabled=""
+                    id="radio-technology-PITCHED"
+                    name="technology"
+                    type="radio"
+                    value="PITCHED"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-PITCHED"
+                  >
+                    <div
+                      aria-disabled="true"
+                      class="MuiButtonBase-root text Mui-disabled"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                      />
+                      addProject.dialog.form.values.technology.PITCHED
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.PITCHED
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton RadioButton--disabled"
+                >
+                  <input
+                    class="input"
+                    disabled=""
+                    id="radio-technology-FLAT"
+                    name="technology"
+                    type="radio"
+                    value="FLAT"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-FLAT"
+                  >
+                    <div
+                      aria-disabled="true"
+                      class="MuiButtonBase-root text Mui-disabled"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                        viewBox="0 7 48 48"
+                      />
+                      addProject.dialog.form.values.technology.FLAT
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.FLAT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.roofArea
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            min="1"
+            name="roofArea"
+            required=""
+            step="1"
+            type="number"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.roofArea
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.description
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            disabled=""
+            name="description"
+            rows="6"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.description
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <h6
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+      >
+        addProject.dialog.sections.dates.title
+      </h6>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.startDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                disabled=""
+                name="startDate"
+                required=""
+                type="date"
+                value="2021-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                >
+                  <span>
+                    addProject.dialog.form.fields.startDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.endDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                disabled=""
+                name="endDate"
+                required=""
+                type="date"
+                value="2022-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                >
+                  <span>
+                    addProject.dialog.form.fields.endDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+      >
+        addProject.dialog.sections.siteAddress.title
+      </h5>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.firstLine
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="siteAddress.firstLine"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.firstLine
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.secondLine
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="siteAddress.secondLine"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.secondLine
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.town
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="siteAddress.town"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.town
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.siteAddress.postcode
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+                disabled=""
+                name="siteAddress.postcode"
+                required=""
+                type="text"
+                value="12345"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+                >
+                  <span>
+                    addProject.dialog.form.fields.siteAddress.postcode
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-disabled Mui-disabled"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.region
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="siteAddress.region"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.region
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-disabled Mui-disabled MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.siteAddress.country
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root Mui-disabled Mui-disabled MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled Mui-disabled"
+            disabled=""
+            name="siteAddress.country"
+            required=""
+            type="text"
+            value="UK"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-27 PrivateNotchedOutline-legendNotched-28"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.country
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="ButtonWrapper"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-29 MuiButton-contained buttonStyles-contained-31 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="submit"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-32"
+          >
+            addProject.dialog.form.actions.submit
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Add/Edit project form Check empty guarantee snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="Form form Form--rightAlignButton"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <h5
+              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            >
+              addProject.dialog.sections.projectDetails.title
+            </h5>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <p
+              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            >
+              * 
+              requiredInformation
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.name
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              required=""
+              type="text"
+              value="Project"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+              >
+                <span>
+                  addProject.dialog.form.fields.name
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="input"
+        >
+          <h6
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          >
+            addProject.dialog.form.fields.technology
+          </h6>
+          <div
+            class="RadioGroup input"
+          >
+            <div
+              class="container"
+            >
+              <div
+                class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton"
+                  >
+                    <input
+                      class="input"
+                      id="radio-technology-PITCHED"
+                      name="technology"
+                      type="radio"
+                      value="PITCHED"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-PITCHED"
+                    >
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root text"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                        />
+                        addProject.dialog.form.values.technology.PITCHED
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.PITCHED
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton"
+                  >
+                    <input
+                      class="input"
+                      id="radio-technology-FLAT"
+                      name="technology"
+                      type="radio"
+                      value="FLAT"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-FLAT"
+                    >
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root text"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                          viewBox="0 7 48 48"
+                        />
+                        addProject.dialog.form.values.technology.FLAT
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.FLAT
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.roofArea
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              min="1"
+              name="roofArea"
+              required=""
+              step="1"
+              type="number"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.roofArea
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.description
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+          >
+            <textarea
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+              name="description"
+              rows="6"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.description
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.sections.dates.title
+        </h6>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.startDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="startDate"
+                  required=""
+                  type="date"
+                  value="2021-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.startDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.endDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="endDate"
+                  required=""
+                  type="date"
+                  value="2022-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.endDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        >
+          addProject.dialog.sections.siteAddress.title
+        </h5>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.firstLine
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.firstLine"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.firstLine
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.secondLine
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.secondLine"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.secondLine
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.town
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.town"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.town
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.siteAddress.postcode
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="siteAddress.postcode"
+                  required=""
+                  type="text"
+                  value="12345"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.siteAddress.postcode
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.region
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.region"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.region
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.siteAddress.country
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.country"
+              required=""
+              type="text"
+              value="UK"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.country
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="ButtonWrapper"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-55 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-56"
+            >
+              addProject.dialog.form.actions.submit
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="Form form Form--rightAlignButton"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <h5
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          >
+            addProject.dialog.sections.projectDetails.title
+          </h5>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <p
+            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+          >
+            * 
+            requiredInformation
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.name
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="name"
+            required=""
+            type="text"
+            value="Project"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+            >
+              <span>
+                addProject.dialog.form.fields.name
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="input"
+      >
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.form.fields.technology
+        </h6>
+        <div
+          class="RadioGroup input"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton"
+                >
+                  <input
+                    class="input"
+                    id="radio-technology-PITCHED"
+                    name="technology"
+                    type="radio"
+                    value="PITCHED"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-PITCHED"
+                  >
+                    <div
+                      aria-disabled="false"
+                      class="MuiButtonBase-root text"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                      />
+                      addProject.dialog.form.values.technology.PITCHED
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.PITCHED
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton"
+                >
+                  <input
+                    class="input"
+                    id="radio-technology-FLAT"
+                    name="technology"
+                    type="radio"
+                    value="FLAT"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-FLAT"
+                  >
+                    <div
+                      aria-disabled="false"
+                      class="MuiButtonBase-root text"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                        viewBox="0 7 48 48"
+                      />
+                      addProject.dialog.form.values.technology.FLAT
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.FLAT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.roofArea
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            min="1"
+            name="roofArea"
+            required=""
+            step="1"
+            type="number"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.roofArea
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.description
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            name="description"
+            rows="6"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.description
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <h6
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+      >
+        addProject.dialog.sections.dates.title
+      </h6>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.startDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="startDate"
+                required=""
+                type="date"
+                value="2021-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                >
+                  <span>
+                    addProject.dialog.form.fields.startDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.endDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="endDate"
+                required=""
+                type="date"
+                value="2022-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                >
+                  <span>
+                    addProject.dialog.form.fields.endDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+      >
+        addProject.dialog.sections.siteAddress.title
+      </h5>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.firstLine
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.firstLine"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.firstLine
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.secondLine
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.secondLine"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.secondLine
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.town
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.town"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.town
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.siteAddress.postcode
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="siteAddress.postcode"
+                required=""
+                type="text"
+                value="12345"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+                >
+                  <span>
+                    addProject.dialog.form.fields.siteAddress.postcode
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.region
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.region"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.region
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.siteAddress.country
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.country"
+            required=""
+            type="text"
+            value="UK"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-49 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-51 PrivateNotchedOutline-legendNotched-52"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.country
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="ButtonWrapper"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-53 MuiButton-contained buttonStyles-contained-55 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="submit"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-56"
+          >
+            addProject.dialog.form.actions.submit
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Add/Edit project form Should match snapshot for Project add 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="Form form Form--rightAlignButton"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <h5
+              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            >
+              addProject.dialog.sections.projectDetails.title
+            </h5>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <p
+              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            >
+              * 
+              requiredInformation
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.name
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.name
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="input"
+        >
+          <h6
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          >
+            addProject.dialog.form.fields.technology
+          </h6>
+          <div
+            class="RadioGroup input"
+          >
+            <div
+              class="container"
+            >
+              <div
+                class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton"
+                  >
+                    <input
+                      class="input"
+                      id="radio-technology-PITCHED"
+                      name="technology"
+                      type="radio"
+                      value="PITCHED"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-PITCHED"
+                    >
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root text"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                        />
+                        addProject.dialog.form.values.technology.PITCHED
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.PITCHED
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton"
+                  >
+                    <input
+                      class="input"
+                      id="radio-technology-FLAT"
+                      name="technology"
+                      type="radio"
+                      value="FLAT"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-FLAT"
+                    >
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root text"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                          viewBox="0 7 48 48"
+                        />
+                        addProject.dialog.form.values.technology.FLAT
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.FLAT
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.roofArea
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              min="1"
+              name="roofArea"
+              required=""
+              step="1"
+              type="number"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.roofArea
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.description
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+          >
+            <textarea
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+              name="description"
+              rows="6"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.description
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.sections.dates.title
+        </h6>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.startDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="startDate"
+                  required=""
+                  type="date"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.startDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.endDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="endDate"
+                  required=""
+                  type="date"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.endDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        >
+          addProject.dialog.sections.siteAddress.title
+        </h5>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.firstLine
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.firstLine"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.firstLine
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.secondLine
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.secondLine"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.secondLine
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.town
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.town"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.town
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+                data-shrink="false"
+              >
+                addProject.dialog.form.fields.siteAddress.postcode
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="siteAddress.postcode"
+                  required=""
+                  type="text"
+                  value=""
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-75"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.siteAddress.postcode
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.region
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.region"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.region
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.country
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.country"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-75"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.country
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="ButtonWrapper"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-80"
+            >
+              addProject.dialog.form.actions.submit
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="Form form Form--rightAlignButton"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <h5
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          >
+            addProject.dialog.sections.projectDetails.title
+          </h5>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <p
+            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+          >
+            * 
+            requiredInformation
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.name
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="name"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.name
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="input"
+      >
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.form.fields.technology
+        </h6>
+        <div
+          class="RadioGroup input"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton"
+                >
+                  <input
+                    class="input"
+                    id="radio-technology-PITCHED"
+                    name="technology"
+                    type="radio"
+                    value="PITCHED"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-PITCHED"
+                  >
+                    <div
+                      aria-disabled="false"
+                      class="MuiButtonBase-root text"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                      />
+                      addProject.dialog.form.values.technology.PITCHED
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.PITCHED
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton"
+                >
+                  <input
+                    class="input"
+                    id="radio-technology-FLAT"
+                    name="technology"
+                    type="radio"
+                    value="FLAT"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-FLAT"
+                  >
+                    <div
+                      aria-disabled="false"
+                      class="MuiButtonBase-root text"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                        viewBox="0 7 48 48"
+                      />
+                      addProject.dialog.form.values.technology.FLAT
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.FLAT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.roofArea
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            min="1"
+            name="roofArea"
+            required=""
+            step="1"
+            type="number"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.roofArea
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.description
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            name="description"
+            rows="6"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.description
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <h6
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+      >
+        addProject.dialog.sections.dates.title
+      </h6>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.startDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="startDate"
+                required=""
+                type="date"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                >
+                  <span>
+                    addProject.dialog.form.fields.startDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.endDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="endDate"
+                required=""
+                type="date"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-75 PrivateNotchedOutline-legendNotched-76"
+                >
+                  <span>
+                    addProject.dialog.form.fields.endDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+      >
+        addProject.dialog.sections.siteAddress.title
+      </h5>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.firstLine
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.firstLine"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.firstLine
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.secondLine
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.secondLine"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.secondLine
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.town
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.town"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.town
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+            >
+              addProject.dialog.form.fields.siteAddress.postcode
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="siteAddress.postcode"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-75"
+                >
+                  <span>
+                    addProject.dialog.form.fields.siteAddress.postcode
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.region
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.region"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.region
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.country
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.country"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-73 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-75"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.country
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="ButtonWrapper"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-77 MuiButton-contained buttonStyles-contained-79 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="submit"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-80"
+          >
+            addProject.dialog.form.actions.submit
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Add/Edit project form Should match snapshot for Project edit 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <form
+        class="Form form Form--rightAlignButton"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <h5
+              class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+            >
+              addProject.dialog.sections.projectDetails.title
+            </h5>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+          >
+            <p
+              class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+            >
+              * 
+              requiredInformation
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.name
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              required=""
+              type="text"
+              value="Project"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              >
+                <span>
+                  addProject.dialog.form.fields.name
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="input"
+        >
+          <h6
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+          >
+            addProject.dialog.form.fields.technology
+          </h6>
+          <div
+            class="RadioGroup input"
+          >
+            <div
+              class="container"
+            >
+              <div
+                class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+              >
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton RadioButton--disabled"
+                  >
+                    <input
+                      class="input"
+                      disabled=""
+                      id="radio-technology-PITCHED"
+                      name="technology"
+                      type="radio"
+                      value="PITCHED"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-PITCHED"
+                    >
+                      <div
+                        aria-disabled="true"
+                        class="MuiButtonBase-root text Mui-disabled"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                        />
+                        addProject.dialog.form.values.technology.PITCHED
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.PITCHED
+                  </div>
+                </div>
+                <div
+                  class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+                >
+                  <div
+                    class="RadioButton RadioButton--disabled"
+                  >
+                    <input
+                      class="input"
+                      disabled=""
+                      id="radio-technology-FLAT"
+                      name="technology"
+                      type="radio"
+                      value="FLAT"
+                    />
+                    <label
+                      class="label"
+                      for="radio-technology-FLAT"
+                    >
+                      <div
+                        aria-disabled="true"
+                        class="MuiButtonBase-root text Mui-disabled"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          class="technologyIcon"
+                          viewBox="0 7 48 48"
+                        />
+                        addProject.dialog.form.values.technology.FLAT
+                      </div>
+                    </label>
+                  </div>
+                  <div
+                    class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                  >
+                    addProject.dialog.form.hints.technology.FLAT
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.roofArea
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              min="1"
+              name="roofArea"
+              required=""
+              step="1"
+              type="number"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.roofArea
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.description
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+          >
+            <textarea
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+              name="description"
+              rows="6"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.description
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.sections.dates.title
+        </h6>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.startDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="startDate"
+                  required=""
+                  type="date"
+                  value="2021-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.startDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.endDate
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="endDate"
+                  required=""
+                  type="date"
+                  value="2022-12-12"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.endDate
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h5
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+        >
+          addProject.dialog.sections.siteAddress.title
+        </h5>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.firstLine
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.firstLine"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.firstLine
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.secondLine
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.secondLine"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.secondLine
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.town
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.town"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.town
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+          >
+            <div
+              class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+            >
+              <label
+                class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                data-shrink="true"
+              >
+                addProject.dialog.form.fields.siteAddress.postcode
+                <span
+                  aria-hidden="true"
+                  class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+                >
+                   
+                  *
+                </span>
+              </label>
+              <div
+                class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiOutlinedInput-input"
+                  name="siteAddress.postcode"
+                  required=""
+                  type="text"
+                  value="12345"
+                />
+                <fieldset
+                  aria-hidden="true"
+                  class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+                >
+                  <legend
+                    class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                  >
+                    <span>
+                      addProject.dialog.form.fields.siteAddress.postcode
+                       *
+                    </span>
+                  </legend>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+            data-shrink="false"
+          >
+            addProject.dialog.form.fields.siteAddress.region
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.region"
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.region
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+        >
+          <label
+            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+            data-shrink="true"
+          >
+            addProject.dialog.form.fields.siteAddress.country
+            <span
+              aria-hidden="true"
+              class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+            >
+               
+              *
+            </span>
+          </label>
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="siteAddress.country"
+              required=""
+              type="text"
+              value="UK"
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+            >
+              <legend
+                class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+              >
+                <span>
+                  addProject.dialog.form.fields.siteAddress.country
+                   *
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="ButtonWrapper"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+            disabled=""
+            tabindex="-1"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-8"
+            >
+              addProject.dialog.form.actions.submit
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="Form form Form--rightAlignButton"
+    >
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <h5
+            class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+          >
+            addProject.dialog.sections.projectDetails.title
+          </h5>
+        </div>
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
+        >
+          <p
+            class="MuiTypography-root requiredInformation Typography MuiTypography-body1"
+          >
+            * 
+            requiredInformation
+          </p>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.name
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="name"
+            required=""
+            type="text"
+            value="Project"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+            >
+              <span>
+                addProject.dialog.form.fields.name
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="input"
+      >
+        <h6
+          class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+        >
+          addProject.dialog.form.fields.technology
+        </h6>
+        <div
+          class="RadioGroup input"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="MuiGrid-root technologyGrid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton RadioButton--disabled"
+                >
+                  <input
+                    class="input"
+                    disabled=""
+                    id="radio-technology-PITCHED"
+                    name="technology"
+                    type="radio"
+                    value="PITCHED"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-PITCHED"
+                  >
+                    <div
+                      aria-disabled="true"
+                      class="MuiButtonBase-root text Mui-disabled"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                      />
+                      addProject.dialog.form.values.technology.PITCHED
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.PITCHED
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-md-6"
+              >
+                <div
+                  class="RadioButton RadioButton--disabled"
+                >
+                  <input
+                    class="input"
+                    disabled=""
+                    id="radio-technology-FLAT"
+                    name="technology"
+                    type="radio"
+                    value="FLAT"
+                  />
+                  <label
+                    class="label"
+                    for="radio-technology-FLAT"
+                  >
+                    <div
+                      aria-disabled="true"
+                      class="MuiButtonBase-root text Mui-disabled"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        class="technologyIcon"
+                        viewBox="0 7 48 48"
+                      />
+                      addProject.dialog.form.values.technology.FLAT
+                    </div>
+                  </label>
+                </div>
+                <div
+                  class="MuiTypography-root technologyCaption Typography MuiTypography-caption"
+                >
+                  addProject.dialog.form.hints.technology.FLAT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.roofArea
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            min="1"
+            name="roofArea"
+            required=""
+            step="1"
+            type="number"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.roofArea
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.description
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            name="description"
+            rows="6"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.description
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <h6
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h6"
+      >
+        addProject.dialog.sections.dates.title
+      </h6>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-sm-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.startDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="startDate"
+                required=""
+                type="date"
+                value="2021-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                >
+                  <span>
+                    addProject.dialog.form.fields.startDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.endDate
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="endDate"
+                required=""
+                type="date"
+                value="2022-12-12"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                >
+                  <span>
+                    addProject.dialog.form.fields.endDate
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5
+        class="MuiTypography-root sectionTitle Typography MuiTypography-h5"
+      >
+        addProject.dialog.sections.siteAddress.title
+      </h5>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.firstLine
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.firstLine"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.firstLine
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.secondLine
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.secondLine"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.secondLine
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.town
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.town"
+            required=""
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.town
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-6"
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+              data-shrink="true"
+            >
+              addProject.dialog.form.fields.siteAddress.postcode
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                name="siteAddress.postcode"
+                required=""
+                type="text"
+                value="12345"
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+                >
+                  <span>
+                    addProject.dialog.form.fields.siteAddress.postcode
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+        >
+          addProject.dialog.form.fields.siteAddress.region
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.region"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.region
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+          data-shrink="true"
+        >
+          addProject.dialog.form.fields.siteAddress.country
+          <span
+            aria-hidden="true"
+            class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            name="siteAddress.country"
+            required=""
+            type="text"
+            value="UK"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-3 PrivateNotchedOutline-legendNotched-4"
+            >
+              <span>
+                addProject.dialog.form.fields.siteAddress.country
+                 *
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="ButtonWrapper"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="submit"
+        >
+          <span
+            class="MuiButton-label buttonStyles-label-8"
+          >
+            addProject.dialog.form.actions.submit
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

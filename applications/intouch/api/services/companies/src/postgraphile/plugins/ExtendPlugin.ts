@@ -8,7 +8,9 @@ import {
 import {
   invite,
   completeInvitation,
-  resetPasswordImportedUsers
+  resetPasswordImportedUsers,
+  deleteInvitedUser,
+  validateSignupUser
 } from "../../services/account";
 import { importAccountsCompaniesFromCVS } from "../../services/importer";
 import { publish, TOPICS } from "../../services/events";
@@ -178,6 +180,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             resolveInfo,
             auth0
           );
+        },
+        validateSignupUser: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return validateSignupUser(_query, args, context, resolveInfo, auth0);
+        },
+        deleteInvitedUser: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return deleteInvitedUser(_query, args, context, resolveInfo, auth0);
         },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);

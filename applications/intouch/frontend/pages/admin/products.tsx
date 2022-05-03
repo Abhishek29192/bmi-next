@@ -18,18 +18,24 @@ import {
 type ProductsAndSystemsPageProps = GlobalPageProps & {
   ssrProducts: ProductsAndSystemsQuery["products"];
   ssrSystems: ProductsAndSystemsQuery["systems"];
+  ssrMembers: ProductsAndSystemsQuery["systemMembers"];
   globalPageData: any;
 };
 
 const ProductsAndSystems = ({
   ssrProducts,
   ssrSystems,
+  ssrMembers,
   globalPageData
 }: ProductsAndSystemsPageProps) => {
   const { t } = useTranslation();
   return (
     <Layout pageData={globalPageData} title={t("Product Import")}>
-      <ProductImport products={ssrProducts} systems={ssrSystems} />
+      <ProductImport
+        products={ssrProducts}
+        systems={ssrSystems}
+        members={ssrMembers}
+      />
     </Layout>
   );
 };
@@ -70,7 +76,8 @@ export const getServerSideProps = withPage(
         ...translations,
         account,
         ssrProducts: data.products,
-        ssrSystems: data.systems
+        ssrSystems: data.systems,
+        ssrMembers: data.systemMembers
       }
     };
   }
@@ -103,6 +110,15 @@ export const GetProductsAndSystems = gql`
         technology
         description
         maximumValidityYears
+      }
+    }
+    systemMembers(orderBy: ID_ASC, condition: { marketId: $marketId }) {
+      nodes {
+        systemBmiRef
+        productByProductBmiRef {
+          id
+          name
+        }
       }
     }
   }

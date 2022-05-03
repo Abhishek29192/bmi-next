@@ -156,6 +156,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -2785,7 +2786,30 @@ exports[`Simple page renders correctly when no feature media 1`] = `
             </h2>
             <div
               class="MasonryGrid"
-            />
+            >
+              <div
+                class="column"
+                style="width: 100%;"
+              >
+                <div
+                  class="ExpandableLinksTextCards"
+                >
+                  <h3
+                    class="MuiTypography-root title Typography MuiTypography-h5"
+                  >
+                    Link column title
+                  </h3>
+                  <nav>
+                    <div
+                      class="shown-links-container"
+                    />
+                    <div
+                      class="hidden-links-container"
+                    />
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3603,6 +3627,7 @@ exports[`Simple page renders correctly with full data 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -6277,6 +6302,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           >
                             <a
                               class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--black MuiTypography-colorPrimary"
+                              data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Hurtignavigering - ContentfulCardCollectionSectionTitle\\",\\"action\\":\\"#contentfulcardcollectionsectiontitle\\"}"
                               href="#contentfulcardcollectionsectiontitle"
                             >
                               <span>
@@ -6428,7 +6454,30 @@ exports[`Simple page renders correctly with full data 1`] = `
             </h2>
             <div
               class="MasonryGrid"
-            />
+            >
+              <div
+                class="column"
+                style="width: 100%;"
+              >
+                <div
+                  class="ExpandableLinksTextCards"
+                >
+                  <h3
+                    class="MuiTypography-root title Typography MuiTypography-h5"
+                  >
+                    Link column title
+                  </h3>
+                  <nav>
+                    <div
+                      class="shown-links-container"
+                    />
+                    <div
+                      class="hidden-links-container"
+                    />
+                  </nav>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

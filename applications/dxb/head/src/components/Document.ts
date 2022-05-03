@@ -23,6 +23,7 @@ export type Data = {
   // TODO: add validations for this Rich Text field in CMS
   description: RichTextData | null;
   brand: string;
+  noIndex: boolean;
 };
 
 export const query = graphql`
@@ -50,5 +51,6 @@ export const query = graphql`
       raw
     }
     brand
+    noIndex
   }
 `;

@@ -2,7 +2,7 @@ This component consists of a menu and page sections. `TableOfContent.Menu` can b
 
 The titles for those get generated via the `getTitleId` function, made available through context.
 
-Routing is not part of this component. The section title is translated into a hyphenated section ID, which is made available in the function `renderLink` and can be used to create a page jump.
+Routing is not part of this component. The section title is translated into a hyphenated section ID, which is made available in `TableOfContent.Menu` component and can be used to create a page jump.
 
 You can set an `offset: number` for the top spacing needed between the top of the page and the anchor element.
 
@@ -13,9 +13,7 @@ import PostItCard from "../post-it-card";
 import Tabs from "../tabs";
 import AnchorLink from "../anchor-link";
 
-<TableOfContent
-  renderLink={(_sectionId, title) => <AnchorLink>{title}</AnchorLink>}
->
+<TableOfContent>
   <PostItCard>
     <PostItCard.Section>
       <PostItCard.Heading hasUnderline>Tables of Content</PostItCard.Heading>

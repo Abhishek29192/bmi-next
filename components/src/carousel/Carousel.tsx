@@ -40,6 +40,7 @@ type Props = {
   scroll?: "infinite" | "finite";
   hasGutter?: boolean;
   disableAnimateHeight?: boolean;
+  enableAnimateHeightMobile?: boolean;
 } & WithWidth &
   (
     | {
@@ -304,13 +305,13 @@ const Carousel = ({
   scroll = "infinite",
   hasGutter,
   disableAnimateHeight = false,
+  enableAnimateHeightMobile = true,
   ...autoPlayProps
 }: Props) => {
   const [hasUserInteracted, setHasUserInteracted] = useState<boolean>(false);
   const [activePage, setActivePage] = useState<number>(initialPage);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const wrapper = useRef<HTMLDivElement>(null);
   const arrayChildren = React.Children.toArray(children);
   const isArrowCarousel = checkArrowControls(arrayChildren);
@@ -437,12 +438,18 @@ const Carousel = ({
             [styles["Carousel--opacity"]!]: hasOpacityAnimation,
             [styles["Carousel--swipable"]!]:
               !isSwipeDisabled && !isArrowCarousel,
-            [styles["Carousel--with-gutter"]!]: hasGutter
+            [styles["Carousel--with-gutter"]!]: hasGutter,
+            [styles["Carousel--slide-constant-height"]!]:
+              !enableAnimateHeightMobile && isMobile
           })}
           ref={wrapper}
         >
           <CarouselComponent
-            animateHeight={disableAnimateHeight ? false : isMobile}
+            animateHeight={
+              disableAnimateHeight
+                ? false
+                : isMobile && enableAnimateHeightMobile
+            }
             hysteresis={0.25}
             autoplay={Boolean(autoPlayProps.hasAutoPlay) && !hasUserInteracted}
             interval={

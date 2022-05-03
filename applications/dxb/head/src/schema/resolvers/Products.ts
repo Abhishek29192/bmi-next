@@ -118,7 +118,7 @@ export default {
       return source.assets
         .map((asset) => {
           const id = generateIdFromString(source.name + asset.name, true);
-          const { url, fileSize, realFileName, mime } = asset;
+          const { url, fileSize, realFileName, mime, name } = asset;
           const assetType = assetTypes.find(
             (assetType) => assetType.pimCode === asset.assetType
           );
@@ -130,6 +130,7 @@ export default {
           if (isPimLinkDocument(asset)) {
             const fieldData = {
               title: `${source.name} ${assetType.name}`,
+              docName: name,
               url,
               assetType___NODE: assetType.id,
               product___NODE: source.id,
@@ -155,6 +156,7 @@ export default {
 
           const fieldData = {
             title: `${source.name} ${assetType.name}`,
+            docName: name,
             url,
             assetType___NODE: assetType.id,
             fileSize,

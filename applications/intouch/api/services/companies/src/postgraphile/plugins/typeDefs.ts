@@ -304,6 +304,8 @@ export default gql`
     resetPasswordImportedUsers(
       input: resetPasswordImportedUsersInput
     ): resetPasswordImportedUsersResult
+    validateSignupUser(email: String!): Boolean
+    deleteInvitedUser(email: String!): String
     completeInvitation(companyId: Int!): Account
     bulkImport(input: BulkImportInput!): ImportOutput
     importAccountsCompaniesFromCVS(

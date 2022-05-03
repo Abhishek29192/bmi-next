@@ -34,7 +34,7 @@ const ProjectForm = ({
   onSubmit,
   isSubmitting
 }: BuildingOwnerFormProps) => {
-  const { t } = useTranslation("project-page");
+  const { t } = useTranslation(["project-page", "common"]);
 
   const guarantee = findProjectGuarantee(project as DeepPartial<Project>);
 
@@ -54,9 +54,18 @@ const ProjectForm = ({
         {t("buildingOwnerDetails.edit.description")}
       </Typography>
 
-      <Typography variant="h5" className={styles.sectionTitle}>
-        {t("buildingOwnerDetails.edit.sections.contactDetails.title")}
-      </Typography>
+      <Grid container xs={12} spacing={0}>
+        <Grid item xs={12} lg={6}>
+          <Typography variant="h5" className={styles.sectionTitle}>
+            {t("buildingOwnerDetails.edit.sections.contactDetails.title")}
+          </Typography>
+        </Grid>
+        <Grid className={styles.sectionRequiredInformation} item xs={12} lg={6}>
+          <Typography variant="default" className={styles.requiredInformation}>
+            * {t("common:requiredInformation")}
+          </Typography>
+        </Grid>
+      </Grid>
 
       <TextField {...getFieldPropsFn(t, "buildingOwnerCompany")} />
       <TextField {...getFieldPropsFn(t, "buildingOwnerFirstname")} isRequired />

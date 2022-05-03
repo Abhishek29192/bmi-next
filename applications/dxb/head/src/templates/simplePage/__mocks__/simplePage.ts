@@ -69,7 +69,8 @@ export const sections = [
         backgroundColor: null
       }
     ],
-    justifyCenter: null
+    justifyCenter: null,
+    displaySingleRow: null
   }
 ];
 export const featuredMedia: ImageWithThumbnail = {
@@ -125,9 +126,16 @@ export const exploreBarData = {
 };
 
 export const linkColumnsData = {
-  __typename: "ContentfulLinkColumnsSection",
+  __typename: "ContentfulLink",
   title: "linkColumnsTitle",
-  columns: []
+  columns: [
+    {
+      __typename: "ContentfulNavigation",
+      label: "Link column title",
+      link: null,
+      links: [{ type: "Heading", value: "Link column value" }]
+    }
+  ]
 };
 
 export const cta = {

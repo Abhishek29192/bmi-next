@@ -9,7 +9,7 @@ afterEach(jest.clearAllMocks);
 
 describe("createCompanyDetails", () => {
   const getMicroCopyMock = jest.fn().mockImplementation((copy: string) => copy);
-  it("should return details array for sectionType = ROOFER_TYPE", () => {
+  it("should return correct array of details for sectionType = ROOFER_TYPE", () => {
     const service = createService({
       serviceTypes: [
         { __typename: "ContentfulServiceType", name: "Pitched Roof" }
@@ -27,7 +27,11 @@ describe("createCompanyDetails", () => {
     const typeObject = details.find(
       (item) => item.label === "findARoofer.roofTypeLabel"
     );
+    const directions = details.find(
+      (item) => item.label === "findARoofer.getDirectionsLabel"
+    );
     expect(typeObject.label).toBeTruthy();
+    expect(directions).toBeUndefined();
   });
   it("should return details array for sectionType = BRANCH_TYPE", () => {
     const service = createService();
@@ -41,6 +45,10 @@ describe("createCompanyDetails", () => {
       "googleURLLatLng"
     );
     const faxObject = details.find((item) => item.label === "global.fax");
+    const directions = details.find(
+      (item) => item.label === "findARoofer.getDirectionsLabel"
+    );
+    expect(directions).toBeTruthy();
     expect(faxObject.label).toBeTruthy();
   });
   it("should return details array for sectionType = MERCHANT_TYPE", () => {
@@ -58,8 +66,12 @@ describe("createCompanyDetails", () => {
     const typeObject = details.find(
       (item) => item.label === "findARoofer.roofTypeLabel"
     );
+    const directions = details.find(
+      (item) => item.label === "findARoofer.getDirectionsLabel"
+    );
     expect(faxObject).toBeFalsy();
     expect(typeObject).toBeFalsy();
+    expect(directions).toBeTruthy();
   });
   it("should return empty details array for sectionType = undefined", () => {
     const service = createService();

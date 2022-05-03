@@ -76,10 +76,13 @@ const getUploads = (project: GetProjectQuery["project"]) => {
   const { evidenceItems } = project;
   const uploads = new Map<string, EvidenceCollection>();
 
-  //Default custom guarantee types
+  const currentGuarantee = findProjectGuarantee(
+    project as DeepPartial<Project>
+  );
+
+  // Default custom guarantee types
   const evidenceCategories =
-    findProjectGuarantee(project as DeepPartial<Project>)?.guaranteeType
-      ?.evidenceCategoriesCollection?.items || [];
+    currentGuarantee?.guaranteeType?.evidenceCategoriesCollection?.items || [];
   for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
     uploads.set(evidenceCategory.name, {
       evidences: [],
@@ -158,6 +161,9 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
   });
   const [selectedEvidenceCollection, setSelectedEvidenceCollection] =
     useState<EvidenceCollection>();
+  const [defaultRequirementCategory, setDefaultRequirementCategory] = useState<
+    CustomEvidenceCategoryKey | "MISCELLANEOUS"
+  >("MISCELLANEOUS");
 
   const [addEvidences, { loading: loadingAdd }] = useAddEvidencesMutation({
     refetchQueries: [
@@ -220,12 +226,31 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       }
     });
   };
-  const requiredHandler = (evidenceCollection: EvidenceCollection) => {
+  const requiredHandler = (evidenceCollection: EvidenceCollection, key) => {
     setSelectedEvidenceCollection(evidenceCollection);
     setRequirementOpen(true);
+
+    const mappedCategory = getMappedEvidenceCategory(
+      currentGuarantee,
+      customEvidenceAvailable,
+      key
+    );
+    setDefaultRequirementCategory(mappedCategory.referenceCode);
   };
 
   const uploads = getUploads(project);
+
+  const getMappedEvidenceCategory = (
+    currentGuarantee,
+    customEvidenceAvailable,
+    key
+  ) => {
+    if (customEvidenceAvailable) {
+      return currentGuarantee.guaranteeType?.evidenceCategoriesCollection?.items.find(
+        (o) => o.name === key
+      );
+    }
+  };
 
   const handleCarouselToggle = useCallback(
     (evidenceId: number) => {
@@ -245,6 +270,11 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       activeItem: null
     });
   }, [setModalInfo]);
+
+  const uploadButtonClickHandler = () => {
+    setRequirementOpen(false);
+    setEvidenceDialogOpen(true);
+  };
 
   useEffect(() => {
     if (uploads) {
@@ -300,7 +330,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                         {values?.minumumUploads > 0 && (
                           <AnchorLink
                             onClick={() => {
-                              requiredHandler(values);
+                              requiredHandler(values, key);
                             }}
                           >
                             {t("upload_tab.requirementModal.title")}
@@ -381,6 +411,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                   ?.items || []
               : null
           }
+          defaultEvidenceCategory={defaultRequirementCategory}
           onCloseClick={() => setEvidenceDialogOpen(false)}
           onConfirmClick={evidenceDialogConfirmHandler}
           loading={loadingAdd}
@@ -389,6 +420,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
           isOpen={isRequirementOpen}
           description={selectedEvidenceCollection?.description}
           onCloseClick={() => setRequirementOpen(false)}
+          onUploadButtonClick={uploadButtonClickHandler}
         />
       </div>
     </>

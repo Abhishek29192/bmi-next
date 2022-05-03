@@ -57,10 +57,13 @@ exports[`OverviewCard component removes clickable class when the area is none 1`
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -108,10 +111,13 @@ exports[`OverviewCard component renders as a flat card 1`] = `
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -170,10 +176,13 @@ exports[`OverviewCard component renders correctly 1`] = `
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -226,10 +235,13 @@ exports[`OverviewCard component renders correctly if clickableArea === body 1`] 
       tabindex="0"
       type="button"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -282,10 +294,13 @@ exports[`OverviewCard component renders correctly if hasChildrenWithoutMargin  =
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -339,10 +354,13 @@ exports[`OverviewCard component renders correctly if imageSize === contain 1`] =
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -395,10 +413,13 @@ exports[`OverviewCard component renders correctly if moreOptionsAvailable === tr
     <div
       class="body"
     >
-      <svg
+      <div
         class="brand-logo brand-logo--negative"
-        preserveAspectRatio="xMinYMin"
-      />
+      >
+        <svg
+          preserveAspectRatio="xMinYMin"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >
@@ -543,11 +564,14 @@ exports[`OverviewCard component renders with a string brandImageSource prop 1`] 
     <div
       class="body"
     >
-      <img
-        alt=""
+      <div
         class="brand-logo"
-        src="image/source.jpg"
-      />
+      >
+        <img
+          alt=""
+          src="image/source.jpg"
+        />
+      </div>
       <h4
         class="MuiTypography-root title Typography MuiTypography-h4"
       >

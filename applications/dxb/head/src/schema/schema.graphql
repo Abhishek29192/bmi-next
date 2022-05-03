@@ -534,6 +534,9 @@ type ContentfulCardCollectionSection implements Node {
   "The section should be centered."
   justifyCenter: Boolean
 
+  "Single Row Display option for the cards."
+  displaySingleRow: Boolean
+
   "The order in which the cards should be sorted."
   sortOrder: String
 }
@@ -589,6 +592,9 @@ type ContentfulFormSection implements Node {
 
   "HubSpot form ID"
   hubSpotFormGuid: String
+
+  "Email subject format"
+  emailSubjectFormat: String
 }
 
 """
@@ -1292,6 +1298,9 @@ type ContentfulDocument implements Node {
 
   "The main image document."
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 """
@@ -1302,6 +1311,9 @@ type PIMDocument implements Node {
 
   "The title for this document."
   title: String
+
+  "The name for this document."
+  docName: String
 
   "The URL for this document."
   url: String
@@ -1335,6 +1347,9 @@ type PIMLinkDocument implements Node {
 
   "The title for this document."
   title: String
+
+  "The name for this document."
+  docName: String
 
   "The URL for this document."
   url: String
@@ -1752,6 +1767,9 @@ type ContentfulSeoContent implements Node {
 
   "Meta description tag."
   metaDescription: String
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 type VideoRatio {

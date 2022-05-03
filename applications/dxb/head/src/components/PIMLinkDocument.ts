@@ -32,6 +32,7 @@ export const query = graphql`
     }
     isLinkDocument
     url
+    docName
     assetType {
       ...AssetTypeFragment
     }

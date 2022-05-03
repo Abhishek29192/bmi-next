@@ -55,7 +55,7 @@ const getExstingServiceTypes = async (environment) => {
   const allServiceTypeEntries = await environment.getEntries({
     content_type: SERVICE_TYPE_CONTENT_TYPE_ID
   });
-  if (allServiceTypeEntries && allServiceTypeEntries.total > 0) {
+  if (allServiceTypeEntries.total > 0) {
     // Populate the dictionary from values found from contentful
     return allServiceTypeEntries.items.reduce(
       (allEntries, serviceTypeEntry) => {
@@ -84,11 +84,6 @@ const uploadLines = async (lines, environment) => {
   };
   for (const [index, dataLine] of lines) {
     const lineNumber = index + 1;
-    if (!dataLine.trim()) {
-      console.log(`Skipping empty line: ${lineNumber}`);
-      continue;
-    }
-
     const record = dataLine
       .trim()
       .split(SEPARATOR)
@@ -138,62 +133,70 @@ const uploadLines = async (lines, environment) => {
       }
     }
 
-    const sourceMerchantTypes = record["merchantType"].split(",");
+    const sourceMerchantTypes = record["merchantType"].trim().split(",");
     const linkedMerchantTypObj = [];
 
-    sourceMerchantTypes.forEach(async (marchantType) => {
-      // splitted text starts with a ' ' space character!!
-      const currentMerchantType = marchantType.trim();
+    await Promise.all(
+      sourceMerchantTypes.map(async (marchantType) => {
+        // splitted text starts with a ' ' space character!!
+        const currentMerchantType = (marchantType || "").trim();
+        if (currentMerchantType.length > 0) {
+          //check if serviceTypeDictionary has the entry for merchant type to link id from contentful
+          const serviceTypeLinkId =
+            serviceTypeOwnKeyValueMap[currentMerchantType];
+          let serviceTypeEntryId = serviceTypeLinkId;
+          if (!serviceTypeLinkId) {
+            try {
+              //get Service type link record id of this merchant
+              const serviceTypeEntry = await environment.createEntry(
+                SERVICE_TYPE_CONTENT_TYPE_ID,
+                {
+                  fields: {
+                    name: { [LOCALE]: currentMerchantType }
+                  }
+                }
+              );
+              await serviceTypeEntry.publish();
 
-      //check if serviceTypeDictionary has the entry for merchant type to link id from contentful
-      const serviceTypeLinkId = serviceTypeOwnKeyValueMap[currentMerchantType];
-      let serviceTypeEntryId = serviceTypeLinkId;
-      if (!serviceTypeLinkId) {
-        try {
-          //get Service type link record id of this merchant
-          const serviceTypeEntry = await environment.createEntry(
-            SERVICE_TYPE_CONTENT_TYPE_ID,
-            {
-              fields: {
-                name: { [LOCALE]: currentMerchantType }
+              serviceTypeEntryId = serviceTypeEntry.sys.id;
+
+              serviceTypeOwnKeyValueMap[currentMerchantType] =
+                serviceTypeEntryId;
+
+              linkedMerchantTypObj.push({
+                sys: {
+                  type: "Link",
+                  linkType: "Entry",
+                  id: serviceTypeEntryId
+                }
+              });
+              const serviceTypeCreatedMsg = `Created and Published new Service Type - '${currentMerchantType}' with id '${serviceTypeOwnKeyValueMap[currentMerchantType]}'`;
+
+              console.log(serviceTypeCreatedMsg);
+              writeLine(successLoggerStream, serviceTypeCreatedMsg);
+            } catch (error) {
+              const errMsg = `Failed to publish Merchant type : '${marchantType}' :: source line No.: ${lineNumber}`;
+              console.error(errMsg, error);
+
+              writeLine(errorLoggerStream, errMsg);
+              writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
+            }
+          } else {
+            linkedMerchantTypObj.push({
+              sys: {
+                type: "Link",
+                linkType: "Entry",
+                id: serviceTypeEntryId
               }
-            }
-          );
-          await serviceTypeEntry.publish();
-
-          serviceTypeOwnKeyValueMap[currentMerchantType] =
-            serviceTypeEntry.sys.id;
-
-          serviceTypeEntryId = serviceTypeEntry.sys.id;
-
-          linkedMerchantTypObj.push({
-            sys: {
-              type: "Link",
-              linkType: "Entry",
-              id: serviceTypeEntryId
-            }
-          });
-          const serviceTypeCreatedMsg = `Created and Published new Service Type - '${currentMerchantType}' with id '${serviceTypeOwnKeyValueMap[currentMerchantType]}'`;
-
-          console.log(serviceTypeCreatedMsg);
-          writeLine(successLoggerStream, serviceTypeCreatedMsg);
-        } catch (error) {
-          const errMsg = `Failed to publish Merchant type : '${marchantType}' :: source line No.: ${lineNumber}`;
-          console.error(errMsg, error);
-
-          writeLine(errorLoggerStream, errMsg);
-          writeLine(errorLoggerStream, JSON.stringify(error, null, 4));
-        }
-      } else {
-        linkedMerchantTypObj.push({
-          sys: {
-            type: "Link",
-            linkType: "Entry",
-            id: serviceTypeEntryId
+            });
           }
-        });
-      }
-    });
+        } else {
+          const emptyMerchantErrMsg = `EMPTY merchant type found at record '${record["name"]}'. no new merchant type will be created.`;
+          console.error(emptyMerchantErrMsg);
+          writeLine(errorLoggerStream, emptyMerchantErrMsg);
+        }
+      })
+    );
 
     const fields = {
       entryType: "Merchant",
@@ -236,6 +239,7 @@ const uploadLines = async (lines, environment) => {
 
       if (publishResult && publishResult.sys && publishResult.sys.version > 0) {
         const message = `'${record["name"]}' : was created and published with id: ${publishResult.sys.id}`;
+        console.log(message);
         writeLine(successLoggerStream, message);
       }
     } catch (error) {
@@ -257,6 +261,7 @@ const uploadFile = async (file, environment) => {
 
   // eslint-disable-next-line no-unused-vars
   const [emptyLine, headersLine, ...dataLines] = data.split("\n");
+  const nonEmptyDataLines = dataLines.filter((line) => line.trim() !== "");
 
   if (emptyLine.trim() !== "") {
     throw new Error(`First line must be empty to match the template`);
@@ -270,19 +275,17 @@ const uploadFile = async (file, environment) => {
     !headerLineColumns.every((label, index) => label === columns[index].label)
   ) {
     throw new Error(
-      `Second line doesn't match header template` +
-        "\n" +
-        `Expected: ${columnsString}` +
-        "\n" +
+      `Second line doesn't match header template\n` +
+        `Expected: ${columnsString}\n` +
         `Found:    ${headerLineColumns.join(", ")}`
     );
   }
 
   console.log(
-    `Uploading ${dataLines.length} lines to columns: ${columnsString}`
+    `Uploading ${nonEmptyDataLines.length} lines to columns: ${columnsString}`
   );
 
-  await uploadLines(dataLines.entries(), environment);
+  await uploadLines(nonEmptyDataLines.entries(), environment);
 };
 
 const main = async (file) => {
@@ -315,7 +318,7 @@ const main = async (file) => {
   const allLocales = await environment.getLocales();
 
   // .env locale can be different from the environment's locale
-  // we can get envornment's locale and update variable..we do not need environment variable
+  // we can get environment's locale and update variable..we do not need environment variable
   // but keeping it for fallback purpose!
   if (allLocales && allLocales.total > 0) {
     const environmentLocale = allLocales.items[0].code;
@@ -329,10 +332,8 @@ const main = async (file) => {
   serviceTypeOwnKeyValueMap = await getExstingServiceTypes(environment);
 
   console.log(
-    `Uploadng to ${CONTENT_TYPE_ID}, using:` +
-      "\n" +
-      `SPACE: ${process.env.SPACE_ID}` +
-      "\n" +
+    `Uploadng to ${CONTENT_TYPE_ID}, using:\n` +
+      `SPACE: ${process.env.SPACE_ID}\n` +
       `ENVIRONMENT: ${process.env.CONTENTFUL_ENVIRONMENT}`
   );
 

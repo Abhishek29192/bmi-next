@@ -9,7 +9,15 @@ import Account, {
   queryAccountByEmail,
   mutationCompleteInvitation,
   userByEmailDocument,
-  mutationCreateDoceboUser
+  mutationCreateDoceboUser,
+  isSuperAdmin,
+  isSuperOrMarketAdmin,
+  findAccountCompany,
+  findAccountCompanyFromAccountQuery,
+  hasProjects,
+  mutationDoceboCreateSSOUrl,
+  queryInvitation,
+  mutationUpdateAccount
 } from "../";
 
 jest.mock("../../utils/account", () => ({
@@ -75,7 +83,6 @@ describe("Account", () => {
       }
     });
   });
-
   it("should get the user", async () => {
     mockQuery.mockImplementationOnce(() =>
       Promise.resolve({
@@ -98,7 +105,24 @@ describe("Account", () => {
       }
     });
   });
-
+  it("should get the user with missing id", async () => {
+    mockQuery.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    await accountSrv.getAccount({
+      user: {
+        email: "emamil@email.com"
+      }
+    });
+    expect(mockQuery).toHaveBeenCalledWith({
+      query: queryAccountByEmail,
+      variables: {
+        email: "emamil@email.com"
+      }
+    });
+  });
   it("should complete the invitation", async () => {
     mockMutate.mockImplementationOnce(() =>
       Promise.resolve({
@@ -121,7 +145,6 @@ describe("Account", () => {
       }
     });
   });
-
   it("should not create the docebo account if already exists", async () => {
     mockQuery.mockImplementationOnce(() =>
       Promise.resolve({
@@ -152,7 +175,6 @@ describe("Account", () => {
     });
     expect(mockMutate).toHaveBeenCalledTimes(0);
   });
-
   it("should create the docebo account if the intouch account exists but no docebo account are linked to it", async () => {
     mockQuery.mockImplementationOnce(() =>
       Promise.resolve({
@@ -212,7 +234,247 @@ describe("Account", () => {
       }
     });
   });
-
+  it("getAccount exception", async () => {
+    const error = { errorMessage: "error" };
+    mockQuery.mockRejectedValueOnce(error);
+    try {
+      await accountSrv.getAccount({
+        user: {
+          email: "emamil@email.com"
+        }
+      });
+    } catch (error) {
+      expect(error.errorMessage).toEqual("error");
+    }
+  });
+  it("createAccount exception", async () => {
+    const error = { errorMessage: "error" };
+    mockQuery.mockRejectedValueOnce(error);
+    try {
+      await accountSrv.createAccount({
+        user: {
+          email: "emamil@email.com"
+        }
+      });
+    } catch (error) {
+      expect(error.message).toBeDefined();
+    }
+  });
+  it("completeAccountInvitation exception", async () => {
+    const error = { errorMessage: "error" };
+    mockMutate.mockRejectedValueOnce(error);
+    try {
+      await accountSrv.completeAccountInvitation({
+        query: {
+          company_id: "1"
+        }
+      });
+    } catch (error) {
+      expect(error.errorMessage).toEqual("error");
+    }
+  });
+  it("createDoceboUser exception", async () => {
+    const error = { errorMessage: "error" };
+    mockQuery.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    mockMutate.mockRejectedValueOnce(error);
+    try {
+      await accountSrv.createDoceboUser({
+        firstName: "Name",
+        lastName: "Name",
+        role: "MARKET_ADMIN",
+        email: "email@email.com",
+        market: {
+          doceboCompanyAdminBranchId: 1,
+          doceboInstallersBranchId: 2
+        }
+      });
+    } catch (error) {
+      expect(error.errorMessage).toEqual("error");
+    }
+  });
+  it("createDoceboUser exception 2", async () => {
+    mockQuery.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    mockMutate.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    try {
+      await accountSrv.createDoceboUser({
+        firstName: "Name",
+        lastName: "Name",
+        role: "COMPANY_ADMIN",
+        email: "email@email.com",
+        market: {
+          doceboCompanyAdminBranchId: 1,
+          doceboInstallersBranchId: 2,
+          language: "EN"
+        }
+      });
+    } catch (error) {
+      expect(error.errorMessage).toEqual("error");
+    }
+  });
+  it("createDoceboUser missing Mutate user_id", async () => {
+    mockQuery.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {}
+      })
+    );
+    mockMutate.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: {
+          createDoceboUser: {}
+        }
+      })
+    );
+    try {
+      await accountSrv.createDoceboUser({
+        firstName: "Name",
+        lastName: "Name",
+        role: "COMPANY_ADMIN",
+        email: "email@email.com",
+        market: {
+          doceboCompanyAdminBranchId: 1,
+          doceboInstallersBranchId: 2,
+          language: "EN"
+        }
+      });
+    } catch (error) {
+      expect(error.errorMessage).toEqual("error");
+    }
+  });
+  describe("Docebo SSO", () => {
+    const data = {
+      data: {
+        accountByEmail: {
+          id: 1,
+          market: {
+            domain: "no"
+          }
+        }
+      }
+    };
+    it("should generate Docebo SSO url based on path query path", async () => {
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            accountByEmail: {
+              id: 1,
+              market: {}
+            }
+          }
+        })
+      );
+      mockMutate.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            createAccount: {
+              account: {
+                id: 1
+              }
+            }
+          }
+        })
+      );
+      await accountSrv.createDoceboSSOUrl(
+        {
+          query: {
+            path: "/learn/mycourses"
+          }
+        },
+        {
+          user: {
+            email: "emamil@email.com",
+            marketCode: "en"
+          }
+        }
+      );
+      expect(mockMutate).toBeCalledTimes(1);
+    });
+    it("should generate Docebo SSO url", async () => {
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            accountByEmail: {
+              id: 1
+            }
+          }
+        })
+      );
+      mockMutate.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            createAccount: {
+              account: {
+                id: 1
+              }
+            }
+          }
+        })
+      );
+      await accountSrv.createDoceboSSOUrl(
+        {
+          query: {}
+        },
+        {
+          user: {
+            email: "emamil@email.com",
+            marketCode: "en"
+          }
+        }
+      );
+      expect(mockMutate).toBeCalledTimes(1);
+    });
+    it("check if data from Docebo is available", async () => {
+      mockQuery.mockImplementationOnce(() => Promise.resolve(data));
+      mockMutate.mockImplementationOnce(() => Promise.resolve({}));
+      await accountSrv.createDoceboSSOUrl(
+        { query: {} },
+        {
+          user: {
+            email: "emamil@email.com",
+            marketCode: "en"
+          }
+        }
+      );
+      expect(mockMutate).toHaveBeenCalledWith({
+        mutation: mutationDoceboCreateSSOUrl,
+        variables: {
+          username: "emamil@email.com",
+          path: "/no/learn/mycourses"
+        }
+      });
+    });
+    it("createDoceboSSOUrl exception", async () => {
+      mockQuery.mockImplementationOnce(() => Promise.resolve(data));
+      const error = { errorMessage: "error" };
+      mockMutate.mockRejectedValueOnce(error);
+      try {
+        await accountSrv.createDoceboSSOUrl(
+          {
+            query: {}
+          },
+          {
+            user: {
+              email: "emamil@email.com",
+              marketCode: "en"
+            }
+          }
+        );
+      } catch (error) {
+        expect(error.errorMessage).toEqual("error");
+      }
+    });
+  });
   describe("findAccountTier", () => {
     it("should default to T1 for users without a company", () => {
       expect(
@@ -253,5 +515,179 @@ describe("Account", () => {
     });
 
     // TODO: test case for company.status = DEACTIVATED?
+  });
+  describe("isSuperAdmin", () => {
+    it("should return true if account has SUPER_ADMIN role", () => {
+      expect(
+        isSuperAdmin(
+          generateAccount({
+            role: ROLES.SUPER_ADMIN
+          })
+        )
+      ).toEqual(true);
+    });
+    it("should return false if account is missing", () => {
+      expect(isSuperAdmin(undefined)).toEqual(false);
+    });
+  });
+  describe("isSuperOrMarketAdmin", () => {
+    it("should return true if account has SUPER_ADMIN or MARKET_ADMIN role", () => {
+      expect(
+        isSuperOrMarketAdmin(
+          generateAccount({
+            role: ROLES.SUPER_ADMIN
+          })
+        )
+      ).toEqual(true);
+    });
+    it("should return false if account is missing", () => {
+      expect(isSuperOrMarketAdmin(undefined)).toEqual(false);
+    });
+  });
+  describe("findAccountCompany", () => {
+    it("should return undefined if account is missing", () => {
+      expect(findAccountCompany(undefined)).toEqual(undefined);
+    });
+  });
+  describe("findAccountCompanyFromAccountQuery", () => {
+    it("should return company if account data is OK", () => {
+      const account = generateAccount({
+        hasCompany: true
+      });
+      expect(findAccountCompanyFromAccountQuery(account)).toMatchObject({
+        id: 1,
+        name: "Integrated Solutions Inc",
+        status: "ACTIVE",
+        tier: "T2"
+      });
+    });
+    it("should return undefined if account is missing", () => {
+      expect(findAccountCompanyFromAccountQuery(undefined)).toEqual(undefined);
+    });
+  });
+  describe("hasProjects", () => {
+    it("should return true if account data has projects", () => {
+      expect(
+        hasProjects(
+          generateAccount({
+            projectsCount: 1
+          })
+        )
+      ).toEqual(true);
+    });
+    it("should return undefined if account is missing or has no projects", () => {
+      expect(hasProjects(undefined)).toEqual(false);
+    });
+  });
+  describe("getInvitation", () => {
+    it("should get invitation", async () => {
+      mockQuery.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            invitations: {
+              nodes: [{}]
+            }
+          }
+        })
+      );
+      await accountSrv.getInvitation({
+        user: {
+          email: "emamil@email.com"
+        }
+      });
+
+      expect(mockQuery).toHaveBeenCalledWith({
+        query: queryInvitation,
+        variables: {
+          invitee: "emamil@email.com"
+        }
+      });
+    });
+    it("should get invitation without data", async () => {
+      mockQuery.mockImplementationOnce(() => Promise.resolve({}));
+      await accountSrv.getInvitation({
+        user: {
+          email: "emamil@email.com"
+        }
+      });
+
+      expect(mockQuery).toHaveBeenCalledWith({
+        query: queryInvitation,
+        variables: {
+          invitee: "emamil@email.com"
+        }
+      });
+    });
+    it("getInvitation exception", async () => {
+      const error = { errorMessage: "error" };
+      mockQuery.mockRejectedValueOnce(error);
+      try {
+        await accountSrv.getInvitation({
+          user: {
+            email: "emamil@email.com"
+          }
+        });
+      } catch (error) {
+        expect(error.errorMessage).toEqual("error");
+      }
+    });
+  });
+  describe("updateAccount", () => {
+    const patch = {
+      user: {
+        email: "emamil@email.com"
+      }
+    };
+    it("should get invitation", async () => {
+      mockMutate.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            updateAccount: {
+              account: {
+                id: 1
+              }
+            }
+          }
+        })
+      );
+      await accountSrv.updateAccount(1, patch);
+      expect(mockMutate).toHaveBeenCalledWith({
+        mutation: mutationUpdateAccount,
+        variables: {
+          input: {
+            id: 1,
+            patch
+          }
+        }
+      });
+    });
+    it("should get invitation without data", async () => {
+      mockMutate.mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            updateAccount: {}
+          }
+        })
+      );
+      await accountSrv.updateAccount(1, patch);
+      expect(mockMutate).toHaveBeenCalledTimes(1);
+    });
+    it("updateAccount exception", async () => {
+      const error = { errorMessage: "error" };
+      mockMutate.mockRejectedValueOnce(error);
+      try {
+        await accountSrv.updateAccount({
+          mutation: mutationUpdateAccount,
+          variables: {
+            input: {
+              id: 1,
+              patch
+            }
+          }
+        });
+      } catch (error) {
+        expect(error.errorMessage).toEqual("error");
+      }
+    });
   });
 });

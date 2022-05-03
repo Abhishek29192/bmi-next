@@ -47,5 +47,9 @@
   "systemToUpdate": "These systems will be updated",
   "technology": "Technology",
   "unpublished": "Unpublished",
-  "updatedAt": "Updated at"
+  "updatedAt": "Updated at",
+  "productData": {
+    "uuid": "Product ID",
+    "name": "Product Name"
+  }
 }

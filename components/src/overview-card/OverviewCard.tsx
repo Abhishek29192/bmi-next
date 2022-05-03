@@ -5,6 +5,7 @@ import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
 import { withClickable } from "../clickable/Clickable";
 import Media, { AcceptedNode } from "../media/Media";
 import Typography from "../typography/Typography";
+import { transformHyphens } from "../utils/commonUtils";
 import styles from "./OverviewCard.module.scss";
 
 export type Props = Omit<ButtonBaseProps, "action"> & {
@@ -38,11 +39,19 @@ const BrandLogo = ({
   });
 
   if (typeof brandImageSource === "string") {
-    return <img className={className} src={brandImageSource} alt="" />;
+    return (
+      <div className={className}>
+        <img src={brandImageSource} alt="" />
+      </div>
+    );
   }
 
   const BrandLogo = brandImageSource;
-  return <BrandLogo preserveAspectRatio="xMinYMin" className={className} />;
+  return (
+    <div className={className}>
+      <BrandLogo preserveAspectRatio="xMinYMin" />
+    </div>
+  );
 };
 
 const OverviewCard = ({
@@ -72,7 +81,7 @@ const OverviewCard = ({
     children?: React.ReactNode;
   }) => (
     <Button {...rest} className={className}>
-      {children}
+      {transformHyphens(children)}
     </Button>
   );
 
@@ -111,16 +120,16 @@ const OverviewCard = ({
             !brandImageSource && styles["title--no-brand-logo"]
           )}
         >
-          <Title>{title}</Title>
+          <Title>{transformHyphens(title)}</Title>
         </Typography>
         {!moreOptionsAvailable && subtitle && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
-            {subtitle}
+            {transformHyphens(subtitle)}
           </Typography>
         )}
         {moreOptionsAvailable && (
           <Typography variant={subtitleVariant} className={styles["text"]}>
-            {moreOptionsAvailable}
+            {transformHyphens(moreOptionsAvailable)}
           </Typography>
         )}
         <div
@@ -130,7 +139,7 @@ const OverviewCard = ({
             hasChildrenWithoutMargin && styles["children--without-margin"]
           )}
         >
-          {children}
+          {transformHyphens(children)}
         </div>
         {footer && <div className={styles["footer"]}>{footer}</div>}
       </Body>

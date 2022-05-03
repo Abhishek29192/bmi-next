@@ -1,27 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { useContext } from "react";
-import TableOfContent, { Context } from "../TableOfContent";
-
-const DefaultRenderLinkContextValue = ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
-  const { renderLink } = useContext(Context);
-  return <TableOfContent renderLink={renderLink}>{children}</TableOfContent>;
-};
+import TableOfContent from "../TableOfContent";
 
 describe("TableOfContent component", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <TableOfContent
-        renderLink={(_sectionId, title) => (
-          <span>
-            {title} - {_sectionId}
-          </span>
-        )}
-      >
+      <TableOfContent>
         <TableOfContent.Menu />
         <TableOfContent.Anchor title="div with text">
           <h2>section with text</h2>
@@ -34,22 +18,6 @@ describe("TableOfContent component", () => {
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
         </TableOfContent.Anchor>
       </TableOfContent>
-    );
-    expect(container).toMatchSnapshot();
-  });
-  it("renders correctly with default value of renderLink being undefined", () => {
-    const { container } = render(
-      <DefaultRenderLinkContextValue>
-        <TableOfContent.Menu />
-        <TableOfContent.Anchor title="div with text">
-          <h2>section with text</h2>
-          <p>Lorem ipsum dolor sit amet.</p>
-        </TableOfContent.Anchor>
-        <TableOfContent.Anchor title="div with single paragraph">
-          <h2>section with single paragraph</h2>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </TableOfContent.Anchor>
-      </DefaultRenderLinkContextValue>
     );
     expect(container).toMatchSnapshot();
   });

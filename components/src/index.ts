@@ -253,6 +253,7 @@ import YoutubeVideo, {
   Layout,
   YoutubeVideoProps
 } from "./youtube-video";
+import { transformHyphens } from "./utils/commonUtils";
 
 export type {
   AccordionSummaryProps,
@@ -538,5 +539,6 @@ export {
   VerticalRoller,
   Villain,
   YoutubeVideo,
-  getDefaultPreviewImage
+  getDefaultPreviewImage,
+  transformHyphens
 };

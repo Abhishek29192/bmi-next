@@ -32,7 +32,10 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
   return (
     <Grid container spacing={3}>
       {paginatedDocuments.map(
-        ({ title, description, featuredMedia, asset, brand }, index) => {
+        (
+          { title, description, featuredMedia, asset, brand, noIndex },
+          index
+        ) => {
           return (
             <Grid item key={`${title}-${index}`} xs={12} sm={12} lg={6} xl={4}>
               <GTMOverviewCard
@@ -42,7 +45,8 @@ const DocumentCardsResults = ({ documents, page, documentsPerPage }: Props) => {
                 brandImageSource={iconMap[brand]}
                 action={{
                   model: "download",
-                  href: `https:${asset.file.url}`
+                  href: `https:${asset.file.url}`,
+                  ...(noIndex && { rel: "noindex" })
                 }}
                 gtm={{
                   id: "cta-click1",

@@ -8,3 +8,5 @@ find . -type d -name 'node_modules' -prune -false -o -type f -name 'yarn.lock' |
 git add modules-sha
 # Needed only until we can use upstream fixes or we take this into our own setup properly
 yarn workspace @bmi/gatsby-plugin-sitemap build
+# Needed only until we can use upstream fixes or we take this into our own setup properly
+yarn workspace @bmi/gatsby-plugin-google-tagmanager build

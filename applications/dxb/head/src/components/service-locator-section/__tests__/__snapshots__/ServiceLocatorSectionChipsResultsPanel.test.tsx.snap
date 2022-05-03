@@ -374,24 +374,6 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                 class="list"
                               >
                                 <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-8"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
-                                <div
                                   class="row"
                                 >
                                   <dt

@@ -9,11 +9,15 @@ import styles from "./styles.module.scss";
 type ProductsAndSystemProps = {
   products: ProductsAndSystemsQuery["products"];
   systems: ProductsAndSystemsQuery["systems"];
+  members: ProductsAndSystemsQuery["systemMembers"];
 };
 
-const ProductsAndSystems = ({ products, systems }: ProductsAndSystemProps) => {
+const ProductsAndSystems = ({
+  products,
+  systems,
+  members
+}: ProductsAndSystemProps) => {
   const { t } = useTranslation("admin-products-systems");
-
   return (
     <Tabs initialValue="one">
       <Tabs.TabPanel
@@ -27,7 +31,7 @@ const ProductsAndSystems = ({ products, systems }: ProductsAndSystemProps) => {
         <ListTab type="product" items={products} />
       </Tabs.TabPanel>
       <Tabs.TabPanel heading={t("system")} index="three">
-        <ListTab type="system" items={systems} />
+        <ListTab type="system" items={systems} members={members} />
       </Tabs.TabPanel>
     </Tabs>
   );

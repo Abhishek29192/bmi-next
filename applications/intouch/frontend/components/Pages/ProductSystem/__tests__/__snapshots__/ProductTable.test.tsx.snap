@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductTable Component render correctly if there is no products 1`] = `
+<div>
+  <div>
+    <table
+      class="MuiTable-root Table Table--row-even-color"
+    >
+      <thead
+        class="MuiTableHead-root ColorPair ColorPair--pearl"
+      >
+        <tr
+          class="MuiTableRow-root MuiTableRow-head"
+        >
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productData.uuid
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productData.name
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="MuiTableBody-root"
+      />
+    </table>
+  </div>
+</div>
+`;
+
+exports[`ProductTable Component render correctly if there is products 1`] = `
+<div>
+  <div>
+    <table
+      class="MuiTable-root Table Table--row-even-color"
+    >
+      <thead
+        class="MuiTableHead-root ColorPair ColorPair--pearl"
+      >
+        <tr
+          class="MuiTableRow-root MuiTableRow-head"
+        >
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productData.uuid
+          </th>
+          <th
+            class="MuiTableCell-root MuiTableCell-head"
+            scope="col"
+          >
+            productData.name
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="MuiTableBody-root"
+      >
+        <tr
+          class="MuiTableRow-root"
+        >
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            1
+          </td>
+          <td
+            class="MuiTableCell-root MuiTableCell-body"
+          >
+            name
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

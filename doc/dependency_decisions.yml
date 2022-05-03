@@ -280,3 +280,9 @@
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
     :when: 2022-04-19 12:34:21.321254310 Z
+- - :permit
+  - GPL-3.0
+  - :who: Benjamin Sproule
+    :why: Acceptable license
+    :versions: []
+    :when: 2022-04-29 12:42:53.114385000 Z

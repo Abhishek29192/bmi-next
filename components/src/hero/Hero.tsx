@@ -6,10 +6,11 @@ import Carousel, { getPageFromAbsoluteIndex } from "../carousel/Carousel";
 import Media, { AcceptedNode } from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
+import transformHyphens from "../utils";
 import styles from "./Hero.module.scss";
 
 export type HeroItem = {
-  title: React.ReactNode;
+  title: React.ReactNode | string;
   /** Only required for level 1 */
   media?: React.ReactElement<AcceptedNode>;
   /** Only required for level 1 */
@@ -29,7 +30,7 @@ type Props<L = undefined> = {
     } & HeroItem)
   | {
       level: 2 | 3;
-      title: React.ReactNode;
+      title: React.ReactNode | string;
     }
 );
 
@@ -102,7 +103,9 @@ const Hero = ({
                       >
                         {title}
                       </Typography>
-                      <div className={styles["text"]}>{children}</div>
+                      <div className={styles["text"]}>
+                        {transformHyphens(children)}
+                      </div>
                       {React.isValidElement(cta) &&
                         React.cloneElement(cta, {
                           className: classnames(
@@ -127,7 +130,7 @@ const Hero = ({
             onNextClick={() => setActivePage((activePage) => activePage + 1)}
             onPrevClick={() => setActivePage((activePage) => activePage - 1)}
           />
-          <div className={styles["children"]}>{children}</div>
+          <div className={styles["children"]}>{transformHyphens(children)}</div>
         </div>
       </Container>
       <div className={styles["image-carousel"]}>
@@ -183,7 +186,9 @@ const SingleHero = ({
             </Typography>
             {levelProps.level === 1 && (
               <>
-                <div className={styles["text"]}>{levelProps.children}</div>
+                <div className={styles["text"]}>
+                  {transformHyphens(levelProps.children)}
+                </div>
                 {React.isValidElement(levelProps.cta) &&
                   React.cloneElement(levelProps.cta, {
                     className: classnames(

@@ -46,7 +46,7 @@ wait_until_head_deployed_to_gatsby:
         - libraries/**/*
   needs: []
   cache: {}
-  timeout: 15m
+  timeout: 25m
   before_script:
     - apt-get update
     - apt-get install -y jq
@@ -305,6 +305,11 @@ migrate_content_norway:
       optional: true
   variables:
     DXB_MARKET_ID: "NO"
+  artifacts:
+    name: "migrate_content_norway_log"
+    paths:
+      - libraries/migrate/projects/dxb/*.log
+    expire_in: 1 week
 
 deploy_gatsby_cloud_norway:
   extends: .deploy_gatsby_cloud

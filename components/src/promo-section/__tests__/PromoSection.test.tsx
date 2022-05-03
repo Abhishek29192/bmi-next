@@ -94,4 +94,18 @@ describe("PromoSection component", () => {
     );
     expect(container).toMatchSnapshot();
   });
+
+  it("renders correctly if title is react node", () => {
+    const { container } = render(
+      <PromoSection title={<span className="test-title">Title</span>}>
+        Vestibulum quis ultricies diam. Quisque porttitor sit amet elit sit amet
+        mollis. Aliquam eget interdum enim. Aliquam mattis hendrerit quam,
+        tincidunt posuere purus rutrum sit amet. In tincidunt, enim ac suscipit
+        feugiat, lacus lorem venenatis libero, id efficitur ipsum nisi ut nibh.
+      </PromoSection>
+    );
+    const titleComponent = container.querySelector(".test-title");
+    expect(titleComponent).toBeDefined();
+    expect(container).toMatchSnapshot();
+  });
 });

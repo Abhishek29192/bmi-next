@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ProductTechnicalSpec from "../ProductTechnicalSpec";
 import { Classification, ClassificationCodeEnum } from "../types/pim";
 import { SiteContextProvider } from "../Site";
@@ -207,5 +207,70 @@ describe("ProductTechnicalSpec component", () => {
         expect(wrapper.baseElement).toMatchSnapshot();
       });
     });
+  });
+  it("shouldn't render variant attribute if classification.code === 'appearanceAttributes' and isSingleVariant === true ", async () => {
+    const namespace = "bmi.classification.namespace";
+    const classifications: Classification[] = [
+      {
+        features: [
+          {
+            name: "Farge",
+            code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+            featureValues: [
+              {
+                value: "Grå",
+                code: null
+              }
+            ],
+            featureUnit: null
+          },
+          {
+            name: "Farge",
+            code: "bmiClassificationCatalog/1.0/appearanceAttributes.colourfamily",
+            featureValues: [
+              {
+                value: "Grå",
+                code: "GREY"
+              }
+            ],
+            featureUnit: null
+          }
+        ],
+        name: "Farge og overflate",
+        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
+      },
+      {
+        name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+        code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+
+        features: [
+          {
+            name: "feature1",
+            code: "feature-code1",
+            featureValues: [{ code: "height", value: "200" }]
+          }
+        ]
+      },
+      {
+        name: ClassificationCodeEnum.MEASUREMENTS,
+        code: ClassificationCodeEnum.MEASUREMENTS,
+        features: [
+          {
+            name: "c2-feature1",
+            code: "c2-feature-code1",
+            featureValues: [{ code: "height", value: "200" }]
+          }
+        ]
+      }
+    ];
+    render(
+      <ProductTechnicalSpec
+        classifications={classifications}
+        classificationNamespace={namespace}
+        isSingleVariant={true}
+      />
+    );
+    const appearanceAttributeButton = screen.queryByText("Farge og overflate");
+    expect(appearanceAttributeButton).not.toBeInTheDocument();
   });
 });

@@ -1,6 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  ButtonProps
+} from "@bmi/components";
 import { ExpandableLinksTextCard } from "@bmi/components";
 import { MasonryGrid } from "@bmi/components";
 import { Section } from "@bmi/components";
@@ -8,6 +13,7 @@ import { ClickableAction } from "@bmi/components";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import { useSiteContext } from "./Site";
 import {
   getClickableActionFromUrl,
@@ -21,27 +27,40 @@ export type Data = {
   columns: NavigationData[];
 };
 
+const GTMButton = withGTM<ButtonProps>(Button);
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
+
 const LinkColumnsSection = ({ data }: { data: Data }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
   const { title, columns } = data;
 
-  const openButton = (
-    <Button
+  const renderOpenButton = (title: string) => (
+    <GTMButton
       variant="outlined"
       style={{ marginTop: "24px" }}
       endIcon={<AddIcon />}
+      gtm={{
+        id: "cta-click1",
+        action: "Expand choice of links",
+        label: `${title} - ${getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}`
+      }}
     >
       {getMicroCopy(microCopy.GLOBAL_VIEW_MORE)}
-    </Button>
+    </GTMButton>
   );
-  const closeButton = (
-    <Button
+  const renderCloseButton = (title: string) => (
+    <GTMButton
       variant="outlined"
       style={{ marginTop: "24px" }}
       endIcon={<RemoveIcon />}
+      gtm={{
+        id: "cta-click1",
+        action: "Decrease choice of links",
+        label: `${title} - ${getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}`
+      }}
     >
       {getMicroCopy(microCopy.GLOBAL_VIEW_LESS)}
-    </Button>
+    </GTMButton>
   );
 
   return (
@@ -79,8 +98,18 @@ const LinkColumnsSection = ({ data }: { data: Data }) => {
                 key={`${label}-${index}`}
                 title={label}
                 links={linksWithActions}
-                openButton={openButton}
-                closeButton={closeButton}
+                openButton={renderOpenButton(label)}
+                closeButton={renderCloseButton(label)}
+                anchorLinkComponent={(props: AnchorLinkProps) => (
+                  <GTMAnchorLink
+                    gtm={{
+                      id: "cta-click1",
+                      action: props.action?.href,
+                      label: `${label} - ${props.children}`
+                    }}
+                    {...props}
+                  />
+                )}
               />
             );
           })}

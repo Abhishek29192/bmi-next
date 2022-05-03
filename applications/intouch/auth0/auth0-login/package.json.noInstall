@@ -63,12 +63,14 @@
   },
   "target": "web",
   "dependencies": {
-    "@material/button": "^11.0.0",
+    "@material/button": "^13.0.0",
     "@material/checkbox": "^13.0.0",
-    "@material/form-field": "^12.0.0",
-    "@material/radio": "^11.0.0",
-    "@material/textfield": "^11.0.0",
-    "@material/theme": "^11.0.0",
-    "@material/tooltip": "^12.0.0"
+    "@material/form-field": "^13.0.0",
+    "@material/radio": "^13.0.0",
+    "@material/textfield": "^13.0.0",
+    "@material/theme": "^13.0.0",
+    "@material/tooltip": "^13.0.0",
+    "@material/dialog": "^13.0.0",
+    "@material/rtl": "^13.0.0"
   }
 }

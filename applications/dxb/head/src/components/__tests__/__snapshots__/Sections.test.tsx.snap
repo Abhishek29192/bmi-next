@@ -471,10 +471,13 @@ HTMLCollection [
                   <div
                     class="body"
                   >
-                    <svg
+                    <div
                       class="brand-logo"
-                      preserveAspectRatio="xMinYMin"
-                    />
+                    >
+                      <svg
+                        preserveAspectRatio="xMinYMin"
+                      />
+                    </div>
                     <h4
                       class="MuiTypography-root title Typography MuiTypography-h4"
                     >
@@ -1667,28 +1670,6 @@ HTMLCollection [
                                   class="list"
                                 >
                                   <div
-                                    class="row, row--cta"
-                                  >
-                                    <a
-                                      aria-disabled="false"
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
-                                      href="https://www.google.com/maps/dir//address%201/"
-                                      rel="noopener noreferrer"
-                                      tabindex="0"
-                                      target="_blank"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-23"
-                                      >
-                                        findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </a>
-                                  </div>
-                                  <div
                                     class="row"
                                   >
                                     <dt
@@ -1900,28 +1881,6 @@ HTMLCollection [
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <a
-                                      aria-disabled="false"
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 cta-button MuiButton-containedPrimary"
-                                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.google.com/maps/dir//address%201/\\"}"
-                                      href="https://www.google.com/maps/dir//address%201/"
-                                      rel="noopener noreferrer"
-                                      tabindex="0"
-                                      target="_blank"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-23"
-                                      >
-                                        findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </a>
-                                  </div>
                                   <div
                                     class="row"
                                   >

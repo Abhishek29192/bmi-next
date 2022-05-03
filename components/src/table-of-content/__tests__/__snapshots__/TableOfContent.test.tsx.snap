@@ -25,20 +25,26 @@ exports[`TableOfContent component renders correctly 1`] = `
       <div
         class="link"
       >
-        <span>
-          div with text
-           - 
-          div-with-text
-        </span>
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="#div-with-text"
+        >
+          <span>
+            div with text
+          </span>
+        </a>
       </div>
       <div
         class="link"
       >
-        <span>
-          div with single paragraph
-           - 
-          div-with-single-paragraph
-        </span>
+        <a
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+          href="#div-with-single-paragraph"
+        >
+          <span>
+            div with single paragraph
+          </span>
+        </a>
       </div>
     </div>
     <div
@@ -61,45 +67,6 @@ exports[`TableOfContent component renders correctly 1`] = `
       </h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing.
-      </p>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TableOfContent component renders correctly with default value of renderLink being undefined 1`] = `
-<div>
-  <div
-    class="TOC"
-  >
-    <div>
-      <div
-        class="link"
-      />
-      <div
-        class="link"
-      />
-    </div>
-    <div
-      id="div-with-text"
-      style="margin-top: -150px; padding-top: 150px;"
-    >
-      <h2>
-        section with text
-      </h2>
-      <p>
-        Lorem ipsum dolor sit amet.
-      </p>
-    </div>
-    <div
-      id="div-with-single-paragraph"
-      style="margin-top: -150px; padding-top: 150px;"
-    >
-      <h2>
-        section with single paragraph
-      </h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur.
       </p>
     </div>
   </div>

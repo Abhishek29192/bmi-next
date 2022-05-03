@@ -9,7 +9,7 @@ import {
 } from "@contentful/rich-text-types";
 import { Options } from "@contentful/rich-text-react-renderer";
 import { Typography } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps, transformHyphens } from "@bmi/components";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { graphql } from "gatsby";
 import withGTM from "../utils/google-tag-manager";
@@ -26,7 +26,7 @@ type Settings = {
   backgroundTheme?: "light" | "dark";
   underlineHeadings?: ("h2" | "h3" | "h4" | "h5" | "h6")[];
   hyperlinkColor?: "default" | "black" | "white";
-  gtmLabel?: string;
+  gtmLabel?: React.ReactNode;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
@@ -102,7 +102,9 @@ const getOptions = (settings: Settings): Options => {
         <EmbeddedAssetBlock node={node} className={styles["embedded-asset"]} />
       ),
       [INLINES.ENTRY_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
-        <InlineHyperlink node={node}>{children}</InlineHyperlink>
+        <InlineHyperlink node={node} gtmLabel={gtmLabel}>
+          {children}
+        </InlineHyperlink>
       ),
       [INLINES.ASSET_HYPERLINK]: (node: Inline, children: React.ReactNode) => (
         <InlineHyperlink node={node}>{children}</InlineHyperlink>
@@ -136,7 +138,11 @@ const getOptions = (settings: Settings): Options => {
     },
     renderText: (text) => {
       return text.split("\n").reduce((children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
+        return [
+          ...children,
+          index > 0 && <br key={index} />,
+          transformHyphens(textSegment)
+        ];
       }, []);
     }
   };
@@ -157,6 +163,31 @@ const RichText = ({
       {renderRichText(document, getOptions(rest))}
     </div>
   );
+};
+
+export const parseReachDataRawFields = (
+  document: RichTextData
+): Record<string, string | undefined> => {
+  const parsedRaw: {
+    nodeType: string;
+    data: Record<string, unknown>;
+    content: Array<{
+      nodeType: string;
+      data: Record<string, unknown>;
+      content: Array<{
+        value: string;
+        nodeType: string;
+        data: Record<string, unknown>;
+      }>;
+    }>;
+  } = JSON.parse(document.raw);
+
+  let res: Record<string, string | undefined> = {};
+  parsedRaw.content.forEach((item) => {
+    res = { ...res, [item.nodeType]: item.content[0]?.value };
+  });
+
+  return res;
 };
 
 export default RichText;
