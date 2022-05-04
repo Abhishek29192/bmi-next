@@ -117,6 +117,8 @@ export const updateGuarantee = async (
           ? `${crypto.randomBytes(10).toString("hex")}`
           : bmiReferenceId;
       patch.status = "SUBMITTED";
+
+      sendMailToMarketAdmins(context, projectId, "REQUEST_SUBMITTED");
     }
 
     if (guaranteeEventType === "ASSIGN_SOLUTION" && status === "SUBMITTED") {
@@ -224,7 +226,8 @@ const getProjectCompanyDetail = async (
   pgClient: PoolClient
 ): Promise<ProjectCompanyDetail> => {
   const { rows } = await pgClient.query(
-    `select project.name, project.company_id as "companyId", company.tier
+    `select project.name, project.company_id as "companyId", company.tier, company.market_id as "marketId",
+            company.name as "companyName"
     from project
     join company on company.id=project.company_id 
     where project.id=$1`,
@@ -249,7 +252,7 @@ const sendMail = async (
     pgClient
   );
 
-  //Get all company admins and send mail
+  // Get all company admins and send mail
   const { rows: accounts } = await pgClient.query(
     `select account.* from account 
   join company_member on company_member.account_id =account.id 
@@ -265,6 +268,39 @@ const sendMail = async (
       firstname: account.first_name,
       role: account.role,
       project: `${projectCompanyDetail.name}`,
+      projectId
+    });
+  }
+};
+
+const sendMailToMarketAdmins = async (
+  context: PostGraphileContext,
+  projectId: number,
+  event: EventMessage
+) => {
+  const { pgClient, user } = context;
+
+  const projectCompanyDetail = await getProjectCompanyDetail(
+    projectId,
+    pgClient
+  );
+
+  // Get all market admins and send mail
+  const { rows: marketAdmins } = await pgClient.query(
+    `select account.* from account 
+        join market on market.id =account.market_id 
+        where market.id=$1 and account.role='MARKET_ADMIN'`,
+    [projectCompanyDetail.marketId]
+  );
+
+  for (let i = 0; i < marketAdmins.length; i++) {
+    const account = marketAdmins[+i];
+    await sendMessageWithTemplate(context, event, {
+      accountId: account.id,
+      email: account.email,
+      project: `${projectCompanyDetail.name}`,
+      company: `${projectCompanyDetail.companyName}`,
+      author: user.email,
       projectId
     });
   }
@@ -303,4 +339,6 @@ type ProjectCompanyDetail = {
   name: string;
   companyId: number;
   tier: Tier;
+  marketId: number;
+  companyName: string;
 };
