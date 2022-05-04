@@ -570,8 +570,7 @@
           PasswordStrengthError:
             "Please use a password with at least 8 characters in length and contain at least 3 of the following 4 types of characters: lower case letters (a-z), upper case letters (A-Z), numbers (i.e. 0-9), special characters (e.g. !@#$%^&*)",
           alertSignupTitle: "Already invited?",
-          alertSignupDescription:
-            "An invitation to register was sent to {email} and is still pending. Select ‘Cancel’ to find the email and accept the invitation or select ‘Confirm’ to decline the invitation and register an individual account.",
+          alertSignupDescription: `An invitation to register was sent to {email} and is still pending. Select ‘Cancel’ to find the email and accept the invitation or select ‘Confirm’ to decline the invitation and register an individual account.`,
           cancel: "Cancel",
           confirm: "Confirm"
         },
@@ -608,8 +607,8 @@
           terms_and_conditions: "Betingelser og vilkår",
           and: "og",
           privacy_policy: "Personvernerklæring",
-          terms_missing: "Godta vilkår og betingelser",
           success: "Suksess",
+          terms_missing: "Godta vilkår og betingelser",
           PasswordStrengthError:
             "Bruk et passord med minst 8 tegn og innehold minst 3 av følgende 4 typer tegn: små bokstaver (az), store bokstaver (AZ), tall (dvs. 0-9), spesialtegn ( f.eks.@#$%^&*)",
           alertSignupTitle: "Allerede invitert?",
@@ -650,8 +649,8 @@
           terms_and_conditions: "Termini e Condizioni",
           and: "e",
           privacy_policy: "Politica sulla privacy",
-          terms_missing: "Si prega di accettare i termini e le condizioni",
           success: "Successo",
+          terms_missing: "Si prega di accettare i termini e le condizioni",
           PasswordStrengthError:
             "Si prega di utilizzare una password di almeno 8 caratteri e che contenga almeno 3 dei seguenti 4 tipi di caratteri: lettere minuscole (a-z), lettere maiuscole (A-Z), numeri (es. 0-9), caratteri speciali (es. !@#$%^&*)",
           alertSignupTitle: "Già invitato?",
@@ -785,6 +784,48 @@
           alertSignupDescription: `Se envió una invitación para registrarse a {email} y aún está pendiente. Seleccione 'Cancelar' para buscar el correo electrónico y aceptar la invitación o seleccione 'Confirmar' para rechazar la invitación y registrar una cuenta individual.`,
           cancel: "Cancelar",
           confirm: "Confirmar"
+        },
+        pt: {
+          intouch_title: "InTouch - login / registro",
+          signup_welcome: "Bem-vindo a",
+          intouch_role: "Selecione seu tipo de registro",
+          installer: "conta individual",
+          company: "conta de empresa",
+          first_name: "Nome",
+          last_name: "Sobrenome",
+          enter_email: "endereço de correio eletronico",
+          enter_password: "Senha",
+          sign_up: "Registro",
+          already_registered: "Já registrado?",
+          login_welcome: "Bem-vindo a",
+          log_in: "Iniciar sessão",
+          forgot_password: "Esqueceu a senha?",
+          not_registered: "Já registrado?",
+          new_password: "Mudar senha",
+          new_password_text:
+            "Digite seu endereço de correio eletronico e enviaremos um link para redefinir sua senha",
+          reset_password: "Crie uma senha",
+          back_to_login: "Volte ao iniciar sessão",
+          reset_password_success: "Verifique seu correio eletronico",
+          email_missing: "Por favor, indique o seu endereço de correio eletronico",
+          generic_error: 
+            "Você adicionou as informações corretamente? Entre em contato conosco se o problema persistir",
+          name_surname_missing: "Falta nome e sobrenome",
+          email_password_missing: "Falta o correio eletronico e contrasenha",
+          registration_tooltip:
+            "Selecione Conta da empresa apenas se tiver certeza de que sua empresa ainda não está registrada no InTouch. Contas individuais terão acesso a formação e poderão se tornar membros de empresas registradas.",
+          i_agree_to: "Eu aceito o",
+          terms_and_conditions: "Termos e Condições da BMI",
+          and: "e",
+          privacy_policy: "Política de Privacidade da BMI",
+          success: "Sucesso",
+          terms_missing: "Por favor, aceite os termos e condições da BMI",
+          PasswordStrengthError:
+            "Use uma senha que tenha pelo menos 8 caracteres e contenha pelo menos 3 dos 4 tipos de caracteres a seguir: letras minúsculas (az), letras maiúsculas (AZ), números (ou seja, 0-9), caracteres especiais (p eg !@# $%^&*)",
+          alertSignupTitle: "Já convidou?",
+          alertSignupDescription: `Um convite para se registrar foi enviado para {email} e ainda está pendente. Selecione 'Cancelar' para encontrar o e-mail e aceitar o convite ou selecione 'Confirmar' para recusar o convite e registrar uma conta individual.`,
+          cancel: "Cancelar",
+          confirm: "Confirmar"
         }
       };
 
@@ -808,6 +849,7 @@
           dk: true,
           de: false,
           es: true,
+          pt: true,
           en: false // project not active
         };
 
@@ -988,7 +1030,7 @@
             try {
               const response = await $.ajax({
                 ...graphqlOptions,
-                url: "https://{market}.intouch.bmigroup.com/api/validate-user".replace(
+                url: "@@base_url@@/api/validate-user".replace(
                   "{market}",
                   market
                 ),
@@ -1009,7 +1051,7 @@
             try {
               const response = await $.ajax({
                 ...graphqlOptions,
-                url: "https://{market}.intouch.bmigroup.com/api/confirm-signup".replace(
+                url: "@@base_url@@/api/confirm-signup".replace(
                   "{market}",
                   market
                 ),
@@ -1122,12 +1164,13 @@
 
         // Define map of OneTrust tokens depends on market.
         const marketsOneTrustMap = {
-          no: "",
-          it: "",
-          dk: "",
-          de: "",
-          es: "",
-          en: ""
+          no: "6a79505b-511c-4865-a79a-6d6152ba223b-test",
+          it: "2194ed0e-b5ed-4ae8-b642-53ff110a08d3-test",
+          dk: "7b88b89f-d776-49b4-8cd3-aabbc1f84ba2-test",
+          de: "1810f8b2-1df6-424e-98c2-5215b272935e-test",
+          es: "eeaf5ed2-4c02-4b0f-ba27-680f7520f30b-test",
+          pt: "",
+          en: "",
         };
 
         // Define head element from document.
