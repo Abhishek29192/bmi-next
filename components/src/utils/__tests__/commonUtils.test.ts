@@ -2,8 +2,8 @@ import { transformHyphens } from "../commonUtils";
 
 describe("transformHyphens function", () => {
   it("test string with hyphens", () => {
-    expect(transformHyphens("long|long|title")).toBe(
-      "long\u00ADlong\u00ADtitle"
+    expect(transformHyphens("long{-}long${-}title")).toBe(
+      "long\u00ADlong$\u00ADtitle"
     );
   });
 

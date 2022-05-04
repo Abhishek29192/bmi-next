@@ -1,4 +1,4 @@
-const hyphenSymbol = /\|/g;
+const hyphenSymbol = /\{-\}/gi;
 
 export const transformHyphens = (str: any): any => {
   if (typeof str === "string") {
