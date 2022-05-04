@@ -13,6 +13,10 @@ import {
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
+const getRandomStatus = () => {
+  return Math.floor(Math.random() * 500 + 1);
+};
+
 const proxy = async (request: Partial<Request>, response: Partial<Response>) =>
   (await import("../index")).proxy(request as Request, response as Response);
 
@@ -109,7 +113,7 @@ describe("Making a GET request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
       body: Readable.from(["Something went bang"]),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" },
       error: new Error("Something went bang!")
     };
@@ -154,7 +158,7 @@ describe("Making a GET request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);
@@ -227,7 +231,7 @@ describe("Making a GET request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "GET",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);
@@ -275,7 +279,7 @@ describe("Making a POST request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
       body: Readable.from(["Something went bang"]),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" },
       error: new Error("Something went bang!")
     };
@@ -303,14 +307,6 @@ describe("Making a POST request", () => {
   });
 
   it("calls elasticsearch and returns response", async () => {
-    const getRandomStatus = (): number => {
-      const number = Math.floor(Math.random() * 500);
-      if (number === 0) {
-        return getRandomStatus();
-      }
-      return number;
-    };
-
     const req = mockRequest(
       "POST",
       {
@@ -367,7 +363,7 @@ describe("Making a POST request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);
@@ -408,7 +404,7 @@ describe("Making a POST request", () => {
       url: `${process.env.ES_HOST}${req.url}`,
       method: "POST",
       body: Readable.from(['{"size":0,"timeout":0}']),
-      status: Math.floor(Math.random() * 500),
+      status: getRandomStatus(),
       headers: { "content-type": "application/json" }
     };
     mockResponses(fetchMock, expectedResponse);
