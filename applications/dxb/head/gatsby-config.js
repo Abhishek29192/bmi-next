@@ -166,13 +166,13 @@ const queries = [
           ...item
         })),
         ...allContentfulDocument.edges
+          .filter((node) => !node.noIndex && node.asset)
           .map(({ node }) => ({
             titleAndSize: `${node.title}_${node.asset.file.details.size}`,
             realFileName: `${node.asset.file.fileName}`,
             isLinkDocument: isLinkDocument(node),
             ...node
           }))
-          .filter((node) => !node.noIndex)
       ];
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
