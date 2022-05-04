@@ -301,11 +301,12 @@ const getClassificationFeatures = (
   featureCodes: FeatureCodeEnum[]
 ): Feature[] => {
   const classification: Classification = classifications.find(
-    (classification) => classification.code === classificationCode
+    (classification) =>
+      classification.code.toLowerCase() === classificationCode.toLowerCase()
   );
   return featureCodes.map((featureCode: FeatureCodeEnum) =>
     classification?.features.find((feature: Feature) =>
-      feature.code?.endsWith(featureCode)
+      feature.code?.toLowerCase().endsWith(featureCode.toLowerCase())
     )
   );
 };
@@ -316,10 +317,11 @@ const getClassificationFeature = (
   featureCode: FeatureCodeEnum
 ): Feature => {
   const classification: Classification = classifications.find(
-    (classification) => classification.code === classificationCode
+    (classification) =>
+      classification.code.toLowerCase() === classificationCode.toLowerCase()
   );
   const feature: Feature = classification?.features.find((feature: Feature) =>
-    feature.code?.endsWith(featureCode)
+    feature.code?.toLowerCase().endsWith(featureCode.toLowerCase())
   );
   return feature;
 };
