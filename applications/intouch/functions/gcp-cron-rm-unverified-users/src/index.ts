@@ -8,6 +8,8 @@ type User = {
   email: string;
 };
 
+type GetUnverifiedUser = { users: User[]; total: number; length: number };
+
 export const removeAuth0UnverifiedAccount = async (
   postEvent?: any,
   context?: any
@@ -15,11 +17,24 @@ export const removeAuth0UnverifiedAccount = async (
   const { AUTH0_INVITATION_LIFETIME } = process.env;
   const auth0 = new Auth0Client();
   try {
-    const users: User[] = await auth0.getUnverifiedUser();
+    const { users, total, length }: GetUnverifiedUser =
+      await auth0.getUnverifiedUser();
+    let userList = [...users];
 
-    if (users && users.length) {
-      console.log(`succesfully fetched uninvited ${users.length} users`);
-      const invitationExpiredUser = users.filter(
+    while (userList.length < total) {
+      const { users }: GetUnverifiedUser = await auth0.getUnverifiedUser(
+        userList.length / length
+      );
+      userList = [...userList, ...users];
+
+      await new Promise((resolve) =>
+        setTimeout(() => resolve("delayed"), 1000)
+      );
+    }
+
+    if (userList.length) {
+      console.log(`succesfully fetched uninvited ${userList.length} users`);
+      const invitationExpiredUser = userList.filter(
         ({ created_at: createdAt }) => {
           return (
             differenceInSeconds(new Date(), parseJSON(createdAt)) >
@@ -38,15 +53,14 @@ export const removeAuth0UnverifiedAccount = async (
           await Promise.allSettled([
             ...userInfo.map((user) => auth0.deleteUser(user))
           ]).then((value) => {
-            value.map(({ reason }: any, id) => {
-              if (reason) {
-                console.log(reason.message);
+            value.map(({ status }: any, id) => {
+              if (status === "fulfilled") {
+                console.log(
+                  `successfully deleted user with email ${
+                    userInfo[`${id}`].email
+                  } auth0 Id: ${userInfo[`${id}`].id}`
+                );
               }
-              console.log(
-                `successfully deleted user with email ${
-                  userInfo[`${id}`].email
-                } auth0 Id: ${userInfo[`${id}`].id}`
-              );
             });
           });
           // delay call to avoid rate limit

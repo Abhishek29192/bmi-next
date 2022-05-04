@@ -198,7 +198,7 @@ describe("Auth0Client", () => {
         expect(result).toBe(users);
         expect(axiosMock).toHaveBeenNthCalledWith(2, {
           method: "GET",
-          url: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false`,
+          url: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false&per_page=100&include_totals=true&page=0`,
           headers: {
             "content-type": "application/json",
             Authorization: `Bearer ${token}`
