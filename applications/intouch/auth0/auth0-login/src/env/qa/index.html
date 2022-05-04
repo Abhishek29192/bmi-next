@@ -988,7 +988,7 @@
             try {
               const response = await $.ajax({
                 ...graphqlOptions,
-                url: "@@base_url@@/api/validate-user".replace(
+                url: "https://uat-{market}.intouch.bmigroup.com/api/validate-user".replace(
                   "{market}",
                   market
                 ),
@@ -1009,7 +1009,7 @@
             try {
               const response = await $.ajax({
                 ...graphqlOptions,
-                url: "@@base_url@@/api/confirm-signup".replace(
+                url: "https://uat-{market}.intouch.bmigroup.com/api/confirm-signup".replace(
                   "{market}",
                   market
                 ),
