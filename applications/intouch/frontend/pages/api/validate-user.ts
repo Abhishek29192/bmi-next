@@ -25,7 +25,8 @@ export const handler = async (req, res) => {
       "GATEWAY_API_KEY"
     );
     const headers = {
-      ...req.headers,
+      "x-request-id": req.headers["x-request-id"],
+      "x-authenticated-user-id": req.headers["x-authenticated-user-id"],
       "x-api-key": GATEWAY_API_KEY,
       authorization: "Bearer undefined"
     };
