@@ -62,12 +62,24 @@ export default class Auht0Client {
     });
   }
 
-  async getUnverifiedUser() {
+  async getUnverifiedUser(page = 0, perPage = 100) {
     const { AUTH0_ISSUER_BASE_URL } = process.env;
+    const config = {
+      q: "email_verified:false",
+      per_page: perPage,
+      include_totals: true,
+      page
+    };
+    const queryString = Object.keys(config)
+      .map((key) => {
+        const value = config[`${key}`];
+        return `${key}=${value}`;
+      })
+      .join("&");
     try {
       const { data } = await this.requestCall({
         method: "GET",
-        url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false`
+        url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users?${queryString}`
       });
       return data;
     } catch (error) {
