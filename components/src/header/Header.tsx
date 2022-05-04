@@ -10,7 +10,7 @@ import { Menu } from "@material-ui/icons";
 import { Search as SearchIcon } from "@material-ui/icons";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import classnames from "classnames";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 import Button from "../button/Button";
 import Clickable, {
   ClickableAction,
@@ -30,6 +30,7 @@ import Navigation, {
 } from "../navigation/Navigation";
 import Search from "../search/Search";
 import Typography from "../typography/Typography";
+import { GTM } from "../";
 import styles from "./Header.module.scss";
 import {
   getElementWidths,
@@ -52,8 +53,8 @@ type HeaderProps = {
   tabComponent?: React.ComponentType<any>; // TODO
   navUtilityLinkButton?: React.ComponentType<any>; //TODO
   closeButtonComponent?: React.ComponentType<any>; //TODO
-  onToggleLanguageSelection?: (showLanguageSelection: boolean) => void;
   onCountrySelection?: (label: string, code: string) => void;
+  useGTM?: (gtm: GTM) => any;
   isSearchDisabled?: boolean;
   isOnSearchPage?: boolean;
   isBasketEmpty?: boolean;
@@ -99,8 +100,8 @@ const Header = ({
   languageIntroduction,
   navUtilityLinkButton: NavUtilityLinkButton = Button,
   closeButtonComponent: CloseButtonComponent = Button,
-  onToggleLanguageSelection,
-  onCountrySelection
+  onCountrySelection,
+  useGTM
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -116,6 +117,17 @@ const Header = ({
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
   const elementWidths = getElementWidths(navigation);
+
+  const gtm = useMemo(() => {
+    const languageSectionState = !showLanguageSelection ? "open" : "close";
+    return {
+      id: "nav-country-selector",
+      label: `${languageSectionState} panel`,
+      action: `${languageSectionState} panel`
+    };
+  }, [showLanguageSelection]);
+
+  const { dataGTM, pushGTMEvent } = useGTM?.(gtm);
 
   const amendClassList = (classValue: string, method: "add" | "remove") => {
     if (!body) {
@@ -151,8 +163,8 @@ const Header = ({
   };
 
   const toggleLanguageSelection = () => {
-    onToggleLanguageSelection?.(showLanguageSelection);
     setShowLanguageSelection(!showLanguageSelection);
+    pushGTMEvent();
   };
 
   const toggleSearch = () => {
@@ -240,6 +252,7 @@ const Header = ({
                         showLanguageSelection
                     }
                   )}
+                  data-gtm={JSON.stringify(dataGTM)}
                   onClick={toggleLanguageSelection}
                   variant="text"
                   aria-label={languageLabel}

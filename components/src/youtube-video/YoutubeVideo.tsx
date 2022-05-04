@@ -15,7 +15,7 @@ import { YoutubeContext } from "../media-gallery";
 import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 
-type GTM = {
+export type GTM = {
   id: string;
   event?: string;
   label?: string;
