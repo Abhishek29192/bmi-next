@@ -108,7 +108,7 @@ const queries = [
               pageData.contentfulSimplePage;
 
             // If not one of the above pages or excluded then do not index
-            if (page && !page.seo.noIndex) {
+            if (page && page.seo && !page.seo.noIndex) {
               // relying on PageInfoFragment
               return {
                 __typename: page.__typename,
@@ -152,6 +152,7 @@ const queries = [
       function isLinkDocument(document) {
         return !!document.url && !document.fileSize && !document.realFileName;
       }
+
       if (!data) {
         throw new Error("No data");
       }
