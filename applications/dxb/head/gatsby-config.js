@@ -201,21 +201,22 @@ const ids = [
   process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID
 ].filter(Boolean);
 
-const googleTagManagerPlugin = !process.env.GATSBY_PREVIEW
-  ? [
-      {
-        resolve: "@bmi/gatsby-plugin-google-tagmanager",
-        options: {
-          ids,
-          includeInDevelopment: true,
-          defaultDataLayer: {
-            platform: "gatsby",
-            env: process.env.NODE_ENV
+const googleTagManagerPlugin =
+  !process.env.GATSBY_PREVIEW && ids.length
+    ? [
+        {
+          resolve: "@bmi/gatsby-plugin-google-tagmanager",
+          options: {
+            ids,
+            includeInDevelopment: true,
+            defaultDataLayer: {
+              platform: "gatsby",
+              env: process.env.NODE_ENV
+            }
           }
         }
-      }
-    ]
-  : [];
+      ]
+    : [];
 
 module.exports = {
   siteMetadata: {
