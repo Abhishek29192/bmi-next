@@ -44,7 +44,6 @@ const simplePageLinkContentType = [
 const pageContentTypes = [
   "page",
   "homePage",
-  "teamPage",
   "contactUsPage",
   "productListerPage",
   "resources",

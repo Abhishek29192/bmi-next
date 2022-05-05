@@ -3,7 +3,6 @@
 const pageContentTypes = [
   "page",
   "homePage",
-  "teamPage",
   "contactUsPage",
   "productListerPage",
   "documentLibraryPage",
