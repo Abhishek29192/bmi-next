@@ -1,0 +1,16 @@
+build_redirects_website_uk_redland:
+  stage: build
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/redirects-website-uk-redland/**/*
+        - yarn.lock
+  needs:
+    - job: install
+      optional: true
+  variables:
+    GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
+  before_script:
+    - yarn config set cache-folder ${PWD}/.yarn_cache
+  script:
+    - yarn workspace @bmi/redirects-website-uk-redland build

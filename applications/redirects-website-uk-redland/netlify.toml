@@ -1,0 +1,34 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
+
+[build]
+  # nothing to build here, this instance is for redirects only
+  ignore = "git diff --quiet HEAD^ HEAD sub_dir/"
+
+  publish = "public/"
+
+  # Default build command.
+  command = "yarn workspace @bmi/redirects-website-fr-siplast run build"
+
+  # Directory with the serverless Lambda functions to deploy to AWS.
+  functions = "functions/"
+
+  # Global environment variables.
+  environment = { GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES="true", YARN_FLAGS="--frozen-lockfile", NETLIFY_YARN_WORKSPACES="true", NETLIFY_USE_YARN="true" }
+
+[[plugins]]
+  # enable Gatsby.js incremental builds plugin.
+  package = "netlify-plugin-gatsby-cache"
+
+[build.processing]
+  skip_processing = true
+
+
+
+
+#******************* put them in ONLY once they have all been verified ********************
+
+
+
+
+
