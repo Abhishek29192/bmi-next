@@ -849,8 +849,9 @@
           reset_password: "Crie uma senha",
           back_to_login: "Volte ao iniciar sessão",
           reset_password_success: "Verifique seu correio eletronico",
-          email_missing: "Por favor, indique o seu endereço de correio eletronico",
-          generic_error: 
+          email_missing:
+            "Por favor, indique o seu endereço de correio eletronico",
+          generic_error:
             "Você adicionou as informações corretamente? Entre em contato conosco se o problema persistir",
           name_surname_missing: "Falta nome e sobrenome",
           email_password_missing: "Falta o correio eletronico e contrasenha",
@@ -892,7 +893,7 @@
           de: false,
           es: true,
           pt: true,
-          en: false, // project not active
+          en: false // project not active
         };
 
         // Map projects status / image
@@ -912,12 +913,11 @@
         }
       };
 
+      const config = JSON.parse(
+        decodeURIComponent(escape(window.atob("@@config@@")))
+      );
       // finally, pass them to AlpineI18n:
       document.addEventListener("alpine-i18n:ready", function () {
-        const config = JSON.parse(
-          decodeURIComponent(escape(window.atob("@@config@@")))
-        );
-
         window.AlpineI18n.create(getMarket(config), messages);
       });
 
@@ -955,10 +955,6 @@
         // Fix to avoid label overlap
         document.getElementsByClassName("login-screen")[0].focus();
 
-        const config = JSON.parse(
-          decodeURIComponent(escape(window.atob("@@config@@")))
-        );
-
         setupImage(config);
 
         var leeway = config.internalOptions.leeway;
@@ -986,8 +982,6 @@
 
         const market = getMarket(config);
         const { env } = config.extraParams;
-
-        const prefix = env === "prod" ? market : `${env}-${market}`;
 
         document.getElementById("terms-link").href =
           "@@base_url@@/terms".replace("{market}", market);
@@ -1061,28 +1055,20 @@
         };
 
         async function validateSignupUser(email) {
-          if (email) {
-            try {
-              const response = await $.ajax({
-                ...graphqlOptions,
-                url: "@@base_url@@/api/validate-user".replace(
-                  "{market}",
-                  market
-                ),
-                data: { email }
-              });
-              if (response) {
-                return response.data;
-              }
-            } catch (err) {
-              displayError(err.code, "form-signup");
-            }
+          const response = await $.ajax({
+            ...graphqlOptions,
+            url: "@@base_url@@/api/validate-user".replace("{market}", market),
+            data: { email }
+          });
+          if (response) {
+            return response.data;
           }
         }
 
         async function confirmSignup() {
           const email = document.getElementById("signup-email").value;
           if (email) {
+            this.disabled = true;
             try {
               const response = await $.ajax({
                 ...graphqlOptions,
@@ -1093,10 +1079,11 @@
                 data: { email }
               });
               if (response && response?.data === "ok") {
-                signup();
+                document.getElementById("btn-signup").click();
               }
             } catch (err) {
               this.disabled = false;
+              dialog.close();
               displayError(err.code, "form-signup");
             }
           }
@@ -1126,9 +1113,9 @@
             return;
           }
           try {
-            const { data } = await validateSignupUser(email);
+            const response = await validateSignupUser(email);
 
-            if (data !== true) {
+            if (response !== true) {
               dialog.open();
               button.disabled = false;
             } else {
@@ -1149,12 +1136,14 @@
                   }
                 },
                 function (err) {
+                  dialog.close();
                   button.disabled = false;
                   if (err) displayError(err.code, "form-signup");
                 }
               );
             }
           } catch (err) {
+            dialog.close();
             button.disabled = false;
             if (err) displayError(err.code, "form-signup");
           }
@@ -1206,7 +1195,7 @@
           de: "1810f8b2-1df6-424e-98c2-5215b272935e-test",
           es: "eeaf5ed2-4c02-4b0f-ba27-680f7520f30b-test",
           pt: "",
-          en: "",
+          en: ""
         };
 
         // Define head element from document.
