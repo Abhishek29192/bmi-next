@@ -8,8 +8,8 @@ import {
 } from "./helpers/pimHelper";
 
 const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
-const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&approvalStatus=APPROVED`;
-const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&approvalStatus=APPROVED`;
+const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved`;
+const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved`;
 
 const getSecret = jest.fn();
 jest.mock("@bmi-digital/functions-secret-client", () => {
@@ -500,7 +500,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&approvalStatus=APPROVED`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -526,7 +526,7 @@ describe("fetchData", () => {
       }
     });
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&approvalStatus=APPROVED`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved`,
       {
         method: "GET",
         headers: {
