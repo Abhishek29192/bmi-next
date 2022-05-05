@@ -1,6 +1,8 @@
 const { internalName } = require("../../variables/helpText/20210421160910");
 const { hyphenSymbol } = require("../../variables/hyphenSymbol/20220504110700");
+
 module.exports.description = "Add name field for link";
+const titleNotFound = "Untitled";
 
 module.exports.up = (migration) => {
   const link = migration.editContentType("link");
