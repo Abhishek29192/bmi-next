@@ -26,9 +26,14 @@
 
 
 
+
+
 #******************* put them in ONLY once they have all been verified ********************
 
 
 
 
-
+[[redirects]]
+ from="/"
+ to="https://www.bmigroup.com/uk/"
+ force=true
