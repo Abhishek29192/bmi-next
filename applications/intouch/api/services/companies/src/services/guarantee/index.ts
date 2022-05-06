@@ -14,6 +14,7 @@ import { PostGraphileContext } from "../../types";
 import { filesTypeValidate } from "../../utils/file";
 import { sendMessageWithTemplate } from "../mailer";
 import { EventMessage, tierBenefit } from "../contentful";
+import { getDbPool } from "../../db";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
@@ -118,6 +119,7 @@ export const updateGuarantee = async (
           : bmiReferenceId;
       patch.status = "SUBMITTED";
 
+      // Send message to market admins.
       sendMailToMarketAdmins(context, projectId, "REQUEST_SUBMITTED");
     }
 
@@ -280,17 +282,17 @@ const sendMailToMarketAdmins = async (
 ) => {
   const { pgClient, user } = context;
 
+  // Get project details.
   const projectCompanyDetail = await getProjectCompanyDetail(
     projectId,
     pgClient
   );
 
   // Get all market admins and send mail
-  const { rows: marketAdmins } = await pgClient.query(
-    `select account.* from account 
-        join market on market.id =account.market_id 
-        where market.id=$1 and account.role='MARKET_ADMIN'`,
-    [projectCompanyDetail.marketId]
+  const dbPool = getDbPool();
+  const { rows: marketAdmins } = await dbPool.query(
+    `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+    ["MARKET_ADMIN", projectCompanyDetail.marketId]
   );
 
   for (let i = 0; i < marketAdmins.length; i++) {
