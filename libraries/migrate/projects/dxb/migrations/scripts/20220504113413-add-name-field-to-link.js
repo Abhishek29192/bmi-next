@@ -18,7 +18,7 @@ module.exports.up = (migration) => {
     from: ["label"],
     to: ["name"],
     transformEntryForLocale: async ({ label }, currentLocale) => {
-      if (!label) {
+      if (!label || !label[currentLocale]) {
         return {
           name: titleNotFound,
           label: titleNotFound
