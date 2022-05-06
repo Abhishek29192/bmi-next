@@ -81,7 +81,7 @@ export const fetchData = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&approvalStatus=APPROVED`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&status=approved`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
