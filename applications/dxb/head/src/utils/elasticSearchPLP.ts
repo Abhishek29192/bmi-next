@@ -114,17 +114,34 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
 };
 
 const createAggregation = (categoryKey: string, optionKey: string) => {
-  return {
-    [categoryKey]: {
-      terms: {
-        // NOTE: returns 300 bucket is hopefully way more than is needed
-        // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
-        size: "300",
-        field: `${categoryKey}.code.keyword`,
-        include: optionKey ? [optionKey] : undefined
+  const split = categoryKey.split(".");
+  // It's a category, not a classification.
+  if (split.length === 1) {
+    return {
+      [categoryKey]: {
+        terms: {
+          // NOTE: returns 300 bucket is hopefully way more than is needed
+          // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
+          size: "300",
+          field: `${categoryKey}.code.keyword`,
+          include: optionKey ? [optionKey] : undefined
+        }
       }
-    }
-  };
+    };
+  } else {
+    const lowerFeatureName = `${split[0].toLowerCase()}.${split[1].toLowerCase()}`;
+    return {
+      [lowerFeatureName]: {
+        terms: {
+          // NOTE: returns 300 bucket is hopefully way more than is needed
+          // if you see disabled checkbox items in the UI then check if the bucket size is smaller than the resulting values
+          size: "300",
+          field: `${split[0]}.${split[1].toLowerCase()}.code.keyword`,
+          include: optionKey ? [optionKey] : undefined
+        }
+      }
+    };
+  }
 };
 
 const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
