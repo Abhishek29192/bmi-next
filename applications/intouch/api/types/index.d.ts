@@ -7814,6 +7814,7 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -8643,6 +8644,7 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -11740,6 +11742,7 @@ export type Mutation = {
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
+  restartSolutionGuarantee?: Maybe<Scalars["String"]>;
   sendReminderToIncompleteCompanyProfile?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -12430,6 +12433,11 @@ export type MutationResetPasswordImportedUsersArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
+export type MutationRestartSolutionGuaranteeArgs = {
+  projectId: Scalars["Int"];
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateAccountArgs = {
   input: UpdateAccountInput;
 };
@@ -13065,6 +13073,7 @@ export type NoteProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -13983,6 +13992,7 @@ export type Project = Node & {
   hidden?: Maybe<Scalars["Boolean"]>;
   /** Primary key */
   id: Scalars["Int"];
+  migrationId?: Maybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
@@ -14150,6 +14160,7 @@ export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -14243,6 +14254,7 @@ export type ProjectCompanyIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -14316,6 +14328,7 @@ export type ProjectInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -14605,6 +14618,7 @@ export type ProjectMemberProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -14862,6 +14876,7 @@ export type ProjectPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -14987,6 +15002,7 @@ export type ProjectSiteAddressIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21441,6 +21457,7 @@ export type UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21484,6 +21501,7 @@ export type UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21527,6 +21545,7 @@ export type UpdateProjectOnNoteForNoteProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21568,6 +21587,7 @@ export type UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21609,6 +21629,7 @@ export type UpdateProjectOnProjectForProjectCompanyIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21652,6 +21673,7 @@ export type UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;
@@ -21693,6 +21715,7 @@ export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
   notesUsingId?: InputMaybe<NoteProjectIdFkeyInverseInput>;

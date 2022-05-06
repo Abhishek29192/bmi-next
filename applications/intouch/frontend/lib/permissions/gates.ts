@@ -138,6 +138,12 @@ export const gates = {
       INSTALLER: false,
       COMPANY_ADMIN: true
     },
+    restartSolutionGuarantee: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: false,
+      INSTALLER: false,
+      COMPANY_ADMIN: false
+    },
     adminActions: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,

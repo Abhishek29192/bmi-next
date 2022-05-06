@@ -12884,6 +12884,7 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -14404,6 +14405,7 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -19269,6 +19271,7 @@ type Mutation {
     """
     input: resetPasswordImportedUsersInput
   ): resetPasswordImportedUsersResult
+  restartSolutionGuarantee(projectId: Int!): String
   sendReminderToIncompleteCompanyProfile: String
 
   """
@@ -20508,6 +20511,7 @@ input NoteProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -22190,6 +22194,7 @@ type Project implements Node {
   Primary key
   """
   id: Int!
+  migrationId: String
 
   """
   Short name for the Project
@@ -22517,6 +22522,7 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -22712,6 +22718,7 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -22867,6 +22874,7 @@ input ProjectInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -23423,6 +23431,7 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -23873,6 +23882,7 @@ input ProjectPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -24125,6 +24135,7 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35057,6 +35068,7 @@ input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35147,6 +35159,7 @@ input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35237,6 +35250,7 @@ input updateProjectOnNoteForNoteProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35322,6 +35336,7 @@ input updateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35407,6 +35422,7 @@ input updateProjectOnProjectForProjectCompanyIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35497,6 +35513,7 @@ input updateProjectOnProjectForProjectSiteAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
@@ -35582,6 +35599,7 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  migrationId: String
 
   """
   Short name for the Project
