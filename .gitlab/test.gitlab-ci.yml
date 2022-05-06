@@ -29,8 +29,9 @@
     reports:
       junit:
         - $ROOT_DIR/junit.xml
-      cobertura:
-        - coverage/cobertura-coverage.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
 
 ##############################################################################
 # Template to check the MR coverage using Jest
