@@ -1007,6 +1007,18 @@ type ContentfulResources implements Node {
 
   welcomeDialogBrands: [String]
 
+  "Internet Explorer dialog: Title of dialog"
+  ieDialogTitle: String
+
+  "Internet Explorer dialog: Body of dialog"
+  ieDialogBody: ContentfulRichText
+
+  "Internet Explorer dialog: Label of the CTA"
+  ieDialogActionLabel: String
+
+  "Internet Explorer dialog: Link of the CTA"
+  ieDialogActionLink: String
+
   "Set PIM documents' names pattern."
   productDocumentNameMap: String
 
