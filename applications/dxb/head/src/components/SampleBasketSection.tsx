@@ -10,7 +10,6 @@ import {
 } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
-import { extractFeatureValuesByClassification } from "../utils/features-from-classifications-transfroms";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
@@ -46,23 +45,25 @@ export type Data = {
   browseProductsCTA: PageInfoData | null;
 };
 
-const emailFormatSamples = (samples: SampleOrderElement[]) =>
+const formatSamples = (
+  samples: SampleOrderElement[],
+  attributeSeparator: string,
+  sampleSeparator: string
+) =>
   samples
     .map((sample) =>
       Object.entries(sample)
+        .filter(([_, value]) => !!value)
         .map(([key, value]) => `${key}: ${value}`)
-        .join("<br>")
+        .join(attributeSeparator)
     )
-    .join("<br><br>");
+    .join(sampleSeparator);
 
-const formatSamples = (samples: SampleOrderElement[]) =>
-  samples
-    .map((sample) =>
-      Object.entries(sample)
-        .map(([key, value]) => `${key}: ${value}`)
-        .join(",")
-    )
-    .join(" | ");
+const emailFormatSamples = (samples: SampleOrderElement[]) =>
+  formatSamples(samples, "<br>", "<br><br>");
+
+const hubSpotFormatSamples = (samples: SampleOrderElement[]) =>
+  formatSamples(samples, ", ", " | ");
 
 const SampleBasketSection = ({
   data: {
@@ -92,16 +93,48 @@ const SampleBasketSection = ({
   const actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
     const { classifications } = sample;
-    const featureAttributeMapForUrl = {
-      [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-        { attrName: FeatureCodeEnum.COLOUR },
-        { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
-      ]
-    };
-    const [color, texture] = extractFeatureValuesByClassification(
-      classifications,
-      featureAttributeMapForUrl
-    );
+
+    let color: string | undefined;
+    let texture: string | undefined;
+    let width: string | undefined;
+    let length: string | undefined;
+    let height: string | undefined;
+    let unit: string | undefined;
+    classifications
+      .filter(
+        (classification) =>
+          classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE ||
+          classification.code === ClassificationCodeEnum.MEASUREMENTS
+      )
+      .forEach((classification) =>
+        classification.features.forEach((feature) => {
+          if (feature.code === FeatureCodeEnum.COLOUR) {
+            color = feature.featureValues[0]?.value;
+            return;
+          }
+          if (feature.code === FeatureCodeEnum.TEXTURE_FAMILY) {
+            texture = feature.featureValues[0]?.value;
+            return;
+          }
+          if (feature.code === FeatureCodeEnum.WIDTH) {
+            width = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+          if (feature.code === FeatureCodeEnum.LENGTH) {
+            length = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+          if (feature.code === FeatureCodeEnum.HEIGHT) {
+            height = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+        })
+      );
+
+    const measurements = [width, length, height].filter(Boolean).join("x");
 
     const actionLabel = createActionLabel(
       sample.name,
@@ -117,7 +150,10 @@ const SampleBasketSection = ({
         sample.path
       )}`,
       color,
-      texture
+      texture,
+      measurements: measurements
+        ? `${measurements}${unit ? ` ${unit}` : ""}`
+        : undefined
     };
   });
 
@@ -160,7 +196,7 @@ const SampleBasketSection = ({
             additionalValues={{
               samples:
                 checkoutFormSection.source === "HubSpot"
-                  ? formatSamples(samples)
+                  ? hubSpotFormatSamples(samples)
                   : emailFormatSamples(samples)
             }}
             isSubmitDisabled={samples.length === 0}
