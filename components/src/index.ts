@@ -250,7 +250,8 @@ import Villain, { VillainProps } from "./villain";
 import YoutubeVideo, {
   getDefaultPreviewImage,
   Layout,
-  YoutubeVideoProps
+  YoutubeVideoProps,
+  GTM
 } from "./youtube-video";
 import { transformHyphens } from "./utils/commonUtils";
 
@@ -335,7 +336,8 @@ export type {
   VillainProps,
   Layout,
   YoutubeVideoProps,
-  CardProps
+  CardProps,
+  GTM
 };
 
 export {
