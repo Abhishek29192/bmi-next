@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { Section } from "@bmi/components";
+import { Button, Section } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {
@@ -47,7 +46,7 @@ export type Data = {
   browseProductsCTA: PageInfoData | null;
 };
 
-const formatSamples = (samples: SampleOrderElement[]) =>
+const emailFormatSamples = (samples: SampleOrderElement[]) =>
   samples
     .map((sample) =>
       Object.entries(sample)
@@ -56,8 +55,14 @@ const formatSamples = (samples: SampleOrderElement[]) =>
     )
     .join("<br><br>");
 
-const sampleIds = (samples: SampleOrderElement[]) =>
-  samples.map((sample) => sample.id).join(", ");
+const formatSamples = (samples: SampleOrderElement[]) =>
+  samples
+    .map((sample) =>
+      Object.entries(sample)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(",")
+    )
+    .join(" | ");
 
 const SampleBasketSection = ({
   data: {
@@ -152,8 +157,12 @@ const SampleBasketSection = ({
           <FormSection
             data={checkoutFormSection}
             backgroundColor="pearl"
-            additionalValues={{ samples: formatSamples(samples) }}
-            sampleIds={sampleIds(samples)}
+            additionalValues={{
+              samples:
+                checkoutFormSection.source === "HubSpot"
+                  ? formatSamples(samples)
+                  : emailFormatSamples(samples)
+            }}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
               label: "samples ordering basket form submitted",
