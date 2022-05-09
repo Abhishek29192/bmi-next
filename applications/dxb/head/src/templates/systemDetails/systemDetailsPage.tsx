@@ -108,10 +108,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
     return classifications
       ?.map(({ features }) => {
         return (
-          features &&
-          features.find(({ code }) =>
-            code.toLowerCase().includes("keyfeatures")
-          )
+          features && features.find(({ code }) => code.includes("keyfeatures"))
         );
       })
       .filter(Boolean)

@@ -43,8 +43,7 @@ export const getFeatureValuesByCodes = (
 ): string[] => {
   return attributeCodes.reduce(
     (featureValues: string[], attributeCode: AttributeCode) => {
-      const featureByFeatureCode: Feature =
-        features[attributeCode.attrName.toLowerCase()];
+      const featureByFeatureCode: Feature = features[attributeCode.attrName];
       const separator = attributeCode.separator || "";
       if (
         featureByFeatureCode &&
