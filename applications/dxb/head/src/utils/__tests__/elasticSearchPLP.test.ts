@@ -114,7 +114,7 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofattributes.minimumpitch": {
+              "roofAttributes.minimumpitch": {
                 terms: {
                   size: "300",
                   field: "roofAttributes.minimumpitch.code.keyword",
@@ -168,7 +168,7 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofattributes.minimumpitch": {
+              "roofAttributes.minimumpitch": {
                 terms: {
                   size: "300",
                   field: "roofAttributes.minimumpitch.code.keyword",
@@ -182,7 +182,7 @@ describe("compileESQueryPLP function", () => {
                   include: undefined
                 }
               },
-              "generalinformation.materials": {
+              "generalInformation.materials": {
                 terms: {
                   size: "300",
                   field: "generalInformation.materials.code.keyword",
@@ -658,7 +658,7 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofattributes.minimumpitch": {
+            "roofAttributes.minimumpitch": {
               terms: {
                 size: "300",
                 field: "roofAttributes.minimumpitch.code.keyword",
@@ -709,7 +709,7 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofattributes.minimumpitch": {
+            "roofAttributes.minimumpitch": {
               terms: {
                 size: "300",
                 field: "roofAttributes.minimumpitch.code.keyword",
@@ -723,7 +723,7 @@ describe("compileESQueryPLP function", () => {
                 include: undefined
               }
             },
-            "generalinformation.materials": {
+            "generalInformation.materials": {
               terms: {
                 size: "300",
                 field: "generalInformation.materials.code.keyword",

@@ -507,14 +507,14 @@ export const combineVariantClassifications = (
   vairantClassificationsMap.forEach((variantClassification, key) => {
     const mergedFeaturesMap: Map<string, Feature> = new Map(
       (variantClassification?.features || []).map((feature) => [
-        feature.code.toLowerCase(),
+        feature.code,
         feature
       ])
     );
 
     const productFeaturesMap = new Map(
       (productClassificationMap.get(key)?.features || []).map((feature) => [
-        feature.code.toLowerCase(),
+        feature.code,
         feature
       ])
     );

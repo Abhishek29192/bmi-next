@@ -787,8 +787,8 @@ export const getProductAttributes = (
 };
 
 const IGNORED_ATTRIBUTES = [
-  "scoringweightattributes.scoringweight",
-  "appearanceattributes.colourfamily"
+  "scoringWeightAttributes.scoringweight",
+  "appearanceAttributes.colourfamily"
 ];
 
 export const getValidClassification = (
@@ -802,7 +802,7 @@ export const getValidClassification = (
   const classificationsToReturn = classifications.filter(
     ({ features }) =>
       !IGNORED_CLASSIFICATIONS.includes(
-        features && features.length && features[0].code.toLowerCase()
+        features && features.length && features[0].code
       )
   );
   return classificationsToReturn;
@@ -816,7 +816,7 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
   );
 
   return features
-    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code.toLowerCase()))
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
     .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
 };
 
@@ -943,9 +943,9 @@ const findUniqueClassificationsOnVariant = (
   const uniqueClassifications = {};
   for (const code in variantClassifications) {
     // eslint-disable-next-line security/detect-object-injection
-    const getter = getPropIdentifier[code.toLowerCase()];
+    const getter = getPropIdentifier[code];
     // eslint-disable-next-line security/detect-object-injection
-    const baseValues = baseClassifications[code.toLowerCase()] || [];
+    const baseValues = baseClassifications[code] || [];
     const allSameValue =
       getter &&
       baseValues.reduce((values, value) => {
@@ -957,7 +957,7 @@ const findUniqueClassificationsOnVariant = (
       }, new Map()).size === 1;
     if (!(baseValues.length === numberOfVariants && allSameValue)) {
       // eslint-disable-next-line security/detect-object-injection
-      uniqueClassifications[code] = variantClassifications[code.toLowerCase()];
+      uniqueClassifications[code] = variantClassifications[code];
     }
   }
   return uniqueClassifications;
@@ -971,7 +971,7 @@ export const mapClassificationValues = (
     .map(([key, classification]) => {
       if (
         [FeatureCodeEnum.COLOUR, FeatureCodeEnum.TEXTURE_FAMILY].includes(
-          key.toLowerCase() as FeatureCodeEnum
+          key as FeatureCodeEnum
         )
       ) {
         // TODO: Hmmmmmmm
@@ -1022,7 +1022,7 @@ export const findUniqueVariantClassifications = (
 
   return findUniqueClassificationsOnVariant(
     allClassificationValues,
-    classifications[variant.code.toLowerCase()] || {},
+    classifications[variant.code] || {},
     variant._product.totalVariantCount || 1
   );
 };
@@ -1057,9 +1057,8 @@ export const getMergedClassifications = (
           [...prevValue.features, ...currValue.features]
         )
           .reduce((features, feature) => {
-            features.find(
-              (feat) => feat.code.toLowerCase() === feature.code.toLowerCase()
-            ) || features.push(feature);
+            features.find((feat) => feat.code === feature.code) ||
+              features.push(feature);
             return features;
           }, [])
           .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
@@ -1076,9 +1075,8 @@ export const getMergedClassifications = (
   return getValidClassification(
     pimClassificationCatalogueNamespace,
     mergedClassifications.reduce((classifications, classification) => {
-      classifications.find(
-        (clas) => clas.code.toLowerCase() === classification.code.toLowerCase()
-      ) || classifications.push(classification);
+      classifications.find((clas) => clas.code === classification.code) ||
+        classifications.push(classification);
       return classifications;
     }, [])
   )
