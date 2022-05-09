@@ -34,5 +34,11 @@
       "COMPANY_ADMIN": "Administrador de la empresa",
       "INSTALLER": "Miembro"
     }
+  },
+  "pt_PT": {
+    "roles": {
+      "COMPANY_ADMIN": "Gerente de empresa",
+      "INSTALLER": "Membro"
+    }
   }
 }

@@ -1,0 +1,29 @@
+{
+  "Description": "Descrição",
+  "My courses": "Meus cursos",
+  "See training": "Ver Formação",
+  "Training": "Formação",
+  "completed": "concluído",
+  "enrolled": "Inscrito",
+  "filter": {
+    "labels": {
+      "all": "Tudo"
+    }
+  },
+  "in_progress": "Em curso",
+  "search": {
+    "inputLabel": "Encontrar Formação"
+  },
+  "technology": {
+    "FLAT": "Plana",
+    "OTHER": "Outras",
+    "PITCHED": "Inclinado"
+  },
+  "type": {
+    "classroom": "Aula",
+    "elearning": "Formação digital",
+    "webinar": "Webinar"
+  },
+  "viewTraining": "Ver Formação",
+  "waiting": "À espera"
+}

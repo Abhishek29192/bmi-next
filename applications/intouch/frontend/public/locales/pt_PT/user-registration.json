@@ -1,0 +1,13 @@
+{
+  "dialog": {
+    "form": {
+      "agree_label": "Eu aceito o",
+      "and": "e",
+      "firstName": "Nome",
+      "lastName": "Sobrenome",
+      "privacy_policy": "Política de Privacidade da BMI",
+      "terms_condition": "Termos e Condições da BMI"
+    },
+    "title": "registro completo"
+  }
+}
