@@ -692,6 +692,7 @@ export const deleteInvitedUser = async (
   resolveInfo,
   auth0
 ) => {
+  const { pgRootPool } = context;
   const logger = context.logger("service:account");
   try {
     const { access_token } = await auth0.getAccessToken();
@@ -709,6 +710,14 @@ export const deleteInvitedUser = async (
         headers: { Authorization: `Bearer ${access_token}` }
       });
       logger.info(`Successfully deleted auth0 user: ${args.email}`);
+
+      const { rows: invitations } = await pgRootPool.query(
+        `DELETE FROM invitation WHERE invitee = $1 RETURNING *`,
+        [args.email]
+      );
+      if (invitations.length) {
+        logger.info(`Deleted invitation with email: ${args.email}`);
+      }
     } else if (data.length > 0 && data[0].email_verified) {
       logger.info(`Auth0 user has been verified: ${args.email}`);
       return "fail";
