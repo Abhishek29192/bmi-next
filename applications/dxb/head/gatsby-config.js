@@ -108,7 +108,7 @@ const queries = [
               pageData.contentfulSimplePage;
 
             // If not one of the above pages or excluded then do not index
-            if (page && !page.seo.noIndex) {
+            if (page && page.seo && !page.seo.noIndex) {
               // relying on PageInfoFragment
               return {
                 __typename: page.__typename,
@@ -152,6 +152,7 @@ const queries = [
       function isLinkDocument(document) {
         return !!document.url && !document.fileSize && !document.realFileName;
       }
+
       if (!data) {
         throw new Error("No data");
       }
@@ -165,13 +166,13 @@ const queries = [
           ...item
         })),
         ...allContentfulDocument.edges
+          .filter((node) => !node.noIndex && node.asset)
           .map(({ node }) => ({
             titleAndSize: `${node.title}_${node.asset.file.details.size}`,
             realFileName: `${node.asset.file.fileName}`,
             isLinkDocument: isLinkDocument(node),
             ...node
           }))
-          .filter((node) => !node.noIndex)
       ];
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
