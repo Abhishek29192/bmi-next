@@ -15,7 +15,7 @@ type AddEvidenceDialogProps = {
   isOpen: boolean;
   loading: boolean;
   evidenceCategories?: DeepPartial<ContentfulEvidenceCategory>[];
-  defaultEvidenceCategory: EvidenceCategoryKey;
+  defaultEvidenceCategory?: EvidenceCategoryKey;
   onCloseClick: () => void;
   onConfirmClick: (
     evidenceCategoryType: EvidenceCategoryType,

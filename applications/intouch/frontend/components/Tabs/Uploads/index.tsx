@@ -86,8 +86,8 @@ const getUploads = (project: GetProjectQuery["project"]) => {
   for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
     uploads.set(evidenceCategory.name, {
       evidences: [],
-      minumumUploads: evidenceCategory?.minimumUploads,
-      description: evidenceCategory?.description?.json
+      minumumUploads: evidenceCategory.minimumUploads,
+      description: evidenceCategory.description?.json
     });
   }
 
@@ -139,7 +139,7 @@ const getUploads = (project: GetProjectQuery["project"]) => {
 const isCustomEvidenceAvailable = (guarantee: DeepPartial<Guarantee>) => {
   return (
     guarantee?.coverage === "SOLUTION" &&
-    ["NEW", "REJECTED"].includes(guarantee?.status)
+    ["NEW", "REJECTED"].includes(guarantee.status)
   );
 };
 
@@ -235,7 +235,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       customEvidenceAvailable,
       key
     );
-    setDefaultRequirementCategory(mappedCategory.referenceCode);
+    setDefaultRequirementCategory(mappedCategory?.referenceCode);
   };
 
   const uploads = getUploads(project);
@@ -280,7 +280,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
     if (uploads) {
       const evidenceItems: Evidence[] = []
         .concat([...uploads.entries()])
-        .filter(([key, values]) => values?.evidences?.length > 0)
+        .filter(([key, values]) => values.evidences.length > 0)
         .flatMap(([key, values]) => values.evidences);
       if (evidenceItems.length > 0) {
         setGalleryItems(getGalleryItems(evidenceItems));
@@ -310,8 +310,8 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
             {uploads &&
               [...uploads.entries()].map(([key, values], index) => {
                 const isAllEvidenceUploaded =
-                  (values?.evidences?.length || 0) >=
-                  (values?.minumumUploads || 0);
+                  (values.evidences.length || 0) >=
+                  (values.minumumUploads || 0);
                 return (
                   <Accordion.Item
                     key={`${key}-${index}`}
@@ -327,7 +327,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                         {t(key)}
                       </Typography>
                       <div className={styles.requiredList}>
-                        {values?.minumumUploads > 0 && (
+                        {values.minumumUploads > 0 && (
                           <AnchorLink
                             onClick={() => {
                               requiredHandler(values, key);
