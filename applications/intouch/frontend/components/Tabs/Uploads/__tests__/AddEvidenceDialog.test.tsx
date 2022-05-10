@@ -14,6 +14,7 @@ describe("AddEvidenceDialog Components", () => {
         isOpen={false}
         onCloseClick={jest.fn()}
         onConfirmClick={jest.fn()}
+        loading={false}
       />
     );
     expect(screen.queryByTestId("add-evidence")).toBeNull();
@@ -26,6 +27,7 @@ describe("AddEvidenceDialog Components", () => {
         isOpen={true}
         onCloseClick={jest.fn()}
         onConfirmClick={onConfirmClick}
+        loading={false}
       />
     );
     const addEvidence = screen.queryByTestId("add-evidence");
