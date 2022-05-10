@@ -24,6 +24,7 @@ import { useGetProjectsLazyQuery } from "../../graphql/generated/hooks";
 import { getServerPageGetProjects } from "../../graphql/generated/page";
 import { isSuperOrMarketAdmin } from "../../lib/account";
 import { useMarketContext } from "../../context/MarketContext";
+import ProjectPageContextWrapper from "../../context/ProjectPageContext";
 
 export type ProjectsPageProps = GlobalPageProps & {
   projects: GetProjectsQuery["projectsByMarket"];
@@ -89,38 +90,44 @@ const Projects = ({
 
   return (
     <Layout title={t("common:Projects")} pageData={globalPageData}>
-      <div className={layoutStyles.sidePanelWrapper}>
-        <ProjectSidePanel
-          projects={sortedProjects}
-          onProjectSelected={handleProjectSelection}
-          selectedProjectId={activeProject}
-        />
+      <ProjectPageContextWrapper
+        value={{
+          getProjectsCallBack
+        }}
+      >
+        <div className={layoutStyles.sidePanelWrapper}>
+          <ProjectSidePanel
+            projects={sortedProjects}
+            onProjectSelected={handleProjectSelection}
+            selectedProjectId={activeProject}
+          />
 
-        <Grid
-          container
-          spacing={3}
-          className={GridStyles.outerGrid}
-          alignItems="stretch"
-        >
-          {sortedProjects.length === 0 ? (
-            <Grid item xs={12}>
-              <NoProjectsCard title={t("project-page:noProjects.title")}>
-                <Typography variant="subtitle2">
-                  {t("project-page:noProjects.body1")}
-                </Typography>
-                <Typography variant="subtitle2">
-                  {t("project-page:noProjects.body2")}
-                </Typography>
-              </NoProjectsCard>
-            </Grid>
-          ) : (
-            <ProjectDetail
-              projectId={activeProject}
-              onUpdateGuarantee={getProjectsCallBack}
-            />
-          )}
-        </Grid>
-      </div>
+          <Grid
+            container
+            spacing={3}
+            className={GridStyles.outerGrid}
+            alignItems="stretch"
+          >
+            {sortedProjects.length === 0 ? (
+              <Grid item xs={12}>
+                <NoProjectsCard title={t("project-page:noProjects.title")}>
+                  <Typography variant="subtitle2">
+                    {t("project-page:noProjects.body1")}
+                  </Typography>
+                  <Typography variant="subtitle2">
+                    {t("project-page:noProjects.body2")}
+                  </Typography>
+                </NoProjectsCard>
+              </Grid>
+            ) : (
+              <ProjectDetail
+                projectId={activeProject}
+                onUpdateGuarantee={getProjectsCallBack}
+              />
+            )}
+          </Grid>
+        </div>
+      </ProjectPageContextWrapper>
     </Layout>
   );
 };

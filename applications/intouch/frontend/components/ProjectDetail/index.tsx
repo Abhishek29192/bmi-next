@@ -285,6 +285,9 @@ const ProjectDetail = ({
           <ProjectActionsCard
             projectId={project.id}
             isArchived={project.hidden}
+            isSolutionOrSystemGuaranteeExist={isSolutionOrSystemGuaranteeExist(
+              project
+            )}
             guaranteeEventHandler={
               isProjectApprovable(
                 project as DeepPartial<Project>,

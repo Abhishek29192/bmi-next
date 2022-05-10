@@ -11742,7 +11742,7 @@ export type Mutation = {
   publishMessage?: Maybe<Publish>;
   resetPassword?: Maybe<Scalars["String"]>;
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
-  restartSolutionGuarantee?: Maybe<Scalars["String"]>;
+  restartGuarantee?: Maybe<Scalars["String"]>;
   sendReminderToIncompleteCompanyProfile?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
@@ -12433,7 +12433,7 @@ export type MutationResetPasswordImportedUsersArgs = {
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
-export type MutationRestartSolutionGuaranteeArgs = {
+export type MutationRestartGuaranteeArgs = {
   projectId: Scalars["Int"];
 };
 

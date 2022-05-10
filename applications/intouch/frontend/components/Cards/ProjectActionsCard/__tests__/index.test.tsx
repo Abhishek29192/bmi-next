@@ -12,6 +12,11 @@ import { ProjectActionsCard } from "../";
 const addProjectNoteSpy = jest.fn();
 const restartSolutionGuaranteeSpy = jest.fn();
 const useMutationSpy = jest.spyOn(apolloClient, "useMutation");
+const getProjectsCallBackSpy = jest.fn();
+const useProjectPageContextSpy = jest.fn();
+jest.mock("../../../../context/ProjectPageContext", () => ({
+  useProjectPageContext: () => useProjectPageContextSpy()
+}));
 
 const logSpy = jest.fn();
 jest.mock("../../../../lib/logger", () => (log) => logSpy(log));
@@ -22,6 +27,7 @@ describe("ProjectActionsCard", () => {
     projectId: 1,
     isArchived: false,
     guaranteeEventHandler: (event) => guaranteeEventHandlerSpy(event),
+    isSolutionOrSystemGuaranteeExist: true,
     ...props
   });
   const useMutationImplementation = () =>
@@ -43,6 +49,10 @@ describe("ProjectActionsCard", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.resetAllMocks();
+
+    useProjectPageContextSpy.mockReturnValue({
+      getProjectsCallBack: () => getProjectsCallBackSpy()
+    });
   });
 
   it("render correctly", () => {
@@ -55,6 +65,7 @@ describe("ProjectActionsCard", () => {
 
     expect(container).toMatchSnapshot();
     expect(useMutationSpy).toHaveBeenCalledTimes(3);
+    expect(useProjectPageContextSpy).toHaveBeenCalledTimes(1);
   });
 
   it("render unarchived text correctly", () => {
@@ -202,6 +213,7 @@ describe("ProjectActionsCard", () => {
         </AccountProvider>
       );
 
+      expect(useProjectPageContextSpy).toHaveBeenCalledTimes(1);
       const restartButton = screen.getByText("guaranteeRestart.buttonLabel");
 
       useMutationImplementation();
@@ -222,6 +234,7 @@ describe("ProjectActionsCard", () => {
       expect(restartSolutionGuaranteeSpy).toHaveBeenCalledWith({
         variables: { projectId: 1 }
       });
+      expect(getProjectsCallBackSpy).toHaveBeenCalledTimes(1);
       expect(addProjectNoteSpy).toHaveBeenCalledTimes(1);
     });
 
@@ -333,6 +346,23 @@ describe("ProjectActionsCard", () => {
           message: `There was an error adding note to project: ${errorMessage}`
         });
       });
+    });
+
+    it("hide restart button if isSolutionOrSystemGuaranteeExist is false", async () => {
+      useMutationImplementation();
+      renderWithUserProvider(
+        <AccountProvider
+          account={generateAccount({
+            role: "SUPER_ADMIN"
+          })}
+        >
+          <ProjectActionsCard
+            {...{ ...initialProps(), isSolutionOrSystemGuaranteeExist: false }}
+          />
+        </AccountProvider>
+      );
+
+      expect(screen.queryByText("guaranteeRestart.buttonLabel")).toBeFalsy();
     });
 
     describe("hide restart button if they have no right to restart", () => {

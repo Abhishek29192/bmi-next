@@ -4,7 +4,7 @@ import {
   ContentfulGuaranteeTemplatesCollection,
   ContentfulGuaranteeTypeCollection,
   EvidenceCategoryCollection,
-  MutationRestartSolutionGuaranteeArgs
+  MutationRestartGuaranteeArgs
 } from "@bmi/intouch-api-types";
 import {
   invite,
@@ -25,7 +25,7 @@ import {
   getCompanyIsProfileComplete,
   guaranteeResolver
 } from "../../services/company/customResolvers";
-import { restartSolutionGuarantee } from "../../services/guarantee";
+import { restartGuarantee } from "../../services/guarantee";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
@@ -242,13 +242,13 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             auth0
           );
         },
-        restartSolutionGuarantee: async (
+        restartGuarantee: async (
           query,
-          args: MutationRestartSolutionGuaranteeArgs,
+          args: MutationRestartGuaranteeArgs,
           context,
           resolveInfo
         ) => {
-          return restartSolutionGuarantee(args, context);
+          return restartGuarantee(args, context);
         },
         ...reminderMutation
       },
