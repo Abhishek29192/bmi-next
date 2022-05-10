@@ -1,0 +1,12 @@
+{
+  "contentTypes": {
+    "EXTERNAL_LINK": "link externo",
+    "FALLBACK": "meios de comunicação",
+    "FOLDER": "Pasta",
+    "IMAGE": "Imagem",
+    "PDF": "PDF",
+    "VIDEO": "Vídeo"
+  },
+  "countIndicator": "Mostrando {{amount}} de {{total}} itens",
+  "noItems": "Nada aqui"
+}

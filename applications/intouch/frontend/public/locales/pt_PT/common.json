@@ -1,0 +1,90 @@
+{
+  "ARCHITECT": "Arquiteto",
+  "About Us": "Sobre nós",
+  "Account": "Minha conta",
+  "CONTRACTOR": "Empreiteiro",
+  "CORP_DEVELOPER": "Promotor",
+  "Companies": "Empresas",
+  "Company": "Empresa",
+  "Company Description": "Descrição da Empresa",
+  "Download": "Descarregar  ",
+  "Edit": "Editar",
+  "Home": "Inicio",
+  "Inventory": "Inventário",
+  "Logout": "Fechar Sessão",
+  "MERCHANT": "Distribuidor",
+  "Main office address": "Endereço da sede",
+  "No Options": "sem opções",
+  "Notifications": "Notificações",
+  "Products": "Produtos",
+  "Profile": "Perfil",
+  "Projects": "Projetos",
+  "Registered Address": "Endereço registrado",
+  "Registered Details": "dados de registo",
+  "Registered Name": "nome registrado",
+  "SavePdf": "Descarregar PDF",
+  "Search": "Procurar",
+  "Show me": "mostre-me",
+  "Sort by": "Organizar por",
+  "Team": "Equipamento",
+  "Tools": "Ferramentas",
+  "Training": "Formação",
+  "aria": {
+    "navigation": "Navegação",
+    "notifications": "Notificações"
+  },
+  "certificationLabels": {
+    "certification": "Certificação",
+    "expiry": "Expiração",
+    "type": "tipo"
+  },
+  "certifications": {
+    "flat": "Plana",
+    "other": "outros",
+    "pitched": "Inclinado"
+  },
+  "deactivatedCompany": "Empresa desativada",
+  "error_messages": {
+    "email_format": "endereço de correio eletronico invalido",
+    "phone_number_format": "telefone inválido",
+    "required": "Obrigatoriedade",
+    "url_format": "URL inválido"
+  },
+  "fallback": {
+    "noResults": "Não há resultados",
+    "notAdded": "não adicionado"
+  },
+  "generatingPdf": "Gerando PDF",
+  "notifications": {
+    "earlier": "Antes de",
+    "older": "Mais de 2 meses",
+    "today": "Hoje"
+  },
+  "results available": "Resultados disponíveis",
+  "roles": {
+    "COMPANY_ADMIN": "Gerente de empresa",
+    "INSTALLER": "Membro",
+    "MARKET_ADMIN": "Administrador de BMI",
+    "SUPER_ADMIN": "super administrador"
+  },
+  "session": {
+    "dialog": {
+      "content": "Você esteve inativo por um tempo e esta sessão irá expirar e você será desconectado automaticamente.",
+      "continue": "estender sessão",
+      "logout": "Fechar Sessão",
+      "title": "Sua sessão expirará em {{counter}}"
+    }
+  },
+  "tier": {
+    "T1": "Membro",
+    "T2": "parceiros",
+    "T3": "especialista",
+    "T4": "Elite"
+  },
+  "visitWebsite": "visite o site",
+  "button": {
+    "more": "Mostre mais",
+    "less": "mostre menos"
+  },
+  "requiredInformation": "informação requerida"
+}

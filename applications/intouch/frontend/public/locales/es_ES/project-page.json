@@ -293,6 +293,8 @@
   "projectActions": {
     "cta": {
       "approveGuarantee": "Aprobar garantía",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
       "archive": "Archivar  proyecto",
       "requestInformation": "Pedir mas información",
       "unarchive": "Desarchivar proyecto"
