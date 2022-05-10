@@ -31,8 +31,9 @@ const data: Data = {
 };
 describe("SignupBlock component", () => {
   it("renders correctly", () => {
-    const { container } = render(<SignupBlock data={data} />);
-    expect(container).toMatchSnapshot();
+    const { container, queryAllByRole } = render(<SignupBlock data={data} />);
+    expect(container.firstChild).toHaveClass("SignupBlock");
+    expect(queryAllByRole("button", { name: "sign up" }).length).toBe(1);
   });
   it("renders correctly when no data is given", () => {
     const { container } = render(<SignupBlock />);
