@@ -4,6 +4,8 @@ import { createClient } from "contentful-management";
 import { TagAndUpdate, PublishAll } from "./coordinate";
 import { CreateTag } from "./tag";
 
+export { TagEntity } from "./tag";
+
 /* istanbul ignore next */
 config({
   path: `${__dirname}/.env.${process.env.NODE_ENV || "development"}`

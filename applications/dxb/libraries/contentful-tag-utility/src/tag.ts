@@ -7,7 +7,7 @@ const BuildTagId = (market: string) => {
 export const TagEntity = async (
   entity: Entry | Asset,
   market: string
-): Promise<void> => {
+): Promise<boolean> => {
   const tags: Link<"Tag">[] | undefined = entity.metadata?.tags;
   if (
     tags?.some(
@@ -16,6 +16,7 @@ export const TagEntity = async (
     )
   ) {
     console.log(`DXB market tag found on :${entity.sys.id}`);
+    return false;
   } else {
     tags?.push({
       sys: {
@@ -24,6 +25,7 @@ export const TagEntity = async (
         id: `${BuildTagId(market)}`
       }
     });
+    return true;
   }
 };
 
