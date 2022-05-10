@@ -162,7 +162,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -192,7 +192,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -222,7 +222,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -1256,7 +1256,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -1286,7 +1286,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -1316,7 +1316,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -2343,7 +2343,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -2370,7 +2370,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -2397,7 +2397,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -3557,7 +3557,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -3584,7 +3584,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -3611,7 +3611,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -4777,7 +4777,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -4807,7 +4807,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -4837,7 +4837,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -6064,7 +6064,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -6094,7 +6094,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -6124,7 +6124,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -7098,7 +7098,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -7128,7 +7128,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -7158,7 +7158,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -8132,7 +8132,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -8162,7 +8162,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -8192,7 +8192,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -9213,7 +9213,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -9243,7 +9243,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -9273,7 +9273,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -10294,7 +10294,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -10324,7 +10324,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -10354,7 +10354,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -11370,7 +11370,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -11400,7 +11400,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -11430,7 +11430,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -12439,7 +12439,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -12466,7 +12466,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -12493,7 +12493,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -13653,7 +13653,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -13680,7 +13680,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -13707,7 +13707,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -14873,7 +14873,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -14903,7 +14903,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -14933,7 +14933,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -16160,7 +16160,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -16190,7 +16190,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -16220,7 +16220,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -17176,7 +17176,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -17206,7 +17206,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -17236,7 +17236,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -18192,7 +18192,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -18222,7 +18222,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -18252,7 +18252,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -19291,7 +19291,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -19321,7 +19321,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -19351,7 +19351,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -20595,7 +20595,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -20625,7 +20625,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -20655,7 +20655,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -21699,7 +21699,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -21729,7 +21729,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -21759,7 +21759,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -23013,7 +23013,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -23043,7 +23043,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -23073,7 +23073,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >
@@ -25611,7 +25611,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                       href="/al"
                       tabindex="0"
                     >
@@ -25641,7 +25641,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                       href="/at"
                       tabindex="0"
                     >
@@ -25671,7 +25671,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                      data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                       href="/uk"
                       tabindex="0"
                     >

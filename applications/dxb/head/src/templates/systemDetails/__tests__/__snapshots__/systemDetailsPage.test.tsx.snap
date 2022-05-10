@@ -238,7 +238,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -268,7 +268,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -298,7 +298,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -328,7 +328,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -6359,7 +6359,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -6389,7 +6389,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -6419,7 +6419,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -6449,7 +6449,7 @@ exports[`SystemDetailsPage template component should have function to filter and
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -10831,7 +10831,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -10861,7 +10861,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -10891,7 +10891,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -10921,7 +10921,7 @@ exports[`SystemDetailsPage template component should have function to filter doc
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -16780,7 +16780,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -16810,7 +16810,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -16840,7 +16840,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -16870,7 +16870,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -22870,7 +22870,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -22900,7 +22900,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -22930,7 +22930,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -22960,7 +22960,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -28960,7 +28960,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -28990,7 +28990,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -29020,7 +29020,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -29050,7 +29050,7 @@ exports[`SystemDetailsPage template component should render without assets 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -34504,7 +34504,7 @@ exports[`SystemDetailsPage template component should render without categories 1
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -34534,7 +34534,7 @@ exports[`SystemDetailsPage template component should render without categories 1
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -34564,7 +34564,7 @@ exports[`SystemDetailsPage template component should render without categories 1
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -34594,7 +34594,7 @@ exports[`SystemDetailsPage template component should render without categories 1
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -37630,7 +37630,7 @@ exports[`SystemDetailsPage template component should render without classificati
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -37660,7 +37660,7 @@ exports[`SystemDetailsPage template component should render without classificati
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -37690,7 +37690,7 @@ exports[`SystemDetailsPage template component should render without classificati
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -37720,7 +37720,7 @@ exports[`SystemDetailsPage template component should render without classificati
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -43213,7 +43213,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -43243,7 +43243,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -43273,7 +43273,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -43303,7 +43303,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >

@@ -238,7 +238,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -268,7 +268,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -298,7 +298,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -328,7 +328,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -3714,7 +3714,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -3744,7 +3744,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -3774,7 +3774,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -3804,7 +3804,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >

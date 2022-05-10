@@ -238,7 +238,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -268,7 +268,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -298,7 +298,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -328,7 +328,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-109 MuiButton-text buttonStyles-text-110 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -4700,7 +4700,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -4730,7 +4730,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -4760,7 +4760,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -4790,7 +4790,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -9162,7 +9162,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -9192,7 +9192,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -9222,7 +9222,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -9252,7 +9252,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-136 MuiButton-text buttonStyles-text-137 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -13621,7 +13621,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -13651,7 +13651,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -13681,7 +13681,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -13711,7 +13711,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -18083,7 +18083,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -18113,7 +18113,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -18143,7 +18143,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -18173,7 +18173,7 @@ exports[`Contact us page render location correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -22545,7 +22545,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"al\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -22575,7 +22575,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"at\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -22605,7 +22605,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"uk\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -22635,7 +22635,7 @@ exports[`Contact us page renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
-                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"en\\"}"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
