@@ -4,13 +4,12 @@ import {
   Space,
   Role
 } from "contentful-management";
-//import { ContentfulWebhook } from "./types";
 
 const DXB_MARKET_ROLE_PREFIX = "DXB - ";
 //const TAG_ID_PREFIX = "market__";
 
 export const FindOwner = (payload: Entry): string | undefined => {
-  return payload.sys.createdBy?.sys.id;
+  return payload.sys.createdBy?.sys?.id;
 };
 
 export const FindMembership = async (

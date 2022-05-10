@@ -5,8 +5,8 @@ const sharedConfig = require("../jest.config");
 module.exports = {
   ...sharedConfig,
   rootDir: "../../../../",
-  roots: ["<rootDir>/applications/dxb/functions/gatsby-cloud-build-proxy/src"],
+  roots: ["<rootDir>/applications/dxb/functions/contentful-tagger/src"],
   collectCoverageFrom: [
-    "<rootDir>/applications/dxb/functions/gatsby-cloud-build-proxy/src/**/*.{ts,tsx,js}"
+    "<rootDir>/applications/dxb/functions/contentful-tagger/src/**/*.{ts,tsx,js}"
   ]
 };
