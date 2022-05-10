@@ -2,6 +2,11 @@ import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import mockConsole from "jest-mock-console";
+import {
+  createFeature,
+  createFeatureUnit,
+  createFeatureValue
+} from "@bmi/pim-types";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import {
   BasketContextProvider,
@@ -12,7 +17,7 @@ import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
 import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
-import { ClassificationCodeEnum } from "../types/pim";
+import { ClassificationCodeEnum, FeatureCodeEnum } from "../types/pim";
 import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
@@ -44,39 +49,41 @@ const sample: Sample = {
     createClassification({
       code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
       features: [
-        {
-          code: "colour",
-          featureValues: [{ value: "green" }],
-          name: "colour"
-        },
-        {
-          code: "texturefamily",
-          featureValues: [{ value: "rough" }],
-          name: "texturefamily"
-        }
+        createFeature({
+          code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`,
+          featureValues: [createFeatureValue({ value: "green" })]
+        }),
+        createFeature({
+          code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`,
+          featureValues: [createFeatureValue({ value: "rough" })]
+        })
       ]
     }),
     createClassification({
+      name: ClassificationCodeEnum.MEASUREMENTS,
       code: ClassificationCodeEnum.MEASUREMENTS,
       features: [
-        {
-          code: "width",
-          featureValues: [{ value: "1" }],
-          name: "width",
-          featureUnit: { unitType: "unit", name: "unit", symbol: "mm" }
-        },
-        {
-          code: "length",
-          featureValues: [{ value: "2" }],
-          name: "length",
-          featureUnit: { unitType: "unit", name: "unit", symbol: "mm" }
-        },
-        {
-          code: "height",
-          featureValues: [{ value: "3" }],
-          name: "height",
-          featureUnit: { unitType: "unit", name: "unit", symbol: "mm" }
-        }
+        createFeature({
+          code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`,
+          featureValues: [createFeatureValue({ value: "1" })],
+          featureUnit: createFeatureUnit({
+            symbol: "mm"
+          })
+        }),
+        createFeature({
+          code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`,
+          featureValues: [createFeatureValue({ value: "2" })],
+          featureUnit: createFeatureUnit({
+            symbol: "mm"
+          })
+        }),
+        createFeature({
+          code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`,
+          featureValues: [createFeatureValue({ value: "3" })],
+          featureUnit: createFeatureUnit({
+            symbol: "mm"
+          })
+        })
       ]
     })
   ],
@@ -185,7 +192,7 @@ describe("SampleBasketSection component", () => {
     expect(local.getItem).lastCalledWith("no-basketItems");
     expect(local.setItem).lastCalledWith(
       "no-basketItems",
-      '[{"name":"sample-1","classifications":[{"name":"appearanceAttributes","code":"appearanceAttributes","features":[{"code":"colour","featureValues":[{"value":"green"}],"name":"colour"},{"code":"texturefamily","featureValues":[{"value":"rough"}],"name":"texturefamily"}]},{"name":"appearanceAttributes","code":"measurements","features":[{"code":"width","featureValues":[{"value":"1"}],"name":"width","featureUnit":{"unitType":"unit","name":"unit","symbol":"mm"}},{"code":"length","featureValues":[{"value":"2"}],"name":"length","featureUnit":{"unitType":"unit","name":"unit","symbol":"mm"}},{"code":"height","featureValues":[{"value":"3"}],"name":"height","featureUnit":{"unitType":"unit","name":"unit","symbol":"mm"}}]}],"code":"sample-1","image":"http://localhost:8000/image-real-file-name.jpg","path":"sample-1-details"}]'
+      '[{"name":"sample-1","classifications":[{"name":"appearanceAttributes","code":"appearanceAttributes","features":[{"code":"bmiClassificationCatalog/1.0/appearanceAttributes.colour","featureValues":[{"value":"green","code":"code"}],"featureUnit":{"name":"unit-name","symbol":"symbol","unitType":"unit-type"},"name":"name"},{"code":"bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily","featureValues":[{"value":"rough","code":"code"}],"featureUnit":{"name":"unit-name","symbol":"symbol","unitType":"unit-type"},"name":"name"}]},{"name":"measurements","code":"measurements","features":[{"code":"bmiClassificationCatalog/1.0/measurements.width","featureValues":[{"value":"1","code":"code"}],"featureUnit":{"name":"name","symbol":"mm","unitType":"unit-type"},"name":"name"},{"code":"bmiClassificationCatalog/1.0/measurements.length","featureValues":[{"value":"2","code":"code"}],"featureUnit":{"name":"name","symbol":"mm","unitType":"unit-type"},"name":"name"},{"code":"bmiClassificationCatalog/1.0/measurements.height","featureValues":[{"value":"3","code":"code"}],"featureUnit":{"name":"name","symbol":"mm","unitType":"unit-type"},"name":"name"}]}],"code":"sample-1","image":"http://localhost:8000/image-real-file-name.jpg","path":"sample-1-details"}]'
     );
   });
 });
@@ -245,16 +252,14 @@ describe("SampleBasketSection with form", () => {
         createClassification({
           code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
           features: [
-            {
-              code: "colour",
-              featureValues: [],
-              name: "colour"
-            },
-            {
-              code: "texturefamily",
-              featureValues: [{ value: "rough" }],
-              name: "texturefamily"
-            }
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`,
+              featureValues: []
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`,
+              featureValues: [createFeatureValue({ value: "rough" })]
+            })
           ]
         })
       ],
@@ -318,33 +323,29 @@ describe("SampleBasketSection with form", () => {
         createClassification({
           code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
           features: [
-            {
-              code: "colour",
-              featureValues: [{ value: "green" }],
-              name: "colour"
-            },
-            {
-              code: "texturefamily",
-              featureValues: [{ value: "rough" }],
-              name: "texturefamily"
-            }
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`,
+              featureValues: [createFeatureValue({ value: "green" })]
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`,
+              featureValues: [createFeatureValue({ value: "rough" })]
+            })
           ]
         }),
         createClassification({
           code: ClassificationCodeEnum.MEASUREMENTS,
           features: [
-            {
-              code: "width",
-              featureValues: [{ value: "1" }],
-              name: "width",
-              featureUnit: { unitType: "unit", name: "unit", symbol: "mm" }
-            },
-            {
-              code: "height",
-              featureValues: [{ value: "3" }],
-              name: "height",
-              featureUnit: { unitType: "unit", name: "unit", symbol: "mm" }
-            }
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`,
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "mm" })
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`,
+              featureValues: [createFeatureValue({ value: "3" })],
+              featureUnit: createFeatureUnit({ symbol: "mm" })
+            })
           ]
         })
       ],
@@ -408,36 +409,34 @@ describe("SampleBasketSection with form", () => {
         createClassification({
           code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
           features: [
-            {
-              code: "colour",
-              featureValues: [{ value: "green" }],
-              name: "colour"
-            },
-            {
-              code: "texturefamily",
-              featureValues: [{ value: "rough" }],
-              name: "texturefamily"
-            }
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`,
+              featureValues: [createFeatureValue({ value: "green" })]
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`,
+              featureValues: [createFeatureValue({ value: "rough" })]
+            })
           ]
         }),
         createClassification({
           code: ClassificationCodeEnum.MEASUREMENTS,
           features: [
-            {
-              code: "width",
-              featureValues: [{ value: "1" }],
-              name: "width"
-            },
-            {
-              code: "length",
-              featureValues: [{ value: "2" }],
-              name: "length"
-            },
-            {
-              code: "height",
-              featureValues: [{ value: "3" }],
-              name: "height"
-            }
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`,
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: null
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`,
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: null
+            }),
+            createFeature({
+              code: `${process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`,
+              featureValues: [createFeatureValue({ value: "3" })],
+              featureUnit: null
+            })
           ]
         })
       ],

@@ -108,25 +108,41 @@ const SampleBasketSection = ({
       )
       .forEach((classification) =>
         classification.features.forEach((feature) => {
-          if (feature.code === FeatureCodeEnum.COLOUR) {
+          const featureCode = feature.code.split("/").pop();
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`
+          ) {
             color = feature.featureValues[0]?.value;
             return;
           }
-          if (feature.code === FeatureCodeEnum.TEXTURE_FAMILY) {
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`
+          ) {
             texture = feature.featureValues[0]?.value;
             return;
           }
-          if (feature.code === FeatureCodeEnum.WIDTH) {
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`
+          ) {
             width = feature.featureValues[0]?.value;
             unit = feature.featureUnit?.symbol;
             return;
           }
-          if (feature.code === FeatureCodeEnum.LENGTH) {
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`
+          ) {
             length = feature.featureValues[0]?.value;
             unit = feature.featureUnit?.symbol;
             return;
           }
-          if (feature.code === FeatureCodeEnum.HEIGHT) {
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`
+          ) {
             height = feature.featureValues[0]?.value;
             unit = feature.featureUnit?.symbol;
             return;
