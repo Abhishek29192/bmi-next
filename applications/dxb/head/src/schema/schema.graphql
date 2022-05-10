@@ -1004,6 +1004,9 @@ type ContentfulResources implements Node {
 
   "The description for product details page specification tab."
   pdpSpecificationDescription: ContentfulRichText
+
+  "The specification notes with on system details page"
+  sdpSpecificationNotes: ContentfulSpecificationNotes @link(from: "sdpSpecificationNotes___NODE")
 }
 
 """
@@ -1850,4 +1853,19 @@ type ContentfulSystemConfiguratorBlock implements Node {
   recommendedSystems: [String!]
 
   nextStep: NextStep @link(from: "nextStep___NODE")
+}
+
+type ContentfulSpecificationNotes implements Node {
+  id: ID!
+
+  name: String!
+
+  "The title for this specification notes with CTA."
+  title: String
+
+  "The description for this specification notes with CTA."
+  description: ContentfulRichText
+
+  "The link for CTA."
+  cta: ContentfulLink @link(from: "cta___NODE")
 }

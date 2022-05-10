@@ -12,6 +12,7 @@ export default {
         { query: {}, type: "RegionJson" },
         { connectionType: "RegionJson" }
       );
+      console.log([...entries]);
       return [...entries];
     }
   }

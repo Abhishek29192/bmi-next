@@ -76,7 +76,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const { contentfulSite, systems, relatedSystems, allContentfulAssetType } =
     data;
   const { countryCode, resources } = contentfulSite;
-
+  console.log({ resources });
   const {
     name,
     categories,

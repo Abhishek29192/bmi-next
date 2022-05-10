@@ -12,6 +12,11 @@ import { RichTextData } from "./RichText";
 
 export type DocumentDisplayFormatType = "Asset type" | "Asset name";
 
+export type sdpSpecificationNotes = {
+  __typename: "ContentfulSpecificationNotes";
+  name: string | null;
+  title: string | null;
+};
 export type Data = {
   microCopy: MicroCopyData[] | null;
   pdpSidebarItems: TitleWithContentData[] | null;
@@ -42,6 +47,7 @@ export type Data = {
   pdpFixingToolDescription: RichTextData | null;
   pdpSpecificationTitle: string | null;
   pdpSpecificationDescription: RichTextData | null;
+  sdpSpecificationNotes?: sdpSpecificationNotes | null;
   documentDisplayFormat: DocumentDisplayFormatType | null;
 };
 
@@ -119,6 +125,9 @@ export const query = graphql`
     pdpSpecificationTitle
     pdpSpecificationDescription {
       ...RichTextFragment
+    }
+    sdpSpecificationNotes {
+      title
     }
   }
 `;
