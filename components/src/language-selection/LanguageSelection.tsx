@@ -55,7 +55,7 @@ const LanguageSelection = ({
                 data-gtm={JSON.stringify({
                   id: "nav-country-selector",
                   label,
-                  action: code
+                  action: `/${code}/`
                 })}
                 className={styles["link"]}
                 startIcon={
@@ -80,7 +80,7 @@ const LanguageSelection = ({
                   model: "htmlLink",
                   href: `/${code}`
                 }}
-                onClick={() => onCountrySelection?.(label, code)}
+                onClick={() => onCountrySelection?.(label, `/${code}/`)}
               >
                 {label}
               </NavigationListButton>
