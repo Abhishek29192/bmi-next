@@ -80,7 +80,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     slides,
     overlapCards,
     sections,
-    inputBanner,
+    signupBlock,
     breadcrumbs,
     breadcrumbTitle,
     seo,
@@ -92,7 +92,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulBrandLandingPage.path
   };

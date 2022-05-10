@@ -128,7 +128,7 @@ import Icon, {
   YouTube
 } from "./icon";
 import IconList from "./icon-list";
-import InputBanner from "./input-banner";
+import SignupBlock from "./signup-block";
 import InputGroup from "./input-group";
 import LanguageSelection, {
   languages,
@@ -433,7 +433,7 @@ export {
   FolderZip,
   iconMap,
   IconList,
-  InputBanner,
+  SignupBlock,
   InputGroup,
   LanguageSelection,
   languages,

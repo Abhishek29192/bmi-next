@@ -107,7 +107,7 @@ const pageInfo: Data = {
     }
   ],
   breadcrumbTitle: "",
-  inputBanner: null,
+  signupBlock: null,
   seo: null,
   featuredVideo: null,
   slug: "",

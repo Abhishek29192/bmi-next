@@ -18,7 +18,7 @@ import {
   cta,
   exploreBarData,
   featuredMedia,
-  inputBanner,
+  signupBlock,
   leadBlockData,
   linkColumnsData,
   nextBestActions,
@@ -59,7 +59,7 @@ const data: { contentfulSimplePage: Data; contentfulSite: SiteData } = {
     tags: [{ type: "Page type", title: "PSimple page type" }],
     featuredVideo: null,
     // PageData
-    inputBanner,
+    signupBlock,
     seo: {
       metaTitle: "BMI - simple page",
       metaDescription: "BMI - simple page",

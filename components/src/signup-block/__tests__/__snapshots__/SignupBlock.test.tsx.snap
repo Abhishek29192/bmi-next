@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignupBlock component renders correctly 1`] = `
+<div>
+  <div
+    class="ColorPair ColorPair--blue-800"
+  >
+    <div
+      class="SignupBlock"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="wrapper"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h3
+                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                >
+                  Lorem ipsum
+                </h3>
+              </div>
+              <div
+                class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+              >
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body2"
+                >
+                  Lorem ipsum sit dolor amet
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+              >
+                <button
+                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 buttonStyles-containedDarkBg-10 signupLabel MuiButton-containedPrimary"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiButton-label buttonStyles-label-4"
+                  >
+                    CTA
+                    <span
+                      class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SignupBlock component renders correctly for large screen 1`] = `
+<div>
+  <div
+    class="ColorPair ColorPair--blue-800"
+  >
+    <div
+      class="SignupBlock"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="wrapper"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-lg-8"
+              >
+                <h3
+                  class="MuiTypography-root title-large-screen Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                >
+                  Lorem ipsum
+                </h3>
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body2"
+                >
+                  Lorem ipsum sit dolor amet
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+              >
+                <button>
+                  buttonComponent
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SignupBlock component renders correctly if buttonComponent is passed 1`] = `
+<div>
+  <div
+    class="ColorPair ColorPair--blue-800"
+  >
+    <div
+      class="SignupBlock"
+    >
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <div
+            class="wrapper"
+          >
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <h3
+                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                >
+                  Lorem ipsum
+                </h3>
+              </div>
+              <div
+                class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
+              >
+                <p
+                  class="MuiTypography-root Typography MuiTypography-body2"
+                >
+                  Lorem ipsum sit dolor amet
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
+              >
+                <button>
+                  buttonComponent
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

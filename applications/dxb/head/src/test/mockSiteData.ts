@@ -1195,7 +1195,7 @@ export const createMockSiteData = (): SiteData =>
         pinterest: true
       },
       visualiserShareWidget: null,
-      pdpInputBanner: null,
+      pdpSignupBlock: null,
       searchPageSearchTips: null,
       searchPageSidebarItems: null,
       searchPageNextBestActions: null,

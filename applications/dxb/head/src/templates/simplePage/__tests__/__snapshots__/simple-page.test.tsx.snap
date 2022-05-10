@@ -2966,13 +2966,13 @@ exports[`Simple page renders correctly when no feature media 1`] = `
       </div>
     </div>
     <div
-      class="InputBanner"
+      class="SignupBlock"
     >
       <div
         class="ColorPair ColorPair--blue-800"
       >
         <div
-          class="InputBanner"
+          class="SignupBlock"
         >
           <div
             class="Container"
@@ -2983,16 +2983,20 @@ exports[`Simple page renders correctly when no feature media 1`] = `
               <div
                 class="wrapper"
               >
-                <h3
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                >
-                  inputBannerTitle
-                </h3>
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  >
+                    <h3
+                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                    >
+                      signupBlockTitle
+                    </h3>
+                  </div>
+                  <div
+                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
                   >
                     <p
                       class="MuiTypography-root Typography MuiTypography-body2"
@@ -3001,87 +3005,37 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                     </p>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
                   >
-                    <div
-                      class="InputGroup InputGroup--locked-md"
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root TextField input"
+                      <span
+                        class="MuiButton-label buttonStyles-label"
                       >
-                        <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                          data-shrink="false"
-                        >
-                          inputLabel
-                        </label>
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            name="input-banner-text-field"
-                            type="text"
-                            value=""
-                          />
-                        </div>
-                      </div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg button MuiButton-containedPrimary MuiButton-disabled MuiButtonBase-disabled"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
+                        submitButtonLabel
                         <span
-                          class="MuiButton-label buttonStyles-label"
+                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
                         >
-                          submitButtonLabel
-                          <span
-                            class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                            />
+                          </svg>
                         </span>
-                      </button>
-                    </div>
-                    <p
-                      class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
-                    >
-                      This site is protected by reCAPTCHA and the Google 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
-                        href="https://policies.google.com/privacy"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                      >
-                        <span>
-                          Privacy Policy
-                        </span>
-                      </a>
-                       and 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
-                        href="https://policies.google.com/terms"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                      >
-                        <span>
-                          Terms of Service
-                        </span>
-                      </a>
-                       apply.
-                    </p>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -6639,13 +6593,13 @@ exports[`Simple page renders correctly with full data 1`] = `
       </div>
     </div>
     <div
-      class="InputBanner"
+      class="SignupBlock"
     >
       <div
         class="ColorPair ColorPair--blue-800"
       >
         <div
-          class="InputBanner"
+          class="SignupBlock"
         >
           <div
             class="Container"
@@ -6656,16 +6610,20 @@ exports[`Simple page renders correctly with full data 1`] = `
               <div
                 class="wrapper"
               >
-                <h3
-                  class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
-                >
-                  inputBannerTitle
-                </h3>
                 <div
                   class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
                 >
                   <div
-                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12"
+                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                  >
+                    <h3
+                      class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h3"
+                    >
+                      signupBlockTitle
+                    </h3>
+                  </div>
+                  <div
+                    class="MuiGrid-root description-grid MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-8"
                   >
                     <p
                       class="MuiTypography-root Typography MuiTypography-body2"
@@ -6674,87 +6632,37 @@ exports[`Simple page renders correctly with full data 1`] = `
                     </p>
                   </div>
                   <div
-                    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+                    class="MuiGrid-root buttonContainer MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4"
                   >
-                    <div
-                      class="InputGroup InputGroup--locked-md"
+                    <button
+                      class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      tabindex="0"
+                      type="button"
                     >
-                      <div
-                        class="MuiFormControl-root MuiTextField-root TextField input"
+                      <span
+                        class="MuiButton-label buttonStyles-label"
                       >
-                        <label
-                          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
-                          data-shrink="false"
-                        >
-                          inputLabel
-                        </label>
-                        <div
-                          class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
-                        >
-                          <input
-                            aria-invalid="false"
-                            class="MuiInputBase-input MuiFilledInput-input"
-                            name="input-banner-text-field"
-                            type="text"
-                            value=""
-                          />
-                        </div>
-                      </div>
-                      <button
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg button MuiButton-containedPrimary MuiButton-disabled MuiButtonBase-disabled"
-                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
-                        disabled=""
-                        tabindex="-1"
-                        type="button"
-                      >
+                        submitButtonLabel
                         <span
-                          class="MuiButton-label buttonStyles-label"
+                          class="MuiButton-endIcon MuiButton-iconSizeMedium"
                         >
-                          submitButtonLabel
-                          <span
-                            class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
                           >
-                            <svg
-                              aria-hidden="true"
-                              class="MuiSvgIcon-root"
-                              focusable="false"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                            />
+                          </svg>
                         </span>
-                      </button>
-                    </div>
-                    <p
-                      class="MuiTypography-root RecaptchaPrivacyLinks Typography MuiTypography-body1"
-                    >
-                      This site is protected by reCAPTCHA and the Google 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
-                        href="https://policies.google.com/privacy"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                      >
-                        <span>
-                          Privacy Policy
-                        </span>
-                      </a>
-                       and 
-                      <a
-                        class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink Anchorlink--white MuiTypography-colorPrimary"
-                        href="https://policies.google.com/terms"
-                        rel="noreferrer noopener"
-                        target="_blank"
-                      >
-                        <span>
-                          Terms of Service
-                        </span>
-                      </a>
-                       apply.
-                    </p>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>

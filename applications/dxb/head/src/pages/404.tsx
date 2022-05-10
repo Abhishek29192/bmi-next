@@ -34,7 +34,7 @@ const FourOFour = ({ data }: { data: Data }) => {
   return (
     <Page
       title={title || "Error:404.title"}
-      pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={siteData}
     >
       <PromoSection

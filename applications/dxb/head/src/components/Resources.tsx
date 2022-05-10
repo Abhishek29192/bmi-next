@@ -6,7 +6,7 @@ import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as ExploreBarData } from "./ExploreBar";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
-import { Data as InputBannerData } from "./InputBanner";
+import { Data as SignupBlockData } from "./SignupBlock";
 import { Data as NextBestActionsData } from "./NextBestActions";
 import { RichTextData } from "./RichText";
 
@@ -24,7 +24,7 @@ export type Data = {
   sdpSidebarItems: TitleWithContentData[] | null;
   sdpBimDescription: RichTextData | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
-  pdpInputBanner: InputBannerData | null;
+  pdpSignupBlock: SignupBlockData | null;
   searchPageSearchTips: TitleWithContentData | null;
   searchPageSidebarItems: TitleWithContentData | null;
   searchPageNextBestActions: NextBestActionsData | null;
@@ -83,8 +83,8 @@ export const query = graphql`
     visualiserShareWidget {
       ...ShareWidgetSectionFragment
     }
-    pdpInputBanner {
-      ...InputBannerFragment
+    pdpSignupBlock {
+      ...SignupBlockFragment
     }
     searchPageSearchTips {
       ...TitleWithContentFragment
