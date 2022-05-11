@@ -9,7 +9,6 @@
       },
       "errorAlreadyMember": "El usuario ya es miembro de otra empresa",
       "errorInvitationNotFound": "Invitación no encontrada",
-      "errorCommonFailure": "Respuesta fallida. Verifique los detalles y vuelva a intentarlo, o comuníquese con su administrador local de BMI.",
       "personalNote": {
         "label": "Mensaje (opcional)"
       },

@@ -39,7 +39,7 @@
   },
   "profileCard": {
     "buttons": {
-      "changePassword": "Restablecer su contraseña",
+      "changePassword": "cambiar contraseña",
       "editProfile": "Editar"
     },
     "certificationsHeading": "Certificaciones"
