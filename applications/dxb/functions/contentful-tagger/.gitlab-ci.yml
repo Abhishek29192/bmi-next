@@ -1,31 +1,31 @@
-test_gatsby-cloud-build-proxy:
+test_contentful-tagger:
   extends: .test_jest
   variables:
-    WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"
+    WORKSPACE: "@bmi/contentful-tagger"
+    ROOT_DIR: "applications/functions/contentful-tagger"
 
-build_gatsby-cloud-build-proxy:
+build_contentful-tagger:
   extends: .build_function
   variables:
-    WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
+    WORKSPACE: "@bmi/contentful-tagger"
+    ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
-package_gatsby-cloud-build-proxy:
+package_contentful-tagger:
   extends: .package_function
   needs:
-    - build_gatsby-cloud-build-proxy
+    - build_contentful-tagger
   dependencies:
-    - build_gatsby-cloud-build-proxy
+    - build_contentful-tagger
   variables:
-    FUNCTION_NAME: "gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
+    FUNCTION_NAME: "contentful-tagger"
+    ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
-deploy_gatsby-cloud-build-proxy:
+deploy_contentful-tagger:
   extends: .deploy_function
   needs:
-    - package_gatsby-cloud-build-proxy
+    - package_contentful-tagger
   dependencies:
-    - package_gatsby-cloud-build-proxy
+    - package_contentful-tagger
   variables:
-    FUNCTION_NAME: "gatsby-cloud-build-proxy"
-    ROOT_DIR: "applications/dxb/functions/gatsby-cloud-build-proxy"
+    FUNCTION_NAME: "contentful-tagger"
+    ROOT_DIR: "applications/dxb/functions/contentful-tagger"

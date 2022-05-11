@@ -22,7 +22,7 @@ let spaceCache: Space | undefined;
 const getSpace = async (): Promise<Space> => {
   if (!spaceCache) {
     const client = createClient({
-      accessToken: await getSecret(process.env.MANAGEMENT_ACCESS_TOKEN!)
+      accessToken: await getSecret(process.env.MANAGEMENT_ACCESS_TOKEN_SECRET!)
     });
 
     spaceCache = await client.getSpace(process.env.SPACE_ID!);
@@ -45,7 +45,7 @@ export const tag: HttpFunction = async (request, response) => {
     logger.error({ message: "Request secret is not set." });
     return response.sendStatus(500);
   }
-  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
+  if (!process.env.MANAGEMENT_ACCESS_TOKEN_SECRET) {
     logger.error({ message: "Management access token is not set." });
     return response.sendStatus(500);
   }
@@ -117,8 +117,6 @@ export const tag: HttpFunction = async (request, response) => {
     entity = await environment.getEntry(request.body.sys.id);
   } else if (request.body?.sys?.type === "Asset") {
     entity = await environment.getAsset(request.body.sys.id);
-  } else {
-    entity = undefined;
   }
 
   if (!entity) {

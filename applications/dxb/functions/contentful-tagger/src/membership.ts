@@ -6,7 +6,6 @@ import {
 } from "contentful-management";
 
 const DXB_MARKET_ROLE_PREFIX = "DXB - ";
-//const TAG_ID_PREFIX = "market__";
 
 export const FindOwner = (payload: Entry): string | undefined => {
   return payload.sys.createdBy?.sys?.id;
@@ -45,8 +44,6 @@ export const FindMarketRole = async (
   roleIds: string[],
   space: Space
 ): Promise<Role | undefined> => {
-  //const regEx = new RegExp(`^${DXB_MARKET_ROLE_PREFIX}(.*)`)
-
   const rolePromises = roleIds.map((rId) => {
     return space.getRole(rId);
   });

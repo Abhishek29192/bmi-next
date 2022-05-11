@@ -1,9 +1,9 @@
-# Build proxy
+# Contentful Tagger
 
 ## Build
 
 ```bash
-yarn run @bmi/gatsby-cloud-build-proxy build
+yarn run @bmi/contentful-tagger build
 ```
 
 Functions are build into the `dist` directory.
@@ -15,5 +15,5 @@ Create .env.yaml and copy the content of .env.example.yaml (set the value as nee
 To run a function in dev mode:
 
 ```bash
-yarn workspace @bmi/gatsby-cloud-build-proxy dev
+yarn workspace @bmi/contentful-tagger dev
 ```

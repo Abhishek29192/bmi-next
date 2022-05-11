@@ -7,12 +7,9 @@
   "scripts": {
     "build": "tsc --build",
     "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "start": "yarn build && env-cmd node ./dist/index.js"
+    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
-    "contentful-management": "^10.0.0",
-    "dotenv": "^8.2.0",
-    "env-cmd": "^10.1.0"
+    "contentful-management": "^10.0.0"
   }
 }

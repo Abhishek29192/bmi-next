@@ -1,7 +1,6 @@
-// import { main } from "../index";
 import { Space, ClientAPI } from "contentful-management";
 
-const main = async () => (await import("../index")).main();
+const main = async () => (await import("..")).main();
 
 const getEnvironment = jest.fn();
 const mockSpace = (): Partial<Space> => {
@@ -26,13 +25,9 @@ jest.mock("contentful-management", () => {
 
 const TagAndUpdate = jest.fn();
 const PublishAll = jest.fn();
-jest.mock("../coordinate", () => {
-  return { TagAndUpdate, PublishAll };
-});
-
 const CreateTag = jest.fn();
-jest.mock("../Tag", () => {
-  return { CreateTag };
+jest.mock("@bmi/contentful-tag-utility", () => {
+  return { TagAndUpdate, PublishAll, CreateTag };
 });
 
 describe("main", () => {

@@ -92,7 +92,7 @@ beforeEach(() => {
 describe("Tag", () => {
   it.each([
     "TAGGER_REQUEST_SECRET",
-    "MANAGEMENT_ACCESS_TOKEN",
+    "MANAGEMENT_ACCESS_TOKEN_SECRET",
     "SPACE_ID",
     "CONTENTFUL_ENVIRONMENT"
   ])("Returns 500, when %s is not set", async (name) => {
@@ -269,26 +269,41 @@ describe("Tag", () => {
     expect(response.sendStatus).toBeCalledWith(500);
   });
 
-  it.each([SampleContentfulAsset, SampleContentfulEntry])(
-    "Returns 200 if entry/asset is already tagged",
-    async (entity) => {
-      const request = mockRequest(
-        "POST",
-        {
-          authorization: `Bearer ${REQUEST_SECRET}`
-        },
-        undefined,
-        SampleAssetWebhook
-      );
-      const response = mockResponse();
-      getAsset.mockReturnValueOnce(entity); //TODO fix
-      TagEntity.mockReturnValueOnce(false);
+  it("Returns 200 if entry is already tagged", async () => {
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      SampleEntryWebhook
+    );
+    const response = mockResponse();
+    getEntry.mockReturnValueOnce(SampleContentfulEntry);
+    TagEntity.mockReturnValueOnce(false);
 
-      await tagMock(request, response);
+    await tagMock(request, response);
 
-      expect(response.sendStatus).toBeCalledWith(200);
-    }
-  );
+    expect(response.sendStatus).toBeCalledWith(200);
+  });
+
+  it("Returns 200 if asset is already tagged", async () => {
+    const request = mockRequest(
+      "POST",
+      {
+        authorization: `Bearer ${REQUEST_SECRET}`
+      },
+      undefined,
+      SampleAssetWebhook
+    );
+    const response = mockResponse();
+    getAsset.mockReturnValueOnce(SampleContentfulAsset);
+    TagEntity.mockReturnValueOnce(false);
+
+    await tagMock(request, response);
+
+    expect(response.sendStatus).toBeCalledWith(200);
+  });
 
   it("Update the entry if it is tagged now", async () => {
     const request = mockRequest(
