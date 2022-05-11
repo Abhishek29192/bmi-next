@@ -90,6 +90,11 @@ const HomePage = ({ data, pageContext }: Props) => {
   };
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
+
+  console.log("------- here -----");
+  console.log(data.contentfulSite.resources);
+  console.log("------- here -----");
+
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (

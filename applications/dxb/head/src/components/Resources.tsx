@@ -9,14 +9,10 @@ import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
 import { Data as SignupBlockData } from "./SignupBlock";
 import { Data as NextBestActionsData } from "./NextBestActions";
 import { RichTextData } from "./RichText";
+import { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
 
 export type DocumentDisplayFormatType = "Asset type" | "Asset name";
 
-export type sdpSpecificationNotes = {
-  __typename: "ContentfulSpecificationNotes";
-  name: string | null;
-  title: string | null;
-};
 export type Data = {
   microCopy: MicroCopyData[] | null;
   pdpSidebarItems: TitleWithContentData[] | null;
@@ -47,7 +43,7 @@ export type Data = {
   pdpFixingToolDescription: RichTextData | null;
   pdpSpecificationTitle: string | null;
   pdpSpecificationDescription: RichTextData | null;
-  sdpSpecificationNotes?: sdpSpecificationNotes | null;
+  sdpSpecificationNotesCta: SDPSpecificationNotesData | null;
   documentDisplayFormat: DocumentDisplayFormatType | null;
 };
 
@@ -126,8 +122,8 @@ export const query = graphql`
     pdpSpecificationDescription {
       ...RichTextFragment
     }
-    sdpSpecificationNotes {
-      title
+    sdpSpecificationNotesCta {
+      ...SpecificationNotesFragment
     }
   }
 `;

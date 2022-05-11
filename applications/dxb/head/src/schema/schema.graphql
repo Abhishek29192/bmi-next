@@ -837,6 +837,21 @@ type ContentfulTitleWithContent implements Node {
   content: ContentfulRichText!
 }
 
+type ContentfulSpecificationNotesWithCta implements Node {
+  id: ID!
+
+  name: String!
+
+  "The title for this title with content."
+  title: String
+
+  "The content for this title with content."
+  description: ContentfulRichText!
+
+  "The link for CTA."
+  cta: ContentfulLink @link(from: "cta___NODE")
+}
+
 """
 Represents a team member.
 """
@@ -1006,7 +1021,8 @@ type ContentfulResources implements Node {
   pdpSpecificationDescription: ContentfulRichText
 
   "The specification notes with on system details page"
-  sdpSpecificationNotes: ContentfulSpecificationNotes @link(from: "sdpSpecificationNotes___NODE")
+  sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta
+    @link(from: "sdpSpecificationNotesCta___NODE")
 }
 
 """
@@ -1853,19 +1869,4 @@ type ContentfulSystemConfiguratorBlock implements Node {
   recommendedSystems: [String!]
 
   nextStep: NextStep @link(from: "nextStep___NODE")
-}
-
-type ContentfulSpecificationNotes implements Node {
-  id: ID!
-
-  name: String!
-
-  "The title for this specification notes with CTA."
-  title: String
-
-  "The description for this specification notes with CTA."
-  description: ContentfulRichText
-
-  "The link for CTA."
-  cta: ContentfulLink @link(from: "cta___NODE")
 }

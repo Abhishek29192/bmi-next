@@ -26,7 +26,7 @@ module.exports.up = (migration) => {
 
   const resources = migration.editContentType("resources");
   resources
-    .createField("sdpSpecificationNotes")
+    .createField("sdpSpecificationNotesCta")
     .name("System Details Page: Specification Notes With CTA")
     .type("Link")
     .validations([{ linkContentType: ["specificationNotes"] }])
@@ -34,7 +34,7 @@ module.exports.up = (migration) => {
 };
 
 module.exports.down = (migration) => {
-  migration.deleteContentType("specificationNotes");
   const resources = migration.editContentType("resources");
-  resources.deleteField(field);
+  resources.deleteField("sdpSpecificationNotesCta");
+  migration.deleteContentType("specificationNotes");
 };
