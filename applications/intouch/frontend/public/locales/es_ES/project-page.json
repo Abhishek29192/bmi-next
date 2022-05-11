@@ -11,7 +11,7 @@
           "submit": "Guardar y cerrar"
         },
         "fields": {
-          "description": "Descripción del proyecto (opcional)",
+          "description": "Descripción del proyecto",
           "endDate": "Fecha de finalización del proyecto",
           "name": "Nombre del proyecto",
           "roofArea": "Medida total de la cubierta (m2)",
@@ -19,8 +19,8 @@
             "country": "País",
             "firstLine": "Dirección 1",
             "postcode": "Código postal",
-            "region": "Provincia (opcional)",
-            "secondLine": "Dirección 2 (opcional)",
+            "region": "Provincia",
+            "secondLine": "Dirección 2",
             "town": "Localidad"
           },
           "startDate": "Fecha de inicio del proyecto",
@@ -71,7 +71,7 @@
             "secondLine": "Línea de dirección registrada 2",
             "town": "Localidad"
           },
-          "buildingOwnerCompany": "Nombre de la empresa (opcional)",
+          "buildingOwnerCompany": "Nombre de la empresa",
           "buildingOwnerFirstname": "Nombre",
           "buildingOwnerLastname": "Apellido",
           "buildingOwnerMail": "Correo electrónico"
@@ -141,14 +141,6 @@
     },
     "title": "No puede solicitar una garantía todavía"
   },
-  "guaranteeApproveAlert": {
-    "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto.",
-    "title": "¿Está seguro?"
-  },
-  "guaranteeRejectAlert": {
-    "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere.",
-    "title": "¿Está seguro?"
-  },
   "guaranteeSubmitAlert": {
     "message": {
       "buildingOwner": "Los datos del propietario del edificio no están completos",
@@ -164,12 +156,12 @@
   },
   "guaranteeApprovalAlert": {
     "confirm": {
-      "title": "¿Está seguro?",
-      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto."
+      "description": "Está a punto de aprobar una solicitud de garantía de solución. La documentación de garantía ahora se generará y se enviará automáticamente al propietario del edificio por correo electrónico. Se notificará al instalador, pero también puede agregar una nota a este proyecto.",
+      "title": "¿Está seguro?"
     },
     "reject": {
-      "title": "¿Está seguro?",
-      "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere."
+      "description": "Está a punto de rechazar una solicitud de garantía de solución. El instalador será notificado. Agregue una nota a este proyecto para confirmar al instalador lo que se requiere.",
+      "title": "¿Está seguro?"
     }
   },
   "guarantee_tab": {
@@ -235,11 +227,11 @@
           "title": "Registrarse para una garantía"
         },
         "step3": {
-          "product_subTitle": "Seleccione el Producto para la documentación de garantía",
+          "product_subTitle": "Indique el nombre del producto",
           "product_title": "Garantía del producto",
           "solution_subTitle": "Seleccione el Sistema para la documentación de la garantía",
           "solution_title": "Garantía de la solución",
-          "system_subTitle": "Seleccione el Sistema para la documentación de la garantía",
+          "system_subTitle": "Indique el nombre del sistema",
           "system_title": "Garantía del sistema"
         },
         "step4": {
@@ -388,10 +380,10 @@
   },
   "guaranteeRestart": {
     "note": "Se ha reiniciado la garantía asociada a este proyecto, por lo que se puede solicitar una nueva garantía",
-    "buttonLabel": "Restart guarantee",
+    "buttonLabel": "Restart Guarantee?",
     "confirm": {
-      "title": "Restart Guarantee?",
-      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. ",
+      "title": "Restart Guarantee?"
     }
   }
 }
