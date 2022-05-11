@@ -35,7 +35,6 @@ package_gcp-intouch-remove-unverified-users:
       changes:
         - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
   needs:
-    - test_gcp-intouch-remove-unverified-users
     - build_gcp-intouch-remove-unverified-users
   dependencies:
     - build_gcp-intouch-remove-unverified-users
