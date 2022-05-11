@@ -19271,7 +19271,7 @@ type Mutation {
     """
     input: resetPasswordImportedUsersInput
   ): resetPasswordImportedUsersResult
-  restartSolutionGuarantee(projectId: Int!): String
+  restartGuarantee(projectId: Int!): String
   sendReminderToIncompleteCompanyProfile: String
 
   """

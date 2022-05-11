@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "tsc --build tsconfig.prod.json",
-    "dev": "rm -rf dist/* && tsc --build tsconfig.prod.json && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema:watch\"",
+    "dev": "rm -rf dist/* && tsc --build tsconfig.prod.json && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "gcp-build": "tsc",
     "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "prettier --write schema.graphql",

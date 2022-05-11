@@ -2,7 +2,7 @@ import {
   CreateGuaranteeInput,
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
-import { createGuarantee, updateGuarantee, restartSolutionGuarantee } from "..";
+import { createGuarantee, updateGuarantee, restartGuarantee } from "..";
 import { sendMessageWithTemplate } from "../../../services/mailer";
 import * as validate from "../validate";
 
@@ -656,7 +656,7 @@ describe("Guarantee", () => {
     });
   });
 
-  describe("restartSolutionGuarantee", () => {
+  describe("restartGuarantee", () => {
     const args = { projectId: 1 };
     const solutionGuarantee = [{ id: 2 }];
     const relatedEvidenceItems = [
@@ -690,7 +690,7 @@ describe("Guarantee", () => {
       deleteFileSpy
         .mockImplementationOnce(() => Promise.resolve(true))
         .mockImplementationOnce(() => Promise.resolve(true));
-      const response = await restartSolutionGuarantee(args, context);
+      const response = await restartGuarantee(args, context);
 
       expect(mockQuery).toHaveBeenNthCalledWith(
         1,
@@ -699,8 +699,8 @@ describe("Guarantee", () => {
       expect(userCanMock).toHaveBeenCalledWith("delete:guarantee");
       expect(mockQuery).toHaveBeenNthCalledWith(
         2,
-        "SELECT id FROM guarantee WHERE project_id = $1 AND coverage = $2",
-        [args.projectId, "SOLUTION"]
+        "SELECT id FROM guarantee WHERE project_id = $1 AND (coverage = $2 OR coverage = $3)",
+        [args.projectId, "SOLUTION", "SYSTEM"]
       );
       expect(mockQuery).toHaveBeenNthCalledWith(
         3,
@@ -769,7 +769,7 @@ describe("Guarantee", () => {
         .mockImplementationOnce(() => Promise.resolve(true))
         .mockImplementationOnce(() => Promise.resolve(true));
       try {
-        await restartSolutionGuarantee(args, context);
+        await restartGuarantee(args, context);
       } catch (error) {
         expect(error.message).toBe("unauthorized");
       }
@@ -786,7 +786,7 @@ describe("Guarantee", () => {
           rows: []
         }))
         .mockImplementationOnce(() => {});
-      const response = await restartSolutionGuarantee(args, context);
+      const response = await restartGuarantee(args, context);
       expect(response).toBe("ok");
       expect(loggerInfo).toHaveBeenCalledWith(
         `No guarantee found for project with id ${args.projectId}`
@@ -807,7 +807,7 @@ describe("Guarantee", () => {
           rows: []
         }));
 
-      const response = await restartSolutionGuarantee(args, context);
+      const response = await restartGuarantee(args, context);
       expect(response).toBe("ok");
       expect(loggerInfo).toHaveBeenCalledWith(
         `Failed to delete guarantee with id ${solutionGuarantee[0].id} with project id ${args.projectId}`
@@ -832,7 +832,7 @@ describe("Guarantee", () => {
         }))
         .mockImplementationOnce(() => {});
 
-      const response = await restartSolutionGuarantee(args, context);
+      const response = await restartGuarantee(args, context);
       expect(response).toBe("ok");
       expect(loggerInfo).toHaveBeenCalledWith(
         `No unassigned installer(s) for project with id ${args.projectId}`
@@ -861,7 +861,7 @@ describe("Guarantee", () => {
         .mockImplementationOnce(() => Promise.reject("reason1"))
         .mockImplementationOnce(() => Promise.reject("reason2"));
 
-      const response = await restartSolutionGuarantee(args, context);
+      const response = await restartGuarantee(args, context);
       expect(response).toBe("ok");
       expect(loggerError).toHaveBeenCalledWith(
         `Failed to delete files with error: [reason1|reason2]`
@@ -875,7 +875,7 @@ describe("Guarantee", () => {
         .mockImplementationOnce(() => Promise.reject("error"));
 
       try {
-        await restartSolutionGuarantee(args, context);
+        await restartGuarantee(args, context);
       } catch (error) {
         expect(loggerError).toHaveBeenCalledWith(
           `Error restart guarantee for project with id ${args.projectId}, ${error}`

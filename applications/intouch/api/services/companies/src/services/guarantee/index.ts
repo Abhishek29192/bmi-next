@@ -7,7 +7,7 @@ import {
   Guarantee,
   Tier,
   UpdateGuaranteeInput,
-  MutationRestartSolutionGuaranteeArgs
+  MutationRestartGuaranteeArgs
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
@@ -338,8 +338,8 @@ const uploadEvidence = async (
   }
 };
 
-export const restartSolutionGuarantee = async (
-  args: MutationRestartSolutionGuaranteeArgs,
+export const restartGuarantee = async (
+  args: MutationRestartGuaranteeArgs,
   context
 ) => {
   const { pgClient, logger: Logger, user, storageClient } = context;
@@ -356,8 +356,8 @@ export const restartSolutionGuarantee = async (
     }
 
     const { rows: solutionGuarantee } = await pgClient.query(
-      "SELECT id FROM guarantee WHERE project_id = $1 AND coverage = $2",
-      [projectId, "SOLUTION"]
+      "SELECT id FROM guarantee WHERE project_id = $1 AND (coverage = $2 OR coverage = $3)",
+      [projectId, "SOLUTION", "SYSTEM"]
     );
     if (solutionGuarantee.length) {
       const { rows: relatedEvidenceItems } = await pgClient.query(
