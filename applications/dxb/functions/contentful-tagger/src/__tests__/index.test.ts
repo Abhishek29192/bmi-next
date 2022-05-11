@@ -29,19 +29,19 @@ jest.mock("@bmi-digital/functions-secret-client", () => {
 });
 getSecret.mockReturnValue(REQUEST_SECRET);
 
-const FindOwner = jest.fn().mockReturnValue({});
-const FindMembership = jest.fn().mockReturnValue({
+const findOwner = jest.fn().mockReturnValue({});
+const findMembership = jest.fn().mockReturnValue({
   roles: [{ sys: { id: "123" } }, { sys: { id: "1235" } }],
   sys: { id: "123" }
 });
-const FindMarketRole = jest.fn().mockReturnValue({});
-const GetMarketName = jest.fn().mockReturnValue("market1");
+const findMarketRole = jest.fn().mockReturnValue({});
+const getMarketName = jest.fn().mockReturnValue("market1");
 jest.mock("../membership", () => {
   return {
-    FindOwner,
-    FindMembership,
-    FindMarketRole,
-    GetMarketName
+    findOwner,
+    findMembership,
+    findMarketRole,
+    getMarketName
   };
 });
 
@@ -78,10 +78,10 @@ jest.mock("contentful-management", () => {
   };
 });
 
-const TagEntity = jest.fn().mockReturnValue(true);
+const tagEntity = jest.fn().mockReturnValue(true);
 jest.mock("@bmi/contentful-tag-utility", () => {
   return {
-    TagEntity
+    tagEntity
   };
 });
 
@@ -176,7 +176,7 @@ describe("Tag", () => {
       authorization: `Bearer ${REQUEST_SECRET}`
     });
     const response = mockResponse();
-    FindOwner.mockReturnValueOnce(undefined);
+    findOwner.mockReturnValueOnce(undefined);
 
     await tagMock(request, response);
 
@@ -188,7 +188,7 @@ describe("Tag", () => {
       authorization: `Bearer ${REQUEST_SECRET}`
     });
     const response = mockResponse();
-    FindMembership.mockReturnValueOnce(undefined);
+    findMembership.mockReturnValueOnce(undefined);
 
     await tagMock(request, response);
 
@@ -200,7 +200,7 @@ describe("Tag", () => {
       authorization: `Bearer ${REQUEST_SECRET}`
     });
     const response = mockResponse();
-    FindMarketRole.mockReturnValueOnce(undefined);
+    findMarketRole.mockReturnValueOnce(undefined);
 
     await tagMock(request, response);
 
@@ -212,7 +212,7 @@ describe("Tag", () => {
       authorization: `Bearer ${REQUEST_SECRET}`
     });
     const response = mockResponse();
-    GetMarketName.mockReturnValueOnce(undefined);
+    getMarketName.mockReturnValueOnce(undefined);
 
     await tagMock(request, response);
 
@@ -280,7 +280,7 @@ describe("Tag", () => {
     );
     const response = mockResponse();
     getEntry.mockReturnValueOnce(SampleContentfulEntry);
-    TagEntity.mockReturnValueOnce(false);
+    tagEntity.mockReturnValueOnce(false);
 
     await tagMock(request, response);
 
@@ -298,7 +298,7 @@ describe("Tag", () => {
     );
     const response = mockResponse();
     getAsset.mockReturnValueOnce(SampleContentfulAsset);
-    TagEntity.mockReturnValueOnce(false);
+    tagEntity.mockReturnValueOnce(false);
 
     await tagMock(request, response);
 
@@ -327,7 +327,7 @@ describe("Tag", () => {
     const entity = entityMock();
     getEntry.mockReturnValueOnce(entity);
 
-    TagEntity.mockReturnValueOnce(true);
+    tagEntity.mockReturnValueOnce(true);
 
     await tagMock(request, response);
 
@@ -356,7 +356,7 @@ describe("Tag", () => {
 
     const asset = assetMock();
     getAsset.mockReturnValueOnce(asset);
-    TagEntity.mockReturnValueOnce(true);
+    tagEntity.mockReturnValueOnce(true);
 
     await tagMock(request, response);
 
@@ -373,7 +373,7 @@ describe("Tag", () => {
       SampleEntryWebhook
     );
     const response = mockResponse();
-    TagEntity.mockReturnValueOnce(true);
+    tagEntity.mockReturnValueOnce(true);
 
     await tagMock(request, response);
 

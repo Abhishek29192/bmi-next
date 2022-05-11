@@ -5,7 +5,7 @@ import {
   BulkAction,
   BulkActionPublishPayload
 } from "contentful-management";
-import { TagEntity } from "./tag";
+import { tagEntity } from "./tag";
 
 // Free tier has an CM API limit of 7 calls per second.
 /* istanbul ignore next */
@@ -22,7 +22,7 @@ export const sleep = async (ms: number) => {
   });
 };
 
-async function* FetchAllEntries(environment: Environment, limit = 100) {
+async function* fetchAllEntries(environment: Environment, limit = 100) {
   let offset = 0;
   while (true) {
     const entries = await environment.getEntries({
@@ -39,7 +39,7 @@ async function* FetchAllEntries(environment: Environment, limit = 100) {
   }
 }
 
-async function* FetchAllAssets(environment: Environment, limit = 100) {
+async function* fetchAllAssets(environment: Environment, limit = 100) {
   let offset = 0;
   while (true) {
     const assets = await environment.getAssets({
@@ -56,8 +56,8 @@ async function* FetchAllAssets(environment: Environment, limit = 100) {
   }
 }
 
-export const TagAndUpdate = async (environment: Environment) => {
-  const iterators = [FetchAllEntries(environment), FetchAllAssets(environment)];
+export const tagAndUpdate = async (environment: Environment) => {
+  const iterators = [fetchAllEntries(environment), fetchAllAssets(environment)];
   for (const iterator of iterators) {
     let itrResult = await iterator.next();
     while (!itrResult.done) {
@@ -67,7 +67,7 @@ export const TagAndUpdate = async (environment: Environment) => {
 
       for (const entryOrAsset of entries.items) {
         console.log(`Taging item: ${entryOrAsset.sys.id}`);
-        TagEntity(entryOrAsset, process.env.DXB_MARKET!);
+        tagEntity(entryOrAsset, process.env.DXB_MARKET!);
 
         console.log(`Updating item: ${entryOrAsset.sys.id}`);
         updatePromises.push(entryOrAsset.update());
@@ -84,10 +84,10 @@ export const TagAndUpdate = async (environment: Environment) => {
   }
 };
 
-export const PublishAll = async (environment: Environment) => {
+export const publishAll = async (environment: Environment) => {
   const iterators = [
-    FetchAllEntries(environment, MAX_BULK_ITEMS),
-    FetchAllAssets(environment, MAX_BULK_ITEMS)
+    fetchAllEntries(environment, MAX_BULK_ITEMS),
+    fetchAllAssets(environment, MAX_BULK_ITEMS)
   ];
 
   let runs = 0;

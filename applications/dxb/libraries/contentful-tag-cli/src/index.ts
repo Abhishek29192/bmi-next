@@ -2,9 +2,9 @@
 import { config } from "dotenv";
 import { createClient } from "contentful-management";
 import {
-  CreateTag,
-  TagAndUpdate,
-  PublishAll
+  createTag,
+  tagAndUpdate,
+  publishAll
 } from "@bmi/contentful-tag-utility";
 
 /* istanbul ignore next */
@@ -22,9 +22,9 @@ export async function main() {
     process.env.CONTENTFUL_ENVIRONMENT!
   );
 
-  await CreateTag(environment, process.env.DXB_MARKET!);
-  await TagAndUpdate(environment);
-  await PublishAll(environment);
+  await createTag(environment, process.env.DXB_MARKET!);
+  await tagAndUpdate(environment);
+  await publishAll(environment);
 }
 
 main();

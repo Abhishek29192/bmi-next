@@ -7,11 +7,11 @@ import {
 
 const DXB_MARKET_ROLE_PREFIX = "DXB - ";
 
-export const FindOwner = (payload: Entry): string | undefined => {
+export const findOwner = (payload: Entry): string | undefined => {
   return payload.sys.createdBy?.sys?.id;
 };
 
-export const FindMembership = async (
+export const findMembership = async (
   space: Space,
   userId: string
 ): Promise<SpaceMembershipProps | undefined> => {
@@ -40,7 +40,7 @@ export const FindMembership = async (
   }
 };
 
-export const FindMarketRole = async (
+export const findMarketRole = async (
   roleIds: string[],
   space: Space
 ): Promise<Role | undefined> => {
@@ -52,7 +52,7 @@ export const FindMarketRole = async (
   return roles.find((r) => r.name.startsWith(DXB_MARKET_ROLE_PREFIX));
 };
 
-export const GetMarketName = (roleName: string): string | undefined => {
+export const getMarketName = (roleName: string): string | undefined => {
   // eslint-disable-next-line security/detect-non-literal-regexp
   const roleRegEx = new RegExp(`^${DXB_MARKET_ROLE_PREFIX}(.*)$`);
   const marketName = roleName.match(roleRegEx)?.[1];

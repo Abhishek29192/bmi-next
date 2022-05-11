@@ -9,14 +9,14 @@ import SampleAssetsPage2 from "./resources/assets_page_2.json";
 import SampleAssetsPage3 from "./resources/assets_page_3.json";
 
 const tagAndUpdate = async (environment: Partial<Environment>) =>
-  (await import("../coordinate")).TagAndUpdate(environment as Environment);
+  (await import("../coordinate")).tagAndUpdate(environment as Environment);
 
 const publishAll = async (environment: Partial<Environment>) =>
-  (await import("../coordinate")).PublishAll(environment as Environment);
+  (await import("../coordinate")).publishAll(environment as Environment);
 
 const tagEntity = jest.fn();
 jest.mock("../tag", () => {
-  return { TagEntity: tagEntity };
+  return { tagEntity };
 });
 
 let getEntries: jest.Mock;
@@ -95,7 +95,7 @@ beforeEach(() => {
     });
 });
 
-describe("TagAndUpdate", () => {
+describe("tagAndUpdate", () => {
   it("Tries to add a tag to all entries and assets", async () => {
     const environment = mockEnvironment();
     await tagAndUpdate(environment);
@@ -104,7 +104,7 @@ describe("TagAndUpdate", () => {
   });
 });
 
-describe("PublishAll", () => {
+describe("publishAll", () => {
   it("Creates bulk publish action", async () => {
     const environment = mockEnvironment();
     await publishAll(environment);

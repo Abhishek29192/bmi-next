@@ -1,10 +1,10 @@
 import { Asset, Entry, Link, Environment } from "contentful-management";
 
-const BuildTagId = (market: string) => {
+const buildTagId = (market: string) => {
   return `market__${market.replace(/ /g, "").toLowerCase()}`;
 };
 
-export const TagEntity = async (
+export const tagEntity = async (
   entity: Entry | Asset,
   market: string
 ): Promise<boolean> => {
@@ -12,7 +12,7 @@ export const TagEntity = async (
   if (
     tags?.some(
       (tag) =>
-        tag.sys.linkType === "Tag" && tag.sys.id === `${BuildTagId(market)}`
+        tag.sys.linkType === "Tag" && tag.sys.id === `${buildTagId(market)}`
     )
   ) {
     console.log(`DXB market tag found on :${entity.sys.id}`);
@@ -22,18 +22,18 @@ export const TagEntity = async (
       sys: {
         type: "Link",
         linkType: "Tag",
-        id: `${BuildTagId(market)}`
+        id: `${buildTagId(market)}`
       }
     });
     return true;
   }
 };
 
-export const CreateTag = async (
+export const createTag = async (
   environment: Environment,
   market: string
 ): Promise<void> => {
-  const tagId = `${BuildTagId(market)}`;
+  const tagId = `${buildTagId(market)}`;
   console.log(`Try create tag: ${tagId}`);
   environment
     .getTag(tagId)

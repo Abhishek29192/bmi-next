@@ -2,10 +2,10 @@ import { Environment, Entry, Link } from "contentful-management";
 import mockConsole from "jest-mock-console";
 
 const createTag = async (environment: Partial<Environment>, market: string) =>
-  (await import("../tag")).CreateTag(environment as Environment, market);
+  (await import("../tag")).createTag(environment as Environment, market);
 
 const tagEntity = async (entry: Partial<Entry>, market: string) =>
-  await (await import("../tag")).TagEntity(entry as Entry, market);
+  await (await import("../tag")).tagEntity(entry as Entry, market);
 
 const mockEnvironment = (): Partial<Environment> => {
   const env: Partial<Environment> = {};
@@ -75,7 +75,7 @@ beforeEach(() => {
   mockConsole();
 });
 
-describe("CreateTag", () => {
+describe("createTag", () => {
   it("Creates a tag if it does not exist", async () => {
     const environment = mockEnvironment();
     const errorMessage = { status: 404 };
@@ -114,7 +114,7 @@ describe("CreateTag", () => {
   });
 });
 
-describe("TagEntity", () => {
+describe("tagEntity", () => {
   it("Creates a tag if a tag does not exist", async () => {
     const entry = mockEntry();
     entry.metadata = { tags: [] };

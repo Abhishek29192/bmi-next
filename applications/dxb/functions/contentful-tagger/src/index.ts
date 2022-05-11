@@ -8,12 +8,12 @@ import {
   Environment,
   Space
 } from "contentful-management";
-import { TagEntity } from "@bmi/contentful-tag-utility";
+import { tagEntity } from "@bmi/contentful-tag-utility";
 import {
-  FindOwner,
-  FindMarketRole,
-  FindMembership,
-  GetMarketName
+  findOwner,
+  findMarketRole,
+  findMembership,
+  getMarketName
 } from "./membership";
 
 const SECRET_MIN_LENGTH = 10;
@@ -73,7 +73,7 @@ export const tag: HttpFunction = async (request, response) => {
     return response.sendStatus(401);
   }
 
-  const owner = FindOwner(request.body);
+  const owner = findOwner(request.body);
   if (!owner) {
     logger.error({
       message: `Could not find the owner from ${JSON.stringify(request.body)}`
@@ -82,7 +82,7 @@ export const tag: HttpFunction = async (request, response) => {
   }
 
   const space = await getSpace();
-  const membership = await FindMembership(space, owner);
+  const membership = await findMembership(space, owner);
 
   if (!membership) {
     logger.error({
@@ -91,7 +91,7 @@ export const tag: HttpFunction = async (request, response) => {
     return response.sendStatus(400);
   }
 
-  const role = await FindMarketRole(
+  const role = await findMarketRole(
     membership.roles.map((r) => r.sys.id),
     space
   );
@@ -103,7 +103,7 @@ export const tag: HttpFunction = async (request, response) => {
     return response.sendStatus(400);
   }
 
-  const market = GetMarketName(role.name);
+  const market = getMarketName(role.name);
   if (!market) {
     logger.error({
       message: `Could not find the market name from role ${role.name}`
@@ -127,7 +127,7 @@ export const tag: HttpFunction = async (request, response) => {
   }
 
   logger.debug({ message: `Tagging ${entity.sys.id}` });
-  const taggedNow = await TagEntity(entity, market);
+  const taggedNow = await tagEntity(entity, market);
 
   if (!taggedNow) {
     logger.info({ message: `${entity.sys.id} is already tagged.` });

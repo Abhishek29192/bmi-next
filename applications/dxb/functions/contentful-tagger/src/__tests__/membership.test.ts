@@ -4,16 +4,16 @@ import SampleRole1 from "./resources/sample_role_1.json";
 import SampleRole2 from "./resources/sample_role_2.json";
 
 const findOwner = async (entry: Partial<Entry>) =>
-  await (await import("../membership")).FindOwner(entry as Entry);
+  await (await import("../membership")).findOwner(entry as Entry);
 
 const findMembership = async (userId: string, space: Partial<Space>) =>
-  await (await import("../membership")).FindMembership(space as Space, userId);
+  await (await import("../membership")).findMembership(space as Space, userId);
 
 const findMarketRole = async (roleIds: string[], space: Partial<Space>) =>
-  await (await import("../membership")).FindMarketRole(roleIds, space as Space);
+  await (await import("../membership")).findMarketRole(roleIds, space as Space);
 
 const getMarketName = async (roleName: string) =>
-  await await (await import("../membership")).GetMarketName(roleName);
+  await await (await import("../membership")).getMarketName(roleName);
 
 const mockEntry = (): Partial<Entry> => {
   const entry: Partial<Entry> = {};

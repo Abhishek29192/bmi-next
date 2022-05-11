@@ -23,11 +23,11 @@ jest.mock("contentful-management", () => {
   };
 });
 
-const TagAndUpdate = jest.fn();
-const PublishAll = jest.fn();
-const CreateTag = jest.fn();
+const tagAndUpdate = jest.fn();
+const publishAll = jest.fn();
+const createTag = jest.fn();
 jest.mock("@bmi/contentful-tag-utility", () => {
-  return { TagAndUpdate, PublishAll, CreateTag };
+  return { tagAndUpdate, publishAll, createTag };
 });
 
 describe("main", () => {
@@ -35,21 +35,21 @@ describe("main", () => {
     await main();
   });
 
-  it("Calls CreateTag", async () => {
+  it("Calls createTag", async () => {
     await main();
 
-    expect(CreateTag).toBeCalled();
+    expect(createTag).toBeCalled();
   });
 
-  it("Calls TagAndUpdate", async () => {
+  it("Calls tagAndUpdate", async () => {
     await main();
 
-    expect(TagAndUpdate).toBeCalled();
+    expect(tagAndUpdate).toBeCalled();
   });
 
-  it("Calls PublishAll", async () => {
+  it("Calls publishAll", async () => {
     await main();
 
-    expect(PublishAll).toBeCalled();
+    expect(publishAll).toBeCalled();
   });
 });
