@@ -1,4 +1,5 @@
 include:
+  - local: "/applications/dxb/functions/contentful-tagger/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/es-pim-products-ingest/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gatsby-cloud-build-proxy/.gitlab-ci.yml"
   - local: "/applications/dxb/functions/gcp-apsis-integration/.gitlab-ci.yml"

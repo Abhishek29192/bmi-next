@@ -1,0 +1,138 @@
+{
+  "name": "Author",
+  "description": "Allows editing of content",
+  "policies": [
+    {
+      "effect": "allow",
+      "actions": ["create"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["read"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["update"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["create"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["read"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["update"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "permissions": {
+    "ContentModel": ["read"],
+    "Settings": [],
+    "ContentDelivery": [],
+    "Environments": [],
+    "EnvironmentAliases": [],
+    "Tags": []
+  },
+  "sys": {
+    "type": "Role",
+    "id": "h81mua6xtni601ippd030l",
+    "version": 0,
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "29rz95oqljkjggtrz202hb"
+      }
+    },
+    "createdAt": "2020-12-01T11:26:53Z",
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "29rz95oqljkjggtrz202hb"
+      }
+    },
+    "updatedAt": "2020-12-01T11:26:53Z"
+  }
+}

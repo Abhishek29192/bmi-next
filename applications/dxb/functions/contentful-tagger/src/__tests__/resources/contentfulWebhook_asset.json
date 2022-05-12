@@ -1,0 +1,32 @@
+{
+  "metadata": { "tags": [] },
+  "sys": {
+    "space": {
+      "sys": { "type": "Link", "linkType": "Space", "id": "81kydo1yc2v0" }
+    },
+    "id": "5tJg1ULGhvj7k9r0efr3rq",
+    "type": "Asset",
+    "createdAt": "2022-05-06T14:56:20.275Z",
+    "updatedAt": "2022-05-06T14:56:20.275Z",
+    "environment": {
+      "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7vk2ubaUBy27Ui1Wv1ryXG"
+      }
+    },
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7vk2ubaUBy27Ui1Wv1ryXG"
+      }
+    },
+    "publishedCounter": 0,
+    "version": 1
+  },
+  "fields": {}
+}
