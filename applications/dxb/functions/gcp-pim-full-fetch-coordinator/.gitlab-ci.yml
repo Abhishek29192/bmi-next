@@ -38,6 +38,13 @@ deploy_gcp-pim-full-fetch-coordinator:
     - package_gcp-pim-full-fetch-coordinator
   dependencies:
     - package_gcp-pim-full-fetch-coordinator
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-es-client/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+        - applications/dxb/libraries/pim-api/**/*
   variables:
     FUNCTION_NAME: "gcp-pim-full-fetch-coordinator"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"

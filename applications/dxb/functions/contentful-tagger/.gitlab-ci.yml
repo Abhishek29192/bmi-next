@@ -31,6 +31,11 @@ deploy_contentful-tagger:
     - package_contentful-tagger
   dependencies:
     - package_contentful-tagger
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
   variables:
     FUNCTION_NAME: "contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
