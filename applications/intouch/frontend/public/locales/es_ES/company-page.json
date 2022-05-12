@@ -153,8 +153,8 @@
   },
   "order": {
     "labels": {
-      "alphabetical": "Alfabético",
-      "last updated": "Última actualización"
+      "ALPHABETICAL": "Alfabético",
+      "UPDATED": "Última actualización"
     }
   },
   "register_dialog": {
