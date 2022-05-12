@@ -1,6 +1,7 @@
 import { google, youtube_v3 } from "googleapis";
 import { config } from "dotenv";
 import fetch, { Response } from "node-fetch";
+import { getYoutubeId } from "../../utils/product-details-transforms";
 import { Node } from "./types";
 
 config({
@@ -71,6 +72,8 @@ export default {
         YOUTUBE_CACHE_BEARER_TOKEN_SECRET
       } = process.env;
 
+      const youtubeId = getYoutubeId(source.youtubeId);
+
       const youtube = GOOGLE_YOUTUBE_API_KEY
         ? google.youtube({
             version: "v3",
@@ -89,7 +92,7 @@ export default {
 
         const { data } = await youtube.videos.list({
           part: ["player"],
-          id: [source.youtubeId],
+          id: [youtubeId],
           maxHeight: 9999
         });
 
@@ -103,13 +106,20 @@ export default {
         throwMissingEnvVariable("YOUTUBE_CACHE_BEARER_TOKEN_SECRET");
       }
 
-      const data = await getYoutubeDetails(source.youtubeId);
+      const data = await getYoutubeDetails(youtubeId);
       if (!data) {
         throw new Error(
-          `resolvers.ContentfulVideo: Could not find video ${source.youtubeId}.`
+          `resolvers.ContentfulVideo: Could not find video ${youtubeId}.`
         );
       }
       return formatYoutubeDetails(data);
+    }
+  },
+  youtubeId: {
+    async resolve(source: Node) {
+      return source.youtubeId.startsWith("https://")
+        ? source.youtubeId
+        : `https://www.youtube.com/watch?v=${source.youtubeId}`;
     }
   }
 };

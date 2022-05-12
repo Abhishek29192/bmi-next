@@ -1,7 +1,8 @@
 import {
   filterAndTransformVideoData,
   getJpgImage,
-  transformMediaSrc
+  transformMediaSrc,
+  GallerySectionMedias
 } from "../media";
 import createAsset from "../../__tests__/AssetHelper";
 
@@ -44,8 +45,8 @@ describe("getJpgImage function", () => {
 });
 
 describe("transformMediaSrc function", () => {
-  it("test functionality", () => {
-    const mockMedia = [
+  it("should return correct data", () => {
+    const mockMedia: GallerySectionMedias[] = [
       {
         __typename: "ContentfulImage",
         altText: "alt text",
@@ -56,35 +57,51 @@ describe("transformMediaSrc function", () => {
             url: "//images.asset.jpg"
           },
           thumbnail: {
-            fileName: "thumbnail",
             src: "//images.asset.jpg"
           }
         },
         caption: {
           caption: "CAPTION"
-        }
+        },
+        focalPoint: null
       },
       {
         __typename: "ContentfulVideo",
         title: "featuredVideo",
         label: "label",
-        subtitle: null,
-        youtubeId: "youtubeId",
-        previewMedia: null,
+        subtitle: "ContentfulVideoSubtitle",
+        videoUrl: "https://youtu.be/01SUXJmB9Ik",
+        previewMedia: {
+          altText: "ContentfulVideoAltText",
+          __typename: "ContentfulImage",
+          type: "Descriptive",
+          image: {
+            thumbnail: {
+              src: "//images.asset.jpg"
+            },
+            file: {
+              fileName: "fileName",
+              url: "fileNameURL"
+            }
+          },
+          caption: {
+            caption: "Caption"
+          },
+          focalPoint: null
+        },
         videoRatio: null
       },
+
       {
         __typename: "PimVideo",
-        allowedToDownload: true,
-        assetType: "VIDEO",
-        mime: "application/octet-stream",
-        name: "testVideo",
-        url: "https://www.youtube.com/watch?v=AGVIbPFLDcI%22",
-        youtubeId: "AGVIbPFLDcI%22"
+        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI%22",
+        title: "PimVideoTitle",
+        label: "PimVideoLabel",
+        subtitle: "subtitle",
+        previewMedia: null,
+        videoRatio: null
       }
     ];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const expectResult = transformMediaSrc(mockMedia);
 
     expect(expectResult[0]).toEqual(
@@ -95,6 +112,189 @@ describe("transformMediaSrc function", () => {
         altText: "alt text"
       })
     );
+    expect(expectResult[1]).toEqual(
+      expect.objectContaining({
+        thumbnail: "//images.asset.jpg",
+        isVideo: true,
+        caption: "ContentfulVideoSubtitle",
+        altText: "ContentfulVideoAltText"
+      })
+    );
+    expect(expectResult[2]).toEqual(
+      expect.objectContaining({
+        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI%22/maxresdefault.jpg",
+        isVideo: true,
+        caption: "PimVideoTitle"
+      })
+    );
+  });
+
+  it("shuold return correct object if typeName === ContentfulVideo and previewMedia is null", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulVideo",
+        title: "featuredVideo",
+        label: "label",
+        subtitle: "ContentfulVideoSubtitle",
+        videoUrl: "https://youtu.be/01SUXJmB9Ik",
+        previewMedia: null,
+        videoRatio: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: "https://i.ytimg.com/vi/01SUXJmB9Ik/maxresdefault.jpg",
+        isVideo: true,
+        caption: "ContentfulVideoSubtitle",
+        altText: undefined
+      })
+    );
+  });
+
+  it("shuold return correct object if typeName === ContentfulVideo and subtitle is null", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulVideo",
+        title: "featuredVideo",
+        label: "label",
+        subtitle: null,
+        videoUrl: "https://youtu.be/01SUXJmB9Ik",
+        previewMedia: {
+          altText: "ContentfulVideoAltText",
+          __typename: "ContentfulImage",
+          type: "Descriptive",
+          image: {
+            thumbnail: {
+              src: "//images.asset.jpg"
+            },
+            file: {
+              fileName: "fileName",
+              url: "fileNameURL"
+            }
+          },
+          caption: {
+            caption: "Caption"
+          },
+          focalPoint: null
+        },
+        videoRatio: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: "//images.asset.jpg",
+        isVideo: true,
+        caption: undefined,
+        altText: "ContentfulVideoAltText"
+      })
+    );
+  });
+
+  it("shuold return correct object  if typeName === ContentfulImage and image.thumbnail.src is empty string", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulImage",
+        altText: "alt text",
+        type: null,
+        image: {
+          file: {
+            fileName: "file",
+            url: "//images.asset.jpg"
+          },
+          thumbnail: {
+            src: ""
+          }
+        },
+        caption: {
+          caption: "CAPTION"
+        },
+        focalPoint: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: null,
+        isVideo: false,
+        caption: "CAPTION",
+        altText: "alt text"
+      })
+    );
+  });
+
+  it("shuold return correct object if typeName === ContentfulImage and item caption is null", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulImage",
+        altText: "alt text",
+        type: null,
+        image: {
+          file: {
+            fileName: "file",
+            url: "//images.asset.jpg"
+          },
+          thumbnail: {
+            src: "//images.asset.jpg"
+          }
+        },
+        caption: null,
+        focalPoint: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: "//images.asset.jpg",
+        isVideo: false,
+        caption: undefined,
+        altText: "alt text"
+      })
+    );
+  });
+
+  it("shuold return correct object if typeName === ContentfulImage and item altText is empty string", () => {
+    const mockMedia: GallerySectionMedias[] = [
+      {
+        __typename: "ContentfulImage",
+        altText: "",
+        type: null,
+        image: {
+          file: {
+            fileName: "file",
+            url: "//images.asset.jpg"
+          },
+          thumbnail: {
+            src: "//images.asset.jpg"
+          }
+        },
+        caption: {
+          caption: "CAPTION"
+        },
+        focalPoint: null
+      }
+    ];
+    const expectResult = transformMediaSrc(mockMedia);
+
+    expect(expectResult[0]).toEqual(
+      expect.objectContaining({
+        thumbnail: "//images.asset.jpg",
+        isVideo: false,
+        caption: "CAPTION",
+        altText: undefined
+      })
+    );
+  });
+
+  it("should return empty array if data NOT passed", () => {
+    const expectResult = transformMediaSrc();
+
+    expect(expectResult).toEqual([]);
   });
 });
 
@@ -121,7 +321,7 @@ describe("filterAndTransformVideoData", () => {
         previewMedia: null,
         subtitle: null,
         videoRatio: null,
-        youtubeId: "PLLgrNGa4D4"
+        videoUrl: "https://www.youtube.com/watch?v=PLLgrNGa4D4"
       }
     ]);
   });
@@ -148,8 +348,13 @@ describe("filterAndTransformVideoData", () => {
         previewMedia: null,
         subtitle: null,
         videoRatio: null,
-        youtubeId: ""
+        videoUrl: ""
       }
     ]);
+  });
+  it("should return an empty array if null is passed", () => {
+    const expectResult = filterAndTransformVideoData(null);
+
+    expect(expectResult).toStrictEqual([]);
   });
 });

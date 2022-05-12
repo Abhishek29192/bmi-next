@@ -1023,6 +1023,9 @@ type ContentfulResources implements Node {
   "The specification notes with on system details page"
   sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta
     @link(from: "sdpSpecificationNotesCta___NODE")
+
+  "The document display format"
+  documentDisplayFormat: String
 }
 
 """

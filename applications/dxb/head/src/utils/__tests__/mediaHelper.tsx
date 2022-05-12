@@ -44,7 +44,7 @@ export const createGallerySectionVideo = (): GallerySectionVideo => ({
   title: "Lorem ipsum video title",
   label: "Lorem ipsum video label",
   subtitle: "Lorem ipsum video subtitle",
-  youtubeId: "youtube-id",
+  videoUrl: "https://www.youtube.com/watch?v=youtube-id",
   videoRatio: {
     width: 16,
     height: 9

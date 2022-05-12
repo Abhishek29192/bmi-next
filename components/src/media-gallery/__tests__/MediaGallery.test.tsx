@@ -21,10 +21,11 @@ const mockMedia = [
     media: (
       <YoutubeVideo
         label="test video"
-        videoId="A-RfHC91Ewc"
+        videoUrl="https://youtu.be/A-RfHC91Ewc"
         embedHeight={720}
         embedWidth={1280}
         layout="dialog"
+        previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
     ),
     thumbnail: "",
@@ -69,10 +70,11 @@ describe("MediaGallery component", () => {
         media: (
           <YoutubeVideo
             label="test video 1"
-            videoId="A-RfHC91Ewc"
+            videoUrl="https://youtu.be/A-RfHC91Ewc"
             embedHeight={720}
             embedWidth={1280}
             layout="dialog"
+            previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
           />
         ),
         thumbnail: "https://thumbnail1.jpg",
@@ -83,10 +85,11 @@ describe("MediaGallery component", () => {
         media: (
           <YoutubeVideo
             label="test video 2"
-            videoId="A-RfHC91Awc"
+            videoUrl="https://youtu.be/A-RfHC91Awc"
             embedHeight={720}
             embedWidth={1280}
             layout="dialog"
+            previewImageSource="https://i.ytimg.com/vi/A-RfHC91Awc/maxresdefault.jpg"
           />
         ),
         thumbnail: "https://thumbnail2.jpg",

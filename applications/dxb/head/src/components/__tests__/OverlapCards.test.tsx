@@ -174,7 +174,7 @@ const data: Data = [
       title: "video title",
       label: "video label",
       subtitle: "video subtitle",
-      youtubeId: "TDNEwZbm_Nk",
+      videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
       previewMedia: {
         __typename: "ContentfulImage",
         type: null,
