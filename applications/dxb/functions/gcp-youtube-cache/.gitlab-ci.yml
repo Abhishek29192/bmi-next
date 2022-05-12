@@ -39,6 +39,11 @@ deploy_gcp-youtube-cache:
     - package_gcp-youtube-cache
   dependencies:
     - package_gcp-youtube-cache
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
   variables:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
