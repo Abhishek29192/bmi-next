@@ -3009,7 +3009,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"signupBlockTitle - submitButtonLabel\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -6636,7 +6636,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"signupBlockTitle - submitButtonLabel\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >

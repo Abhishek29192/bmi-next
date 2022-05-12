@@ -3995,7 +3995,7 @@ exports[`Contact us page render NextBestActions correctly 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-212 MuiButton-contained buttonStyles-contained-214 buttonStyles-containedDarkBg-221 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -8411,7 +8411,7 @@ exports[`Contact us page render Sections correctly 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-118 MuiButton-contained buttonStyles-contained-120 buttonStyles-containedDarkBg-127 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -12824,7 +12824,7 @@ exports[`Contact us page render firstslide featuredMedia instead when no feature
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-259 MuiButton-contained buttonStyles-contained-261 buttonStyles-containedDarkBg-268 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -17240,7 +17240,7 @@ exports[`Contact us page render iframe correctly 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-71 MuiButton-contained buttonStyles-contained-73 buttonStyles-containedDarkBg-80 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -21656,7 +21656,7 @@ exports[`Contact us page render location correctly 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-165 MuiButton-contained buttonStyles-contained-167 buttonStyles-containedDarkBg-174 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -26072,7 +26072,7 @@ exports[`Contact us page renders correctly 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root-24 MuiButton-contained buttonStyles-contained-26 buttonStyles-containedDarkBg-33 signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"Sign up\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"Sign up for our newsletter - Sign up\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
