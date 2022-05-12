@@ -786,9 +786,10 @@ export const getProductAttributes = (
   ];
 };
 
+// TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
 const IGNORED_ATTRIBUTES = [
-  "scoringWeightAttributes.scoringweight",
-  "appearanceAttributes.colourfamily"
+  "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT",
+  "APPEARANCEATTRIBUTES.COLOURFAMILY"
 ];
 
 export const getValidClassification = (
@@ -801,8 +802,9 @@ export const getValidClassification = (
 
   const classificationsToReturn = classifications.filter(
     ({ features }) =>
+      // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
       !IGNORED_CLASSIFICATIONS.includes(
-        features && features.length && features[0].code
+        features && features.length && features[0].code.toUpperCase()
       )
   );
   return classificationsToReturn;

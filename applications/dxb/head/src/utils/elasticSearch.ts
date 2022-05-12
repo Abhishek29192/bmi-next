@@ -1,8 +1,8 @@
 import { Filter } from "@bmi/components";
 import { devLog } from "../utils/devLog";
 import {
-  getVariantsByBaseProductCodeQuery,
-  getUniqueBaseProductCount
+  getUniqueBaseProductCount,
+  getVariantsByBaseProductCodeQuery
 } from "./elasticSearchCommonQuery";
 
 const ES_AGGREGATION_NAMES = {
@@ -78,9 +78,10 @@ export const disableFiltersFromAggregations = (
 
 // Filter.name => ES index mapping
 const searchTerms = {
-  colour: "appearanceAttributes.colourfamily.code.keyword",
-  materials: "generalInformation.materials.code.keyword",
-  texturefamily: "appearanceAttributes.texturefamily.code.keyword",
+  // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
+  colour: "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+  materials: "GENERALINFORMATION.MATERIALS.code.keyword",
+  texturefamily: "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
   allCategories: "allCategories.code.keyword"
 };
 
@@ -154,19 +155,22 @@ export const compileElasticSearchQuery = (
       materials: {
         terms: {
           size: "100",
-          field: "generalInformation.materials.code.keyword"
+          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
+          field: "GENERALINFORMATION.MATERIALS.code.keyword"
         }
       },
       texturefamily: {
         terms: {
           size: "100",
-          field: "appearanceAttributes.texturefamily.code.keyword"
+          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
+          field: "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword"
         }
       },
       colourfamily: {
         terms: {
           size: "100",
-          field: "appearanceAttributes.colourfamily.code.keyword"
+          // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
+          field: "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword"
         }
       },
       ...getUniqueBaseProductCount()
@@ -190,9 +194,10 @@ export const compileElasticSearchQuery = (
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword", // this doesn't have any effect when caret boosting
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword", // this doesn't have any effect when caret boosting
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6" // boosted - (see confluence documentation, linked above)

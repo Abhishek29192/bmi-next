@@ -571,8 +571,7 @@ export const getPlpFilters = ({
   const classificationFeaturesFilters = generateFeatureFilters(
     pimClassificationNamespace,
     allFeatures,
-    // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-    allowedFilters.map((filter) => filter.toUpperCase())
+    allowedFilters
   );
 
   const uniqueAllowFilterKeys = Array.from(
@@ -588,7 +587,7 @@ export const getPlpFilters = ({
       allFilters.find(
         ({ name }) =>
           // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          name === uniqueFilter.toUpperCase() ||
+          name.toUpperCase() === uniqueFilter.toUpperCase() ||
           removePLPFilterPrefix(name) === uniqueFilter
       )
     )

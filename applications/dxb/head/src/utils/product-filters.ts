@@ -185,7 +185,7 @@ export const generateFeatureFilters = (
       uniqueAllowedFilters.some(
         (uniqueCode) =>
           // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          uniqueCode ===
+          uniqueCode.toUpperCase() ===
           (featureCode || "")
             .replace(`${pimClassificationNamespace}/`, "")
             .toUpperCase()
@@ -229,10 +229,10 @@ export const generateFeatureFilters = (
         return {
           ...plpFilter,
           label: feature.name,
-          name: (feature.code || "").replace(
-            `${pimClassificationNamespace}/`,
-            ""
-          ),
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          name: (feature.code || "")
+            .replace(`${pimClassificationNamespace}/`, "")
+            .toUpperCase(),
           value: [],
           options: allOptions.sort((a, b) => {
             //sort based on string or number value
