@@ -552,9 +552,7 @@ exports[`ProjectSidePanel component shows ALL projects by default 1`] = `
               <div>
                 <p
                   class="MuiTypography-root Typography MuiTypography-body1"
-                >
-                  LONDON, N11 111
-                </p>
+                />
                 <p
                   class="MuiTypography-root Typography MuiTypography-body1"
                   style="display: flex;"
