@@ -837,6 +837,21 @@ type ContentfulTitleWithContent implements Node {
   content: ContentfulRichText!
 }
 
+type ContentfulSpecificationNotesWithCta implements Node {
+  id: ID!
+
+  name: String!
+
+  "The title for this title with content."
+  title: String
+
+  "The content for this title with content."
+  description: ContentfulRichText!
+
+  "The link for CTA."
+  cta: ContentfulLink @link(from: "cta___NODE")
+}
+
 """
 Represents a team member.
 """
@@ -1004,6 +1019,10 @@ type ContentfulResources implements Node {
 
   "The description for product details page specification tab."
   pdpSpecificationDescription: ContentfulRichText
+
+  "The specification notes with on system details page"
+  sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta
+    @link(from: "sdpSpecificationNotesCta___NODE")
 }
 
 """

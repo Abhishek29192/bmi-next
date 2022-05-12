@@ -90,7 +90,8 @@ describe("General Error", () => {
         pdpFixingToolTitle: null,
         pdpFixingToolDescription: null,
         pdpSpecificationTitle: null,
-        pdpSpecificationDescription: null
+        pdpSpecificationDescription: null,
+        sdpSpecificationNotesCta: null
       },
       headScripts: null,
       scriptOnetrust: null,

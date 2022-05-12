@@ -280,6 +280,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         aboutLeadBlockGenericContent={aboutLeadBlockGenericContent}
         bimContent={bimContent}
         documentsAndDownloads={documentsAndDownloads}
+        specificationNotes={resources?.sdpSpecificationNotesCta}
       />
       {relatedSystems?.nodes && (
         <RelatedSystems
