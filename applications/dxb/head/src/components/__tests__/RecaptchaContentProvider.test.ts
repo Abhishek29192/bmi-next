@@ -133,4 +133,23 @@ describe("getRecaptchaPrivacyContent tests", () => {
       );
     });
   });
+
+  describe("When country code 'tr' is passed", () => {
+    test("returns Turkey recaptcha content", () => {
+      const result = getRecaptchaPrivacyContent("tr");
+      expect(result.startText).toEqual(
+        "Bu site reCAPTCHA tarafından korunmaktadır ve Google "
+      );
+      expect(result.privacyPloicyText).toEqual("Gizlilik Politikas");
+      expect(result.andText).toEqual(" ve ");
+      expect(result.termsOfServiceText).toEqual("Hizmet Şartları");
+      expect(result.endText).toEqual(" geçerlidir.");
+      expect(result.privacyPolicyUrl).toEqual(
+        "https://policies.google.com/privacy?hl=tr"
+      );
+      expect(result.termsOfServiceUrl).toEqual(
+        "https://policies.google.com/terms?hl=tr"
+      );
+    });
+  });
 });
