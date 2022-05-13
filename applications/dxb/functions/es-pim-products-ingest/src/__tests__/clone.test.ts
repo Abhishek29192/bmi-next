@@ -335,7 +335,7 @@ describe("CLONE tests", () => {
 
     it("should return correct code value if pimClassificationNameSpace populated as undefined", () => {
       const code = "pim-namespace/1.0/feature-code-1";
-      const expectedCode = "pim-namespace1.0/feature-code-1";
+      const expectedCode = "PIM-NAMESPACE1.0/FEATURE-CODE-1";
       const pimClassificationNameSpace = undefined;
       const classifications: Array<Classification> = [
         createClassification({
@@ -385,7 +385,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "feature-code-1": [
+            "FEATURE-CODE-1": [
               {
                 code: "valuesymbol",
                 name: "value symbol"
@@ -411,7 +411,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "valuesymbol",
                 name: "value symbol"
@@ -441,7 +441,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "value-1symbol",
                 name: "value-1 symbol"
@@ -492,7 +492,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "value-1symbol",
                 name: "value-1 symbol"
@@ -506,7 +506,7 @@ describe("CLONE tests", () => {
                 name: "value-3 symbol"
               }
             ],
-            "classification-feature-code-2": [
+            "CLASSIFICATION-FEATURE-CODE-2": [
               {
                 code: "value-4symbol",
                 name: "value-4 symbol"
@@ -540,7 +540,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "feature-code-1": [
+            "FEATURE-CODE-1": [
               {
                 code: "codesymbol",
                 name: "value symbol"
@@ -560,7 +560,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "codesymbol",
                 name: "value symbol"
@@ -590,7 +590,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "code1symbol",
                 name: "value-1 symbol"
@@ -641,7 +641,7 @@ describe("CLONE tests", () => {
             classifications
           );
           expect(result).toEqual({
-            "classification-feature-code": [
+            "CLASSIFICATION-FEATURE-CODE": [
               {
                 code: "code1symbol",
                 name: "value-1 symbol"
@@ -655,7 +655,7 @@ describe("CLONE tests", () => {
                 name: "value-3 symbol"
               }
             ],
-            "classification-feature-code-2": [
+            "CLASSIFICATION-FEATURE-CODE-2": [
               {
                 code: "code4symbol",
                 name: "value-4 symbol"
@@ -726,7 +726,7 @@ describe("CLONE tests", () => {
               classifications
             );
             expect(result).toEqual({
-              "classification-feature-code": [
+              "CLASSIFICATION-FEATURE-CODE": [
                 {
                   code: "code1symbol",
                   name: "value-1 symbol"
@@ -740,7 +740,7 @@ describe("CLONE tests", () => {
                   name: "value-3 symbol"
                 }
               ],
-              "classification-feature-code-2": [
+              "CLASSIFICATION-FEATURE-CODE-2": [
                 {
                   code: "code4symbol",
                   name: "value-4 symbol"

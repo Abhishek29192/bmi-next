@@ -136,7 +136,7 @@ const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
       const agg = createAggregation(
         categoryKey,
         // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-        optionKey.includes(".") ? optionKey.toUpperCase() : optionKey
+        optionKey?.includes(".") ? optionKey.toUpperCase() : optionKey
       );
       if (optionKey) {
         // eslint-disable-next-line security/detect-object-injection

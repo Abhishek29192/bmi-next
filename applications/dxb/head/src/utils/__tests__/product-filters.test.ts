@@ -450,7 +450,7 @@ describe("product-filters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  name: "roofAttributes.minimumpitch",
+                  name: "ROOFATTRIBUTES.MINIMUMPITCH",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -511,7 +511,7 @@ describe("product-filters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  name: "roofAttributes.minimumpitch",
+                  name: "ROOFATTRIBUTES.MINIMUMPITCH",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -552,7 +552,7 @@ describe("product-filters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  name: "roofAttributes.minimumpitch",
+                  name: "ROOFATTRIBUTES.MINIMUMPITCH",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -613,7 +613,7 @@ describe("product-filters tests", () => {
 
                 expect(result).toEqual([
                   {
-                    name: "roofAttributes.minimumpitch",
+                    name: "ROOFATTRIBUTES.MINIMUMPITCH",
                     label: "minimumpitch",
                     value: [],
                     options: [
@@ -672,7 +672,7 @@ describe("product-filters tests", () => {
                 );
                 expect(result).toEqual([
                   {
-                    name: "roofAttributes.color",
+                    name: "ROOFATTRIBUTES.COLOR",
                     label: "color",
                     value: [],
                     options: [
@@ -779,7 +779,7 @@ describe("product-filters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  name: "roofAttributes.minimumpitch",
+                  name: "ROOFATTRIBUTES.MINIMUMPITCH",
                   label: "minimumpitch",
                   value: [],
                   options: [
@@ -868,7 +868,7 @@ describe("product-filters tests", () => {
               );
               expect(result).toEqual([
                 {
-                  name: "roofAttributes.minimumpitch",
+                  name: "ROOFATTRIBUTES.MINIMUMPITCH",
                   label: "minimumpitch",
                   value: [],
                   options: [

@@ -817,8 +817,9 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
     (value) => `${classificationNamespace}/${value}`
   );
 
+  // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
   return features
-    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code.toUpperCase()))
     .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
 };
 

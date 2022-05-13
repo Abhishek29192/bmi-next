@@ -160,19 +160,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -202,9 +202,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -227,7 +227,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -264,19 +264,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -310,7 +310,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -347,19 +347,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -391,7 +391,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -428,19 +428,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -470,9 +470,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -495,7 +495,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -532,19 +532,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -574,9 +574,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -599,7 +599,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -636,19 +636,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -678,9 +678,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -703,7 +703,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -740,19 +740,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -782,9 +782,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -807,7 +807,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -844,19 +844,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -886,9 +886,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -911,7 +911,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -948,19 +948,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -990,9 +990,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1015,7 +1015,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],
@@ -1052,19 +1052,19 @@ describe("compileElasticSearchQuery function", () => {
           },
           "colourfamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.colourfamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
               "size": "100",
             },
           },
           "materials": Object {
             "terms": Object {
-              "field": "generalInformation.materials.code.keyword",
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
               "size": "100",
             },
           },
           "texturefamily": Object {
             "terms": Object {
-              "field": "appearanceAttributes.texturefamily.code.keyword",
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
               "size": "100",
             },
           },
@@ -1094,9 +1094,9 @@ describe("compileElasticSearchQuery function", () => {
                     "description",
                     "longDescription",
                     "shortDescription",
-                    "appearanceAttributes.colourfamily.name.keyword",
-                    "generalInformation.materials.name.keyword",
-                    "appearanceAttributes.texturefamily.name.keyword",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
                     "measurementValue.keyword",
                     "allCategories.value.keyword",
                     "classifications.features.featureValues.value^6",
@@ -1119,7 +1119,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "appearanceAttributes.colourfamily.code.keyword": "Colour",
+                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
                 },
               },
             ],

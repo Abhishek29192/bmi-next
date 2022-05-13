@@ -3,6 +3,18 @@
 exports[`transformProduct original transform tests should default PIM_CLASSIFICATION_CATALOGUE_NAMESPACE if not provided 1`] = `
 Array [
   Object {
+    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "red symbol",
+      },
+    ],
+    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "glossy symbol",
+      },
+    ],
     "BMI_Brands": Array [
       Object {
         "code": "BMI-brand-code",
@@ -13,6 +25,12 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "Category": Array [
@@ -27,6 +45,30 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "GENERALINFORMATION.MATERIALS": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "concrete symbol",
+      },
+    ],
+    "MEASUREMENTS.HEIGHT": Array [
+      Object {
+        "code": "codemm",
+        "name": "30 mm",
+      },
+    ],
+    "MEASUREMENTS.LENGTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "10 mm",
+      },
+    ],
+    "MEASUREMENTS.WIDTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "20 mm",
       },
     ],
     "ProductFamily": Array [
@@ -127,30 +169,12 @@ Array [
         "parentCategoryCode": "parent-category-code",
       },
     ],
-    "appearanceAttributes.colourfamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "red symbol",
-      },
-    ],
-    "appearanceAttributes.texturefamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "glossy symbol",
-      },
-    ],
     "approvalStatus": "approved",
     "baseProduct": Object {
       "code": "code",
       "name": "name",
     },
     "brandCode": "BMI-brand-code",
-    "classification-feature-code": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
     "classifications": Array [
       Object {
         "code": "variant-code",
@@ -306,12 +330,6 @@ Array [
     "code": "code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "generalInformation.materials": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "concrete symbol",
-      },
-    ],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -339,24 +357,6 @@ Array [
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
-    "measurements.height": Array [
-      Object {
-        "code": "codemm",
-        "name": "30 mm",
-      },
-    ],
-    "measurements.length": Array [
-      Object {
-        "code": "codemm",
-        "name": "10 mm",
-      },
-    ],
-    "measurements.width": Array [
-      Object {
-        "code": "codemm",
-        "name": "20 mm",
-      },
-    ],
     "name": "name",
     "parent-category-code": Array [
       Object {
@@ -745,31 +745,55 @@ Array [
 exports[`transformProduct original transform tests should handle no categories 1`] = `
 Array [
   Object {
-    "allCategories": Array [],
-    "appearanceAttributes.colourfamily": Array [
+    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "red symbol",
       },
     ],
-    "appearanceAttributes.texturefamily": Array [
+    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
       Object {
         "code": "codesymbol",
         "name": "glossy symbol",
       },
     ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
+      },
+    ],
+    "GENERALINFORMATION.MATERIALS": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "concrete symbol",
+      },
+    ],
+    "MEASUREMENTS.HEIGHT": Array [
+      Object {
+        "code": "codemm",
+        "name": "30 mm",
+      },
+    ],
+    "MEASUREMENTS.LENGTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "10 mm",
+      },
+    ],
+    "MEASUREMENTS.WIDTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "20 mm",
+      },
+    ],
+    "allCategories": Array [],
     "approvalStatus": "approved",
     "baseProduct": Object {
       "code": "code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classification-feature-code": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
     "classifications": Array [
       Object {
         "code": "variant-code",
@@ -925,12 +949,6 @@ Array [
     "code": "code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "generalInformation.materials": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "concrete symbol",
-      },
-    ],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -958,24 +976,6 @@ Array [
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
-    "measurements.height": Array [
-      Object {
-        "code": "codemm",
-        "name": "30 mm",
-      },
-    ],
-    "measurements.length": Array [
-      Object {
-        "code": "codemm",
-        "name": "10 mm",
-      },
-    ],
-    "measurements.width": Array [
-      Object {
-        "code": "codemm",
-        "name": "20 mm",
-      },
-    ],
     "name": "name",
     "productBenefits": Array [
       "product-benefits",
@@ -1163,10 +1163,28 @@ Array [
 exports[`transformProduct original transform tests should handle no images 1`] = `
 Array [
   Object {
+    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "red symbol",
+      },
+    ],
+    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "glossy symbol",
+      },
+    ],
     "BMI_Brands": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "Category": Array [
@@ -1181,6 +1199,30 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "GENERALINFORMATION.MATERIALS": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "concrete symbol",
+      },
+    ],
+    "MEASUREMENTS.HEIGHT": Array [
+      Object {
+        "code": "codemm",
+        "name": "30 mm",
+      },
+    ],
+    "MEASUREMENTS.LENGTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "10 mm",
+      },
+    ],
+    "MEASUREMENTS.WIDTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "20 mm",
       },
     ],
     "ProductFamily": Array [
@@ -1267,30 +1309,12 @@ Array [
         "parentCategoryCode": "BMI_Brands",
       },
     ],
-    "appearanceAttributes.colourfamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "red symbol",
-      },
-    ],
-    "appearanceAttributes.texturefamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "glossy symbol",
-      },
-    ],
     "approvalStatus": "approved",
     "baseProduct": Object {
       "code": "code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classification-feature-code": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
     "classifications": Array [
       Object {
         "code": "variant-code",
@@ -1446,34 +1470,10 @@ Array [
     "code": "code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "generalInformation.materials": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "concrete symbol",
-      },
-    ],
     "images": Array [],
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
-    "measurements.height": Array [
-      Object {
-        "code": "codemm",
-        "name": "30 mm",
-      },
-    ],
-    "measurements.length": Array [
-      Object {
-        "code": "codemm",
-        "name": "10 mm",
-      },
-    ],
-    "measurements.width": Array [
-      Object {
-        "code": "codemm",
-        "name": "20 mm",
-      },
-    ],
     "name": "name",
     "parent-category-code": Array [
       Object {
@@ -1506,10 +1506,28 @@ exports[`transformProduct original transform tests should not transform full pro
 exports[`transformProduct original transform tests should transform full product with single variant to a single ES product 1`] = `
 Array [
   Object {
+    "APPEARANCEATTRIBUTES.COLOURFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "red symbol",
+      },
+    ],
+    "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "glossy symbol",
+      },
+    ],
     "BMI_Brands": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "Category": Array [
@@ -1524,6 +1542,30 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "GENERALINFORMATION.MATERIALS": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "concrete symbol",
+      },
+    ],
+    "MEASUREMENTS.HEIGHT": Array [
+      Object {
+        "code": "codemm",
+        "name": "30 mm",
+      },
+    ],
+    "MEASUREMENTS.LENGTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "10 mm",
+      },
+    ],
+    "MEASUREMENTS.WIDTH": Array [
+      Object {
+        "code": "codemm",
+        "name": "20 mm",
       },
     ],
     "ProductFamily": Array [
@@ -1610,30 +1652,12 @@ Array [
         "parentCategoryCode": "BMI_Brands",
       },
     ],
-    "appearanceAttributes.colourfamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "red symbol",
-      },
-    ],
-    "appearanceAttributes.texturefamily": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "glossy symbol",
-      },
-    ],
     "approvalStatus": "approved",
     "baseProduct": Object {
       "code": "code",
       "name": "name",
     },
     "brandCode": undefined,
-    "classification-feature-code": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
     "classifications": Array [
       Object {
         "code": "variant-code",
@@ -1789,12 +1813,6 @@ Array [
     "code": "code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
-    "generalInformation.materials": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "concrete symbol",
-      },
-    ],
     "images": Array [
       Object {
         "allowedToDownload": true,
@@ -1822,24 +1840,6 @@ Array [
     "isSampleOrderAllowed": true,
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
-    "measurements.height": Array [
-      Object {
-        "code": "codemm",
-        "name": "30 mm",
-      },
-    ],
-    "measurements.length": Array [
-      Object {
-        "code": "codemm",
-        "name": "10 mm",
-      },
-    ],
-    "measurements.width": Array [
-      Object {
-        "code": "codemm",
-        "name": "20 mm",
-      },
-    ],
     "name": "name",
     "parent-category-code": Array [
       Object {
