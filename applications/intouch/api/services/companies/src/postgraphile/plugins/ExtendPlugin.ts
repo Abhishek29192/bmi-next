@@ -3,7 +3,8 @@ import { makeExtendSchemaPlugin } from "graphile-utils";
 import {
   ContentfulGuaranteeTemplatesCollection,
   ContentfulGuaranteeTypeCollection,
-  EvidenceCategoryCollection
+  EvidenceCategoryCollection,
+  MutationRestartGuaranteeArgs
 } from "@bmi/intouch-api-types";
 import {
   invite,
@@ -24,6 +25,7 @@ import {
   getCompanyIsProfileComplete,
   guaranteeResolver
 } from "../../services/company/customResolvers";
+import { restartGuarantee } from "../../services/guarantee";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
@@ -239,6 +241,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             resolveInfo,
             auth0
           );
+        },
+        restartGuarantee: async (
+          query,
+          args: MutationRestartGuaranteeArgs,
+          context,
+          resolveInfo
+        ) => {
+          return restartGuarantee(args, context);
         },
         ...reminderMutation
       },

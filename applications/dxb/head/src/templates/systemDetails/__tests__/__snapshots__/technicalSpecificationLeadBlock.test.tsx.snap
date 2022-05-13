@@ -579,3 +579,467 @@ exports[`TechnicalSpecificationLeadBlock tests should render correctly when no c
   </div>
 </div>
 `;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With no specification 1`] = `
+<div>
+  <div
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="SystemDetailsTechnicalSpec"
+        >
+          <div
+            class="accordionStyles-root-63 accordionStyles-no-inner-padding-66"
+          >
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-64 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-67 Mui-expanded accordionStyles-summaryExpanded-68"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-69 Mui-expanded accordionStyles-summaryExpanded-68"
+                >
+                  <h6
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    systemAttributes
+                  </h6>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-68 MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-entered"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordion-details"
+                      >
+                        <div>
+                          <table
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
+                          >
+                            <tbody
+                              class="MuiTableBody-root"
+                            >
+                              <tr
+                                class="MuiTableRow-root"
+                              >
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                >
+                                  feature1
+                                </td>
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                >
+                                  200 
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-64 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-67 Mui-expanded accordionStyles-summaryExpanded-68"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-69 Mui-expanded accordionStyles-summaryExpanded-68"
+                >
+                  <h6
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    systemAttributes
+                  </h6>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-68 MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-entered"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordion-details"
+                      >
+                        <div>
+                          <table
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
+                          >
+                            <tbody
+                              class="MuiTableBody-root"
+                            >
+                              <tr
+                                class="MuiTableRow-root"
+                              >
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                >
+                                  feature1
+                                </td>
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                >
+                                  200 
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TechnicalSpecificationLeadBlock tests should render correctly when specification provided With specification 1`] = `
+<div>
+  <div
+    class="MuiGrid-root LeadBlock MuiGrid-container MuiGrid-spacing-xs-3"
+  >
+    <div
+      class="MuiGrid-root LeadBlockContent MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-8"
+    >
+      <div
+        class="LeadBlockContentSection"
+      >
+        <div
+          class="SystemDetailsTechnicalSpec"
+        >
+          <div
+            class="accordionStyles-root-29 accordionStyles-no-inner-padding-32"
+          >
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33 Mui-expanded accordionStyles-summaryExpanded-34"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-35 Mui-expanded accordionStyles-summaryExpanded-34"
+                >
+                  <h6
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    systemAttributes
+                  </h6>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-34 MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-entered"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordion-details"
+                      >
+                        <div>
+                          <table
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
+                          >
+                            <tbody
+                              class="MuiTableBody-root"
+                            >
+                              <tr
+                                class="MuiTableRow-root"
+                              >
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                >
+                                  feature1
+                                </td>
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                >
+                                  200 
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiPaper-root MuiAccordion-root accordionStyles-item-30 Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+            >
+              <div
+                aria-disabled="false"
+                aria-expanded="true"
+                class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-33 Mui-expanded accordionStyles-summaryExpanded-34"
+                data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"systemAttributes\\",\\"action\\":\\"Selector – Accordion\\"}"
+                role="button"
+                tabindex="0"
+              >
+                <div
+                  class="MuiAccordionSummary-content accordionStyles-summaryContent-35 Mui-expanded accordionStyles-summaryExpanded-34"
+                >
+                  <h6
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    systemAttributes
+                  </h6>
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-hidden="true"
+                  class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded accordionStyles-summaryExpanded-34 MuiIconButton-edgeEnd"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <div
+                class="MuiCollapse-root MuiCollapse-entered"
+                style="min-height: 0px;"
+              >
+                <div
+                  class="MuiCollapse-wrapper"
+                >
+                  <div
+                    class="MuiCollapse-wrapperInner"
+                  >
+                    <div
+                      role="region"
+                    >
+                      <div
+                        class="MuiAccordionDetails-root accordion-details"
+                      >
+                        <div>
+                          <table
+                            class="MuiTable-root Table Table--row-even-color Table--no-border"
+                          >
+                            <tbody
+                              class="MuiTableBody-root"
+                            >
+                              <tr
+                                class="MuiTableRow-root"
+                              >
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignLeft"
+                                >
+                                  feature1
+                                </td>
+                                <td
+                                  class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                                >
+                                  200 
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-4"
+      data-testid="specificationNotes"
+    >
+      <div
+        class="ColorPair ColorPair--pearl"
+      >
+        <div
+          class="PostItCard"
+        >
+          <div
+            class="section"
+          >
+            <h4
+              class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+            >
+              specification notes title
+            </h4>
+            <div
+              class="content"
+            >
+              <div
+                class="RichText"
+              >
+                <h3
+                  class="MuiTypography-root title Typography MuiTypography-h3"
+                >
+                  test rich text
+                </h3>
+              </div>
+            </div>
+            <div
+              class="action"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root buttonStyles-root-43 MuiButton-contained buttonStyles-contained-45 MuiButton-containedPrimary"
+                data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"ImALink\\",\\"action\\":\\"https://www.external.co.uk\\"}"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label buttonStyles-label-46"
+                >
+                  ImALink
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -88,6 +88,16 @@ const recaptchaContent_AT: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=de-at"
 };
 
+const recaptchaContent_TR: RecaptchaPolicyContentType = {
+  startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
+  privacyPloicyText: "Gizlilik Politikas",
+  andText: " ve ",
+  termsOfServiceText: "Hizmet Şartları",
+  endText: " geçerlidir.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=tr",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=tr"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -97,6 +107,7 @@ RecaptchaPrivacyContentMap["fr"] = recaptchaContent_FR;
 RecaptchaPrivacyContentMap["de"] = recaptchaContent_DE;
 RecaptchaPrivacyContentMap["at"] = recaptchaContent_AT;
 RecaptchaPrivacyContentMap["nl"] = recaptchaContent_NL;
+RecaptchaPrivacyContentMap["tr"] = recaptchaContent_TR;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string

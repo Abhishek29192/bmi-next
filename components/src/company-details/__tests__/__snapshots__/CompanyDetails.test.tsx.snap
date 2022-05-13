@@ -11,7 +11,7 @@ exports[`CompanyDetails component renders all types of details 1`] = `
       Name of the company
     </h5>
     <div
-      class="scrollbar-container ps"
+      class="scrollbar"
     >
       <dl
         class="list"
@@ -412,26 +412,6 @@ exports[`CompanyDetails component renders all types of details 1`] = `
       <p>
         Summary
       </p>
-      <div
-        class="ps__rail-x"
-        style="left: 0px; top: 0px;"
-      >
-        <div
-          class="ps__thumb-x"
-          style="left: 0px; width: 0px;"
-          tabindex="0"
-        />
-      </div>
-      <div
-        class="ps__rail-y"
-        style="top: 0px; left: 0px;"
-      >
-        <div
-          class="ps__thumb-y"
-          style="top: 0px; height: 0px;"
-          tabindex="0"
-        />
-      </div>
     </div>
   </div>
 </div>
@@ -448,31 +428,11 @@ exports[`CompanyDetails component renders with no details 1`] = `
       Name of the company
     </h5>
     <div
-      class="scrollbar-container ps"
+      class="scrollbar"
     >
       <p>
         Summary
       </p>
-      <div
-        class="ps__rail-x"
-        style="left: 0px; top: 0px;"
-      >
-        <div
-          class="ps__thumb-x"
-          style="left: 0px; width: 0px;"
-          tabindex="0"
-        />
-      </div>
-      <div
-        class="ps__rail-y"
-        style="top: 0px; left: 0px;"
-      >
-        <div
-          class="ps__thumb-y"
-          style="top: 0px; height: 0px;"
-          tabindex="0"
-        />
-      </div>
     </div>
   </div>
 </div>
@@ -483,31 +443,11 @@ exports[`CompanyDetails component renders with no details and no name 1`] = `
   class="CompanyDetails"
 >
   <div
-    class="scrollbar-container ps"
+    class="scrollbar"
   >
     <p>
       Summary
     </p>
-    <div
-      class="ps__rail-x"
-      style="left: 0px; top: 0px;"
-    >
-      <div
-        class="ps__thumb-x"
-        style="left: 0px; width: 0px;"
-        tabindex="0"
-      />
-    </div>
-    <div
-      class="ps__rail-y"
-      style="top: 0px; left: 0px;"
-    >
-      <div
-        class="ps__thumb-y"
-        style="top: 0px; height: 0px;"
-        tabindex="0"
-      />
-    </div>
   </div>
 </div>
 `;

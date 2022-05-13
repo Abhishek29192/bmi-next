@@ -79,17 +79,18 @@ const HomePage = ({ data, pageContext }: Props) => {
     overlapCards,
     brands,
     sections,
-    inputBanner,
+    signupBlock,
     seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
     breadcrumbs: null,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulHomePage.path
   };
   const { welcomeDialogTitle, welcomeDialogBody, welcomeDialogBrands } =
     data.contentfulSite.resources || {};
+
   const GTMButton = withGTM<ButtonProps>(Button);
 
   return (
@@ -163,8 +164,8 @@ export const pageQuery = graphql`
       sections {
         ...SectionsFragment
       }
-      inputBanner {
-        ...InputBannerFragment
+      signupBlock {
+        ...SignupBlockFragment
       }
       seo {
         ...SEOContentFragment

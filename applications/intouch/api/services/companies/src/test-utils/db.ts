@@ -3,8 +3,6 @@ import { config } from "dotenv";
 import { PoolConfig, Pool, Client } from "pg";
 import requiredFields from "./requiredFields";
 
-const LOG_VERBOSE = false;
-
 config({
   path: resolve(__dirname, "../../.env")
 });
@@ -71,11 +69,6 @@ export const cleanup = async (context: Context) => {
     const query = `DELETE from ${tableName} WHERE id = ANY($1)`;
     const parameters = [ids];
 
-    if (LOG_VERBOSE) {
-      // eslint-disable-next-line no-console
-      console.log({ query, parameters });
-    }
-
     await pool.query(query, parameters);
   }
 };
@@ -111,11 +104,6 @@ export const insertOne = async (
   const query = `INSERT into ${tableName} (${fields}) VALUES (${placeholders}) RETURNING *`;
   const parameters = Object.values(record);
 
-  if (LOG_VERBOSE) {
-    // eslint-disable-next-line no-console
-    console.log({ query, parameters });
-  }
-
   // TODO: Need to check for errors? Or will throw?
   const { rows } = await client.query(query, parameters);
 
@@ -126,6 +114,25 @@ export const insertOne = async (
   }
 
   return rows[0];
+};
+
+export const deleteRow = async (
+  context: Context,
+  tableName: string,
+  record: { [key: string]: string }
+): Promise<boolean> => {
+  const { client } = context;
+  const condition = Object.keys(record)
+    .map((key) => {
+      const value = record[`${key}`];
+      return `${key} = ${typeof value === "string" ? `'${value}'` : value}`;
+    })
+    .join(" AND ");
+  const query = `DELETE FROM ${tableName} WHERE ${condition}`;
+
+  await client.query(query);
+
+  return true;
 };
 
 export const PERMISSION_DENIED = (table) =>

@@ -11,6 +11,7 @@ import AssetsIframe from "../../components/AssetsIframe";
 import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
 import RichText, { RichTextData } from "../../components/RichText";
 import { Asset, Feature, Classification } from "../../components/types/pim";
+import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import { DocumentData } from "./types";
 import AboutLeadBlock from "./aboutLeadBlock";
 import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
@@ -34,6 +35,7 @@ type Props = {
   documentsAndDownloads?: DocumentData[];
   aboutLeadBlockGenericContent?: ContentfulTitleWithContent;
   bimContent?: BimContent;
+  specificationNotes?: SDPSpecificationNotesData | null;
 };
 
 const GTMTab = withGTM<TabProps>(Tab, {
@@ -50,7 +52,8 @@ const TabLeadBlock = ({
   technicalSpecClassifications,
   documentsAndDownloads,
   aboutLeadBlockGenericContent,
-  bimContent
+  bimContent,
+  specificationNotes
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -90,6 +93,7 @@ const TabLeadBlock = ({
         >
           <Section className={styles["section"]} backgroundColor="white">
             <TechnicalSpecificationLeadBlock
+              specificationNotes={specificationNotes}
               technicalSpecClassifications={technicalSpecClassifications}
             />
           </Section>

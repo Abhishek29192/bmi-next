@@ -1839,6 +1839,7 @@ describe("Account", () => {
       axiosSpy.mockReturnValueOnce({
         data: [{ email_verified: false, user_id: 1 }]
       });
+      mockRootQuery.mockResolvedValueOnce({ rows: [] });
       const response = await deleteInvitedUser(
         null,
         { email },
@@ -1848,6 +1849,7 @@ describe("Account", () => {
       );
 
       expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledTimes(1);
       expect(loggerInfo).toHaveBeenCalledWith(
         `Successfully deleted auth0 user: ${email}`
       );
@@ -1863,6 +1865,33 @@ describe("Account", () => {
         url: `https://AUTH0_API_DOMAIN/api/v2/users/1`,
         headers: { Authorization: `Bearer access_token` }
       });
+    });
+
+    it("when there is an invitation in db", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({
+        data: [{ email_verified: false, user_id: 1 }]
+      });
+      mockRootQuery.mockResolvedValueOnce({
+        rows: [{ id: 1, market_id: 1, company_id: 1 }]
+      });
+      const response = await deleteInvitedUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledTimes(2);
+      expect(mockRootQuery).toHaveBeenCalledWith(
+        "DELETE FROM invitation WHERE invitee = $1 RETURNING *",
+        [email]
+      );
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `Deleted invitation with email: ${email}`
+      );
     });
 
     it("when email_verified is true", async () => {

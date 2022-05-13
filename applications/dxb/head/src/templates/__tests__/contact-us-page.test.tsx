@@ -135,44 +135,33 @@ describe("Contact us page", () => {
           ]
         }
       ],
-      inputBanner: {
+      signupBlock: {
+        __typename: "ContentfulSignupBlock",
         title: "Sign up for our newsletter",
         description: {
           description:
             "Get the very latest roofing news, tips, product information and innovations directly from BMI straight to your inbox."
         },
-        inputLabel: "Email address",
-        submitButtonLabel: "Sign up",
-        additionalInputs: [
-          {
-            label:
-              "I agree with the [data protection regulations](https://www.bmigroup.com/no/data_protection).",
-            name: "gdpr_1",
-            options: null,
-            type: "checkbox",
-            required: true,
-            width: "full"
-          },
-          {
-            label:
-              "I accept that my information may be processed and used solely for the submission of information and advertising about products, services and other activities. I have the right to revoke this agreement in writing at any time.",
-            name: "gdpr_2",
-            options: null,
-            type: "checkbox",
-            required: true,
-            width: "full"
-          }
-        ],
-        confirmationButtonLabel: "Sign me up",
-        thankYouMessage:
-          "We have successfully added your email address to our mailing list. We'll send you a confirmation shortly.",
-        allowRetry: "Yes",
-        errorTitle: "321 server error",
-        errorBody: {
-          raw: '{"data":{},"content":[{"data":{},"content":[{"data":{},"marks":[{"type":"bold"}],"value":"Your request could not be processed due to an error on the server.","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"Please tap \\"Try again\\" to submit your details again. Alternatively, please come back later. ","nodeType":"text"}],"nodeType":"paragraph"},{"data":{},"content":[{"data":{},"marks":[],"value":"Our team has been notified of the problem and will look into it as soon as possible. ","nodeType":"text"}],"nodeType":"paragraph"}],"nodeType":"document"}',
-          references: []
-        },
-        retryButtonLabel: "Try again"
+        signupLabel: "Sign up",
+        signupDialogContent: {
+          __typename: "ContentfulFormSection",
+          title: "Test form",
+          showTitle: null,
+          description: null,
+          recipients: "recipient@mail.com",
+          inputs: [
+            {
+              label: "Email",
+              name: "email",
+              required: true,
+              type: "email",
+              width: "half"
+            }
+          ],
+          submitText: "signmeup",
+          successRedirect: null,
+          source: null
+        }
       },
       seo: {
         metaTitle: "BMI - Contact Us",

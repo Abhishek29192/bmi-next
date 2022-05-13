@@ -130,7 +130,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     featuresLink,
     breadcrumbs,
     breadcrumbTitle,
-    inputBanner,
+    signupBlock,
     seo,
     heroType,
     featuredVideo,
@@ -366,7 +366,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulProductListerPage.path
   };

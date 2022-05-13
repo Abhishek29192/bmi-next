@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { Section } from "@bmi/components";
+import { Button, Section } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import {
@@ -11,7 +10,6 @@ import {
 } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
-import { extractFeatureValuesByClassification } from "../utils/features-from-classifications-transfroms";
 import { microCopy } from "../constants/microCopies";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
@@ -47,17 +45,25 @@ export type Data = {
   browseProductsCTA: PageInfoData | null;
 };
 
-const formatSamples = (samples: SampleOrderElement[]) =>
+const formatSamples = (
+  samples: SampleOrderElement[],
+  attributeSeparator: string,
+  sampleSeparator: string
+) =>
   samples
     .map((sample) =>
       Object.entries(sample)
+        .filter(([_, value]) => !!value)
         .map(([key, value]) => `${key}: ${value}`)
-        .join("<br>")
+        .join(attributeSeparator)
     )
-    .join("<br><br>");
+    .join(sampleSeparator);
 
-const sampleIds = (samples: SampleOrderElement[]) =>
-  samples.map((sample) => sample.id).join(", ");
+const emailFormatSamples = (samples: SampleOrderElement[]) =>
+  formatSamples(samples, "<br>", "<br><br>");
+
+const hubSpotFormatSamples = (samples: SampleOrderElement[]) =>
+  formatSamples(samples, ", ", " | ");
 
 const SampleBasketSection = ({
   data: {
@@ -87,16 +93,64 @@ const SampleBasketSection = ({
   const actionLabels = [];
   const samples: SampleOrderElement[] = basketState.products.map((sample) => {
     const { classifications } = sample;
-    const featureAttributeMapForUrl = {
-      [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-        { attrName: FeatureCodeEnum.COLOUR },
-        { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
-      ]
-    };
-    const [color, texture] = extractFeatureValuesByClassification(
-      classifications,
-      featureAttributeMapForUrl
-    );
+
+    let color: string | undefined;
+    let texture: string | undefined;
+    let width: string | undefined;
+    let length: string | undefined;
+    let height: string | undefined;
+    let unit: string | undefined;
+    classifications
+      .filter(
+        (classification) =>
+          classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE ||
+          classification.code === ClassificationCodeEnum.MEASUREMENTS
+      )
+      .forEach((classification) =>
+        classification.features.forEach((feature) => {
+          const featureCode = feature.code.split("/").pop();
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.COLOUR}`
+          ) {
+            color = feature.featureValues[0]?.value;
+            return;
+          }
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.APPEARANCE_ATTRIBUTE}.${FeatureCodeEnum.TEXTURE_FAMILY}`
+          ) {
+            texture = feature.featureValues[0]?.value;
+            return;
+          }
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.WIDTH}`
+          ) {
+            width = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.LENGTH}`
+          ) {
+            length = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+          if (
+            featureCode ===
+            `${ClassificationCodeEnum.MEASUREMENTS}.${FeatureCodeEnum.HEIGHT}`
+          ) {
+            height = feature.featureValues[0]?.value;
+            unit = feature.featureUnit?.symbol;
+            return;
+          }
+        })
+      );
+
+    const measurements = [width, length, height].filter(Boolean).join("x");
 
     const actionLabel = createActionLabel(
       sample.name,
@@ -112,7 +166,10 @@ const SampleBasketSection = ({
         sample.path
       )}`,
       color,
-      texture
+      texture,
+      measurements: measurements
+        ? `${measurements}${unit ? ` ${unit}` : ""}`
+        : undefined
     };
   });
 
@@ -152,8 +209,12 @@ const SampleBasketSection = ({
           <FormSection
             data={checkoutFormSection}
             backgroundColor="pearl"
-            additionalValues={{ samples: formatSamples(samples) }}
-            sampleIds={sampleIds(samples)}
+            additionalValues={{
+              samples:
+                checkoutFormSection.source === "HubSpot"
+                  ? hubSpotFormatSamples(samples)
+                  : emailFormatSamples(samples)
+            }}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
               label: "samples ordering basket form submitted",

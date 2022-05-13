@@ -10,6 +10,11 @@ package_gcp-firestore-writer:
     - build_gcp-firestore-writer
   dependencies:
     - build_gcp-firestore-writer
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
@@ -25,6 +30,11 @@ deploy_gcp-firestore-writer:
     - package_gcp-firestore-writer
   dependencies:
     - package_gcp-firestore-writer
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"

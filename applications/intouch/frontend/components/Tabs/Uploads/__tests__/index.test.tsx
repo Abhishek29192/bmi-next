@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
+import { EvidenceCategoryType } from "@bmi/intouch-api-types";
 import {
   renderWithI18NProvider,
   renderWithUserProvider
@@ -93,17 +94,7 @@ describe("Uploads Components", () => {
         projectMembers: emptyNodes,
         roofArea: 0,
         technology: "PITCHED",
-        guarantees: {
-          nodes: [
-            {
-              id: 1,
-              guaranteeReferenceCode: "PITCHED_SOLUTION",
-              coverage: "SOLUTION",
-              status: "NEW",
-              guaranteeType: null
-            }
-          ]
-        },
+        guarantees: null,
         company: {
           id: 1,
           tier: "T1"
@@ -156,7 +147,15 @@ describe("Uploads Components", () => {
               name: "name3",
               signedUrl: "signedUrl",
               evidenceCategoryType: "CUSTOM",
-              customEvidenceCategory: null
+              customEvidenceCategory: {
+                name: "name"
+              }
+            },
+            {
+              id: 4,
+              name: "name4",
+              signedUrl: "signedUrl",
+              evidenceCategoryType: "CUSTOM"
             }
           ]
         }
@@ -198,7 +197,246 @@ describe("Uploads Components", () => {
           </AccountContextWrapper>
         </ApolloProvider>
       );
-      expect(screen.getAllByTestId("upload-item-delete")).toHaveLength(3);
+      const deleteButtons = screen.getAllByTestId("upload-item-delete");
+      fireEvent.click(deleteButtons[0]);
+      expect(deleteButtons).toHaveLength(4);
+    });
+    it("should render required buttons", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "COMPANY_ADMIN" })}
+          >
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      const requiredButtons = screen.getAllByText(
+        "upload_tab.requirementModal.title"
+      );
+      fireEvent.click(requiredButtons[0]);
+      fireEvent.click(screen.getAllByText("upload_tab.header")[1]);
+      expect(requiredButtons).toHaveLength(1);
+    });
+    it("should render required buttons with missing categories data", () => {
+      const guarantee = generateGuarantee({
+        status: "NEW",
+        guaranteeType: {
+          evidenceCategoriesCollection: {
+            items: [
+              {
+                name: "Waterproofing",
+                minimumUploads: 1,
+                description: null
+              },
+              {
+                name: "Drainage",
+                description: {
+                  json: {}
+                }
+              }
+            ]
+          }
+        }
+      });
+      const project = generateProject({
+        guarantees: {
+          nodes: [guarantee]
+        }
+      });
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "COMPANY_ADMIN" })}
+          >
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      const requiredButtons = screen.getAllByText(
+        "upload_tab.requirementModal.title"
+      );
+      fireEvent.click(requiredButtons[0]);
+      expect(requiredButtons).toHaveLength(1);
+    });
+    it("should close required dialog", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "COMPANY_ADMIN" })}
+          >
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      const requiredButtons = screen.getAllByText(
+        "upload_tab.requirementModal.title"
+      );
+      fireEvent.click(requiredButtons[0]);
+      const closeTags = screen.getAllByRole("button")[0].querySelector("svg");
+      fireEvent.click(closeTags);
+      expect(screen.getByTestId("requirement-modal-content")).not.toBeVisible();
+    });
+    it("should open carousel", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "COMPANY_ADMIN" })}
+          >
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      const carouselButtons = screen.getAllByTestId("upload-item-view");
+      fireEvent.click(carouselButtons[0]);
+
+      const closeTag = screen.getAllByRole("button")[4].querySelector("svg");
+      fireEvent.click(closeTag);
+      const closeTagCarousel = screen
+        .getAllByRole("button")[0]
+        .querySelector("svg");
+      fireEvent.click(closeTagCarousel);
+      expect(carouselButtons).toHaveLength(4);
+    });
+  });
+  describe("render evidence modal", () => {
+    it("should open evidence modal", () => {
+      const guarantee = generateGuarantee({
+        coverage: "PRODUCT"
+      });
+      const project = generateProject({
+        guarantees: {
+          nodes: [guarantee]
+        }
+      });
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      fireEvent.click(screen.getByText("upload_tab.header"));
+      screen.getByText("upload_tab.add_evidence_modal.confirm_label");
+
+      const addEvidence = screen.queryByTestId("add-evidence");
+
+      const files = [new File([], "name1", { type: "pdf" })];
+
+      const evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
+      const customEvidenceCategoryKey: string = null;
+      fireEvent.change(addEvidence, {
+        target: {
+          evidenceCategoryType,
+          customEvidenceCategoryKey,
+          files
+        }
+      });
+
+      const confirmButton = screen.getByText(
+        "upload_tab.add_evidence_modal.confirm_label"
+      );
+      fireEvent.click(confirmButton);
+      expect(addEvidence).toBeTruthy();
+    });
+    it("should open evidence modal with missing current guaranty with coverage SOLUTION", () => {
+      const guarantee = generateGuarantee({
+        coverage: "SOLUTION"
+      });
+      const project = generateProject({
+        guarantees: {
+          nodes: [guarantee]
+        }
+      });
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      fireEvent.click(screen.getByText("upload_tab.header"));
+
+      const addEvidence = screen.queryByTestId("add-evidence");
+      expect(addEvidence).toBeTruthy();
+
+      const files = [new File([], "name1", { type: "pdf" })];
+
+      const evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
+      const customEvidenceCategoryKey: string = null;
+      fireEvent.change(addEvidence, {
+        target: {
+          evidenceCategoryType,
+          customEvidenceCategoryKey,
+          files
+        }
+      });
+
+      const confirmButton = screen.getByText(
+        "upload_tab.add_evidence_modal.confirm_label"
+      );
+      confirmButton.click();
+      expect(addEvidence).toBeTruthy();
+    });
+    it("should open evidence modal with missing current guaranty", () => {
+      const project = generateProject({
+        guarantees: {
+          nodes: [null]
+        }
+      });
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      fireEvent.click(screen.getByText("upload_tab.header"));
+
+      const addEvidence = screen.queryByTestId("add-evidence");
+      expect(addEvidence).toBeTruthy();
+
+      const files = [new File([], "name1", { type: "pdf" })];
+
+      const evidenceCategoryType: EvidenceCategoryType = "MISCELLANEOUS";
+      const customEvidenceCategoryKey: string = null;
+      fireEvent.change(addEvidence, {
+        target: {
+          evidenceCategoryType,
+          customEvidenceCategoryKey,
+          files
+        }
+      });
+
+      const confirmButton = screen.getByText(
+        "upload_tab.add_evidence_modal.confirm_label"
+      );
+      confirmButton.click();
+      expect(addEvidence).toBeTruthy();
+    });
+    it("should open and close evidence modal", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      fireEvent.click(screen.getByText("upload_tab.header"));
+
+      const closeTags = screen.getAllByRole("button")[0].querySelector("svg");
+      fireEvent.click(closeTags);
+      expect(
+        screen.getByText("upload_tab.add_evidence_modal.confirm_label")
+      ).not.toBeVisible();
     });
   });
 });

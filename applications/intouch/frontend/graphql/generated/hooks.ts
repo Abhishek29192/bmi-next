@@ -402,6 +402,54 @@ export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
 >;
+export const RestartGuaranteeDocument = gql`
+  mutation RestartGuarantee($projectId: Int!) {
+    restartGuarantee(projectId: $projectId)
+  }
+`;
+export type RestartGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.RestartGuaranteeMutation,
+  OperationTypes.RestartGuaranteeMutationVariables
+>;
+
+/**
+ * __useRestartGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useRestartGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRestartGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [restartGuaranteeMutation, { data, loading, error }] = useRestartGuaranteeMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *   },
+ * });
+ */
+export function useRestartGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.RestartGuaranteeMutation,
+    OperationTypes.RestartGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.RestartGuaranteeMutation,
+    OperationTypes.RestartGuaranteeMutationVariables
+  >(RestartGuaranteeDocument, options);
+}
+export type RestartGuaranteeMutationHookResult = ReturnType<
+  typeof useRestartGuaranteeMutation
+>;
+export type RestartGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.RestartGuaranteeMutation>;
+export type RestartGuaranteeMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.RestartGuaranteeMutation,
+  OperationTypes.RestartGuaranteeMutationVariables
+>;
 export const MarkAllNotificationsAsReadDocument = gql`
   mutation markAllNotificationsAsRead($accountId: Int!) {
     markAllNotificationsAsRead(input: { accountToUpdateId: $accountId }) {

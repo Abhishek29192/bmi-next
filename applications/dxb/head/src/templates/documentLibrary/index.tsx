@@ -8,10 +8,10 @@ import {
   Hero,
   Section
 } from "@bmi/components";
-import { microCopy } from "../../constants/microCopies";
 import { Data as SiteData } from "../../components/Site";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import Page, { Data as PageData } from "../../components/Page";
+import { microCopy } from "../../constants/microCopies";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../components/Breadcrumbs";
@@ -116,7 +116,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner: data.contentfulDocumentLibraryPage.inputBanner,
+    signupBlock: data.contentfulDocumentLibraryPage.signupBlock,
     seo,
     path: data.contentfulDocumentLibraryPage.path
   };

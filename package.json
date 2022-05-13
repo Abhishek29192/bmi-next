@@ -34,7 +34,6 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@bmi/build-contentful": "0.0.0",
-    "@bmi/create-component-package": "0.0.0",
     "@bmi/migrate": "0.0.0",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",

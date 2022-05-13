@@ -11,3 +11,11 @@ export const userFactory = (config = {}) => {
     ...config
   };
 };
+
+export const userSearchIncludeTotalFactory = (config = {}, users = []) => ({
+  users: [userFactory(), ...users],
+  total: 1,
+  start: 1,
+  length: 1,
+  ...config
+});

@@ -128,7 +128,7 @@ import Icon, {
   YouTube
 } from "./icon";
 import IconList from "./icon-list";
-import InputBanner from "./input-banner";
+import SignupBlock from "./signup-block";
 import InputGroup from "./input-group";
 import LanguageSelection, {
   languages,
@@ -197,7 +197,6 @@ import Navigation, {
 import NBACard, { NBACardProps } from "./nba-card";
 import OverviewCard, { OverviewCardProps } from "./overview-card";
 import Pagination from "./pagination";
-import PerfectScrollbar from "./perfect-scrollbar";
 import PostItCard from "./post-it-card";
 import ProductDetailsCard from "./product-details-card";
 import ProductOverviewPane, {
@@ -251,7 +250,8 @@ import Villain, { VillainProps } from "./villain";
 import YoutubeVideo, {
   getDefaultPreviewImage,
   Layout,
-  YoutubeVideoProps
+  YoutubeVideoProps,
+  GTM
 } from "./youtube-video";
 import { transformHyphens } from "./utils/commonUtils";
 
@@ -336,7 +336,8 @@ export type {
   VillainProps,
   Layout,
   YoutubeVideoProps,
-  CardProps
+  CardProps,
+  GTM
 };
 
 export {
@@ -432,7 +433,7 @@ export {
   FolderZip,
   iconMap,
   IconList,
-  InputBanner,
+  SignupBlock,
   InputGroup,
   LanguageSelection,
   languages,
@@ -495,7 +496,6 @@ export {
   NBACard,
   OverviewCard,
   Pagination,
-  PerfectScrollbar,
   PostItCard,
   ProductDetailsCard,
   ProductOverviewPane,

@@ -6,6 +6,8 @@ import {
   ClassificationCodeEnum,
   Feature
 } from "../../../components/types/pim";
+import { DataTypeEnum } from "../../../components/Link";
+import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
 
 const technicalSpecClassifications: Classification[] = [
   {
@@ -25,6 +27,29 @@ const featureUnit = {
   name: "height",
   unitType: "metric",
   symbol: "in"
+};
+
+const specificationNotesData: SDPSpecificationNotesData = {
+  __typename: "ContentfulSpecificationNotesWithCta",
+  name: "specification notes name",
+  title: "specification notes title",
+  description: {
+    raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-3","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
+    references: null
+  },
+  cta: {
+    __typename: "ContentfulLink",
+    id: "string",
+    label: "ImALink",
+    icon: null,
+    isLabelHidden: null,
+    url: "https://www.external.co.uk",
+    linkedPage: null,
+    type: DataTypeEnum.Dialog,
+    parameters: null,
+    dialogContent: null,
+    hubSpotCTAID: null
+  }
 };
 
 const featureWithUnit: Feature = {
@@ -151,6 +176,39 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
 
         expect(container).toMatchSnapshot();
         expect(unitTypeText.length).toBeTruthy();
+      });
+    });
+
+    describe("when specification provided", () => {
+      it("With specification", () => {
+        const { container, queryByTestId } = render(
+          <Component
+            technicalSpecClassifications={[
+              ...technicalSpecClassifications,
+              ...technicalSpecClassifications
+            ]}
+            specificationNotes={specificationNotesData}
+          />
+        );
+
+        const specificationNotes = queryByTestId("specificationNotes");
+        expect(container).toMatchSnapshot();
+        expect(specificationNotes).toBeInTheDocument();
+      });
+
+      it("With no specification", () => {
+        const { container, queryByTestId } = render(
+          <Component
+            technicalSpecClassifications={[
+              ...technicalSpecClassifications,
+              ...technicalSpecClassifications
+            ]}
+          />
+        );
+
+        const specificationNotes = queryByTestId("specificationNotes");
+        expect(container).toMatchSnapshot();
+        expect(specificationNotes).not.toBeInTheDocument();
       });
     });
   });

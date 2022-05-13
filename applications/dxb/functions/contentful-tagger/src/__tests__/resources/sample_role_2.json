@@ -1,0 +1,138 @@
+{
+  "name": "DXB - Norway",
+  "description": "Allows editing of content",
+  "policies": [
+    {
+      "effect": "allow",
+      "actions": ["create"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["read"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["update"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Entry"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["create"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["read"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "effect": "allow",
+      "actions": ["update"],
+      "constraint": {
+        "and": [
+          {
+            "equals": [
+              {
+                "doc": "sys.type"
+              },
+              "Asset"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "permissions": {
+    "ContentModel": ["read"],
+    "Settings": [],
+    "ContentDelivery": [],
+    "Environments": [],
+    "EnvironmentAliases": [],
+    "Tags": []
+  },
+  "sys": {
+    "type": "Role",
+    "id": "x6ua7serqh5foeepraczbu",
+    "version": 0,
+    "space": {
+      "sys": {
+        "type": "Link",
+        "linkType": "Space",
+        "id": "xd0cdgm332jz"
+      }
+    },
+    "createdBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7fwnh24smceeb4aakbeumr"
+      }
+    },
+    "createdAt": "2020-12-01T11:26:53Z",
+    "updatedBy": {
+      "sys": {
+        "type": "Link",
+        "linkType": "User",
+        "id": "7fwnh24smceeb4aakbeumr"
+      }
+    },
+    "updatedAt": "2020-12-01T11:26:53Z"
+  }
+}

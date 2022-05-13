@@ -49,7 +49,7 @@ export type Data = {
   inputs: InputType[] | null;
   submitText: string | null;
   successRedirect: LinkData | null;
-  source: SourceType | null;
+  source: SourceType;
   hubSpotFormGuid?: string | null;
   sample_ids?: string | null;
   emailSubjectFormat?: string;
@@ -318,7 +318,7 @@ const HubspotForm = ({
   title,
   description,
   onSuccess,
-  sampleIds
+  additionalValues
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -327,7 +327,7 @@ const HubspotForm = ({
   title: string;
   description: RichTextData;
   onSuccess: FormSectionProps["onSuccess"];
-  sampleIds: FormSectionProps["sampleIds"];
+  additionalValues: FormSectionProps["additionalValues"];
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -349,13 +349,13 @@ const HubspotForm = ({
         event.data.type === "hsFormCallback" &&
         event.data.eventName === "onFormReady"
       ) {
-        if (sampleIds?.length) {
+        if (additionalValues["samples"]) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
             'input[name="sample_ids"]'
           );
 
           if (sampleIdsInput) {
-            sampleIdsInput.value = sampleIds;
+            sampleIdsInput.value = additionalValues["samples"];
           } else {
             const iframeElement = document.querySelector<HTMLIFrameElement>(
               `#${hubSpotFormID} iframe`
@@ -364,7 +364,7 @@ const HubspotForm = ({
               iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
                 'input[name="sample_ids"]'
               );
-            hiddenInput && (hiddenInput.value = sampleIds);
+            hiddenInput && (hiddenInput.value = additionalValues["samples"]);
           }
         }
       }
@@ -410,7 +410,6 @@ const FormSection = ({
   },
   backgroundColor,
   additionalValues,
-  sampleIds,
   isSubmitDisabled,
   gtmOverride,
   onSuccess
@@ -590,7 +589,7 @@ const FormSection = ({
           title={title}
           description={description}
           onSuccess={onSuccess}
-          sampleIds={sampleIds}
+          additionalValues={additionalValues}
         />
       </HubspotProvider>
     );

@@ -78,3 +78,8 @@ process.env.BUILD_WEBHOOKS =
   '{"norway":"https://norway.local","italy":"https://italy.local","finland":"https://finland.local"}';
 process.env.BUILD_REQUEST_SECRET = "build_secret";
 process.env.GATSBY_SITE_URL = "http://localhost:8000";
+
+process.env.TAGGER_REQUEST_SECRET = "some secret";
+process.env.MANAGEMENT_ACCESS_TOKEN_SECRET = "token";
+process.env.SPACE_ID = "space_id";
+process.env.CONTENTFUL_ENVIRONMENT = "environment_1";

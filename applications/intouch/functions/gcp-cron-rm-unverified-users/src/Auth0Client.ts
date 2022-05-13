@@ -8,8 +8,11 @@ export default class Auht0Client {
   private errorLogger(error: AxiosError, message: string) {
     const responseMessage = error.response
       ? error.response.data.message
-      : error.message;
-    // console.debug(error.response?.data?.message);
+        ? error.response.data.message
+        : error.response.data.error
+      : error.message
+      ? error.message
+      : error;
     console.log(message, responseMessage);
   }
 
@@ -59,12 +62,24 @@ export default class Auht0Client {
     });
   }
 
-  async getUnverifiedUser() {
+  async getUnverifiedUser(page = 0, perPage = 100) {
     const { AUTH0_ISSUER_BASE_URL } = process.env;
+    const config = {
+      q: "email_verified:false",
+      per_page: perPage,
+      include_totals: true,
+      page
+    };
+    const queryString = Object.keys(config)
+      .map((key) => {
+        const value = config[`${key}`];
+        return `${key}=${value}`;
+      })
+      .join("&");
     try {
       const { data } = await this.requestCall({
         method: "GET",
-        url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false`
+        url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users?${queryString}`
       });
       return data;
     } catch (error) {
@@ -81,8 +96,18 @@ export default class Auht0Client {
         url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
       });
     } catch (error) {
-      this.errorLogger(error, `Error deleting user with ${email}:`);
-      throw error;
+      // if it reaches rate limit, reset token and retry
+      if (error.data?.statusCode === 429) {
+        this.token = undefined;
+
+        return await this.requestCall({
+          method: "DELETE",
+          url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
+        });
+      } else {
+        this.errorLogger(error, `Error deleting user with ${email}:`);
+        throw error;
+      }
     }
   }
 }

@@ -57,11 +57,13 @@ exports[`SampleBasketSection component renders correctly 1`] = `
                     <p
                       class="MuiTypography-root product-color Typography MuiTypography-body1"
                     >
-                      green ­ rough
+                      green | rough
                     </p>
                     <p
                       class="MuiTypography-root product-size Typography MuiTypography-body1"
-                    />
+                    >
+                      1x2x3 mm
+                    </p>
                   </div>
                 </div>
               </div>
@@ -198,11 +200,13 @@ exports[`SampleBasketSection component should render form after complete button 
                     <p
                       class="MuiTypography-root product-color Typography MuiTypography-body1"
                     >
-                      green ­ rough
+                      green | rough
                     </p>
                     <p
                       class="MuiTypography-root product-size Typography MuiTypography-body1"
-                    />
+                    >
+                      1x2x3 mm
+                    </p>
                   </div>
                 </div>
               </div>
@@ -309,10 +313,10 @@ exports[`SampleBasketSection component should render form after complete button 
             class="ButtonWrapper"
           >
             <button
-              aria-action="sample-1-green | rough"
+              aria-action="sample-1-green | rough-2x1x3mm"
               aria-label="samples ordering basket form submitted"
               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-contained buttonStyles-contained-23 Button MuiButton-containedPrimary"
-              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green | rough\\"}"
+              data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"samples ordering basket form submitted\\",\\"action\\":\\"sample-1-green | rough-2x1x3mm\\"}"
               tabindex="0"
               type="submit"
             >
@@ -408,14 +412,14 @@ exports[`SampleBasketSection remove sample from basket when all samples are remo
         </div>
         <a
           aria-disabled="false"
-          class="MuiButtonBase-root MuiButton-root buttonStyles-root-69 MuiButton-outlined MuiButton-outlinedPrimary"
+          class="MuiButtonBase-root MuiButton-root buttonStyles-root-141 MuiButton-outlined MuiButton-outlinedPrimary"
           data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"/no/zanda-brand/torvtak/\\",\\"label\\":\\"browse all products\\"}"
           href="/no/zanda-brand/torvtak/"
           role="button"
           tabindex="0"
         >
           <span
-            class="MuiButton-label buttonStyles-label-72"
+            class="MuiButton-label buttonStyles-label-144"
           >
             browse all products
             <span

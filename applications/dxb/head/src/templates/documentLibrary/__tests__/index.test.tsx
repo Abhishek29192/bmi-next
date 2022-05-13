@@ -68,7 +68,7 @@ describe("Document Library page", () => {
       // TODO: Move Video as option of Media.
       featuredMedia: null,
       featuredVideo: videoData,
-      inputBanner: null,
+      signupBlock: null,
       seo: null,
       path: "/path",
       description: null,

@@ -114,7 +114,7 @@ const siteData: SiteData = {
 
 const pageData: Data = {
   breadcrumbs: null,
-  inputBanner: null,
+  signupBlock: null,
   seo: null,
   path: "page/"
 };

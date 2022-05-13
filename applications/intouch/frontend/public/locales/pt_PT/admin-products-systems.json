@@ -1,0 +1,51 @@
+{
+  "bmiRef": "BmiRef",
+  "brand": "Marca",
+  "bulkImport": "importação em massa",
+  "confirm": "Confirme a importação",
+  "description": "Descrição",
+  "dryRun": "simulação",
+  "dryRunCompleted": "simulação concluida",
+  "dryRunError": "Existem alguns erros nos arquivos importados.",
+  "edit": "Editar",
+  "errorProductsToInsert": "produto para adicionar",
+  "errorProductsToUpdate": "Produto a atualizar",
+  "errorSystemMembersInsert": "Membro do sistema para adicionar",
+  "errorSystemsToInsert": "sistema para inserir",
+  "errorSystemsToUpdate": "sistema para atualizar",
+  "errors": {
+    "filename_wrong_format": "O arquivo está no formato errado.",
+    "unauthorized": "Não autorizado",
+    "wrong_env": "ambiente errado"
+  },
+  "family": "família",
+  "form": {
+    "productTitle": "editar produto",
+    "systemTitle": "Editar sistema"
+  },
+  "importCompleted": "Importação concluída",
+  "importError": "Ocorreu um erro durante a importação.",
+  "maximumValidityYears": "Anos de validade máxima",
+  "productToInsert": "Esses produtos serão adicionados",
+  "productToUpdate": "Esses produtos serão atualizados",
+  "products": "Produtos",
+  "published": "Publicados",
+  "report": {
+    "product": "Descarregar o relatório do produto",
+    "system": "Descarregar relatório do sistema"
+  },
+  "show": "exibido",
+  "sidePanel": {
+    "search": {
+      "label": "Procurar",
+      "noResult": "Itens não encontrados"
+    }
+  },
+  "submit": "Enviar",
+  "system": "Sistema",
+  "systemToInsert": "Esses sistemas serão adicionados",
+  "systemToUpdate": "Esses sistemas serão atualizados",
+  "technology": "Tecnologia",
+  "unpublished": "Não publicado",
+  "updatedAt": "Atualizado em"
+}

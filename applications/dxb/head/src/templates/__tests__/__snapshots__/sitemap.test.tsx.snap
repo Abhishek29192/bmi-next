@@ -43,6 +43,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -160,6 +161,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -189,6 +191,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -218,6 +221,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -247,6 +251,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-122 MuiButton-text buttonStyles-text-123 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -913,6 +918,7 @@ exports[`Sitemap renders correctly 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -1030,6 +1036,7 @@ exports[`Sitemap renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -1059,6 +1066,7 @@ exports[`Sitemap renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -1088,6 +1096,7 @@ exports[`Sitemap renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -1117,6 +1126,7 @@ exports[`Sitemap renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -1783,6 +1793,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -1900,6 +1911,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -1929,6 +1941,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -1958,6 +1971,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -1987,6 +2001,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >
@@ -2600,6 +2615,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -2717,6 +2733,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -2746,6 +2763,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -2775,6 +2793,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/uk/\\"}"
                     href="/uk"
                     tabindex="0"
                   >
@@ -2804,6 +2823,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"English\\",\\"action\\":\\"/en/\\"}"
                     href="/en"
                     tabindex="0"
                   >

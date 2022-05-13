@@ -29,7 +29,7 @@ const Sitemap = ({ data, pageContext }: Props) => {
   return (
     <Page
       title={getMicroCopy(microCopy.GLOBAL_SITEMAP)}
-      pageData={{ breadcrumbs: null, inputBanner: null, seo: null, path: null }}
+      pageData={{ breadcrumbs: null, signupBlock: null, seo: null, path: null }}
       siteData={siteData}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
     >

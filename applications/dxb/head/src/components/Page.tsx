@@ -5,12 +5,10 @@ import { graphql, navigate } from "gatsby";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import InputBanner, {
-  Data as InputBannerData
-} from "../components/InputBanner";
 import { getPathWithCountryCode } from "../utils/path";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import { useConfig } from "../contexts/ConfigProvider";
+import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import BrandProvider from "./BrandProvider";
 import {
   Context as SiteContext,
@@ -30,7 +28,7 @@ import { Head } from "./Head";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
-  inputBanner: InputBannerData | null;
+  signupBlock: SignupBlockData | null;
   seo: SEOContentData | null;
   path: string;
 };
@@ -85,7 +83,7 @@ const Page = ({
     regions
   } = siteData;
 
-  const { breadcrumbs, inputBanner, seo, path } = pageData;
+  const { breadcrumbs, signupBlock, seo, path } = pageData;
   const {
     config: { gatsbyReCaptchaKey, gatsbyReCaptchaNet, visualizerAssetUrl }
   } = useConfig();
@@ -175,7 +173,7 @@ const Page = ({
                       <Content>{children}</Content>
                     </Calculator>
                   </VisualiserProvider>
-                  {inputBanner ? <InputBanner data={inputBanner} /> : null}
+                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
                 </ErrorBoundary>
               </BrandProvider>
               <Footer
@@ -205,8 +203,8 @@ export default withErrorBoundary(Page, {
 export const query = graphql`
   fragment PageFragment on ContentfulPage {
     breadcrumbs
-    inputBanner {
-      ...InputBannerFragment
+    signupBlock {
+      ...SignupBlockFragment
     }
     seo {
       ...SEOContentFragment

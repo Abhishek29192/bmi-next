@@ -1,6 +1,8 @@
 import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import { DataTypeEnum } from "../../../components/Link";
+
 import { ImageWithThumbnail } from "../../../components/PageInfo";
+import { Data as SignUpBlockData } from "../../../components/SignupBlock";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -152,16 +154,28 @@ export const cta = {
   hubSpotCTAID: null
 };
 
-export const inputBanner = {
-  title: "inputBannerTitle",
+export const signupBlock: SignUpBlockData = {
+  __typename: "ContentfulSignupBlock",
+  title: "signupBlockTitle",
   description: { description: "description" },
-  inputLabel: "inputLabel",
-  submitButtonLabel: "submitButtonLabel",
-  additionalInputs: [],
-  confirmationButtonLabel: null,
-  thankYouMessage: "thankYouMessage",
-  allowRetry: null,
-  errorTitle: null,
-  errorBody: null,
-  retryButtonLabel: null
+  signupLabel: "submitButtonLabel",
+  signupDialogContent: {
+    __typename: "ContentfulFormSection",
+    title: "Test form",
+    showTitle: null,
+    description: null,
+    recipients: "recipient@mail.com",
+    inputs: [
+      {
+        label: "Email",
+        name: "email",
+        required: true,
+        type: "email",
+        width: "half"
+      }
+    ],
+    submitText: "signmeup",
+    successRedirect: null,
+    source: null
+  }
 };

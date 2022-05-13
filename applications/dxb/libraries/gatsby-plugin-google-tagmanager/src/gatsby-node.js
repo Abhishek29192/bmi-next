@@ -1,6 +1,5 @@
 /** @type {import('gatsby').GatsbyNode["onPreInit"]} */
 exports.onPreInit = (args, options) => {
-  console.log("google-tagmanager onPreInit");
   if (options.defaultDataLayer) {
     options.defaultDataLayer = {
       type: typeof options.defaultDataLayer,
