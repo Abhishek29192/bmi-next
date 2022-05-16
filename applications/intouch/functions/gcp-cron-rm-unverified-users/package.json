@@ -6,20 +6,25 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=removeAuth0UnverifiedAccount --port=3001",
+    "build": "webpack --mode=production",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=removeAuth0UnverifiedAccount --port=3001",
     "deploy": "yarn build && gcloud functions deploy pubsub-cron-rm-unverified-users --runtime=nodejs14 --entry-point=removeAuth0UnverifiedAccount --source=.  --region=europe-west2 --trigger-topic=cron-rm-unverified-users",
     "test": "jest --reporters=default --reporters=jest-junit",
-    "coverage": "yarn test --coverage"
+    "coverage:jest": "yarn test --coverage",
+    "check:ts": "tsc"
   },
   "dependencies": {
-    "@google-cloud/secret-manager": "^3.7.1",
+    "@bmi-digital/functions-secret-client": "1.1.1",
     "auth0": "^2.40.0",
-    "axios": "^0.26.1",
     "date-fns": "^2.28.0",
-    "dotenv": "^8.2.0"
+    "@bmi-digital/functions-logger": "1.1.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@google-cloud/functions-framework": "^3.0.0"
+    "@google-cloud/functions-framework": "^3.0.0",
+    "env-cmd": "^10.1.0",
+    "js-yaml": "^4.0.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
