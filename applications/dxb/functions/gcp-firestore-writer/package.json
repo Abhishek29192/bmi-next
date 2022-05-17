@@ -15,7 +15,7 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@bmi/functions-firestore": "0.0.0",
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },

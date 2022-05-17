@@ -16,7 +16,7 @@
     "@bmi/functions-es-client": "0.0.0",
     "@bmi/functions-firestore": "0.0.0",
     "@bmi/pim-api": "0.0.0",
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "@google-cloud/functions-framework": "^3.0.0",
     "node-fetch": "^2.6.1"
   },

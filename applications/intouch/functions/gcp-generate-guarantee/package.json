@@ -12,7 +12,7 @@
     "deploy": "yarn build && gcloud functions deploy gcp-generate-guarantee --runtime=nodejs14 --entry-point=sendGuaranteePdf --source=.  --region=europe-west2 --trigger-topic=guarantee-pdf"
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "@bmi-digital/react-pdf-maker": "1.1.1",
     "@google-cloud/secret-manager": "^3.7.1",
     "@google-cloud/storage": "^5.7.0",
