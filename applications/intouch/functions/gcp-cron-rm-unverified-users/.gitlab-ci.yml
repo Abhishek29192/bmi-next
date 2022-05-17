@@ -81,6 +81,6 @@ deploy_gcp-intouch-cron-rm-unverified-users_bmi:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-rm-unverified-users.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-cron-rm-unverified-users.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
     - gcloud functions describe pubsub-cron-rm-unverified-users --region=europe-west3 &> /dev/null || EXIT_CODE=$?
     - if [[ $EXIT_CODE -eq 0 ]]; then gcloud functions deploy pubsub-cron-rm-unverified-users --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-rm-unverified-users.zip --region=europe-west3; else echo -e "\033[31m\033[1mThe function must be deployed by Terraform first!"; fi
