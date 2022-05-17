@@ -45,25 +45,15 @@ export type Data = {
   browseProductsCTA: PageInfoData | null;
 };
 
-const formatSamples = (
-  samples: SampleOrderElement[],
-  attributeSeparator: string,
-  sampleSeparator: string
-) =>
+const formatSamples = (samples: SampleOrderElement[]) =>
   samples
     .map((sample) =>
       Object.entries(sample)
         .filter(([_, value]) => !!value)
         .map(([key, value]) => `${key}: ${value}`)
-        .join(attributeSeparator)
+        .join("<br>")
     )
-    .join(sampleSeparator);
-
-const emailFormatSamples = (samples: SampleOrderElement[]) =>
-  formatSamples(samples, "<br>", "<br><br>");
-
-const hubSpotFormatSamples = (samples: SampleOrderElement[]) =>
-  formatSamples(samples, ", ", " | ");
+    .join("<br><br>");
 
 const SampleBasketSection = ({
   data: {
@@ -210,10 +200,7 @@ const SampleBasketSection = ({
             data={checkoutFormSection}
             backgroundColor="pearl"
             additionalValues={{
-              samples:
-                checkoutFormSection.source === "HubSpot"
-                  ? hubSpotFormatSamples(samples)
-                  : emailFormatSamples(samples)
+              samples: formatSamples(samples)
             }}
             isSubmitDisabled={samples.length === 0}
             gtmOverride={{
