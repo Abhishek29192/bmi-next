@@ -21,7 +21,7 @@ package_gcp-intouch-remove-unverified-users:
     ROOT_DIR: "applications/intouch/functions/gcp-cron-rm-unverified-users"
   script:
     - cd $ROOT_DIR
-    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-cron-rm-unverified-users.zip package.json dist/
+    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip package.json dist/
     - cd $CI_PROJECT_DIR
 
 # Deploy to BMI environments
