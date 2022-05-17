@@ -4089,6 +4089,7 @@ export type ContentfulGuaranteeTemplate = {
   terms?: Maybe<ContentfulAsset>;
   titleLine1?: Maybe<Scalars["String"]>;
   titleLine2?: Maybe<Scalars["String"]>;
+  mailSubject?: Maybe<Scalars["String"]>;
 };
 
 export type ContentfulGuaranteeTemplatesCollection = {

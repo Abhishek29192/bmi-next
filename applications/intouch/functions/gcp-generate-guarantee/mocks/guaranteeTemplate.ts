@@ -39,6 +39,7 @@ export const mockTemplateEnglish = {
   titleLine1: "Product",
   titleLine2: "Guarantee",
   roofType: "Flat",
+  mailSubject: "Cover product BMI warranty",
   mailBody:
     "Your BMI Product {{product}}, is now under warranty with BMI.  Please see attached document.  Regards BMI InRouch Team."
 };
@@ -82,6 +83,7 @@ export const mockTemplateEsperanto = {
   titleLine1: "Produkta",
   titleLine2: "Garantio",
   roofType: "Plata",
+  mailSubject: "Cover product BMI warranty",
   mailBody:
     "Via BMI-Produkto {{product}} nun garantias kun BMI. Bonvolu vidi aldonitan dokumenton. Salutas BMI-InRouch-Teamon."
 };
