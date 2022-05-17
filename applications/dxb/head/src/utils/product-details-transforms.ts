@@ -1095,4 +1095,4 @@ export const getYoutubeId = (urlOrCode: string) => {
 };
 
 export const getDefaultPreviewImage = (videoUrl: string) =>
-  `https://i.ytimg.com/vi/${getYoutubeId(videoUrl)}/maxresdefault.jpg`;
+  `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;
