@@ -13,7 +13,7 @@
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=handleRequest --port=9055"
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "@bmi/pim-api": "0.0.0",
     "@google-cloud/pubsub": "^2.5.0",
     "express": "^4.17.1",
