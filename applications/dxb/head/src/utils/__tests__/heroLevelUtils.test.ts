@@ -49,7 +49,7 @@ const featureVideo: ContentfulVideoData = {
   title: "video title",
   label: "video label",
   subtitle: "video subtitle",
-  youtubeId: "TDNEwZbm_Nk",
+  videoUrl: "https://youtu.be/TDNEwZbm_Nk",
   previewMedia: null,
   videoRatio: null
 };

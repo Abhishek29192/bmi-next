@@ -2,13 +2,14 @@ import React, { useMemo } from "react";
 import { graphql } from "gatsby";
 import { YoutubeVideo } from "@bmi/components";
 import { useGTM } from "../utils/google-tag-manager";
+import { getDefaultPreviewImage } from "../utils/product-details-transforms";
 import Image, { Data as ImageData } from "./Image";
 
 export type Data = {
   title: string;
   label: string;
   subtitle: string | null;
-  youtubeId: string;
+  videoUrl: string;
   previewMedia: ImageData | null;
   videoRatio: { width: number; height: number } | null;
 };
@@ -22,11 +23,8 @@ const Video = ({ data }: { data: Data }) => {
 };
 
 export const renderVideo = (data: Data) => {
-  const { label, subtitle, youtubeId, previewMedia, videoRatio } = data;
-  const videoUrl = useMemo(
-    () => `https://www.youtube.com/watch?v=${youtubeId}`,
-    [youtubeId]
-  );
+  const { label, subtitle, videoUrl, previewMedia, videoRatio } = data;
+
   const gtm = useMemo(
     () => ({
       id: "cta-click--video-youtube",
@@ -42,11 +40,15 @@ export const renderVideo = (data: Data) => {
     <YoutubeVideo
       label={label}
       subtitle={subtitle}
-      videoId={youtubeId}
+      videoUrl={videoUrl}
       embedHeight={videoRatio?.height || 0}
       embedWidth={videoRatio?.width || 0}
       previewImageSource={
-        previewMedia ? <Image data={previewMedia} /> : undefined
+        previewMedia ? (
+          <Image data={previewMedia} />
+        ) : (
+          getDefaultPreviewImage(videoUrl)
+        )
       }
       onGTMEvent={pushGTMEvent}
       dataGTM={dataGTM}
@@ -60,7 +62,7 @@ export const query = graphql`
     title
     label
     subtitle
-    youtubeId
+    videoUrl: youtubeId
     previewMedia {
       ...ImageFragment
     }

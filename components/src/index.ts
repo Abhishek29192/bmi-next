@@ -247,12 +247,7 @@ import VerticalRoller, {
   Slide as VerticalRollerSlide
 } from "./vertical-roller";
 import Villain, { VillainProps } from "./villain";
-import YoutubeVideo, {
-  getDefaultPreviewImage,
-  Layout,
-  YoutubeVideoProps,
-  GTM
-} from "./youtube-video";
+import YoutubeVideo, { Layout, YoutubeVideoProps, GTM } from "./youtube-video";
 import { transformHyphens } from "./utils/commonUtils";
 
 export type {
@@ -539,6 +534,5 @@ export {
   VerticalRoller,
   Villain,
   YoutubeVideo,
-  getDefaultPreviewImage,
   transformHyphens
 };

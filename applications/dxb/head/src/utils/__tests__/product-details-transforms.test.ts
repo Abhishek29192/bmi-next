@@ -12,6 +12,7 @@ import {
   getValidClassification,
   getValidFeatures,
   getYoutubeId,
+  getDefaultPreviewImage,
   groupProductsByCategory,
   mapClassificationValues,
   mapGalleryImages,
@@ -2876,6 +2877,14 @@ describe("product-details-transforms tests", () => {
       const expectedYoutubeId = "djskhvjksdvjksdb";
       const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
       expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+  });
+
+  describe("getDefaultPreviewImage", () => {
+    it("should return correct image source", () => {
+      expect(getDefaultPreviewImage("youtubeId")).toEqual(
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      );
     });
   });
 });

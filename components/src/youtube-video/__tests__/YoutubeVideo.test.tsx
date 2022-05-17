@@ -35,7 +35,7 @@ describe("YoutubeVideo component", () => {
   describe("dialog layout", () => {
     const props = {
       label: "test video",
-      videoId: "A-RfHC91Ewc",
+      videoUrl: "https://youtu.be/A-RfHC91Ewc",
       embedWidth: 1280,
       embedHeight: 720,
       dataGTM: {
@@ -43,7 +43,8 @@ describe("YoutubeVideo component", () => {
         label: "test-label",
         action: "Play"
       },
-      onGTMEvent: jest.fn()
+      onGTMEvent: jest.fn(),
+      previewImageSource: "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     };
 
     it("should render correctly", () => {
@@ -73,9 +74,10 @@ describe("YoutubeVideo component", () => {
   it("renders in in-place layout correctly", () => {
     const props = {
       label: "test video",
-      videoId: "A-RfHC91Ewc",
+      videoUrl: "https://youtu.be/A-RfHC91Ewc",
       embedWidth: 1280,
-      embedHeight: 720
+      embedHeight: 720,
+      previewImageSource: "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     };
     const { container } = render(<YoutubeVideo layout="in-place" {...props} />);
     expect(container).toMatchSnapshot();
@@ -83,7 +85,7 @@ describe("YoutubeVideo component", () => {
   describe("inline layout", () => {
     const props = {
       label: "test inline video",
-      videoId: "A-RfHC91Ewc",
+      videoUrl: "https://youtu.be/A-RfHC91Ewc",
       embedWidth: 1280,
       embedHeight: 720,
       dataGTM: {
@@ -91,7 +93,8 @@ describe("YoutubeVideo component", () => {
         label: "test-label",
         action: "Play"
       },
-      onGTMEvent: jest.fn()
+      onGTMEvent: jest.fn(),
+      previewImageSource: "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     };
     it("should render correctly", () => {
       const { container } = render(<YoutubeVideo layout="inline" {...props} />);
@@ -120,9 +123,10 @@ describe("YoutubeVideo component", () => {
   it("opens dialog on click", () => {
     const props = {
       label: "test video",
-      videoId: "A-RfHC91Ewc",
+      videoUrl: "https://youtu.be/A-RfHC91Ewc",
       embedWidth: 1280,
-      embedHeight: 720
+      embedHeight: 720,
+      previewImageSource: "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     };
     const { container, getByRole } = render(
       <YoutubeVideo layout="dialog" {...props} />
@@ -141,9 +145,10 @@ describe("YoutubeVideo component", () => {
     const { container } = render(
       <YoutubeVideo
         label="test video"
-        videoId="A - RfHC91Ewc"
+        videoUrl="https://youtu.be/A-RfHC91Ewc"
         embedWidth={1280}
         embedHeight={720}
+        previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
     );
     expect(container).toMatchSnapshot();

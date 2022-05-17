@@ -273,7 +273,7 @@ describe("Sections component", () => {
           title: "Video",
           label: "Video",
           subtitle: null,
-          youtubeId: "abc123",
+          videoUrl: "https://www.youtube.com/watch?v=abc123",
           previewMedia: null,
           videoRatio: null
         },
@@ -441,7 +441,7 @@ describe("Sections component", () => {
           __typename: "ContentfulVideo",
           title: "Video title",
           label: "Video label",
-          youtubeId: "A-RfHC91Ewc",
+          videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
           subtitle: null,
           previewMedia: null,
           videoRatio: { width: 16, height: 9 }
