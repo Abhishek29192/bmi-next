@@ -1,0 +1,41 @@
+test_contentful-default-values:
+  extends: .test_jest
+  variables:
+    WORKSPACE: "@bmi/contentful-default-values"
+    ROOT_DIR: "applications/functions/contentful-default-values"
+
+build_contentful-default-values:
+  extends: .build_function
+  variables:
+    WORKSPACE: "@bmi/contentful-default-values"
+    ROOT_DIR: "applications/dxb/functions/contentful-default-values"
+
+package_contentful-default-values:
+  extends: .package_function
+  needs:
+    - build_contentful-default-values
+  dependencies:
+    - build_contentful-default-values
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+  variables:
+    FUNCTION_NAME: "contentful-default-values"
+    ROOT_DIR: "applications/dxb/functions/contentful-default-values"
+
+deploy_contentful-default-values:
+  extends: .deploy_function
+  needs:
+    - package_contentful-default-values
+  dependencies:
+    - package_contentful-default-values
+  rules:
+    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+  variables:
+    FUNCTION_NAME: "contentful-default-values"
+    ROOT_DIR: "applications/dxb/functions/contentful-default-values"
