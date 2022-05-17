@@ -31,9 +31,11 @@ export default async (req, res, next) => {
 
   if (user) {
     if (
-      ["pdf-generator-function", "incomplete-reminder-function"].includes(
-        user?.source
-      )
+      [
+        "pdf-generator-function",
+        "incomplete-reminder-function",
+        "archive-guarantee-function"
+      ].includes(user?.source)
     ) {
       // if we want to limit access per function/service
       req.trustedConnection = true;
