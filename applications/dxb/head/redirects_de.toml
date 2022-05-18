@@ -14822,10 +14822,6 @@
  to="/de/alle-dachziegel/"
  force=true
  
-[[redirects]]
- from="/de/produkte-systemloesungen/flachdachsysteme/bmi-icopal"
- to="/de/icopal/"
- force=true
  
 [[redirects]]
  from="/de/alle-dachsteine-old/"
@@ -14847,10 +14843,6 @@
  to="/de/p/braas-thermokollektor-thermokollektor-tk4-3527273310"
  force=true
  
-[[redirects]]
- from="/de/produkte-systemloesungen/flachdachsysteme/bmi-icopal"
- to="/de/icopal/"
- force=true
  
 [[redirects]]
  from="/de/p/braas-pv-indax-pv-indax-310-270846316/"
@@ -15128,11 +15120,6 @@
  force=true
  
 [[redirects]]
- from="/de/produkte-systemloesungen/flachdachsysteme/bmi-icopal"
- to="/de/icopal/"
- force=true
- 
-[[redirects]]
  from="/de/zandalux"
  to="/de/"
  force=true
@@ -15281,6 +15268,233 @@
  from="/de/de/private-bauherren/"
  to="/de/private-bauherren/"
  force=true
+
+
+[[redirects]]
+ from="/de/windsogberechnung-tool"
+ to="/de/services-downloads-im-ueberblick/alle-services/alle-braas-services/windsogberechnung/"
+ force=true
+
+[[redirects]]
+ from="/de/services-downloads-im-ueberblick/alle-services/alle-icopal-downloads-old/leistungserklaerungen-icopal/"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/steildachsysteme/produkte/braas-rubin-15v"
+ to="/de/flachdachziegel-hohe-regensicherheit-bei-geringer-dachneigung/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/steildachsysteme/produkte/braas-rubin-11v-ha_braas-rubin-11v-hz_braas-rubin-13v_braas-rubin-15v_braas-rubin-9v"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/dachziegel/firstanschlussortgangziegel-ganz"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22tilesAttributes.tilevariety%22%2C%22value%22%3A%5B%22RIDGE_CONNECTING_VERGE_TILE%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-rubin-11v-ha_braas-rubin-11v-hz_braas-rubin-13v_braas-rubin-9v"
+ to="/de/alle-steildachprodukte/?filters=%5B%7B%22name%22%3A%22ProductFamily%22%2C%22value%22%3A%5B%22Braas_Rubin_9V%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/steildachsysteme/dachziegel-produkte/braas-achat-12v_braas-achat-14-geradschnitt"
+ to="/de/p/achat-14-geradschnitt-naturrot-matt-ton-3104404027"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte/braas/taunus-pfanne-halber-pultstein"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte/braas/sicherheitsfirst-system-topslide"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte/braas/rubin-15v"
+ to="/de/flachdachziegel-hohe-regensicherheit-bei-geringer-dachneigung/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//teroson-ef-tk-400"
+ to="/de/p/teroson-ef-tk-400-3286034977"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//tegalit-durovent-premium-sanilüfter"
+ to="/de/p/tegalit-durovent-premium-sanilüfter-steingrau-protegon-matt-beton-2946495374"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//sturmklammer-opal"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//konischer-first-p"
+ to="/de/p/konischer-first-p-anthrazit-matt-ton-4132253586"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/produkte//elasto-veral-edelstahl"
+ to="/de/alle-flachdachprodukte"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/products/braas/braas-thermokollektor"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/icopal-leichte-bahnen"
+ to="/de/leichte-bahnen"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/flachdachsysteme/kunststoffbahnen"
+ to="/de/kunststoffbahnen/"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/flachdachsysteme/bitumenbahnen/produkte/vedag/bitumenbahnen/basis-qualität"
+ to="/de/alle-bitumenbahnen/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Vedag%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/de/produkte-systemloesungen/flachdachsysteme/bitumenbahnen/produkte/vedag"
+ to="/de/alle-bitumenbahnen/?filters=%5B%7B%22name%22%3A%22Brand%22%2C%22value%22%3A%5B%22Vedag%22%5D%7D%5D"
+ force=true
+
+[[redirects]]
+ from="/de/p/topas-15v-naturrot-matt-ton-2478878604"
+ to="/de/p/topas-15v-mansardziegel-naturrot-matt-ton-622074158"
+ force=true
+
+[[redirects]]
+ from="/de/p/topas-15v-knick-doppelwulstziegel-kupferrot-matt-ton-1077433294"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/topas-15v-dunkelbraun-matt-ton-2953899068"
+ to="/de/p/topas-15v-mansardziegel-dunkelbraun-matt-ton-1153637869"
+ force=true
+
+[[redirects]]
+ from="/de/p/tegalit-modulstütze-inkl-sicherheitspfanne-halb-kolonialbraun-beton-2318085297"
+ to="/de/p/tegalit-modulstütze-inkl-sicherheitspfanne-halb-nussbraun-beton-2318085297"
+ force=true
+
+[[redirects]]
+ from="/de/p/tegalit-kolonialbraun-protegon-matt-beton-3659172076"
+ to="/de/p/tegalit-nussbraun-protegon-matt-beton-3659172076"
+ force=true
+
+[[redirects]]
+ from="/de/p/rubin-11v-anthrazit-matt-ton-135638602"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/heisterholzer-rubin-11v-dunkelbraun-matt-ton-1869640089/"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/hainstädter-rubin-11v-lavarot-edelengobe-matt-ton-783440568"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/granat-15-pultziegel-edelschiefer-edelengobe-durchgefärbt-matt-ton-2165421246"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/granat-15-knickziegel-halb-naturrot-matt-ton-579853739"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/granat-15-flächenlüfterziegel-naturrot-matt-ton-1771775879"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/granat-11v"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/p/divoroll-top-ru-udb-a-usb-a-grün-pocb-polyolefin-copolymerisat-bitumen-divoroll%20top%20ru%20udb-a"
+ to="/de/alle-steildachprodukte/"
+ force=true
+
+[[redirects]]
+ from="/de/fuer-profis/services/flachdach-bauwerksabdichtungen/individuelle-services/wolfin/anwendungshaus"
+ to="/de/wolfin/"
+ force=true
+
+[[redirects]]
+ from="/de/fuer-profis/services/flachdach-bauwerksabdichtungen/individuelle-services/vedag/system-finder"
+ to="/de/services-downloads-im-ueberblick/alle-services/alle-services-vedag/"
+ force=true
+
+[[redirects]]
+ from="/de/fachwissen/flachdachrichtlinie/"
+ to="/de/dachlexikon/dachlexikon-flachdachrichtlinie/"
+ force=true
+
+[[redirects]]
+ from="/de/fachwissen/flachdachabdichtung/"
+ to="/de/fachwissen/"
+ force=true
+
+[[redirects]]
+ from="/de/downloads/services-und-downloads/vedag-downloads/datenblatt/vedag"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/downloads/preislisten/"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/downloads/left-column/broschueren"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/downloads/icopal/produktbroschüre"
+ to="/de/produktbroschueren-icopal/"
+ force=true
+
+[[redirects]]
+ from="/de/downloads/braas/leistungserklärung"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/braas/-/media/images/de/products/dachsystemteile/1002312/verlegeanleitung-befestigungsortiment-gd-49pdf"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
+[[redirects]]
+ from="/de/bmi-icopal/"
+ to="/de/icopal"
+ force=true
+
+[[redirects]]
+ from="/de/alle-metallplattendatenblatt"
+ to="/de/services-downloads-im-ueberblick/alle-downloads/"
+ force=true
+
 
 
 
