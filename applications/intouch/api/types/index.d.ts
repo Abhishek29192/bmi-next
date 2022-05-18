@@ -3,12 +3,10 @@ export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
+  { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -4081,6 +4079,7 @@ export type ContentfulGuaranteeTemplate = {
   languageDescriptor?: Maybe<Scalars["String"]>;
   logo?: Maybe<ContentfulAsset>;
   mailBody?: Maybe<Scalars["String"]>;
+  mailSubject?: Maybe<Scalars["String"]>;
   maintenanceTemplate?: Maybe<ContentfulAsset>;
   rejectionMessage?: Maybe<ContentfulMessage>;
   roofType?: Maybe<Scalars["String"]>;
@@ -4089,7 +4088,6 @@ export type ContentfulGuaranteeTemplate = {
   terms?: Maybe<ContentfulAsset>;
   titleLine1?: Maybe<Scalars["String"]>;
   titleLine2?: Maybe<Scalars["String"]>;
-  mailSubject?: Maybe<Scalars["String"]>;
 };
 
 export type ContentfulGuaranteeTemplatesCollection = {

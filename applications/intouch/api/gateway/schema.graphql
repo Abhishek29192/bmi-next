@@ -6972,6 +6972,7 @@ type ContentfulGuaranteeTemplate {
   languageDescriptor: String
   logo: ContentfulAsset
   mailBody: String
+  mailSubject: String
   maintenanceTemplate: ContentfulAsset
   rejectionMessage: ContentfulMessage
   roofType: String
