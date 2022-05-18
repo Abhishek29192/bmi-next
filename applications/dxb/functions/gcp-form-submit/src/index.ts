@@ -26,6 +26,8 @@ let sendGridClientCache: MailService | undefined;
 
 const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
+    logger.info({ message: "No Contentful Environment Cache found" });
+
     const managementToken = await getSecret(
       CONTENTFUL_MANAGEMENT_TOKEN_SECRET!
     );
@@ -34,15 +36,23 @@ const getContentfulEnvironment = async () => {
     contentfulEnvironmentCache = await space.getEnvironment(
       CONTENTFUL_ENVIRONMENT!
     );
+
+    logger.info({
+      message: `Created ${CONTENTFUL_ENVIRONMENT} Contentful Environment`
+    });
   }
   return contentfulEnvironmentCache;
 };
 
 const getSendGridClient = async () => {
   if (!sendGridClientCache) {
+    logger.info({ message: "No SendGrid Client Cache found" });
+
     const apiKey = await getSecret(SENDGRID_API_KEY_SECRET!);
     sendGridClientCache = new MailService();
     sendGridClientCache.setApiKey(apiKey);
+
+    logger.info({ message: "Created SendGrid Client" });
   }
   return sendGridClientCache;
 };
@@ -115,11 +125,24 @@ export const submit: HttpFunction = async (request, response) => {
           values: { files, ...fields } // @todo "files" probably shouldn't come from CMS
         }
       } = request;
-      const recipients = getRecipientsArray(request.body.recipients);
 
       if (!fields || !Object.entries(fields).length) {
+        logger.error({ message: "Fields are empty" });
         return response.status(400).send(Error("Fields are empty."));
       }
+
+      const recipients = getRecipientsArray(request.body.recipients);
+      const emailSubject = generateEmailSubject(
+        title,
+        fields,
+        emailSubjectFormat
+      );
+
+      logger.info({
+        message: `Email '${emailSubject}' includes ${
+          Object.keys(fields).length
+        } fields and ${files?.length ?? 0} files`
+      });
 
       const recaptchaToken =
         // eslint-disable-next-line security/detect-object-injection
@@ -131,6 +154,7 @@ export const submit: HttpFunction = async (request, response) => {
       }
 
       try {
+        logger.info({ message: "Starting Recaptcha check" });
         const recaptchaResponse = await fetch(
           `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
             RECAPTCHA_SECRET_KEY
@@ -152,6 +176,7 @@ export const submit: HttpFunction = async (request, response) => {
           });
           return response.status(400).send(Error("Recaptcha check failed."));
         }
+        logger.info({ message: "Recaptcha check successful" });
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (error: any) {
         logger.error({
@@ -189,6 +214,8 @@ export const submit: HttpFunction = async (request, response) => {
         .map(({ fields }) => fields.file[locale]?.url)
         .filter(Boolean);
 
+      logger.info({ message: `Uploaded ${uploadedAssets.length} assets` });
+
       const formResponse = {
         ...fields,
         uploadedAssets
@@ -203,11 +230,12 @@ export const submit: HttpFunction = async (request, response) => {
       await sendgridClient.send({
         to: recipients,
         from: SENDGRID_FROM_EMAIL,
-        subject: generateEmailSubject(title, fields, emailSubjectFormat),
+        subject: emailSubject,
         text: JSON.stringify(formResponse),
         html
       });
 
+      logger.info({ message: `Email '${emailSubject}' sent to ${recipients}` });
       return response.sendStatus(200);
     } catch (error) {
       logger.error({ message: (error as Error).message });
