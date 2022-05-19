@@ -54,5 +54,5 @@ include:
     - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions deploy pubsub-handle-message --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/$FUNCTION_NAME.zip --region=europe-west3
+    - gsutil cp $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy $FUNCTION_NAME --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/$FUNCTION_NAME.zip --region=europe-west3

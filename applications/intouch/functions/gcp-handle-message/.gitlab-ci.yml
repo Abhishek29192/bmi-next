@@ -1,47 +1,24 @@
 build_gcp-intouch-handle-message:
-  stage: build
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
-  needs:
-    - job: install
-      optional: true
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn workspace @bmi/gcp-intouch-handle-message run build
-  artifacts:
-    paths:
-      - applications/intouch/functions/gcp-handle-message/dist
+  extends: .build_function
+  variables:
+    ROOT_DIR: applications/intouch/functions/gcp-handle-message
+    WORKSPACE: @bmi/gcp-intouch-handle-message
 
 package_gcp-intouch-handle-message:
-  stage: package
-  rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-handle-message/**/*
+  extends: .package_function
+  variables:
+    FUNCTION_NAME: pubsub-handle-message
+    ROOT_DIR: applications/intouch/functions/gcp-handle-message
   needs:
     - build_gcp-intouch-handle-message
   dependencies:
     - build_gcp-intouch-handle-message
-  before_script:
-    - apt-get update
-    - apt-get install -y zip unzip
-    - mkdir -p dist/applications/intouch/functions
-  script:
-    - cd applications/intouch/functions/gcp-handle-message
-    - zip -r $CI_PROJECT_DIR/dist/applications/intouch/functions/gcp-handle-message.zip package.json dist/
-    - cd $CI_PROJECT_DIR
-  artifacts:
-    paths:
-      - $CI_PROJECT_DIR/dist/applications/intouch/functions
 
 # Deploy to BMI environments
 deploy_gcp-intouch-handle-message_bmi:
   extends: .deploy_intouch_function
   variables:
-    FUNCTION_NAME: gcp-handle-message
+    FUNCTION_NAME: pubsub-handle-message
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
   needs:
     - package_gcp-intouch-handle-message
