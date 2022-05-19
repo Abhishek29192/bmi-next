@@ -10,7 +10,8 @@
     "start": "node dist/index.js",
     "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
     "deploy": "yarn build && gcloud functions deploy pubsub-cron-certification --runtime=nodejs14 --entry-point=updateCertificates --source=.  --region=europe-west2 --trigger-topic=cron-certification",
-    "build": "tsc"
+    "build": "tsc",
+    "check:ts": "tsc"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
