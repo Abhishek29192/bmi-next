@@ -2,13 +2,13 @@ test_gcp-intouch-remove-unverified-users:
   extends: .test_jest
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
-    ROOT_DIR: "applications/intouch/functions/gcp-cron-rm-unverified-users"
+    ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 build_gcp-intouch-remove-unverified-users:
   extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
-    ROOT_DIR: "applications/intouch/functions/gcp-cron-rm-unverified-users"
+    ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 package_gcp-intouch-remove-unverified-users:
   extends: .package_function
@@ -17,60 +17,16 @@ package_gcp-intouch-remove-unverified-users:
   dependencies:
     - build_gcp-intouch-remove-unverified-users
   variables:
-    FUNCTION_NAME: "gcp-cron-rm-unverified-users"
-    ROOT_DIR: "applications/intouch/functions/gcp-cron-rm-unverified-users"
-  script:
-    - cd $ROOT_DIR
-    - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip package.json dist/
-    - cd $CI_PROJECT_DIR
+    FUNCTION_NAME: pubsub-cron-rm-unverified-users
+    ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-rm-unverified-users_bmi:
-  image: gcr.io/google.com/cloudsdktool/cloud-sdk
-  stage: deploy
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
-      changes:
-        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
-      variables:
-        BMI_ENV: "dev"
-        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
-        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
-        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
-    - if: "($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa')"
-      changes:
-        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
-      variables:
-        BMI_ENV: "qa"
-        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
-        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
-        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
-      changes:
-        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
-      variables:
-        BMI_ENV: "preprod"
-        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
-        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
-        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
-      changes:
-        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
-      variables:
-        BMI_ENV: "prod"
-        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
-        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
-        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
-      allow_failure: true
+  extends: .deploy_intouch_function
+  variables:
+    FUNCTION_NAME: pubsub-cron-rm-unverified-users
+    ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
   needs:
     - package_gcp-intouch-remove-unverified-users
   dependencies:
     - package_gcp-intouch-remove-unverified-users
-  script:
-    - if [ $BMI_ENV = 'prod' ]; then PREFIX=bmi-p-intouch; else PREFIX=bmi-np-intouch; fi
-    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
-    - gcloud auth activate-service-account --key-file gcloud-service-key.json
-    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
-    - gsutil cp $CI_PROJECT_DIR/dist/functions/gcp-cron-rm-unverified-users.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
-    - gcloud functions describe pubsub-cron-rm-unverified-users --region=europe-west3 &> /dev/null || EXIT_CODE=$?
-    - if [[ $EXIT_CODE -eq 0 ]]; then gcloud functions deploy pubsub-cron-rm-unverified-users --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/gcp-cron-rm-unverified-users.zip --region=europe-west3; else echo -e "\033[31m\033[1mThe function must be deployed by Terraform first!"; fi
