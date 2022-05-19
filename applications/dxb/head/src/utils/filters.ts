@@ -815,11 +815,21 @@ export const filterDocuments = (
     productFamily: (
       document: DocumentResultData,
       valuesToMatch: string[]
-    ): boolean =>
-      isPIMDocument(document) &&
-      (document.product.categories || [])
+    ): boolean => {
+      const categories =
+        isPIMDocument(document) &&
+        [
+          ...(document.product.categories || []),
+          ...(document.relatedProducts?.flatMap((item) => item.categories) ||
+            [])
+        ]
+          .filter(Boolean)
+          .reduce<Category[]>(uniqueByCode, []);
+
+      return (categories || [])
         .filter(({ categoryType }) => categoryType === "ProductFamily")
-        .some((brandCategory) => valuesToMatch.includes(brandCategory.code)),
+        .some((brandCategory) => valuesToMatch.includes(brandCategory.code));
+    },
     contentfulAssetType: (
       document: DocumentResultData,
       valuesToMatch: string[]
