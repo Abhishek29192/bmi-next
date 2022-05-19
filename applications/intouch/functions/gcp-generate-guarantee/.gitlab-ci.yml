@@ -2,7 +2,7 @@ build_gcp-intouch-generate-guarantee:
   extends: .build_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
-    WORKSPACE: @bmi/gcp-intouch-generate-guarantee
+    WORKSPACE: "@bmi/gcp-intouch-generate-guarantee"
 
 package_gcp-intouch-generate-guarantee:
   extends: .package_function

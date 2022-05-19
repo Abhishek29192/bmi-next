@@ -2,7 +2,7 @@ build_gcp-intouch-cron-training:
   extends: .build_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-cron-training
-    WORKSPACE: @bmi/gcp-intouch-cron-training
+    WORKSPACE: "@bmi/gcp-intouch-cron-training"
 
 package_gcp-intouch-cron-training:
   extends: .package_function

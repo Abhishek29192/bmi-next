@@ -2,7 +2,7 @@ build_gcp-intouch-handle-message:
   extends: .build_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
-    WORKSPACE: @bmi/gcp-intouch-handle-message
+    WORKSPACE: "@bmi/gcp-intouch-handle-message"
 
 package_gcp-intouch-handle-message:
   extends: .package_function

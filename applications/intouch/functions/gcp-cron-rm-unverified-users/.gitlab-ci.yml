@@ -1,13 +1,13 @@
 test_gcp-intouch-remove-unverified-users:
   extends: .test_jest
   variables:
-    WORKSPACE: @bmi/gcp-cron-rm-unverified-users
+    WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 build_gcp-intouch-remove-unverified-users:
   extends: .build_function
   variables:
-    WORKSPACE: @bmi/gcp-cron-rm-unverified-users
+    WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 package_gcp-intouch-remove-unverified-users:
