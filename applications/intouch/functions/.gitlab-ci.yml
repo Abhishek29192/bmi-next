@@ -5,3 +5,54 @@ include:
   - local: "/applications/intouch/functions/gcp-handle-message/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-cron-incomplete-reminder/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-cron-rm-unverified-users/.gitlab-ci.yml"
+
+##############################################################################
+# Template to deploy the function with InTouch specifics (to be consolidated
+# with the global template)
+#
+# Extending job needs to provide FUNCTION_NAME and ROOT_DIR and depend on a
+# job that extends .package_function
+#
+# For example:
+# variables:
+#   FUNCTION_NAME: "gcp-upload-file"
+#   ROOT_DIR: "applications/functions/gcp-upload-file"
+##############################################################################
+.deploy_intouch_function:
+  image: !reference [ .cloud-sdk-image, image ]
+  stage: deploy
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - $ROOT_DIR/**/*
+      variables:
+        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
+        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
+        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_DEV_BUILD_STORAGE"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - $ROOT_DIR/**/*
+      variables:
+        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_QA_PROJECT_ID"
+        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_QA_SERVICEACCOUNT"
+        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_QA_BUILD_STORAGE"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - $ROOT_DIR/**/*
+      variables:
+        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_PREPROD_PROJECT_ID"
+        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_PREPROD_SERVICEACCOUNT"
+        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PREPROD_BUILD_STORAGE"
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - $ROOT_DIR/**/*
+      variables:
+        GCP_INTOUCH_REPLATFORM_PROJECT_ID: "$GCP_BMI_INTOUCH_PROD_PROJECT_ID"
+        GCP_INTOUCH_REPLATFORM_SERVICE_KEY: "$GCP_BMI_INTOUCH_PROD_SERVICEACCOUNT"
+        GCP_INTOUCH_REPLATFORM_BUILD_STORAGE: "$GCP_BMI_INTOUCH_PROD_BUILD_STORAGE"
+  script:
+    - echo $GCP_INTOUCH_REPLATFORM_SERVICE_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - gcloud auth activate-service-account --key-file gcloud-service-key.json
+    - gcloud config set project $GCP_INTOUCH_REPLATFORM_PROJECT_ID
+    - gsutil cp $CI_PROJECT_DIR/dist/applications/intouch/functions/$FUNCTION_NAME.zip gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/
+    - gcloud functions deploy pubsub-handle-message --source=gs://$GCP_INTOUCH_REPLATFORM_BUILD_STORAGE/$FUNCTION_NAME.zip --region=europe-west3
