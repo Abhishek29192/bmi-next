@@ -1,6 +1,6 @@
 import { Address } from "@bmi/intouch-api-types";
 
-export const stringifyAddress = (address: Partial<Address>) =>
+export const stringifyAddress = (address: Partial<Address>, separator = " ") =>
   [
     address?.firstLine,
     address?.secondLine,
@@ -9,4 +9,4 @@ export const stringifyAddress = (address: Partial<Address>) =>
     address?.country
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(separator);
