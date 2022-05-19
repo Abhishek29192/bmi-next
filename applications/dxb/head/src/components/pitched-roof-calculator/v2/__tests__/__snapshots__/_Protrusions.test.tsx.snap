@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator Protrusions component adds a protrusion 1`] = `
+Array [
+  Array [
+    Object {
+      "protrusions": Array [],
+    },
+    Object {
+      "protrusions": undefined,
+    },
+  ],
+  Array [
+    Object {
+      "protrusions": Array [
+        Object {},
+      ],
+    },
+    Object {
+      "protrusions": undefined,
+    },
+  ],
+  Array [
+    Object {
+      "protrusions": Array [
+        Object {
+          "type": undefined,
+        },
+      ],
+    },
+    Object {
+      "protrusions": "There is an error",
+    },
+  ],
+]
+`;
+
+exports[`PitchedRoofCalculator Protrusions component removes a protrusion 1`] = `
+Array [
+  Array [
+    Object {
+      "protrusions": Array [
+        Object {
+          "A": "33",
+          "B": "55",
+          "P": "44",
+          "type": "protrusion01",
+        },
+      ],
+    },
+    Object {
+      "protrusions": undefined,
+    },
+  ],
+  Array [
+    Object {
+      "protrusions": Array [
+        Object {
+          "A": "33",
+          "B": "55",
+          "P": "44",
+          "type": "protrusion01",
+        },
+      ],
+    },
+    Object {
+      "protrusions": undefined,
+    },
+  ],
+  Array [
+    Object {
+      "protrusions": Array [],
+    },
+    Object {
+      "protrusions": undefined,
+    },
+  ],
+]
+`;
+
+exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
+<div>
+  <div
+    class="Protrusions"
+  >
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Are there any protrusions?
+        </h6>
+      </div>
+      <button
+        class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-outlined MuiButton-outlinedPrimary"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label buttonStyles-label-4"
+        >
+          Add protrusions
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

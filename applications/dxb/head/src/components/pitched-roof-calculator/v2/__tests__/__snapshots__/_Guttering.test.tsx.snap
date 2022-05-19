@@ -1,0 +1,548 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Choose a gutter material
+        </h6>
+      </div>
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="guttering"
+                  type="radio"
+                  value="Test Guttering"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering
+                    </h6>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Guttering component renders gutter variants and hooks 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Choose a gutter material
+        </h6>
+      </div>
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  checked=""
+                  class="input"
+                  name="guttering"
+                  type="radio"
+                  value="Test Guttering"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering
+                    </h6>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Select the colour
+        </h6>
+      </div>
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  checked=""
+                  class="input"
+                  name="gutteringVariant"
+                  type="radio"
+                  value="34391"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering Black
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      <strong>
+                        34391
+                      </strong>
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="gutteringVariant"
+                  type="radio"
+                  value="4391"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering Grey
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      <strong>
+                        4391
+                      </strong>
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Select a gutter hook type
+        </h6>
+      </div>
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  checked=""
+                  class="input"
+                  name="gutteringHook"
+                  type="radio"
+                  value="34392"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering Hook Black
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      <strong>
+                        34392
+                      </strong>
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="gutteringHook"
+                  type="radio"
+                  value="4392"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Test Guttering Hook Grey
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      <strong>
+                        4392
+                      </strong>
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Add down pipe (3m lengths)
+        </h6>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3"
+        >
+          <div
+            class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+          >
+            <button
+              aria-label="Down"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13H5v-2h14v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
+            >
+              <div
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiFilledInput-input"
+                  type="text"
+                  value="0"
+                />
+              </div>
+            </div>
+            <button
+              aria-label="Up"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          How many downpipes connectors?
+        </h6>
+      </div>
+      <div
+        class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-3"
+        >
+          <div
+            class="UpDownSimpleNumericInput UpDownSimpleNumericInput--locked-xs"
+          >
+            <button
+              aria-label="Down"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button-sides"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13H5v-2h14v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="MuiFormControl-root MuiTextField-root RawTextField input input-in-middle"
+            >
+              <div
+                class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+              >
+                <input
+                  aria-invalid="false"
+                  class="MuiInputBase-input MuiFilledInput-input"
+                  type="text"
+                  value="0"
+                />
+              </div>
+            </div>
+            <button
+              aria-label="Up"
+              class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 button"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Guttering component renders with no options 1`] = `
+<div>
+  <div />
+</div>
+`;

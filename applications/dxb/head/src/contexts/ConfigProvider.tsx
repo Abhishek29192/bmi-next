@@ -28,6 +28,7 @@ export interface EnvConfig {
     isSampleOrderingEnabled?: boolean;
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
+    isV2WebToolsCalculatorEnabled?: boolean;
   };
 }
 
@@ -56,6 +57,9 @@ export const envConfig: EnvConfig = {
     webtoolsCalculatorDataUrl: process.env.GATSBY_WEBTOOLS_CALCULATOR_DATA_URL,
     isWebToolsCalculatorEnabled: convertStrToBool(
       process.env.GATSBY_ENABLE_WEBTOOLS_CALCULATOR
+    ),
+    isV2WebToolsCalculatorEnabled: convertStrToBool(
+      process.env.GATSBY_ENABLE_V2_WEBTOOLS_CALCULATOR
     ),
     webToolsCalculatorApsisEndpoint:
       process.env.GATSBY_WEBTOOLS_CALCULATOR_APSIS_ENDPOINT,

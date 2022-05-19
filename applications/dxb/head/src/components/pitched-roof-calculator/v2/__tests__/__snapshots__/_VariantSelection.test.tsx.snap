@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator VariantSelection component renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          Zanda Protector main tile
+        </h6>
+      </div>
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="variant"
+                  type="radio"
+                  value="46035712"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Black
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      46035712
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="variant"
+                  type="radio"
+                  value="46247263"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Grey
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Nobb: 
+                      46247263
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator VariantSelection component renders with no variants 1`] = `
+<div>
+  <div />
+</div>
+`;

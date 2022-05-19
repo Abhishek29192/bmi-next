@@ -1,4 +1,10 @@
-import React, { createContext, Suspense, useEffect, useState } from "react";
+import React, {
+  createContext,
+  Suspense,
+  useEffect,
+  useState,
+  useMemo
+} from "react";
 import { MicroCopy } from "@bmi/components";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
@@ -9,8 +15,12 @@ import { Data } from "./pitched-roof-calculator/types";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";
 
-const PitchedRoofCalculator = React.lazy(
-  () => import("./pitched-roof-calculator/PitchedRoofCalculator")
+const PitchedRoofCalculatorV1 = React.lazy(
+  () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
+);
+
+const PitchedRoofCalculatorV2 = React.lazy(
+  () => import("./pitched-roof-calculator/v2/PitchedRoofCalculator")
 );
 
 type Parameters = {
@@ -41,7 +51,8 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     config: {
       webtoolsCalculatorDataUrl,
       isWebToolsCalculatorEnabled,
-      webToolsCalculatorApsisEndpoint
+      webToolsCalculatorApsisEndpoint,
+      isV2WebToolsCalculatorEnabled
     }
   } = useConfig();
 
@@ -85,6 +96,36 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     return () => cancelTokenSouce.cancel();
   }, [isOpen]);
 
+  const calculatorProps = useMemo(
+    () => ({
+      isOpen,
+      onClose: () => setIsOpen(false),
+      isDebugging: parameters?.isDebugging,
+      data,
+      onAnalyticsEvent: pushToDataLayer,
+      sendEmailAddress: async (values) => {
+        if (!webToolsCalculatorApsisEndpoint) {
+          devLog("WebTools calculator api endpoint for apsis isn't configured");
+          return;
+        }
+
+        const token = await executeRecaptcha();
+
+        try {
+          await axios.post(webToolsCalculatorApsisEndpoint, values, {
+            headers: {
+              "X-Recaptcha-Token": token
+            }
+          });
+        } catch (error) {
+          // Ignore errors if any as this isn't necessary for PDF download to proceed
+          devLog("WebTools calculator api endpoint error", error);
+        }
+      }
+    }),
+    [data, isOpen, parameters]
+  );
+
   return (
     <CalculatorContext.Provider
       value={{
@@ -101,34 +142,11 @@ const CalculatorProvider = ({ children, onError }: Props) => {
       <MicroCopy.Provider values={no}>
         {!(typeof window === "undefined") && isOpen ? (
           <Suspense fallback={<div>Loading...</div>}>
-            <PitchedRoofCalculator
-              isOpen={isOpen}
-              onClose={() => setIsOpen(false)}
-              isDebugging={parameters?.isDebugging}
-              data={data}
-              onAnalyticsEvent={pushToDataLayer}
-              sendEmailAddress={async (values) => {
-                if (!webToolsCalculatorApsisEndpoint) {
-                  devLog(
-                    "WebTools calculator api endpoint for apsis isn't configured"
-                  );
-                  return;
-                }
-
-                const token = await executeRecaptcha();
-
-                try {
-                  await axios.post(webToolsCalculatorApsisEndpoint, values, {
-                    headers: {
-                      "X-Recaptcha-Token": token
-                    }
-                  });
-                } catch (error) {
-                  // Ignore errors if any as this isn't necessary for PDF download to proceed
-                  devLog("WebTools calculator api endpoint error", error);
-                }
-              }}
-            />
+            {isV2WebToolsCalculatorEnabled ? (
+              <PitchedRoofCalculatorV2 {...calculatorProps} />
+            ) : (
+              <PitchedRoofCalculatorV1 {...calculatorProps} />
+            )}
           </Suspense>
         ) : undefined}
       </MicroCopy.Provider>
