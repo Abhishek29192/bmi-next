@@ -1,0 +1,63 @@
+
+
+[[redirects]]
+ from="/uk/redland-pitched/full-redland-range/"
+ to="/uk/full-redland-range/"
+ force=true
+
+[[redirects]]
+ from="/uk/products"
+ to="/uk/"
+ force=true
+
+[[redirects]]
+ from="/uk/p/mini-stonewold-tile-charcoal-grey-1280299628/"
+ to="/uk/p/mini-stonewold-tile-charcoal-grey-coated-1280299628/"
+ force=true
+
+[[redirects]]
+ from="/uk/p/fenland-tile-terracotta-2655609549/"
+ to="/uk/p/fenland-pantile-terracotta-smooth-2655609549/"
+ force=true
+
+[[redirects]]
+ from="/uk/p/50-double-roman-tile-terracotta-2401561925/"
+ to="/uk/p/50-double-roman-tile-terracotta-smooth-63797835/"
+ force=true
+
+[[redirects]]
+ from="/uk/icopal-flat-roofing/insulation/pir/"
+ to="/uk/insulation/pir/"
+ force=true
+
+[[redirects]]
+ from="/uk/customersupport"
+ to="/uk/contact-us/"
+ force=true
+
+[[redirects]]
+ from="/uk/contact-us/staff/"
+ to="/uk/contact-us/"
+ force=true
+
+[[redirects]]
+ from="/uk/bmi-icopal/single-ply-waterproofing/pvc-waterproofing/"
+ to="/uk/icopal-flat-roofing/single-ply-waterproofing/pvc-waterproofing/"
+ force=true
+
+
+
+[[redirects]]
+  from = "/uk/sxa/file/download*"
+  to = "/uk/downloads/"
+  status = 301
+  force = true
+
+
+# Redirect root to /uk.
+[[redirects]]
+  from = "/"
+  to = "/uk"
+  status = 301
+  force = true
+  
