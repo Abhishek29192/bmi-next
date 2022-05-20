@@ -1,13 +1,14 @@
-import fetch, { Response } from "node-fetch";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import logger from "@bmi-digital/functions-logger";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
-import { deleteFirestoreCollection } from "./firestore";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import fetch, { Response } from "node-fetch";
 import {
+  createElasticSearchIndex,
   deleteElasticSearchIndex,
   ElasticsearchIndexes
 } from "./elasticsearch";
+import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
@@ -100,6 +101,9 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
   await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
+  await createElasticSearchIndex(ElasticsearchIndexes.Products);
+  await createElasticSearchIndex(ElasticsearchIndexes.Systems);
+
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
 

@@ -5,6 +5,13 @@
     "esbenp.prettier-vscode",
     "bradymholt.pgformatter",
     "anweber.vscode-httpyac",
-    "adamhartford.vscode-base64"
+    "adamhartford.vscode-base64",
+    "mikestead.dotenv",
+    "eamodio.gitlens",
+    "graphql.vscode-graphql",
+    "orta.vscode-jest",
+    "redhat.vscode-yaml",
+    "foxundermoon.shell-format",
+    "cesium.gltf-vscode"
   ]
 }
