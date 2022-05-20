@@ -23,6 +23,7 @@ import Locations, { Data as LocationsData } from "../components/Locations";
 import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import BackToResults from "../components/BackToResults";
 
 export type Data = PageInfoData &
   PageData & {
@@ -97,7 +98,11 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
       <Hero
         level={1}
         {...heroProps}
-        breadcrumbs={<Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />}
+        breadcrumbs={
+          <BackToResults isDarkThemed>
+            <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+          </BackToResults>
+        }
       />
       <Section backgroundColor="pearl" overflowVisible>
         <Section.Title>{queriesTitle}</Section.Title>

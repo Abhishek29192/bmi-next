@@ -3,6 +3,9 @@ import { Grid } from "@bmi/components";
 import FiltersSidebar from "../components/FiltersSidebar";
 import {
   clearFilterValues,
+  getUpdatedFilters,
+  getURLFilterValues,
+  setFiltersUrl,
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
@@ -187,13 +190,18 @@ const SearchTabPanelPages = (props: Props) => {
   // =======================================
 
   const onFiltersChange = async (newFilters) => {
-    const result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+    let result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
       // On first request we need to evaluate the results to get the filters
       if (isInitialLoad.current) {
         newFilters = getPagesFilters(result.aggregations, getMicroCopy);
         isInitialLoad.current = false;
+
+        newFilters = getUpdatedFilters(newFilters);
+        if (getURLFilterValues().length > 0) {
+          result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+        }
       }
 
       newFilters = disableFiltersFromAggregations(
@@ -203,6 +211,7 @@ const SearchTabPanelPages = (props: Props) => {
     }
 
     setFilters(newFilters);
+    setFiltersUrl(newFilters);
   };
 
   const handleFiltersChange = (filterName, filterValue, checked) => {
@@ -270,7 +279,9 @@ const SearchTabPanelPages = (props: Props) => {
               key={index}
               title={result.title}
               subtitle={result.subtitle}
-              path={result.path}
+              path={`${result.path}${
+                typeof window === "undefined" ? "" : window.location.search
+              }`}
               countryCode={pageContext.countryCode}
             />
           ))}
