@@ -8,7 +8,6 @@
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=removeAuth0UnverifiedAccount --port=3001",
-    "deploy": "yarn build && gcloud functions deploy pubsub-cron-rm-unverified-users --runtime=nodejs14 --entry-point=removeAuth0UnverifiedAccount --source=.  --region=europe-west2 --trigger-topic=cron-rm-unverified-users",
     "test": "jest --reporters=default --reporters=jest-junit",
     "coverage:jest": "yarn test --coverage",
     "check:ts": "tsc"

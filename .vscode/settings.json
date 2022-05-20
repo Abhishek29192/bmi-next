@@ -14,5 +14,8 @@
   "[sql]": {
     "editor.formatOnSave": false
   },
-  "jest.jestCommandLine": "yarn jest --config=jest.config.js --maxWorkers=4"
+  "jest.jestCommandLine": "yarn jest --config=jest.config.js --maxWorkers=4",
+  "yaml.schemas": {
+    "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": "*.gitlab-ci.yml"
+  }
 }
