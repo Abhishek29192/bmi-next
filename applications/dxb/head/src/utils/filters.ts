@@ -1,11 +1,11 @@
 import { Filter } from "@bmi/components";
 import QueryString from "query-string";
 import {
-  Product,
   Category,
-  VariantOption,
   Classification,
-  Feature
+  Feature,
+  Product,
+  VariantOption
 } from "../components/types/pim";
 import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
@@ -23,8 +23,8 @@ import {
 import {
   generateCategoryFilters,
   generateFeatureFilters,
-  removePLPFilterPrefix,
-  ProductFilter
+  ProductFilter,
+  removePLPFilterPrefix
 } from "./product-filters";
 
 export type filterOption = ProductFilter & {
@@ -588,7 +588,9 @@ export const getPlpFilters = ({
     .map((uniqueFilter) =>
       allFilters.find(
         ({ name }) =>
-          name === uniqueFilter || removePLPFilterPrefix(name) === uniqueFilter
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          name.toUpperCase() === uniqueFilter.toUpperCase() ||
+          removePLPFilterPrefix(name) === uniqueFilter
       )
     )
     .filter(Boolean);

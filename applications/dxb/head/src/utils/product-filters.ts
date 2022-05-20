@@ -16,6 +16,7 @@ export type ProductFilter = {
 export interface IndexedItem<T = any> {
   [key: string]: T;
 }
+
 export interface IndexedItemGroup<T> {
   [key: string]: T[];
 }
@@ -151,7 +152,7 @@ export const generateCategoryFilters = (
           );
         });
       }
-      const returnValue = {
+      return {
         ...prevValue,
         [categoryNameKey]: {
           name: `plpFilter.${categoryNameKey}`,
@@ -160,7 +161,6 @@ export const generateCategoryFilters = (
           options: allOptions
         }
       };
-      return returnValue;
     }, {});
 
   return Object.values(categoryFilterGroup);
@@ -184,8 +184,11 @@ export const generateFeatureFilters = (
     .filter((featureCode) =>
       uniqueAllowedFilters.some(
         (uniqueCode) =>
-          uniqueCode ===
-          (featureCode || "").replace(`${pimClassificationNamespace}/`, "")
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          uniqueCode.toUpperCase() ===
+          (featureCode || "")
+            .replace(`${pimClassificationNamespace}/`, "")
+            .toUpperCase()
       )
     )
     .map((featureCode) => {
@@ -205,14 +208,13 @@ export const generateFeatureFilters = (
           const tryConvertToNumber = (value: string) =>
             parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
           const optionSortValue = tryConvertToNumber(featureValue.value);
-          const returningOption = {
+          return {
             label: createfeatureLabel(featureValue),
             value: createOptionValueWithUnit(featureValue),
             sortValue: isNaN(optionSortValue)
               ? featureValue.value
               : optionSortValue
           };
-          return returningOption;
         });
         const groupedFeatureValues = groupBy(allFeatureValues, "value");
         const resultValues = Object.values(groupedFeatureValues).flatMap(
@@ -227,10 +229,10 @@ export const generateFeatureFilters = (
         return {
           ...plpFilter,
           label: feature.name,
-          name: (feature.code || "").replace(
-            `${pimClassificationNamespace}/`,
-            ""
-          ),
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          name: (feature.code || "")
+            .replace(`${pimClassificationNamespace}/`, "")
+            .toUpperCase(),
           value: [],
           options: allOptions.sort((a, b) => {
             //sort based on string or number value

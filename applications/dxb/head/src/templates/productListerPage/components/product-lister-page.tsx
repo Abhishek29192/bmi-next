@@ -335,7 +335,10 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       // Filter search
       const updatedFilters = filters.map((filter) => {
         const currentQueryFilterValue = queryParams.filters.find(
-          ({ name }) => name === removePLPFilterPrefix(filter.name)
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          ({ name }) =>
+            name.toUpperCase() ===
+            removePLPFilterPrefix(filter.name).toUpperCase()
         )?.value;
 
         return {

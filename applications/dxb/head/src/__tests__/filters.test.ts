@@ -2021,7 +2021,7 @@ describe("filters tests", () => {
             })
           ).toStrictEqual([
             {
-              name: "measurements.length",
+              name: "MEASUREMENTS.LENGTH",
               label: "length",
               options: [
                 {
@@ -2042,7 +2042,7 @@ describe("filters tests", () => {
             })
           ).toStrictEqual([
             {
-              name: "measurements.length",
+              name: "MEASUREMENTS.LENGTH",
               label: "length",
               options: [
                 {
@@ -2116,7 +2116,7 @@ describe("filters tests", () => {
 
             const expectedResult = [
               {
-                name: "measurements.length",
+                name: "MEASUREMENTS.LENGTH",
                 label: "length",
                 options: [
                   {
@@ -2128,7 +2128,7 @@ describe("filters tests", () => {
                 value: []
               },
               {
-                name: "measurements.width",
+                name: "MEASUREMENTS.WIDTH",
                 label: "width",
                 options: [
                   {
@@ -2212,7 +2212,7 @@ describe("filters tests", () => {
               })
             ).toStrictEqual([
               {
-                name: "measurements.length",
+                name: "MEASUREMENTS.LENGTH",
                 label: "length",
                 options: [
                   {
@@ -2224,7 +2224,7 @@ describe("filters tests", () => {
                 value: []
               },
               {
-                name: "measurements.width",
+                name: "MEASUREMENTS.WIDTH",
                 label: "width",
                 options: [
                   {
@@ -2422,7 +2422,7 @@ describe("filters tests", () => {
             });
             expect(result1).toStrictEqual([
               {
-                name: "measurements.length",
+                name: "MEASUREMENTS.LENGTH",
                 label: "length",
                 options: [
                   {
@@ -2434,7 +2434,7 @@ describe("filters tests", () => {
                 value: []
               },
               {
-                name: "measurements.width",
+                name: "MEASUREMENTS.WIDTH",
                 label: "width",
                 options: [
                   {
@@ -2476,7 +2476,7 @@ describe("filters tests", () => {
             });
             expect(result2).toStrictEqual([
               {
-                name: "measurements.width",
+                name: "MEASUREMENTS.WIDTH",
                 label: "width",
                 options: [
                   {
@@ -2505,7 +2505,7 @@ describe("filters tests", () => {
                 value: []
               },
               {
-                name: "measurements.length",
+                name: "MEASUREMENTS.LENGTH",
                 label: "length",
                 options: [
                   {
