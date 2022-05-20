@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 import GatewayClient from "./utils/GatewayClient";
 
 export const sendReminder = async (postEvent: any, context: any) => {

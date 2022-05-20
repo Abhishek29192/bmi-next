@@ -7,24 +7,21 @@
   "types": "dist/index.d.ts",
   "private": true,
   "scripts": {
-    "start": "node dist/index.js",
-    "dev": "tsc && concurrently \"tsc -w\" \"nodemon src/index.ts\"",
-    "deploy": "yarn build && gcloud functions deploy pubsub-cron-certification --runtime=nodejs14 --entry-point=updateCertificates --source=.  --region=europe-west2 --trigger-topic=cron-certification",
-    "build": "tsc",
+    "build": "webpack --mode=production",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=updateCertificates --port=3001",
+    "test": "jest --reporters=default --reporters=jest-junit",
+    "coverage:jest": "yarn test --coverage",
     "check:ts": "tsc"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
     "@google-cloud/secret-manager": "^3.7.1",
     "axios": "^0.21.0",
-    "dotenv": "^8.2.0",
     "pg": "^8.5.1",
     "pg-format": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
-    "concurrently": "^6.0.0",
-    "dotenv": "^8.2.0",
-    "nodemon": "latest"
+    "concurrently": "^6.0.0"
   }
 }

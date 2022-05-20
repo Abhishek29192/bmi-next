@@ -5,12 +5,12 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "tsc -b .",
-    "dev": "tsc && functions-framework --source=dist --target=sendGuaranteePdf --port=3001",
-    "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts",
-    "start": "node dist/index.js",
-    "deploy": "yarn build && gcloud functions deploy gcp-generate-guarantee --runtime=nodejs14 --entry-point=sendGuaranteePdf --source=.  --region=europe-west2 --trigger-topic=guarantee-pdf",
-    "check:ts": "tsc"
+    "build": "webpack --mode=production",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=sendGuaranteePdf --port=3004",
+    "test": "jest --reporters=default --reporters=jest-junit",
+    "coverage:jest": "yarn test --coverage",
+    "check:ts": "tsc",
+    "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts"
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
@@ -27,8 +27,6 @@
   "devDependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@types/node": "^14.14.20",
-    "concurrently": "^6.0.0",
-    "dotenv": "^8.2.0",
-    "nodemon": "latest"
+    "concurrently": "^6.0.0"
   }
 }

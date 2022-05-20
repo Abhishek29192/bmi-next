@@ -6,15 +6,16 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc && functions-framework --source=dist --target=emailSender --port=3001",
+    "build": "webpack --mode=production",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=emailSender --port=3005",
+    "test": "jest --reporters=default --reporters=jest-junit",
+    "coverage:jest": "yarn test --coverage",
     "check:ts": "tsc"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",
     "@google-cloud/secret-manager": "^3.7.1",
     "@sendgrid/mail": "^7.4.2",
-    "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
