@@ -18,11 +18,12 @@ import Roof9Illustration from "../../images/roof-shapes/roof9.svg";
 import Roof9DimensionsIllustration from "../../images/roof-dimensions/roof9.svg";
 import Roof10Illustration from "../../images/roof-shapes/roof10.svg";
 import Roof10DimensionsIllustration from "../../images/roof-dimensions/roof10.svg";
-import { DimensionsValues, Roof } from "../../types/roof";
+import { DimensionsValues, RoofV2 as Roof } from "../../types/roof";
 import getMeasurement from "./getMeasurement";
 
 const roof1: Roof = {
   name: "1",
+  id: "1",
   type: "gable",
   illustration: Roof1Illustration,
   dimensionsIllustration: Roof1DimensionsIllustration,
@@ -101,6 +102,7 @@ const roof1: Roof = {
 
 const roof2: Roof = {
   name: "2",
+  id: "2",
   type: "gable",
   illustration: Roof2Illustration,
   dimensionsIllustration: Roof2DimensionsIllustration,
@@ -284,6 +286,7 @@ const roof2: Roof = {
 
 const roof3: Roof = {
   name: "3",
+  id: "3",
   type: "gable",
   illustration: Roof3Illustration,
   dimensionsIllustration: Roof3DimensionsIllustration,
@@ -466,6 +469,7 @@ const roof3: Roof = {
 
 const roof4: Roof = {
   name: "4",
+  id: "4",
   type: "gable",
   illustration: Roof4Illustration,
   dimensionsIllustration: Roof4DimensionsIllustration,
@@ -608,6 +612,7 @@ const roof4: Roof = {
 
 const roof5: Roof = {
   name: "5",
+  id: "5",
   type: "gable",
   illustration: Roof5Illustration,
   dimensionsIllustration: Roof5DimensionsIllustration,
@@ -749,6 +754,7 @@ const roof5: Roof = {
 
 const roof6: Roof = {
   name: "6",
+  id: "6",
   type: "gable",
   illustration: Roof6Illustration,
   dimensionsIllustration: Roof6DimensionsIllustration,
@@ -911,6 +917,7 @@ const roof6: Roof = {
 
 const roof7: Roof = {
   name: "7",
+  id: "7",
   type: "hipped",
   illustration: Roof7Illustration,
   dimensionsIllustration: Roof7DimensionsIllustration,
@@ -1019,6 +1026,7 @@ const roof7: Roof = {
 
 const roof8: Roof = {
   name: "8",
+  id: "8",
   type: "hipped",
   illustration: Roof8Illustration,
   dimensionsIllustration: Roof8DimensionsIllustration,
@@ -1217,6 +1225,7 @@ const roof8: Roof = {
 
 const roof9: Roof = {
   name: "9",
+  id: "9",
   type: "hipped",
   illustration: Roof9Illustration,
   dimensionsIllustration: Roof9DimensionsIllustration,
@@ -1434,6 +1443,7 @@ const roof9: Roof = {
 
 const roof10: Roof = {
   name: "10",
+  id: "10",
   type: "sloped",
   illustration: Roof10Illustration,
   dimensionsIllustration: Roof10DimensionsIllustration,
@@ -1505,3 +1515,16 @@ export default [
   roof9,
   roof10
 ] as Roof[];
+
+export const requiredRoofs = [
+  { name: "1", id: "1" },
+  { name: "2", id: "2" },
+  { name: "3", id: "3" },
+  { name: "4", id: "4" },
+  { name: "5", id: "5" },
+  { name: "6", id: "6" },
+  { name: "7", id: "7" },
+  { name: "8", id: "8" },
+  { name: "9", id: "9" },
+  { name: "10", id: "10" }
+];

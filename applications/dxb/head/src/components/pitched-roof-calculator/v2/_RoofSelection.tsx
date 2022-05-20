@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { CardRadioGroup } from "@bmi/components";
 import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { Roof, RoofType } from "../types/roof";
+import { RoofType, RoofV2 as Roof } from "../types/roof";
 import { AnalyticsContext } from "../helpers/analytics";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import roofs from "./calculation/roofs";
@@ -62,17 +62,32 @@ const categories: RoofType[] = ["gable", "hipped", "sloped"];
 export type RoofSelecionProps = Pick<
   RoofSelectionRowProps,
   "select" | "selected"
->;
+> & {
+  requiredRoofShapes?: Array<{ name: string; id: string }>;
+};
 
-const RoofSelection = ({ select, selected }: RoofSelecionProps) => {
+const RoofSelection = ({
+  select,
+  selected,
+  requiredRoofShapes
+}: RoofSelecionProps) => {
   const copy = useContext(MicroCopyContext);
+  const filteredRoofs = useMemo(() => {
+    if (!requiredRoofShapes || requiredRoofShapes.length === 0) {
+      return [];
+    }
+
+    const roofsToUse = requiredRoofShapes.map((roof) => roof.id);
+
+    return roofs.filter((roof) => roofsToUse.includes(roof.id));
+  }, [requiredRoofShapes]);
   return (
     <div>
       {categories.map((type) => (
         <RoofSelectionRow
           key={type}
           title={getMicroCopy(copy, `roofSelection.${type}`)}
-          options={roofs.filter((roof) => roof.type === type)}
+          options={filteredRoofs.filter((roof) => roof.type === type)}
           {...{ select, selected }}
         />
       ))}

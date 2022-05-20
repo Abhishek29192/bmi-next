@@ -41,8 +41,6 @@ const PitchedRoofCalculator = ({
     [onAnalyticsEvent]
   );
 
-  console.log("Web Tool Calculator V2");
-
   const [selected, setSelected] = useState<
     | "select-roof"
     | "enter-dimensions"

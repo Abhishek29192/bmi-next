@@ -9,7 +9,7 @@ import {
   LinesMap,
   Measurements,
   Protrusion,
-  Roof
+  RoofV2 as Roof
 } from "../types/roof";
 import { Data, MainTile, MainTileVariant, Underlay } from "../types";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
@@ -25,6 +25,7 @@ import Results from "./_Results";
 import protrusionTypes from "./calculation/protrusions";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import { requiredRoofs } from "./calculation/roofs";
 
 export type Step =
   | "select-roof"
@@ -175,7 +176,11 @@ const PitchedRoofCalculatorSteps = ({
           title={getMicroCopy(copy, "roofSelection.title")}
           subtitle={getMicroCopy(copy, "roofSelection.subtitle")}
         >
-          <RoofSelection select={selectRoof} selected={roof} />
+          <RoofSelection
+            select={selectRoof}
+            selected={roof}
+            requiredRoofShapes={requiredRoofs}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="enter-dimensions"
