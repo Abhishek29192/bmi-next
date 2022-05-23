@@ -106,7 +106,7 @@ const CompanyMembers = ({ data }: PageProps) => {
   const [members, setMembers] = useState(data.accounts.nodes);
   const [currentMember, setCurrentMember] = useState<
     TeamMembersQuery["accounts"]["nodes"][0]
-  >(data?.accounts?.nodes?.[0]);
+  >(data.accounts.nodes[0]);
 
   const [isMemberActionDisabled, setMemberActionDisabled] = useState(false);
 
@@ -152,15 +152,16 @@ const CompanyMembers = ({ data }: PageProps) => {
     fetchPolicy: "network-only",
     onCompleted: (data) => {
       if (currentMember) {
-        const newCurrent = data?.accounts?.nodes.find(
+        const newCurrent = data.accounts.nodes.find(
           ({ id }) => id === currentMember.id
         );
         setCurrentMember(newCurrent);
       } else {
-        setCurrentMember(data?.accounts?.nodes[0]);
+        setCurrentMember(data.accounts.nodes[0]);
       }
 
-      setMembers(sortByFirstName(data?.accounts?.nodes));
+      setMembers(sortByFirstName(data.accounts.nodes));
+      setMemberActionDisabled(false);
     }
   });
 
@@ -172,7 +173,7 @@ const CompanyMembers = ({ data }: PageProps) => {
     // Deleting the current user
     deleteMember({
       variables: {
-        id: selectedUser?.companyMembers?.nodes?.[0]?.id
+        id: selectedUser.companyMembers.nodes[0].id
       }
     });
   };
@@ -192,7 +193,6 @@ const CompanyMembers = ({ data }: PageProps) => {
       ]);
     },
     onCompleted: ({ updateAccount }) => {
-      setMemberActionDisabled(false);
       //if a user changes his/her role we should redirect
       if (account.id === updateAccount.account.id) {
         router.push(`/profile`, undefined, { shallow: false });
@@ -297,8 +297,12 @@ const CompanyMembers = ({ data }: PageProps) => {
                 {t(`common:roles.${member.role}`)}
               </Typography>
               {isPowerfulUser && (
-                <Typography variant="subtitle1" color="textPrimary">
-                  {member.companyMembers?.nodes?.[0]?.company?.name}
+                <Typography
+                  variant="subtitle1"
+                  color="textPrimary"
+                  data-testid="company-name"
+                >
+                  {member.companyMembers.nodes[0]?.company.name}
                 </Typography>
               )}
               <div className={styles.icons}>
@@ -322,7 +326,7 @@ const CompanyMembers = ({ data }: PageProps) => {
               testid="certification-table"
               noResultsText={t("team-page:table.noResults")}
             >
-              {currentMember?.certificationsByDoceboUserId?.nodes.length && (
+              {currentMember?.certificationsByDoceboUserId.nodes.length && (
                 <Table>
                   <Table.Head>
                     <Table.Row>
@@ -334,13 +338,14 @@ const CompanyMembers = ({ data }: PageProps) => {
                     </Table.Row>
                   </Table.Head>
                   <Table.Body>
-                    {currentMember?.certificationsByDoceboUserId.nodes.map(
+                    {currentMember.certificationsByDoceboUserId.nodes.map(
                       (certification, index) => (
                         <Table.Row
                           key={`certification-${index}-${certification.id}`}
                           className={certificationClass(
                             certification.expiryDate
                           )}
+                          data-testid={`certification-${index}-${certification.id}`}
                         >
                           <Table.Cell>
                             <SvgIcon
