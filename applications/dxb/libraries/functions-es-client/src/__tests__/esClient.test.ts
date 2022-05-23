@@ -15,8 +15,7 @@ jest.mock("@bmi-digital/functions-secret-client", () => {
 beforeEach(() => {
   delete process.env.USE_LOCAL_ES;
   process.env.ES_CLOUD_ID = "es-cloud-id";
-  process.env.ES_USERNAME = "es-username";
-  process.env.ES_PASSWORD_SECRET = "es-password-secret";
+  process.env.ES_API_KEY = "es-apikey-secret";
 
   jest.clearAllMocks();
   jest.resetModules();
@@ -66,30 +65,14 @@ describe("getEsClient without USE_LOCAL_ES", () => {
     expect(mockClient).toBeCalledTimes(0);
   });
 
-  it("should error if ES_USERNAME is not set", async () => {
-    delete process.env.ES_USERNAME;
+  it("should error if ES_API_KEY is not set", async () => {
+    delete process.env.ES_API_KEY;
 
     try {
       await getEsClient();
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
-      expect((error as Error).message).toEqual("ES_USERNAME was not provided");
-    }
-
-    expect(getSecret).toBeCalledTimes(0);
-    expect(mockClient).toBeCalledTimes(0);
-  });
-
-  it("should error if ES_PASSWORD_SECRET is not set", async () => {
-    delete process.env.ES_PASSWORD_SECRET;
-
-    try {
-      await getEsClient();
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toEqual(
-        "ES_PASSWORD_SECRET was not provided"
-      );
+      expect((error as Error).message).toEqual("ES_API_KEY was not provided");
     }
 
     expect(getSecret).toBeCalledTimes(0);
@@ -106,27 +89,26 @@ describe("getEsClient without USE_LOCAL_ES", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.ES_API_KEY);
     expect(mockClient).toBeCalledTimes(0);
   });
 
   it("should return a new client set from ES_CLOUD_ID and authentication", async () => {
-    const esPassword = "es-password";
-    getSecret.mockResolvedValue(esPassword);
+    const esApiKey = "es-apikey";
+    getSecret.mockResolvedValue(esApiKey);
     const expectedClient = {};
     mockClient.mockReturnValue(expectedClient);
 
     const esClient = await getEsClient();
 
     expect(esClient).toStrictEqual(expectedClient);
-    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.ES_API_KEY);
     expect(mockClient).toBeCalledWith({
       cloud: {
         id: process.env.ES_CLOUD_ID
       },
       auth: {
-        username: process.env.ES_USERNAME,
-        password: esPassword
+        apiKey: esApiKey
       },
       headers: {
         "content-type": "application/json"
@@ -135,8 +117,8 @@ describe("getEsClient without USE_LOCAL_ES", () => {
   });
 
   it("should only create a new client once if called multiple times", async () => {
-    const esPassword = "es-password";
-    getSecret.mockResolvedValue(esPassword);
+    const esApiKey = "es-apikey";
+    getSecret.mockResolvedValue(esApiKey);
     const expectedClient = {};
     mockClient.mockReturnValue(expectedClient);
 
@@ -144,15 +126,14 @@ describe("getEsClient without USE_LOCAL_ES", () => {
     await getEsClient();
 
     expect(getSecret).toBeCalledTimes(1);
-    expect(getSecret).toBeCalledWith(process.env.ES_PASSWORD_SECRET);
+    expect(getSecret).toBeCalledWith(process.env.ES_API_KEY);
     expect(mockClient).toBeCalledTimes(1);
     expect(mockClient).toBeCalledWith({
       cloud: {
         id: process.env.ES_CLOUD_ID
       },
       auth: {
-        username: process.env.ES_USERNAME,
-        password: esPassword
+        apiKey: esApiKey
       },
       headers: {
         "content-type": "application/json"

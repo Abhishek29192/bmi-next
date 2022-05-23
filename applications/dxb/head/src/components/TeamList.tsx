@@ -4,7 +4,9 @@ import { Grid } from "@bmi/components";
 import { ProfileCard } from "@bmi/components";
 import { EqualHeights } from "@bmi/components";
 import { Button } from "@bmi/components";
+import { AnchorLink, AnchorLinkProps } from "@bmi/components";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 import { Data as LinkData, getClickableActionFromUrl } from "./Link";
@@ -18,6 +20,10 @@ export type Data = {
 }[];
 
 const TEAM_MEMBERS_PER_PAGE = 8;
+
+const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink, {
+  action: "href"
+});
 
 const TeamList = ({ data }: { data: Data | null }) => {
   const { countryCode, getMicroCopy } = useSiteContext();
@@ -58,6 +64,15 @@ const TeamList = ({ data }: { data: Data | null }) => {
                         countryCode,
                         null,
                         link.label
+                      )}
+                      anchorComponent={(props: AnchorLinkProps) => (
+                        <GTMAnchorLink
+                          gtm={{
+                            id: "cta-click1",
+                            label: `${name} - ${props.children}`
+                          }}
+                          {...props}
+                        />
                       )}
                       icon={iconMap[link.icon]}
                     >

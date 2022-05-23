@@ -43,6 +43,7 @@ exports[`General Error render correctly 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -79,6 +80,7 @@ exports[`General Error render correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -159,6 +161,7 @@ exports[`General Error render correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -188,6 +191,7 @@ exports[`General Error render correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -217,6 +221,7 @@ exports[`General Error render correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Norge\\",\\"action\\":\\"/no/\\"}"
                     href="/no"
                     tabindex="0"
                   >
@@ -753,6 +758,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -789,6 +795,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -869,6 +876,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -898,6 +906,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -927,6 +936,7 @@ exports[`General Error render correctly when errorGeneral is falsy 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Norge\\",\\"action\\":\\"/no/\\"}"
                     href="/no"
                     tabindex="0"
                   >

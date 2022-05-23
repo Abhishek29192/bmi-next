@@ -5,7 +5,7 @@ import { Header as HeaderComponent } from "@bmi/components";
 import { HidePrint } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Tab, TabProps } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
+import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
 import Image from "../components/Image";
 import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
@@ -140,6 +140,10 @@ const GTMNavigationTab = withGTM<TabProps>(Tab, {
 const GTMNavigationUtilityButton = withGTM<ButtonProps>(Button, {
   label: "children"
 });
+const GTMCloseButton = withGTM<ButtonProps>(Button);
+
+const onCountrySelection = (label: string, code: string) =>
+  pushToDataLayer({ id: "nav-country-selector", label: label, action: code });
 
 export type Region = {
   label: string;
@@ -272,6 +276,18 @@ const Header = ({
               style={{ marginLeft: 10, marginBottom: 15 }}
             />
           )}
+          closeButtonComponent={(props: ButtonProps) => (
+            <GTMCloseButton
+              gtm={{
+                id: "nav-country-selector",
+                label: "close panel",
+                action: "close panel"
+              }}
+              {...props}
+            />
+          )}
+          onCountrySelection={onCountrySelection}
+          useGTM={useGTM}
           searchAction={getPathWithCountryCode(countryCode, "search")}
           searchLabel={getMicroCopy(microCopy.SEARCH_LABEL)}
           searchPlaceholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HEADER)}

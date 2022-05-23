@@ -99,9 +99,8 @@ const ShareWidget = ({
       case "{{href}}":
         return location.href;
       case "{{message}}":
-        return message || "";
       default:
-        return "";
+        return message || "";
     }
   };
 

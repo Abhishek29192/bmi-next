@@ -39,6 +39,7 @@ type ExpandableLinksTextCardsProps = {
   separator?: number;
   openButton: React.ReactElement<ButtonProps | IconButtonProps>;
   closeButton?: React.ReactElement<ButtonProps | IconButtonProps>;
+  anchorLinkComponent?: React.ElementType;
 };
 
 const ExpandableLinksTextCards = ({
@@ -46,7 +47,8 @@ const ExpandableLinksTextCards = ({
   links,
   separator = 3,
   openButton,
-  closeButton
+  closeButton,
+  anchorLinkComponent: AnchorLinkComponent = AnchorLink
 }: ExpandableLinksTextCardsProps) => {
   const { shownLinks, hiddenLinks } = partitionLinks(links, separator);
 
@@ -63,13 +65,13 @@ const ExpandableLinksTextCards = ({
                 {action && action.model === "download" && (
                   <Icon source={iconMap.Download} className={styles["icon"]} />
                 )}
-                <AnchorLink
+                <AnchorLinkComponent
                   key={`${label}-${index}`}
                   action={action}
                   className={styles["link"]}
                 >
                   {label}
-                </AnchorLink>
+                </AnchorLinkComponent>
               </div>
             ))}
         </div>
@@ -87,13 +89,13 @@ const ExpandableLinksTextCards = ({
                       className={styles["icon"]}
                     />
                   )}
-                  <AnchorLink
+                  <AnchorLinkComponent
                     key={`${label}-${index}`}
                     action={action}
                     className={styles["link"]}
                   >
                     {label}
-                  </AnchorLink>
+                  </AnchorLinkComponent>
                 </div>
               ))}
             </ShowMore>

@@ -197,9 +197,6 @@
       "pagination": [
         "./dist/src/pagination/index.d.ts"
       ],
-      "perfect-scrollbar": [
-        "./dist/src/perfect-scrollbar/index.d.ts"
-      ],
       "post-it-card": [
         "./dist/src/post-it-card/index.d.ts"
       ],
@@ -483,9 +480,6 @@
     "./pagination": {
       "default": "./dist/src/pagination/index.js"
     },
-    "./perfect-scrollbar": {
-      "default": "./dist/src/perfect-scrollbar/index.js"
-    },
     "./post-it-card": {
       "default": "./dist/src/post-it-card/index.js"
     },
@@ -603,7 +597,6 @@
     "react-is": "^16.13.1",
     "react-lines-ellipsis": "^0.14.1",
     "react-masonry-css": "^1.0.14",
-    "react-perfect-scrollbar": "^1.5.8",
     "react-player": "^2.9.0",
     "react-swipeable-views": "^0.14.0",
     "react-swipeable-views-core": "^0.14.0",

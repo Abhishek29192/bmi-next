@@ -37,6 +37,7 @@ import SystemConfiguratorSection, {
   Data as SystemConfiguratorSectionData
 } from "./SystemConfiguratorSection";
 import SampleBasketSection from "./SampleBasketSection";
+import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -53,7 +54,8 @@ export type SectionData =
   | VideoSectionData
   | IframeSectionData
   | SystemConfiguratorSectionData
-  | TeamSectionData;
+  | TeamSectionData
+  | SignupBlockData;
 
 export type Data = SectionData[];
 
@@ -73,7 +75,8 @@ export const sectionsMap = {
   ContentfulIframe: IframeSection,
   ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
   ContentfulTeamSection: TeamSection,
-  ContentfulSampleBasketSection: SampleBasketSection
+  ContentfulSampleBasketSection: SampleBasketSection,
+  ContentfulSignupBlock: SignupBlock
 };
 
 type DisplayProps = {
@@ -163,8 +166,10 @@ const Sections = ({
           <Component
             data={section}
             position={startIndex + index}
-            // eslint-disable-next-line security/detect-object-injection
-            theme={pageTypenameToThemeMap[pageTypename] || {}}
+            theme={
+              // eslint-disable-next-line security/detect-object-injection
+              pageTypenameToThemeMap[pageTypename] || {}
+            }
             key={`section-${index}`}
           />
         );
@@ -202,6 +207,7 @@ export const query = graphql`
     ...SystemConfiguratorBlockFragment
     ...TeamSectionFragment
     ...SampleBasketSectionFragment
+    ...SignupBlockFragment
   }
   fragment DialogSectionsFragment on ContentfulSection {
     __typename

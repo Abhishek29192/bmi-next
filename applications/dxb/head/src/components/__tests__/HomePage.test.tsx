@@ -192,7 +192,7 @@ const homepageData: HomepageData = {
   overlapCards: promos,
   brands: [],
   sections: null,
-  inputBanner: null,
+  signupBlock: null,
   seo: null,
   breadcrumbs: null,
   path: "/"

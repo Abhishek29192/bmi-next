@@ -129,7 +129,7 @@ export const mutationCompleteInvitation = gql`
   }
 `;
 
-const mutationDoceboCreateSSOUrl = gql`
+export const mutationDoceboCreateSSOUrl = gql`
   mutation createSSOUrl($username: String!, $path: String) {
     createSSOUrl(username: $username, path: $path) {
       url
@@ -208,7 +208,14 @@ export default class AccountService {
       const { user } = session;
       const { email } = parseAccount(user);
 
-      const path = req.query.path || "/learn/mycourses";
+      // Fetch the account
+      const account = await this.getAccount(session);
+      const marketDomain = account.market?.domain ?? "en";
+
+      const path = req.query.path
+        ? `/${marketDomain}${req.query.path}`
+        : `/${marketDomain}/learn/mycourses`;
+
       const { data: { createSSOUrl: { url = null } = {} } = {} } =
         await this.apolloClient.mutate({
           mutation: mutationDoceboCreateSSOUrl,
@@ -362,7 +369,7 @@ export default class AccountService {
         }
       });
 
-      this.logger.info(`Get invitation with id: ${data.id}`);
+      this.logger.info(`Get invitation with id: ${data?.id}`);
 
       return data?.invitations?.nodes?.[0];
     } catch (error) {
@@ -392,7 +399,7 @@ export default class AccountService {
     });
 
     let doceboUserId = doceboUser.userByEmail?.user_id
-      ? parseInt(doceboUser.userByEmail?.user_id)
+      ? parseInt(doceboUser.userByEmail.user_id)
       : null;
 
     if (!doceboUser.userByEmail?.user_id) {
@@ -401,7 +408,7 @@ export default class AccountService {
           ? doceboCompanyAdminBranchId
           : doceboInstallersBranchId;
 
-      const language = market.language.toLowerCase() || "en";
+      const language = market.language?.toLowerCase() || "en";
       const level =
         role === "COMPANY_ADMIN" ? POWER_USER_LEVEL : REGULAR_USER_LEVEL;
 
@@ -435,7 +442,7 @@ export default class AccountService {
           throw new Error("Error creating docebo user");
         }
 
-        doceboUserId = createDoceboUser?.user_id;
+        doceboUserId = createDoceboUser.user_id;
 
         this.logger.info(`Docebo account with id ${doceboUserId} created`);
       } catch (error) {

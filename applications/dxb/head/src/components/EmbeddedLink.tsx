@@ -1,6 +1,7 @@
-import { Button } from "@bmi/components";
+import { Button, ButtonProps } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
+import withGTM from "../utils/google-tag-manager";
 import Link, { Data as LinkData } from "./Link";
 import styles from "./styles/EmbeddedLink.module.scss";
 
@@ -8,8 +9,10 @@ type Props = {
   fields: LinkData;
   theme?: "primary" | "secondary";
   backgroundTheme?: "light" | "dark";
-  gtmLabel?: string;
+  gtmLabel?: React.ReactNode;
 };
+
+const GTMButton = withGTM<ButtonProps>(Button);
 
 const EmbeddedLink = ({
   fields,
@@ -23,7 +26,16 @@ const EmbeddedLink = ({
   };
   return (
     <Link
-      component={Button}
+      component={(props) => (
+        <GTMButton
+          gtm={{
+            id: "cta-click1",
+            action: fields.url || fields.linkedPage?.path,
+            label: transformedFields.label
+          }}
+          {...props}
+        />
+      )}
       variant={theme === "primary" ? "contained" : "opaqueOutlined"}
       hasDarkBackground={backgroundTheme === "dark"}
       data={transformedFields}

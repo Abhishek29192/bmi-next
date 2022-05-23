@@ -1,6 +1,6 @@
 import React, { memo, useMemo, useState } from "react";
 import { graphql } from "gatsby";
-import { AnchorLink } from "@bmi/components";
+import { AnchorLink, transformHyphens } from "@bmi/components";
 import { Button, ButtonProps } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { OverviewCard } from "@bmi/components";
@@ -41,6 +41,7 @@ export type Data = {
     | null;
   link: LinkData | null;
   justifyCenter: boolean | null;
+  displaySingleRow: boolean | null;
 };
 
 const CardCollectionItem = ({
@@ -64,10 +65,10 @@ const CardCollectionItem = ({
     featuredVideo
   } = transformCard(card);
 
-  const transformedCardLabel = label
+  let transformedCardLabel = label
     ? label.replace(/{{title}}/g, title || name)
     : link?.label;
-
+  transformedCardLabel = transformHyphens(transformedCardLabel);
   const GTMButton = withGTM<ButtonProps>(Button);
   const GTMButtonBase = withGTM<ButtonBaseProps>(withClickable(ButtonBase));
 
@@ -199,7 +200,8 @@ const CardCollectionSection = ({
     cards,
     link,
     justifyCenter,
-    sortOrder
+    sortOrder,
+    displaySingleRow
   },
   theme
 }: {
@@ -359,7 +361,7 @@ const CardCollectionSection = ({
             </div>
           </>
         )}
-        {theme?.cardCollectionRowType === "single-row" ? (
+        {theme?.cardCollectionRowType === "single-row" || displaySingleRow ? (
           <Carousel
             slidesPerPage={{
               xs: 1,
@@ -369,6 +371,7 @@ const CardCollectionSection = ({
             }}
             scroll="finite"
             hasGutter
+            enableAnimateHeightMobile={false}
           >
             {sortedIterableCards.map((card, i) => {
               const { id } = card;
@@ -461,6 +464,7 @@ export const query = graphql`
       ...PageInfoCardFragment
     }
     justifyCenter
+    displaySingleRow
     sortOrder
   }
 `;

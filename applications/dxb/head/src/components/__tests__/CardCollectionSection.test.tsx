@@ -87,6 +87,7 @@ describe("CardCollectionSection component", () => {
       const data: Data = {
         title: "test title",
         justifyCenter: false,
+        displaySingleRow: false,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
@@ -126,6 +127,7 @@ describe("CardCollectionSection component", () => {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"heading-2","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
         },
+        displaySingleRow: null,
         justifyCenter: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
@@ -166,7 +168,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -199,7 +202,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -232,7 +236,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -265,7 +270,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -298,7 +304,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -331,7 +338,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -345,7 +353,7 @@ describe("CardCollectionSection component", () => {
       expect(wrapper.baseElement).toMatchSnapshot();
     });
 
-    it("When when dialogContent link is provided", () => {
+    it("When dialogContent link is provided", () => {
       const cards: Card[] = [card1];
       const promo: PromoData = {
         __typename: "ContentfulPromo",
@@ -388,7 +396,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: link,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -425,7 +434,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -476,7 +486,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -520,7 +531,8 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         link: null,
-        sortOrder: null
+        sortOrder: null,
+        displaySingleRow: null
       };
 
       const wrapper = render(
@@ -585,7 +597,8 @@ describe("CardCollectionSection component", () => {
       groupCards: true,
       cards: cards,
       link: null,
-      sortOrder: null
+      sortOrder: null,
+      displaySingleRow: null
     };
 
     const wrapper = render(
@@ -617,6 +630,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -684,6 +698,7 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         sortOrder: null,
+        displaySingleRow: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -723,6 +738,7 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         sortOrder: null,
+        displaySingleRow: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -790,6 +806,7 @@ describe("CardCollectionSection component", () => {
         groupCards: true,
         cards: cards,
         sortOrder: null,
+        displaySingleRow: null,
         link: {
           __typename: "ContentfulLink",
           id: "visualiser-id",
@@ -840,6 +857,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: null,
@@ -908,6 +926,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: null,
@@ -950,6 +969,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -988,6 +1008,7 @@ describe("CardCollectionSection component", () => {
 
       const data: Data = {
         title: "test title",
+        displaySingleRow: null,
         description: {
           raw: '{"nodeType":"document","data":{},"content":[{"nodeType":"paragraph","content":[{"nodeType":"text","value":"test rich text","marks":[],"data":{}}],"data":{}}]}',
           references: null
@@ -1040,6 +1061,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -1090,6 +1112,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -1133,6 +1156,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -1181,6 +1205,7 @@ describe("CardCollectionSection component", () => {
           references: null
         },
         justifyCenter: false,
+        displaySingleRow: null,
         __typename: "ContentfulCardCollectionSection",
         cardType: "Highlight Card",
         cardLabel: "a string",
@@ -1228,6 +1253,7 @@ describe("CardCollectionSection component", () => {
         __typename: "ContentfulCardCollectionSection",
         title: "test title",
         description: null,
+        displaySingleRow: null,
         cardType: "Highlight Card",
         cardLabel: "a string",
         groupCards: true,
@@ -1253,6 +1279,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: null,
         cardType: "Highlight Card",
+        displaySingleRow: null,
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
@@ -1277,6 +1304,7 @@ describe("CardCollectionSection component", () => {
         title: "test title",
         description: null,
         cardType: "Highlight Card",
+        displaySingleRow: null,
         cardLabel: "a string",
         groupCards: true,
         cards: cards,
@@ -1290,6 +1318,105 @@ describe("CardCollectionSection component", () => {
           <CardCollectionSection data={data} theme="" />
         </SiteContextProvider>
       );
+      expect(wrapper.baseElement).toMatchSnapshot();
+    });
+  });
+
+  describe("single & multiple row display", () => {
+    it("renders correctly on a single row", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        displaySingleRow: true,
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Oldest first)"
+      };
+
+      const wrapper = render(
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContextProvider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(
+        wrapper.baseElement.getElementsByClassName("Grid").length
+      ).toBeFalsy();
+      expect(
+        wrapper.baseElement.getElementsByClassName("Carousel").length
+      ).toBeTruthy();
+      expect(
+        wrapper.baseElement.getElementsByClassName(
+          "react-swipeable-view-container"
+        ).length
+      ).toBeTruthy();
+    });
+    it("renders correctly on a multiple row when displaySingleRow is set to false", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        displaySingleRow: false,
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Oldest first)"
+      };
+
+      const wrapper = render(
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContextProvider>
+      );
+      expect(wrapper.baseElement).toMatchSnapshot();
+      expect(
+        wrapper.baseElement.getElementsByClassName("Grid").length
+      ).toBeTruthy();
+      expect(
+        wrapper.baseElement.getElementsByClassName("Carousel").length
+      ).toBeFalsy();
+    });
+    it("renders correctly on a multiple row when displaySingleRow is null", () => {
+      const cards: Card[] = [card4, card1, card2, card3];
+
+      const data: Data = {
+        __typename: "ContentfulCardCollectionSection",
+        title: "test title",
+        description: null,
+        cardType: "Highlight Card",
+        displaySingleRow: null,
+        cardLabel: "a string",
+        groupCards: true,
+        cards: cards,
+        link: null,
+        justifyCenter: null,
+        sortOrder: "Date (Oldest first)"
+      };
+
+      const wrapper = render(
+        <SiteContextProvider value={getSiteContext("no", "nb-NO")}>
+          <CardCollectionSection data={data} theme="" />
+        </SiteContextProvider>
+      );
+      expect(
+        wrapper.baseElement.getElementsByClassName("Grid").length
+      ).toBeTruthy();
+      expect(
+        wrapper.baseElement.getElementsByClassName("Carousel").length
+      ).toBeFalsy();
+
       expect(wrapper.baseElement).toMatchSnapshot();
     });
   });

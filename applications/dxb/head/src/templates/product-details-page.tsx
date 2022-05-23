@@ -139,7 +139,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
   const { breadcrumbs } = selfProduct;
   const pageData: PageData = {
     breadcrumbs,
-    inputBanner: resources.pdpInputBanner,
+    signupBlock: resources.pdpSignupBlock,
     seo: null,
     path: null // won't work with PDPs currently
   };
@@ -149,9 +149,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpFixingToolDescription,
     pdpFixingToolTitle,
     pdpSpecificationTitle,
-    pdpSpecificationDescription
+    pdpSpecificationDescription,
+    documentDisplayFormat
   } = resources;
-
   const bimIframeUrl = getAssetsIframeUrl(product.assets, "BIM");
   const fixingToolIframeUrl = getAssetsIframeUrl(product.assets, "FIXING_TOOL");
   const specificationIframeUrl = getAssetsIframeUrl(
@@ -340,6 +340,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                 specificationIframeUrl={specificationIframeUrl}
                 pdpSpecificationTitle={pdpSpecificationTitle}
                 pdpSpecificationDescription={pdpSpecificationDescription}
+                isSingleVariant={product.variantOptions.length === 1}
+                documentDisplayFormat={documentDisplayFormat}
               />
             </Section>
             <RelatedProducts

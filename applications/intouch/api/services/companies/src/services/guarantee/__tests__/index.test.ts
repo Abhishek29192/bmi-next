@@ -2,9 +2,11 @@ import {
   CreateGuaranteeInput,
   UpdateGuaranteeInput
 } from "@bmi/intouch-api-types";
-import { createGuarantee, updateGuarantee } from "..";
+import { createGuarantee, updateGuarantee, restartGuarantee } from "..";
 import { sendMessageWithTemplate } from "../../../services/mailer";
 import * as validate from "../validate";
+
+process.env.GCP_PRIVATE_BUCKET_NAME = "GCP_PRIVATE_BUCKET_NAME";
 
 const storage = {
   uploadFileByStream: jest.fn()
@@ -23,13 +25,11 @@ jest.mock("crypto", () => {
     randomBytes: () => randomPassword
   };
 });
-
 jest.mock("../validate", () => ({
   solutionGuaranteeSubmitValidate: jest
     .fn()
     .mockImplementation(() => ({ isValid: true }))
 }));
-
 jest.mock("file-type", () => {
   return {
     fromStream: () => ({
@@ -37,6 +37,13 @@ jest.mock("file-type", () => {
     })
   };
 });
+
+const mockGetDbPoolQuery = jest.fn();
+jest.mock("../../../db", () => ({
+  getDbPool: () => ({
+    query: (...params) => mockGetDbPoolQuery(...params)
+  })
+}));
 
 const evidenceItemInputs = [
   {
@@ -93,24 +100,31 @@ describe("Guarantee", () => {
     company: {
       id: 1
     },
+    role: "INSTALLER",
     can: userCanMock
   };
   const mockQuery = jest.fn();
   const mockClientGateway = jest.fn();
   const loggerError = jest.fn();
+  const loggerInfo = jest.fn();
+  const deleteFileSpy = jest.fn();
   const context: any = {
     pubSub: {},
     logger: jest.fn().mockReturnValue({
       debug: jest.fn(),
       log: jest.fn(),
-      error: loggerError
+      error: loggerError,
+      info: loggerInfo
     }),
     pgRootPool: null,
     pgClient: {
       query: mockQuery
     },
     user: mockUser,
-    clientGateway: mockClientGateway
+    clientGateway: mockClientGateway,
+    storageClient: {
+      deleteFile: (...params) => deleteFileSpy(params)
+    }
   };
   beforeEach(() => {
     jest.clearAllMocks();
@@ -292,15 +306,19 @@ describe("Guarantee", () => {
       }
     };
     it("shouldn't be able to update guarantee when user unauthorised", async () => {
-      context.user.can = () => false;
+      userCanMock.mockReturnValue(false);
 
       await expect(
         updateGuarantee(resolve, source, args, context, resolveInfo)
       ).rejects.toThrow("unauthorized");
     });
     it("should be able to submit new guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       mockGuarante.status = "NEW";
+
+      mockGetDbPoolQuery.mockReturnValueOnce({
+        rows: [{ email: "test@mail.me", id: 1 }]
+      });
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -312,11 +330,15 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to submit rejected guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       const args = {
         input: { ...guaranteeUpdateInput }
       };
       mockGuarante.status = "REJECTED";
+
+      mockGetDbPoolQuery.mockReturnValueOnce({
+        rows: [{ email: "test2@mail.me", id: 2 }]
+      });
 
       await updateGuarantee(resolve, source, args, context, resolveInfo);
 
@@ -328,7 +350,7 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to assing guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       const args: { input: UpdateGuaranteeInput } = {
         input: {
           ...guaranteeUpdateInput,
@@ -346,7 +368,7 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to re-assing guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       const args: { input: UpdateGuaranteeInput } = {
         input: {
           ...guaranteeUpdateInput,
@@ -364,7 +386,7 @@ describe("Guarantee", () => {
       expect(resolve).toBeCalledTimes(1);
     });
     it("should be able to un-assing guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       const args: { input: UpdateGuaranteeInput } = {
         input: {
           ...guaranteeUpdateInput,
@@ -384,7 +406,7 @@ describe("Guarantee", () => {
 
     describe("should be able to approve guarantee", () => {
       it("with guaranteeValidityOffsetYears and maximum_validity_years returned from query", async () => {
-        context.user.can = () => true;
+        userCanMock.mockReturnValue(true);
         const maximum_validity_years = 3;
         const guaranteeValidityOffsetYears = 5;
         const args: { input: UpdateGuaranteeInput } = {
@@ -427,7 +449,7 @@ describe("Guarantee", () => {
       });
 
       it("use default guaranteeValidityOffsetYears and maximum_validity_years", async () => {
-        context.user.can = () => true;
+        userCanMock.mockReturnValue(true);
         const args: { input: UpdateGuaranteeInput } = {
           input: {
             ...guaranteeUpdateInput,
@@ -467,7 +489,7 @@ describe("Guarantee", () => {
     });
 
     it("should be able to reject guarantee", async () => {
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       const args: { input: UpdateGuaranteeInput } = {
         input: {
           ...guaranteeUpdateInput,
@@ -489,7 +511,7 @@ describe("Guarantee", () => {
       jest
         .spyOn(validate, "solutionGuaranteeSubmitValidate")
         .mockResolvedValueOnce(false);
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       context.user.role = "SUPER_ADMIN";
       mockGuarante.status = "NEW";
 
@@ -508,7 +530,7 @@ describe("Guarantee", () => {
         .mockImplementationOnce(() => ({
           rows: []
         }));
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       context.user.role = "SUPER_ADMIN";
       mockGuarante.status = "NEW";
 
@@ -532,7 +554,7 @@ describe("Guarantee", () => {
         }
       };
 
-      context.user.can = () => true;
+      userCanMock.mockReturnValue(true);
       mockGuarante.status = "REVIEW";
 
       await expect(
@@ -631,6 +653,240 @@ describe("Guarantee", () => {
 
       expect(resolve).toBeCalledTimes(1);
       expect(storage.uploadFileByStream).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe("restartGuarantee", () => {
+    const args = { projectId: 1 };
+    const solutionGuarantee = [{ id: 2 }];
+    const relatedEvidenceItems = [
+      { id: 3, name: "relatedEvidenceItems1" },
+      { id: 6, name: "relatedEvidenceItems2" }
+    ];
+    const revokeInstallers = [{ id: 4 }, { id: 5 }];
+
+    beforeEach(() => {
+      mockQuery.mockReset();
+      deleteFileSpy.mockReset();
+    });
+
+    it("normal case", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: relatedEvidenceItems
+        }))
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: revokeInstallers
+        }))
+        .mockImplementationOnce(() => {});
+      deleteFileSpy
+        .mockImplementationOnce(() => Promise.resolve(true))
+        .mockImplementationOnce(() => Promise.resolve(true));
+      const response = await restartGuarantee(args, context);
+
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        1,
+        "SAVEPOINT graphql_restart_guarantee_mutation"
+      );
+      expect(userCanMock).toHaveBeenCalledWith("delete:guarantee");
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        2,
+        "SELECT id FROM guarantee WHERE project_id = $1 AND (coverage = $2 OR coverage = $3)",
+        [args.projectId, "SOLUTION", "SYSTEM"]
+      );
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        3,
+        "SELECT id, name FROM evidence_item WHERE project_id = $1 AND guarantee_id = $2",
+        [args.projectId, solutionGuarantee[0].id]
+      );
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        4,
+        "DELETE FROM guarantee WHERE id = $1 RETURNING id",
+        [solutionGuarantee[0].id]
+      );
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        5,
+        "UPDATE project_member SET is_responsible_installer = false WHERE project_id = $1 AND is_responsible_installer = true RETURNING *",
+        [args.projectId]
+      );
+      expect(mockQuery).toHaveBeenNthCalledWith(
+        6,
+        "RELEASE SAVEPOINT graphql_restart_guarantee_mutation"
+      );
+      expect(loggerInfo).toHaveBeenNthCalledWith(
+        1,
+        `Deleted guarantee with id ${solutionGuarantee[0].id} for project with id ${args.projectId}`
+      );
+      expect(loggerInfo).toHaveBeenNthCalledWith(
+        2,
+        `Unassigned ${revokeInstallers.length} installer(s) with id(s) 4,5 for project with id ${args.projectId}`
+      );
+      expect(loggerInfo).toHaveBeenNthCalledWith(
+        3,
+        `Deleted ${relatedEvidenceItems.length} files with id(s) [3|6] for project with id ${args.projectId}`
+      );
+      expect(loggerInfo).toHaveBeenNthCalledWith(
+        4,
+        `Deleted 2 out of 2 files from storage`
+      );
+      expect(deleteFileSpy).toHaveBeenNthCalledWith(1, [
+        "GCP_PRIVATE_BUCKET_NAME",
+        "relatedEvidenceItems1"
+      ]);
+      expect(deleteFileSpy).toHaveBeenNthCalledWith(2, [
+        "GCP_PRIVATE_BUCKET_NAME",
+        "relatedEvidenceItems2"
+      ]);
+      expect(response).toBe("ok");
+    });
+
+    it("no permission to delete guarantee", async () => {
+      userCanMock.mockReturnValueOnce(false);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: relatedEvidenceItems
+        }))
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: revokeInstallers
+        }))
+        .mockImplementationOnce(() => {});
+      deleteFileSpy
+        .mockImplementationOnce(() => Promise.resolve(true))
+        .mockImplementationOnce(() => Promise.resolve(true));
+      try {
+        await restartGuarantee(args, context);
+      } catch (error) {
+        expect(error.message).toBe("unauthorized");
+      }
+      expect(loggerError).toHaveBeenCalledWith(
+        `User with id: ${mockUser.id} and role: ${mockUser.role} is trying to restart solution guarantee for project ${args.projectId}`
+      );
+    });
+
+    it("no guarantee found", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => {});
+      const response = await restartGuarantee(args, context);
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `No guarantee found for project with id ${args.projectId}`
+      );
+    });
+
+    it("no guarantee deleted", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: relatedEvidenceItems
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }));
+
+      const response = await restartGuarantee(args, context);
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `Failed to delete guarantee with id ${solutionGuarantee[0].id} with project id ${args.projectId}`
+      );
+    });
+
+    it("no installer unassigned", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: relatedEvidenceItems
+        }))
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => {});
+
+      const response = await restartGuarantee(args, context);
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `No unassigned installer(s) for project with id ${args.projectId}`
+      );
+    });
+
+    it("failed to remove relatedEvidenceItems from storage", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: relatedEvidenceItems
+        }))
+        .mockImplementationOnce(() => ({
+          rows: solutionGuarantee
+        }))
+        .mockImplementationOnce(() => ({
+          rows: []
+        }))
+        .mockImplementationOnce(() => {});
+
+      deleteFileSpy
+        .mockImplementationOnce(() => Promise.reject("reason1"))
+        .mockImplementationOnce(() => Promise.reject("reason2"));
+
+      const response = await restartGuarantee(args, context);
+      expect(response).toBe("ok");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Failed to delete files with error: [reason1|reason2]`
+      );
+    });
+
+    it("error throw from query", async () => {
+      userCanMock.mockReturnValueOnce(true);
+      mockQuery
+        .mockImplementationOnce(() => {})
+        .mockImplementationOnce(() => Promise.reject("error"));
+
+      try {
+        await restartGuarantee(args, context);
+      } catch (error) {
+        expect(loggerError).toHaveBeenCalledWith(
+          `Error restart guarantee for project with id ${args.projectId}, ${error}`
+        );
+        expect(mockQuery).toHaveBeenCalledWith(
+          "ROLLBACK TO SAVEPOINT graphql_restart_guarantee_mutation"
+        );
+        expect(mockQuery).toHaveBeenCalledWith(
+          "RELEASE SAVEPOINT graphql_restart_guarantee_mutation"
+        );
+      }
     });
   });
 });

@@ -377,5 +377,13 @@
     "requirementModal": {
       "title": "Hvad kræves der?"
     }
+  },
+  "guaranteeRestart": {
+    "note": "Garantien knyttet til dette projekt er genstartet, så der kan rekvireres en ny garanti",
+    "buttonLabel": "Restart guarantee",
+    "confirm": {
+      "title": "Restart Guarantee?",
+      "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
+    }
   }
 }

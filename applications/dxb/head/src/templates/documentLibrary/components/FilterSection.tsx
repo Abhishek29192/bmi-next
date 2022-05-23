@@ -8,7 +8,6 @@ import {
   DownloadListContext,
   FilterProps,
   Filters,
-  PerfectScrollbar,
   Typography
 } from "@bmi/components";
 import filterStyles from "../../../components/styles/Filters.module.scss";
@@ -35,7 +34,7 @@ const DocumentLibraryFilter = ({
   const { getMicroCopy } = useSiteContext();
 
   return (
-    <PerfectScrollbar className={filterStyles["scroll-bar"]}>
+    <div className={filterStyles["scroll-bar"]}>
       <div className={filterStyles["box"]}>
         <Typography variant="h5">
           {getMicroCopy("documentLibrary.filters.title")}
@@ -71,7 +70,7 @@ const DocumentLibraryFilter = ({
           />
         )}
       </DownloadListContext.Consumer>
-    </PerfectScrollbar>
+    </div>
   );
 };
 

@@ -269,6 +269,7 @@ export const CompanyAdminsFragmentFragmentDoc = gql`
           phone
           email
           photo
+          signedPhotoUrl
         }
       }
     }
@@ -400,6 +401,54 @@ export type UpdateProjectHiddenMutationResult =
 export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
+>;
+export const RestartGuaranteeDocument = gql`
+  mutation RestartGuarantee($projectId: Int!) {
+    restartGuarantee(projectId: $projectId)
+  }
+`;
+export type RestartGuaranteeMutationFn = Apollo.MutationFunction<
+  OperationTypes.RestartGuaranteeMutation,
+  OperationTypes.RestartGuaranteeMutationVariables
+>;
+
+/**
+ * __useRestartGuaranteeMutation__
+ *
+ * To run a mutation, you first call `useRestartGuaranteeMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRestartGuaranteeMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [restartGuaranteeMutation, { data, loading, error }] = useRestartGuaranteeMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *   },
+ * });
+ */
+export function useRestartGuaranteeMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.RestartGuaranteeMutation,
+    OperationTypes.RestartGuaranteeMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.RestartGuaranteeMutation,
+    OperationTypes.RestartGuaranteeMutationVariables
+  >(RestartGuaranteeDocument, options);
+}
+export type RestartGuaranteeMutationHookResult = ReturnType<
+  typeof useRestartGuaranteeMutation
+>;
+export type RestartGuaranteeMutationResult =
+  Apollo.MutationResult<OperationTypes.RestartGuaranteeMutation>;
+export type RestartGuaranteeMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.RestartGuaranteeMutation,
+  OperationTypes.RestartGuaranteeMutationVariables
 >;
 export const MarkAllNotificationsAsReadDocument = gql`
   mutation markAllNotificationsAsRead($accountId: Int!) {
@@ -4112,6 +4161,15 @@ export const ProductsAndSystemsDocument = gql`
         maximumValidityYears
       }
     }
+    systemMembers(orderBy: ID_ASC, condition: { marketId: $marketId }) {
+      nodes {
+        systemBmiRef
+        productByProductBmiRef {
+          id
+          name
+        }
+      }
+    }
   }
 `;
 
@@ -4164,6 +4222,102 @@ export type ProductsAndSystemsLazyQueryHookResult = ReturnType<
 export type ProductsAndSystemsQueryResult = Apollo.QueryResult<
   OperationTypes.ProductsAndSystemsQuery,
   OperationTypes.ProductsAndSystemsQueryVariables
+>;
+export const DeleteInvitedUserDocument = gql`
+  mutation DeleteInvitedUser($email: String!) {
+    deleteInvitedUser(email: $email)
+  }
+`;
+export type DeleteInvitedUserMutationFn = Apollo.MutationFunction<
+  OperationTypes.DeleteInvitedUserMutation,
+  OperationTypes.DeleteInvitedUserMutationVariables
+>;
+
+/**
+ * __useDeleteInvitedUserMutation__
+ *
+ * To run a mutation, you first call `useDeleteInvitedUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteInvitedUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteInvitedUserMutation, { data, loading, error }] = useDeleteInvitedUserMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useDeleteInvitedUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.DeleteInvitedUserMutation,
+    OperationTypes.DeleteInvitedUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.DeleteInvitedUserMutation,
+    OperationTypes.DeleteInvitedUserMutationVariables
+  >(DeleteInvitedUserDocument, options);
+}
+export type DeleteInvitedUserMutationHookResult = ReturnType<
+  typeof useDeleteInvitedUserMutation
+>;
+export type DeleteInvitedUserMutationResult =
+  Apollo.MutationResult<OperationTypes.DeleteInvitedUserMutation>;
+export type DeleteInvitedUserMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.DeleteInvitedUserMutation,
+  OperationTypes.DeleteInvitedUserMutationVariables
+>;
+export const ValidateSignupUserDocument = gql`
+  mutation validateSignupUser($email: String!) {
+    validateSignupUser(email: $email)
+  }
+`;
+export type ValidateSignupUserMutationFn = Apollo.MutationFunction<
+  OperationTypes.ValidateSignupUserMutation,
+  OperationTypes.ValidateSignupUserMutationVariables
+>;
+
+/**
+ * __useValidateSignupUserMutation__
+ *
+ * To run a mutation, you first call `useValidateSignupUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useValidateSignupUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [validateSignupUserMutation, { data, loading, error }] = useValidateSignupUserMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useValidateSignupUserMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.ValidateSignupUserMutation,
+    OperationTypes.ValidateSignupUserMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.ValidateSignupUserMutation,
+    OperationTypes.ValidateSignupUserMutationVariables
+  >(ValidateSignupUserDocument, options);
+}
+export type ValidateSignupUserMutationHookResult = ReturnType<
+  typeof useValidateSignupUserMutation
+>;
+export type ValidateSignupUserMutationResult =
+  Apollo.MutationResult<OperationTypes.ValidateSignupUserMutation>;
+export type ValidateSignupUserMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.ValidateSignupUserMutation,
+  OperationTypes.ValidateSignupUserMutationVariables
 >;
 export const GetCompaniesByMarketDocument = gql`
   query GetCompaniesByMarket($marketId: Int!) {

@@ -1092,6 +1092,7 @@ export const ssrProductsAndSystems = {
 
   usePage: useProductsAndSystems
 };
+
 export async function getServerPageGetCompaniesByMarket(
   options: Omit<
     Apollo.QueryOptions<OperationTypes.GetCompaniesByMarketQueryVariables>,

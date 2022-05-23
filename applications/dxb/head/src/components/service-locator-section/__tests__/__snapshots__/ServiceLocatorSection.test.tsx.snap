@@ -383,29 +383,11 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-983 MuiButton-contained buttonStyles-contained-985 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-986"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -516,26 +498,6 @@ exports[`ServiceLocatorSection component can selects all chips by default 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -869,29 +831,11 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-660"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -982,26 +926,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -1055,29 +979,11 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-660"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -1168,26 +1074,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -1272,7 +1158,7 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -1332,24 +1218,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                                   >
                                     0.01km
                                   </dd>
-                                </div>
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-657 MuiButton-contained buttonStyles-contained-659 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-660"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
                                 </div>
                                 <div
                                   class="row"
@@ -1441,26 +1309,6 @@ exports[`ServiceLocatorSection component changes selected service with marker cl
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -1846,29 +1694,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -1979,26 +1809,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2052,29 +1862,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -2185,26 +1977,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2258,29 +2030,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -2391,26 +2145,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2464,29 +2198,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -2597,26 +2313,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -2670,29 +2366,11 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-884 MuiButton-contained buttonStyles-contained-886 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-887"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -2803,26 +2481,6 @@ exports[`ServiceLocatorSection component click all roofer chips 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -3155,29 +2813,11 @@ exports[`ServiceLocatorSection component close button 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1049 MuiButton-contained buttonStyles-contained-1051 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-1052"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -3268,26 +2908,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -3341,29 +2961,11 @@ exports[`ServiceLocatorSection component close button 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-1049 MuiButton-contained buttonStyles-contained-1051 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-1052"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -3454,26 +3056,6 @@ exports[`ServiceLocatorSection component close button 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -3809,29 +3391,11 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-525 MuiButton-contained buttonStyles-contained-527 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-528"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -3922,26 +3486,6 @@ exports[`ServiceLocatorSection component doesn't search on entring the first let
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -4188,7 +3732,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4273,26 +3817,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4346,7 +3870,7 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4431,26 +3955,6 @@ exports[`ServiceLocatorSection component filters branch using chip click 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4824,7 +4328,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -4907,26 +4411,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -4980,7 +4464,7 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -5063,26 +4547,6 @@ exports[`ServiceLocatorSection component filters merchant using chip click 1`] =
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5456,29 +4920,11 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -5589,26 +5035,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5662,29 +5088,11 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -5795,26 +5203,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -5868,29 +5256,11 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-756 MuiButton-contained buttonStyles-contained-758 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-759"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -5981,26 +5351,6 @@ exports[`ServiceLocatorSection component filters roofers using chip click 1`] = 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6479,7 +5829,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6564,26 +5914,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6637,7 +5967,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -6722,26 +6052,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -6935,7 +6245,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7020,26 +6330,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7093,7 +6383,7 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7178,26 +6468,6 @@ exports[`ServiceLocatorSection component renders multiple services for Branches 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7530,7 +6800,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7613,26 +6883,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -7686,7 +6936,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -7769,26 +7019,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8121,7 +7351,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8204,26 +7434,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8277,7 +7487,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8360,26 +7570,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchant 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8712,7 +7902,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8795,26 +7985,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -8868,7 +8038,7 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -8951,26 +8121,6 @@ exports[`ServiceLocatorSection component renders multiple services for Merchants
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9440,29 +8590,11 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-426 MuiButton-contained buttonStyles-contained-428 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-429"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -9573,26 +8705,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -9646,29 +8758,11 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-426 MuiButton-contained buttonStyles-contained-428 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-429"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -9779,26 +8873,6 @@ exports[`ServiceLocatorSection component renders multiple services with ALL serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -10131,29 +9205,11 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-170 MuiButton-contained buttonStyles-contained-172 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-173"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -10244,26 +9300,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -10317,29 +9353,11 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-170 MuiButton-contained buttonStyles-contained-172 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-173"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -10430,26 +9448,6 @@ exports[`ServiceLocatorSection component renders multiple services with No servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -10859,29 +9857,11 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-contained buttonStyles-contained-395 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-396"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -10992,26 +9972,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11065,29 +10025,11 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-393 MuiButton-contained buttonStyles-contained-395 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-396"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -11198,26 +10140,6 @@ exports[`ServiceLocatorSection component renders multiple services with multiple
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11550,29 +10472,11 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-203 MuiButton-contained buttonStyles-contained-205 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-206"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -11683,26 +10587,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -11756,29 +10640,11 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-203 MuiButton-contained buttonStyles-contained-205 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-206"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -11889,26 +10755,6 @@ exports[`ServiceLocatorSection component renders multiple services with single s
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -12241,29 +11087,11 @@ exports[`ServiceLocatorSection component renders single service with No service 
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-38 MuiButton-contained buttonStyles-contained-40 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-41"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -12354,26 +11182,6 @@ exports[`ServiceLocatorSection component renders single service with No service 
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -12706,29 +11514,11 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-71 MuiButton-contained buttonStyles-contained-73 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-74"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -12819,26 +11609,6 @@ exports[`ServiceLocatorSection component renders single service with empty servi
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -13218,29 +11988,11 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-137 MuiButton-contained buttonStyles-contained-139 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-140"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -13351,26 +12103,6 @@ exports[`ServiceLocatorSection component renders single service with multiple se
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -13703,29 +12435,11 @@ exports[`ServiceLocatorSection component renders single service with single serv
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-104 MuiButton-contained buttonStyles-contained-106 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-107"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -13836,26 +12550,6 @@ exports[`ServiceLocatorSection component renders single service with single serv
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -14189,29 +12883,11 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -14302,26 +12978,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered main li
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -14658,29 +13314,11 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -14771,26 +13409,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -14844,29 +13462,11 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-492 MuiButton-contained buttonStyles-contained-494 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-495"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -14957,26 +13557,6 @@ exports[`ServiceLocatorSection component searchs for a service: Filtered option 
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -15339,29 +13919,11 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-723 MuiButton-contained buttonStyles-contained-725 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-726"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -15452,26 +14014,6 @@ exports[`ServiceLocatorSection component selects and unselects service 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -15804,29 +14346,11 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-690 MuiButton-contained buttonStyles-contained-692 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-693"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -15917,26 +14441,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -16021,7 +14525,7 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                           class="CompanyDetails"
                         >
                           <div
-                            class="scrollbar-container ps"
+                            class="scrollbar"
                           >
                             <dl
                               class="list"
@@ -16054,24 +14558,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                                   address 1
                                 </dd>
                               </address>
-                              <div
-                                class="row, row--cta"
-                              >
-                                <button
-                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-690 MuiButton-contained buttonStyles-contained-692 cta-button MuiButton-containedPrimary"
-                                  tabindex="0"
-                                  type="button"
-                                >
-                                  <span
-                                    class="MuiButton-label buttonStyles-label-693"
-                                  >
-                                    MC: findARoofer.getDirectionsLabel
-                                  </span>
-                                  <span
-                                    class="MuiTouchRipple-root"
-                                  />
-                                </button>
-                              </div>
                               <div
                                 class="row"
                               >
@@ -16162,26 +14648,6 @@ exports[`ServiceLocatorSection component selects service 1`] = `
                             >
                               roofer summary
                             </p>
-                            <div
-                              class="ps__rail-x"
-                              style="left: 0px; top: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-x"
-                                style="left: 0px; width: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
-                            <div
-                              class="ps__rail-y"
-                              style="top: 0px; left: 0px;"
-                            >
-                              <div
-                                class="ps__thumb-y"
-                                style="top: 0px; height: 0px;"
-                                tabindex="0"
-                              />
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -16499,29 +14965,11 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                               class="CompanyDetails"
                             >
                               <div
-                                class="scrollbar-container ps"
+                                class="scrollbar"
                               >
                                 <dl
                                   class="list"
                                 >
-                                  <div
-                                    class="row, row--cta"
-                                  >
-                                    <button
-                                      class="MuiButtonBase-root MuiButton-root buttonStyles-root-624 MuiButton-contained buttonStyles-contained-626 cta-button MuiButton-containedPrimary"
-                                      tabindex="0"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="MuiButton-label buttonStyles-label-627"
-                                      >
-                                        MC: findARoofer.getDirectionsLabel
-                                      </span>
-                                      <span
-                                        class="MuiTouchRipple-root"
-                                      />
-                                    </button>
-                                  </div>
                                   <div
                                     class="row"
                                   >
@@ -16612,26 +15060,6 @@ exports[`ServiceLocatorSection component sets current location 1`] = `
                                 >
                                   roofer summary
                                 </p>
-                                <div
-                                  class="ps__rail-x"
-                                  style="left: 0px; top: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-x"
-                                    style="left: 0px; width: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ps__rail-y"
-                                  style="top: 0px; left: 0px;"
-                                >
-                                  <div
-                                    class="ps__thumb-y"
-                                    style="top: 0px; height: 0px;"
-                                    tabindex="0"
-                                  />
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -17379,7 +15807,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17460,26 +15888,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
                               />
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -17533,7 +15941,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17616,26 +16024,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               >
                                 GL Bygg AS har i dag 20 ansatte, 17 tømrere/snekkere, og 2 murere og 1 maler,tapetserer, gulvlegger. Av disse er en byggmester og en murmester. Alle håndverkerne har fagbrev på sine respektive fagområder
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -17689,7 +16077,7 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
@@ -17752,26 +16140,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                               <p
                                 class="MuiTypography-root Typography MuiTypography-body1"
                               />
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -18444,29 +16812,11 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-950 MuiButton-contained buttonStyles-contained-952 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-953"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -18577,26 +16927,6 @@ exports[`ServiceLocatorSection component wrong query string filter 1`] = `
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>

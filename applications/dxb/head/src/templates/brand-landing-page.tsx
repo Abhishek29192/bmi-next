@@ -80,7 +80,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     slides,
     overlapCards,
     sections,
-    inputBanner,
+    signupBlock,
     breadcrumbs,
     breadcrumbTitle,
     seo,
@@ -92,7 +92,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulBrandLandingPage.path
   };
@@ -101,7 +101,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
   } = useConfig();
 
   const firstSlide: HeroItem = {
-    title: <BrandLogo brandName={brandLogo} />,
+    title: <BrandLogo brandName={brandLogo} brandWhiteBox={true} />,
     children: description?.description,
     media: featuredVideo
       ? renderVideo(featuredVideo)

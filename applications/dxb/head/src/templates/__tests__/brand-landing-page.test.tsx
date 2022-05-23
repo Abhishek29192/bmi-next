@@ -70,7 +70,7 @@ describe("Brand Landing Page Template", () => {
       },
       heroType: null,
       cta: null,
-      inputBanner: null,
+      signupBlock: null,
       seo: null,
       description: {
         description: "description"

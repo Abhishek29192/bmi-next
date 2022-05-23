@@ -44,6 +44,7 @@ exports[`Header component renders correctly 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -80,6 +81,7 @@ exports[`Header component renders correctly 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -160,6 +162,7 @@ exports[`Header component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -189,6 +192,7 @@ exports[`Header component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -218,6 +222,7 @@ exports[`Header component renders correctly 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -790,6 +795,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -826,6 +832,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -906,6 +913,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -935,6 +943,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -964,6 +973,7 @@ exports[`Header component renders correctly when flag doesn't exist 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-28 MuiButton-text buttonStyles-text-29 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -1538,6 +1548,7 @@ exports[`Header component shows sample basket icon 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -1574,6 +1585,7 @@ exports[`Header component shows sample basket icon 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -1654,6 +1666,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -1683,6 +1696,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -1712,6 +1726,7 @@ exports[`Header component shows sample basket icon 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-82 MuiButton-text buttonStyles-text-83 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >
@@ -2311,6 +2326,7 @@ exports[`Header component toggles search 1`] = `
               <button
                 aria-label="MC: menu.language"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 utilities-button language-selection-button MuiButton-textPrimary"
+                data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"open panel\\",\\"action\\":\\"open panel\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -2347,6 +2363,7 @@ exports[`Header component toggles search 1`] = `
       <button
         aria-label="MC: global.close"
         class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 close-button"
+        data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"close panel\\",\\"action\\":\\"close panel\\"}"
         tabindex="0"
         type="button"
       >
@@ -2427,6 +2444,7 @@ exports[`Header component toggles search 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Albania\\",\\"action\\":\\"/al/\\"}"
                     href="/al"
                     tabindex="0"
                   >
@@ -2456,6 +2474,7 @@ exports[`Header component toggles search 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"Österreich\\",\\"action\\":\\"/at/\\"}"
                     href="/at"
                     tabindex="0"
                   >
@@ -2485,6 +2504,7 @@ exports[`Header component toggles search 1`] = `
                   <a
                     aria-disabled="false"
                     class="MuiButtonBase-root MuiButton-root buttonStyles-root-55 MuiButton-text buttonStyles-text-56 NavigationListButton link MuiButton-textPrimary"
+                    data-gtm="{\\"id\\":\\"nav-country-selector\\",\\"label\\":\\"United Kingdom\\",\\"action\\":\\"/gb/\\"}"
                     href="/gb"
                     tabindex="0"
                   >

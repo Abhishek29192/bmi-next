@@ -3,12 +3,15 @@ import { makeExtendSchemaPlugin } from "graphile-utils";
 import {
   ContentfulGuaranteeTemplatesCollection,
   ContentfulGuaranteeTypeCollection,
-  EvidenceCategoryCollection
+  EvidenceCategoryCollection,
+  MutationRestartGuaranteeArgs
 } from "@bmi/intouch-api-types";
 import {
   invite,
   completeInvitation,
-  resetPasswordImportedUsers
+  resetPasswordImportedUsers,
+  deleteInvitedUser,
+  validateSignupUser
 } from "../../services/account";
 import { importAccountsCompaniesFromCVS } from "../../services/importer";
 import { publish, TOPICS } from "../../services/events";
@@ -22,6 +25,7 @@ import {
   getCompanyIsProfileComplete,
   guaranteeResolver
 } from "../../services/company/customResolvers";
+import { restartGuarantee } from "../../services/guarantee";
 import Auth0 from "../../services/auth0";
 import { bulkImport } from "../../services/products/bulkImport";
 import { resetPassword } from "../../services/account";
@@ -179,6 +183,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             auth0
           );
         },
+        validateSignupUser: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return validateSignupUser(_query, args, context, resolveInfo, auth0);
+        },
+        deleteInvitedUser: async (_query, args, context, resolveInfo) => {
+          const auth0 = await Auth0.init(context.logger);
+          return deleteInvitedUser(_query, args, context, resolveInfo, auth0);
+        },
         completeInvitation: async (_query, args, context, resolveInfo) => {
           const auth0 = await Auth0.init(context.logger);
           return completeInvitation(
@@ -229,6 +241,14 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
             resolveInfo,
             auth0
           );
+        },
+        restartGuarantee: async (
+          query,
+          args: MutationRestartGuaranteeArgs,
+          context,
+          resolveInfo
+        ) => {
+          return restartGuarantee(args, context);
         },
         ...reminderMutation
       },

@@ -107,8 +107,8 @@ const queries = [
               pageData.contentfulDocumentLibraryPage ||
               pageData.contentfulSimplePage;
 
-            // If not one of the above pages, not indexed
-            if (page) {
+            // If not one of the above pages or excluded then do not index
+            if (page && page.seo && !page.seo.noIndex) {
               // relying on PageInfoFragment
               return {
                 __typename: page.__typename,
@@ -152,6 +152,7 @@ const queries = [
       function isLinkDocument(document) {
         return !!document.url && !document.fileSize && !document.realFileName;
       }
+
       if (!data) {
         throw new Error("No data");
       }
@@ -164,12 +165,14 @@ const queries = [
           isLinkDocument: isLinkDocument(item),
           ...item
         })),
-        ...allContentfulDocument.edges.map(({ node }) => ({
-          titleAndSize: `${node.title}_${node.asset.file.details.size}`,
-          realFileName: `${node.asset.file.fileName}`,
-          isLinkDocument: isLinkDocument(node),
-          ...node
-        }))
+        ...allContentfulDocument.edges
+          .filter((node) => !node.noIndex && node.asset)
+          .map(({ node }) => ({
+            titleAndSize: `${node.title}_${node.asset.file.details.size}`,
+            realFileName: `${node.asset.file.fileName}`,
+            isLinkDocument: isLinkDocument(node),
+            ...node
+          }))
       ];
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS
@@ -193,6 +196,28 @@ const elasticSearchPlugin =
           }
         }
       ];
+
+const ids = [
+  process.env.GOOGLE_TAGMANAGER_ID,
+  process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID
+].filter(Boolean);
+
+const googleTagManagerPlugin =
+  !process.env.GATSBY_PREVIEW && ids.length
+    ? [
+        {
+          resolve: "@bmi/gatsby-plugin-google-tagmanager",
+          options: {
+            ids,
+            includeInDevelopment: true,
+            defaultDataLayer: {
+              platform: "gatsby",
+              env: process.env.NODE_ENV
+            }
+          }
+        }
+      ]
+    : [];
 
 module.exports = {
   siteMetadata: {
@@ -503,37 +528,7 @@ module.exports = {
           }
         ]
       : []),
-    ...(process.env.GOOGLE_TAGMANAGER_ID && !process.env.GATSBY_PREVIEW
-      ? [
-          {
-            resolve: "gatsby-plugin-google-tagmanager",
-            options: {
-              id: process.env.GOOGLE_TAGMANAGER_ID,
-              includeInDevelopment: true,
-              defaultDataLayer: {
-                platform: "gatsby",
-                env: process.env.NODE_ENV
-              }
-            }
-          }
-        ]
-      : []),
-    ...(process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID &&
-    !process.env.GATSBY_PREVIEW
-      ? [
-          {
-            resolve: "gatsby-plugin-google-tagmanager",
-            options: {
-              id: process.env.GOOGLE_TAGMANAGER_MARKET_MEDIA_ID,
-              includeInDevelopment: true,
-              defaultDataLayer: {
-                platform: "gatsby",
-                env: process.env.NODE_ENV
-              }
-            }
-          }
-        ]
-      : []),
+    ...googleTagManagerPlugin,
     ...(process.env.GATSBY_HUBSPOT_ID && !process.env.GATSBY_PREVIEW
       ? [
           {

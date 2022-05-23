@@ -1,0 +1,59 @@
+{
+  "genericError": "Um erro ocorreu. Por favor, tente novamente ou entre em contato com um administrador da BMI.",
+  "invitation": {
+    "dialog": {
+      "cancel": "Cancelar",
+      "emails": {
+        "helperText": "Adicione vários membros da equipa separando cada endereço de correio eletronico com uma vírgula",
+        "label": "Endereço de e-mail do destinatário"
+      },
+      "errorAlreadyMember": "O usuário já é membro de outra empresa",
+      "errorInvitationNotFound": "Convite não encontrado",
+      "personalNote": {
+        "label": "Mensagem (opcional)"
+      },
+      "send": "Enviar correio electrónico",
+      "success": "O convite foi enviado.",
+      "title": "Convidar membros da equipa"
+    }
+  },
+  "lastCompanyAdminError": "Você não pode remover o último administrador de uma empresa a menos que a BMI o tenha desativado.",
+  "memberRemoved": "Membro removido com sucesso da empresa",
+  "report": "Descarregar lista de equipamentos",
+  "sidePanel": {
+    "inviteLabel": "Convidar membros da equipa",
+    "search": {
+      "label": "Encontrar um usuário",
+      "noResult": "Usuário não encontrado"
+    }
+  },
+  "table": {
+    "certification": "Certificação BMI",
+    "noResults": "O usuário não possui certificações BMI",
+    "title": "Certificações BMI",
+    "type": "Tipo",
+    "validity": "Validade"
+  },
+  "userActions": {
+    "action": {
+      "activate": "Ativar usuário",
+      "deactivate": "Desativar usuário"
+    },
+    "title": "Ações do usuário"
+  },
+  "user_card": {
+    "add_admin": "Atribuir como administrador da empresa",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "remove": "Remover da empresa",
+    "remove_admin": "Remover como administrador da empresa",
+    "remove_user_dialog": {
+      "text": "Deseja remover este membro da empresa?",
+      "title": "Excluir membro da empresa"
+    },
+    "role_dialog": {
+      "text": "Deseja alterar a função do usuário?",
+      "title": "Alterar função do usuário"
+    }
+  }
+}

@@ -6,7 +6,8 @@ import {
   EvidenceItemGuaranteeIdFkeyInverseInput,
   Guarantee,
   Tier,
-  UpdateGuaranteeInput
+  UpdateGuaranteeInput,
+  MutationRestartGuaranteeArgs
 } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
 import StorageClient from "../storage-client";
@@ -14,6 +15,7 @@ import { PostGraphileContext } from "../../types";
 import { filesTypeValidate } from "../../utils/file";
 import { sendMessageWithTemplate } from "../mailer";
 import { EventMessage, tierBenefit } from "../contentful";
+import { getDbPool } from "../../db";
 import { solutionGuaranteeSubmitValidate } from "./validate";
 
 export const createGuarantee = async (
@@ -117,6 +119,9 @@ export const updateGuarantee = async (
           ? `${crypto.randomBytes(10).toString("hex")}`
           : bmiReferenceId;
       patch.status = "SUBMITTED";
+
+      // Send message to market admins.
+      sendMailToMarketAdmins(context, projectId, "REQUEST_SUBMITTED");
     }
 
     if (guaranteeEventType === "ASSIGN_SOLUTION" && status === "SUBMITTED") {
@@ -224,7 +229,8 @@ const getProjectCompanyDetail = async (
   pgClient: PoolClient
 ): Promise<ProjectCompanyDetail> => {
   const { rows } = await pgClient.query(
-    `select project.name, project.company_id as "companyId", company.tier
+    `select project.name, project.company_id as "companyId", company.tier, company.market_id as "marketId",
+            company.name as "companyName"
     from project
     join company on company.id=project.company_id 
     where project.id=$1`,
@@ -249,7 +255,7 @@ const sendMail = async (
     pgClient
   );
 
-  //Get all company admins and send mail
+  // Get all company admins and send mail
   const { rows: accounts } = await pgClient.query(
     `select account.* from account 
   join company_member on company_member.account_id =account.id 
@@ -265,6 +271,39 @@ const sendMail = async (
       firstname: account.first_name,
       role: account.role,
       project: `${projectCompanyDetail.name}`,
+      projectId
+    });
+  }
+};
+
+const sendMailToMarketAdmins = async (
+  context: PostGraphileContext,
+  projectId: number,
+  event: EventMessage
+) => {
+  const { pgClient, user } = context;
+
+  // Get project details.
+  const projectCompanyDetail = await getProjectCompanyDetail(
+    projectId,
+    pgClient
+  );
+
+  // Get all market admins and send mail
+  const dbPool = getDbPool();
+  const { rows: marketAdmins } = await dbPool.query(
+    `SELECT account.* FROM account JOIN market ON market.id = account.market_id WHERE account.role = $1 AND account.market_id = $2`,
+    ["MARKET_ADMIN", projectCompanyDetail.marketId]
+  );
+
+  for (let i = 0; i < marketAdmins.length; i++) {
+    const account = marketAdmins[+i];
+    await sendMessageWithTemplate(context, event, {
+      accountId: account.id,
+      email: account.email,
+      project: `${projectCompanyDetail.name}`,
+      company: `${projectCompanyDetail.companyName}`,
+      author: user.email,
       projectId
     });
   }
@@ -299,8 +338,119 @@ const uploadEvidence = async (
   }
 };
 
+export const restartGuarantee = async (
+  args: MutationRestartGuaranteeArgs,
+  context
+) => {
+  const { pgClient, logger: Logger, user, storageClient } = context;
+  const { projectId } = args;
+  const logger = Logger("service:guarantee");
+  const { GCP_PRIVATE_BUCKET_NAME } = process.env;
+  await pgClient.query("SAVEPOINT graphql_restart_guarantee_mutation");
+  try {
+    if (!user.can("delete:guarantee")) {
+      logger.error(
+        `User with id: ${user.id} and role: ${user.role} is trying to restart solution guarantee for project ${projectId}`
+      );
+      throw new Error("unauthorized");
+    }
+
+    const { rows: solutionGuarantee } = await pgClient.query(
+      "SELECT id FROM guarantee WHERE project_id = $1 AND (coverage = $2 OR coverage = $3)",
+      [projectId, "SOLUTION", "SYSTEM"]
+    );
+    if (solutionGuarantee.length) {
+      const { rows: relatedEvidenceItems } = await pgClient.query(
+        "SELECT id, name FROM evidence_item WHERE project_id = $1 AND guarantee_id = $2",
+        [projectId, solutionGuarantee[0].id]
+      );
+      const { rows: deletedGuarantee } = await pgClient.query(
+        "DELETE FROM guarantee WHERE id = $1 RETURNING id",
+        [solutionGuarantee[0].id]
+      );
+
+      if (deletedGuarantee.length) {
+        logger.info(
+          `Deleted guarantee with id ${deletedGuarantee[0].id} for project with id ${projectId}`
+        );
+
+        const { rows: revokeInstallers } = await pgClient.query(
+          "UPDATE project_member SET is_responsible_installer = false WHERE project_id = $1 AND is_responsible_installer = true RETURNING *",
+          [projectId]
+        );
+
+        if (revokeInstallers.length) {
+          const memberIds = revokeInstallers.map(({ id }) => id).join(",");
+          logger.info(
+            `Unassigned ${revokeInstallers.length} installer(s) with id(s) ${memberIds} for project with id ${projectId}`
+          );
+        } else {
+          logger.info(
+            `No unassigned installer(s) for project with id ${projectId}`
+          );
+        }
+
+        if (relatedEvidenceItems.length) {
+          const evidenceIds = relatedEvidenceItems
+            .map(({ id }) => id)
+            .join("|");
+          logger.info(
+            `Deleted ${relatedEvidenceItems.length} files with id(s) [${evidenceIds}] for project with id ${projectId}`
+          );
+          const removeBucketItems = await Promise.allSettled(
+            relatedEvidenceItems.map(({ name }) => {
+              return storageClient.deleteFile(GCP_PRIVATE_BUCKET_NAME, name);
+            })
+          );
+          const fulfilled = removeBucketItems.filter(
+            ({ status }) => status === "fulfilled"
+          );
+          const rejected = removeBucketItems.filter(
+            ({ status }) => status === "rejected"
+          );
+          if (fulfilled.length) {
+            logger.info(
+              `Deleted ${fulfilled.length} out of ${relatedEvidenceItems.length} files from storage`
+            );
+          }
+          if (rejected.length) {
+            const reasons = rejected
+              .map((result: any) => result.reason)
+              .join("|");
+            logger.error(`Failed to delete files with error: [${reasons}]`);
+          }
+        }
+      } else {
+        logger.info(
+          `Failed to delete guarantee with id ${solutionGuarantee[0].id} with project id ${projectId}`
+        );
+      }
+    } else {
+      logger.info(`No guarantee found for project with id ${projectId}`);
+    }
+
+    return "ok";
+  } catch (error) {
+    logger.error(
+      `Error restart guarantee for project with id ${projectId}, ${error}`
+    );
+
+    await pgClient.query(
+      "ROLLBACK TO SAVEPOINT graphql_restart_guarantee_mutation"
+    );
+
+    throw error;
+  } finally {
+    await pgClient.query(
+      "RELEASE SAVEPOINT graphql_restart_guarantee_mutation"
+    );
+  }
+};
+
 type ProjectCompanyDetail = {
   name: string;
   companyId: number;
   tier: Tier;
+  marketId: number;
+  companyName: string;
 };

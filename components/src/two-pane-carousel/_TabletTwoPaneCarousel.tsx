@@ -5,6 +5,7 @@ import Grid from "../grid/Grid";
 import Media from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
+import transformHyphens from "../utils";
 import { Props } from "./types";
 import styles from "./TwoPaneCarousel.module.scss";
 
@@ -43,7 +44,7 @@ const TwoPaneCarousel = ({ slides }: Props) => {
                     </Typography>
                     {(description || cta) && (
                       <div className={styles["text"]}>
-                        {description}
+                        {transformHyphens(description)}
                         <div>
                           {cta && (
                             <AnchorLink

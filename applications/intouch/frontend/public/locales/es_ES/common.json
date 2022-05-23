@@ -77,8 +77,8 @@
   },
   "tier": {
     "T1": "Miembro",
-    "T2": "Partner",
-    "T3": "Expert",
+    "T2": "Partner - Inclinado",
+    "T3": "Partner - Plana",
     "T4": "Elite"
   },
   "visitWebsite": "Visita el sitio web",

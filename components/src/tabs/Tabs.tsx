@@ -14,6 +14,7 @@ import classnames from "classnames";
 import React from "react";
 import Container, { Props as ContainerProps } from "../container/Container";
 import Grid from "../grid/Grid";
+import { transformHyphens } from "../utils/commonUtils";
 import styles from "./Tabs.module.scss";
 
 export const useGlobalTabStyles = makeStyles(
@@ -155,7 +156,7 @@ const Tabs = ({
                 aria-controls={`tabpanel-${index}`}
                 id={`tab-${index}`}
                 key={index}
-                label={heading}
+                label={transformHyphens(heading)}
                 value={index}
                 className={globalClasses.TabRoot}
               />

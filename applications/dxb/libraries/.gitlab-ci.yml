@@ -1,4 +1,6 @@
 include:
+  - local: "/applications/dxb/libraries/contentful-tag-cli/.gitlab-ci.yml"
+  - local: "/applications/dxb/libraries/contentful-tag-utility/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/contentful-upload/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-es-client/.gitlab-ci.yml"
   - local: "/applications/dxb/libraries/functions-firestore/.gitlab-ci.yml"

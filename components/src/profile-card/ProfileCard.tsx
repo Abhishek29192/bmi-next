@@ -66,13 +66,23 @@ type RowProps = {
   children: React.ReactNode;
   action?: ClickableAction;
   icon?: SVGImport;
+  anchorComponent?: React.ElementType;
 };
 
-const ProfileRow = ({ children, action, icon: Icon }: RowProps) => {
+const ProfileRow = ({
+  children,
+  action,
+  icon: Icon,
+  anchorComponent: AnchorLinkComponent = AnchorLink
+}: RowProps) => {
   return (
     <span className={styles["row"]}>
       {Icon ? <Icon className={styles["row-icon"]} /> : null}
-      {action ? <AnchorLink action={action}>{children}</AnchorLink> : children}
+      {action ? (
+        <AnchorLinkComponent action={action}>{children}</AnchorLinkComponent>
+      ) : (
+        children
+      )}
     </span>
   );
 };

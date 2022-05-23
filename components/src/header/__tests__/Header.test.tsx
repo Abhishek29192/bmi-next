@@ -86,6 +86,7 @@ describe("Header component", () => {
         languages={languages}
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
       />
     );
     expect(container).toMatchSnapshot();
@@ -100,6 +101,7 @@ describe("Header component", () => {
         languages={languages}
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
       />
     );
 
@@ -117,6 +119,7 @@ describe("Header component", () => {
         languages={languages}
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
       />
     );
 
@@ -136,6 +139,7 @@ describe("Header component", () => {
         languages={languages}
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
+        useGTM={jest.fn}
       />
     );
 
@@ -159,6 +163,7 @@ describe("Header component", () => {
         languageIntroduction={<p>Select a language</p>}
         closeLabel={closeLabel}
         openLabel={openLabel}
+        useGTM={jest.fn}
       />
     );
 
@@ -183,6 +188,7 @@ describe("Header component", () => {
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
         searchLabel={searchLabel}
+        useGTM={jest.fn}
       />
     );
 
@@ -203,6 +209,10 @@ describe("Header component", () => {
         languages={languages}
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
+        useGTM={(gtm) => ({
+          pushGTMEvent: jest.fn(),
+          dataGTM: gtm
+        })}
       />
     );
 
@@ -229,6 +239,7 @@ describe("Header component", () => {
         languageLabel={languageLabel}
         languageIntroduction={<p>Select a language</p>}
         openLabel={openLabel}
+        useGTM={jest.fn}
       />
     );
 
@@ -243,7 +254,7 @@ describe("Header component", () => {
 
   it("sets default language when it's empty", () => {
     const { findByText } = render(
-      <Header utilities={utilities} navigation={navigation} />
+      <Header utilities={utilities} navigation={navigation} useGTM={jest.fn} />
     );
 
     expect(findByText("EN")).not.toBeNull();

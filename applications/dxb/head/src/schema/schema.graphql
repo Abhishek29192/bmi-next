@@ -61,37 +61,6 @@ type contentfulFormSectionInputsJsonNode implements ContentfulFormInputs & Node 
 }
 
 """
-Represents a input banner inputs consent type, implements ContentfulFormInputs.
-"""
-type contentfulInputBannerAdditionalInputsJsonNode implements ContentfulFormInputs & Node {
-  id: ID!
-
-  "The name for this input."
-  name: String
-
-  "The type for this input."
-  type: String
-
-  "The label for this input."
-  label: String
-
-  "The width for this input."
-  width: String
-
-  "Should this input be required."
-  required: Boolean
-
-  "The options for this input."
-  options: String
-
-  "The permitted file types for upload."
-  accept: String
-
-  "The maximum file size for upload."
-  maxSize: Int
-}
-
-"""
 Represents common properties across pages.
 """
 interface ContentfulPage implements Node {
@@ -127,8 +96,8 @@ interface ContentfulPage implements Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -195,10 +164,10 @@ type ContentfulSimplePage implements ContentfulPage & Node {
   "The main image of this page. Can be used when referencing this page."
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
 
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
-  "The input banner for this page."
+  "The share widget for this page."
   shareWidget: ContentfulShareWidgetSection @link(from: "shareWidget___NODE")
 
   "Tags for the page"
@@ -274,8 +243,8 @@ type ContentfulContactUsPage implements ContentfulPage & Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -344,8 +313,8 @@ type ContentfulHomePage implements Node {
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
 
-  "The input banner for this home page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this home page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "SEO content"
   seo: ContentfulSeoContent @link(from: "seo___NODE")
@@ -396,8 +365,8 @@ type ContentfulProductListerPage implements ContentfulPage & Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -534,6 +503,9 @@ type ContentfulCardCollectionSection implements Node {
   "The section should be centered."
   justifyCenter: Boolean
 
+  "Single Row Display option for the cards."
+  displaySingleRow: Boolean
+
   "The order in which the cards should be sorted."
   sortOrder: String
 }
@@ -587,8 +559,13 @@ type ContentfulFormSection implements Node {
   "The redirect page on submission success."
   successRedirect: ContentfulLink @link(from: "successRedirect___NODE")
 
+  source: String!
+
   "HubSpot form ID"
   hubSpotFormGuid: String
+
+  "Email subject format"
+  emailSubjectFormat: String
 }
 
 """
@@ -860,6 +837,21 @@ type ContentfulTitleWithContent implements Node {
   content: ContentfulRichText!
 }
 
+type ContentfulSpecificationNotesWithCta implements Node {
+  id: ID!
+
+  name: String!
+
+  "The title for this title with content."
+  title: String
+
+  "The content for this title with content."
+  description: ContentfulRichText!
+
+  "The link for CTA."
+  cta: ContentfulLink @link(from: "cta___NODE")
+}
+
 """
 Represents a team member.
 """
@@ -915,6 +907,7 @@ union ContentfulSection =
   | ContentfulSystemConfiguratorBlock
   | ContentfulTeamSection
   | ContentfulSampleBasketSection
+  | ContentfulSignupBlock
 
 """
 Represents a key value pair for UI strings.
@@ -969,7 +962,7 @@ type ContentfulResources implements Node {
   sdpBimDescription: ContentfulRichText
 
   "The input banner for the product details page for these resources."
-  pdpInputBanner: ContentfulInputBanner @link(from: "pdpInputBanner___NODE")
+  pdpSignupBlock: ContentfulSignupBlock @link(from: "pdpSignupBlock___NODE")
 
   "The 404 error for these resources."
   errorFourOFour: ContentfulPromo @link(from: "errorFourOFour___NODE")
@@ -1026,6 +1019,10 @@ type ContentfulResources implements Node {
 
   "The description for product details page specification tab."
   pdpSpecificationDescription: ContentfulRichText
+
+  "The specification notes with on system details page"
+  sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta
+    @link(from: "sdpSpecificationNotesCta___NODE")
 }
 
 """
@@ -1062,52 +1059,31 @@ type ContentfulContactTopic implements Node {
 }
 
 """
-Represents the input banner description field.
+Represents the sign up block description field.
 """
-type contentfulInputBannerDescriptionTextNode implements Node {
+type contentfulSignupBlockDescriptionTextNode implements Node {
   description: String
 }
 
 """
 Represents input data with context.
 """
-type ContentfulInputBanner implements Node {
+type ContentfulSignupBlock implements Node {
   id: ID!
 
   "The title for this input banner."
   title: String
 
   "The description for this input banner."
-  description: contentfulInputBannerDescriptionTextNode
+  description: contentfulSignupBlockDescriptionTextNode
     @link(from: "description___NODE")
 
-  "The label for this input banner."
-  inputLabel: String
-
   "The submit button label for this input banner."
-  submitButtonLabel: String
+  signupLabel: String
 
-  "The additional inputs for the banner, if needed."
-  additionalInputs: [ContentfulFormInputs]
-    @link(from: "additionalInputs___NODE")
-
-  "The thank you message for the confirmation for this input banner."
-  thankYouMessage: String
-
-  "The label for the confirmation button for this banner."
-  confirmationButtonLabel: String
-
-  "The Allow Retry checkbox"
-  allowRetry: String
-
-  "The retry dialog title"
-  errorTitle: String
-
-  "The retry dialog body"
-  errorBody: ContentfulRichText
-
-  "The retry dialog confirm button label"
-  retryButtonLabel: String
+  "The form for signup dialog."
+  signupDialogContent: ContentfulFormSection
+    @link(from: "signupDialogContent___NODE")
 }
 
 """
@@ -1292,6 +1268,9 @@ type ContentfulDocument implements Node {
 
   "The main image document."
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 """
@@ -1302,6 +1281,9 @@ type PIMDocument implements Node {
 
   "The title for this document."
   title: String
+
+  "The name for this document."
+  docName: String
 
   "The URL for this document."
   url: String
@@ -1335,6 +1317,9 @@ type PIMLinkDocument implements Node {
 
   "The title for this document."
   title: String
+
+  "The name for this document."
+  docName: String
 
   "The URL for this document."
   url: String
@@ -1402,7 +1387,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   resultsType: String
 
   "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -1665,8 +1650,8 @@ type ContentfulBrandLandingPage implements ContentfulPage & Node {
   "The featured Video"
   featuredVideo: ContentfulVideo @link(from: "featuredVideo___NODE")
 
-  "The input banner for this page."
-  inputBanner: ContentfulInputBanner @link(from: "inputBanner___NODE")
+  "The signup block for this page."
+  signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
 
   "Tags for the page"
   tags: [ContentfulTag] @link(from: "tags___NODE")
@@ -1752,6 +1737,9 @@ type ContentfulSeoContent implements Node {
 
   "Meta description tag."
   metaDescription: String
+
+  "Exclude from search."
+  noIndex: Boolean
 }
 
 type VideoRatio {

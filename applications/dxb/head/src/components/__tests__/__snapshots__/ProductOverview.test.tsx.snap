@@ -17,6 +17,10 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
           <div
             class="image-wrapper"
           >
+            <img
+              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+              src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+            />
             <div
               class="caption"
             >
@@ -26,7 +30,7 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  caption
+                  This is image caption
                   <wbr />
                 </span>
               </p>
@@ -79,20 +83,32 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                tabindex="0"
-                type="button"
-              />
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  class="Media"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                tabindex="0"
+                type="button"
+              >
+                <img
+                  class="Media"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+                />
                 <span
                   class="MuiTouchRipple-root"
                 />
               </button>
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
                 tabindex="0"
                 type="button"
               >
@@ -185,6 +201,10 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
           <div
             class="image-wrapper"
           >
+            <img
+              class="main-image-wrapper main-image-wrapper--short Media Media--contain"
+              src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+            />
             <div
               class="caption"
             >
@@ -194,7 +214,7 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
                 <span
                   class="LinesEllipsis  Truncate"
                 >
-                  caption
+                  This is image caption
                   <wbr />
                 </span>
               </p>
@@ -247,20 +267,32 @@ exports[`ProductOverview component renders correctly without Recapcha 1`] = `
             >
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
-                tabindex="0"
-                type="button"
-              />
-              <button
-                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
                 tabindex="0"
                 type="button"
               >
+                <img
+                  class="Media"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+                />
+              </button>
+              <button
+                class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"undefined\\",\\"action\\":\\"https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg\\"}"
+                tabindex="0"
+                type="button"
+              >
+                <img
+                  class="Media"
+                  src="https://bmipimngqa.azureedge.net/sys-master-hybris-media/hcd/h0e/8974987690014/TBK-SN-403-Tjpg"
+                />
                 <span
                   class="MuiTouchRipple-root"
                 />
               </button>
               <button
                 class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
+                data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"test video\\",\\"action\\":\\"[object Object]\\"}"
                 tabindex="0"
                 type="button"
               >

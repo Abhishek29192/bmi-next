@@ -77,6 +77,7 @@ Array [
       "type": "Decorative",
     },
     "id": "contentful-doc-id",
+    "noIndex": false,
     "title": "contentful-document-title",
   },
 ]
@@ -142,6 +143,43 @@ Array [
       "name": "product-name",
     },
     "realFileName": "pim-document-id.pdf",
+    "relatedProducts": Array [
+      Object {
+        "categories": Array [
+          Object {
+            "categoryType": "category-category-type",
+            "code": "category-code",
+            "name": "category-name",
+            "parentCategoryCode": "category-parent-category-code",
+          },
+        ],
+        "classifications": Array [
+          Object {
+            "code": "appearanceAttributes",
+            "features": Array [
+              Object {
+                "code": "classification-feature-code",
+                "featureUnit": Object {
+                  "name": "classification-feature-feature-unit-name",
+                  "symbol": "classification-feature-feature-unit-symbol",
+                  "unitType": "classification-feature-feature-unit-unit-type",
+                },
+                "featureValues": Array [
+                  Object {
+                    "code": "classification-feature-feature-value-code",
+                    "value": "classification-feature-feature-value-value",
+                  },
+                ],
+                "name": "classification-feature-name",
+              },
+            ],
+            "name": "appearanceAttributes",
+          },
+        ],
+        "code": "product-code",
+        "name": "product-name",
+      },
+    ],
     "title": "pim-document-title",
     "url": "http://localhost/pim-document-id",
   },

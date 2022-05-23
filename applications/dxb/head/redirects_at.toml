@@ -2297,6 +2297,87 @@
   status = 301
   force = true
 
+
+
+
+[[redirects]]
+  from = "/at/aktionen"
+  to = "/at/services/dachfoerderung-und-aktionen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/bmi-bramac/lagerhaeusermode/1"
+  to = "/at/bmi-bramac/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/downloads/datenblatt"
+  to = "/at/downloads/produktdatenblatt/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/downloads/leistungserklärungen/bramac"
+  to = "/at/downloads/leistungserklaerungen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-tegalit-standbrettstein-protector-plus-3744467422"
+  to = "/at/produkte/steildach/dachsteine-dachziegel/bramac-tegalit/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/bramac-therm-kompakt-812289406"
+  to = "/at/produkte/steildach/steildach-zubehoer/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/pormex-28-lt-1677689392/"
+  to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/pormex-rapid-28-lt-1011416386"
+  to = "/at/p/pormex-rapid-plus-l%C3%B6sungsmittelh%C3%A4ltig-schnelltrocknend-3586017153"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/sealoflex-ultima-waterproof-coating-abdichtung-weiß-weiß-883960054"
+  to = "/at/produkte/flachdach/fluessigkunststoff/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/vedatop-s5-bluespeed-blau-grün-bitumen-3253545970"
+  to = "/at/produkte/flachdach/bitumen/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/p/villafalt-5es-25-kg-1194702097"
+  to = "/at/p/villafalt-2-k-30-kg-2848694448"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/at/produkte-und-systemloesungen/produkte/bramac/bramac-topas-13v-ortgangziegel-links"
+  to = "/at/produkte/steildach/dachsteine-dachziegel/"
+  status = 301
+  force = true
+
+
+
+
+
+
+
 [[redirects]]
   from = "/at/sxa/file/download*"
   to = "/at/downloads/"

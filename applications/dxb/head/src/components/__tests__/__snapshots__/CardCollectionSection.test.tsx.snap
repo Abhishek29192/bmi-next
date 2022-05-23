@@ -400,6 +400,183 @@ exports[`CardCollectionSection component Renders correctly When Title rich text 
 </body>
 `;
 
+exports[`CardCollectionSection component Renders correctly When dialogContent link is provided 1`] = `
+<body>
+  <div>
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              test title
+            </h2>
+            <div
+              class="RichText"
+            >
+              <p
+                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
+              >
+                test rich text
+              </p>
+            </div>
+            <h3
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="group-chips"
+            >
+              <div
+                class="chips"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2019\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: global.clearAll
+                </span>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
+                  href="/en/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        1 June 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-164"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+            </div>
+            <a
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-contained buttonStyles-contained-163 link MuiButton-containedPrimary"
+              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
+              href="https://www.external.co.uk"
+              rel="noopener noreferrer"
+              tabindex="0"
+              target="_blank"
+            >
+              <span
+                class="MuiButton-label buttonStyles-label-164"
+              >
+                string
+                <span
+                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`CardCollectionSection component Renders correctly When entry-hyperlink is present 1`] = `
 <body>
   <div>
@@ -1411,183 +1588,6 @@ exports[`CardCollectionSection component Renders correctly When text length = 0 
 </body>
 `;
 
-exports[`CardCollectionSection component Renders correctly When when dialogContent link is provided 1`] = `
-<body>
-  <div>
-    <div
-      class="CardCollectionSection"
-    >
-      <div
-        class="Section Section--pearl"
-      >
-        <div
-          class="Container"
-        >
-          <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
-          >
-            <h2
-              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
-            >
-              test title
-            </h2>
-            <div
-              class="RichText"
-            >
-              <p
-                class="MuiTypography-root Typography MuiTypography-body1 MuiTypography-gutterBottom"
-              >
-                test rich text
-              </p>
-            </div>
-            <h3
-              class="MuiTypography-root Typography MuiTypography-h4"
-            >
-              MC: cardCollection.groupTitle
-            </h3>
-            <div
-              class="group-chips"
-            >
-              <div
-                class="chips"
-              >
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2019\\",\\"action\\":\\"Selector – Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    2019
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-                <div
-                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
-                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
-                  role="button"
-                  tabindex="0"
-                >
-                  <span
-                    class="MuiChip-label"
-                  >
-                    Badgers
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </div>
-              </div>
-              <a
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
-                type="button"
-              >
-                <span>
-                  MC: global.clearAll
-                </span>
-              </a>
-            </div>
-            <div
-              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
-            >
-              <div
-                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
-              >
-                <a
-                  aria-disabled="false"
-                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/en/\\"}"
-                  href="/en/"
-                  role="button"
-                  tabindex="0"
-                >
-                  <div
-                    class="body"
-                  >
-                    <h4
-                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
-                    >
-                      test
-                    </h4>
-                    <div
-                      class="children text"
-                    />
-                    <div
-                      class="footer"
-                    >
-                      <h6
-                        class="MuiTypography-root date Typography MuiTypography-h6"
-                      >
-                        1 June 2021
-                      </h6>
-                      <span
-                        aria-disabled="false"
-                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-outlined MuiButton-outlinedPrimary"
-                        data-testid="card-link"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <span
-                          class="MuiButton-label buttonStyles-label-164"
-                        >
-                          a string
-                        </span>
-                        <span
-                          class="MuiTouchRipple-root"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </div>
-            </div>
-            <a
-              aria-disabled="false"
-              class="MuiButtonBase-root MuiButton-root buttonStyles-root-161 MuiButton-contained buttonStyles-contained-163 link MuiButton-containedPrimary"
-              data-gtm="{\\"id\\":\\"cta-click1\\",\\"action\\":\\"https://www.external.co.uk\\",\\"label\\":\\"string\\"}"
-              href="https://www.external.co.uk"
-              rel="noopener noreferrer"
-              tabindex="0"
-              target="_blank"
-            >
-              <span
-                class="MuiButton-label buttonStyles-label-164"
-              >
-                string
-                <span
-                  class="MuiButton-endIcon MuiButton-iconSizeMedium"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
 exports[`CardCollectionSection component Sorts correctly By default 1`] = `
 <body>
   <div>
@@ -2467,6 +2467,922 @@ exports[`CardCollectionSection component Sorts correctly By oldest date first 1`
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a multiple row when displaySingleRow is null 1`] = `
+<body>
+  <div>
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="group-chips"
+            >
+              <div
+                class="chips"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2006\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2019\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: global.clearAll
+                </span>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        1. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-601 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-604"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test 2
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        2. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-601 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-604"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test 3
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        3. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-601 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-604"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <div
+                  class="OverviewCard"
+                  type="button"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      Villain 1
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a multiple row when displaySingleRow is set to false 1`] = `
+<body>
+  <div>
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="group-chips"
+            >
+              <div
+                class="chips"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2006\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2019\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: global.clearAll
+                </span>
+              </a>
+            </div>
+            <div
+              class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        1. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-581 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-584"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test 2
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        2. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-581 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-584"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <a
+                  aria-disabled="false"
+                  class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                  data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                  href="/no/"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      test 3
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    >
+                      <h6
+                        class="MuiTypography-root date Typography MuiTypography-h6"
+                      >
+                        3. juni 2021
+                      </h6>
+                      <span
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiButton-root buttonStyles-root-581 MuiButton-outlined MuiButton-outlinedPrimary"
+                        data-testid="card-link"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiButton-label buttonStyles-label-584"
+                        >
+                          a string
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </a>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6 MuiGrid-grid-lg-4 MuiGrid-grid-xl-3"
+              >
+                <div
+                  class="OverviewCard"
+                  type="button"
+                >
+                  <div
+                    class="body"
+                  >
+                    <h4
+                      class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                    >
+                      Villain 1
+                    </h4>
+                    <div
+                      class="children text"
+                    />
+                    <div
+                      class="footer"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CardCollectionSection component single & multiple row display renders correctly on a single row 1`] = `
+<body>
+  <div>
+    <div
+      class="CardCollectionSection"
+    >
+      <div
+        class="Section Section--pearl"
+      >
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h2
+              class="MuiTypography-root title Typography Typography--underline MuiTypography-h2"
+            >
+              test title
+            </h2>
+            <h3
+              class="MuiTypography-root Typography MuiTypography-h4"
+            >
+              MC: cardCollection.groupTitle
+            </h3>
+            <div
+              class="group-chips"
+            >
+              <div
+                class="chips"
+              >
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2006\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2006
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"2019\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    2019
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Badgers\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Badgers
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+                <div
+                  class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-white MuiChip-clickable"
+                  data-gtm="{\\"id\\":\\"selector-cards1\\",\\"label\\":\\"Mushrooms\\",\\"action\\":\\"Selector – Cards Filter\\"}"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="MuiChip-label"
+                  >
+                    Mushrooms
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </div>
+              <a
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover clear-all Anchorlink Anchorlink--disabled MuiTypography-colorPrimary"
+                type="button"
+              >
+                <span>
+                  MC: global.clearAll
+                </span>
+              </a>
+            </div>
+            <div
+              class="wrapper wrapper--show-off-screen wrapper--with-gutter"
+            >
+              <div
+                class="Carousel Carousel--opacity Carousel--with-gutter"
+                data-testid="carousel"
+              >
+                <div
+                  style="overflow-x: hidden;"
+                >
+                  <div
+                    class="react-swipeable-view-container"
+                    style="flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform;"
+                  >
+                    <div
+                      aria-hidden="false"
+                      class="Carousel__slide--global"
+                      data-swipeable="true"
+                      style="width: 100%; flex-shrink: 0; overflow: auto;"
+                    >
+                      <div
+                        class="page"
+                      >
+                        <div
+                          class="slide"
+                          style="width: 33.333333333333336%;"
+                        >
+                          <a
+                            aria-disabled="false"
+                            class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test - a string\\",\\"action\\":\\"/no/\\"}"
+                            href="/no/"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div
+                              class="body"
+                            >
+                              <h4
+                                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                              >
+                                test
+                              </h4>
+                              <div
+                                class="children text"
+                              />
+                              <div
+                                class="footer"
+                              >
+                                <h6
+                                  class="MuiTypography-root date Typography MuiTypography-h6"
+                                >
+                                  1. juni 2021
+                                </h6>
+                                <span
+                                  aria-disabled="false"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-561 MuiButton-outlined MuiButton-outlinedPrimary"
+                                  data-testid="card-link"
+                                  role="button"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    class="MuiButton-label buttonStyles-label-564"
+                                  >
+                                    a string
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </a>
+                        </div>
+                        <div
+                          class="slide"
+                          style="width: 33.333333333333336%;"
+                        >
+                          <a
+                            aria-disabled="false"
+                            class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 2 - a string\\",\\"action\\":\\"/no/\\"}"
+                            href="/no/"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div
+                              class="body"
+                            >
+                              <h4
+                                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                              >
+                                test 2
+                              </h4>
+                              <div
+                                class="children text"
+                              />
+                              <div
+                                class="footer"
+                              >
+                                <h6
+                                  class="MuiTypography-root date Typography MuiTypography-h6"
+                                >
+                                  2. juni 2021
+                                </h6>
+                                <span
+                                  aria-disabled="false"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-561 MuiButton-outlined MuiButton-outlinedPrimary"
+                                  data-testid="card-link"
+                                  role="button"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    class="MuiButton-label buttonStyles-label-564"
+                                  >
+                                    a string
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </a>
+                        </div>
+                        <div
+                          class="slide"
+                          style="width: 33.333333333333336%;"
+                        >
+                          <a
+                            aria-disabled="false"
+                            class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+                            data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"test 3 - a string\\",\\"action\\":\\"/no/\\"}"
+                            href="/no/"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <div
+                              class="body"
+                            >
+                              <h4
+                                class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h4"
+                              >
+                                test 3
+                              </h4>
+                              <div
+                                class="children text"
+                              />
+                              <div
+                                class="footer"
+                              >
+                                <h6
+                                  class="MuiTypography-root date Typography MuiTypography-h6"
+                                >
+                                  3. juni 2021
+                                </h6>
+                                <span
+                                  aria-disabled="false"
+                                  class="MuiButtonBase-root MuiButton-root buttonStyles-root-561 MuiButton-outlined MuiButton-outlinedPrimary"
+                                  data-testid="card-link"
+                                  role="button"
+                                  tabindex="0"
+                                >
+                                  <span
+                                    class="MuiButton-label buttonStyles-label-564"
+                                  >
+                                    a string
+                                  </span>
+                                  <span
+                                    class="MuiTouchRipple-root"
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                aria-label="Move right"
+                class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-572 iconButtonStyles-medium-578 iconButtonStyles-contained-573 ArrowControl ArrowControl--right"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root chevron"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
             </div>
           </div>
         </div>

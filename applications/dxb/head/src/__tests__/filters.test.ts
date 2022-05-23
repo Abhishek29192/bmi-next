@@ -20,7 +20,9 @@ import {
   updateFilterValue,
   getCategoryFilters,
   combineVariantClassifications,
-  getCategoryCodesFilterFromDocuments
+  getCategoryCodesFilterFromDocuments,
+  ResultTypeEnum,
+  SourceEnum
 } from "../utils/filters";
 import {
   Product,
@@ -575,7 +577,10 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        const result = getProductFamilyFilterFromDocuments(
+          inputDataItems,
+          ResultTypeEnum.Technical
+        );
         expect(result).toEqual(undefined);
       });
     });
@@ -591,7 +596,10 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        const result = getProductFamilyFilterFromDocuments(
+          inputDataItems,
+          ResultTypeEnum.Technical
+        );
         expect(result).toEqual(undefined);
       });
     });
@@ -601,10 +609,13 @@ describe("filters tests", () => {
           PIMDocumentData | DocumentData | PIMLinkDocumentData
         >();
 
-        const pimDocument = createContentfulDocument();
+        const contentfulDocument = createContentfulDocument();
 
-        inputDataItems.push(pimDocument);
-        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        inputDataItems.push(contentfulDocument);
+        const result = getProductFamilyFilterFromDocuments(
+          inputDataItems,
+          ResultTypeEnum.Simple
+        );
         expect(result).toEqual(undefined);
       });
     });
@@ -614,11 +625,14 @@ describe("filters tests", () => {
           PIMDocumentData | DocumentData | PIMLinkDocumentData
         >();
 
+        const product = createProduct({
+          categories: [createCategory({ categoryType: "ProductFamily" })]
+        });
+
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
-          product: createProduct({
-            categories: [createCategory({ categoryType: "ProductFamily" })]
-          })
+          product,
+          relatedProducts: [product]
         });
 
         const expectedResult = {
@@ -633,7 +647,10 @@ describe("filters tests", () => {
           value: []
         };
         inputDataItems.push(pimDocument);
-        const result = getProductFamilyFilterFromDocuments(inputDataItems);
+        const result = getProductFamilyFilterFromDocuments(
+          inputDataItems,
+          ResultTypeEnum.Simple
+        );
         expect(result).toEqual(expectedResult);
       });
     });
@@ -651,7 +668,11 @@ describe("filters tests", () => {
         });
 
         inputDataItems.push(pimDocument);
-        const result = getTextureFilterFromDocuments("", inputDataItems);
+        const result = getTextureFilterFromDocuments(
+          "",
+          inputDataItems,
+          ResultTypeEnum.Technical
+        );
         expect(result).toEqual(undefined);
       });
     });
@@ -662,28 +683,31 @@ describe("filters tests", () => {
             PIMDocumentData | DocumentData | PIMLinkDocumentData
           >();
 
+          const product = createProduct({
+            classifications: [
+              createClassification({
+                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
+                features: [
+                  {
+                    name: "classification-feature-name",
+                    code: "/appearanceAttributes.texturefamily",
+                    featureValues: [
+                      {
+                        value: "feature-label",
+                        code: "value"
+                      }
+                    ]
+                  }
+                ]
+              })
+            ]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
-            product: createProduct({
-              classifications: [
-                createClassification({
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    {
-                      name: "classification-feature-name",
-                      code: "/appearanceAttributes.texturefamily",
-                      featureValues: [
-                        {
-                          value: "feature-label",
-                          code: "value"
-                        }
-                      ]
-                    }
-                  ]
-                })
-              ]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = {
@@ -698,7 +722,11 @@ describe("filters tests", () => {
             value: []
           };
           inputDataItems.push(pimDocument);
-          const result = getTextureFilterFromDocuments("", inputDataItems);
+          const result = getTextureFilterFromDocuments(
+            "",
+            inputDataItems,
+            ResultTypeEnum.Simple
+          );
           expect(result).toEqual(expectedResult);
         });
       });
@@ -2536,7 +2564,7 @@ describe("filters tests", () => {
     describe("When result type is Simple", () => {
       describe("input documents are empty", () => {
         it("returns empty result list", () => {
-          const result = generateUniqueDocuments("Simple", []);
+          const result = generateUniqueDocuments(ResultTypeEnum.Simple, []);
           expect(result).toEqual([]);
         });
       });
@@ -2579,15 +2607,115 @@ describe("filters tests", () => {
           // create duplicate contentful documents
           [1, 2, 3].map(() => inputDataItems.push(contenfulDocument));
 
-          const result = generateUniqueDocuments("Simple", inputDataItems);
+          const result = generateUniqueDocuments(
+            ResultTypeEnum.Simple,
+            inputDataItems
+          );
 
           // unique documents for expected result
           const expectedResult: DocumentResultsData = Array<
             PIMDocumentData | DocumentData | PIMLinkDocumentData
           >();
-          expectedResult.push(pimDocument);
-          expectedResult.push(pimLinkDocument);
+
+          const expectedPimDocument = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            relatedProducts: [createProduct()]
+          });
+          const expectedPimLinkDocument = createPimLinkDocument({
+            id: `pim-link-doc-id`,
+            url: `${baseUrl}pim-link-doc-url`,
+            relatedProducts: [createProduct()]
+          });
+          expectedResult.push(expectedPimDocument);
+          expectedResult.push(expectedPimLinkDocument);
           expectedResult.push(contenfulDocument);
+
+          expect(result).toEqual(expectedResult);
+        });
+
+        it("returns unique documents list with apropriated related products", () => {
+          const baseUrl = "http://localhost/document/library/";
+
+          const product1 = createProduct({
+            code: "product-code1",
+            categories: [
+              createCategory({
+                categoryType: "ProductFamily",
+                code: "TestProductFamily1",
+                name: "TestProductFamily1"
+              })
+            ]
+          });
+          const product2 = createProduct({
+            code: "product-code2",
+            categories: [
+              createCategory({
+                categoryType: "ProductFamily",
+                code: "TestProductFamily2",
+                name: "TestProductFamily2"
+              })
+            ]
+          });
+          const product3 = createProduct({
+            code: "product-code3",
+            categories: [
+              createCategory({
+                categoryType: "ProductFamily",
+                code: "TestProductFamily3",
+                name: "TestProductFamily3"
+              })
+            ]
+          });
+
+          const pimDocument = createPimDocument({
+            id: `pim-doc-id-test`,
+            url: `${baseUrl}pim-doc-url-test`
+          });
+
+          const pimDocument1 = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: product1
+          });
+          const pimDocument2 = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: product2
+          });
+          const pimDocument3 = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: product3
+          });
+
+          // create duplicate pim documents
+          const inputDataItems: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >(pimDocument, pimDocument1, pimDocument2, pimDocument3);
+
+          const result = generateUniqueDocuments(
+            ResultTypeEnum.Simple,
+            inputDataItems
+          );
+
+          // unique documents for expected result
+          const expectedResult: DocumentResultsData = Array<
+            PIMDocumentData | DocumentData | PIMLinkDocumentData
+          >();
+          const documentWithRelatedProducts = createPimDocument({
+            id: `pim-doc-id`,
+            url: `${baseUrl}pim-doc-url`,
+            product: product1,
+            relatedProducts: [product1, product2, product3]
+          });
+          const expectedPimDocument = createPimDocument({
+            id: `pim-doc-id-test`,
+            url: `${baseUrl}pim-doc-url-test`,
+            relatedProducts: [createProduct()]
+          });
+          expectedResult.push(expectedPimDocument);
+          expectedResult.push(documentWithRelatedProducts);
 
           expect(result).toEqual(expectedResult);
         });
@@ -2597,7 +2725,7 @@ describe("filters tests", () => {
     describe("When result type is NOT Simple", () => {
       describe("input documents are empty", () => {
         it("returns empty result list", () => {
-          const result = generateUniqueDocuments("Technical", []);
+          const result = generateUniqueDocuments(ResultTypeEnum.Technical, []);
           expect(result).toEqual([]);
         });
       });
@@ -2640,7 +2768,10 @@ describe("filters tests", () => {
           // create duplicate contentful documents
           [1, 2, 3].map(() => inputDataItems.push(contenfulDocument));
 
-          const result = generateUniqueDocuments("Technical", inputDataItems);
+          const result = generateUniqueDocuments(
+            ResultTypeEnum.Technical,
+            inputDataItems
+          );
 
           expect(result).toEqual(inputDataItems);
         });
@@ -2691,8 +2822,8 @@ describe("filters tests", () => {
         // ALL : Technical is not supported
         let result = getDocumentFilters(
           inputDataItems,
-          "ALL",
-          "Technical",
+          SourceEnum.ALL,
+          ResultTypeEnum.Technical,
           "classificationNamespace",
           []
         );
@@ -2701,8 +2832,8 @@ describe("filters tests", () => {
         // CMS : Technical is not supported
         result = getDocumentFilters(
           inputDataItems,
-          "CMS",
-          "Technical",
+          SourceEnum.CMS,
+          ResultTypeEnum.Technical,
           "classificationNamespace",
           []
         );
@@ -2752,8 +2883,8 @@ describe("filters tests", () => {
         // ALL : Technical is not supported
         let result = getDocumentFilters(
           inputDataItems,
-          "ALL",
-          "Technical",
+          SourceEnum.ALL,
+          ResultTypeEnum.Technical,
           "classificationNamespace",
           null
         );
@@ -2762,8 +2893,8 @@ describe("filters tests", () => {
         // CMS : Technical is not supported
         result = getDocumentFilters(
           inputDataItems,
-          "CMS",
-          "Technical",
+          SourceEnum.CMS,
+          ResultTypeEnum.Technical,
           "classificationNamespace",
           []
         );
@@ -2780,16 +2911,19 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -2820,8 +2954,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "PIM",
-            "Simple",
+            SourceEnum.PIM,
+            ResultTypeEnum.Simple,
             "classificationNamespace",
             []
           );
@@ -2836,24 +2970,27 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" }),
+              createCategory({
+                categoryType: "Category",
+                code: "MAINTILE_CLAY_NO"
+              }),
+              createCategory({
+                categoryType: "Category",
+                code: "CONSTRUCTION"
+              })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "MAINTILE_CLAY_NO"
-                }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "CONSTRUCTION"
-                })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -2899,8 +3036,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "PIM",
-            "Simple",
+            SourceEnum.PIM,
+            ResultTypeEnum.Simple,
             "classificationNamespace",
             ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
           );
@@ -2918,16 +3055,19 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -2958,8 +3098,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "PIM",
-            "Technical",
+            SourceEnum.PIM,
+            ResultTypeEnum.Technical,
             "classificationNamespace",
             []
           );
@@ -2975,24 +3115,27 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" }),
+              createCategory({
+                categoryType: "Category",
+                code: "MAINTILE_CLAY_NO"
+              }),
+              createCategory({
+                categoryType: "Category",
+                code: "CONSTRUCTION"
+              })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "MAINTILE_CLAY_NO"
-                }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "CONSTRUCTION"
-                })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -3038,8 +3181,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "PIM",
-            "Technical",
+            SourceEnum.PIM,
+            ResultTypeEnum.Technical,
             "classificationNamespace",
             ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
           );
@@ -3086,8 +3229,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "CMS",
-            "Card Collection",
+            SourceEnum.CMS,
+            ResultTypeEnum.CardCollection,
             "classificationNamespace",
             []
           );
@@ -3139,8 +3282,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "CMS",
-            "Card Collection",
+            SourceEnum.CMS,
+            ResultTypeEnum.CardCollection,
             "classificationNamespace",
             ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
           );
@@ -3198,8 +3341,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "CMS",
-            "Simple",
+            SourceEnum.CMS,
+            ResultTypeEnum.Simple,
             "classificationNamespace",
             []
           );
@@ -3214,24 +3357,27 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" }),
+              createCategory({
+                categoryType: "Category",
+                code: "MAINTILE_CLAY_NO"
+              }),
+              createCategory({
+                categoryType: "Category",
+                code: "CONSTRUCTION"
+              })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "MAINTILE_CLAY_NO"
-                }),
-                createCategory({
-                  categoryType: "Category",
-                  code: "CONSTRUCTION"
-                })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -3277,8 +3423,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "CMS",
-            "Simple",
+            SourceEnum.CMS,
+            ResultTypeEnum.Simple,
             "classificationNamespace",
             ["Category | MAINTILE_CLAY_NO", "Category | CONSTRUCTION"]
           );
@@ -3296,16 +3442,19 @@ describe("filters tests", () => {
 
           const baseUrl = "http://localhost/document/library/";
 
+          const product = createProduct({
+            categories: [
+              createCategory({ categoryType: "Brand" }),
+              createCategory({ categoryType: "ProductFamily" })
+            ],
+            classifications: [createClassification()]
+          });
+
           const pimDocument = createPimDocument({
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`,
-            product: createProduct({
-              categories: [
-                createCategory({ categoryType: "Brand" }),
-                createCategory({ categoryType: "ProductFamily" })
-              ],
-              classifications: [createClassification()]
-            })
+            product,
+            relatedProducts: [product]
           });
 
           const expectedResult = [
@@ -3347,8 +3496,8 @@ describe("filters tests", () => {
           inputDataItems.push(pimDocument);
           const result = getDocumentFilters(
             inputDataItems,
-            "ALL",
-            "Simple",
+            SourceEnum.ALL,
+            ResultTypeEnum.Simple,
             "classificationNamespace",
             []
           );
@@ -3364,24 +3513,27 @@ describe("filters tests", () => {
 
             const baseUrl = "http://localhost/document/library/";
 
+            const product = createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY_NO"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                })
+              ],
+              classifications: [createClassification()]
+            });
+
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
               url: `${baseUrl}pim-doc-url`,
-              product: createProduct({
-                categories: [
-                  createCategory({ categoryType: "Brand" }),
-                  createCategory({ categoryType: "ProductFamily" }),
-                  createCategory({
-                    categoryType: "Category",
-                    code: "MAINTILE_CLAY_NO"
-                  }),
-                  createCategory({
-                    categoryType: "Category",
-                    code: "CONSTRUCTION"
-                  })
-                ],
-                classifications: [createClassification()]
-              })
+              product,
+              relatedProducts: [product]
             });
 
             const expectedResult = [
@@ -3423,8 +3575,8 @@ describe("filters tests", () => {
             inputDataItems.push(pimDocument);
             const result = getDocumentFilters(
               inputDataItems,
-              "ALL",
-              "Simple",
+              SourceEnum.ALL,
+              ResultTypeEnum.Simple,
               "classificationNamespace",
               ["MAINTILE_CLAY_NO", "CONSTRUCTION"]
             );
@@ -3439,28 +3591,31 @@ describe("filters tests", () => {
 
             const baseUrl = "http://localhost/document/library/";
 
+            const product = createProduct({
+              categories: [
+                createCategory({ categoryType: "Brand" }),
+                createCategory({ categoryType: "ProductFamily" }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "MAINTILE_CLAY"
+                }),
+                createCategory({
+                  categoryType: "Category",
+                  code: "CONSTRUCTION"
+                }),
+                createCategory({
+                  categoryType: "ROOF_NO",
+                  code: "ROOF"
+                })
+              ],
+              classifications: [createClassification()]
+            });
+
             const pimDocument = createPimDocument({
               id: `pim-doc-id`,
               url: `${baseUrl}pim-doc-url`,
-              product: createProduct({
-                categories: [
-                  createCategory({ categoryType: "Brand" }),
-                  createCategory({ categoryType: "ProductFamily" }),
-                  createCategory({
-                    categoryType: "Category",
-                    code: "MAINTILE_CLAY"
-                  }),
-                  createCategory({
-                    categoryType: "Category",
-                    code: "CONSTRUCTION"
-                  }),
-                  createCategory({
-                    categoryType: "ROOF_NO",
-                    code: "ROOF"
-                  })
-                ],
-                classifications: [createClassification()]
-              })
+              product,
+              relatedProducts: [product]
             });
 
             const expectedResult = [
@@ -3528,8 +3683,8 @@ describe("filters tests", () => {
             inputDataItems.push(pimDocument);
             const result = getDocumentFilters(
               inputDataItems,
-              "ALL",
-              "Simple",
+              SourceEnum.ALL,
+              ResultTypeEnum.Simple,
               "classificationNamespace",
               ["Category | MAINTILE_CLAY", "Category | CONSTRUCTION", "ROOF_NO"]
             );
@@ -3618,7 +3773,11 @@ describe("filters tests", () => {
   describe("getCategoryCodesFilterFromDocuments tests", () => {
     describe("When allowFilterBy is null", () => {
       it("returns empty filters", () => {
-        const result = getCategoryCodesFilterFromDocuments([], null);
+        const result = getCategoryCodesFilterFromDocuments(
+          [],
+          null,
+          ResultTypeEnum.Simple
+        );
         expect(result).toEqual([]);
       });
     });
@@ -3630,24 +3789,27 @@ describe("filters tests", () => {
 
         const baseUrl = "http://localhost/document/library/";
 
+        const product = createProduct({
+          categories: [
+            createCategory({ categoryType: "Brand" }),
+            createCategory({ categoryType: "ProductFamily" }),
+            createCategory({
+              categoryType: "Category",
+              code: "MAINTILE_CLAY_NO"
+            }),
+            createCategory({
+              categoryType: "Category",
+              code: "CONSTRUCTION"
+            })
+          ],
+          classifications: [createClassification()]
+        });
+
         const pimDocument = createPimDocument({
           id: `pim-doc-id`,
           url: `${baseUrl}pim-doc-url`,
-          product: createProduct({
-            categories: [
-              createCategory({ categoryType: "Brand" }),
-              createCategory({ categoryType: "ProductFamily" }),
-              createCategory({
-                categoryType: "Category",
-                code: "MAINTILE_CLAY_NO"
-              }),
-              createCategory({
-                categoryType: "Category",
-                code: "CONSTRUCTION"
-              })
-            ],
-            classifications: [createClassification()]
-          })
+          product,
+          relatedProducts: [product]
         });
 
         const expectedResult = [
@@ -3669,11 +3831,15 @@ describe("filters tests", () => {
         ];
 
         inputDataItems.push(pimDocument);
-        const result = getCategoryCodesFilterFromDocuments(inputDataItems, [
-          "Category | MAINTILE_CLAY_NO",
-          "Category | CONSTRUCTION",
-          "Category | CONSTRUCTION_NOT_EXIST"
-        ]);
+        const result = getCategoryCodesFilterFromDocuments(
+          inputDataItems,
+          [
+            "Category | MAINTILE_CLAY_NO",
+            "Category | CONSTRUCTION",
+            "Category | CONSTRUCTION_NOT_EXIST"
+          ],
+          ResultTypeEnum.Simple
+        );
         expect(result).toEqual(expectedResult);
       });
     });

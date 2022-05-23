@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import { HeroItem } from "@bmi/components";
 import { Section } from "@bmi/components";
 import { TableOfContent } from "@bmi/components";
-import { AnchorLink } from "@bmi/components";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
@@ -110,7 +109,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
   );
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner: data.contentfulSimplePage.inputBanner,
+    signupBlock: data.contentfulSimplePage.signupBlock,
     seo,
     path: data.contentfulSimplePage.path
   };
@@ -129,18 +128,7 @@ const SimplePage = ({ data, pageContext }: Props) => {
       {renderHero(heroProps, breadcrumbsNode, heroLevel, heroType, {
         isHeroKeyLine: isHeroKeyLine
       })}
-      <TableOfContent
-        renderLink={(sectionId, title) => (
-          <AnchorLink
-            action={{
-              model: "htmlLink",
-              href: `#${sectionId}`
-            }}
-          >
-            {title}
-          </AnchorLink>
-        )}
-      >
+      <TableOfContent>
         {shareWidget && <ShareWidgetSection data={shareWidget} />}
         {leadBlock && <LeadBlockSection data={leadBlock} />}
         {sections && <Sections data={sections} startIndex={+!!leadBlock} />}

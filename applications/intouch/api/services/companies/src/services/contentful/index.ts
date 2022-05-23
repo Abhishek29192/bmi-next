@@ -17,6 +17,7 @@ export type EventMessage =
   | "REQUEST_AUTOMATICALLY_APPROVED"
   | "REQUEST_REJECTED"
   | "REQUEST_APPROVED"
+  | "REQUEST_SUBMITTED"
   | "TEAM_JOINED";
 
 export const getGuaranteeTypeCollection = async (

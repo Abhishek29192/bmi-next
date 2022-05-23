@@ -47,5 +47,9 @@
   "systemToUpdate": "Disse systemene vil bli oppdatert",
   "technology": "Teknologi",
   "unpublished": "Upublisert",
-  "updatedAt": "Sist oppdatert"
+  "updatedAt": "Sist oppdatert",
+  "productData": {
+    "uuid": "Produkt ID",
+    "name": "Produktnavn"
+  }
 }

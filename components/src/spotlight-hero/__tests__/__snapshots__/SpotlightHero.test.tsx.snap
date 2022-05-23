@@ -107,7 +107,7 @@ exports[`SpotlightHero component renders correctly 1`] = `
 </div>
 `;
 
-exports[`SpotlightHero component renders correctly if media does not pass at all 1`] = `
+exports[`SpotlightHero component renders correctly if title as React node 1`] = `
 <div>
   <div
     class="SpotlightHero"
@@ -125,7 +125,11 @@ exports[`SpotlightHero component renders correctly if media does not pass at all
           <h1
             class="MuiTypography-root title Typography Typography--underline Typography--underline--dark-bg MuiTypography-h1"
           >
-            H1 Heading desktop
+            <span
+              class="test-title"
+            >
+              Title
+            </span>
           </h1>
         </div>
       </div>

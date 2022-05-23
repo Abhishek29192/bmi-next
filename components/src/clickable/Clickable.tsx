@@ -4,7 +4,11 @@ type ClickFunction = (
   event?: MouseEvent<HTMLAnchorElement | HTMLButtonElement>
 ) => void;
 export type Default = { onClick?: ClickFunction };
-export type DownloadLink = { href: string; download?: string | boolean };
+export type DownloadLink = {
+  href: string;
+  download?: string | boolean;
+  rel?: string;
+};
 export type HtmlLink = { href: string; target?: string; rel?: string };
 export type RouterLink = { to: string; linkComponent: React.ElementType };
 

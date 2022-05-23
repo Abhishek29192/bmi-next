@@ -4,6 +4,7 @@ import Carousel, { getPageFromAbsoluteIndex } from "../carousel/Carousel";
 import Media from "../media/Media";
 import SlideControls from "../slide-controls/SlideControls";
 import Typography from "../typography/Typography";
+import transformHyphens from "../utils";
 import styles from "./TwoPaneCarousel.module.scss";
 import { Props } from "./types";
 
@@ -34,7 +35,7 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
                 hasUnderline
                 className={styles["heading"]}
               >
-                {title}
+                {transformHyphens(title)}
               </Typography>
             </Carousel.Slide>
           );
@@ -54,7 +55,7 @@ const MobileTwoPaneCarousel = ({ slides }: Props) => {
               <Media className={styles["image"]}>{media}</Media>
               {(description || cta) && (
                 <div className={styles["text"]}>
-                  {description}
+                  {transformHyphens(description)}
                   <div>
                     {cta && (
                       <AnchorLink

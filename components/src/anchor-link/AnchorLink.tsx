@@ -4,6 +4,7 @@ import classnames from "classnames";
 import Icon from "../icon/Icon";
 import { withClickable } from "../clickable/Clickable";
 import { ColorPairContext } from "../color-pair/ColorPair";
+import { transformHyphens } from "../utils/commonUtils";
 import arrowForwardIcon from "./icons/arrow-right.svg";
 import launchIcon from "./icons/launch.svg";
 import styles from "./AnchorLink.module.scss";
@@ -61,7 +62,7 @@ const AnchorLink = ({
       {...rest}
     >
       {iconStart ? icon : null}
-      <span>{children}</span>
+      <span>{transformHyphens(children)}</span>
       {iconEnd ? icon : null}
     </Link>
   );

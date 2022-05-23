@@ -1,6 +1,7 @@
 process.env.FRONTEND_URL = "intouch.dddev.io";
 process.env.AUTH0_NAMESPACE = "AUTH0_NAMESPACE";
 process.env.APP_ENV = "dev";
+process.env.AUTH0_API_DOMAIN = "AUTH0_API_DOMAIN";
 
 import {
   completeInvitation,
@@ -8,7 +9,9 @@ import {
   invite,
   updateAccount,
   resetPasswordImportedUsers,
-  resetPassword
+  resetPassword,
+  validateSignupUser,
+  deleteInvitedUser
 } from "../";
 import * as mailerSrv from "../../../services/mailer";
 import * as trainingSrv from "../../../services/training";
@@ -28,6 +31,8 @@ const mockClientGateway = jest.fn();
 const mockUploadFileByStream = jest.fn();
 const mockDeleteFile = jest.fn();
 const loggerError = jest.fn();
+const mockGetAccessToken = jest.fn();
+const loggerInfo = jest.fn();
 
 jest.mock("../../../services/events");
 jest.mock("../../../services/mailer");
@@ -41,9 +46,12 @@ jest.mock("crypto", () => {
   };
 });
 
+const axiosSpy = jest.fn();
+jest.mock("axios", () => (params) => axiosSpy(params));
+
 const logger = () => ({
   error: loggerError,
-  info: () => {}
+  info: loggerInfo
 });
 
 describe("Account", () => {
@@ -59,7 +67,8 @@ describe("Account", () => {
     createResetPasswordTicket: mockCreateResetPasswordTicket,
     getUserByEmail: mockAuth0GetUserByEmail,
     createUser: mockAuth0CreateUser,
-    changePassword: mockAuth0ChangePassword
+    changePassword: mockAuth0ChangePassword,
+    getAccessToken: mockGetAccessToken
   };
   const queryBuilder = () => ({
     where: () => {}
@@ -1737,6 +1746,230 @@ describe("Account", () => {
         auth0
       );
       expect(mockAuth0ChangePassword).toBeCalledWith("email@email.com");
+    });
+  });
+
+  describe("validateSignupUser", () => {
+    const email = "test@test.com";
+    const executeGetAccessToken = () =>
+      mockGetAccessToken.mockReturnValueOnce({ access_token: "access_token" });
+
+    it("positive case", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({ data: [{ email_verified: true }] });
+      const response = await validateSignupUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe(true);
+      expect(axiosSpy).toHaveBeenCalledWith({
+        method: "GET",
+        url: `https://AUTH0_API_DOMAIN/api/v2/users-by-email?email=${encodeURIComponent(
+          email
+        )}`,
+        headers: { Authorization: `Bearer access_token` }
+      });
+    });
+
+    it("when email_verified return false", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({ data: [{ email_verified: false }] });
+      const response = await validateSignupUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe(false);
+    });
+
+    it("when no user found", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({ data: [] });
+      const response = await validateSignupUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe(true);
+    });
+
+    it("should throw an error if getAccessToken fails", async () => {
+      const errorMessage = "get Token Error";
+      mockGetAccessToken.mockRejectedValueOnce(new Error(errorMessage));
+
+      await expect(
+        validateSignupUser(null, { email }, contextMock, resolveInfo, auth0)
+      ).rejects.toThrowError("fail");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Unable to validate auth0 user: ${email}, Error: ${errorMessage}`
+      );
+    });
+
+    it("should throw an error if axios fails", async () => {
+      const errorMessage = "get User Error";
+      executeGetAccessToken();
+      axiosSpy.mockRejectedValueOnce(new Error(errorMessage));
+
+      await expect(
+        validateSignupUser(null, { email }, contextMock, resolveInfo, auth0)
+      ).rejects.toThrowError("fail");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Unable to validate auth0 user: ${email}, Error: ${errorMessage}`
+      );
+    });
+  });
+
+  describe("deleteInvitedUser", () => {
+    const email = "test@test.com";
+    const executeGetAccessToken = () =>
+      mockGetAccessToken.mockReturnValueOnce({ access_token: "access_token" });
+
+    it("positive case", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({
+        data: [{ email_verified: false, user_id: 1 }]
+      });
+      mockRootQuery.mockResolvedValueOnce({ rows: [] });
+      const response = await deleteInvitedUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledTimes(1);
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `Successfully deleted auth0 user: ${email}`
+      );
+      expect(axiosSpy).toHaveBeenNthCalledWith(1, {
+        method: "GET",
+        url: `https://AUTH0_API_DOMAIN/api/v2/users-by-email?email=${encodeURIComponent(
+          email
+        )}`,
+        headers: { Authorization: `Bearer access_token` }
+      });
+      expect(axiosSpy).toHaveBeenNthCalledWith(2, {
+        method: "DELETE",
+        url: `https://AUTH0_API_DOMAIN/api/v2/users/1`,
+        headers: { Authorization: `Bearer access_token` }
+      });
+    });
+
+    it("when there is an invitation in db", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({
+        data: [{ email_verified: false, user_id: 1 }]
+      });
+      mockRootQuery.mockResolvedValueOnce({
+        rows: [{ id: 1, market_id: 1, company_id: 1 }]
+      });
+      const response = await deleteInvitedUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe("ok");
+      expect(loggerInfo).toHaveBeenCalledTimes(2);
+      expect(mockRootQuery).toHaveBeenCalledWith(
+        "DELETE FROM invitation WHERE invitee = $1 RETURNING *",
+        [email]
+      );
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `Deleted invitation with email: ${email}`
+      );
+    });
+
+    it("when email_verified is true", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({
+        data: [{ email_verified: true, user_id: 1 }]
+      });
+      const response = await deleteInvitedUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe("fail");
+      expect(loggerInfo).toHaveBeenCalledWith(
+        `Auth0 user has been verified: ${email}`
+      );
+    });
+
+    it("when no user found", async () => {
+      executeGetAccessToken();
+      axiosSpy.mockReturnValueOnce({
+        data: []
+      });
+      const response = await deleteInvitedUser(
+        null,
+        { email },
+        contextMock,
+        resolveInfo,
+        auth0
+      );
+
+      expect(response).toBe("fail");
+      expect(loggerInfo).toHaveBeenCalledWith(`Unable to find user: ${email}`);
+    });
+
+    it("should throw an error if getAccessToken fails", async () => {
+      const errorMessage = "get Token Error";
+      mockGetAccessToken.mockRejectedValueOnce(new Error(errorMessage));
+
+      await expect(
+        deleteInvitedUser(null, { email }, contextMock, resolveInfo, auth0)
+      ).rejects.toThrowError("fail");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Unable to delete auth0 user: ${email}, Error: ${errorMessage}`
+      );
+    });
+
+    it("should throw an error if axios get user fails", async () => {
+      const errorMessage = "get User Error";
+      executeGetAccessToken();
+      axiosSpy.mockRejectedValueOnce(new Error(errorMessage));
+
+      await expect(
+        deleteInvitedUser(null, { email }, contextMock, resolveInfo, auth0)
+      ).rejects.toThrowError("fail");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Unable to delete auth0 user: ${email}, Error: ${errorMessage}`
+      );
+    });
+
+    it("should throw an error if axios delete user fails", async () => {
+      const errorMessage = "get User Error";
+      executeGetAccessToken();
+      axiosSpy
+        .mockReturnValueOnce({
+          data: [{ email_verified: false, user_id: 1 }]
+        })
+        .mockRejectedValueOnce(new Error(errorMessage));
+
+      await expect(
+        deleteInvitedUser(null, { email }, contextMock, resolveInfo, auth0)
+      ).rejects.toThrowError("fail");
+      expect(loggerError).toHaveBeenCalledWith(
+        `Unable to delete auth0 user: ${email}, Error: ${errorMessage}`
+      );
     });
   });
 });

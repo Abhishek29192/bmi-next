@@ -76,15 +76,18 @@ const getUploads = (project: GetProjectQuery["project"]) => {
   const { evidenceItems } = project;
   const uploads = new Map<string, EvidenceCollection>();
 
-  //Default custom guarantee types
+  const currentGuarantee = findProjectGuarantee(
+    project as DeepPartial<Project>
+  );
+
+  // Default custom guarantee types
   const evidenceCategories =
-    findProjectGuarantee(project as DeepPartial<Project>)?.guaranteeType
-      ?.evidenceCategoriesCollection?.items || [];
+    currentGuarantee?.guaranteeType?.evidenceCategoriesCollection?.items || [];
   for (const evidenceCategory of evidenceCategories.filter(Boolean)) {
     uploads.set(evidenceCategory.name, {
       evidences: [],
-      minumumUploads: evidenceCategory?.minimumUploads,
-      description: evidenceCategory?.description?.json
+      minumumUploads: evidenceCategory.minimumUploads,
+      description: evidenceCategory.description?.json
     });
   }
 
@@ -136,7 +139,7 @@ const getUploads = (project: GetProjectQuery["project"]) => {
 const isCustomEvidenceAvailable = (guarantee: DeepPartial<Guarantee>) => {
   return (
     guarantee?.coverage === "SOLUTION" &&
-    ["NEW", "REJECTED"].includes(guarantee?.status)
+    ["NEW", "REJECTED"].includes(guarantee.status)
   );
 };
 
@@ -158,6 +161,9 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
   });
   const [selectedEvidenceCollection, setSelectedEvidenceCollection] =
     useState<EvidenceCollection>();
+  const [defaultRequirementCategory, setDefaultRequirementCategory] = useState<
+    CustomEvidenceCategoryKey | "MISCELLANEOUS"
+  >("MISCELLANEOUS");
 
   const [addEvidences, { loading: loadingAdd }] = useAddEvidencesMutation({
     refetchQueries: [
@@ -220,12 +226,31 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       }
     });
   };
-  const requiredHandler = (evidenceCollection: EvidenceCollection) => {
+  const requiredHandler = (evidenceCollection: EvidenceCollection, key) => {
     setSelectedEvidenceCollection(evidenceCollection);
     setRequirementOpen(true);
+
+    const mappedCategory = getMappedEvidenceCategory(
+      currentGuarantee,
+      customEvidenceAvailable,
+      key
+    );
+    setDefaultRequirementCategory(mappedCategory?.referenceCode);
   };
 
   const uploads = getUploads(project);
+
+  const getMappedEvidenceCategory = (
+    currentGuarantee,
+    customEvidenceAvailable,
+    key
+  ) => {
+    if (customEvidenceAvailable) {
+      return currentGuarantee.guaranteeType?.evidenceCategoriesCollection?.items.find(
+        (o) => o.name === key
+      );
+    }
+  };
 
   const handleCarouselToggle = useCallback(
     (evidenceId: number) => {
@@ -246,11 +271,16 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
     });
   }, [setModalInfo]);
 
+  const uploadButtonClickHandler = () => {
+    setRequirementOpen(false);
+    setEvidenceDialogOpen(true);
+  };
+
   useEffect(() => {
     if (uploads) {
       const evidenceItems: Evidence[] = []
         .concat([...uploads.entries()])
-        .filter(([key, values]) => values?.evidences?.length > 0)
+        .filter(([key, values]) => values.evidences.length > 0)
         .flatMap(([key, values]) => values.evidences);
       if (evidenceItems.length > 0) {
         setGalleryItems(getGalleryItems(evidenceItems));
@@ -280,8 +310,8 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
             {uploads &&
               [...uploads.entries()].map(([key, values], index) => {
                 const isAllEvidenceUploaded =
-                  (values?.evidences?.length || 0) >=
-                  (values?.minumumUploads || 0);
+                  (values.evidences.length || 0) >=
+                  (values.minumumUploads || 0);
                 return (
                   <Accordion.Item
                     key={`${key}-${index}`}
@@ -297,10 +327,10 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                         {t(key)}
                       </Typography>
                       <div className={styles.requiredList}>
-                        {values?.minumumUploads > 0 && (
+                        {values.minumumUploads > 0 && (
                           <AnchorLink
                             onClick={() => {
-                              requiredHandler(values);
+                              requiredHandler(values, key);
                             }}
                           >
                             {t("upload_tab.requirementModal.title")}
@@ -381,6 +411,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
                   ?.items || []
               : null
           }
+          defaultEvidenceCategory={defaultRequirementCategory}
           onCloseClick={() => setEvidenceDialogOpen(false)}
           onConfirmClick={evidenceDialogConfirmHandler}
           loading={loadingAdd}
@@ -389,6 +420,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
           isOpen={isRequirementOpen}
           description={selectedEvidenceCollection?.description}
           onCloseClick={() => setRequirementOpen(false)}
+          onUploadButtonClick={uploadButtonClickHandler}
         />
       </div>
     </>

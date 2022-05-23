@@ -1,5 +1,5 @@
 import uniqueId from "lodash-es/uniqueId";
-import { Clickable, ClickableAction } from "@bmi/components";
+import { Clickable, ClickableAction, transformHyphens } from "@bmi/components";
 import { Dialog } from "@bmi/components";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import React, { useCallback, useContext, useMemo, useState } from "react";
@@ -18,6 +18,7 @@ const checkUrlAction = (url: string): boolean => {
   const actionUrls = ["mailto:", "tel:", "callto:"];
   return actionUrls.some((actionUrl) => url.startsWith(actionUrl));
 };
+
 export enum DataTypeEnum {
   External = "External",
   Internal = "Internal",
@@ -309,7 +310,7 @@ export const Link = ({
   return (
     <>
       <Component action={action} onClick={handleOnClick} {...rest}>
-        {children}
+        {transformHyphens(children)}
       </Component>
       {data?.type === "Dialog" && data?.dialogContent && memoedRenderDialog}
     </>

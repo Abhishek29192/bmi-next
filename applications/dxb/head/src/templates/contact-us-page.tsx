@@ -57,7 +57,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
     queriesTitle,
     queriesSubtitle,
     contentTopics,
-    inputBanner,
+    signupBlock,
     sections,
     locationsTitle,
     locations,
@@ -81,7 +81,7 @@ const ContactUsPage = ({ data, pageContext }: Props) => {
   };
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
-    inputBanner,
+    signupBlock,
     seo,
     path: data.contentfulContactUsPage.path
   };

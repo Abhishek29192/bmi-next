@@ -4,6 +4,7 @@ import {
 } from "@material-ui/core";
 import classnames from "classnames";
 import React, { useMemo } from "react";
+import { transformHyphens } from "../utils/commonUtils";
 import styles from "./Typography.module.scss";
 
 export type Props = Omit<TypographyProps, "variant"> & {
@@ -68,7 +69,7 @@ const Typography = ({
       })}
       {...props}
     >
-      {children}
+      {transformHyphens(children)}
     </MaterialTypography>
   );
 };

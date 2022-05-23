@@ -23,7 +23,7 @@ const availableTypenames = [
 type Props = {
   node: Inline;
   children: React.ReactNode;
-  gtmLabel?: string;
+  gtmLabel?: React.ReactNode;
 };
 
 const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);

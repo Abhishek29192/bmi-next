@@ -305,9 +305,10 @@ describe("Products resolver", () => {
         {
           assetType___NODE: "asset-type-1",
           children: [],
+          docName: "asset-name",
           id: "source-nameasset-name",
           internal: {
-            contentDigest: "ee5f1b0abc7ab18bac700cb981d7e862",
+            contentDigest: "6b297db19210d0cec3895913bb478aa4",
             owner: "@bmi/resolvers",
             type: "PIMLinkDocument"
           },
@@ -320,12 +321,13 @@ describe("Products resolver", () => {
         {
           assetType___NODE: "asset-type-1",
           children: [],
+          docName: "asset-2",
           extension: "pdf",
           fileSize: 1024,
           format: "application/pdf",
           id: "source-nameasset-2",
           internal: {
-            contentDigest: "32e75455a8c914e23a98263b3f92780f",
+            contentDigest: "781f5609b77255cd91ec194bc50a77ad",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },
@@ -338,12 +340,13 @@ describe("Products resolver", () => {
         {
           assetType___NODE: "asset-type-1",
           children: [],
+          docName: "asset-3",
           extension: "pdf",
           fileSize: 1024,
           format: "application/pdf",
           id: "source-nameasset-3",
           internal: {
-            contentDigest: "32e75455a8c914e23a98263b3f92780f",
+            contentDigest: "cd70df25e587c9729126d1c0330802f0",
             owner: "@bmi/resolvers",
             type: "PIMDocument"
           },

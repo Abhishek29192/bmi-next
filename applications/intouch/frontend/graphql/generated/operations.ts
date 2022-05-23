@@ -34,6 +34,15 @@ export type UpdateProjectHiddenMutation = {
   } | null;
 };
 
+export type RestartGuaranteeMutationVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+}>;
+
+export type RestartGuaranteeMutation = {
+  __typename?: "Mutation";
+  restartGuarantee?: string | null;
+};
+
 export type ContactDetailsCollectionFragmentFragment = {
   __typename?: "ContactDetailsCollection";
   items: Array<{
@@ -115,6 +124,7 @@ export type CompanyAdminsFragmentFragment = {
         phone?: string | null;
         email: string;
         photo?: string | null;
+        signedPhotoUrl?: string | null;
       } | null;
     }>;
   };
@@ -288,6 +298,7 @@ export type UpdateCompanyDetailsMutation = {
             phone?: string | null;
             email: string;
             photo?: string | null;
+            signedPhotoUrl?: string | null;
           } | null;
         }>;
       };
@@ -2604,6 +2615,36 @@ export type ProductsAndSystemsQuery = {
       maximumValidityYears: number;
     }>;
   } | null;
+  systemMembers?: {
+    __typename?: "SystemMembersConnection";
+    nodes: Array<{
+      __typename?: "SystemMember";
+      systemBmiRef: string;
+      productByProductBmiRef?: {
+        __typename?: "Product";
+        id: number;
+        name: string;
+      } | null;
+    }>;
+  } | null;
+};
+
+export type DeleteInvitedUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type DeleteInvitedUserMutation = {
+  __typename?: "Mutation";
+  deleteInvitedUser?: string | null;
+};
+
+export type ValidateSignupUserMutationVariables = SchemaTypes.Exact<{
+  email: SchemaTypes.Scalars["String"];
+}>;
+
+export type ValidateSignupUserMutation = {
+  __typename?: "Mutation";
+  validateSignupUser?: boolean | null;
 };
 
 export type CompanyPageDetailsFragmentFragment = {
@@ -2670,6 +2711,7 @@ export type CompanyPageDetailsFragmentFragment = {
         phone?: string | null;
         email: string;
         photo?: string | null;
+        signedPhotoUrl?: string | null;
       } | null;
     }>;
   };
@@ -2762,6 +2804,7 @@ export type GetCompaniesByMarketQuery = {
             phone?: string | null;
             email: string;
             photo?: string | null;
+            signedPhotoUrl?: string | null;
           } | null;
         }>;
       };
@@ -2863,6 +2906,7 @@ export type GetCompanyQuery = {
           phone?: string | null;
           email: string;
           photo?: string | null;
+          signedPhotoUrl?: string | null;
         } | null;
       }>;
     };

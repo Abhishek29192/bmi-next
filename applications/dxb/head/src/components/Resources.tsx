@@ -6,9 +6,12 @@ import { Data as PromoData } from "./Promo";
 import { Data as PageInfoData } from "./PageInfo";
 import { Data as ExploreBarData } from "./ExploreBar";
 import { Data as ShareWidgetSectionData } from "./ShareWidgetSection";
-import { Data as InputBannerData } from "./InputBanner";
+import { Data as SignupBlockData } from "./SignupBlock";
 import { Data as NextBestActionsData } from "./NextBestActions";
 import { RichTextData } from "./RichText";
+import { Data as SDPSpecificationNotesData } from "./ContentfulSpecificationNotes";
+
+export type DocumentDisplayFormatType = "Asset type" | "Asset name";
 
 export type Data = {
   microCopy: MicroCopyData[] | null;
@@ -22,7 +25,7 @@ export type Data = {
   sdpSidebarItems: TitleWithContentData[] | null;
   sdpBimDescription: RichTextData | null;
   visualiserShareWidget: ShareWidgetSectionData | null;
-  pdpInputBanner: InputBannerData | null;
+  pdpSignupBlock: SignupBlockData | null;
   searchPageSearchTips: TitleWithContentData | null;
   searchPageSidebarItems: TitleWithContentData | null;
   searchPageNextBestActions: NextBestActionsData | null;
@@ -40,6 +43,8 @@ export type Data = {
   pdpFixingToolDescription: RichTextData | null;
   pdpSpecificationTitle: string | null;
   pdpSpecificationDescription: RichTextData | null;
+  sdpSpecificationNotesCta: SDPSpecificationNotesData | null;
+  documentDisplayFormat: DocumentDisplayFormatType | null;
 };
 
 export const query = graphql`
@@ -53,6 +58,7 @@ export const query = graphql`
     pdpCardsTitle
     keyAssetTypes
     maximumSamples
+    documentDisplayFormat
     sampleBasketLink {
       ... on ContentfulSimplePage {
         ...PageInfoFragment
@@ -79,8 +85,8 @@ export const query = graphql`
     visualiserShareWidget {
       ...ShareWidgetSectionFragment
     }
-    pdpInputBanner {
-      ...InputBannerFragment
+    pdpSignupBlock {
+      ...SignupBlockFragment
     }
     searchPageSearchTips {
       ...TitleWithContentFragment
@@ -115,6 +121,9 @@ export const query = graphql`
     pdpSpecificationTitle
     pdpSpecificationDescription {
       ...RichTextFragment
+    }
+    sdpSpecificationNotesCta {
+      ...SpecificationNotesFragment
     }
   }
 `;

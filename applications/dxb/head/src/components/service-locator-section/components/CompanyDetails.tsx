@@ -16,9 +16,11 @@ export const createCompanyDetails = (
   googleURLLatLng: string
 ): CompanyDetailProps[] => {
   const shouldShowIcons = sectionType === EntryTypeEnum.ROOFER_TYPE;
-  const isAddressClickable = sectionType === EntryTypeEnum.BRANCH_TYPE;
+  const isAddressClickable = sectionType !== EntryTypeEnum.MERCHANT_TYPE;
   const shouldShowWebsiteLinkAsLabel =
     sectionType === EntryTypeEnum.MERCHANT_TYPE;
+  const shouldShowGetDirectionsButton =
+    sectionType !== EntryTypeEnum.ROOFER_TYPE;
 
   const localization = {
     globalAddress: localizationCb("global.address"),
@@ -144,12 +146,15 @@ export const createCompanyDetails = (
           label: localization.distanceLabel
         }
       : undefined;
-  const directions: CompanyDetailProps | undefined = {
-    type: "cta",
-    text: localization.directionsLabel,
-    action: actions.directions,
-    label: localization.directionsLabel
-  };
+  const directions: CompanyDetailProps | undefined =
+    shouldShowGetDirectionsButton
+      ? {
+          type: "cta",
+          text: localization.directionsLabel,
+          action: actions.directions,
+          label: localization.directionsLabel
+        }
+      : undefined;
   const phone: CompanyDetailProps | undefined = service.phone
     ? {
         type: "phone",

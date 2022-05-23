@@ -65,10 +65,10 @@
         "submit": "Guardar y cerrar"
       },
       "fields": {
-        "aboutUs": "Descripción de la empresa (opcional)",
+        "aboutUs": "Descripción de la empresa",
         "businessType": "Tipo de empresa registrada",
-        "facebook": "Perfil de Facebook (opcional)",
-        "linkedIn": "Perfil de LinkedIn (opcional)",
+        "facebook": "Perfil de Facebook",
+        "linkedIn": "Perfil de LinkedIn",
         "logo": {
           "alt_text": "Logo de la empresa",
           "buttons": {
@@ -81,11 +81,11 @@
         },
         "name": "Nombre registrado",
         "operationTypes": "Tipo de operación",
-        "ownerEmail": "Dirección de correo electrónico (opcional)",
-        "ownerName": "Nombre (opcional)",
-        "ownerPhone": "Teléfono (opcional)",
-        "phone": "Teléfono (opcional)",
-        "publicEmail": "Dirección de correo electrónico (opcional)",
+        "ownerEmail": "Dirección de correo electrónico",
+        "ownerName": "Nombre",
+        "ownerPhone": "Teléfono",
+        "phone": "Teléfono",
+        "publicEmail": "Dirección de correo electrónico",
         "registeredAddress": {
           "coordinates": {
             "x": "Latitud",
@@ -113,7 +113,7 @@
           "secondLine": "Línea de dirección registrada 2",
           "town": "Localidad"
         },
-        "website": "Sitio web de la empresa (opcional)"
+        "website": "Sitio web de la empresa"
       },
       "maxCharacters": "Máximo de 255 caracteres"
     },
@@ -122,7 +122,7 @@
       "owner_details": "Datos del propietario de la empresa",
       "registered_details": "Datos registrados",
       "trading_address": "Dirección comercial",
-      "trading_address_description": "Añada su dirección comercial para que aparezca en el servicio BMI Encuentra un Instalador",
+      "trading_address_description": "Es recomendable completar la información sobre la empresa",
       "trading_address_fields_heading": "Información de contacto"
     },
     "title": "Datos de la empresa"
@@ -139,7 +139,7 @@
       "publicEmail": "Dirección de correo electrónico",
       "tradingAddress": "Dirección de la oficina principal"
     },
-    "warning": "Para crear una entrada en el servicio BMI Encuentra un Instalador, proporcione la información que se detalla a continuación."
+    "warning": "Es recomendable completar la información sobre la empresa"
   },
   "noCompanies": "Este mercado aún no tiene empresas",
   "operationTypes": {
@@ -153,8 +153,8 @@
   },
   "order": {
     "labels": {
-      "alphabetical": "Alfabético",
-      "last updated": "Última actualización"
+      "ALPHABETICAL": "Alfabético",
+      "UPDATED": "Última actualización"
     }
   },
   "register_dialog": {
@@ -168,7 +168,5 @@
   },
   "supportTitle": "Póngase en contacto con BMI",
   "titleAdmin": "Empresas",
-  "titleMember": "Empresa",
-  "companyAdministrators": "Administradores de la empresa",
-  "companyMembers": "Miembros"
+  "titleMember": "Empresa"
 }

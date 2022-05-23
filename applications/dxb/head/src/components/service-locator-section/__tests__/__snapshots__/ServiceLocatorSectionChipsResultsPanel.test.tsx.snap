@@ -368,29 +368,11 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                             class="CompanyDetails"
                           >
                             <div
-                              class="scrollbar-container ps"
+                              class="scrollbar"
                             >
                               <dl
                                 class="list"
                               >
-                                <div
-                                  class="row, row--cta"
-                                >
-                                  <button
-                                    class="MuiButtonBase-root MuiButton-root buttonStyles-root-5 MuiButton-contained buttonStyles-contained-7 cta-button MuiButton-containedPrimary"
-                                    tabindex="0"
-                                    type="button"
-                                  >
-                                    <span
-                                      class="MuiButton-label buttonStyles-label-8"
-                                    >
-                                      MC: findARoofer.getDirectionsLabel
-                                    </span>
-                                    <span
-                                      class="MuiTouchRipple-root"
-                                    />
-                                  </button>
-                                </div>
                                 <div
                                   class="row"
                                 >
@@ -501,26 +483,6 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                               >
                                 roofer summary
                               </p>
-                              <div
-                                class="ps__rail-x"
-                                style="left: 0px; top: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-x"
-                                  style="left: 0px; width: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
-                              <div
-                                class="ps__rail-y"
-                                style="top: 0px; left: 0px;"
-                              >
-                                <div
-                                  class="ps__thumb-y"
-                                  style="top: 0px; height: 0px;"
-                                  tabindex="0"
-                                />
-                              </div>
                             </div>
                           </div>
                         </div>

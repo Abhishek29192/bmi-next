@@ -3,6 +3,7 @@ import camelcaseKeys from "camelcase-keys";
 import { FileUpload } from "graphql-upload";
 import { AccountPatch, InviteInput, Role } from "@bmi/intouch-api-types";
 import { UpdateAccountInput, Market } from "@bmi/intouch-api-types";
+import axios from "axios";
 import { sendMessageWithTemplate } from "../../services/mailer";
 import { updateUser } from "../../services/training";
 import { Account, PostGraphileContext } from "../../types";
@@ -656,4 +657,77 @@ export const resetPasswordImportedUsers = async (
   );
 
   return "All done";
+};
+
+export const validateSignupUser = async (
+  _query,
+  args,
+  context,
+  resolveInfo,
+  auth0
+) => {
+  const logger = context.logger("service:account");
+  try {
+    const { access_token } = await auth0.getAccessToken();
+    const email = encodeURIComponent(args.email);
+    const { data } = await axios({
+      method: "GET",
+      url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users-by-email?email=${email}`,
+      headers: { Authorization: `Bearer ${access_token}` }
+    });
+    if (data.length > 0) {
+      return data[0].email_verified;
+    }
+    return true;
+  } catch (err) {
+    logger.error(`Unable to validate auth0 user: ${args.email}, ${err}`);
+    throw new Error("fail");
+  }
+};
+
+export const deleteInvitedUser = async (
+  _query,
+  args,
+  context,
+  resolveInfo,
+  auth0
+) => {
+  const { pgRootPool } = context;
+  const logger = context.logger("service:account");
+  try {
+    const { access_token } = await auth0.getAccessToken();
+    const email = encodeURIComponent(args.email);
+    const { data } = await axios({
+      method: "GET",
+      url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users-by-email?email=${email}`,
+      headers: { Authorization: `Bearer ${access_token}` }
+    });
+    if (data.length > 0 && !data[0].email_verified) {
+      const { user_id } = data[0];
+      await axios({
+        method: "DELETE",
+        url: `https://${process.env.AUTH0_API_DOMAIN}/api/v2/users/${user_id}`,
+        headers: { Authorization: `Bearer ${access_token}` }
+      });
+      logger.info(`Successfully deleted auth0 user: ${args.email}`);
+
+      const { rows: invitations } = await pgRootPool.query(
+        `DELETE FROM invitation WHERE invitee = $1 RETURNING *`,
+        [args.email]
+      );
+      if (invitations.length) {
+        logger.info(`Deleted invitation with email: ${args.email}`);
+      }
+    } else if (data.length > 0 && data[0].email_verified) {
+      logger.info(`Auth0 user has been verified: ${args.email}`);
+      return "fail";
+    } else {
+      logger.info(`Unable to find user: ${args.email}`);
+      return "fail";
+    }
+    return "ok";
+  } catch (err) {
+    logger.error(`Unable to delete auth0 user: ${args.email}, ${err}`);
+    throw new Error("fail");
+  }
 };

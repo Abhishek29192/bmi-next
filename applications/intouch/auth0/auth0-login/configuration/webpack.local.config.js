@@ -104,6 +104,10 @@ module.exports = merge(webpackConfiguration, {
               replace: Buffer.from(localConfig).toString("base64")
             },
             {
+              search: /@@base_url@@/g,
+              replace: "http://{market}.local.intouch:3000"
+            },
+            {
               search: "@@non_roof_img@@",
               replace:
                 "https://storage.googleapis.com/bmi-np-intouch-gcs-publicstorage-euw3-dev/auth0/images/bmi_non_roofpro_intouch.jpg"
