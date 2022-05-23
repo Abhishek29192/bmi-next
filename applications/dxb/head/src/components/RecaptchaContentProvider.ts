@@ -90,7 +90,7 @@ const recaptchaContent_AT: RecaptchaPolicyContentType = {
 
 const recaptchaContent_TR: RecaptchaPolicyContentType = {
   startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
-  privacyPloicyText: "Gizlilik Politikas",
+  privacyPloicyText: "Gizlilik Politikası",
   andText: " ve ",
   termsOfServiceText: "Hizmet Şartları",
   endText: " geçerlidir.",
