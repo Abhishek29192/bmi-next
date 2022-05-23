@@ -8,6 +8,18 @@ export enum ElasticsearchIndexes {
   Systems = "systems"
 }
 
+export const createElasticSearchIndex = async (index: ElasticsearchIndexes) => {
+  const client = await getEsClient();
+  const response = await client.indices.create({
+    index: `${ES_INDEX_PREFIX}${index}`
+  });
+  logger.debug(response);
+
+  logger.info({
+    message: `Successfully created index: ${ES_INDEX_PREFIX}${index}`
+  });
+};
+
 export const deleteElasticSearchIndex = async (index: ElasticsearchIndexes) => {
   const client = await getEsClient();
   const response = await client.indices.delete({
