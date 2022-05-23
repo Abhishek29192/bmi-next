@@ -1,4 +1,5 @@
 import { logger } from "@bmi/logger";
+import validator from "validator";
 
 export const config = {
   api: {
@@ -15,8 +16,8 @@ export default async (req, res) => {
   const { severity, message } = JSON.parse(req.body);
 
   const event = {
-    severity,
-    message
+    severity: validator.escape(severity),
+    message: validator.escape(message)
   };
 
   try {
