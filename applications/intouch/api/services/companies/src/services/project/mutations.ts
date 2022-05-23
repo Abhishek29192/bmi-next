@@ -1,5 +1,6 @@
 import { UpdateProjectInput, Guarantee } from "@bmi/intouch-api-types";
 import { PoolClient } from "pg";
+import { sub, format } from "date-fns";
 
 // Checks if some of the values in disallowed exist in input
 const checkDisallowedInputs = (input, disallowed) =>
@@ -75,4 +76,52 @@ export const updateProject = async (
   }
 
   return resolve();
+};
+
+export const archiveProjects = async (
+  resolve,
+  source,
+  args,
+  context,
+  resolveInfo
+) => {
+  const savepointName = "graphql_archive_projects_mutation";
+  const { pgClient, logger: Logger } = context;
+  const logger = Logger("service:projects");
+
+  await pgClient.query(`SAVEPOINT ${savepointName}`);
+
+  try {
+    const dateToCompare = format(sub(new Date(), { days: 100 }), "yyyy-MM-dd");
+    const { rows: projects } = await pgClient.query(
+      `SELECT project.id FROM project LEFT JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.project_id IS NULL AND project.end_date < $1 AND project.hidden = false`,
+      [dateToCompare]
+    );
+
+    if (projects.length) {
+      const { rows: archivedProjects } = await pgClient.query(
+        `UPDATE project SET hidden = true WHERE id IN (${projects.map(
+          (_, id) => `$${id + 1}`
+        )}) RETURNING id`,
+        [...projects.map(({ id }) => id)]
+      );
+      if (archivedProjects.length) {
+        logger.info(
+          `Projects with id(s) ${archivedProjects.map(
+            ({ id }) => id
+          )} has be archived.`
+        );
+      }
+    } else {
+      logger.info(`No projects to be archived.`);
+    }
+    return "ok";
+  } catch (error) {
+    logger.error(`Failed to archive projects`);
+    await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepointName}`);
+
+    throw error;
+  } finally {
+    await pgClient.query(`RELEASE SAVEPOINT ${savepointName}`);
+  }
 };

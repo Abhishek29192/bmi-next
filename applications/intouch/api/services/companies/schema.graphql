@@ -6166,6 +6166,7 @@ type Mutation {
   ): ImportAccountsCompaniesFromCSVResult
   sendReminderToIncompleteCompanyProfile: String
   restartGuarantee(projectId: Int!): String
+  archiveProjects: String
 }
 
 """The output of our create `Address` mutation."""

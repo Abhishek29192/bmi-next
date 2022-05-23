@@ -18283,6 +18283,7 @@ enum MigrationOrder {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
+  archiveProjects: String
   bulkImport(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.

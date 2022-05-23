@@ -11545,6 +11545,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
+  archiveProjects?: Maybe<Scalars["String"]>;
   bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
   courseCatalogueUpdate?: Maybe<CourseCatalogueUpdatePayload>;
