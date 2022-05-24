@@ -1,7 +1,4 @@
-import {
-  HubspotProvider,
-  useHubspotForm
-} from "@aaronhayes/react-use-hubspot-form";
+import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
 import {
   AnchorLink,
   Button,
@@ -640,20 +637,18 @@ const FormSection = ({
 
   if (source === SourceType.HubSpot && hubSpotFormGuid) {
     return (
-      <HubspotProvider async={false} addToHead={true}>
-        <HubspotForm
-          id={id}
-          hubSpotFormGuid={hubSpotFormGuid}
-          backgroundColor={backgroundColor}
-          showTitle={showTitle && !isDialog}
-          title={title}
-          description={description}
-          onSuccess={onSuccess}
-          additionalValues={additionalValues}
-          className={className}
-          isDialog={isDialog}
-        />
-      </HubspotProvider>
+      <HubspotForm
+        id={id}
+        hubSpotFormGuid={hubSpotFormGuid}
+        backgroundColor={backgroundColor}
+        showTitle={showTitle && !isDialog}
+        title={title}
+        description={description}
+        onSuccess={onSuccess}
+        additionalValues={additionalValues}
+        className={className}
+        isDialog={isDialog}
+      />
     );
   }
   return (
