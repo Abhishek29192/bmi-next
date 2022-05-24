@@ -26,6 +26,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-125"
@@ -460,6 +461,7 @@ exports[`Sitemap cover test for pageContext optional chaining 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-125"
@@ -901,6 +903,7 @@ exports[`Sitemap renders correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -1335,6 +1338,7 @@ exports[`Sitemap renders correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -1776,6 +1780,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-31"
@@ -2210,6 +2215,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-31"
@@ -2598,6 +2604,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"menuUtilitiesLinkLabel\\",\\"action\\":\\"menuUtilitiesLink\\"}"
                 href="menuUtilitiesLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-58"
@@ -3032,6 +3039,7 @@ exports[`Sitemap renders correctly when footerSecondaryNavigation is falsy 1`] =
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"menuNavigationLinkLabel\\"}"
                 href="menuNavigationLink"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-58"

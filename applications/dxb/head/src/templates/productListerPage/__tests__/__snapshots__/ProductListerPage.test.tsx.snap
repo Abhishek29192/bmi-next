@@ -27,6 +27,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -431,6 +432,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -1121,6 +1123,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -1525,6 +1528,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -2220,6 +2224,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -2587,6 +2592,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -3434,6 +3440,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -3801,6 +3808,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -4642,6 +4650,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -5046,6 +5055,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -5929,6 +5939,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -6333,6 +6344,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -6963,6 +6975,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -7367,6 +7380,7 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage witho
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -7997,6 +8011,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -8401,6 +8416,7 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -9078,6 +9094,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -9482,6 +9499,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -10159,6 +10177,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -10563,6 +10582,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -11235,6 +11255,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -11639,6 +11660,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -12316,6 +12338,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -12683,6 +12706,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -13530,6 +13554,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -13897,6 +13922,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -14738,6 +14764,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -15142,6 +15169,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -16025,6 +16053,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -16429,6 +16458,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -17041,6 +17071,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -17445,6 +17476,7 @@ exports[`ProductListerPage template ProductListerPage Legacy ProductFilters test
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -18057,6 +18089,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -18461,6 +18494,7 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -19156,6 +19190,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -19560,6 +19595,7 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -20460,6 +20496,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -20864,6 +20901,7 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -21564,6 +21602,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -21968,6 +22007,7 @@ exports[`ProductListerPage template test hande change url by click on filters an
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -22878,6 +22918,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -23282,6 +23323,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -25476,6 +25518,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                   data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"
@@ -25880,6 +25923,7 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                   href="link-to-page"
                   tabindex="0"
+                  target="_blank"
                 >
                   <span
                     class="MuiButton-label buttonStyles-label"

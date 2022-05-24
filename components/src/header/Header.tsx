@@ -236,6 +236,7 @@ const Header = ({
                   className={styles["utilities-button"]}
                   action={action}
                   variant="text"
+                  target="_blank"
                 >
                   {label}
                 </NavUtilityLinkButton>
