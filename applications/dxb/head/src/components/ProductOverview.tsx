@@ -15,7 +15,7 @@ import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import styles from "./styles/ProductOverview.module.scss";
 import { VisualiserContext } from "./Visualiser";
-import tilesSetData from "./Visualiser/data/tiles.json";
+import tilesSetData from "./visualiser/data/tiles.json";
 
 export type Data = {
   name: string;
