@@ -140,7 +140,7 @@ describe("getRecaptchaPrivacyContent tests", () => {
       expect(result.startText).toEqual(
         "Bu site reCAPTCHA tarafından korunmaktadır ve Google "
       );
-      expect(result.privacyPloicyText).toEqual("Gizlilik Politikas");
+      expect(result.privacyPloicyText).toEqual("Gizlilik Politikası");
       expect(result.andText).toEqual(" ve ");
       expect(result.termsOfServiceText).toEqual("Hizmet Şartları");
       expect(result.endText).toEqual(" geçerlidir.");
