@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
 import classnames from "classnames";
-import DefaultThumbnail from "../thumbnail/Thumbnail";
+import React, { useEffect, useRef, useState } from "react";
 import ThumbScrollerButton from "../thumb-scroller-button/ThumbScrollerButton";
+import DefaultThumbnail from "../thumbnail/Thumbnail";
 import styles from "./MediaGallery.module.scss";
 import { Media as MediaData } from "./types";
 
@@ -103,24 +103,30 @@ const Thumbnails = ({
           marginRight: `${scrollerPosition}%`
         }}
       >
-        {images.map(({ thumbnail, isVideo, altText, media }, index) => {
-          return (
-            <Thumbnail
-              media={media}
-              key={`thumbnail-${index}`}
-              imageSource={thumbnail}
-              state={activeImageIndex === index ? "selected" : "enabled"}
-              onClick={(e: Event) => onThumbnailClick(e, index)}
-              altText={altText}
-              className={styles["thumbnail"]}
-              size="large"
-              isVideo={isVideo}
-              openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
-                openYoutubeVideo && openYoutubeVideo(e, index)
-              }
-            />
-          );
-        })}
+        {images.map(
+          (
+            { thumbnail, isVideo, altText, media, visualiserParameters },
+            index
+          ) => {
+            return (
+              <Thumbnail
+                media={media}
+                key={`thumbnail-${index}`}
+                imageSource={thumbnail}
+                state={activeImageIndex === index ? "selected" : "enabled"}
+                onClick={(e: Event) => onThumbnailClick(e, index)}
+                altText={altText}
+                className={styles["thumbnail"]}
+                size="large"
+                isVideo={isVideo}
+                openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
+                  openYoutubeVideo && openYoutubeVideo(e, index)
+                }
+                visualiserParameters={visualiserParameters}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );
