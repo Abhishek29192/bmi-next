@@ -1,0 +1,35 @@
+@import "~@bmi-digital/styles";
+
+.IEDialog {
+  .IEDialog-title {
+    text-align: center;
+    margin: 40px 80px 20px;
+    font-size: 2rem;
+
+    &::after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .IEDialog-icon {
+    display: block;
+    fill: $color-cyan-400;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto 10px;
+  }
+
+  .IEDialog-body {
+    text-align: center;
+  }
+
+  .IEDialog-actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 0 30px 30px 30px;
+    margin: -8px;
+  }
+}

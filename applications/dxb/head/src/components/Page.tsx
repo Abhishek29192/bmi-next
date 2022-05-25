@@ -25,6 +25,7 @@ import Calculator from "./PitchedRoofCalcualtor";
 import { Product, VariantOption } from "./types/pim";
 import "../../src/styles/fonts.module.scss";
 import { Head } from "./Head";
+import IEDialog, { Data as IEDialogData } from "./IEDialog";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -91,6 +92,13 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
+  const dataIEDialog: IEDialogData = {
+    ieDialogTitle: resources?.ieDialogTitle,
+    ieDialogBody: resources?.ieDialogBody,
+    ieDialogActionLabel: resources?.ieDialogActionLabel,
+    ieDialogActionLink: resources?.ieDialogActionLink
+  };
+
   const siteContext = {
     node_locale,
     countryCode,
@@ -125,6 +133,7 @@ const Page = ({
         variantProduct={variantProduct}
         countryCode={countryCode}
       />
+      <IEDialog data={dataIEDialog} />
       {/* TODO: move cascade of providers to separate composition component AppProviders */}
       <SiteContextProvider value={siteContext}>
         <MicroCopy.Provider values={microCopyContext}>
