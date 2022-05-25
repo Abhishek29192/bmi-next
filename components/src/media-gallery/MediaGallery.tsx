@@ -92,12 +92,14 @@ const MediaGallery = ({
   };
 
   useEffect(() => {
-    const medias = [...media];
-    setCurrentMedias(medias);
-    setCurrentMedia(medias[Number(activeImageIndex)]);
+    if (media && media.length) {
+      const medias = [...media];
+      setCurrentMedias(medias);
+      setCurrentMedia(medias[Number(activeImageIndex)]);
+    }
   }, [media]);
 
-  if (!media.length) {
+  if (!media || !media.length) {
     return null;
   }
 
