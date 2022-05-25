@@ -1,6 +1,7 @@
 import {
   AmbientLight,
   AxesHelper,
+  Box2,
   DirectionalLight,
   EquirectangularReflectionMapping,
   Group,
@@ -12,16 +13,16 @@ import {
   PerspectiveCamera,
   Scene,
   sRGBEncoding,
+  Vector2,
   WebGLRenderer
 } from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import house from "./data/house.json";
-import getRef from "./GetRef";
-import modelCache from "./ModelCache";
-import roofSegmentGenerator from "./RoofSegmentGenerator";
-import textureCache from "./TextureCache";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import tileSlice from "./TileSlice";
+import modelCache from "./ModelCache";
+import textureCache from "./TextureCache";
+import getRef from "./GetRef";
+import roofSegmentGenerator from "./RoofSegmentGeneratorOld";
 import { Colour, Siding, Tile } from "./Types";
 import Viewer, { Props as ViewerProps, State as ViewerState } from "./Viewer";
 
@@ -40,9 +41,6 @@ export default class HouseViewer extends Viewer<Props, State> {
   walls?: Mesh;
   houseLoader?: unknown;
   sidingMaterial?: unknown;
-  roofSegments: Mesh[];
-  ridges: Mesh[];
-  houseScene: Group;
 
   constructor(props: Props) {
     super(props, { isLoading: true });
@@ -186,28 +184,151 @@ export default class HouseViewer extends Viewer<Props, State> {
     tileMesh: Mesh,
     ridgeMesh: Mesh,
     ridgeEndMesh?: Mesh
-  ): void {
+  ) {
+    const roofLayout = {
+      ridges: [
+        {
+          length: 12.7,
+          position: {
+            x: -6.55,
+            y: 6.85,
+            z: 0.22
+          },
+          rotation: {
+            x: 0,
+            y: 1.57079,
+            z: 0
+          }
+        }
+      ],
+      segments: [
+        {
+          // Largest one at the back
+          minX: 0,
+          maxX: 12.6,
+          minZ: 0,
+          maxZ: 5,
+          position: {
+            x: 6.1,
+            y: 3.66,
+            z: 4.55
+          },
+          rotation: {
+            x: 0.634,
+            y: 3.1415,
+            z: 0
+          }
+        },
+        {
+          // Front left
+          minX: 0,
+          maxX: 4.23,
+          minZ: 0,
+          maxZ: 5,
+          position: {
+            x: 1.9,
+            y: 3.66,
+            z: -4.15
+          },
+          rotation: {
+            x: -0.634,
+            y: 0,
+            z: 0
+          }
+        },
+        {
+          // Front right
+          minX: 0,
+          maxX: 4.23,
+          minZ: 0,
+          maxZ: 5,
+          position: {
+            x: -6.5,
+            y: 3.66,
+            z: -4.15
+          },
+          rotation: {
+            x: -0.634,
+            y: 0,
+            z: 0
+          }
+        },
+        {
+          // Front middle
+          minX: 0,
+          maxX: 5.08,
+          minZ: 0,
+          maxZ: 4.4,
+          position: {
+            x: -2.75,
+            y: 5.33,
+            z: -4.35
+          },
+          rotation: {
+            x: -0.32,
+            y: 0,
+            z: 0
+          }
+        },
+        {
+          // Smaller one at the back
+          minX: 0,
+          maxX: 4.2,
+          minZ: 0,
+          maxZ: 1.6,
+          position: {
+            x: 1.9,
+            y: 2.4,
+            z: 5.8
+          },
+          rotation: {
+            x: 0.4,
+            y: 3.1415,
+            z: 0
+          }
+        }
+      ]
+    };
+
+    // The "segments" of the roof. These are rectangular segments of tiles.
+    const segs = roofLayout.segments;
+
     if (this.roof) {
       this.scene?.remove(this.roof);
       this.roof = undefined;
     }
 
     const roof = new Group();
-    this.roofSegments.forEach((segment) => {
+
+    for (let i = 0; i < segs.length; i++) {
+      // eslint-disable-next-line security/detect-object-injection
+      const seg = segs[i];
+
       const newRoofSeg = roofSegmentGenerator(
-        segment,
+        new Box2(
+          new Vector2(seg.minX, seg.minZ),
+          new Vector2(seg.maxX, seg.maxZ)
+        ),
         tileMesh,
         tileInfo,
         material
       );
+
       if (!newRoofSeg) {
         return;
       }
 
-      roof.add(newRoofSeg);
-    });
+      newRoofSeg.position.x = seg.position.x;
+      newRoofSeg.position.y = seg.position.y;
+      newRoofSeg.position.z = seg.position.z;
 
-    if (ridgeMesh && this.ridges) {
+      newRoofSeg.rotation.x = seg.rotation.x;
+      newRoofSeg.rotation.y = seg.rotation.y;
+      newRoofSeg.rotation.z = seg.rotation.z;
+      roof.add(newRoofSeg);
+    }
+
+    if (ridgeMesh && roofLayout.ridges) {
       // Generating the ridge(s) for this roof.
       let boundingBox = ridgeMesh.geometry.boundingBox;
       if (!boundingBox) {
@@ -215,20 +336,12 @@ export default class HouseViewer extends Viewer<Props, State> {
       }
       const minZOffset = boundingBox.min.z;
       const ridgeTileLength = boundingBox.max.z - minZOffset;
-      const ridgeTileHeight = Math.abs(boundingBox.max.y - boundingBox.min.y);
-      const ridges = this.ridges;
+      const ridges = roofLayout.ridges;
 
       for (let i = 0; i < ridges.length; i++) {
         // eslint-disable-next-line security/detect-object-injection
         const ridge = ridges[i];
-        const ridgeBoundingBox = ridge.geometry.boundingBox;
-        if (!ridgeBoundingBox) {
-          return;
-        }
         let ridgeEndLength = 0;
-        const ridgeLength = Math.abs(
-          ridgeBoundingBox.max.z - ridgeBoundingBox.min.z
-        );
 
         if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
@@ -240,7 +353,7 @@ export default class HouseViewer extends Viewer<Props, State> {
         }
 
         const numberOfRidgeTiles =
-          (ridgeLength - ridgeEndLength * 2) / ridgeTileLength;
+          (ridge.length - ridgeEndLength * 2) / ridgeTileLength;
         const intNumberOfRidgeTiles = Math.floor(numberOfRidgeTiles);
 
         const ridgeInstance = new InstancedMesh(
@@ -250,7 +363,7 @@ export default class HouseViewer extends Viewer<Props, State> {
         );
         const placementHelper = new Object3D();
 
-        let posZ = -ridgeLength;
+        let posZ = 0;
 
         if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
@@ -274,7 +387,7 @@ export default class HouseViewer extends Viewer<Props, State> {
           placementHelper.position.set(
             0,
             -0.05,
-            ridgeLength - ridgeEndLength - (boundingBox?.min.z || 0)
+            ridge.length - ridgeEndLength - (boundingBox?.min.z || 0)
           );
           placementHelper.rotation.y = 0;
           placementHelper.updateMatrix();
@@ -317,14 +430,17 @@ export default class HouseViewer extends Viewer<Props, State> {
         ridgeGap.setMatrixAt(0, placementHelper.matrix);
         ridgeInstance.add(ridgeGap);
 
-        ridgeInstance.position.copy(ridge.position);
-        ridgeInstance.position.y += ridgeTileHeight / 2;
+        ridgeInstance.position.x = ridge.position.x;
+        ridgeInstance.position.y = ridge.position.y;
+        ridgeInstance.position.z = ridge.position.z;
 
-        ridgeInstance.rotation.copy(ridge.rotation);
-
+        ridgeInstance.rotation.x = ridge.rotation.x;
+        ridgeInstance.rotation.y = ridge.rotation.y;
+        ridgeInstance.rotation.z = ridge.rotation.z;
         roof.add(ridgeInstance);
       }
     }
+
     this.scene?.add(roof);
     this.roof = roof;
     this.renderFrame();
@@ -467,14 +583,21 @@ export default class HouseViewer extends Viewer<Props, State> {
     if (!this.houseLoader) {
       const { options } = this.props;
       const { contentSource } = options;
+
       let housePath = getRef("public:models/house/v6", {
         contentSource
       });
       housePath = housePath?.substring(0, housePath.length - 10) + "/";
-      this.houseLoader = modelCache(housePath + house.modelName).then(
+
+      modelCache(housePath + "Ridge.glb").then((gltf) => {
+        const ridge = gltf.scene.getObjectByName("Zara_hus_FBX_03_mone");
+        this.scene?.add(gltf.scene);
+        ridge && (ridge.position.y = -0.05);
+      });
+
+      this.houseLoader = modelCache(housePath + "Zara_house_FBX.glb").then(
         (gltf) => {
           // Mark everything as shadow casting:
-          this.houseScene = gltf.scene;
           gltf.scene.traverse((node) => {
             if ("isMesh" in node && node["isMesh"]) {
               (node as Mesh).castShadow = true;
@@ -484,18 +607,12 @@ export default class HouseViewer extends Viewer<Props, State> {
 
           // Delete the rough roof:
           const roofMetal = gltf.scene.getObjectByName("Roof_metal_rough");
-          this.roofSegments = gltf.scene.children.filter((seg) =>
-            seg.name.includes(house.roofSegmentName)
-          ) as Mesh[];
-
-          this.ridges = gltf.scene.children.filter((ridge) =>
-            ridge.name.includes(house.roofRidgeName)
-          ) as Mesh[];
-
           if (roofMetal) {
             roofMetal.position.y = 5.275;
           }
           this.deleteObject(gltf.scene, "Roof_shielding_metal_rough");
+          this.deleteObject(gltf.scene, "GRASS");
+          this.deleteObject(gltf.scene, "Grass");
 
           this.scene?.add(gltf.scene);
 
@@ -509,6 +626,14 @@ export default class HouseViewer extends Viewer<Props, State> {
           this.snowFences = fences
             .map((fenceName) => gltf.scene.getObjectByName(fenceName))
             .filter(Boolean) as Object3D[];
+
+          /*
+				if(this.sidingImage && this.sidingMaterial){
+					this.sidingMaterial.map = this.sidingImage;
+					this.sidingMaterial.needsUpdate = true;
+					this.sidingMaterial.map.needsUpdate = true;
+				}
+				*/
 
           this.renderFrame();
           this.loadModel(this.props);
@@ -553,7 +678,7 @@ export default class HouseViewer extends Viewer<Props, State> {
     this.renderFrame();
   }
 
-  deleteObject(scene: Group | Scene, name: string): void {
+  deleteObject(scene: Group, name: string) {
     const obj = scene.getObjectByName(name);
     obj?.parent?.remove(obj);
   }

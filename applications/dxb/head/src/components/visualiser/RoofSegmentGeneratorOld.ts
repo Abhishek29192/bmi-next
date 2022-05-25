@@ -1,4 +1,5 @@
 import {
+  Box2,
   Group,
   InstancedMesh,
   Mesh,
@@ -18,24 +19,23 @@ import { Tile } from "./Types";
  */
 
 export default (
-  seg: Mesh,
+  boundsBox2: Box2,
   tileMesh: Mesh,
   tileInfo: Tile,
   tileMaterial: MeshStandardMaterial
-): Group | InstancedMesh | undefined => {
+): Group | undefined => {
   // First measure the tile:
   const tileBounds = tileMesh.geometry.boundingBox;
-  const roofBounds = seg.geometry.boundingBox;
 
-  if (!tileBounds || !roofBounds) {
+  if (!tileBounds) {
     return;
   }
 
   let tileWidth = tileBounds.max.x - tileBounds.min.x;
   const tileHeight = tileBounds.max.z - tileBounds.min.z;
   let tileThickness = tileBounds.max.y - tileBounds.min.y;
-  const roofWidth = roofBounds.max.x - roofBounds.min.x;
-  const roofHeight = roofBounds.max.z - roofBounds.min.z;
+  const roofWidth = boundsBox2.max.x - boundsBox2.min.x;
+  const roofHeight = boundsBox2.max.y - boundsBox2.min.y;
 
   // Reduce apparent tile thickness:
   tileInfo.thicknessReduction = tileInfo.thicknessReduction || 0.3;
@@ -83,8 +83,6 @@ export default (
     instanceCount
   );
 
-  primaryTilesMesh.name = "primaryTilesMesh";
-
   // Instance placement helper:
   const placementHelper = new Object3D();
 
@@ -93,10 +91,7 @@ export default (
   let endOfSecondaryRowIndex = 0;
   let startOfSecondaryRowIndex = 0;
 
-  let rowZ =
-    seg.rotation.x < 0
-      ? roofBounds.max.z - tileBounds.max.z * Math.abs(seg.rotation.x)
-      : -roofHeight / 2 - tileBounds.min.z;
+  let rowZ = boundsBox2.max.y;
 
   const horizontalOffset = (tileInfo.horizontalOffset || 0) * tileWidth;
 
@@ -113,7 +108,6 @@ export default (
     tileMaterial,
     rowCount
   );
-  endOfPrimaryRowTileMesh.name = "endOfPrimaryRowTileMesh";
 
   // Offset (secondary) row sliced tiles:
   let offsetRowWidth = rowWidthOfIntTiles + horizontalOffset;
@@ -138,7 +132,6 @@ export default (
       tileMaterial,
       rowCount
     );
-    endOfSecondaryRowTileMesh.name = "endOfSecondaryRowTileMesh";
 
     const startOfSecondaryRowTile = tileSlice(
       tileMesh.geometry,
@@ -151,7 +144,6 @@ export default (
       tileMaterial,
       rowCount
     );
-    startOfSecondaryRowTileMesh.name = "startOfSecondaryRowTileMesh";
   }
 
   // Rotate the tiles such that they cleanly overlap (when an overlap is necessary).
@@ -164,13 +156,9 @@ export default (
 
   // This pair is then rotated such that both tile midpoints sit on the same horizontal line.
   // That results in the following rotation amount:
-  let overlapRotation = verticalOverlap
+  const overlapRotation = verticalOverlap
     ? Math.atan2(tileThickness, (1 - verticalOverlap) * tileHeight)
     : 0;
-
-  if (seg.rotation.x > 0) {
-    overlapRotation = overlapRotation * -1;
-  }
 
   // For each row of tiles..
   for (let v = 0; v < rowCount; v++) {
@@ -181,6 +169,7 @@ export default (
     // For each whole tile on the row..
     let thisRowOffset = 0;
     let tilesOnThisRow = intHorizontalTiles;
+
     // If odd row..
     if (v & 1) {
       // Offset it:
@@ -192,7 +181,7 @@ export default (
       }
     }
 
-    let rowX = thisRowOffset - roofWidth / 2;
+    let rowX = boundsBox2.min.x + thisRowOffset;
     const zRotation = tileInfo.invert ? Math.PI : 0;
     const yRotation = tileInfo.invertY ? 0 : Math.PI;
 
@@ -201,8 +190,8 @@ export default (
       // They're offset by the bounds such that the min edge is exactly touching our target box.
       placementHelper.position.set(
         rowX - tileBounds.min.x,
-        tileThickness,
-        rowZ
+        0,
+        rowZ - tileBounds.min.z
       );
       placementHelper.rotation.z = zRotation;
       placementHelper.rotation.y = yRotation;
@@ -216,7 +205,11 @@ export default (
 
     // rowZ - tileBounds.min.z + tileWidth - offsetRowEndTileWidth
 
-    placementHelper.position.set(rowX - tileBounds.min.x, tileThickness, rowZ);
+    placementHelper.position.set(
+      rowX - tileBounds.min.x,
+      0,
+      rowZ - tileBounds.min.z
+    );
     placementHelper.rotation.z = zRotation;
     placementHelper.rotation.y = yRotation;
     placementHelper.rotation.x = overlapRotation;
@@ -229,7 +222,11 @@ export default (
       );
 
       // Secondary row also has a tile at the start too:
-      placementHelper.position.set((-1 * roofWidth) / 2, tileThickness, rowZ);
+      placementHelper.position.set(
+        boundsBox2.min.x,
+        0,
+        rowZ - tileBounds.min.z
+      );
       placementHelper.rotation.z = zRotation;
       placementHelper.rotation.y = yRotation;
       placementHelper.rotation.x = overlapRotation;
@@ -245,11 +242,7 @@ export default (
       );
     }
 
-    if (seg.rotation.x > 0) {
-      rowZ += rowHeight;
-    } else {
-      rowZ -= rowHeight;
-    }
+    rowZ -= rowHeight;
   }
 
   primaryTilesMesh.castShadow = true;
@@ -279,10 +272,6 @@ export default (
       startOfSecondaryRowTileMesh.receiveShadow = true;
     }
   }
-
-  group.position.copy(seg.position);
-
-  group.rotation.copy(seg.rotation);
 
   return group;
 };
