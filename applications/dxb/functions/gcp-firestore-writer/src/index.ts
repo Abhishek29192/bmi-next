@@ -32,6 +32,9 @@ const updateDocument = (
   const docRef = db.doc(docPath);
 
   batch.set(docRef, updatedItem);
+  logger.info({
+    message: `Updated by path: ${docPath}`
+  });
 };
 
 const deleteBaseEntity = (
@@ -43,6 +46,9 @@ const deleteBaseEntity = (
 
   if (docRef) {
     batch.delete(docRef);
+    logger.info({
+      message: `Deleted by path: ${path}`
+    });
   } else {
     logger.info({
       message: `Deleted ${item.objType} did not found in firestore`
@@ -82,6 +88,9 @@ const deleteNestedEntity = async (
     const updatedDocumentEntities = document[`${objType}`].filter(
       (obj: VariantOption | SystemLayer) => obj.code !== item.code
     );
+    logger.info({
+      message: `All updated document entities: ${updatedDocumentEntities}`
+    });
 
     const docPath = `${basePath}/${document.code}`;
 
@@ -119,6 +128,7 @@ const deleteNestedEntity = async (
 
 const getUpdatedItem = (item: any, collectionPath: string) => {
   if (collectionPath === COLLECTIONS.CATEGORIES) {
+    logger.info({ message: `collection path is the same as in category` });
     return item;
   } else {
     const key =
@@ -137,7 +147,7 @@ const getUpdatedItem = (item: any, collectionPath: string) => {
           (obj: VariantOption | SystemLayer) => obj.code
         )
       };
-
+      logger.info({ message: `updatedItem with new ${key}:  ${updatedItem}` });
       return updatedItem;
     } else {
       return item;
