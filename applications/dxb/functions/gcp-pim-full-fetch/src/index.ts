@@ -17,8 +17,12 @@ const pubSubClient = new PubSub({
 let topicPublisher: Topic;
 const getTopicPublisher = () => {
   if (!topicPublisher) {
+    logger.error({ message: "No topicPublisher" });
     topicPublisher = pubSubClient.topic(TRANSITIONAL_TOPIC_NAME!);
   }
+  logger.info({
+    message: `TopicPublisher is ${topicPublisher}`
+  });
   return topicPublisher;
 };
 
@@ -103,11 +107,16 @@ const handleRequest = async (
   const promises = [];
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
     const response = await fetchData(body.type, i);
-
+    logger.info({
+      message: `Fetched data for ${body.type} body type: ${response}`
+    });
     const promise = publishMessage(body.type, response);
     promises.push(promise);
   }
   await Promise.all(promises);
+  logger.info({
+    message: `All PROMISES WITH PUBLISHED MESSAGES:  ${promises}`
+  });
   res.sendStatus(200);
 };
 
