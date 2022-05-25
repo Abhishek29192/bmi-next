@@ -1,9 +1,9 @@
 {
-  "name": "@bmi/contentful-tag-cli",
+  "name": "@bmi/contentful-default-values-cli",
   "version": "0.0.0",
   "private": true,
   "license": "BMI-DXB",
-  "main": "./src/index",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode=production",
     "check:ts": "tsc",
