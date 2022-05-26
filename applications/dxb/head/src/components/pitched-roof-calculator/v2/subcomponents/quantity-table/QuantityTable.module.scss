@@ -1,0 +1,97 @@
+@import "~@bmi-digital/styles";
+
+.QuantityTable {
+  .displayIfSmall {
+    display: block;
+
+    @media (min-width: $breakpoint-sm) {
+      display: none;
+    }
+  }
+
+  .displayIfMedium {
+    display: none;
+
+    @media (min-width: $breakpoint-sm) {
+      display: block;
+    }
+  }
+
+  .smallCell {
+    width: 10%;
+  }
+
+  .mediumCell {
+    text-align: center;
+    width: 17.5%;
+  }
+
+  .header {
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .firstHeader {
+    min-width: 100px;
+  }
+
+  .greyBack {
+    background-color: #f7f7f7;
+  }
+
+  .smallDescription {
+    margin: 10px;
+  }
+
+  .packSizes {
+    width: 100px;
+  }
+
+  .cellMediumRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    min-width: 30%;
+  }
+
+  .cellRow {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .firstDescription {
+    margin-left: 10px;
+    align-self: center;
+  }
+
+  .cellRowLast {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon {
+    fill: $color-theme-inter;
+    cursor: pointer;
+  }
+
+  .picture {
+    height: 80px;
+    width: 80px;
+    mix-blend-mode: multiply;
+  }
+
+  .boldText {
+    margin-top: 3px;
+    margin-left: 5px;
+    font-weight: bold;
+  }
+
+  .iteratorCellSmall {
+    max-width: 170px;
+  }
+
+  .iteratorCellMedium {
+    min-width: 170px;
+  }
+}

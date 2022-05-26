@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculatorSteps component renders correctly 1`] = `
+<div>
+  <div
+    class="PitchedRoofCalculatorSteps"
+  >
+    <svg
+      class="logo"
+    />
+    <div>
+      <p>
+        Step 
+        select-roof
+      </p>
+      <p>
+        Rendering _RoofSelection
+      </p>
+    </div>
+  </div>
+</div>
+`;
