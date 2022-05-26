@@ -5,7 +5,7 @@ build_gcp-intouch-cron-certification:
     WORKSPACE: "@bmi/gcp-intouch-cron-certification"
 
 package_gcp-intouch-cron-certification:
-  extends: .package_function
+  extends: .package_intouch_function
   variables:
     FUNCTION_NAME: pubsub-cron-certification
     ROOT_DIR: applications/intouch/functions/gcp-cron-certification

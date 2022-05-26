@@ -7,6 +7,41 @@ include:
   - local: "/applications/intouch/functions/gcp-cron-rm-unverified-users/.gitlab-ci.yml"
   - local: "/applications/intouch/functions/gcp-cron-auto-archive-project/.gitlab-ci.yml"
 
+.build_intouch_function:
+  extends: .build_function
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - $ROOT_DIR/**/*
+
+.package_intouch_function:
+  extends: .package_function
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/qa'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/preprod'"
+      changes:
+        - $ROOT_DIR/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'intouch/environment/prod'"
+      changes:
+        - $ROOT_DIR/**/*
+
 ##############################################################################
 # Template to deploy the function with InTouch specifics (to be consolidated
 # with the global template)

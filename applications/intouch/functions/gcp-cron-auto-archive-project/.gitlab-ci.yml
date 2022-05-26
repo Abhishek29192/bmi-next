@@ -11,7 +11,7 @@ build_gcp-cron-auto-archive-project:
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
 
 package_gcp-cron-auto-archive-project:
-  extends: .package_function
+  extends: .package_intouch_function
   needs:
     - build_gcp-cron-auto-archive-project
   dependencies:
