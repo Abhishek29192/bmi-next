@@ -11,7 +11,7 @@ build_gcp-intouch-remove-unverified-users:
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 package_gcp-intouch-remove-unverified-users:
-  extends: .package_function
+  extends: .package_intouch_function
   needs:
     - build_gcp-intouch-remove-unverified-users
   dependencies:
