@@ -12,6 +12,8 @@ include:
   - local: "/applications/redirects-website-fr-siplast/.gitlab-ci.yml"
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"
   - local: "/applications/redirects-website-italy/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-nl-icopal/.gitlab-ci.yml"
+  - local: "/applications/redirects-website-nl-monier/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-redland/.gitlab-ci.yml"
   - local: "/applications/redirects-website-uk-icopal/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
