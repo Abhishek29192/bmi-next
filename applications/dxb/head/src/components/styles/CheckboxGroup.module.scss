@@ -1,0 +1,11 @@
+@import "~@bmi-digital/styles";
+
+.CheckboxGroup-heading {
+  position: relative;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: -15px;
+  }
+}

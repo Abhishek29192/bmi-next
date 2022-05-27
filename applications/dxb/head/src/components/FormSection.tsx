@@ -37,6 +37,7 @@ import { useSiteContext } from "./Site";
 import RichText, { RichTextData } from "./RichText";
 import { Data as LinkData, isExternalUrl } from "./Link";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
+import ControlledCheckboxGroup from "./CheckboxGroup";
 
 type SourceType = "Contentful" | "HubSpot";
 
@@ -79,7 +80,7 @@ export type InputType = {
   token?: string;
 };
 
-const convertMarkdownLinksToAnchorLinks = (
+export const convertMarkdownLinksToAnchorLinks = (
   source?: string
 ): React.ReactNode => {
   if (!source) {
@@ -245,6 +246,18 @@ const Input = ({
         <Checkbox
           name={name}
           label={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
+        />
+      );
+    case "checkboxGroup":
+      return (
+        <ControlledCheckboxGroup
+          name={name}
+          options={options}
+          groupName={convertMarkdownLinksToAnchorLinks(label)}
           isRequired={required}
           fieldIsRequiredError={getMicroCopy(
             microCopy.UPLOAD_FIELD_IS_REQUIRED

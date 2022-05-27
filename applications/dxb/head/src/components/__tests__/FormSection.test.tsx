@@ -52,6 +52,12 @@ const data: Data = {
       type: "checkbox"
     },
     {
+      label: "CheckboxGroup",
+      name: "checkboxGroup Name",
+      options: "CheckboxGroup1, CheckboxGroup2, CheckboxGroup3",
+      type: "checkboxGroup"
+    },
+    {
       label: "Radio",
       name: "radio",
       options: "Option1, Option2, Option3",
@@ -514,6 +520,53 @@ describe("FormSection component", () => {
     expect(options).toHaveLength(2);
     expect(options[0]).toHaveTextContent("MC: form.none.selection");
     expect(options[1]).toHaveTextContent("Option1");
+  });
+
+  it("test multiply options in a checkbox group", async () => {
+    const specificData = [
+      {
+        label: "Pizza",
+        name: "pizza",
+        options: "Parma, Caprize, Margarita",
+        type: "checkboxGroup"
+      }
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={{ ...data, inputs: specificData }}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
+    expect(container).toMatchSnapshot();
+    fireEvent.click(checkboxes[2]);
+    fireEvent.click(checkboxes[0]);
+    fireEvent.submit(container.querySelector("form"));
+    expect(await waitFor(() => mockedAxios.post)).toHaveBeenCalledWith(
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+      {
+        emailSubjectFormat: undefined,
+        locale: "en-GB",
+        recipients: "recipient@mail.com",
+        title: "Test form",
+        values: { pizza: ["Margarita", "Parma"] }
+      },
+      {
+        cancelToken: "this",
+        headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+      }
+    );
   });
 });
 
