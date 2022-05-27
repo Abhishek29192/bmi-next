@@ -309,7 +309,8 @@
       "NOT_ASSIGNABLE": "não atribuível",
       "REASSIGN_SOLUTION": "Reatribuido a mim",
       "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
-      "edit": "Editar"
+      "edit": "Editar",
+      "copy": "Copy?"
     },
     "description": "Descrição do projeto",
     "endDate": "Data de conclusão do projeto",
@@ -385,5 +386,10 @@
     "requirementModal": {
       "title": "O que é necessario?"
     }
+  },
+  "copyDialog": {
+    "title": "Copy this project",
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}"
   }
 }

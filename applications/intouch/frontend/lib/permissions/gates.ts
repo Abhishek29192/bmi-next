@@ -197,6 +197,12 @@ export const gates = {
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
       INSTALLER: false
+    },
+    copy: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: false
     }
   },
   page: {
