@@ -1,17 +1,17 @@
 test_contentful-tagger:
-  extends: .test_jest
+  extends: .test_jest_workspace
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/functions/contentful-tagger"
 
 build_contentful-tagger:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
 package_contentful-tagger:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_contentful-tagger
   dependencies:
@@ -26,7 +26,7 @@ package_contentful-tagger:
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
 deploy_contentful-tagger:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_contentful-tagger
   dependencies:

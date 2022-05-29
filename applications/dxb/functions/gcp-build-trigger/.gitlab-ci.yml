@@ -1,11 +1,11 @@
 build_gcp-build-trigger:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
 
 package_gcp-build-trigger:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-build-trigger
   dependencies:
@@ -20,7 +20,7 @@ package_gcp-build-trigger:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-build-trigger:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-build-trigger
   dependencies:

@@ -1,5 +1,5 @@
 test_head:
-  extends: .test_jest
+  extends: .test_jest_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -13,7 +13,7 @@ test_head:
     ROOT_DIR: "applications/dxb/head"
 
 test_mr_coverage_head:
-  extends: .test_jest_mr_coverage
+  extends: .test_jest_mr_coverage_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -23,7 +23,7 @@ test_mr_coverage_head:
     ROOT_DIR: "applications/dxb/head"
 
 build_head_mr:
-  extends: .build
+  extends: .build_yarn_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -37,15 +37,15 @@ build_head_mr:
 
 wait_until_head_deployed_to_gatsby:
   stage: deploy
-  image: !reference [ .node-full-image, image ]
+  image: !reference [.node-full-image, image]
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
         - applications/dxb/head/**/*
         - components/**/*
         - libraries/**/*
-  needs: [ ]
-  cache: { }
+  needs: []
+  cache: {}
   timeout: 15m
   before_script:
     - apt-get update
@@ -76,11 +76,11 @@ wait_until_head_deployed_to_gatsby:
 
 # https://www.zaproxy.org/docs/docker/baseline-scan/
 .base_scan:
-  stage: dynamic security
+  stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
-  cache: { }
+  image: !reference [.owasp-image, image]
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -97,12 +97,12 @@ wait_until_head_deployed_to_gatsby:
 
 # https://www.zaproxy.org/docs/docker/full-scan/
 .full_scan:
-  stage: dynamic security
+  stage: post deploy
   rules:
     - when: never
-  image: !reference [ .owasp-image, image ]
+  image: !reference [.owasp-image, image]
   timeout: 3h
-  cache: { }
+  cache: {}
   script:
     - mkdir /zap/wrk
     - cp applications/dxb/head/dast/* /zap/wrk
@@ -170,13 +170,13 @@ baseline_scan_head_prod:
 
 # https://github.com/GoogleChrome/lighthouse-ci
 .lighthouse_scan:
-  stage: lighthouse scan
+  stage: post deploy
   variables:
     # Required as QA password has a `$` in it
     NETLIFY_PWD: "$LIGHTHOUSE_PWD"
   rules:
     - when: never
-  image: !reference [ .cypress-image, image ]
+  image: !reference [.cypress-image, image]
   script:
     - |
       params="--collect.settings.pwd=${NETLIFY_PWD}"
@@ -198,7 +198,7 @@ lighthouseci_scan_head_preview:
         - components/**/*
         - libraries/**/*
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
     - wait_until_head_deployed_to_gatsby
   allow_failure: true
@@ -234,7 +234,7 @@ lighthouseci_scan_head:
 .migrate_content:
   variables:
     DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
-  stage: migration
+  stage: pre deploy
   rules:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       changes:
@@ -266,7 +266,7 @@ lighthouseci_scan_head:
     - yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
 
 .deploy_gatsby_cloud:
-  image: !reference [ .node-full-image, image ]
+  image: !reference [.node-full-image, image]
   variables:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
   stage: deploy
@@ -274,7 +274,7 @@ lighthouseci_scan_head:
     - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
       changes:
         - libraries/migrate/projects/dxb/**/*
-  cache: { }
+  cache: {}
   before_script:
     - |
       apt-get update
@@ -303,7 +303,7 @@ lighthouseci_scan_head:
 migrate_content_norway:
   extends: .migrate_content
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   variables:
     DXB_MARKET_ID: "NO"
@@ -323,7 +323,7 @@ deploy_gatsby_cloud_norway:
 migrate_content_italy:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "IT"
   rules:
@@ -345,7 +345,7 @@ deploy_gatsby_cloud_italy:
 migrate_content_finland:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "FI"
   rules:
@@ -367,7 +367,7 @@ deploy_gatsby_cloud_finland:
 migrate_content_france:
   extends: .migrate_content
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   variables:
     DXB_MARKET_ID: "FR"
@@ -390,7 +390,7 @@ deploy_gatsby_cloud_france:
 migrate_content_germany:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "DE"
   rules:
@@ -412,7 +412,7 @@ deploy_gatsby_cloud_germany:
 migrate_content_austria:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "AT"
   rules:
@@ -434,7 +434,7 @@ deploy_gatsby_cloud_austria:
 migrate_content_netherlands:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "NL"
   rules:
@@ -456,7 +456,7 @@ deploy_gatsby_cloud_netherlands:
 migrate_content_unitedkingdom:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "UK"
   rules:
@@ -478,7 +478,7 @@ deploy_gatsby_cloud_unitedkingdom:
 migrate_content_southafrica:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "ZA"
   rules:
@@ -500,7 +500,7 @@ deploy_gatsby_cloud_southafrica:
 migrate_content_turkey:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "TR"
   rules:
@@ -522,7 +522,7 @@ deploy_gatsby_cloud_turkey:
 migrate_content_spain:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "ES"
   rules:
@@ -544,7 +544,7 @@ deploy_gatsby_cloud_spain:
 migrate_content_portugal:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "PT"
   rules:
@@ -566,7 +566,7 @@ deploy_gatsby_cloud_portugal:
 migrate_content_group:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "GROUP"
   rules:
@@ -588,7 +588,7 @@ deploy_gatsby_cloud_group:
 migrate_content_sandpit:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "SANDPIT"
   rules:
@@ -616,7 +616,7 @@ deploy_gatsby_cloud_sandpit:
 migrate_content_blueprint:
   extends: .migrate_content
   needs:
-    - install
+    - install_yarn
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
   rules:

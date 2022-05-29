@@ -8,7 +8,7 @@ include:
   - local: "/applications/intouch/functions/gcp-cron-auto-archive-project/.gitlab-ci.yml"
 
 .build_intouch_function:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
       changes:
@@ -27,7 +27,7 @@ include:
         - $ROOT_DIR/**/*
 
 .package_intouch_function:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
@@ -47,7 +47,7 @@ include:
 # with the global template)
 #
 # Extending job needs to provide FUNCTION_NAME and ROOT_DIR and depend on a
-# job that extends .package_function
+# job that extends .package_function_yarn_workspace
 #
 # For example:
 # variables:

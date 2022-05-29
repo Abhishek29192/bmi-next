@@ -1,5 +1,5 @@
 build_gcp-intouch-cron-certification:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-cron-certification
     WORKSPACE: "@bmi/gcp-intouch-cron-certification"

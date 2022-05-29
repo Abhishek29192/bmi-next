@@ -7,7 +7,7 @@ test_components:
         - jest/**/*
         - yarn.lock
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -28,7 +28,7 @@ build_components:
         - components/**/*
         - yarn.lock
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   before_script:
     - yarn config set cache-folder ${PWD}/.yarn_cache
@@ -43,7 +43,7 @@ build_styleguide:
         - components/**/*
         - yarn.lock
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   before_script:
     - yarn config set cache-folder ~/.yarn
