@@ -1,11 +1,11 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
+import { ClientAPI, Environment, Space } from "contentful-management";
 import { Request, Response } from "express";
 import mockConsole from "jest-mock-console";
-import { Space, ClientAPI, Environment } from "contentful-management";
-import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleAssetWebhook from "./resources/contentfulWebhook_asset.json";
-import SampleContentfulEntry from "./resources/sample_entry.json";
+import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleContentfulAsset from "./resources/sample_asset.json";
+import SampleContentfulEntry from "./resources/sample_entry.json";
 
 const fill = async (request: Partial<Request>, response: Partial<Response>) =>
   await await (
@@ -53,10 +53,14 @@ jest.mock("contentful-management", () => {
 });
 
 const findLocalesFromTag = jest.fn().mockReturnValue(["en-GB"]);
+jest.mock("../locale.ts", () => {
+  return { findLocalesFromTag };
+});
+
 const findIrrelevantLocales = jest.fn().mockReturnValue({});
 const copyDefaultValues = jest.fn();
-jest.mock("../locale.ts", () => {
-  return { findLocalesFromTag, findIrrelevantLocales, copyDefaultValues };
+jest.mock("@bmi/contentful-tag-utility", () => {
+  return { findIrrelevantLocales, copyDefaultValues };
 });
 
 beforeEach(() => {

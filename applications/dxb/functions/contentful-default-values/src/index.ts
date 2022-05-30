@@ -1,12 +1,12 @@
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import logger from "@bmi-digital/functions-logger";
-import { createClient, Entry, Asset, Environment } from "contentful-management";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 import {
-  findIrrelevantLocales,
-  findLocalesFromTag,
-  copyDefaultValues
-} from "./locale";
+  copyDefaultValues,
+  findIrrelevantLocales
+} from "@bmi/contentful-tag-utility";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { Asset, createClient, Entry, Environment } from "contentful-management";
+import { findLocalesFromTag } from "./locale";
 
 const SECRET_MIN_LENGTH = 10;
 
