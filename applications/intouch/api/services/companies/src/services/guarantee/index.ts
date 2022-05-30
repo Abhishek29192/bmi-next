@@ -59,7 +59,12 @@ export const createGuarantee = async (
       guarantee.expiryDate.setFullYear(
         guarantee.expiryDate.getFullYear() + max
       );
-      await sendMail(context, projectId, "REQUEST_APPROVED");
+      await sendMailToCompanyAdmin(
+        context,
+        projectId,
+        "REQUEST_APPROVED",
+        +user.id
+      );
     }
 
     return await resolve(source, args, context, resolveInfo);
@@ -97,8 +102,13 @@ export const updateGuarantee = async (
     }
 
     const { id, patch, guaranteeEventType } = args.input;
-    const { status, projectId, systemBmiRef, bmiReferenceId } =
-      await getGuarantee(id, pgClient);
+    const {
+      status,
+      projectId,
+      systemBmiRef,
+      bmiReferenceId,
+      requestorAccountId
+    } = await getGuarantee(id, pgClient);
 
     if (guaranteeEventType === "SUBMIT_SOLUTION") {
       const isValid = await solutionGuaranteeSubmitValidate(
@@ -159,14 +169,23 @@ export const updateGuarantee = async (
       patch.expiryDate.setFullYear(
         patch.expiryDate.getFullYear() + max - guaranteeValidityOffsetYears
       );
-      sendMail(context, projectId, "REQUEST_APPROVED");
+      sendMailToCompanyAdmin(
+        context,
+        projectId,
+        "REQUEST_APPROVED",
+        requestorAccountId
+      );
     }
 
     if (guaranteeEventType === "REJECT_SOLUTION" && status === "REVIEW") {
-      //TODO: The Requestor receives a message telling them that their request has been rejected.
       patch.reviewerAccountId = null;
       patch.status = "REJECTED";
-      sendMail(context, projectId, "REQUEST_REJECTED");
+      sendMailToCompanyAdmin(
+        context,
+        projectId,
+        "REQUEST_REJECTED",
+        requestorAccountId
+      );
     }
     return await resolve(source, args, context, resolveInfo);
   } catch (e) {
@@ -187,7 +206,7 @@ const getGuarantee = async (
 ): Promise<Guarantee> => {
   const { rows } = await pgClient.query<Guarantee>(
     `SELECT g.id, g.project_id as "projectId", g.system_bmi_ref as "systemBmiRef", 
-    g.bmi_reference_id as "bmiReferenceId", g.status FROM guarantee g where g.id=$1`,
+    g.bmi_reference_id as "bmiReferenceId", g.status, g.requestor_account_id as "requestorAccountId" FROM guarantee g where g.id=$1`,
     [id]
   );
   if (!rows.length) {
@@ -204,7 +223,7 @@ const getProductMaximumValidityYears = async (
     rows: [{ maximum_validity_years }]
   } = await pgClient.query(
     `select product.maximum_validity_years from product
-    where product.bmi_ref=$1`,
+     where product.bmi_ref=$1`,
     [bmiRef]
   );
   return maximum_validity_years || 0;
@@ -218,7 +237,7 @@ const getSystemMaximumValidityYears = async (
     rows: [{ maximum_validity_years }]
   } = await pgClient.query(
     `Select system.maximum_validity_years from system
-    where system.bmi_ref=$1`,
+     where system.bmi_ref=$1`,
     [bmiRef]
   );
   return maximum_validity_years || 0;
@@ -231,9 +250,9 @@ const getProjectCompanyDetail = async (
   const { rows } = await pgClient.query(
     `select project.name, project.company_id as "companyId", company.tier, company.market_id as "marketId",
             company.name as "companyName"
-    from project
-    join company on company.id=project.company_id 
-    where project.id=$1`,
+     from project
+            join company on company.id=project.company_id
+     where project.id=$1`,
     [projectId]
   );
 
@@ -243,10 +262,11 @@ const getProjectCompanyDetail = async (
   return rows[0];
 };
 
-const sendMail = async (
+const sendMailToCompanyAdmin = async (
   context: PostGraphileContext,
   projectId: number,
-  event: EventMessage
+  event: EventMessage,
+  accountId: number
 ) => {
   const { pgClient } = context;
 
@@ -255,16 +275,14 @@ const sendMail = async (
     pgClient
   );
 
-  // Get all company admins and send mail
+  // Get company admin record.
   const { rows: accounts } = await pgClient.query(
-    `select account.* from account 
-  join company_member on company_member.account_id =account.id 
-  where company_member.company_id=$1 and account.role='COMPANY_ADMIN'`,
-    [projectCompanyDetail.companyId]
+    `SELECT account.* FROM account WHERE account.role = $1 AND account.id = $2`,
+    ["COMPANY_ADMIN", accountId]
   );
 
-  for (let i = 0; i < accounts.length; i++) {
-    const account = accounts[+i];
+  if (accounts.length > 0) {
+    const account = accounts[0];
     await sendMessageWithTemplate(context, event, {
       accountId: account.id,
       email: account.email,
