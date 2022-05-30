@@ -34,6 +34,8 @@
     "@babel/core": "^7.17.7",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
+    "@bmi-digital/eslint-config": "^1.3.0",
+    "@bmi-digital/tsconfig": "^1.3.0",
     "@bmi/build-contentful": "0.0.0",
     "@bmi/migrate": "0.0.0",
     "@commitlint/cli": "^8.3.5",
