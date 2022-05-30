@@ -1,17 +1,17 @@
 test_contentful-default-values:
-  extends: .test_jest
+  extends: .test_jest_workspace
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/functions/contentful-default-values"
 
 build_contentful-default-values:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
 
 package_contentful-default-values:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_contentful-default-values
   dependencies:
@@ -26,7 +26,7 @@ package_contentful-default-values:
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
 
 deploy_contentful-default-values:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_contentful-default-values
   dependencies:

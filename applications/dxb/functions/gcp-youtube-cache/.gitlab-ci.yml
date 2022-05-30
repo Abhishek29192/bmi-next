@@ -2,19 +2,19 @@ variables:
   PROJECT_NAME: gcp-youtube-cache
 
 test_gcp-youtube-cache:
-  extends: .test_jest
+  extends: .test_jest_workspace
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 build_gcp-youtube-cache:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 package_gcp-youtube-cache:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-youtube-cache
   dependencies:
@@ -34,7 +34,7 @@ package_gcp-youtube-cache:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-youtube-cache:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-youtube-cache
   dependencies:

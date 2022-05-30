@@ -27,7 +27,7 @@ build_intouch_api_gateway:
     - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_gateway_to_cloudrun_bmi:
-  stage: deploy_gateway
+  stage: deploy
   cache: {}
   image: google/cloud-sdk
   needs:
@@ -50,7 +50,7 @@ deploy_intouch_gateway_to_cloudrun_bmi:
 
 # Run only on release branch!
 release_intouch_gateway_to_cloudrun_bmi:
-  stage: deploy_gateway
+  stage: deploy
   cache: {}
   image: google/cloud-sdk
   variables:

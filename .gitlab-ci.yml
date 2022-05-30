@@ -1,5 +1,7 @@
 include:
   - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
+    file: "general.gitlab-ci.yml"
+  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
     file: "images.gitlab-ci.yml"
   - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
     file: "build.gitlab-ci.yml"
@@ -19,31 +21,6 @@ include:
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
-
-image: !reference [.node-full-image, image]
-
-stages:
-  - install
-  - audit
-  - static analysis
-  - test
-  - build
-  - release
-  - migration
-  - package
-  - deploy
-  - deploy_gateway
-  - terraform_plan
-  - terraform_execute
-  - dynamic security
-  - lighthouse scan
-  - post deploy
-
-workflow:
-  rules:
-    - if: "$CI_MERGE_REQUEST_LABELS =~ /.*Disable Builds.*/"
-      when: never
-    - when: always
 
 default:
   cache:
@@ -65,50 +42,11 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: custom_pass
   POSTGRES_HOST_AUTH_METHOD: trust
+  # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
+  SAST_EXCLUDED_ANALYZERS: spotbugs semgrep flawfinder
   TRANSFER_METER_FREQUENCY: 5s
 
-install:
-  stage: install
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master') || $CI_COMMIT_TAG"
-      changes:
-        - modules-sha
-  before_script:
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - yarn install --frozen-lockfile --check-files
-  cache:
-    key:
-      files:
-        - modules-sha
-    untracked: false
-    paths:
-      - "**/node_modules"
-      - ".yarn_cache"
-    policy: push
-
-#  https://github.com/pivotal/LicenseFinder
-# Remove report arg when we want this job to fail
-# Remove installing node 12 when https://github.com/pivotal/LicenseFinder/issues/812 is resolved
-license_finder:
-  stage: audit
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - doc/dependency_decisions.yml
-        - yarn.lock
-  needs: []
-  image: licensefinder/license_finder:latest
-  cache: {}
-  before_script:
-    - source ~/.bash_profile
-    - yarn config set cache-folder ${PWD}/.yarn_cache
-  script:
-    - license_finder action_items --format html > license_finder_output.html
-  artifacts:
-    paths:
-      - license_finder_output.html
-    when: always
+image: !reference [.node-full-image, image]
 
 release:
   stage: release

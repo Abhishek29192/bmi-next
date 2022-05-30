@@ -1,11 +1,11 @@
 test_gcp-es-proxy:
-  extends: .test_jest
+  extends: .test_jest_workspace
   variables:
     WORKSPACE: "@bmi/gcp-es-proxy"
     ROOT_DIR: "applications/functions/gcp-es-proxy"
 
 build_gcp-es-proxy:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-es-proxy"
     ROOT_DIR: "applications/dxb/functions/gcp-es-proxy"
