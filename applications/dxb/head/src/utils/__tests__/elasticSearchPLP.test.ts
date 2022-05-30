@@ -1,8 +1,8 @@
 import { Filter } from "@bmi/components";
 import {
+  Aggregations,
   compileESQueryPLP,
   disableFiltersFromAggregationsPLP,
-  Aggregations,
   xferFilterValue
 } from "../elasticSearchPLP";
 import { ProductFilter } from "../product-filters";
@@ -114,10 +114,10 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofAttributes.minimumpitch": {
+              "ROOFATTRIBUTES.MINIMUMPITCH": {
                 terms: {
                   size: "300",
-                  field: "roofAttributes.minimumpitch.code.keyword",
+                  field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                   include: undefined
                 }
               },
@@ -168,24 +168,24 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofAttributes.minimumpitch": {
+              "ROOFATTRIBUTES.MINIMUMPITCH": {
                 terms: {
                   size: "300",
-                  field: "roofAttributes.minimumpitch.code.keyword",
+                  field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                   include: undefined
                 }
               },
-              "measurements.length": {
+              "MEASUREMENTS.LENGTH": {
                 terms: {
                   size: "300",
-                  field: "measurements.length.code.keyword",
+                  field: "MEASUREMENTS.LENGTH.code.keyword",
                   include: undefined
                 }
               },
-              "generalInformation.materials": {
+              "GENERALINFORMATION.MATERIALS": {
                 terms: {
                   size: "300",
-                  field: "generalInformation.materials.code.keyword",
+                  field: "GENERALINFORMATION.MATERIALS.code.keyword",
                   include: undefined
                 }
               },
@@ -552,17 +552,17 @@ describe("compileESQueryPLP function", () => {
           { "name.keyword": "asc" }
         ],
         aggs: {
-          Category: {
+          CATEGORY: {
             terms: {
               size: "300",
-              field: "Category.code.keyword",
+              field: "CATEGORY.code.keyword",
               include: undefined
             }
           },
-          Brand: {
+          BRAND: {
             terms: {
               size: "300",
-              field: "Brand.code.keyword",
+              field: "BRAND.code.keyword",
               include: undefined
             }
           },
@@ -603,17 +603,17 @@ describe("compileESQueryPLP function", () => {
           { "name.keyword": "asc" }
         ],
         aggs: {
-          Category: {
+          CATEGORY: {
             terms: {
               size: "300",
-              field: "Category.code.keyword",
+              field: "CATEGORY.code.keyword",
               include: ["PRODUCTS_NO"]
             }
           },
-          Brand: {
+          BRAND: {
             terms: {
               size: "300",
-              field: "Brand.code.keyword",
+              field: "BRAND.code.keyword",
               include: undefined
             }
           },
@@ -658,10 +658,10 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofAttributes.minimumpitch": {
+            "ROOFATTRIBUTES.MINIMUMPITCH": {
               terms: {
                 size: "300",
-                field: "roofAttributes.minimumpitch.code.keyword",
+                field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                 include: undefined
               }
             },
@@ -709,24 +709,24 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofAttributes.minimumpitch": {
+            "ROOFATTRIBUTES.MINIMUMPITCH": {
               terms: {
                 size: "300",
-                field: "roofAttributes.minimumpitch.code.keyword",
+                field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                 include: undefined
               }
             },
-            "measurements.length": {
+            "MEASUREMENTS.LENGTH": {
               terms: {
                 size: "300",
-                field: "measurements.length.code.keyword",
+                field: "MEASUREMENTS.LENGTH.code.keyword",
                 include: undefined
               }
             },
-            "generalInformation.materials": {
+            "GENERALINFORMATION.MATERIALS": {
               terms: {
                 size: "300",
-                field: "generalInformation.materials.code.keyword",
+                field: "GENERALINFORMATION.MATERIALS.code.keyword",
                 include: undefined
               }
             },

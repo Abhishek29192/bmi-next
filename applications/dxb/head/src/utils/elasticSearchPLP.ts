@@ -131,7 +131,7 @@ const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
   (allowFilterBy || []).reduce(
     (acc: Record<string, { terms: { include: [] } }>, allowValue: string) => {
       const allowValueArr = allowValue.split("|");
-      const categoryKey = allowValueArr[0].trim();
+      const categoryKey = allowValueArr[0].trim().toUpperCase();
       const optionKey = allowValueArr[1]?.trim();
       const agg = createAggregation(
         categoryKey,
