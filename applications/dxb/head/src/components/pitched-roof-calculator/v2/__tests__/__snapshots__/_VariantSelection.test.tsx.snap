@@ -55,7 +55,9 @@ exports[`PitchedRoofCalculator VariantSelection component renders correctly 1`] 
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       46035712
                     </p>
                   </div>
@@ -100,7 +102,9 @@ exports[`PitchedRoofCalculator VariantSelection component renders correctly 1`] 
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       46247263
                     </p>
                   </div>

@@ -1,12 +1,12 @@
+import { CardRadioGroup, Typography } from "@bmi/components";
 import React, { useContext } from "react";
-import { Typography } from "@bmi/components";
-import { CardRadioGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
+import { useSiteContext } from "../../Site";
+import { AnalyticsContext } from "../helpers/analytics";
 import getPitchValues from "../helpers/getPitchValues";
+import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
 import { BaseProduct, MainTile, MainTileCategory, RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
-import { AnalyticsContext } from "../helpers/analytics";
+import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type TileForValidation = {
@@ -42,7 +42,7 @@ const TileSelectionRow = ({
   select,
   selected
 }: TileSelectionRowProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -55,8 +55,8 @@ const TileSelectionRow = ({
         {options.map((tile) => {
           const colorsText = `${tile.variants.length} ${
             tile.variants.length === 1
-              ? getMicroCopy(copy, `tileSelection.color`)
-              : getMicroCopy(copy, `tileSelection.colors`)
+              ? getMicroCopy(microCopy.TILE_SELECTION_COLOR)
+              : getMicroCopy(microCopy.TILE_SELECTION_COLORS)
           }`;
 
           return (
@@ -102,7 +102,7 @@ const TileSelection = ({
   dimensions,
   tiles
 }: TileSelecionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
 
   const pitchValues = getPitchValues(dimensions);
 
@@ -121,7 +121,7 @@ const TileSelection = ({
         categories.map((category) => (
           <TileSelectionRow
             key={category}
-            title={getMicroCopy(copy, `tileSelection.categories.${category}`)}
+            title={getMicroCopy(`tileSelection.categories.${category}`)}
             options={filteredOptions.filter(
               (tile) => tile.category === category
             )}
@@ -130,7 +130,7 @@ const TileSelection = ({
         ))
       ) : (
         <Typography variant="h4">
-          {getMicroCopy(copy, "tileSelection.empty")}
+          {getMicroCopy(microCopy.TILE_SELECTION_EMPTY)}
         </Typography>
       )}
     </div>

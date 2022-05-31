@@ -1,7 +1,6 @@
+import { CardCheckboxGroup, CardRadioGroup } from "@bmi/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { CardCheckboxGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
+import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
 import {
   Accessory,
@@ -9,6 +8,7 @@ import {
   MainTileVariant,
   VergeOption
 } from "../types";
+import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VergeOptionsProps = {
@@ -17,7 +17,7 @@ type VergeOptionsProps = {
 };
 
 const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -26,16 +26,15 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
 
   return (
     <FieldContainer
-      title={getMicroCopy(copy, "tileOptions.verge.title")}
-      help={getMicroCopy(copy, "tileOptions.verge.help")}
+      title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_TITLE)}
+      help={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_HELP)}
     >
       <CardRadioGroup
         name="verge"
         defaultValue={selected}
         isRequired
         fieldIsRequiredError={getMicroCopy(
-          copy,
-          "validation.errors.fieldRequired"
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
         {options.map(({ name, left }) => (
@@ -56,12 +55,12 @@ const VergeOptions = ({ selected, options }: VergeOptionsProps) => {
         ))}
         <CardRadioGroup.Item
           value="none"
-          title={getMicroCopy(copy, "tileOptions.verge.noneLabel")}
+          title={getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL)}
           onClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-options-accessories",
-              label: getMicroCopy(copy, "tileOptions.verge.noneLabel"),
+              label: getMicroCopy(microCopy.TILE_OPTIONS_VERGE_NONE_LABEL),
               action: "selected"
             });
           }}
@@ -77,7 +76,7 @@ type RidgeOptionsProps = {
 };
 
 const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (options.length < 2) {
@@ -86,16 +85,15 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
 
   return (
     <FieldContainer
-      title={getMicroCopy(copy, "tileOptions.ridge.title")}
-      help={getMicroCopy(copy, "tileOptions.ridge.help")}
+      title={getMicroCopy(microCopy.TILE_OPTIONS_RIDGE_TITLE)}
+      help={getMicroCopy(microCopy.TILE_OPTIONS_RIDGE_HELP)}
     >
       <CardRadioGroup
         name="ridge"
         defaultValue={selected}
         isRequired
         fieldIsRequiredError={getMicroCopy(
-          copy,
-          "validation.errors.fieldRequired"
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
         {options.map(({ name, image, externalProductCode }) => (
@@ -108,13 +106,16 @@ const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-options-accessories",
-                label: `${name} - Nobb: ${externalProductCode}`,
+                label: `${name} - ${getMicroCopy(
+                  microCopy.CALCULATOR_NOBB_LABEL
+                )}: ${externalProductCode}`,
                 action: "selected"
               });
             }}
           >
             <CardRadioGroup.Item.Paragraph>
-              Nobb: <strong>{externalProductCode}</strong>
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              <strong>{externalProductCode}</strong>
             </CardRadioGroup.Item.Paragraph>
           </CardRadioGroup.Item>
         ))}
@@ -132,7 +133,7 @@ const VentilationHoodOptions = ({
   selected,
   options
 }: VentilationHoodOptionsProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -141,17 +142,18 @@ const VentilationHoodOptions = ({
 
   return (
     <FieldContainer
-      title={getMicroCopy(copy, "tileOptions.ventilationHood.title")}
+      title={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_TITLE)}
     >
       <CardCheckboxGroup
         name="ventilation"
         defaultValue={selected}
         isRequired
         fieldIsRequiredError={getMicroCopy(
-          copy,
-          "validation.errors.fieldRequired"
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
-        noneLabel={getMicroCopy(copy, "tileOptions.ventilationHood.noneLabel")}
+        noneLabel={getMicroCopy(
+          microCopy.TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL
+        )}
       >
         {options.map(({ name, image, externalProductCode }) => (
           <CardCheckboxGroup.Item
@@ -163,13 +165,16 @@ const VentilationHoodOptions = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-options-accessories",
-                label: `${name} - Nobb: ${externalProductCode}`,
+                label: `${name} - ${getMicroCopy(
+                  microCopy.CALCULATOR_NOBB_LABEL
+                )}: ${externalProductCode}`,
                 action: "selected"
               });
             }}
           >
             <CardCheckboxGroup.Item.Paragraph>
-              Nobb: <strong>{externalProductCode}</strong>
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              <strong>{externalProductCode}</strong>
             </CardCheckboxGroup.Item.Paragraph>
           </CardCheckboxGroup.Item>
         ))}

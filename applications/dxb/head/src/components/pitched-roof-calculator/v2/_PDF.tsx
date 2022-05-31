@@ -1,5 +1,3 @@
-import React from "react";
-import { isElement } from "react-is";
 import {
   Canvas,
   Document,
@@ -11,10 +9,13 @@ import {
   Text,
   View
 } from "@bmi-digital/react-pdf-maker";
-import { ResultsObject, ResultsRow } from "../types";
-import EffraNormal from "../fonts/Effra_Rg.ttf";
+import React from "react";
+import { isElement } from "react-is";
 import EffraBold from "../fonts/Effra_Bd.ttf";
+import EffraNormal from "../fonts/Effra_Rg.ttf";
+import { ResultsObject, ResultsRow } from "./../types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import { microCopy } from "./constants/microCopy";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
@@ -284,16 +285,16 @@ const ResultsTable = ({
     <ResultsTableTemplate.Row>
       <ResultsTableTemplate.Cell header> </ResultsTableTemplate.Cell>
       <ResultsTableTemplate.Cell header>
-        {getMicroCopy("results.table.title")}
+        {getMicroCopy(microCopy.RESULTS_TABLE_TITLE)}
       </ResultsTableTemplate.Cell>
       <ResultsTableTemplate.Cell header>
-        {getMicroCopy("results.table.packSize")}
+        {getMicroCopy(microCopy.RESULTS_TABLE_PACK_SIZE)}
       </ResultsTableTemplate.Cell>
       <ResultsTableTemplate.Cell header>
-        {getMicroCopy("results.table.externalProductCode")}
+        {getMicroCopy(microCopy.RESULTS_TABLE_EXTERNAL_PRODUCT_CODE)}
       </ResultsTableTemplate.Cell>
       <ResultsTableTemplate.Cell header>
-        {getMicroCopy("results.table.quantity")}
+        {getMicroCopy(microCopy.RESULTS_TABLE_QUANTITY)}
       </ResultsTableTemplate.Cell>
     </ResultsTableTemplate.Row>
     {children}
@@ -392,19 +393,19 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     }}
   >
     <Typography variant="h2" hasUnderline={false} center>
-      {getMicroCopy("results.title")}
+      {getMicroCopy(microCopy.RESULTS_TITLE)}
     </Typography>
     <Typography variant="body2" center>
-      {`${getMicroCopy("results.areaLabel")}: ${area}m`}
+      {`${getMicroCopy(microCopy.RESULTS_AREA_LABEL)}: ${area}m`}
       <Typography sup>2</Typography>
     </Typography>
     <Typography variant="body1" center margin={[100, 0, 100, 0]}>
-      {getMicroCopy("results.subtitle", {
+      {getMicroCopy(microCopy.RESULTS_SUBTITLE, {
         contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Typography>
     <Typography variant="h5" margin={[0, 25, 0, 10]}>
-      {getMicroCopy("results.categories.tiles")}
+      {getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
     </Typography>
     <ResultsTable {...{ getMicroCopy }}>
       {results.tiles.map(mapResultsRow)}
@@ -412,7 +413,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     {results.fixings.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          {getMicroCopy("results.categories.fixings")}
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
           {results.fixings.map(mapResultsRow)}
@@ -422,7 +423,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     {results.sealing.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          {getMicroCopy("results.categories.sealing")}
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
           {results.sealing.map(mapResultsRow)}
@@ -432,7 +433,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     {results.ventilation.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          {getMicroCopy("results.categories.ventilation")}
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
           {results.ventilation.map(mapResultsRow)}
@@ -442,7 +443,7 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     {results.accessories.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          {getMicroCopy("results.categories.accessories")}
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
           {results.accessories.map(mapResultsRow)}
@@ -451,13 +452,13 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     ) : null}
     <Alert
       type="warn"
-      title={getMicroCopy("results.alerts.quantities.title")}
+      title={getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TITLE)}
       marginTop={40}
     >
-      {getMicroCopy("results.alerts.quantities.text")}
+      {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TEXT)}
     </Alert>
-    <Alert title={getMicroCopy("results.alerts.needToKnow.title")}>
-      {getMicroCopy("results.alerts.needToKnow.text", {
+    <Alert title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}>
+      {getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TEXT, {
         contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Alert>

@@ -1,4 +1,3 @@
-import React, { useContext, useMemo, useState } from "react";
 import {
   Checkbox,
   Form,
@@ -7,7 +6,9 @@ import {
   TextField,
   Typography
 } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
+import React, { useContext, useMemo, useState } from "react";
+import { useSiteContext } from "../../Site";
+import { AnalyticsContext } from "./../helpers/analytics";
 import {
   Guttering,
   LengthBasedProduct,
@@ -16,19 +17,19 @@ import {
   ResultsRow,
   Underlay,
   VergeOption
-} from "../types";
-import { Line, LinesMap, Measurements } from "../types/roof";
-import { AnalyticsContext } from "../helpers/analytics";
-import { EmailFormValues } from "../types/EmailFormValues";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
+} from "./../types";
+import { EmailFormValues } from "./../types/EmailFormValues";
+import { Line, LinesMap, Measurements } from "./../types/roof";
 import { battenCalc } from "./calculation/calculate";
+import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
+import { microCopy } from "./constants/microCopy";
+import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import { GutteringSelections } from "./_Guttering";
 import styles from "./_Results.module.scss";
 import { TileOptionsSeletions } from "./_TileOptions";
-import { GutteringSelections } from "./_Guttering";
-import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;
@@ -73,7 +74,7 @@ const EmailAddressCollection = ({
   area,
   sendEmailAddress
 }: EmailAddressCollectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   const [loading, setLoading] = useState(false);
@@ -106,7 +107,7 @@ const EmailAddressCollection = ({
         pushEvent({
           event: "dxb.button_click",
           id: "rc-solution",
-          label: getMicroCopy(copy, "results.downloadPdfLabel"),
+          label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
           action: "selected"
         });
 
@@ -129,7 +130,7 @@ const EmailAddressCollection = ({
           openPDF({
             results: resultsWithImages,
             area: (area / 10000).toFixed(2),
-            getMicroCopy: (...params) => getMicroCopy(copy, ...params)
+            getMicroCopy: (...params) => getMicroCopy(...params)
           });
         } catch (error) {
           if (process.env.NODE_ENV === "development") {
@@ -142,11 +143,11 @@ const EmailAddressCollection = ({
       }}
     >
       <Typography variant="h4" hasUnderline className={styles["title"]}>
-        {getMicroCopy(copy, "results.email.title")}
+        {getMicroCopy(microCopy.RESULTS_EMAIL_TITLE)}
       </Typography>
       <Grid container className={styles["help"]}>
         <Grid item xs={12} lg={6}>
-          <Typography>{getMicroCopy(copy, "results.email.help")}</Typography>
+          <Typography>{getMicroCopy(microCopy.RESULTS_EMAIL_HELP)}</Typography>
         </Grid>
       </Grid>
       <Grid
@@ -159,9 +160,9 @@ const EmailAddressCollection = ({
           <TextField
             name="name"
             variant="outlined"
-            label={getMicroCopy(copy, "results.email.nameLabel")}
+            label={getMicroCopy(microCopy.RESULTS_EMAIL_NAME_LABEL)}
             isRequired
-            errorText={getMicroCopy(copy, "validation.errors.fieldRequired")}
+            errorText={getMicroCopy(microCopy.VALIDATION_ERRORS_FIELD_REQUIRED)}
             fullWidth
           />
         </Grid>
@@ -169,13 +170,13 @@ const EmailAddressCollection = ({
           <TextField
             name="email"
             variant="outlined"
-            label={getMicroCopy(copy, "results.email.emailLabel")}
+            label={getMicroCopy(microCopy.RESULTS_EMAIL_EMAIL_LABEL)}
             isRequired
-            errorText={getMicroCopy(copy, "validation.errors.fieldRequired")}
+            errorText={getMicroCopy(microCopy.VALIDATION_ERRORS_FIELD_REQUIRED)}
             getValidationError={(value) =>
               typeof value === "string" && value.includes("@")
                 ? false
-                : getMicroCopy(copy, "validation.errors.email")
+                : getMicroCopy(microCopy.VALIDATION_ERRORS_EMAIL)
             }
             fullWidth
           />
@@ -190,28 +191,26 @@ const EmailAddressCollection = ({
         <Grid item xs={12} lg={6}>
           <Checkbox
             name="gdpr_1"
-            label={getMicroCopy(copy, "results.email.gdpr_1Label")}
+            label={getMicroCopy(microCopy.RESULTS_EMAIL_GDPR_1LABEL)}
             isRequired
             fieldIsRequiredError={getMicroCopy(
-              copy,
-              "validation.errors.fieldRequired"
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
             )}
           />
         </Grid>
         <Grid item xs={12} lg={6}>
           <Checkbox
             name="gdpr_2"
-            label={getMicroCopy(copy, "results.email.gdpr_2Label")}
+            label={getMicroCopy(microCopy.RESULTS_EMAIL_GDPR_2LABEL)}
             isRequired
             fieldIsRequiredError={getMicroCopy(
-              copy,
-              "validation.errors.fieldRequired"
+              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
             )}
           />
         </Grid>
         <Grid item xs={12} lg={3}>
           <Form.SubmitButton className={styles["submit"]} disabled={loading}>
-            {getMicroCopy(copy, "results.email.print")}
+            {getMicroCopy(microCopy.RESULTS_EMAIL_PRINT)}
           </Form.SubmitButton>
         </Grid>
       </Grid>
@@ -269,7 +268,7 @@ const Results = ({
   guttering,
   sendEmailAddress
 }: ResultProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
 
   const { faces, lines, area } = measurements;
 
@@ -346,14 +345,13 @@ const Results = ({
 
   const tableLabels = useMemo(
     () => ({
-      title: getMicroCopy(copy, "results.table.title"),
-      packSize: getMicroCopy(copy, "results.table.packSize"),
+      title: getMicroCopy(microCopy.RESULTS_TABLE_TITLE),
+      packSize: getMicroCopy(microCopy.RESULTS_TABLE_PACK_SIZE),
       externalProductCode: getMicroCopy(
-        copy,
-        "results.table.externalProductCode"
+        microCopy.RESULTS_TABLE_EXTERNAL_PRODUCT_CODE
       ),
-      quantity: getMicroCopy(copy, "results.table.quantity"),
-      remove: getMicroCopy(copy, "results.table.remove")
+      quantity: getMicroCopy(microCopy.RESULTS_TABLE_QUANTITY),
+      remove: getMicroCopy(microCopy.RESULTS_TABLE_REMOVE)
     }),
     []
   );
@@ -361,7 +359,9 @@ const Results = ({
   return (
     <div className={styles["Results"]}>
       {tileRows.length ? (
-        <FieldContainer title={getMicroCopy(copy, "results.categories.tiles")}>
+        <FieldContainer
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
+        >
           <QuantityTable
             onDelete={getRemoveRow(setTileRows)}
             onChangeQuantity={getChangeQuantity(setTileRows)}
@@ -372,7 +372,7 @@ const Results = ({
       ) : null}
       {fixingRows.length ? (
         <FieldContainer
-          title={getMicroCopy(copy, "results.categories.fixings")}
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_FIXINGS)}
         >
           <QuantityTable
             onDelete={getRemoveRow(setFixingRows)}
@@ -384,7 +384,7 @@ const Results = ({
       ) : null}
       {sealingRows.length ? (
         <FieldContainer
-          title={getMicroCopy(copy, "results.categories.sealing")}
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
         >
           <QuantityTable
             onDelete={getRemoveRow(setSealingRows)}
@@ -396,7 +396,7 @@ const Results = ({
       ) : null}
       {ventilationRows.length ? (
         <FieldContainer
-          title={getMicroCopy(copy, "results.categories.ventilation")}
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
         >
           <QuantityTable
             onDelete={getRemoveRow(setVentilationRows)}
@@ -408,7 +408,7 @@ const Results = ({
       ) : null}
       {accessoryRows.length ? (
         <FieldContainer
-          title={getMicroCopy(copy, "results.categories.accessories")}
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_ACCESSORIES)}
         >
           <QuantityTable
             onDelete={getRemoveRow(setAccessoryRows)}
@@ -420,13 +420,16 @@ const Results = ({
       ) : null}
       <Alert
         type="warning"
-        title={getMicroCopy(copy, "results.alerts.quantities.title")}
+        title={getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TITLE)}
         first
       >
-        {getMicroCopy(copy, "results.alerts.quantities.text")}
+        {getMicroCopy(microCopy.RESULTS_ALERTS_QUANTITIES_TEXT)}
       </Alert>
-      <Alert title={getMicroCopy(copy, "results.alerts.needToKnow.title")} last>
-        {getMicroCopy(copy, "results.alerts.needToKnow.text", {
+      <Alert
+        title={getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TITLE)}
+        last
+      >
+        {getMicroCopy(microCopy.RESULTS_ALERTS_NEED_TO_KNOW_TEXT, {
           contingency: CONTINGENCY_PERCENTAGE_TEXT
         })}
       </Alert>

@@ -92,7 +92,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Are there any protrusions?
+          MC: roofDimensions.protrusions.title
         </h6>
       </div>
       <button
@@ -103,7 +103,7 @@ exports[`PitchedRoofCalculator Protrusions component renders correctly 1`] = `
         <span
           class="MuiButton-label buttonStyles-label-4"
         >
-          Add protrusions
+          MC: roofDimensions.protrusions.add
         </span>
         <span
           class="MuiTouchRipple-root"

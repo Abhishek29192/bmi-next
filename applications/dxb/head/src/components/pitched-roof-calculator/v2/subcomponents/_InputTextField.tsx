@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
 import { TextField } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../../helpers/microCopy";
+import React from "react";
+import { useSiteContext } from "../../../Site";
 import { getFieldTypes, Type } from "../../helpers/fieldTypes";
 import styles from "./_InputTextField.module.scss";
 
@@ -17,10 +17,10 @@ const InputTextField = ({
   type,
   defaultValue = ""
 }: InputTextFieldProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
-    getMicroCopy(copy, "validation.errors." + path, placeholders)
+    getMicroCopy(`validation.errors.${path}`, placeholders)
   )[type];
 
   return (

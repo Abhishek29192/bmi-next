@@ -1,11 +1,11 @@
+import { CardRadioGroup, Typography } from "@bmi/components";
 import React, { useContext } from "react";
-import { Typography } from "@bmi/components";
-import { CardRadioGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import getPitchValues from "../helpers/getPitchValues";
-import { DimensionsValues } from "../types/roof";
+import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
+import getPitchValues from "../helpers/getPitchValues";
 import { Underlay } from "../types";
+import { DimensionsValues } from "../types/roof";
+import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type UnderlaySelectionRowProps = {
@@ -23,7 +23,7 @@ const UnderlaySelectionRow = ({
   options,
   selected
 }: UnderlaySelectionRowProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -37,8 +37,7 @@ const UnderlaySelectionRow = ({
         defaultValue={selected?.externalProductCode}
         isRequired
         fieldIsRequiredError={getMicroCopy(
-          copy,
-          "validation.errors.fieldRequired"
+          microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
         )}
       >
         {options.map((underlay: Underlay) => (
@@ -60,7 +59,8 @@ const UnderlaySelectionRow = ({
               {underlay.description}
             </CardRadioGroup.Item.Paragraph>
             <CardRadioGroup.Item.Paragraph>
-              Nobb: {underlay.externalProductCode}
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              {underlay.externalProductCode}
             </CardRadioGroup.Item.Paragraph>
           </CardRadioGroup.Item>
         ))}
@@ -81,7 +81,7 @@ const UnderlaySelection = ({
   dimensions,
   selected
 }: UnderlaySelectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
 
   const pitchValues = getPitchValues(dimensions);
 
@@ -99,7 +99,7 @@ const UnderlaySelection = ({
         <UnderlaySelectionRow options={filteredOptions} {...{ selected }} />
       ) : (
         <Typography variant="h4">
-          {getMicroCopy(copy, "underlaySelection.empty")}
+          {getMicroCopy(microCopy.UNDERLAY_SELECTION_EMPTY)}
         </Typography>
       )}
     </div>

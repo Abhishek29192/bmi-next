@@ -1,7 +1,7 @@
-import React from "react";
-import { fireEvent, render } from "@testing-library/react";
 import { FormContext } from "@bmi/components";
-import { MicroCopy, getMicroCopy } from "../../helpers/microCopy";
+import { fireEvent, render } from "@testing-library/react";
+import React from "react";
+import { getMicroCopy, MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import Protrusions from "../_Protrusions";
 
@@ -50,7 +50,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     );
 
     const addProtrusionButton = getByText(
-      getMicroCopy(en, "roofDimensions.protrusions.add")
+      getMicroCopy(en, "MC: roofDimensions.protrusions.add")
     );
     fireEvent.click(addProtrusionButton);
 
@@ -80,7 +80,7 @@ describe("PitchedRoofCalculator Protrusions component", () => {
     );
 
     const removeProtrusionButton = getByText(
-      getMicroCopy(en, "roofDimensions.protrusions.remove")
+      getMicroCopy(en, "MC: roofDimensions.protrusions.remove")
     );
     fireEvent.click(removeProtrusionButton);
 

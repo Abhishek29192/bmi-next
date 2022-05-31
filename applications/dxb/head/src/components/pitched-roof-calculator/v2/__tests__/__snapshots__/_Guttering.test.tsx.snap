@@ -12,7 +12,7 @@ exports[`PitchedRoofCalculator Guttering component renders correctly 1`] = `
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Choose a gutter material
+          MC: guttering.gutter.title
         </h6>
       </div>
       <div
@@ -79,7 +79,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Choose a gutter material
+          MC: guttering.gutter.title
         </h6>
       </div>
       <div
@@ -140,7 +140,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Select the colour
+          MC: guttering.gutterVariant.title
         </h6>
       </div>
       <div
@@ -184,7 +184,9 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       <strong>
                         34391
                       </strong>
@@ -231,7 +233,9 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       <strong>
                         4391
                       </strong>
@@ -256,7 +260,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Select a gutter hook type
+          MC: guttering.gutterHook.title
         </h6>
       </div>
       <div
@@ -300,7 +304,9 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       <strong>
                         34392
                       </strong>
@@ -347,7 +353,9 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
                     <p
                       class="MuiTypography-root paragraph Typography MuiTypography-body1"
                     >
-                      Nobb: 
+                      MC: calculator.nobb.label
+                      :
+                       
                       <strong>
                         4392
                       </strong>
@@ -372,7 +380,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          Add down pipe (3m lengths)
+          MC: guttering.downPipe.title
         </h6>
       </div>
       <div
@@ -459,7 +467,7 @@ exports[`PitchedRoofCalculator Guttering component renders gutter variants and h
         <h6
           class="MuiTypography-root Typography MuiTypography-h6"
         >
-          How many downpipes connectors?
+          MC: guttering.downPipeConnectors.title
         </h6>
       </div>
       <div
