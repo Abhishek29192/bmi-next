@@ -7,6 +7,8 @@ import {
 } from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
+import { microCopy } from "../constants/microCopies";
+import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import {
   findMasterImageUrl,
@@ -14,8 +16,6 @@ import {
   getProductUrl,
   mapClassificationValues
 } from "../utils/product-details-transforms";
-import { microCopy } from "../constants/microCopies";
-import { getSearchParams } from "../utils/filters";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
@@ -35,6 +35,7 @@ const ProductsGridView = ({
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
   const { variantCodeToPathMap } = pageContext;
+  const searchParams = useSearchParams();
 
   if (isLoading) {
     return null;
@@ -61,7 +62,7 @@ const ProductsGridView = ({
         const productUrl = `${getProductUrl(
           pageContext.countryCode,
           variantCodeToPathMap[variant.code]
-        )}${getSearchParams()}`;
+        )}${searchParams}`;
 
         const uniqueClassifications = mapClassificationValues(
           findUniqueVariantClassifications(

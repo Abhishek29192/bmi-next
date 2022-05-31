@@ -1,23 +1,22 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Grid } from "@bmi/components";
-import { FilterProps, Filter } from "@bmi/components";
+import { Filter, FilterProps, Grid } from "@bmi/components";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
+import { devLog } from "../utils/devLog";
 import {
-  clearFilterValues,
-  updateFilterValue,
-  getUpdatedFilters,
-  setFiltersUrl,
-  getURLFilterValues
-} from "../utils/filters";
-import {
-  queryElasticSearch,
   compileElasticSearchQuery,
   disableFiltersFromAggregations,
-  removeIrrelevantFilters,
-  getCountQuery
+  getCountQuery,
+  queryElasticSearch,
+  removeIrrelevantFilters
 } from "../utils/elasticSearch";
-import { devLog } from "../utils/devLog";
+import {
+  clearFilterValues,
+  getUpdatedFilters,
+  getURLFilterValues,
+  setFiltersUrl,
+  updateFilterValue
+} from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
 
