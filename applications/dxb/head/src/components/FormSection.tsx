@@ -466,6 +466,16 @@ const FormSection = ({
     try {
       const source = axios.CancelToken.source();
       const token = await executeRecaptcha();
+      // remove all blank values
+      const valuesToSent = Object.entries(values).reduce(
+        (acc, [key, value]) => {
+          if (Array.isArray(value) && !value.length) {
+            return acc;
+          }
+          return value ? ((acc[`${key}`] = value), acc) : acc;
+        },
+        {}
+      );
 
       await axios.post(
         gcpFormSubmitEndpoint,
@@ -473,7 +483,7 @@ const FormSection = ({
           locale: node_locale,
           title,
           recipients: conditionalRecipients,
-          values,
+          values: valuesToSent,
           emailSubjectFormat
         },
         {
