@@ -563,6 +563,28 @@ deploy_gatsby_cloud_portugal:
       changes:
         - libraries/migrate/projects/dxb/**/*
 
+migrate_content_malaysia:
+  extends: .migrate_content
+  needs:
+    - install_yarn
+  variables:
+    DXB_MARKET_ID: "MY"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as MY is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
+deploy_gatsby_cloud_malaysia:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_malaysia
+  variables:
+    DXB_MARKET_ID: "MY"
+  rules:
+    - if: "$CI_COMMIT_TAG" # Only trigger for tags as MY is not on QA
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+
 migrate_content_group:
   extends: .migrate_content
   needs:
