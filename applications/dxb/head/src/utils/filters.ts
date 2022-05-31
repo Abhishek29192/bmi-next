@@ -1,5 +1,8 @@
 import { Filter } from "@bmi/components";
 import QueryString from "query-string";
+import { useEffect, useState } from "react";
+import { Data as DocumentData } from "../components/Document";
+import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   Category,
   Classification,
@@ -7,13 +10,11 @@ import {
   Product,
   VariantOption
 } from "../components/types/pim";
-import { Data as DocumentResultsData } from "../components/DocumentResults";
 import {
   PIMDocumentData,
   PIMDocumentProduct,
   PIMLinkDocumentData
 } from "../components/types/PIMDocumentBase";
-import { Data as DocumentData } from "../components/Document";
 import { getPathWithCountryCode } from "../utils/path";
 import {
   findAllCategories,
@@ -935,11 +936,10 @@ export const setFiltersUrl = (newFilters: Filter[]): void => {
     delete params[FILTER_KEY as string];
   }
 
-  history.replaceState(
-    null,
-    null,
-    `${location.pathname}?${QueryString.stringify(params)}`
-  );
+  replaceHistoryState({
+    pathname: location.pathname,
+    search: QueryString.stringify(params)
+  });
 };
 
 export const setSearchTabUrl = (tab: string): void => {
@@ -948,11 +948,10 @@ export const setSearchTabUrl = (tab: string): void => {
 
   params[SEARCHTAB_KEY as string] = tab;
 
-  history.replaceState(
-    null,
-    null,
-    `${location.pathname}?${QueryString.stringify(params)}`
-  );
+  replaceHistoryState({
+    pathname: location.pathname,
+    search: QueryString.stringify(params)
+  });
 };
 
 export const getSearchTabUrl = (): string => {
@@ -962,9 +961,47 @@ export const getSearchTabUrl = (): string => {
   return Array.isArray(searchtab) ? searchtab[0] : searchtab;
 };
 
-export const getSearchParams = (): string => {
-  const location = getWindowLocationFilters();
-  const params = QueryString.parse(location.search);
+export const REPLACE_STATE_EVENT = "onreplacestate";
+const replaceHistoryState = ({
+  pathname,
+  search
+}: {
+  pathname: string;
+  search: string;
+}) => {
+  const event = new CustomEvent(REPLACE_STATE_EVENT, {
+    detail: {
+      search
+    }
+  });
+  typeof window !== "undefined" && window.dispatchEvent(event);
+  history.replaceState(null, null, `${pathname}?${search}`);
+};
+
+export const useSearchParams = (): string => {
+  const [params, setParams] = useState(getSearchParams());
+
+  const onPopState = (e: CustomEvent) => {
+    setParams(getSearchParams(e.detail.search));
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener(REPLACE_STATE_EVENT, onPopState);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener(REPLACE_STATE_EVENT, onPopState);
+      }
+    };
+  }, []);
+
+  return params;
+};
+
+export const getSearchParams = (search?: string) => {
+  const params = QueryString.parse(search || getWindowLocationFilters().search);
 
   params[PATHNAME_KEY.toString()] = location.pathname;
 
