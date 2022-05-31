@@ -317,6 +317,14 @@ exports.createPages = async ({ graphql, actions }) => {
         graphql
       });
     }
+
+    await createPage({
+      path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
+      component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+      context: {
+        siteId: site.id
+      }
+    });
   }
 
   const redirectsTomlFile = `./redirects_${process.env.SPACE_MARKET_CODE}.toml`;

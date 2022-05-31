@@ -1,15 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IEDialog component renders content if ssr 1`] = `
-<body>
-  <div>
-    <h1>
-      Content
-    </h1>
-  </div>
-</body>
-`;
-
 exports[`IEDialog component renders correctly 1`] = `
 <body>
   <div>
@@ -57,14 +47,14 @@ exports[`IEDialog component renders correctly 1`] = `
         >
           <a
             aria-disabled="false"
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-221 MuiButton-contained buttonStyles-contained-223 MuiButton-containedPrimary"
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 MuiButton-containedPrimary"
             href="http://localhost"
             rel="noopener noreferrer"
             tabindex="0"
             target="_blank"
           >
             <span
-              class="MuiButton-label buttonStyles-label-224"
+              class="MuiButton-label buttonStyles-label-4"
             >
               Label
               <span
