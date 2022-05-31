@@ -106,16 +106,16 @@ export const archiveProjects = async (
         [...projects.map(({ id }) => id)]
       );
       if (archivedProjects.length) {
-        logger.info(
-          `Projects with id(s) ${archivedProjects.map(
-            ({ id }) => id
-          )} has be archived.`
-        );
+        const message = `Projects with id(s) ${archivedProjects.map(
+          ({ id }) => id
+        )} has be archived.`;
+        logger.info(message);
+
+        return message;
       }
     } else {
       logger.info(`No projects to be archived.`);
     }
-    return "ok";
   } catch (error) {
     logger.error(`Failed to archive projects`);
     await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepointName}`);

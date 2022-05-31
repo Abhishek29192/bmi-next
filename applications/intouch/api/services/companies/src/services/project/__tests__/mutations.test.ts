@@ -137,7 +137,7 @@ describe("Project", () => {
           resolveInfo
         );
 
-        expect(result).toBe("ok");
+        expect(result).toBe("Projects with id(s) 1 has be archived.");
         expect(query).toHaveBeenNthCalledWith(
           1,
           "SAVEPOINT graphql_archive_projects_mutation"

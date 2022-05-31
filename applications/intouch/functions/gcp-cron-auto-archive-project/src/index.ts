@@ -7,10 +7,12 @@ const handleRequest = async (req: Request<any, any>, res: Response) => {
     const clientGateway = await GatewayClient.create();
     const response = await clientGateway.archiveGuarantee();
     if (response.ok) {
-      res.status(200).send("ok");
+      const {
+        data: { archiveProjects: message }
+      } = await response.json();
+      logger.info({ message });
     } else {
       logger.error({ message: response.statusText });
-      res.status(400).send("fails");
     }
   } catch (error) {
     logger.error({ message: (error as Error).message });

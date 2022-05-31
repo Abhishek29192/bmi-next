@@ -22,7 +22,8 @@ export default class GatewayClient {
     this.request = new Request(GATEWAY_API_URL!, {
       headers: {
         "Content-Type": "application/json",
-        authorization: bearer,
+        authorization: "bearer undefined",
+        "x-api-key": bearer,
         "x-apigateway-api-userinfo": userinfo
       }
     });
