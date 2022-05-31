@@ -316,6 +316,7 @@ describe("documents resolver utils", () => {
       expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
+            noIndex: { eq: false },
             assetType: {
               id: {
                 in: ["asset-type-1", "asset-type-2", "asset-type-3"]
@@ -335,7 +336,9 @@ describe("documents resolver utils", () => {
       );
       expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
-          filter: {}
+          filter: {
+            noIndex: { eq: false }
+          }
         },
         type: "ContentfulDocument"
       });
