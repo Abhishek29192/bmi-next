@@ -1,6 +1,8 @@
 @import "~@bmi-digital/styles";
 
 .IEDialog {
+  max-width: 720px;
+
   .IEDialog-title {
     text-align: center;
     margin: 40px 80px 20px;
@@ -32,4 +34,15 @@
     padding: 0 30px 30px 30px;
     margin: -8px;
   }
+}
+
+.IEDialog-wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
 }

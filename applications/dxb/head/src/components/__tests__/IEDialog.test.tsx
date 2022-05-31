@@ -69,15 +69,20 @@ describe("IEDialog component", () => {
     ieUserAgents.forEach((userAgent) => {
       window.navigator = { userAgent } as Navigator;
 
-      const { getByText } = render(<IEDialog data={data} />);
+      const { getByText, queryByText } = render(
+        <IEDialog data={data}>
+          <h1>Content</h1>
+        </IEDialog>
+      );
 
       expect(getByText("IE Dialog Title")).toBeTruthy();
+      expect(queryByText("Content")).toBeFalsy();
 
       cleanup();
     });
   });
 
-  it("does not render if non-IE browser", () => {
+  it("render content if non-IE browser", () => {
     const nonIEUserAgents = [
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15", // Safary
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299", // Edge
@@ -88,18 +93,27 @@ describe("IEDialog component", () => {
     nonIEUserAgents.forEach((userAgent) => {
       window.navigator = { userAgent } as Navigator;
 
-      const { queryByText } = render(<IEDialog data={data} />);
+      const { queryByText, getByText } = render(
+        <IEDialog data={data}>
+          <h1>Content</h1>
+        </IEDialog>
+      );
 
       expect(queryByText("IE Dialog Title")).toBeFalsy();
+      expect(getByText("Content")).toBeTruthy();
 
       cleanup();
     });
   });
 
-  it("does not renders if ssr", () => {
+  it("renders content if ssr", () => {
     jest.spyOn(window, "window", "get").mockReturnValueOnce(undefined);
 
-    const { baseElement } = render(<IEDialog data={data} />);
+    const { baseElement } = render(
+      <IEDialog data={data}>
+        <h1>Content</h1>
+      </IEDialog>
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -110,7 +124,11 @@ describe("IEDialog component", () => {
         "Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko"
     } as Navigator; // ie11 win10
 
-    const { baseElement } = render(<IEDialog data={data} />);
+    const { baseElement } = render(
+      <IEDialog data={data}>
+        <h1>Content</h1>
+      </IEDialog>
+    );
 
     expect(baseElement).toMatchSnapshot();
   });
