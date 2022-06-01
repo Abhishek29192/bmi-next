@@ -20,7 +20,7 @@ export const copyDefaultValues = async (
     const typedName = name as keyof typeof entity.fields;
     // eslint-disable-next-line security/detect-object-injection
     const value = entity.fields[typedName][sourceLocaleCode];
-    if (value) {
+    if (value !== undefined) {
       targetlocales.forEach((locale) => {
         // eslint-disable-next-line security/detect-object-injection
         entity.fields[typedName][locale.code] = value;
