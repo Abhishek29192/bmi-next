@@ -13,7 +13,6 @@ import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
 import { Head } from "./Head";
-import IEDialog, { Data as IEDialogData } from "./IEDialog";
 import { generateGetMicroCopy } from "./MicroCopy";
 import Calculator from "./PitchedRoofCalcualtor";
 import { Data as SEOContentData } from "./SEOContent";
@@ -92,13 +91,6 @@ const Page = ({
 
   const getMicroCopy = generateGetMicroCopy(resources?.microCopy);
 
-  const dataIEDialog: IEDialogData = {
-    ieDialogTitle: resources?.ieDialogTitle,
-    ieDialogBody: resources?.ieDialogBody,
-    ieDialogActionLabel: resources?.ieDialogActionLabel,
-    ieDialogActionLink: resources?.ieDialogActionLink
-  };
-
   const siteContext = {
     node_locale,
     countryCode,
@@ -136,63 +128,61 @@ const Page = ({
       {/* TODO: move cascade of providers to separate composition component AppProviders */}
       <SiteContextProvider value={siteContext}>
         <MicroCopy.Provider values={microCopyContext}>
-          <IEDialog data={dataIEDialog}>
-            <BasketContextProvider>
-              <GoogleReCaptchaProvider
-                reCaptchaKey={gatsbyReCaptchaKey}
-                useRecaptchaNet={reCaptchaNet}
-                language={countryCode}
-              >
-                <Header
-                  navigationData={menuNavigation}
-                  utilitiesData={menuUtilities}
-                  countryCode={countryCode}
-                  activeLabel={
-                    (breadcrumbs && breadcrumbs[0]?.label) || undefined
+          <BasketContextProvider>
+            <GoogleReCaptchaProvider
+              reCaptchaKey={gatsbyReCaptchaKey}
+              useRecaptchaNet={reCaptchaNet}
+              language={countryCode}
+            >
+              <Header
+                navigationData={menuNavigation}
+                utilitiesData={menuUtilities}
+                countryCode={countryCode}
+                activeLabel={
+                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
+                }
+                isOnSearchPage={isSearchPage}
+                countryNavigationIntroduction={
+                  resources?.countryNavigationIntroduction
+                }
+                regions={regions}
+                sampleBasketLink={resources?.sampleBasketLink}
+              />
+              <BrandProvider brand={brand}>
+                <ErrorBoundary
+                  fallbackRender={() => (
+                    <ErrorFallback
+                      countryCode={countryCode}
+                      promo={resources.errorGeneral}
+                    />
+                  )}
+                  onError={() =>
+                    navigate(getPathWithCountryCode(countryCode, "422"))
                   }
-                  isOnSearchPage={isSearchPage}
-                  countryNavigationIntroduction={
-                    resources?.countryNavigationIntroduction
-                  }
-                  regions={regions}
-                  sampleBasketLink={resources?.sampleBasketLink}
-                />
-                <BrandProvider brand={brand}>
-                  <ErrorBoundary
-                    fallbackRender={() => (
-                      <ErrorFallback
-                        countryCode={countryCode}
-                        promo={resources.errorGeneral}
-                      />
-                    )}
-                    onError={() =>
-                      navigate(getPathWithCountryCode(countryCode, "422"))
-                    }
+                >
+                  <VisualiserProvider
+                    contentSource={visualizerAssetUrl}
+                    variantCodeToPathMap={variantCodeToPathMap}
+                    shareWidgetData={resources?.visualiserShareWidget}
                   >
-                    <VisualiserProvider
-                      contentSource={visualizerAssetUrl}
-                      variantCodeToPathMap={variantCodeToPathMap}
-                      shareWidgetData={resources?.visualiserShareWidget}
+                    <Calculator
+                      onError={() =>
+                        navigate(getPathWithCountryCode(countryCode, "422"))
+                      }
                     >
-                      <Calculator
-                        onError={() =>
-                          navigate(getPathWithCountryCode(countryCode, "422"))
-                        }
-                      >
-                        <Content>{children}</Content>
-                      </Calculator>
-                    </VisualiserProvider>
-                    {signupBlock ? <SignupBlock data={signupBlock} /> : null}
-                  </ErrorBoundary>
-                </BrandProvider>
-                <Footer
-                  mainNavigation={footerMainNavigation}
-                  secondaryNavigation={footerSecondaryNavigation}
-                />
-                <BackToTop accessibilityLabel="Back to the top" />
-              </GoogleReCaptchaProvider>
-            </BasketContextProvider>
-          </IEDialog>
+                      <Content>{children}</Content>
+                    </Calculator>
+                  </VisualiserProvider>
+                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
+                </ErrorBoundary>
+              </BrandProvider>
+              <Footer
+                mainNavigation={footerMainNavigation}
+                secondaryNavigation={footerSecondaryNavigation}
+              />
+              <BackToTop accessibilityLabel="Back to the top" />
+            </GoogleReCaptchaProvider>
+          </BasketContextProvider>
         </MicroCopy.Provider>
       </SiteContextProvider>
     </>

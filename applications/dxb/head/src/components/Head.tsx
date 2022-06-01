@@ -1,16 +1,16 @@
+import { transformHyphens } from "@bmi/components";
 import React from "react";
 import { Helmet, HelmetProps } from "react-helmet";
-import { transformHyphens } from "@bmi/components";
-import { getJpgImage } from "../utils/media";
-import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
-import { useConfig } from "../contexts/ConfigProvider";
 import EffraBold from "../../static/fonts/Effra_W_Bold.woff2";
 import EffraHeavy from "../../static/fonts/Effra_W_Heavy.woff2";
 import EffraMedium from "../../static/fonts/Effra_W_Medium.woff2";
 import EffraRegular from "../../static/fonts/Effra_W_Regular.woff2";
+import { useConfig } from "../contexts/ConfigProvider";
+import { getJpgImage } from "../utils/media";
 import { getPathWithCountryCode } from "../utils/path";
-import { Data as SiteData } from "./Site";
+import { createSchemaOrgDataForPdpPage } from "../utils/schemaOrgPDPpage";
 import { Data as SEOContentData } from "./SEOContent";
+import { Data as SiteData } from "./Site";
 import { Product, VariantOption } from "./types/pim";
 
 interface HeadProps {
@@ -58,6 +58,26 @@ export const Head = ({
       title={seo?.metaTitle || transformHyphens(title)}
       defer={defer}
     >
+      <script>{`
+        function detectIE() {
+          if (typeof window !== "undefined" && window.location.pathname === "${getPathWithCountryCode(
+            countryCode,
+            "ie-dialog"
+          )}") {
+            return false;
+          }
+          var userAgent = typeof window !== "undefined" ? window.navigator.userAgent : "";
+          var documentMode = typeof window !== "undefined" ? window.document.documentMode : 0;
+          return userAgent.indexOf("MSIE") > 0 || userAgent.indexOf("Trident") > 0 || documentMode;
+        };
+
+        if (detectIE()) {
+          window.location = "${getPathWithCountryCode(
+            countryCode,
+            "ie-dialog"
+          )}"
+        }
+      `}</script>
       {htmlAttributes?.lang && (
         <link
           rel="alternate"
