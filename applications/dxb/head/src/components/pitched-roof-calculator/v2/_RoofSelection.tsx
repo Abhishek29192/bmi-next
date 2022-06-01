@@ -1,10 +1,11 @@
-import React, { useContext, useMemo } from "react";
 import { CardRadioGroup } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { RoofType, RoofV2 as Roof } from "../types/roof";
+import React, { useContext, useMemo } from "react";
+import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
-import FieldContainer from "./subcomponents/_FieldContainer";
+import { RoofType, RoofV2 as Roof } from "../types/roof";
 import roofs from "./calculation/roofs";
+import { microCopy } from "./constants/microCopy";
+import FieldContainer from "./subcomponents/_FieldContainer";
 
 type RoofSelectionRowProps = {
   title: string;
@@ -19,7 +20,7 @@ const RoofSelectionRow = ({
   select,
   selected
 }: RoofSelectionRowProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -30,7 +31,7 @@ const RoofSelectionRow = ({
     <FieldContainer title={title}>
       <CardRadioGroup name="roof" defaultValue={(selected || {}).name}>
         {options.map((roof) => {
-          const label = getMicroCopy(copy, "roofSelection.roof", {
+          const label = getMicroCopy(microCopy.ROOF_SELECTION_ROOF, {
             name: roof.name
           });
 
@@ -59,7 +60,7 @@ const RoofSelectionRow = ({
 
 const categories: RoofType[] = ["gable", "hipped", "sloped"];
 
-export type RoofSelecionProps = Pick<
+export type RoofSelectionProps = Pick<
   RoofSelectionRowProps,
   "select" | "selected"
 > & {
@@ -70,8 +71,8 @@ const RoofSelection = ({
   select,
   selected,
   requiredRoofShapes
-}: RoofSelecionProps) => {
-  const copy = useContext(MicroCopyContext);
+}: RoofSelectionProps) => {
+  const { getMicroCopy } = useSiteContext();
   const filteredRoofs = useMemo(() => {
     if (!requiredRoofShapes || requiredRoofShapes.length === 0) {
       return [];
@@ -86,7 +87,7 @@ const RoofSelection = ({
       {categories.map((type) => (
         <RoofSelectionRow
           key={type}
-          title={getMicroCopy(copy, `roofSelection.${type}`)}
+          title={getMicroCopy(`roofSelection.${type}`)}
           options={filteredRoofs.filter((roof) => roof.type === type)}
           {...{ select, selected }}
         />

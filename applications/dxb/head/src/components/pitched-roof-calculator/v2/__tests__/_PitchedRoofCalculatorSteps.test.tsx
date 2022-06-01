@@ -1,29 +1,28 @@
+import { act, render } from "@testing-library/react";
 import React from "react";
-import { render } from "@testing-library/react";
-import { act } from "@testing-library/react";
+import { MicroCopy } from "../../helpers/microCopy";
+import en from "../../samples/copy/en.json";
+import data from "../../samples/data.json";
+import { MainTile } from "../../types";
+import roofs from "../calculation/roofs";
 import {
   Props as CalculatorStepperProps,
   StepProps
 } from "../subcomponents/calculator-stepper/CalculatorStepper";
-import roofs from "../calculation/roofs";
-import { MicroCopy } from "../../helpers/microCopy";
-import data from "../../samples/data.json";
-import en from "../../samples/copy/en.json";
+import { GutteringProps } from "../_Guttering";
 import PitchedRoofCalculatorSteps, {
   Step
 } from "../_PitchedRoofCalculatorSteps";
-import { RoofSelecionProps } from "../_RoofSelection";
-import { RoofDimensionsProps } from "../_RoofDimensions";
-import { TileSelecionProps } from "../_TileSelection";
-import { TileOptionsProps } from "../_TileOptions";
-import { VariantSelecionProps } from "../_VariantSelection";
-import { UnderlaySelectionProps } from "../_UnderlaySelection";
-import { GutteringProps } from "../_Guttering";
 import { ResultProps } from "../_Results";
-import { MainTile } from "../../types";
+import { RoofDimensionsProps } from "../_RoofDimensions";
+import { RoofSelectionProps } from "../_RoofSelection";
+import { TileOptionsProps } from "../_TileOptions";
+import { TileSelecionProps } from "../_TileSelection";
+import { UnderlaySelectionProps } from "../_UnderlaySelection";
+import { VariantSelecionProps } from "../_VariantSelection";
 
 let componentProps: {
-  _RoofSelection?: RoofSelecionProps;
+  _RoofSelection?: RoofSelectionProps;
   _RoofDimensions?: RoofDimensionsProps;
   _TileSelection?: TileSelecionProps;
   _TileOptions?: TileOptionsProps;
@@ -33,7 +32,7 @@ let componentProps: {
   _Results?: ResultProps;
 } = {};
 jest.mock("../_RoofSelection", () => {
-  const RoofSelection = (props: RoofSelecionProps) => {
+  const RoofSelection = (props: RoofSelectionProps) => {
     componentProps["_RoofSelection"] = props;
     return <p>Rendering _RoofSelection</p>;
   };

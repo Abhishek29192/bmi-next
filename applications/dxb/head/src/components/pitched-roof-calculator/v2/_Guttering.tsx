@@ -1,14 +1,13 @@
+import { CardRadioGroup, FormContext, Grid } from "@bmi/components";
 import React, { useContext } from "react";
-import { CardRadioGroup } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { FormContext } from "@bmi/components";
-import { AnalyticsContext } from "../helpers/analytics";
+import { useSiteContext } from "../../Site";
+import { AnalyticsContext } from "./../helpers/analytics";
 import {
   Guttering as GutteringType,
   GutteringVariant,
   LengthBasedProduct
-} from "../types";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
+} from "./../types";
+import { microCopy } from "./constants/microCopy";
 import NumericInput from "./subcomponents/up-down-simple-numeric-input/UpDownSimpleNumericInput";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
@@ -19,7 +18,7 @@ type GutteringSelectionProps = {
 };
 
 const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -27,7 +26,7 @@ const GutteringSelection = ({ selected, options }: GutteringSelectionProps) => {
   }
 
   return (
-    <FieldContainer title={getMicroCopy(copy, "guttering.gutter.title")}>
+    <FieldContainer title={getMicroCopy(microCopy.GUTTERING_GUTTER_TITLE)}>
       <CardRadioGroup name="guttering" defaultValue={selected} isRequired>
         {options.map(({ name, image }) => (
           <CardRadioGroup.Item
@@ -60,7 +59,7 @@ const GutteringVariantSelection = ({
   selected,
   options
 }: GutteringVariantSelectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -68,7 +67,9 @@ const GutteringVariantSelection = ({
   }
 
   return (
-    <FieldContainer title={getMicroCopy(copy, "guttering.gutterVariant.title")}>
+    <FieldContainer
+      title={getMicroCopy(microCopy.GUTTERING_GUTTER_VARIANT_TITLE)}
+    >
       <CardRadioGroup
         name="gutteringVariant"
         defaultValue={selected}
@@ -84,13 +85,16 @@ const GutteringVariantSelection = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-guttering",
-                label: `${name} - Nobb: ${externalProductCode}`,
+                label: `${name} - ${getMicroCopy(
+                  microCopy.CALCULATOR_NOBB_LABEL
+                )}: ${externalProductCode}`,
                 action: "selected"
               });
             }}
           >
             <CardRadioGroup.Item.Paragraph>
-              Nobb: <strong>{externalProductCode}</strong>
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              <strong>{externalProductCode}</strong>
             </CardRadioGroup.Item.Paragraph>
           </CardRadioGroup.Item>
         ))}
@@ -109,7 +113,7 @@ const GutteringHookSelection = ({
   selected,
   options
 }: GutteringHookSelectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   if (!options.length) {
@@ -117,7 +121,7 @@ const GutteringHookSelection = ({
   }
 
   return (
-    <FieldContainer title={getMicroCopy(copy, "guttering.gutterHook.title")}>
+    <FieldContainer title={getMicroCopy(microCopy.GUTTERING_GUTTER_HOOK_TITLE)}>
       <CardRadioGroup name="gutteringHook" defaultValue={selected} isRequired>
         {options.map(({ name, image, externalProductCode }) => (
           <CardRadioGroup.Item
@@ -129,13 +133,16 @@ const GutteringHookSelection = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-guttering",
-                label: `${name} - Nobb: ${externalProductCode}`,
+                label: `${name} - ${getMicroCopy(
+                  microCopy.CALCULATOR_NOBB_LABEL
+                )}: ${externalProductCode}`,
                 action: "selected"
               });
             }}
           >
             <CardRadioGroup.Item.Paragraph>
-              Nobb: <strong>{externalProductCode}</strong>
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              <strong>{externalProductCode}</strong>
             </CardRadioGroup.Item.Paragraph>
           </CardRadioGroup.Item>
         ))}
@@ -153,12 +160,12 @@ const DownPipeSelection = ({
   downPipes,
   downPipeConnectors
 }: DownPipeSelectionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   return (
     <>
-      <FieldContainer title={getMicroCopy(copy, "guttering.downPipe.title")}>
+      <FieldContainer title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE)}>
         <Grid container>
           <Grid item xs={12} md={3}>
             <NumericInput
@@ -168,7 +175,7 @@ const DownPipeSelection = ({
                 pushEvent({
                   event: "dxb.button_click",
                   id: "rc-select-guttering",
-                  label: getMicroCopy(copy, "guttering.downPipe.title"),
+                  label: getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_TITLE),
                   action: value + ""
                 });
               }}
@@ -177,7 +184,7 @@ const DownPipeSelection = ({
         </Grid>
       </FieldContainer>
       <FieldContainer
-        title={getMicroCopy(copy, "guttering.downPipeConnectors.title")}
+        title={getMicroCopy(microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE)}
       >
         <Grid container>
           <Grid item xs={12} md={3}>
@@ -189,8 +196,7 @@ const DownPipeSelection = ({
                   event: "dxb.button_click",
                   id: "rc-select-guttering",
                   label: getMicroCopy(
-                    copy,
-                    "guttering.downPipeConnectors.title"
+                    microCopy.GUTTERING_DOWN_PIPE_CONNECTORS_TITLE
                   ),
                   action: value + ""
                 });

@@ -1,16 +1,20 @@
+import {
+  Button,
+  CardInput,
+  FormContext,
+  Grid,
+  InputValue,
+  RawTextField
+} from "@bmi/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Grid } from "@bmi/components";
-import { Button } from "@bmi/components";
-import { RawTextField } from "@bmi/components";
-import { FormContext, InputValue } from "@bmi/components";
-import { CardInput } from "@bmi/components";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { getFieldTypes, Type } from "../helpers/fieldTypes";
-import { AnalyticsContext } from "../helpers/analytics";
-import FieldContainer from "./subcomponents/_FieldContainer";
-import styles from "./_Protrusions.module.scss";
-import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import { useSiteContext } from "../../Site";
+import { AnalyticsContext } from "./../helpers/analytics";
+import { getFieldTypes, Type } from "./../helpers/fieldTypes";
 import protrusionTypes from "./calculation/protrusions";
+import { microCopy } from "./constants/microCopy";
+import FieldContainer from "./subcomponents/_FieldContainer";
+import inputStyles from "./subcomponents/_InputTextField.module.scss";
+import styles from "./_Protrusions.module.scss";
 
 type SelectProtrusionProps = {
   id: string;
@@ -79,10 +83,10 @@ const Input = ({
   defaultValue = "",
   ...rest
 }: InputProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   // eslint-disable-next-line security/detect-object-injection
   const { helperText, unit, validator } = getFieldTypes((path, placeholders) =>
-    getMicroCopy(copy, "validation.errors." + path, placeholders)
+    getMicroCopy(`validation.errors.${path}`, placeholders)
   )[type];
 
   const [error, setError] = useState(() => validator(defaultValue));
@@ -144,7 +148,7 @@ const ProtrusionDimensions = ({
   type: protrusionType,
   values
 }: ProtrusionDimensionsProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   const { fields, dimensionsIllustration: DimensionsIllustration } =
@@ -153,7 +157,7 @@ const ProtrusionDimensions = ({
 
   return (
     <FieldContainer
-      title={getMicroCopy(copy, "roofDimensions.protrusions.prompt")}
+      title={getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_PROMPT)}
     >
       <Grid container className={styles["dimensions"]}>
         <Grid item xs={12} lg={3}>
@@ -183,15 +187,16 @@ const ProtrusionDimensions = ({
                       event: "dxb.button_click",
                       id: "rc-dimensions-protrusions",
                       label: getMicroCopy(
-                        copy,
-                        "roofDimensions.protrusions.addAnother"
+                        microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
                       ),
                       action: "selected"
                     });
                     onAddAnother();
                   }}
                 >
-                  {getMicroCopy(copy, "roofDimensions.protrusions.addAnother")}
+                  {getMicroCopy(
+                    microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD_ANOTHER
+                  )}
                 </Button>
               ) : null}
               <Button
@@ -201,15 +206,14 @@ const ProtrusionDimensions = ({
                     event: "dxb.button_click",
                     id: "rc-dimensions-protrusions",
                     label: getMicroCopy(
-                      copy,
-                      "roofDimensions.protrusions.remove"
+                      microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE
                     ),
                     action: "removed"
                   });
                   onRemove();
                 }}
               >
-                {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
+                {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
               </Button>
             </Grid>
           </Grid>
@@ -242,7 +246,7 @@ const Protrusion = ({
   onRemove,
   values
 }: ProtrusionProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   const updateSelection = (value?: string, error?: string) =>
@@ -285,13 +289,13 @@ const Protrusion = ({
             pushEvent({
               event: "dxb.button_click",
               id: "rc-dimensions-protrusions",
-              label: getMicroCopy(copy, "roofDimensions.protrusions.remove"),
+              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE),
               action: "removed"
             });
             onRemove();
           }}
         >
-          {getMicroCopy(copy, "roofDimensions.protrusions.remove")}
+          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_REMOVE)}
         </Button>
       )}
     </div>
@@ -306,7 +310,6 @@ const Protrusions = ({
 }: {
   defaultValue?: ReadonlyArray<ProtrusionItem["values"]>;
 }) => {
-  const copy = useContext(MicroCopyContext);
   const pushEvent = useContext(AnalyticsContext);
 
   const [protrusions, setProtrusions] = useState(
@@ -317,6 +320,7 @@ const Protrusions = ({
     }))
   );
   const { updateFormState } = useContext(FormContext);
+  const { getMicroCopy } = useSiteContext();
 
   const addProtrusion = () =>
     setProtrusions((protrusions) => [
@@ -377,7 +381,7 @@ const Protrusions = ({
   return (
     <div className={styles["Protrusions"]}>
       <FieldContainer
-        title={getMicroCopy(copy, "roofDimensions.protrusions.title")}
+        title={getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_TITLE)}
       >
         <Button
           variant="outlined"
@@ -387,13 +391,13 @@ const Protrusions = ({
             pushEvent({
               event: "dxb.button_click",
               id: "rc-dimensions-protrusions",
-              label: getMicroCopy(copy, "roofDimensions.protrusions.add"),
+              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD),
               action: "selected"
             });
             addProtrusion();
           }}
         >
-          {getMicroCopy(copy, "roofDimensions.protrusions.add")}
+          {getMicroCopy(microCopy.ROOF_DIMENSIONS_PROTRUSIONS_ADD)}
         </Button>
       </FieldContainer>
       {protrusionsElements}

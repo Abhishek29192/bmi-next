@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
 import { CardRadioGroup } from "@bmi/components";
-import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
+import React, { useContext } from "react";
+import { useSiteContext } from "../../Site";
+import { AnalyticsContext } from "../helpers/analytics";
 import getPitchValues from "../helpers/getPitchValues";
+import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
 import { MainTile, MainTileVariant, RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
-import { AnalyticsContext } from "../helpers/analytics";
+import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VariantSelectionRowProps = {
@@ -48,6 +50,7 @@ const VariantSelectionRow = ({
   tile
 }: VariantSelectionRowProps) => {
   const pushEvent = useContext(AnalyticsContext);
+  const { getMicroCopy } = useSiteContext();
 
   const pitchValues = getPitchValues(dimensions);
 
@@ -80,14 +83,17 @@ const VariantSelectionRow = ({
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-tile-colour",
-                label: `${tile.color} - Nobb: ${tile.externalProductCode}`,
+                label: `${tile.color} - ${getMicroCopy(
+                  microCopy.CALCULATOR_NOBB_LABEL
+                )}: ${tile.externalProductCode}`,
                 action: "selected"
               });
               select(tile);
             }}
           >
             <CardRadioGroup.Item.Paragraph>
-              Nobb: {tile.externalProductCode}
+              {getMicroCopy(microCopy.CALCULATOR_NOBB_LABEL)}:{" "}
+              {tile.externalProductCode}
             </CardRadioGroup.Item.Paragraph>
           </CardRadioGroup.Item>
         ))}

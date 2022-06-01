@@ -1,15 +1,15 @@
+import { fireEvent, render as rtlRender, screen } from "@testing-library/react";
 import React from "react";
-import { render as rtlRender, screen, fireEvent } from "@testing-library/react";
-import RoofSelection, { RoofSelecionProps } from "../_RoofSelection";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
+import RoofSelection, { RoofSelectionProps } from "../_RoofSelection";
 
-const defaultProps: RoofSelecionProps = {
+const defaultProps: RoofSelectionProps = {
   select: jest.fn(),
   requiredRoofShapes: [{ id: "1", name: "1" }]
 };
 
-const render = (props: Partial<RoofSelecionProps> = {}) => {
+const render = (props: Partial<RoofSelectionProps> = {}) => {
   const finalProps = { ...defaultProps, ...props };
 
   const Wrapper: React.FC = (props) => (
@@ -22,13 +22,12 @@ const render = (props: Partial<RoofSelecionProps> = {}) => {
 describe("PitchedRoofCalculator RoofSelection component", () => {
   it("renders only required roofs", () => {
     render();
-    expect(screen.getByText("Roof 1")).toBeInTheDocument();
-    expect(screen.getAllByRole("radio").length).toBe(1);
+    expect(screen.getAllByText("MC: roofSelection.roof").length).toBe(1);
   });
 
   it("calls select function when user selects a roof shape", () => {
     render();
-    fireEvent.click(screen.getByText("Roof 1"));
+    fireEvent.click(screen.getAllByText("MC: roofSelection.roof")[0]);
     expect(defaultProps.select).toBeCalledTimes(1);
   });
 

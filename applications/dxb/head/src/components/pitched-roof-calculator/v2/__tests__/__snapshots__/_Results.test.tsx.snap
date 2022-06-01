@@ -33,9 +33,9 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              Quantities update
+              MC: results.alerts.quantities.title
             </h5>
-            Changing the quantities may affect the accuracy of the estimates.
+            MC: results.alerts.quantities.text
           </div>
         </div>
       </div>
@@ -68,9 +68,9 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                 />
               </svg>
-              Need to know
+              MC: results.alerts.needToKnow.title
             </h5>
-            We’ve added a wastage contingency of: 5% into this material calculation.
+            MC: results.alerts.needToKnow.text
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
       <h4
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
       >
-        Print this list
+        MC: results.email.title
       </h4>
       <div
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
@@ -92,7 +92,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
           <p
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
+            MC: results.email.help
           </p>
         </div>
       </div>
@@ -109,7 +109,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your name
+              MC: results.email.nameLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -137,7 +137,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                   class="PrivateNotchedOutline-legendLabelled-3"
                 >
                   <span>
-                    Your name
+                    MC: results.email.nameLabel
                      *
                   </span>
                 </legend>
@@ -155,7 +155,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your email address
+              MC: results.email.emailLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -183,7 +183,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                   class="PrivateNotchedOutline-legendLabelled-3"
                 >
                   <span>
-                    Your email address
+                    MC: results.email.emailLabel
                      *
                   </span>
                 </legend>
@@ -239,7 +239,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_1Label
                 </span>
               </label>
             </div>
@@ -289,7 +289,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_2Label
                 </span>
               </label>
             </div>
@@ -307,7 +307,7 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
             <span
               class="MuiButton-label buttonStyles-label-12"
             >
-              Print this list
+              MC: results.email.print
             </span>
           </button>
         </div>
@@ -350,9 +350,9 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              Quantities update
+              MC: results.alerts.quantities.title
             </h5>
-            Changing the quantities may affect the accuracy of the estimates.
+            MC: results.alerts.quantities.text
           </div>
         </div>
       </div>
@@ -385,9 +385,9 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                 />
               </svg>
-              Need to know
+              MC: results.alerts.needToKnow.title
             </h5>
-            We’ve added a wastage contingency of: 5% into this material calculation.
+            MC: results.alerts.needToKnow.text
           </div>
         </div>
       </div>
@@ -398,7 +398,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       <h4
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
       >
-        Print this list
+        MC: results.email.title
       </h4>
       <div
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
@@ -409,7 +409,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           <p
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
+            MC: results.email.help
           </p>
         </div>
       </div>
@@ -426,7 +426,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your name
+              MC: results.email.nameLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -454,7 +454,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                   class="PrivateNotchedOutline-legendLabelled-31"
                 >
                   <span>
-                    Your name
+                    MC: results.email.nameLabel
                      *
                   </span>
                 </legend>
@@ -472,7 +472,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your email address
+              MC: results.email.emailLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -500,7 +500,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                   class="PrivateNotchedOutline-legendLabelled-31"
                 >
                   <span>
-                    Your email address
+                    MC: results.email.emailLabel
                      *
                   </span>
                 </legend>
@@ -556,7 +556,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_1Label
                 </span>
               </label>
             </div>
@@ -606,7 +606,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_2Label
                 </span>
               </label>
             </div>
@@ -624,7 +624,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             <span
               class="MuiButton-label buttonStyles-label-40"
             >
-              Print this list
+              MC: results.email.print
             </span>
           </button>
         </div>
@@ -740,9 +740,9 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              Quantities update
+              MC: results.alerts.quantities.title
             </h5>
-            Changing the quantities may affect the accuracy of the estimates.
+            MC: results.alerts.quantities.text
           </div>
         </div>
       </div>
@@ -775,9 +775,9 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                 />
               </svg>
-              Need to know
+              MC: results.alerts.needToKnow.title
             </h5>
-            We’ve added a wastage contingency of: 5% into this material calculation.
+            MC: results.alerts.needToKnow.text
           </div>
         </div>
       </div>
@@ -788,7 +788,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       <h4
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
       >
-        Print this list
+        MC: results.email.title
       </h4>
       <div
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
@@ -799,7 +799,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           <p
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
+            MC: results.email.help
           </p>
         </div>
       </div>
@@ -816,7 +816,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your name
+              MC: results.email.nameLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -844,7 +844,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                   class="PrivateNotchedOutline-legendLabelled-115"
                 >
                   <span>
-                    Your name
+                    MC: results.email.nameLabel
                      *
                   </span>
                 </legend>
@@ -862,7 +862,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your email address
+              MC: results.email.emailLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -890,7 +890,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                   class="PrivateNotchedOutline-legendLabelled-115"
                 >
                   <span>
-                    Your email address
+                    MC: results.email.emailLabel
                      *
                   </span>
                 </legend>
@@ -946,7 +946,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_1Label
                 </span>
               </label>
             </div>
@@ -996,7 +996,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_2Label
                 </span>
               </label>
             </div>
@@ -1014,7 +1014,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             <span
               class="MuiButton-label buttonStyles-label-124"
             >
-              Print this list
+              MC: results.email.print
             </span>
           </button>
         </div>
@@ -1057,9 +1057,9 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              Quantities update
+              MC: results.alerts.quantities.title
             </h5>
-            Changing the quantities may affect the accuracy of the estimates.
+            MC: results.alerts.quantities.text
           </div>
         </div>
       </div>
@@ -1092,9 +1092,9 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                 />
               </svg>
-              Need to know
+              MC: results.alerts.needToKnow.title
             </h5>
-            We’ve added a wastage contingency of: 5% into this material calculation.
+            MC: results.alerts.needToKnow.text
           </div>
         </div>
       </div>
@@ -1105,7 +1105,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       <h4
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
       >
-        Print this list
+        MC: results.email.title
       </h4>
       <div
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1116,7 +1116,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           <p
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
+            MC: results.email.help
           </p>
         </div>
       </div>
@@ -1133,7 +1133,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your name
+              MC: results.email.nameLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -1161,7 +1161,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                   class="PrivateNotchedOutline-legendLabelled-87"
                 >
                   <span>
-                    Your name
+                    MC: results.email.nameLabel
                      *
                   </span>
                 </legend>
@@ -1179,7 +1179,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your email address
+              MC: results.email.emailLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -1207,7 +1207,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                   class="PrivateNotchedOutline-legendLabelled-87"
                 >
                   <span>
-                    Your email address
+                    MC: results.email.emailLabel
                      *
                   </span>
                 </legend>
@@ -1263,7 +1263,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_1Label
                 </span>
               </label>
             </div>
@@ -1313,7 +1313,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_2Label
                 </span>
               </label>
             </div>
@@ -1331,7 +1331,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             <span
               class="MuiButton-label buttonStyles-label-96"
             >
-              Print this list
+              MC: results.email.print
             </span>
           </button>
         </div>
@@ -1374,9 +1374,9 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              Quantities update
+              MC: results.alerts.quantities.title
             </h5>
-            Changing the quantities may affect the accuracy of the estimates.
+            MC: results.alerts.quantities.text
           </div>
         </div>
       </div>
@@ -1409,9 +1409,9 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                   d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
                 />
               </svg>
-              Need to know
+              MC: results.alerts.needToKnow.title
             </h5>
-            We’ve added a wastage contingency of: 5% into this material calculation.
+            MC: results.alerts.needToKnow.text
           </div>
         </div>
       </div>
@@ -1422,7 +1422,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       <h4
         class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
       >
-        Print this list
+        MC: results.email.title
       </h4>
       <div
         class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
@@ -1433,7 +1433,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           <p
             class="MuiTypography-root Typography MuiTypography-body1"
           >
-            To access your list of materials in pdf format that can be saved, shared or printed please supply your name and email address
+            MC: results.email.help
           </p>
         </div>
       </div>
@@ -1450,7 +1450,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your name
+              MC: results.email.nameLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -1478,7 +1478,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                   class="PrivateNotchedOutline-legendLabelled-59"
                 >
                   <span>
-                    Your name
+                    MC: results.email.nameLabel
                      *
                   </span>
                 </legend>
@@ -1496,7 +1496,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
               class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
               data-shrink="false"
             >
-              Your email address
+              MC: results.email.emailLabel
               <span
                 aria-hidden="true"
                 class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
@@ -1524,7 +1524,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                   class="PrivateNotchedOutline-legendLabelled-59"
                 >
                   <span>
-                    Your email address
+                    MC: results.email.emailLabel
                      *
                   </span>
                 </legend>
@@ -1580,7 +1580,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_1Label
                 </span>
               </label>
             </div>
@@ -1630,7 +1630,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                 <span
                   class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
                 >
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.
+                  MC: results.email.gdpr_2Label
                 </span>
               </label>
             </div>
@@ -1648,7 +1648,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             <span
               class="MuiButton-label buttonStyles-label-68"
             >
-              Print this list
+              MC: results.email.print
             </span>
           </button>
         </div>

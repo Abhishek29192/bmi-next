@@ -1,31 +1,31 @@
+import { BMI as brandLogo, Icon } from "@bmi/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { BMI as brandLogo } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { AnalyticsContext } from "../helpers/analytics";
-import { getMicroCopy, MicroCopyContext } from "../helpers/microCopy";
-import { EmailFormValues } from "../types/EmailFormValues";
+import { useSiteContext } from "../../Site";
+import { Data, MainTile, MainTileVariant, Underlay } from "../types";
+import { AnalyticsContext } from "./../helpers/analytics";
+import { EmailFormValues } from "./../types/EmailFormValues";
 import {
   DimensionsValues,
   LinesMap,
   Measurements,
   Protrusion,
   RoofV2 as Roof
-} from "../types/roof";
-import { Data, MainTile, MainTileVariant, Underlay } from "../types";
-import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
-import RoofSelection from "./_RoofSelection";
-import RoofDimensions from "./_RoofDimensions";
-import TileSelection from "./_TileSelection";
-import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
-import VariantSelection from "./_VariantSelection";
-import UnderlaySelection from "./_UnderlaySelection";
-import Guttering, { GutteringSelections } from "./_Guttering";
+} from "./../types/roof";
 import { calculateArea } from "./calculation/calculate";
-import Results from "./_Results";
-import protrusionTypes from "./calculation/protrusions";
-import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
+import protrusionTypes from "./calculation/protrusions";
 import { requiredRoofs } from "./calculation/roofs";
+import { microCopy } from "./constants/microCopy";
+import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
+import Guttering, { GutteringSelections } from "./_Guttering";
+import styles from "./_PitchedRoofCalculatorSteps.module.scss";
+import Results from "./_Results";
+import RoofDimensions from "./_RoofDimensions";
+import RoofSelection from "./_RoofSelection";
+import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
+import TileSelection from "./_TileSelection";
+import UnderlaySelection from "./_UnderlaySelection";
+import VariantSelection from "./_VariantSelection";
 
 export type Step =
   | "select-roof"
@@ -52,7 +52,7 @@ const PitchedRoofCalculatorSteps = ({
   setSelected,
   sendEmailAddress
 }: PitchedRoofCalculatorStepsProps) => {
-  const copy = useContext(MicroCopyContext);
+  const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
   const [roof, setRoof] = useState<Roof | undefined>(undefined);
@@ -85,7 +85,7 @@ const PitchedRoofCalculatorSteps = ({
     pushEvent({
       event: "dxb.button_click",
       id: "rc-dimensions",
-      label: getMicroCopy(copy, "roofDimensions.nextLabel"),
+      label: getMicroCopy(microCopy.ROOF_DIMENSIONS_NEXT_LABEL),
       action: "selected"
     });
 
@@ -173,27 +173,27 @@ const PitchedRoofCalculatorSteps = ({
       <CalculatorStepper selected={selected}>
         <CalculatorStepper.Step
           key="select-roof"
-          title={getMicroCopy(copy, "roofSelection.title")}
-          subtitle={getMicroCopy(copy, "roofSelection.subtitle")}
+          title={getMicroCopy(microCopy.ROOF_SELECTION_TITLE)}
+          subtitle={getMicroCopy(microCopy.ROOF_SELECTION_SUBTITLE)}
         >
           <RoofSelection
+            requiredRoofShapes={requiredRoofs}
             select={selectRoof}
             selected={roof}
-            requiredRoofShapes={requiredRoofs}
           />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="enter-dimensions"
-          title={getMicroCopy(copy, "roofDimensions.title")}
-          subtitle={getMicroCopy(copy, "roofDimensions.subtitle")}
-          nextLabel={getMicroCopy(copy, "roofDimensions.nextLabel")}
+          title={getMicroCopy(microCopy.ROOF_DIMENSIONS_TITLE)}
+          subtitle={getMicroCopy(microCopy.ROOF_DIMENSIONS_SUBTITLE)}
+          nextLabel={getMicroCopy(microCopy.ROOF_DIMENSIONS_NEXT_LABEL)}
           nextButtonOnClick={saveDimensions}
-          backLabel={getMicroCopy(copy, "roofDimensions.backLabel")}
+          backLabel={getMicroCopy(microCopy.ROOF_DIMENSIONS_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-dimensions",
-              label: getMicroCopy(copy, "roofDimensions.backLabel"),
+              label: getMicroCopy(microCopy.ROOF_DIMENSIONS_BACK_LABEL),
               action: "selected"
             });
             setSelected("select-roof");
@@ -203,14 +203,14 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="select-tile"
-          title={getMicroCopy(copy, "tileSelection.title")}
-          subtitle={getMicroCopy(copy, "tileSelection.subtitle")}
-          backLabel={getMicroCopy(copy, "tileSelection.backLabel")}
+          title={getMicroCopy(microCopy.TILE_SELECTION_TITLE)}
+          subtitle={getMicroCopy(microCopy.TILE_SELECTION_SUBTITLE)}
+          backLabel={getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-tile",
-              label: getMicroCopy(copy, "tileSelection.backLabel"),
+              label: getMicroCopy(microCopy.TILE_SELECTION_BACK_LABEL),
               action: "selected"
             });
             setSelected("enter-dimensions");
@@ -225,14 +225,14 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="select-variant"
-          title={getMicroCopy(copy, "variantSelection.title")}
-          subtitle={getMicroCopy(copy, "variantSelection.subtitle")}
-          backLabel={getMicroCopy(copy, "variantSelection.backLabel")}
+          title={getMicroCopy(microCopy.VARIANT_SELECTION_TITLE)}
+          subtitle={getMicroCopy(microCopy.VARIANT_SELECTION_SUBTITLE)}
+          backLabel={getMicroCopy(microCopy.VARIANT_SELECTION_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-tile-colour",
-              label: getMicroCopy(copy, "variantSelection.backLabel"),
+              label: getMicroCopy(microCopy.VARIANT_SELECTION_BACK_LABEL),
               action: "selected"
             });
             setSelected("select-tile");
@@ -249,24 +249,24 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="tile-options"
-          title={getMicroCopy(copy, "tileOptions.title")}
-          subtitle={getMicroCopy(copy, "tileOptions.subtitle")}
-          nextLabel={getMicroCopy(copy, "tileOptions.nextLabel")}
+          title={getMicroCopy(microCopy.TILE_OPTIONS_TITLE)}
+          subtitle={getMicroCopy(microCopy.TILE_OPTIONS_SUBTITLE)}
+          nextLabel={getMicroCopy(microCopy.TILE_OPTIONS_NEXT_LABEL)}
           nextButtonOnClick={(e, values) => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-options-accessories",
-              label: getMicroCopy(copy, "tileOptions.nextLabel"),
+              label: getMicroCopy(microCopy.TILE_OPTIONS_NEXT_LABEL),
               action: "selected"
             });
             saveAndMove(e, values, setTileOptions, "select-underlay");
           }}
-          backLabel={getMicroCopy(copy, "tileOptions.backLabel")}
+          backLabel={getMicroCopy(microCopy.TILE_OPTIONS_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-options-accessories",
-              label: getMicroCopy(copy, "tileOptions.backLabel"),
+              label: getMicroCopy(microCopy.TILE_OPTIONS_BACK_LABEL),
               action: "selected"
             });
             setSelected("select-variant");
@@ -278,24 +278,24 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="select-underlay"
-          title={getMicroCopy(copy, "underlaySelection.title")}
-          subtitle={getMicroCopy(copy, "underlaySelection.subtitle")}
-          nextLabel={getMicroCopy(copy, "underlaySelection.nextLabel")}
+          title={getMicroCopy(microCopy.UNDERLAY_SELECTION_TITLE)}
+          subtitle={getMicroCopy(microCopy.UNDERLAY_SELECTION_SUBTITLE)}
+          nextLabel={getMicroCopy(microCopy.UNDERLAY_SELECTION_NEXT_LABEL)}
           nextButtonOnClick={(e, values) => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-underlay",
-              label: getMicroCopy(copy, "underlaySelection.nextLabel"),
+              label: getMicroCopy(microCopy.UNDERLAY_SELECTION_NEXT_LABEL),
               action: "selected"
             });
             saveAndMove(e, values as Underlay, setUnderlay, "guttering");
           }}
-          backLabel={getMicroCopy(copy, "underlaySelection.backLabel")}
+          backLabel={getMicroCopy(microCopy.UNDERLAY_SELECTION_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-underlay",
-              label: getMicroCopy(copy, "underlaySelection.backLabel"),
+              label: getMicroCopy(microCopy.UNDERLAY_SELECTION_BACK_LABEL),
               action: "selected"
             });
             setSelected("tile-options");
@@ -309,34 +309,34 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="guttering"
-          title={getMicroCopy(copy, "guttering.title")}
-          subtitle={getMicroCopy(copy, "guttering.subtitle")}
-          nextLabel={getMicroCopy(copy, "guttering.nextLabel")}
+          title={getMicroCopy(microCopy.GUTTERING_GUTTER_TITLE)}
+          subtitle={getMicroCopy(microCopy.GUTTERING_SUBTITLE)}
+          nextLabel={getMicroCopy(microCopy.GUTTERING_NEXT_LABEL)}
           nextButtonOnClick={(e, values) => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-guttering",
-              label: getMicroCopy(copy, "guttering.nextLabel"),
+              label: getMicroCopy(microCopy.GUTTERING_NEXT_LABEL),
               action: "selected"
             });
             saveAndMove(e, values, setGuttering, "your-solution-contains");
           }}
-          backLabel={getMicroCopy(copy, "guttering.backLabel")}
+          backLabel={getMicroCopy(microCopy.GUTTERING_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-guttering",
-              label: getMicroCopy(copy, "guttering.backLabel"),
+              label: getMicroCopy(microCopy.GUTTERING_BACK_LABEL),
               action: "selected"
             });
             setSelected("select-underlay");
           }}
-          linkLabel={getMicroCopy(copy, "guttering.skipLabel")}
+          linkLabel={getMicroCopy(microCopy.GUTTERING_SKIP_LABEL)}
           linkOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-select-guttering",
-              label: getMicroCopy(copy, "guttering.skipLabel"),
+              label: getMicroCopy(microCopy.GUTTERING_SKIP_LABEL),
               action: "selected"
             });
             setSelected("your-solution-contains");
@@ -353,32 +353,34 @@ const PitchedRoofCalculatorSteps = ({
         <CalculatorStepper.Step
           isForm={false}
           key="your-solution-contains"
-          title={getMicroCopy(copy, "results.title")}
-          subtitle={getMicroCopy(copy, "results.subtitle", {
+          title={getMicroCopy(microCopy.RESULTS_TITLE)}
+          subtitle={getMicroCopy(microCopy.RESULTS_SUBTITLE, {
             contingency: CONTINGENCY_PERCENTAGE_TEXT
           })}
           paragraph={
             <span>
-              {`${getMicroCopy(copy, "results.areaLabel")}: ${formattedArea}m`}
+              {`${getMicroCopy(
+                microCopy.RESULTS_AREA_LABEL
+              )}: ${formattedArea}m`}
               <sup>2</sup>
             </span>
           }
-          backLabel={getMicroCopy(copy, "results.backLabel")}
+          backLabel={getMicroCopy(microCopy.RESULTS_BACK_LABEL)}
           backButtonOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-solution",
-              label: getMicroCopy(copy, "results.backLabel"),
+              label: getMicroCopy(microCopy.RESULTS_BACK_LABEL),
               action: "selected"
             });
             setSelected("guttering");
           }}
-          linkLabel={getMicroCopy(copy, "results.startOverLabel")}
+          linkLabel={getMicroCopy(microCopy.RESULTS_START_OVER_LABEL)}
           linkOnClick={() => {
             pushEvent({
               event: "dxb.button_click",
               id: "rc-solution",
-              label: getMicroCopy(copy, "results.startOverLabel"),
+              label: getMicroCopy(microCopy.RESULTS_START_OVER_LABEL),
               action: "selected"
             });
             setSelected("select-roof");

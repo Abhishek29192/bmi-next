@@ -1,6 +1,6 @@
-import React from "react";
 import { Grid } from "@bmi/components";
-import { DimensionsValues, Roof } from "../types/roof";
+import React from "react";
+import { DimensionsValues, RoofV2 as Roof } from "../types/roof";
 import InputTextField from "./subcomponents/_InputTextField";
 import Protrusions from "./_Protrusions";
 import styles from "./_RoofDimensions.module.scss";

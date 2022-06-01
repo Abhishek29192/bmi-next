@@ -1,19 +1,19 @@
+import { MicroCopy } from "@bmi/components";
+import axios from "axios";
 import React, {
   createContext,
   Suspense,
   useEffect,
-  useState,
-  useMemo
+  useMemo,
+  useState
 } from "react";
-import { MicroCopy } from "@bmi/components";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import axios from "axios";
+import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
-import { Data } from "./pitched-roof-calculator/types";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";
+import { Data } from "./pitched-roof-calculator/types";
 
 const PitchedRoofCalculatorV1 = React.lazy(
   () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
@@ -55,6 +55,7 @@ const CalculatorProvider = ({ children, onError }: Props) => {
       isV2WebToolsCalculatorEnabled
     }
   } = useConfig();
+  const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 
   const open: Context["open"] = (params = {}) => {
     setParameters(params);
@@ -139,17 +140,17 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     >
       {children}
       {/* Currently, this is only available for Norway */}
-      <MicroCopy.Provider values={no}>
-        {!(typeof window === "undefined") && isOpen ? (
+      {!showCalculatorDialog ? null : isV2WebToolsCalculatorEnabled ? (
+        <Suspense fallback={<div>Loading...</div>}>
+          <PitchedRoofCalculatorV2 {...calculatorProps} />
+        </Suspense>
+      ) : (
+        <MicroCopy.Provider values={no}>
           <Suspense fallback={<div>Loading...</div>}>
-            {isV2WebToolsCalculatorEnabled ? (
-              <PitchedRoofCalculatorV2 {...calculatorProps} />
-            ) : (
-              <PitchedRoofCalculatorV1 {...calculatorProps} />
-            )}
+            <PitchedRoofCalculatorV1 {...calculatorProps} />
           </Suspense>
-        ) : undefined}
-      </MicroCopy.Provider>
+        </MicroCopy.Provider>
+      )}
     </CalculatorContext.Provider>
   );
 };
