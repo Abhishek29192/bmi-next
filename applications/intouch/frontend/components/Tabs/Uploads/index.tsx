@@ -31,6 +31,7 @@ import {
 } from "../../../lib/utils/project";
 import AccessControl from "../../../lib/permissions/AccessControl";
 import { DeepPartial } from "../../../lib/utils/types";
+import { getMappedEvidenceCategory } from "../../../lib/utils/uploads";
 import styles from "./styles.module.scss";
 import { AddEvidenceDialog } from "./AddEvidenceDialog";
 import RequirementDialog from "./RequirementDialog";
@@ -161,9 +162,13 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
   });
   const [selectedEvidenceCollection, setSelectedEvidenceCollection] =
     useState<EvidenceCollection>();
+
+  const defaultRequirementCategoryInitialState = currentGuarantee?.guaranteeType
+    ?.evidenceCategoriesCollection?.items?.[0]
+    .referenceCode as CustomEvidenceCategoryKey;
   const [defaultRequirementCategory, setDefaultRequirementCategory] = useState<
     CustomEvidenceCategoryKey | "MISCELLANEOUS"
-  >("MISCELLANEOUS");
+  >(defaultRequirementCategoryInitialState || "MISCELLANEOUS");
 
   const [addEvidences, { loading: loadingAdd }] = useAddEvidencesMutation({
     refetchQueries: [
@@ -235,23 +240,12 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       customEvidenceAvailable,
       key
     );
-    setDefaultRequirementCategory(mappedCategory?.referenceCode);
-  };
-
-  const uploads = getUploads(project);
-
-  const getMappedEvidenceCategory = (
-    currentGuarantee,
-    customEvidenceAvailable,
-    key
-  ) => {
-    if (customEvidenceAvailable) {
-      return currentGuarantee.guaranteeType?.evidenceCategoriesCollection?.items.find(
-        (o) => o.name === key
-      );
+    if (mappedCategory) {
+      setDefaultRequirementCategory(mappedCategory.referenceCode);
     }
   };
 
+  const uploads = getUploads(project);
   const handleCarouselToggle = useCallback(
     (evidenceId: number) => {
       setModalInfo({
