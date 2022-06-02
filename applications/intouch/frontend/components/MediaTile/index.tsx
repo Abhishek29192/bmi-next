@@ -56,27 +56,27 @@ export const MediaTile = ({ mediaItem, onMediaItemClick }: MediaTileProps) => {
   return (
     <MediaTileWrapper isExternal={isExternal} url={mediaUrl}>
       <div className="content">
-        <div className="outlined">
-          <CardActionArea
-            onClick={() => {
-              onMediaItemClick(mediaItem);
-            }}
-          >
+        <CardActionArea
+          onClick={() => {
+            onMediaItemClick(mediaItem);
+          }}
+        >
+          <div className="outlined">
             <CardContent className={styles.content}>
               <MediaTileThumbnail mediaItem={mediaItem} />
             </CardContent>
-          </CardActionArea>
-        </div>
+          </div>
 
-        <div className={styles.footer}>
-          <Typography variant="button" className={styles.title}>
-            {mediaItem.name}
-          </Typography>
+          <div className={styles.footer}>
+            <Typography variant="button" className={styles.title}>
+              {mediaItem.name}
+            </Typography>
 
-          <Typography variant="button" className={styles.meta}>
-            {mediaTileDescription}
-          </Typography>
-        </div>
+            <Typography variant="button" className={styles.meta}>
+              {mediaTileDescription}
+            </Typography>
+          </div>
+        </CardActionArea>
       </div>
     </MediaTileWrapper>
   );
