@@ -166,7 +166,6 @@ describe("PitchedRoofCalculatorSteps component", () => {
         <PitchedRoofCalculatorSteps
           selected="select-roof"
           setSelected={jest.fn()}
-          sendEmailAddress={jest.fn()}
           data={data as any}
         />
       </MicroCopy.Provider>
@@ -179,14 +178,12 @@ describe("PitchedRoofCalculatorSteps component", () => {
     const setSelected = jest
       .fn()
       .mockImplementation((selection: Step) => (selected = selection));
-    const sendEmailAddress = jest.fn();
 
     const getComponent = (selected: Step) => (
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
           selected={selected}
           setSelected={setSelected}
-          sendEmailAddress={sendEmailAddress}
           data={data as any}
         />
       </MicroCopy.Provider>

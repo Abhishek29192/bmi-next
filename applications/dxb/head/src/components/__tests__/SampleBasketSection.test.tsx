@@ -1,24 +1,25 @@
-import React from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import axios from "axios";
-import mockConsole from "jest-mock-console";
 import {
   createFeature,
   createFeatureUnit,
   createFeatureValue
 } from "@bmi/pim-types";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import axios from "axios";
+import mockConsole from "jest-mock-console";
+import React from "react";
+import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import * as BasketContextUtils from "../../contexts/SampleBasketContext";
 import {
   BasketContextProvider,
   Sample
 } from "../../contexts/SampleBasketContext";
+import { local } from "../../utils/storage";
 import createClassification from "../../__tests__/ClassificationHelper";
 import createImage from "../../__tests__/ImageHelper";
 import SampleBasketSection, { Data } from "../SampleBasketSection";
-import { local } from "../../utils/storage";
 import { SiteContextProvider } from "../Site";
+import { SourceType } from "../types/FormSectionTypes";
 import { ClassificationCodeEnum, FeatureCodeEnum } from "../types/pim";
-import { ConfigProvider, EnvConfig } from "../../contexts/ConfigProvider";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({
@@ -113,7 +114,7 @@ const data: Data = {
     ],
     submitText: "Submit",
     successRedirect: null,
-    source: "Contentful",
+    source: SourceType.Contentful,
     hubSpotFormGuid: null
   },
   emptyBasketMessage: {

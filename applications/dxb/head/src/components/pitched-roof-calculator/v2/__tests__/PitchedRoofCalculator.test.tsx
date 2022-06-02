@@ -1,11 +1,11 @@
-import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
-import PitchedRoofCalculator from "../PitchedRoofCalculator";
 import en from "../../samples/copy/en.json";
 import no from "../../samples/copy/no.json";
 import data from "../../samples/data.json";
+import PitchedRoofCalculator from "../PitchedRoofCalculator";
 
 const LOADED_TEXT = "loaded";
 
@@ -29,7 +29,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
-          sendEmailAddress={jest.fn()}
           data={data as any}
         />
       </MicroCopy.Provider>
@@ -47,7 +46,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={jest.fn()}
           isDebugging
           onAnalyticsEvent={jest.fn()}
-          sendEmailAddress={jest.fn()}
           data={data as any}
         />
       </MicroCopy.Provider>
@@ -69,7 +67,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
-          sendEmailAddress={jest.fn()}
           data={data as any}
         />
       </MicroCopy.Provider>
@@ -96,7 +93,6 @@ describe("PitchedRoofCalculator component", () => {
           onClose={onClose}
           isDebugging
           onAnalyticsEvent={onAnalyticsEvent}
-          sendEmailAddress={jest.fn()}
           data={data as any}
         />
       </MicroCopy.Provider>

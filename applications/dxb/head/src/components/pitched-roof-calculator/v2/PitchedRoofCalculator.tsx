@@ -1,8 +1,7 @@
-import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { ContainerDialog } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
-import { EmailFormValues } from "../types/EmailFormValues";
 import { Data } from "../types";
 import styles from "./PitchedRoofCalculator.module.scss";
 
@@ -10,13 +9,12 @@ const PitchedRoofCalculatorSteps = React.lazy(
   () => import("./_PitchedRoofCalculatorSteps")
 );
 
-type PitchedRoofCalculatorProps = {
+export type PitchedRoofCalculatorProps = {
   isOpen?: boolean;
   onClose: () => void;
   isDebugging?: boolean;
   data?: Data; // undefied shows loading progress
   onAnalyticsEvent?: OnAnalyticsEvent;
-  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const PitchedRoofCalculator = ({
@@ -26,8 +24,7 @@ const PitchedRoofCalculator = ({
   data,
   onAnalyticsEvent = () => {
     // no-op
-  },
-  sendEmailAddress
+  }
 }: PitchedRoofCalculatorProps) => {
   const pushEvent: OnAnalyticsEvent = useCallback(
     (event) => {
@@ -95,7 +92,6 @@ const PitchedRoofCalculator = ({
                     isDebugging,
                     selected,
                     setSelected,
-                    sendEmailAddress,
                     data
                   }}
                 />
