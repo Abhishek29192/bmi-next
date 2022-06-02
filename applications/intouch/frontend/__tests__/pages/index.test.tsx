@@ -357,17 +357,17 @@ describe("homepage", () => {
     expect(container.querySelector(".Hero")).toBeFalsy();
   });
 
-  it("interval set to 5000 when 2 heroitems", async () => {
+  it("interval set to 8000 when 2 heroitems", async () => {
     const {
       data: { marketContentCollection, tierBenefitCollection }
     } = generateHomeData();
-    const { container, getAllByText } = renderWithUserProvider(
+    const { container } = renderWithUserProvider(
       <ApolloProvider>
         <AccountContextWrapper account={account}>
           <Homepage
             marketContent={marketContentCollection.items[0]}
             carouselItems={[
-              generateCarouselItem(),
+              generateCarouselItem({ header: "header1" }),
               generateCarouselItem({ header: "header2" })
             ]}
             tierBenefit={tierBenefitCollection.items[0]}
@@ -380,10 +380,14 @@ describe("homepage", () => {
     );
 
     expect(container.querySelector(".Hero")).toBeTruthy();
-    await new Promise((r) => setTimeout(r, 5000));
-    expect(container).toMatchSnapshot();
-    expect(getAllByText("header2")).toBeTruthy();
-  }, 5500);
+    expect(
+      container.querySelector(".Carousel__slide--global[aria-hidden='false']")
+    ).toHaveTextContent("header1");
+    await new Promise((r) => setTimeout(r, 8000));
+    expect(
+      container.querySelector(".Carousel__slide--global[aria-hidden='false']")
+    ).toHaveTextContent("header2");
+  }, 8500);
 
   describe("render correct cta from getCta", () => {
     const {

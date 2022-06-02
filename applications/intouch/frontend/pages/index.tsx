@@ -149,7 +149,7 @@ const Homepage = ({
         <Hero
           level={0}
           hasSpaceBottom
-          autoPlayInterval={heroItems.length > 1 ? 5000 : 0}
+          autoPlayInterval={heroItems.length > 1 ? 8000 : 0}
           heroes={heroItems}
         />
       )}
