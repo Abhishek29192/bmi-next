@@ -28,14 +28,13 @@ describe("gcp-cron-auto-archive-project", () => {
     }));
     archiveGuaranteeSpy.mockReturnValueOnce({
       ok: true,
-      text: () => "ok"
+      json: () => ({ data: { archiveProjects: "test" } })
     });
     await handleRequest({} as Request, response);
 
     expect(createSpy).toHaveBeenCalledTimes(1);
     expect(archiveGuaranteeSpy).toHaveBeenCalledTimes(1);
-    expect(response.status).toHaveBeenCalledWith(200);
-    expect(response.send).toHaveBeenCalledWith("ok");
+    expect(loggerInfo).toHaveBeenCalledWith({ message: "test" });
   });
 
   it("show statusText when fetch fails", async () => {
@@ -54,8 +53,6 @@ describe("gcp-cron-auto-archive-project", () => {
       expect(error).toBe(statusText);
     }
     expect(loggerError).toHaveBeenCalledWith({ message: statusText });
-    expect(response.status).toHaveBeenCalledWith(400);
-    expect(response.send).toHaveBeenCalledWith("fails");
   });
 
   it("fetch throw error", async () => {

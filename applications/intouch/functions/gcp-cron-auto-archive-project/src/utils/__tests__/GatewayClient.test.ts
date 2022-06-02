@@ -67,7 +67,8 @@ describe("GatewayClient", () => {
           url: process.env.GATEWAY_API_URL,
           headers: {
             "Content-Type": "application/json",
-            authorization: bearer,
+            authorization: "bearer undefined",
+            "x-api-key": "bearer",
             "x-apigateway-api-userinfo": userinfo
           }
         },
