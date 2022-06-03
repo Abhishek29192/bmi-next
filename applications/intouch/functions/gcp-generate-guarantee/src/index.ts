@@ -26,7 +26,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
     );
 
     logger.info({
-      message: `successfully fetched project with ID: ${payload.id}`
+      message: `successfully fetched guarantee with ID: ${payload.id}`
     });
 
     const {
