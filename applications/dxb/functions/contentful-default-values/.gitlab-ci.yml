@@ -3,12 +3,24 @@ test_contentful-default-values:
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/functions/contentful-default-values"
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 build_contentful-default-values:
   extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 package_contentful-default-values:
   extends: .package_function_yarn_workspace
