@@ -1,25 +1,25 @@
 /* eslint-disable security/detect-object-injection */
+import logger from "@bmi-digital/functions-logger";
 import {
+  BaseProduct,
   Category,
   Classification,
   Feature,
+  filterTwoOneAttributes,
   Product as PIMProduct,
-  VariantOption as PIMVariant,
-  BaseProduct,
-  filterTwoOneAttributes
+  VariantOption as PIMVariant
 } from "@bmi/pim-types";
-import logger from "@bmi-digital/functions-logger";
-import type { ProductVariant as ESProduct } from "./es-model";
 import {
+  ESIndexObject,
   findProductBrandLogoCode,
   getSizeLabel,
-  mapProductClassifications,
-  TransformedMeasurementValue,
-  indexFeatures,
-  IndexedItemGroup,
   groupBy,
-  ESIndexObject
+  IndexedItemGroup,
+  indexFeatures,
+  mapProductClassifications,
+  TransformedMeasurementValue
 } from "./CLONE";
+import type { ProductVariant as ESProduct } from "./es-model";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -124,11 +124,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
   );
 
   const categoryGroups: IndexedItemGroup<Category> = groupBy(
-    product.categories,
+    product.categories || [],
     "categoryType"
   );
   const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
-    product.categories,
+    product.categories || [],
     "parentCategoryCode"
   );
 
@@ -136,24 +136,30 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     ...categoryGroups,
     ...groupsByParentCategoryCodes
   };
+
   logger.info({
     message: `allGroupsOfCategories: ${allGroupsOfCategories}`
   });
+
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
     .filter((key) => key.length > 0 && key !== "undefined")
     .reduce((categoryAsProps, catName) => {
+      const origialCatName = catName; //TODO: remove when case agnostic to be reverted!
+      const catNameCapitalised = catName.toUpperCase(); //TODO: remove when case agnostic to be reverted!
       // eslint-disable-next-line security/detect-object-injection
-      const nameAndCodeValues = allGroupsOfCategories[catName].map((cat) => {
-        return {
-          code: cat.code,
-          name: cat.name
-        };
-      });
+      const nameAndCodeValues = allGroupsOfCategories[origialCatName].map(
+        (cat) => {
+          return {
+            code: cat.code,
+            name: cat.name
+          };
+        }
+      );
       return {
         ...categoryAsProps,
-        [catName]: nameAndCodeValues
+        [catNameCapitalised]: nameAndCodeValues
       };
     }, {});
 

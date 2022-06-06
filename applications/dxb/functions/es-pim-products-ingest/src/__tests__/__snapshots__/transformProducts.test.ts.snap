@@ -15,25 +15,19 @@ Array [
         "name": "glossy symbol",
       },
     ],
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "Brand": Array [
+    "BRAND": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -45,6 +39,12 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -71,13 +71,31 @@ Array [
         "name": "20 mm",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "BMI-brand-code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTFAMILY": Array [
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -358,24 +376,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "BMI-brand-code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -391,13 +391,13 @@ Array [
 exports[`transformProduct original transform tests should handle appearanceAttributes classifications with no features 1`] = `
 Array [
   Object {
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -411,13 +411,27 @@ Array [
         "name": "name",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTFAMILY": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -539,20 +553,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -568,13 +568,13 @@ Array [
 exports[`transformProduct original transform tests should handle generalInformation classifications with no features 1`] = `
 Array [
   Object {
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -588,13 +588,27 @@ Array [
         "name": "name",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTFAMILY": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -716,20 +730,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -992,13 +992,13 @@ Array [
 exports[`transformProduct original transform tests should handle no classifications 1`] = `
 Array [
   Object {
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -1012,13 +1012,27 @@ Array [
         "name": "name",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTFAMILY": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -1134,20 +1148,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -1175,19 +1175,13 @@ Array [
         "name": "glossy symbol",
       },
     ],
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -1199,6 +1193,12 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -1225,13 +1225,27 @@ Array [
         "name": "20 mm",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTFAMILY": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -1475,20 +1489,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -1518,19 +1518,13 @@ Array [
         "name": "glossy symbol",
       },
     ],
-    "BMI_Brands": Array [
+    "BMI_BRANDS": Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
       },
     ],
-    "CLASSIFICATION-FEATURE-CODE": Array [
-      Object {
-        "code": "codesymbol",
-        "name": "1.0 symbol",
-      },
-    ],
-    "Category": Array [
+    "CATEGORY": Array [
       Object {
         "code": "parent-category-code",
         "name": "name",
@@ -1542,6 +1536,12 @@ Array [
       Object {
         "code": "BMI-brand-code",
         "name": "name",
+      },
+    ],
+    "CLASSIFICATION-FEATURE-CODE": Array [
+      Object {
+        "code": "codesymbol",
+        "name": "1.0 symbol",
       },
     ],
     "GENERALINFORMATION.MATERIALS": Array [
@@ -1568,13 +1568,27 @@ Array [
         "name": "20 mm",
       },
     ],
-    "ProductFamily": Array [
+    "PARENT-CATEGORY-CODE": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+      Object {
+        "code": "code",
+        "name": "name",
+      },
       Object {
         "code": "code",
         "name": "name",
       },
     ],
-    "ProductLine": Array [
+    "PRODUCTFAMILY": Array [
+      Object {
+        "code": "code",
+        "name": "name",
+      },
+    ],
+    "PRODUCTLINE": Array [
       Object {
         "code": "code",
         "name": "name",
@@ -1841,20 +1855,6 @@ Array [
     "longDescription": "<p>Long description</p>",
     "measurementValue": undefined,
     "name": "name",
-    "parent-category-code": Array [
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-      Object {
-        "code": "code",
-        "name": "name",
-      },
-    ],
     "productBenefits": Array [
       "product-benefits",
     ],
