@@ -56,7 +56,7 @@ export const AddressAutocomplete = ({
     <GoogleApi.Provider value={googleApi}>
       <GoogleAutocomplete
         // Some results seem to not be returned by Places API (compared to same Google Maps).
-        // It seems like the fuzzy search on Places API is not optimal (it's much better with Google Maps)
+        // It seems like the fuzzy search on Places API is not optimal (it's much better with Google Maps).
         onPlaceChange={handlePlaceChange}
         getOptionSelected={(place) => place.description}
         googleAutocompleteOptions={{
