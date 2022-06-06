@@ -1,17 +1,17 @@
-import mockConsole from "jest-mock-console";
 import {
-  Product,
   createAppearanceAttributesClassification,
+  createCategory,
   createFeature,
   createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
-  createScoringWeightAttributesClassification,
-  createVariantOption,
   createProduct as createPimProduct,
-  createCategory,
-  createTwoOneClassifications
+  createScoringWeightAttributesClassification,
+  createTwoOneClassifications,
+  createVariantOption,
+  Product
 } from "@bmi/pim-types";
+import mockConsole from "jest-mock-console";
 import { ProductVariant } from "../es-model";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
@@ -45,7 +45,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Category"
+        "Category".toUpperCase() //TODO: remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "code", name: "name" }]);
     });
@@ -57,7 +57,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const newFeatureValueAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Category"
+        "Category".toUpperCase() //TODO: remove when case agnostic to be reverted!
       );
 
       expect(newFeatureValueAsProp).toEqual([
@@ -81,7 +81,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "ProductLine"
+        "ProductLine".toUpperCase() //TODO: remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([
         { code: "RoofTiles", name: "Roof Tiles" }
@@ -101,7 +101,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "ProductFamily"
+        "ProductFamily".toUpperCase() //TODO: remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "Tiles", name: "Tiles" }]);
     });
@@ -120,7 +120,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Brand"
+        "Brand".toUpperCase() //TODO: remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
     });
@@ -156,10 +156,10 @@ describe("transformProduct", () => {
         ]
       });
       const transformedProduct = await transformProduct(product);
-      let categoryAsProp = getDynamicPropValue(transformedProduct[0], "Brand");
+      let categoryAsProp = getDynamicPropValue(transformedProduct[0], "BRAND");
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
 
-      categoryAsProp = getDynamicPropValue(transformedProduct[0], "BMI_Brands");
+      categoryAsProp = getDynamicPropValue(transformedProduct[0], "BMI_BRANDS");
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
 
       categoryAsProp = getDynamicPropValue(
