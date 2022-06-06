@@ -1,8 +1,8 @@
 import { ClientAPI, Space } from "contentful-management";
 import mockConsole from "jest-mock-console";
 
-const main = async (locales: string[]) =>
-  (await import("../index")).main(locales);
+const main = async (tag: string, locales: string[]) =>
+  (await import("../index")).main(tag, ...locales);
 
 const getEnvironment = jest.fn();
 const mockSpace = (): Partial<Space> => {
@@ -36,18 +36,23 @@ beforeEach(() => {
 
 describe("main", () => {
   it("Creates a client", async () => {
-    await main(["en-GB"]);
+    await main("market__uk", ["en-GB"]);
     expect(createClient).toBeCalled();
   });
 
   it("Calls fillDefaultValues", async () => {
-    await main(["en-GB"]);
+    await main("market__uk", ["en-GB"]);
 
     expect(fillDefaultValues).toBeCalled();
   });
 
   it("Logs an error if market locales are not passed in", async () => {
-    await main([]);
+    await main("market__uk", []);
+    expect(console.error).toBeCalled();
+  });
+
+  it("Logs an error if market tag is not passed in", async () => {
+    await main("", ["en-GB"]);
     expect(console.error).toBeCalled();
   });
 });

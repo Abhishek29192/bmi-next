@@ -23,13 +23,18 @@ export const sleep = async (ms: number) => {
   });
 };
 
-async function* fetchAllEntries(environment: Environment, limit = 100) {
+async function* fetchAllEntries(
+  environment: Environment,
+  limit = 100,
+  tag?: string
+) {
   let offset = 0;
   while (true) {
     const entries = await environment.getEntries({
       skip: offset,
       limit,
-      order: "sys.createdAt"
+      order: "sys.createdAt",
+      ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
     if (!entries.items || entries.items.length <= 0) {
@@ -40,13 +45,18 @@ async function* fetchAllEntries(environment: Environment, limit = 100) {
   }
 }
 
-async function* fetchAllAssets(environment: Environment, limit = 100) {
+async function* fetchAllAssets(
+  environment: Environment,
+  limit = 100,
+  tag?: string
+) {
   let offset = 0;
   while (true) {
     const assets = await environment.getAssets({
       skip: offset,
       limit,
-      order: "sys.createdAt"
+      order: "sys.createdAt",
+      ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
     if (!assets.items || assets.items.length <= 0) {
@@ -153,9 +163,13 @@ export const publishAll = async (environment: Environment) => {
 
 export const fillDefaultValues = async (
   environment: Environment,
+  tag: string,
   marketLocales: string[]
 ) => {
-  const iterators = [fetchAllEntries(environment), fetchAllAssets(environment)];
+  const iterators = [
+    fetchAllEntries(environment, 100, tag),
+    fetchAllAssets(environment, 100, tag)
+  ];
   const localesToBePopulated = await findIrrelevantLocales(
     environment,
     marketLocales
