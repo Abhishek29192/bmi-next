@@ -8,10 +8,10 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",
+    "compile": "tsc",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=updateTraining --port=3003",
-    "test": "jest --reporters=default --reporters=jest-junit",
-    "coverage:jest": "yarn test --coverage",
-    "check:ts": "tsc"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@google-cloud/pubsub": "^2.5.0",

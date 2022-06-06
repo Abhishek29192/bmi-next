@@ -1,5 +1,5 @@
 test_gcp-system-configurator:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"

@@ -1,11 +1,11 @@
 test_contentful-default-values-cli:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-default-values-cli"
     ROOT_DIR: "applications/dxb/libraries/contentful-default-values-cli"
 
 build_contentful-default-values-cli:
-  extends: .build
+  extends: .build_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-default-values-cli"
     ROOT_DIR: "applications/dxb/libraries/contentful-default-values-cli"

@@ -18,8 +18,8 @@
     "gatsby-cli": "^4.10.1"
   },
   "scripts": {
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "files": [
     "index.js",

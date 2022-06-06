@@ -5,7 +5,8 @@
   "license": "BMI-DXB",
   "scripts": {
     "upload-merchants": "scripts/merchants.js",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "lodash": "^4.17.21",

@@ -2,7 +2,7 @@ variables:
   PROJECT_NAME: gcp-youtube-cache
 
 test_gcp-youtube-cache:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"

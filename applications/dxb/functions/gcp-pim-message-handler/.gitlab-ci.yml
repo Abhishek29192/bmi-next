@@ -1,5 +1,5 @@
 test_gcp-pim-message-handler:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"

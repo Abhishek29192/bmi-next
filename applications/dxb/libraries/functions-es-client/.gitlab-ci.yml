@@ -1,5 +1,5 @@
 test_functions-es-client:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/functions-es-client"
     ROOT_DIR: "applications/dxb/libraries/functions-es-client"

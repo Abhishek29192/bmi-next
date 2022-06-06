@@ -1,5 +1,5 @@
 test_gcp-pim-full-fetch-coordinator:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-full-fetch-coordinator"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"

@@ -11,7 +11,8 @@
     "gatsby-plugin"
   ],
   "scripts": {
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "jest": {
     "verbose": true,

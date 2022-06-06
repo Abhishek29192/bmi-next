@@ -1,5 +1,5 @@
 test_gcp-intouch-remove-unverified-users:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users

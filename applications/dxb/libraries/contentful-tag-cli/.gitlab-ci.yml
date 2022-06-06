@@ -1,5 +1,5 @@
 test_contentful-tag-cli:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-tag-cli"
     ROOT_DIR: "applications/dxb/libraries/contentful-tag-cli"

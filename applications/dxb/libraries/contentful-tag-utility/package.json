@@ -6,8 +6,9 @@
   "main": "./src/index",
   "scripts": {
     "build": "tsc --build",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "compile": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "contentful-management": "^10.0.0"

@@ -1,5 +1,12 @@
 test_contentful-tagger:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/functions/contentful-tagger"
@@ -13,6 +20,11 @@ test_contentful-tagger:
 
 build_contentful-tagger:
   extends: .build_function_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
