@@ -144,15 +144,16 @@ export const resolveDocumentsFromContentful = async (
   assetTypes: PimAssetType[],
   { context }: { context: Context }
 ): Promise<Node[]> => {
-  const filter = assetTypes.length
-    ? {
-        assetType: {
-          id: {
-            in: assetTypes.map(({ id }) => id)
-          }
+  const filter = {
+    noIndex: { eq: false },
+    ...(assetTypes.length && {
+      assetType: {
+        id: {
+          in: assetTypes.map(({ id }) => id)
         }
       }
-    : {};
+    })
+  };
 
   const { entries } = await context.nodeModel.findAll<Node>({
     query: {
