@@ -29,6 +29,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import classnames from "classnames";
 import getRef from "./GetRef";
 import HouseViewer from "./HouseViewer";
+import HouseViewerOld from "./HouseViewerOld";
 import TileViewer from "./TileViewer";
 import styles from "./styles/Visualiser.module.scss";
 import { Colour, Material, Siding, Tile } from "./Types";
@@ -417,7 +418,10 @@ const SharePopover = ({
 
 const viewerComponentMap = {
   tile: TileViewer,
-  roof: HouseViewer
+  roof:
+    process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
+      ? HouseViewer
+      : HouseViewerOld
 };
 
 const Visualiser = ({
