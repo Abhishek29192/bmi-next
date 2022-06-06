@@ -1,6 +1,7 @@
 {
   "extends": "@bmi-digital/tsconfig/tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@bmi/*": ["./node_modules/@bmi/*/src"]
     },
