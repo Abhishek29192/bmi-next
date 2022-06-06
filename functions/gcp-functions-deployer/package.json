@@ -8,10 +8,11 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "webpack --mode=production",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "compile": "tsc",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=deploy --port=9054 --signature-type=event",
-    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=deploy --port=9054 --signature-type=event"
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist --target=deploy --port=9054 --signature-type=event",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",

@@ -1,5 +1,5 @@
 test_gatsby-cloud-build-proxy:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gatsby-cloud-build-proxy"
     ROOT_DIR: "applications/functions/gatsby-cloud-build-proxy"

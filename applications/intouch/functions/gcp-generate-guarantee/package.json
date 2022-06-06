@@ -6,11 +6,11 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",
+    "compile": "tsc",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=sendGuaranteePdf --port=3004",
-    "test": "jest --reporters=default --reporters=jest-junit",
-    "coverage:jest": "yarn test --coverage",
-    "check:ts": "tsc",
-    "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts",
+    "test": "jest --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",

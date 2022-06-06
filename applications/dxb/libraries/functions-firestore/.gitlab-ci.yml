@@ -1,5 +1,5 @@
 test_functions-firestore:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/functions-firestore"
     ROOT_DIR: "applications/dxb/libraries/functions-firestore"

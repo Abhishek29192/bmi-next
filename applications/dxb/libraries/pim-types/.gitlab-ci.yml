@@ -1,5 +1,5 @@
 test_pim-types:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/pim-types"
     ROOT_DIR: "applications/dxb/libraries/pim-types"

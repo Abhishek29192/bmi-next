@@ -6,9 +6,8 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "dev": "yarn tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
-    "start": "node dist/index.js",
     "build": "tsc --build tsconfig.prod.json",
+    "dev": "yarn tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "ci:up:companies": "db-migrate up -e test:companies --migrations-dir migration-companies -v",
     "ci:down:companies": "db-migrate down -e test:companies --migrations-dir migration-companies -v",
     "local:up:companies": "db-migrate up -e local:companies --migrations-dir migration-companies -v",
@@ -18,7 +17,9 @@
     "migrate:companies:up": "node trigger.js migrate-companies-db up",
     "migrate:companies:down": "node trigger.js migrate-companies-db down",
     "migrate:training:up": "node trigger.js migrate-training-db up",
-    "migrate:training:down": "node trigger.js migrate-training-db down"
+    "migrate:training:down": "node trigger.js migrate-training-db down",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@google-cloud/secret-manager": "^3.7.1",

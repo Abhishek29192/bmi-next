@@ -1,5 +1,5 @@
 test_gcp-apsis-integration:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-apsis-integration"
     ROOT_DIR: "applications/functions/gcp-apsis-integration"

@@ -5,7 +5,7 @@ build_gcp-functions-deployer:
     ROOT_DIR: "functions/gcp-functions-deployer"
 
 test_gcp-functions-deployer:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
     ROOT_DIR: "functions/gcp-functions-deployer"

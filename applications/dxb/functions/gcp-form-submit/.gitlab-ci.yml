@@ -1,5 +1,5 @@
 test_gcp-form-submit:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-form-submit"
     ROOT_DIR: "applications/functions/gcp-form-submit"

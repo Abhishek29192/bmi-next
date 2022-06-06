@@ -1,5 +1,5 @@
 test_gcp-update-webtools-bucket:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-update-webtools-bucket"
     ROOT_DIR: "applications/functions/gcp-update-webtools-bucket"

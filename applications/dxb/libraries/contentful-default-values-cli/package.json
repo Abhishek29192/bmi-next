@@ -6,8 +6,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode=production",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "compile": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "start": "yarn build && env-cmd node ./dist/index.js"
   },
   "dependencies": {

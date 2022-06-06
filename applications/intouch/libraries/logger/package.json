@@ -5,7 +5,8 @@
   "license": "BMI-DXB",
   "main": "./dist/src/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
     "@google-cloud/logging": "^9.2.3",

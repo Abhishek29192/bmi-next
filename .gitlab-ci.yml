@@ -2,17 +2,9 @@ include:
   - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
     file: "general.gitlab-ci.yml"
   - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "images.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "build.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
     file: "dependabot.gitlab-ci.yml"
   - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "functions.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "static-analysis.gitlab-ci.yml"
-  - project: "$CI_PROJECT_NAMESPACE/gitlab-templates"
-    file: "test.gitlab-ci.yml"
+    file: "yarn.gitlab-ci.yml"
   - local: "/applications/frc-website/.gitlab-ci.yml"
   - local: "/applications/dxb/.gitlab-ci.yml"
   - local: "/applications/intouch/.gitlab-ci.yml"
@@ -21,17 +13,6 @@ include:
   - local: "/applications/redirects-website-fr-monier/.gitlab-ci.yml"
   - local: "/components/.gitlab-ci.yml"
   - local: "/functions/.gitlab-ci.yml"
-
-default:
-  cache:
-    key:
-      files:
-        - modules-sha
-    policy: pull
-    untracked: false
-    paths:
-      - "**/node_modules"
-      - ".yarn_cache"
 
 variables:
   ARTIFACT_COMPRESSION_LEVEL: fastest
@@ -45,8 +26,6 @@ variables:
   # There are a coupld of .java files under node_modules which sometimes triggers spotbugs checks
   SAST_EXCLUDED_ANALYZERS: spotbugs semgrep flawfinder
   TRANSFER_METER_FREQUENCY: 5s
-
-image: !reference [.node-full-image, image]
 
 release:
   stage: release

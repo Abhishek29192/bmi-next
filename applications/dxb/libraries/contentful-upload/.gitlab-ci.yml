@@ -1,5 +1,5 @@
 test_contentful-upload:
-  extends: .test_jest_workspace
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/contentful-upload"
     ROOT_DIR: "applications/dxb/libraries/contentful-upload"

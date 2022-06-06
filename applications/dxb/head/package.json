@@ -18,16 +18,16 @@
     "build": "gatsby build --prefix-paths",
     "build:debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby build --prefix-paths",
     "build:top": "process-top ./node_modules/.bin/gatsby build",
-    "check:ts": "tsc",
+    "compile": "tsc",
     "clean": "gatsby clean",
     "contentful-graph": "dotenv -c development -- contentful-graph",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "gatsby clean && gatsby develop",
     "dev:debug": "node --nolazy --inspect-brk node_modules/.bin/gatsby develop",
     "lighthouse": "yarn lhci autorun",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "microcopy": "node ./scripts/get-microcopy.js",
     "start": "gatsby build --prefix-paths && gatsby serve",
-    "test:head": "jest"
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@aaronhayes/react-use-hubspot-form": "^2.1.0",
