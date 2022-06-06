@@ -126,9 +126,9 @@ describe("copyDefaultValues", () => {
     expect(update).toBeCalledTimes(1);
   });
 
-  it("Does not fill in the default values for a field whose source locale value is empty", async () => {
+  it("Does not fill in the default values for a field whose source locale value is undefined", async () => {
     const entry = mockEntry();
-    entry.fields = { name: { "en-GB": "" } };
+    entry.fields = { name: {} };
     const targetlocales = AllLocales.items.filter((i) => i.code !== "en-GB");
     const sourceLocaleCode = "en-GB";
 
@@ -147,7 +147,7 @@ describe("copyDefaultValues", () => {
 
   it("Does not try to update if no changes are done", async () => {
     const entry = mockEntry();
-    entry.fields = { name: { "en-GB": "" } };
+    entry.fields = { name: {} };
     const targetlocales = AllLocales.items.filter((i) => i.code !== "en-GB");
     const sourceLocaleCode = "en-GB";
 
