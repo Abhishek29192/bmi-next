@@ -159,7 +159,7 @@ describe("fillDefaultValues", () => {
     }
   });
 
-  it("adds the tag filter to the query", async () => {
+  it("adds the tag filter to the entries query", async () => {
     const environment = mockEnvironment();
     const marketLocales = ["en-GB"];
     const tag = "market__uk";
@@ -170,6 +170,23 @@ describe("fillDefaultValues", () => {
       skip: 0,
       limit: 100,
       order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
+      "metadata.tags.sys.id[in]": tag
+    });
+  });
+
+  it("adds the tag filter to the assets query", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    await fillDefaultValues(environment, tag, marketLocales);
+
+    expect(getAssets).toBeCalledWith({
+      skip: 0,
+      limit: 100,
+      order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
       "metadata.tags.sys.id[in]": tag
     });
   });
