@@ -1261,7 +1261,7 @@ describe("getDocumentQueryObject function", () => {
             },
             {
               query_string: {
-                query: "true",
+                query: "false",
                 type: "cross_fields",
                 fields: ["noIndex"]
               }
@@ -1299,7 +1299,7 @@ describe("getDocumentQueryObject function", () => {
             },
             {
               query_string: {
-                query: "true",
+                query: "false",
                 type: "cross_fields",
                 fields: ["noIndex"]
               }

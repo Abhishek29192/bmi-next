@@ -268,7 +268,7 @@ export const getDocumentQueryObject = (
     },
     {
       query_string: {
-        query: `true`,
+        query: `false`,
         type: "cross_fields",
         fields: ["noIndex"]
       }
