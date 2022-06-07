@@ -1,25 +1,19 @@
 @import "~@bmi-digital/styles";
 
-.Results {
-  .form {
-    .title {
-      margin-bottom: 24px;
+.Result {
+  h2 {
+    & {
+      margin-bottom: 24px !important;
+      font-size: 1.35rem;
     }
+  }
 
-    .help {
-      margin-bottom: 40px;
-    }
+  .help {
+    margin-bottom: 40px;
+    width: 50%;
 
-    .fieldsContainer {
-      margin-bottom: 36px;
-    }
-
-    .gdprContainer {
-      margin-bottom: 64px;
-    }
-
-    .submit {
-      margin: 0px;
+    @media (max-width: $breakpoint-lg) {
+      width: 100%;
     }
   }
 }

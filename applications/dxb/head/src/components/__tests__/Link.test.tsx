@@ -10,6 +10,7 @@ import {
 } from "../Link";
 import { Data as PromoData } from "../Promo";
 import { SiteContextProvider } from "../Site";
+import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 describe("Link component", () => {
@@ -259,7 +260,7 @@ describe("Link component", () => {
           inputs: null,
           submitText: "Submit",
           successRedirect: null,
-          source: "HubSpot",
+          source: SourceType.HubSpot,
           hubSpotFormGuid: null
         },
         hubSpotCTAID: null

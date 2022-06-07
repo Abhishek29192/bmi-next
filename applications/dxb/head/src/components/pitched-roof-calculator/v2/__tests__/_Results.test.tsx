@@ -1,13 +1,14 @@
-import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { TextField } from "@bmi/components";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import fetchMockJest from "fetch-mock-jest";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
-import data from "../../samples/data.json";
 import en from "../../samples/copy/en.json";
-import { Props } from "../subcomponents/quantity-table/QuantityTable";
-import Results from "../_Results";
+import data from "../../samples/data.json";
 import { Measurements } from "../../types/roof";
+import { Props } from "../subcomponents/quantity-table/QuantityTable";
+import openPdf from "../_PDF";
+import Results from "../_Results";
 
 beforeAll(() => {
   mockConsole();
@@ -16,6 +17,44 @@ beforeAll(() => {
 beforeEach(() => {
   jest.clearAllMocks();
   global.open = jest.fn();
+});
+
+jest.mock("../../../FormSection", () => {
+  const formSection = jest.requireActual("../../../FormSection");
+
+  const HubSpotFormMock = (props: {
+    title: React.ReactNode;
+    description: React.ReactNode;
+    onSuccess: () => void;
+  }) => {
+    return (
+      <div>
+        {props.title}
+        {props.description}
+        <form onSubmit={props.onSuccess}>
+          <TextField
+            name="name"
+            variant="outlined"
+            isRequired
+            placeholder="name"
+          />
+          <TextField
+            name="email"
+            variant="outlined"
+            isRequired
+            placeholder="email"
+          />
+          <button>Submit button</button>
+        </form>
+      </div>
+    );
+  };
+
+  return {
+    __esModule: true,
+    ...formSection,
+    default: HubSpotFormMock
+  };
 });
 
 jest.mock("../subcomponents/quantity-table/QuantityTable", () => {
@@ -29,14 +68,10 @@ jest.mock("../subcomponents/quantity-table/QuantityTable", () => {
   };
 });
 
-let openPDF: jest.Mock;
-jest.mock("../_PDF", () => {
-  openPDF = jest.fn();
-  return {
-    __esModule: true,
-    default: openPDF
-  };
-});
+jest.mock("../_PDF", () => ({
+  __esModule: true,
+  default: jest.fn()
+}));
 global.open = jest.fn();
 
 const resultsProps = {
@@ -421,7 +456,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders correctly", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={jest.fn()} />
+        <Results {...resultsProps} />
       </MicroCopy.Provider>
     );
 
@@ -431,7 +466,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with debugging mode on", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={jest.fn()} isDebugging />
+        <Results {...resultsProps} isDebugging />
       </MicroCopy.Provider>
     );
 
@@ -441,10 +476,7 @@ describe("PitchedRoofCalculator Results component", () => {
   it("renders with no guttering", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
-        <Results
-          {...{ ...resultsProps, guttering: {} }}
-          sendEmailAddress={jest.fn()}
-        />
+        <Results {...{ ...resultsProps, guttering: {} }} />
       </MicroCopy.Provider>
     );
 
@@ -459,7 +491,6 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, verge: "none" }
           }}
-          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -475,7 +506,6 @@ describe("PitchedRoofCalculator Results component", () => {
             ...resultsProps,
             tileOptions: { ...resultsProps.tileOptions, ridge: null }
           }}
-          sendEmailAddress={jest.fn()}
         />
       </MicroCopy.Provider>
     );
@@ -483,47 +513,20 @@ describe("PitchedRoofCalculator Results component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("sends email address and downloads PDF ignoring unavailable images", async () => {
-    fetchMockJest.get(`893ed88a9339cf3c629e614a923f7c1c.jpg`, {
-      body: "image-data....",
-      status: 200,
-      headers: {
-        "Content-Type": "image/jpeg"
-      }
-    });
-
-    fetchMockJest.get(`f4420511632ec8f82eb7b56aff3a072b.jpg`, {
-      throws: new Error("Not found")
-    });
-
-    const sendEmailAddress = jest.fn();
-    const { container } = render(
+  it("opens PDF file", async () => {
+    render(
       <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} sendEmailAddress={sendEmailAddress} />
+        <Results {...resultsProps} />
       </MicroCopy.Provider>
     );
 
-    const nameInput = container.querySelector(`input[name="name"]`);
-    fireEvent.change(nameInput!, { target: { value: "Test Test" } });
+    const emailInput = screen.getByPlaceholderText("email");
+    fireEvent.change(emailInput, { target: { value: "test@test.test" } });
 
-    const emailInput = container.querySelector(`input[name="email"]`);
-    fireEvent.change(emailInput!, { target: { value: "test@test.test" } });
+    const nameInput = screen.getByPlaceholderText("name");
+    fireEvent.change(nameInput, { target: { value: "Test Name" } });
 
-    const gdpr_1Input = container.querySelector(`input[name="gdpr_1"]`);
-    fireEvent.click(gdpr_1Input!);
-
-    const gdpr_2Input = container.querySelector(`input[name="gdpr_2"]`);
-    fireEvent.click(gdpr_2Input!);
-
-    const submitButton = container.querySelector<HTMLButtonElement>(`.submit`)!;
-    fireEvent.click(submitButton!);
-
-    expect(sendEmailAddress.mock.calls).toMatchSnapshot(
-      "Email address details"
-    );
-
-    await waitFor(() => expect(submitButton["disabled"]).toEqual(false));
-
-    expect(openPDF.mock.calls).toMatchSnapshot("PDF props");
+    fireEvent.click(screen.getByText("Submit button"));
+    waitFor(() => expect(openPdf).toHaveBeenCalledTimes(1));
   });
 });

@@ -2,15 +2,14 @@ import { BMI as brandLogo, Icon } from "@bmi/components";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../Site";
 import { Data, MainTile, MainTileVariant, Underlay } from "../types";
-import { AnalyticsContext } from "./../helpers/analytics";
-import { EmailFormValues } from "./../types/EmailFormValues";
 import {
   DimensionsValues,
   LinesMap,
   Measurements,
   Protrusion,
   RoofV2 as Roof
-} from "./../types/roof";
+} from "../types/roof";
+import { AnalyticsContext } from "./../helpers/analytics";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
@@ -42,15 +41,13 @@ export type PitchedRoofCalculatorStepsProps = {
   isDebugging?: boolean;
   selected: Step;
   setSelected: (value: Step) => void;
-  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const PitchedRoofCalculatorSteps = ({
   data, // TODO: use here
   isDebugging,
   selected,
-  setSelected,
-  sendEmailAddress
+  setSelected
 }: PitchedRoofCalculatorStepsProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
@@ -398,8 +395,7 @@ const PitchedRoofCalculatorSteps = ({
                 variant,
                 tileOptions,
                 underlay,
-                guttering,
-                sendEmailAddress
+                guttering
               }}
             />
           )}

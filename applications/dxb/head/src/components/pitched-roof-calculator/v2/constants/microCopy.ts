@@ -76,12 +76,6 @@ export const microCopy = {
   RESULTS_ALERTS_NEED_TO_KNOW_TEXT: "results.alerts.needToKnow.text",
   RESULTS_EMAIL_TITLE: "results.email.title",
   RESULTS_EMAIL_HELP: "results.email.help",
-  RESULTS_EMAIL_NAME_LABEL: "results.email.nameLabel",
-  RESULTS_EMAIL_EMAIL_LABEL: "results.email.emailLabel",
-  RESULTS_EMAIL_GDPR_1LABEL: "results.email.gdpr_1Label",
-  RESULTS_EMAIL_GDPR_2LABEL: "results.email.gdpr_2Label",
-  RESULTS_EMAIL_PRINT: "results.email.print",
-  VALIDATION_ERRORS_EMAIL: "validation.errors.email",
   VALIDATION_ERRORS_FIELD_REQUIRED: "validation.errors.fieldRequired",
   VALIDATION_ERRORS_POSITIVE_NUMBERS_ONLY:
     "validation.errors.positiveNumberOnly",

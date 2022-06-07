@@ -1,11 +1,12 @@
-import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import * as Gatsby from "gatsby";
+import React from "react";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
-import { ConfigProvider } from "../../contexts/ConfigProvider";
+import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -136,7 +137,7 @@ const dataHubSpot: Data = {
     dialogContent: null,
     hubSpotCTAID: null
   },
-  source: "HubSpot",
+  source: SourceType.HubSpot,
   hubSpotFormGuid: "abc123"
 };
 
@@ -157,6 +158,7 @@ axios.CancelToken.source = jest.fn().mockReturnValue({
 });
 
 afterEach(() => {
+  jest.clearAllMocks();
   jest.restoreAllMocks();
 });
 
@@ -582,7 +584,6 @@ describe("Hubspot FormSection component", () => {
   it("renders correctly with sampleIds", () => {
     const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
 
-    window.addEventListener = jest.fn();
     const onFormReadyEvent = new MessageEvent("message", {
       data: {
         type: "hsFormCallback",
@@ -598,7 +599,6 @@ describe("Hubspot FormSection component", () => {
       />
     );
     window.dispatchEvent(onFormReadyEvent);
-    expect(window.addEventListener).toBeCalled();
 
     expect(container).toMatchSnapshot();
   });
@@ -610,5 +610,23 @@ describe("Hubspot FormSection component", () => {
       <FormSection data={dataHubSpot} backgroundColor="white" />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("calls onSuccess function", () => {
+    render(
+      <FormSection
+        data={dataHubSpot}
+        backgroundColor="white"
+        onSuccess={onSuccess}
+      />
+    );
+
+    const onFormSubmittedEvent = new MessageEvent("message", {
+      data: {
+        eventName: "onFormSubmitted"
+      }
+    });
+    window.dispatchEvent(onFormSubmittedEvent);
+    expect(onSuccess).toHaveBeenCalledTimes(1);
   });
 });

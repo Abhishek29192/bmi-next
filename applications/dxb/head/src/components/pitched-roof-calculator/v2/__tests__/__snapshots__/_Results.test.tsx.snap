@@ -75,244 +75,75 @@ exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
         </div>
       </div>
     </div>
-    <form
-      class="Form form"
-    >
-      <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-      >
-        MC: results.email.title
-      </h4>
-      <div
-        class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
-      >
+    <div>
+      <form>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1"
-          >
-            MC: results.email.help
-          </p>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.nameLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-2"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="name"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-3"
-                >
-                  <span>
-                    MC: results.email.nameLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.emailLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-2"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-3"
-                >
-                  <span>
-                    MC: results.email.emailLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-8"
-                      data-indeterminate="false"
-                      name="gdpr_1"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_1Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-5 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-8"
-                      data-indeterminate="false"
-                      name="gdpr_2"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_2Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-9 MuiButton-contained buttonStyles-contained-11 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            tabindex="-1"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-12"
-            >
-              MC: results.email.print
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 `;
@@ -392,244 +223,75 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
     </div>
-    <form
-      class="Form form"
-    >
-      <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-      >
-        MC: results.email.title
-      </h4>
-      <div
-        class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
-      >
+    <div>
+      <form>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1"
-          >
-            MC: results.email.help
-          </p>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.nameLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-6"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="name"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-31"
-                >
-                  <span>
-                    MC: results.email.nameLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.emailLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-6"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-31"
-                >
-                  <span>
-                    MC: results.email.emailLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-36"
-                      data-indeterminate="false"
-                      name="gdpr_1"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_1Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-33 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-36"
-                      data-indeterminate="false"
-                      name="gdpr_2"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_2Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-37 MuiButton-contained buttonStyles-contained-39 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            tabindex="-1"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-40"
-            >
-              MC: results.email.print
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
     <div
       class="FieldContainer"
     >
@@ -782,244 +444,75 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
     </div>
-    <form
-      class="Form form"
-    >
-      <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-      >
-        MC: results.email.title
-      </h4>
-      <div
-        class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
-      >
+    <div>
+      <form>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1"
-          >
-            MC: results.email.help
-          </p>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.nameLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-18"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="name"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-115"
-                >
-                  <span>
-                    MC: results.email.nameLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.emailLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-18"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-113 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-115"
-                >
-                  <span>
-                    MC: results.email.emailLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-120"
-                      data-indeterminate="false"
-                      name="gdpr_1"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_1Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-117 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-120"
-                      data-indeterminate="false"
-                      name="gdpr_2"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_2Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-contained buttonStyles-contained-123 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            tabindex="-1"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-124"
-            >
-              MC: results.email.print
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 `;
@@ -1099,244 +592,75 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
     </div>
-    <form
-      class="Form form"
-    >
-      <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-      >
-        MC: results.email.title
-      </h4>
-      <div
-        class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
-      >
+    <div>
+      <form>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1"
-          >
-            MC: results.email.help
-          </p>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.nameLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-14"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="name"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-85 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-87"
-                >
-                  <span>
-                    MC: results.email.nameLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.emailLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-14"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-85 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-87"
-                >
-                  <span>
-                    MC: results.email.emailLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-92"
-                      data-indeterminate="false"
-                      name="gdpr_1"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_1Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-89 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-92"
-                      data-indeterminate="false"
-                      name="gdpr_2"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_2Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-93 MuiButton-contained buttonStyles-contained-95 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            tabindex="-1"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-96"
-            >
-              MC: results.email.print
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 `;
@@ -1416,275 +740,75 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
     </div>
-    <form
-      class="Form form"
-    >
-      <h4
-        class="MuiTypography-root title Typography Typography--underline MuiTypography-h4"
-      >
-        MC: results.email.title
-      </h4>
-      <div
-        class="MuiGrid-root help MuiGrid-container MuiGrid-spacing-xs-3"
-      >
+    <div>
+      <form>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <p
-            class="MuiTypography-root Typography MuiTypography-body1"
-          >
-            MC: results.email.help
-          </p>
-        </div>
-      </div>
-      <div
-        class="MuiGrid-root fieldsContainer MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.nameLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-10"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="name"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-59"
-                >
-                  <span>
-                    MC: results.email.nameLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
         <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
+          class="MuiFormControl-root MuiTextField-root TextField"
         >
           <div
-            class="MuiFormControl-root MuiTextField-root TextField MuiFormControl-fullWidth"
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
           >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-              data-shrink="false"
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
             >
-              MC: results.email.emailLabel
-              <span
-                aria-hidden="true"
-                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              <legend
+                class="PrivateNotchedOutline-legend-10"
+                style="width: 0.01px;"
               >
-                 
-                *
-              </span>
-            </label>
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
-            >
-              <input
-                aria-invalid="false"
-                class="MuiInputBase-input MuiOutlinedInput-input"
-                name="email"
-                required=""
-                type="text"
-                value=""
-              />
-              <fieldset
-                aria-hidden="true"
-                class="PrivateNotchedOutline-root-57 MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="PrivateNotchedOutline-legendLabelled-59"
-                >
-                  <span>
-                    MC: results.email.emailLabel
-                     *
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
           </div>
         </div>
-      </div>
-      <div
-        class="MuiGrid-root gdprContainer MuiGrid-container MuiGrid-spacing-xs-6 MuiGrid-direction-xs-column"
-      >
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-64"
-                      data-indeterminate="false"
-                      name="gdpr_1"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_1Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-6"
-        >
-          <div
-            class="Checkbox--asterisks_decorator"
-          >
-            <div
-              class="MuiFormControl-root Checkbox"
-            >
-              <label
-                class="MuiFormControlLabel-root"
-              >
-                <span
-                  aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-61 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <input
-                      class="PrivateSwitchBase-input-64"
-                      data-indeterminate="false"
-                      name="gdpr_2"
-                      type="checkbox"
-                      value=""
-                    />
-                    <svg
-                      aria-hidden="true"
-                      class="MuiSvgIcon-root"
-                      focusable="false"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </span>
-                <span
-                  class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1"
-                >
-                  MC: results.email.gdpr_2Label
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-lg-3"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root buttonStyles-root-65 MuiButton-contained buttonStyles-contained-67 submit MuiButton-containedPrimary Mui-disabled Mui-disabled"
-            disabled=""
-            tabindex="-1"
-            type="submit"
-          >
-            <span
-              class="MuiButton-label buttonStyles-label-68"
-            >
-              MC: results.email.print
-            </span>
-          </button>
-        </div>
-      </div>
-    </form>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
   </div>
 </div>
-`;
-
-exports[`PitchedRoofCalculator Results component sends email address and downloads PDF ignoring unavailable images: Email address details 1`] = `
-Array [
-  Array [
-    Object {
-      "email": "test@test.test",
-      "gdpr_1": true,
-      "gdpr_2": true,
-      "name": "Test Test",
-    },
-  ],
-]
-`;
-
-exports[`PitchedRoofCalculator Results component sends email address and downloads PDF ignoring unavailable images: PDF props 1`] = `
-Array [
-  Array [
-    Object {
-      "area": "151.51",
-      "getMicroCopy": [Function],
-      "results": Object {
-        "accessories": Array [],
-        "fixings": Array [],
-        "sealing": Array [],
-        "tiles": Array [],
-        "ventilation": Array [],
-      },
-    },
-  ],
-]
 `;

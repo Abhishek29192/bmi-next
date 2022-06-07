@@ -1,14 +1,11 @@
-import {
-  Checkbox,
-  Form,
-  FormValues,
-  Grid,
-  TextField,
-  Typography
-} from "@bmi/components";
+import { Typography } from "@bmi/components";
 import React, { useContext, useMemo, useState } from "react";
+import { useConfig } from "../../../contexts/ConfigProvider";
+import { devLog } from "../../../utils/devLog";
+import FormSection from "../../FormSection";
 import { useSiteContext } from "../../Site";
-import { AnalyticsContext } from "./../helpers/analytics";
+import { SourceType } from "../../types/FormSectionTypes";
+import { AnalyticsContext } from "../helpers/analytics";
 import {
   Guttering,
   LengthBasedProduct,
@@ -17,9 +14,8 @@ import {
   ResultsRow,
   Underlay,
   VergeOption
-} from "./../types";
-import { EmailFormValues } from "./../types/EmailFormValues";
-import { Line, LinesMap, Measurements } from "./../types/roof";
+} from "../types";
+import { Line, LinesMap, Measurements } from "../types/roof";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";
@@ -34,7 +30,6 @@ import { TileOptionsSeletions } from "./_TileOptions";
 type EmailAddressCollectionProps = {
   results: ResultsObject;
   area: number;
-  sendEmailAddress: (values: EmailFormValues) => Promise<void>;
 };
 
 const replaceImageURLWithImage = async (
@@ -57,10 +52,7 @@ const replaceImageURLWithImage = async (
     const base64EncodedImage = btoa(utf8EncodedImage);
     dataURI = `data:${contentType};base64,${base64EncodedImage}`;
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      // eslint-disable-next-line no-console
-      console.error("Failed to convert image for PDF", result, error);
-    }
+    devLog("Failed to convert image for PDF", result, error);
   }
 
   return {
@@ -71,150 +63,74 @@ const replaceImageURLWithImage = async (
 
 const EmailAddressCollection = ({
   results,
-  area,
-  sendEmailAddress
+  area
 }: EmailAddressCollectionProps) => {
+  const {
+    /**
+     * @todo move GATSBY_WEBTOOL_CALCULATOR_HUBSPOT_FORM_ID to Contentful
+     * https://bmigroup.atlassian.net/browse/WEBT-456
+     */
+    config: { webToolCalculatorHubSpotFormId }
+  } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
 
-  const [loading, setLoading] = useState(false);
+  const onSuccess = async () => {
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-solution",
+      label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
+      action: "selected"
+    });
+
+    try {
+      const openPDF = (await import("./_PDF")).default;
+
+      const resultsWithImages = { ...results };
+
+      for (const category of Object.keys(results)) {
+        // eslint-disable-next-line security/detect-object-injection
+        resultsWithImages[category as keyof typeof results] = await Promise.all(
+          // eslint-disable-next-line security/detect-object-injection
+          results[category as keyof typeof results].map(
+            replaceImageURLWithImage
+          )
+        );
+      }
+
+      openPDF({
+        results: resultsWithImages,
+        area: (area / 10000).toFixed(2),
+        getMicroCopy: (...params) => getMicroCopy(...params)
+      });
+    } catch (err) {
+      devLog("Failed to generate PDF", err);
+    }
+  };
 
   return (
-    <Form
-      className={styles["form"]}
-      onSubmit={async (
-        e: React.FormEvent<HTMLFormElement>,
-        values: FormValues
-      ) => {
-        e.preventDefault();
-
-        if (loading) {
-          return;
-        }
-
-        setLoading(true);
-
-        try {
-          // await for captcha and such
-          await sendEmailAddress(values as EmailFormValues);
-        } catch (error) {
-          if (process.env.NODE_ENV === "development") {
-            // eslint-disable-next-line no-console
-            console.error("Failed to send email address", error);
-          }
-        }
-
-        pushEvent({
-          event: "dxb.button_click",
-          id: "rc-solution",
-          label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
-          action: "selected"
-        });
-
-        try {
-          const openPDF = (await import("./_PDF")).default;
-
-          const resultsWithImages = { ...results };
-
-          for (const category of Object.keys(results)) {
-            // eslint-disable-next-line security/detect-object-injection
-            resultsWithImages[category as keyof typeof results] =
-              await Promise.all(
-                // eslint-disable-next-line security/detect-object-injection
-                results[category as keyof typeof results].map(
-                  replaceImageURLWithImage
-                )
-              );
-          }
-
-          openPDF({
-            results: resultsWithImages,
-            area: (area / 10000).toFixed(2),
-            getMicroCopy: (...params) => getMicroCopy(...params)
-          });
-        } catch (error) {
-          if (process.env.NODE_ENV === "development") {
-            // eslint-disable-next-line no-console
-            console.error("Failed to generate PDF", error);
-          }
-        }
-
-        setLoading(false);
+    <FormSection
+      id="webtool-calculator-form-id"
+      backgroundColor="white"
+      onSuccess={onSuccess}
+      className={styles["Result"]}
+      data={{
+        __typename: "ContentfulFormSection",
+        hubSpotFormGuid: webToolCalculatorHubSpotFormId,
+        showTitle: true,
+        description: (
+          <Typography className={styles["help"]}>
+            {getMicroCopy(microCopy.RESULTS_EMAIL_HELP)}
+          </Typography>
+        ),
+        title: getMicroCopy(microCopy.RESULTS_EMAIL_TITLE),
+        source: SourceType.HubSpot,
+        inputs: null,
+        recipients: null,
+        submitText: null,
+        successRedirect: null
       }}
-    >
-      <Typography variant="h4" hasUnderline className={styles["title"]}>
-        {getMicroCopy(microCopy.RESULTS_EMAIL_TITLE)}
-      </Typography>
-      <Grid container className={styles["help"]}>
-        <Grid item xs={12} lg={6}>
-          <Typography>{getMicroCopy(microCopy.RESULTS_EMAIL_HELP)}</Typography>
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={2}
-        direction="column"
-        className={styles["fieldsContainer"]}
-      >
-        <Grid item xs={12} lg={3}>
-          <TextField
-            name="name"
-            variant="outlined"
-            label={getMicroCopy(microCopy.RESULTS_EMAIL_NAME_LABEL)}
-            isRequired
-            errorText={getMicroCopy(microCopy.VALIDATION_ERRORS_FIELD_REQUIRED)}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} lg={3}>
-          <TextField
-            name="email"
-            variant="outlined"
-            label={getMicroCopy(microCopy.RESULTS_EMAIL_EMAIL_LABEL)}
-            isRequired
-            errorText={getMicroCopy(microCopy.VALIDATION_ERRORS_FIELD_REQUIRED)}
-            getValidationError={(value) =>
-              typeof value === "string" && value.includes("@")
-                ? false
-                : getMicroCopy(microCopy.VALIDATION_ERRORS_EMAIL)
-            }
-            fullWidth
-          />
-        </Grid>
-      </Grid>
-      <Grid
-        container
-        spacing={6}
-        direction="column"
-        className={styles["gdprContainer"]}
-      >
-        <Grid item xs={12} lg={6}>
-          <Checkbox
-            name="gdpr_1"
-            label={getMicroCopy(microCopy.RESULTS_EMAIL_GDPR_1LABEL)}
-            isRequired
-            fieldIsRequiredError={getMicroCopy(
-              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
-            )}
-          />
-        </Grid>
-        <Grid item xs={12} lg={6}>
-          <Checkbox
-            name="gdpr_2"
-            label={getMicroCopy(microCopy.RESULTS_EMAIL_GDPR_2LABEL)}
-            isRequired
-            fieldIsRequiredError={getMicroCopy(
-              microCopy.VALIDATION_ERRORS_FIELD_REQUIRED
-            )}
-          />
-        </Grid>
-        <Grid item xs={12} lg={3}>
-          <Form.SubmitButton className={styles["submit"]} disabled={loading}>
-            {getMicroCopy(microCopy.RESULTS_EMAIL_PRINT)}
-          </Form.SubmitButton>
-        </Grid>
-      </Grid>
-    </Form>
+    />
   );
 };
 
@@ -253,7 +169,6 @@ export type ResultProps = {
   tileOptions: TileOptionsSeletions;
   underlay: Underlay;
   guttering: GutteringSelections;
-  sendEmailAddress: EmailAddressCollectionProps["sendEmailAddress"];
 };
 
 const Results = ({
@@ -265,8 +180,7 @@ const Results = ({
   variant,
   tileOptions,
   underlay,
-  guttering,
-  sendEmailAddress
+  guttering
 }: ResultProps) => {
   const { getMicroCopy } = useSiteContext();
 
@@ -442,8 +356,7 @@ const Results = ({
             ventilation: ventilationRows,
             accessories: accessoryRows
           },
-          area: area || 0,
-          sendEmailAddress
+          area: area || 0
         }}
       />
       {isDebugging ? (
