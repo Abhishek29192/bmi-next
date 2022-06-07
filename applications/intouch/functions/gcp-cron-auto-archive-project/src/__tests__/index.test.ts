@@ -28,13 +28,17 @@ describe("gcp-cron-auto-archive-project", () => {
     }));
     archiveGuaranteeSpy.mockReturnValueOnce({
       ok: true,
-      json: () => ({ data: { archiveProjects: "test" } })
+      json: () => ({
+        data: {
+          archiveProjects: "ok"
+        }
+      })
     });
     await handleRequest({} as Request, response);
 
     expect(createSpy).toHaveBeenCalledTimes(1);
     expect(archiveGuaranteeSpy).toHaveBeenCalledTimes(1);
-    expect(loggerInfo).toHaveBeenCalledWith({ message: "test" });
+    expect(loggerInfo).toHaveBeenCalledWith({ message: "ok" });
   });
 
   it("show statusText when fetch fails", async () => {

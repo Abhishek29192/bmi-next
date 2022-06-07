@@ -120,15 +120,77 @@ describe("Project", () => {
     });
 
     describe("archiveProjects", () => {
+      const criteria1 = format(sub(new Date(), { days: 100 }), "yyyy-MM-dd");
+      const criteria2 = format(sub(new Date(), { days: 200 }), "yyyy-MM-dd");
+      const resultMessage = "Projects with id(s) 1,2,3 has be archived.";
       it("normal case", async () => {
-        const dateToCompare = format(
-          sub(new Date(), { days: 100 }),
-          "yyyy-MM-dd"
-        );
         query
           .mockImplementationOnce(() => jest.fn())
           .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }))
+          .mockImplementationOnce(() => ({ rows: [{ id: 2 }] }))
+          .mockImplementationOnce(() => ({ rows: [{ id: 3 }] }))
+          .mockImplementationOnce(() => ({
+            rows: [{ id: 1 }, { id: 2 }, { id: 3 }]
+          }));
+        const result = await archiveProjects(
+          resolve,
+          source,
+          args,
+          context,
+          resolveInfo
+        );
+
+        expect(result).toBe(resultMessage);
+        expect(query).toHaveBeenNthCalledWith(
+          1,
+          "SAVEPOINT graphql_archive_projects_mutation"
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          2,
+          `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NULL AND p.end_date < $1 AND p.hidden = false`,
+          [criteria1]
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          3,
+          `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status != $1 AND p.end_date < $2 AND g.coverage in ($3,$4) AND p.hidden = false`,
+          ["APPROVED", criteria2, "SOLUTION", "SYSTEM"]
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          4,
+          `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status = $1 AND g.start_date < $2 AND p.hidden = false group by p.id`,
+          ["APPROVED", criteria2]
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          5,
+          `UPDATE project SET hidden = true WHERE id IN ($1,$2,$3) RETURNING id`,
+          [1, 2, 3]
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          6,
+          "RELEASE SAVEPOINT graphql_archive_projects_mutation"
+        );
+        expect(loggerInfo).toHaveBeenCalledWith(resultMessage);
+      });
+
+      it("show logger info when no project to archive", async () => {
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockImplementationOnce(() => ({ rows: [] }))
+          .mockImplementationOnce(() => ({ rows: [] }))
+          .mockImplementationOnce(() => ({ rows: [] }));
+        await archiveProjects(resolve, source, args, context, resolveInfo);
+
+        expect(loggerInfo).toHaveBeenCalledWith("No projects to be archived.");
+      });
+
+      it("when either of the query settled as rejected", async () => {
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }))
+          .mockImplementationOnce(() => ({ rows: [] }))
+          .mockImplementationOnce(() => Promise.reject("rejected"))
           .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }));
+
         const result = await archiveProjects(
           resolve,
           source,
@@ -138,33 +200,14 @@ describe("Project", () => {
         );
 
         expect(result).toBe("Projects with id(s) 1 has be archived.");
-        expect(query).toHaveBeenNthCalledWith(
-          1,
-          "SAVEPOINT graphql_archive_projects_mutation"
-        );
-        expect(query).toHaveBeenNthCalledWith(
-          2,
-          `SELECT project.id FROM project LEFT JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.project_id IS NULL AND project.end_date < $1 AND project.hidden = false`,
-          [dateToCompare]
-        );
-        expect(query).toHaveBeenNthCalledWith(
-          3,
-          `UPDATE project SET hidden = true WHERE id IN ($1) RETURNING id`,
-          [1]
-        );
-        expect(query).toHaveBeenNthCalledWith(
-          4,
-          "RELEASE SAVEPOINT graphql_archive_projects_mutation"
-        );
-        expect(loggerInfo).toHaveBeenCalledWith(
-          `Projects with id(s) 1 has be archived.`
-        );
       });
 
-      it("show logger info when no project to archive", async () => {
+      it("when all of the queries settled as rejected", async () => {
         query
           .mockImplementationOnce(() => jest.fn())
-          .mockImplementationOnce(() => ({ rows: [] }));
+          .mockImplementationOnce(() => Promise.reject("rejected"))
+          .mockImplementationOnce(() => Promise.reject("rejected"))
+          .mockImplementationOnce(() => Promise.reject("rejected"));
         await archiveProjects(resolve, source, args, context, resolveInfo);
 
         expect(loggerInfo).toHaveBeenCalledWith("No projects to be archived.");
@@ -175,6 +218,8 @@ describe("Project", () => {
         query
           .mockImplementationOnce(() => jest.fn())
           .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }))
+          .mockImplementationOnce(() => ({ rows: [] }))
+          .mockImplementationOnce(() => ({ rows: [] }))
           .mockRejectedValueOnce(errorObject);
         try {
           await archiveProjects(resolve, source, args, context, resolveInfo);

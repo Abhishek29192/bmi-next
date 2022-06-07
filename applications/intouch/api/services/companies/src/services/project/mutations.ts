@@ -1,5 +1,5 @@
 import { UpdateProjectInput, Guarantee } from "@bmi/intouch-api-types";
-import { PoolClient } from "pg";
+import { PoolClient, QueryResult } from "pg";
 import { sub, format } from "date-fns";
 
 // Checks if some of the values in disallowed exist in input
@@ -17,6 +17,8 @@ const findProjectGuarantee = async (
 
   return rows[0];
 };
+
+type ProjectQuery = QueryResult<{ id: number }>;
 
 export const updateProject = async (
   resolve,
@@ -92,18 +94,41 @@ export const archiveProjects = async (
   await pgClient.query(`SAVEPOINT ${savepointName}`);
 
   try {
-    const dateToCompare = format(sub(new Date(), { days: 100 }), "yyyy-MM-dd");
-    const { rows: projects } = await pgClient.query(
-      `SELECT project.id FROM project LEFT JOIN guarantee ON guarantee.project_id = project.id WHERE guarantee.project_id IS NULL AND project.end_date < $1 AND project.hidden = false`,
-      [dateToCompare]
-    );
+    const criteria1 = format(sub(new Date(), { days: 100 }), "yyyy-MM-dd");
+    const criteria2 = format(sub(new Date(), { days: 200 }), "yyyy-MM-dd");
+    const result = await Promise.allSettled([
+      pgClient.query(
+        `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NULL AND p.end_date < $1 AND p.hidden = false`,
+        [criteria1]
+      ),
+      pgClient.query(
+        `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status != $1 AND p.end_date < $2 AND g.coverage in ($3,$4) AND p.hidden = false`,
+        ["APPROVED", criteria2, "SOLUTION", "SYSTEM"]
+      ),
+      pgClient.query(
+        `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status = $1 AND g.start_date < $2 AND p.hidden = false group by p.id`,
+        ["APPROVED", criteria2]
+      )
+    ]);
+    const projectToBeArchived = result
+      .reduce(
+        (prev, current) =>
+          current.status === "fulfilled"
+            ? [
+                ...prev,
+                ...(current as PromiseFulfilledResult<ProjectQuery>).value.rows
+              ]
+            : prev,
+        []
+      )
+      .filter(Boolean);
 
-    if (projects.length) {
+    if (projectToBeArchived.length) {
       const { rows: archivedProjects } = await pgClient.query(
-        `UPDATE project SET hidden = true WHERE id IN (${projects.map(
+        `UPDATE project SET hidden = true WHERE id IN (${projectToBeArchived.map(
           (_, id) => `$${id + 1}`
         )}) RETURNING id`,
-        [...projects.map(({ id }) => id)]
+        [...projectToBeArchived.map(({ id }) => id)]
       );
       if (archivedProjects.length) {
         const message = `Projects with id(s) ${archivedProjects.map(
@@ -113,9 +138,11 @@ export const archiveProjects = async (
 
         return message;
       }
-    } else {
-      logger.info(`No projects to be archived.`);
     }
+    const message = `No projects to be archived.`;
+    logger.info(message);
+
+    return message;
   } catch (error) {
     logger.error(`Failed to archive projects`);
     await pgClient.query(`ROLLBACK TO SAVEPOINT ${savepointName}`);
