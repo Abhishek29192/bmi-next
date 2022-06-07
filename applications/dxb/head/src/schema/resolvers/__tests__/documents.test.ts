@@ -1,9 +1,9 @@
-import { Context, Node } from "../types";
+import createAsset from "../../../__tests__/AssetHelper";
 import {
   resolveDocumentsFromContentful,
   resolveDocumentsFromProducts
 } from "../documents";
-import createAsset from "../../../__tests__/AssetHelper";
+import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {
@@ -316,7 +316,6 @@ describe("documents resolver utils", () => {
       expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
           filter: {
-            noIndex: { eq: false },
             assetType: {
               id: {
                 in: ["asset-type-1", "asset-type-2", "asset-type-3"]
@@ -336,9 +335,7 @@ describe("documents resolver utils", () => {
       );
       expect(context.nodeModel.findAll).toHaveBeenCalledWith({
         query: {
-          filter: {
-            noIndex: { eq: false }
-          }
+          filter: {}
         },
         type: "ContentfulDocument"
       });

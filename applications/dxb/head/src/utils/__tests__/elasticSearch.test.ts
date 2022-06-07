@@ -1,11 +1,11 @@
 import { Filter } from "@bmi/components";
 import {
-  removeIrrelevantFilters,
-  disableFiltersFromAggregations,
-  compileElasticSearchQuery,
   Aggregations,
+  compileElasticSearchQuery,
+  disableFiltersFromAggregations,
   getCountQuery,
-  getDocumentQueryObject
+  getDocumentQueryObject,
+  removeIrrelevantFilters
 } from "../elasticSearch";
 
 describe("removeIrrelevantFilters function", () => {
@@ -1245,31 +1245,34 @@ describe("getDocumentQueryObject function", () => {
       sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
       aggs: {
         assetTypes: {
-          terms: {
-            size: "100",
-            field: "assetType.pimCode.keyword"
-          }
+          terms: { size: "100", field: "assetType.pimCode.keyword" }
         },
-        total: {
-          cardinality: {
-            field: "titleAndSize.keyword"
-          }
-        }
+        total: { cardinality: { field: "titleAndSize.keyword" } }
       },
       query: {
-        query_string: {
-          query: `*icopal*`,
-          type: "cross_fields",
-          fields: ["title"]
+        bool: {
+          must: [
+            {
+              query_string: {
+                query: "*icopal*",
+                type: "cross_fields",
+                fields: ["title"]
+              }
+            },
+            {
+              query_string: {
+                query: "true",
+                type: "cross_fields",
+                fields: ["noIndex"]
+              }
+            }
+          ]
         }
       },
-      collapse: {
-        field: "titleAndSize.keyword"
-      }
+      collapse: { field: "titleAndSize.keyword" }
     };
 
     const actualResult = getDocumentQueryObject("icopal", 24);
-
     expect(actualResult).toMatchObject(expectedResult);
   });
 
@@ -1280,44 +1283,37 @@ describe("getDocumentQueryObject function", () => {
       sort: [{ "assetType.name.keyword": "asc", "title.keyword": "asc" }],
       aggs: {
         assetTypes: {
-          terms: {
-            size: "100",
-            field: "assetType.pimCode.keyword"
-          }
+          terms: { size: "100", field: "assetType.pimCode.keyword" }
         },
-        total: {
-          cardinality: {
-            field: "titleAndSize.keyword"
-          }
-        }
+        total: { cardinality: { field: "titleAndSize.keyword" } }
       },
       query: {
         bool: {
           must: [
             {
               query_string: {
-                query: `*icopal*`,
+                query: "*icopal*",
                 type: "cross_fields",
                 fields: ["title"]
               }
             },
             {
-              term: {
-                "assetType.pimCode.keyword": "ASSEMBLY_INSTRUCTIONS"
+              query_string: {
+                query: "true",
+                type: "cross_fields",
+                fields: ["noIndex"]
               }
-            }
+            },
+            { term: { "assetType.pimCode.keyword": "ASSEMBLY_INSTRUCTIONS" } }
           ]
         }
       },
-      collapse: {
-        field: "titleAndSize.keyword"
-      }
+      collapse: { field: "titleAndSize.keyword" }
     };
 
     const actualResult = getDocumentQueryObject("icopal", 24, 0, [
       { value: ["ASSEMBLY_INSTRUCTIONS"] }
     ]);
-
     expect(actualResult).toMatchObject(expectedResult);
   });
 });
