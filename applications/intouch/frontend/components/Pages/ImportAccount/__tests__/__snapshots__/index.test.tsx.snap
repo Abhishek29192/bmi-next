@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImportAccount Component render correctly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root Grid MuiGrid-container"
+  >
+    <div
+      class="MuiGrid-root importContent MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-grid-xs-12"
+    >
+      <h3
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h3"
+      >
+        uploadFile
+      </h3>
+      <p
+        class="MuiTypography-root uploadText Typography MuiTypography-body1"
+      >
+        uploadFileText
+      </p>
+      <form
+        class="Form form"
+      >
+        <div
+          class="Row"
+        >
+          <input
+            data-testid="add-account-documents"
+            multiple=""
+            required=""
+            style="margin-top: 12px;"
+            type="file"
+          />
+        </div>
+        <div
+          class="ButtonWrapper"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              dryRun
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
+            tabindex="0"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label buttonStyles-label-4"
+            >
+              submit
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

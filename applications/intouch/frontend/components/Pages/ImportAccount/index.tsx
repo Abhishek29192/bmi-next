@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { gql } from "@apollo/client";
 import { useTranslation } from "next-i18next";
 import { Typography } from "@bmi/components";
@@ -32,15 +32,6 @@ const ImportAccount = () => {
   const [importAccountAndCompanies] = useImportAccountsCompaniesFromCvsMutation(
     {
       fetchPolicy: "no-cache",
-      onCompleted: ({ importAccountsCompaniesFromCVS }) => {
-        setImportResult({
-          title: isDryRun ? "dryRunCompleted" : "importCompleted",
-          severity: "success",
-          accounts: importAccountsCompaniesFromCVS.accounts,
-          companies: importAccountsCompaniesFromCVS.companies,
-          auth0Job: importAccountsCompaniesFromCVS.auth0Job
-        });
-      },
       onError: (error) => {
         setImportResult((prevState) => ({
           ...prevState,
@@ -51,22 +42,35 @@ const ImportAccount = () => {
     }
   );
 
-  const onSubmit = (dryRun) => {
-    setIsDryRun(dryRun);
+  const onSubmit = useCallback(
+    async (dryRun: boolean) => {
+      setIsDryRun(dryRun);
 
-    if (!filesToUpload || !filesToUpload.length) {
-      return;
-    }
-
-    importAccountAndCompanies({
-      variables: {
-        input: {
-          files: filesToUpload as unknown as any[],
-          dryRun: dryRun
-        }
+      if (!filesToUpload || !filesToUpload.length) {
+        return;
       }
-    });
-  };
+
+      const { data } = await importAccountAndCompanies({
+        variables: {
+          input: {
+            files: filesToUpload as unknown as any[],
+            dryRun: dryRun
+          }
+        }
+      });
+
+      if (data) {
+        setImportResult({
+          title: dryRun ? "dryRunCompleted" : "importCompleted",
+          severity: "success",
+          accounts: data.importAccountsCompaniesFromCVS.accounts,
+          companies: data.importAccountsCompaniesFromCVS.companies,
+          auth0Job: data.importAccountsCompaniesFromCVS.auth0Job
+        });
+      }
+    },
+    [setIsDryRun, filesToUpload, importAccountAndCompanies]
+  );
 
   return (
     <Grid spacing={0} container>
@@ -86,6 +90,7 @@ const ImportAccount = () => {
               style={{ marginTop: "12px" }}
               onChange={({ target: { files } }) => setFilesToUpload(files)}
               onClick={(event) => (event.currentTarget.value = null)}
+              data-testid="add-account-documents"
             />
           </Form.Row>
           <Form.ButtonWrapper>
@@ -99,11 +104,17 @@ const ImportAccount = () => {
         </Form>
       </Grid>
       {importResult.title ? (
-        <Grid className={styles.importContent} xs={12} spacing={3} container>
+        <Grid
+          data-testid="alert-banner"
+          className={styles.importContent}
+          xs={12}
+          spacing={3}
+          container
+        >
           {importResult.title && (
             <div className={styles.alert}>
-              <AlertBanner severity={importResult?.severity}>
-                <AlertBanner.Title>{t(importResult?.title)}</AlertBanner.Title>
+              <AlertBanner severity={importResult.severity}>
+                <AlertBanner.Title>{t(importResult.title)}</AlertBanner.Title>
               </AlertBanner>
             </div>
           )}
@@ -114,7 +125,7 @@ const ImportAccount = () => {
                 {t(isDryRun ? "dryRunTitle" : "companiesImported")}
               </Typography>
               <div className={styles.list}>
-                {importResult.companies.slice(0, 50)?.map((company, index) => (
+                {importResult.companies.slice(0, 50).map((company, index) => (
                   <Grid
                     key={`company-${index}`}
                     style={{ marginTop: 30 }}
@@ -144,7 +155,7 @@ const ImportAccount = () => {
                         !company[`${field}`] ? null : (
                           <div className={styles.field}>
                             <Typography
-                              key={`${company?.name}-${field}`}
+                              key={`${company.name}-${field}`}
                               className={styles.listItemKey}
                               variant="h6"
                             >
@@ -153,7 +164,7 @@ const ImportAccount = () => {
                               )}: `}
                             </Typography>
                             <Typography
-                              key={`${company?.name}-${field}-value`}
+                              key={`${company.name}-${field}-value`}
                               variant="body1"
                             >
                               {company[`${field}`]}
@@ -171,7 +182,7 @@ const ImportAccount = () => {
                         >
                           Members
                         </Typography>
-                        {company?.companyMembers?.nodes.map((member, index) => (
+                        {company.companyMembers?.nodes.map((member, index) => (
                           <div
                             key={`companyMembers-${index}`}
                             className={styles.listItem}
@@ -190,7 +201,7 @@ const ImportAccount = () => {
                               !member.account?.[`${field}`] ? null : (
                                 <div className={styles.field}>
                                   <Typography
-                                    key={`${company?.name}-${field}`}
+                                    key={`${company.name}-${field}`}
                                     className={styles.listItemKey}
                                     variant="h6"
                                   >
@@ -199,7 +210,7 @@ const ImportAccount = () => {
                                     )}: `}
                                   </Typography>
                                   <Typography
-                                    key={`${company?.name}-${field}-value`}
+                                    key={`${company.name}-${field}-value`}
                                     variant="body1"
                                   >
                                     {member.account[`${field}`]}
@@ -211,7 +222,7 @@ const ImportAccount = () => {
                         ))}
                       </div>
                       <div className={styles.listItem}>
-                        {company?.registeredAddress && (
+                        {company.registeredAddress && (
                           <div>
                             <Typography
                               key={company.name}
@@ -235,7 +246,7 @@ const ImportAccount = () => {
                               ) ? null : (
                                 <div className={styles.field}>
                                   <Typography
-                                    key={`${company?.name}-${field}`}
+                                    key={`${company.name}-${field}`}
                                     className={styles.listItemKey}
                                     variant="h6"
                                   >
@@ -244,7 +255,7 @@ const ImportAccount = () => {
                                     )}: `}
                                   </Typography>
                                   <Typography
-                                    key={`${company?.name}-${field}-value`}
+                                    key={`${company.name}-${field}-value`}
                                     variant="body1"
                                   >
                                     {getNestedValue(
@@ -287,14 +298,14 @@ const ImportAccount = () => {
                     !account[`${field}`] ? null : (
                       <div className={styles.field}>
                         <Typography
-                          key={`${account?.email}-${field}`}
+                          key={`${account.email}-${field}`}
                           className={styles.listItemKey}
                           variant="h6"
                         >
                           {`${t(`admin-account-import:account.${field}`)}: `}
                         </Typography>
                         <Typography
-                          key={`${account?.email}-${field}-value`}
+                          key={`${account.email}-${field}-value`}
                           variant="body1"
                         >
                           {account[`${field}`]}
@@ -315,7 +326,7 @@ const ImportAccount = () => {
               </Typography>
               <div className={styles.auth0Job}>
                 <Typography variant="body1" hasUnderline>
-                  {t("auth0JobText")} {importResult.auth0Job?.id}
+                  {t("auth0JobText")} {importResult.auth0Job.id}
                 </Typography>
               </div>
             </>
