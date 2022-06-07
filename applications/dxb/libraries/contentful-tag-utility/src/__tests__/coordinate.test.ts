@@ -17,10 +17,12 @@ const publishAll = async (environment: Partial<Environment>) =>
 
 const fillDefaultValues = async (
   environment: Partial<Environment>,
+  tag: string,
   marketLocales: string[]
 ) =>
   (await import("../coordinate")).fillDefaultValues(
     environment as Environment,
+    tag,
     marketLocales
   );
 
@@ -137,8 +139,9 @@ describe("fillDefaultValues", () => {
   it("Fills default values", async () => {
     const environment = mockEnvironment();
     const marketLocales = ["en-GB"];
+    const tag = "market__uk";
     update.mockResolvedValueOnce({});
-    await fillDefaultValues(environment, marketLocales);
+    await fillDefaultValues(environment, tag, marketLocales);
 
     expect(copyDefaultValues).toBeCalledTimes(600);
   });
@@ -146,12 +149,28 @@ describe("fillDefaultValues", () => {
   it("Throws an error if target locales are not found", async () => {
     const environment = mockEnvironment();
     const marketLocales = ["en-GB"];
+    const tag = "market__uk";
     update.mockResolvedValueOnce({});
     findIrrelevantLocales.mockResolvedValueOnce([]);
     try {
-      await fillDefaultValues(environment, marketLocales);
+      await fillDefaultValues(environment, tag, marketLocales);
     } catch (e) {
       expect((e as Error).message).toEqual("Could not find irrelevant locales");
     }
+  });
+
+  it("adds the tag filter to the query", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    await fillDefaultValues(environment, tag, marketLocales);
+
+    expect(getEntries).toBeCalledWith({
+      skip: 0,
+      limit: 100,
+      order: "sys.createdAt",
+      "metadata.tags.sys.id[in]": tag
+    });
   });
 });
