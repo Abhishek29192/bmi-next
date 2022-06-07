@@ -141,13 +141,14 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     message: `allGroupsOfCategories: ${allGroupsOfCategories}`
   });
 
+  //TODO: remove `toUpperCase` when case agnostic to be reverted!
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
     .filter((key) => key.length > 0 && key !== "undefined")
     .reduce((categoryAsProps, catName) => {
-      const origialCatName = catName; //TODO: remove when case agnostic to be reverted!
-      const catNameCapitalised = catName.toUpperCase(); //TODO: remove when case agnostic to be reverted!
+      const origialCatName = catName;
+      const catNameCapitalised = catName.toUpperCase();
       // eslint-disable-next-line security/detect-object-injection
       const nameAndCodeValues = allGroupsOfCategories[origialCatName].map(
         (cat) => {
