@@ -266,6 +266,13 @@ export const getDocumentQueryObject = (
         fields: ["title"]
       }
     },
+    {
+      query_string: {
+        query: `false`,
+        type: "cross_fields",
+        fields: ["noIndex"]
+      }
+    },
     ...filtersQuery
   ];
 

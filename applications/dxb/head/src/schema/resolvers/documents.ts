@@ -1,10 +1,10 @@
 // TODO: Find another place for this file.
 import { PimAssetType, Product } from "../../components/types/pim";
 import {
-  generateIdFromString,
-  generateDigestFromData
+  generateDigestFromData,
+  generateIdFromString
 } from "../../utils/encryption";
-import { Node, Context } from "./types";
+import { Context, Node } from "./types";
 import { getFormatFromFileName, isPimLinkDocument } from "./utils/documents";
 
 export const resolveDocumentsFromProducts = async (
@@ -145,7 +145,6 @@ export const resolveDocumentsFromContentful = async (
   { context }: { context: Context }
 ): Promise<Node[]> => {
   const filter = {
-    noIndex: { eq: false },
     ...(assetTypes.length && {
       assetType: {
         id: {

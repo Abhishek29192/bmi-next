@@ -32,7 +32,8 @@ export const disableFiltersFromAggregationsPLP = (
       ...filter,
       options: filter.options.map((option) => {
         const buckets =
-          aggregations[removePLPFilterPrefix(filter.name)]?.buckets;
+          aggregations[removePLPFilterPrefix(filter.name).toUpperCase()]
+            ?.buckets;
 
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
@@ -105,7 +106,7 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
     .reduce((acc, currFilter) => {
       const termsQuery = (name, value) => ({
         terms: {
-          [`${removePLPFilterPrefix(name)}.code.keyword`]: value
+          [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
         }
       });
       const query = termsQuery(currFilter.name, currFilter.value);

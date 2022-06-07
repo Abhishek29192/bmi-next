@@ -15,7 +15,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
   it("should disable based on aggregations", () => {
     const filters: Filter[] = [
       {
-        name: "colour",
+        name: "COLOUR",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -24,7 +24,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
       }
     ];
     const aggregations: Aggregations = {
-      colour: {
+      COLOUR: {
         buckets: [
           { key: "colour1", doc_count: 1 },
           { key: "bar", doc_count: 1 }
@@ -38,7 +38,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
     );
     const result = [
       {
-        name: "colour",
+        name: "COLOUR",
         label: "Colour",
         options: [
           { label: "1", value: "colour1", isDisabled: false },
@@ -62,7 +62,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
         }
       ];
       const aggregations: Aggregations = {
-        colour: {
+        COLOUR: {
           buckets: [
             { key: "colour1", doc_count: 1 },
             { key: "bar", doc_count: 1 }
@@ -382,7 +382,7 @@ describe("compileESQueryPLP function", () => {
             bool: {
               must: [
                 { terms: { "allCategories.code.keyword": ["Category"] } },
-                { terms: { "filter-1.code.keyword": ["option-1"] } }
+                { terms: { "FILTER-1.code.keyword": ["option-1"] } }
               ]
             }
           },
@@ -437,8 +437,8 @@ describe("compileESQueryPLP function", () => {
             bool: {
               must: [
                 { terms: { "allCategories.code.keyword": ["Category"] } },
-                { terms: { "filter-1.code.keyword": ["option-1"] } },
-                { terms: { "filter-2.code.keyword": ["fl2-option-1"] } }
+                { terms: { "FILTER-1.code.keyword": ["option-1"] } },
+                { terms: { "FILTER-2.code.keyword": ["fl2-option-1"] } }
               ]
             }
           },
