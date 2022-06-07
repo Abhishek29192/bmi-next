@@ -1,8 +1,9 @@
 {
-  "extends": "../../../../tsconfig.json",
+  "extends": "../../../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
     "strict": false,
+    "baseUrl": ".",
     "paths": {
       "@bmi/intouch-api-types": ["../../types/index.d.ts"]
     }

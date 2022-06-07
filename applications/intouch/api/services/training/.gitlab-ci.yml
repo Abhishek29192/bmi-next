@@ -1,5 +1,21 @@
 build_intouch_api_training:
-  stage: build
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/training/**/*
+        - libraries/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-api-service-training"
+    ROOT_DIR: "applications/intouch/api/services/training"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/services/training/dist
+
+package_intouch_api_training:
+  stage: package
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -7,7 +23,8 @@ build_intouch_api_training:
   services:
     - name: docker:20-dind
       alias: docker
-  needs: []
+  needs:
+    - build_intouch_api_training
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
@@ -30,7 +47,7 @@ deploy_intouch_training_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   needs:
-    - build_intouch_api_training
+    - package_intouch_api_training
     - job: migrate_training_db_bmi
       optional: true
   image: google/cloud-sdk
