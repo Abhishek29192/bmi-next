@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 export type OnAnalyticsEvent = (event: {
   event?: string;
@@ -10,3 +10,5 @@ export type OnAnalyticsEvent = (event: {
 export const AnalyticsContext = createContext<OnAnalyticsEvent>(() => {
   // no-op
 });
+
+export const useAnalyticsContext = () => useContext(AnalyticsContext);
