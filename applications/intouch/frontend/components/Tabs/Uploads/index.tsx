@@ -165,7 +165,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
 
   const defaultRequirementCategoryInitialState = currentGuarantee?.guaranteeType
     ?.evidenceCategoriesCollection?.items?.[0]
-    .referenceCode as CustomEvidenceCategoryKey;
+    ?.referenceCode as CustomEvidenceCategoryKey;
   const [defaultRequirementCategory, setDefaultRequirementCategory] = useState<
     CustomEvidenceCategoryKey | "MISCELLANEOUS"
   >(defaultRequirementCategoryInitialState || "MISCELLANEOUS");
