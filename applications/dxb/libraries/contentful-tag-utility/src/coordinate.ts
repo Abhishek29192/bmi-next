@@ -34,6 +34,7 @@ async function* fetchAllEntries(
       skip: offset,
       limit,
       order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
       ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
@@ -56,6 +57,7 @@ async function* fetchAllAssets(
       skip: offset,
       limit,
       order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
       ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
