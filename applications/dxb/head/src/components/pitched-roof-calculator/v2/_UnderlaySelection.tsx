@@ -1,7 +1,7 @@
 import { CardRadioGroup, Typography } from "@bmi/components";
-import React, { useContext } from "react";
+import React from "react";
 import { useSiteContext } from "../../Site";
-import { AnalyticsContext } from "../helpers/analytics";
+import { useAnalyticsContext } from "../helpers/analytics";
 import getPitchValues from "../helpers/getPitchValues";
 import { Underlay } from "../types";
 import { DimensionsValues } from "../types/roof";
@@ -24,11 +24,19 @@ const UnderlaySelectionRow = ({
   selected
 }: UnderlaySelectionRowProps) => {
   const { getMicroCopy } = useSiteContext();
-  const pushEvent = useContext(AnalyticsContext);
+  const pushEvent = useAnalyticsContext();
 
-  if (!options.length) {
-    return null;
-  }
+  const constructGTMLabel = (underlay: Underlay) => {
+    if (underlay.description) {
+      return `${underlay.name} - ${underlay.description} - ${getMicroCopy(
+        microCopy.CALCULATOR_NOBB_LABEL
+      )}: ${underlay.externalProductCode}`;
+    }
+
+    return `${underlay.name} - ${getMicroCopy(
+      microCopy.CALCULATOR_NOBB_LABEL
+    )}: ${underlay.externalProductCode}`;
+  };
 
   return (
     <FieldContainer>
@@ -46,14 +54,14 @@ const UnderlaySelectionRow = ({
             value={underlay.externalProductCode}
             title={underlay.name}
             imageSource={underlay.image}
-            onClick={() => {
+            onClick={() =>
               pushEvent({
                 event: "dxb.button_click",
                 id: "rc-select-underlay",
-                label: `${underlay.name} - ${underlay.description} - ${underlay.externalProductCode}`,
+                label: constructGTMLabel(underlay),
                 action: "selected"
-              });
-            }}
+              })
+            }
           >
             <CardRadioGroup.Item.Paragraph>
               {underlay.description}
