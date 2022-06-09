@@ -1,59 +1,81 @@
-import axios, { AxiosError } from "axios";
-import "dotenv/config";
-import { getSecret } from "./utils/secrets";
+import { getSecret } from "@bmi-digital/functions-secret-client";
+import logger from "@bmi-digital/functions-logger";
+import fetch, {
+  FetchError,
+  RequestInfo,
+  RequestInit,
+  Response
+} from "node-fetch";
+
+type fetchConfig = {
+  url: RequestInfo;
+} & RequestInit;
+
+type SearchQuery = {
+  q: string;
+  per_page: number;
+  include_totals: boolean;
+  page: number;
+};
+
+class HTTPResponseError extends Error {
+  response: Response;
+  constructor(response: Response) {
+    super(`HTTP Error Response: ${response.status} ${response.statusText}`);
+    this.response = response;
+    this.message = response.statusText;
+  }
+}
 
 export default class Auht0Client {
   private token = undefined;
 
-  private errorLogger(error: AxiosError, message: string) {
-    const responseMessage = error.response
-      ? error.response.data.message
-        ? error.response.data.message
-        : error.response.data.error
-      : error.message
-      ? error.message
-      : error;
-    console.log(message, responseMessage);
+  private errorLogger(error: HTTPResponseError | FetchError, message: string) {
+    const responseMessage = error.message ? error.message : error;
+    logger.error({ message: `${message} ${responseMessage}` });
   }
 
   private async getManagementToken() {
     const {
-      GCP_SECRET_PROJECT,
       AUTH0_MANAGEMENT_CLIENT_ID,
       AUTH0_ISSUER_BASE_URL,
       AUTH0_AUDIENCE
     } = process.env;
 
     try {
-      const clientSecret = await getSecret(
-        GCP_SECRET_PROJECT,
-        "AUTH0_API_CLIENT_SECRET"
-      );
-      const { data } = await axios({
+      const clientSecret = await getSecret("AUTH0_API_CLIENT_SECRET");
+      const response = await fetch(`${AUTH0_ISSUER_BASE_URL}/oauth/token`, {
         method: "POST",
-        url: `${AUTH0_ISSUER_BASE_URL}/oauth/token`,
-        headers: { "content-type": "application/json" },
-        data: {
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify({
           grant_type: "client_credentials",
           client_id: AUTH0_MANAGEMENT_CLIENT_ID,
           client_secret: clientSecret,
           audience: AUTH0_AUDIENCE
-        }
+        })
       });
-      return data;
+
+      if (!response.ok) {
+        throw new HTTPResponseError(response);
+      }
+
+      return await response.json();
     } catch (error) {
-      this.errorLogger(error, "Error fetching token:");
+      this.errorLogger(error as HTTPResponseError, "Error fetching token:");
       throw error;
     }
   }
 
-  private async requestCall(config) {
+  private async requestCall(config: fetchConfig): Promise<Response> {
+    const { url, ...restConfig } = config;
     if (!this.token) {
       const { access_token: token } = await this.getManagementToken();
       this.token = token;
     }
-    return await axios({
-      ...config,
+    return await fetch(url, {
+      ...restConfig,
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${this.token}`,
@@ -64,7 +86,7 @@ export default class Auht0Client {
 
   async getUnverifiedUser(page = 0, perPage = 100) {
     const { AUTH0_ISSUER_BASE_URL } = process.env;
-    const config = {
+    const config: SearchQuery = {
       q: "email_verified:false",
       per_page: perPage,
       include_totals: true,
@@ -72,42 +94,55 @@ export default class Auht0Client {
     };
     const queryString = Object.keys(config)
       .map((key) => {
-        const value = config[`${key}`];
+        const value = config[`${key}` as keyof typeof config];
         return `${key}=${value}`;
       })
       .join("&");
     try {
-      const { data } = await this.requestCall({
+      const response = await this.requestCall({
         method: "GET",
         url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users?${queryString}`
       });
-      return data;
+
+      if (!response.ok) {
+        throw new HTTPResponseError(response);
+      }
+
+      return await response.json();
     } catch (error) {
-      this.errorLogger(error, "Error fetching unverified users:");
+      this.errorLogger(error as FetchError, "Error fetching unverified users:");
       throw error;
     }
   }
 
-  async deleteUser({ id, email }: { id: string; email: string }) {
-    const { AUTH0_ISSUER_BASE_URL } = process.env;
-    try {
-      return await this.requestCall({
-        method: "DELETE",
-        url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
+  async deleteUser({ email }: { email: string }) {
+    const { FRONTEND_BASE_URL } = process.env;
+    const deleteUserCall = () =>
+      fetch(`${FRONTEND_BASE_URL}/api/confirm-signup`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+          email
+        })
       });
-    } catch (error) {
-      // if it reaches rate limit, reset token and retry
-      if (error.data?.statusCode === 429) {
-        this.token = undefined;
-
-        return await this.requestCall({
-          method: "DELETE",
-          url: `${AUTH0_ISSUER_BASE_URL}/api/v2/users/${id}`
-        });
-      } else {
-        this.errorLogger(error, `Error deleting user with ${email}:`);
-        throw error;
+    try {
+      const response = await deleteUserCall();
+      if (!response.ok) {
+        if (response.status === 429) {
+          // if it reaches rate limit, then retry
+          return await deleteUserCall();
+        }
+        throw new HTTPResponseError(response);
       }
+      return "ok";
+    } catch (error) {
+      this.errorLogger(
+        error as FetchError,
+        `Error deleting user with ${email}:`
+      );
+      throw error;
     }
   }
 }

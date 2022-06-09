@@ -26,6 +26,7 @@ exports[`Page component renders correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"string\\",\\"action\\":\\"link-to-page\\"}"
                 href="link-to-page"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -470,6 +471,7 @@ exports[`Page component renders correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Get in touch\\"}"
                 href="tel:+4401234567890"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -489,6 +491,7 @@ exports[`Page component renders correctly 1`] = `
                 href="/uk/landing-page/"
                 role="button"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"
@@ -507,6 +510,7 @@ exports[`Page component renders correctly 1`] = `
                 data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"string\\"}"
                 href="link-to-page"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label-4"

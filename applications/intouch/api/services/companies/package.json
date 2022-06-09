@@ -9,12 +9,12 @@
     "build": "tsc --build tsconfig.prod.json",
     "dev": "rm -rf dist/* && tsc --build tsconfig.prod.json && concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "gcp-build": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "prettier --write schema.graphql",
     "prettify-schema:watch": "onchange \"schema.graphql\" -- yarn prettify-schema",
     "start": "node dist/index.js",
-    "test": "jest --reporters=default --reporters=jest-junit",
-    "coverage": "yarn test --coverage"
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi-digital/logger": "0.0.11",
@@ -51,7 +51,8 @@
     "postgraphile-apollo-server": "0.1.1",
     "postgraphile-plugin-connection-filter": "^2.2.1",
     "postgraphile-plugin-nested-mutations": "^1.1.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "date-fns": "^2.28.0"
   },
   "devDependencies": {
     "concurrently": "^6.0.0",

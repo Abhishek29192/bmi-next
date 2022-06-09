@@ -59,7 +59,7 @@ export const ProjectEditActionDialog = ({
 
     setIsSubmitting(true);
 
-    // we need to account for nested objects (e.g. address)
+    // We need to account for nested objects (e.g. address).
     const valuesObject = spreadObjectKeys(values, (key, value) => {
       // skip disabled fields
       if (isFieldDisabled(guarantee, key)) {
@@ -75,18 +75,18 @@ export const ProjectEditActionDialog = ({
 
     const { siteAddress, ...createProjectValues } = valuesObject;
 
-    // siteAddress may have been disabled therefore not in the filtered form values
+    // siteAddress may have been disabled therefore not in the filtered form values.
     const addressToSiteAddressId: ProjectSiteAddressIdFkeyInput = siteAddress
       ? project.siteAddress?.id
         ? {
-            // updates the address (already linked to the project)
+            // Updates the address (already linked to the project).
             updateById: {
               id: project?.siteAddress.id,
               patch: siteAddress
             }
           }
         : {
-            // creates the address and links it to the project
+            // Creates the address and links it to the project.
             create: siteAddress
           }
       : undefined;

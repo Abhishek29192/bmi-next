@@ -8,17 +8,17 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "webpack --mode=production",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "compile": "tsc",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist/dist/function --target=youtubeCache --port=9060",
-    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=youtubeCache --port=9060"
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=youtubeCache --port=9060",
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
     "@bmi/functions-firestore": "0.0.0",
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "@bmi-digital/functions-secret-client": "1.1.1",
     "@google-cloud/functions-framework": "^3.0.0",
-    "dotenv": "^8.2.0",
     "googleapis": "67.1.1",
     "node-fetch": "^2.6.1",
     "simple-http-status": "1.1.0"

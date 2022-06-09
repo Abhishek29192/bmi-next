@@ -1,30 +1,30 @@
-import React from "react";
-import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { BackToTop, MicroCopy } from "@bmi/components";
 import { graphql, navigate } from "gatsby";
+import React from "react";
+import { ErrorBoundary, withErrorBoundary } from "react-error-boundary";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import Header from "../components/Header";
+import "../../src/styles/fonts.module.scss";
 import Footer from "../components/Footer";
-import { getPathWithCountryCode } from "../utils/path";
-import { BasketContextProvider } from "../contexts/SampleBasketContext";
+import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
-import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
+import { BasketContextProvider } from "../contexts/SampleBasketContext";
+import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
+import { Data as BreadcrumbsData } from "./Breadcrumbs";
+import ErrorFallback from "./ErrorFallback";
+import { Head } from "./Head";
+import { generateGetMicroCopy } from "./MicroCopy";
+import Calculator from "./PitchedRoofCalcualtor";
+import { Data as SEOContentData } from "./SEOContent";
+import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import {
   Context as SiteContext,
   Data as SiteData,
   SiteContextProvider,
   useSiteContext
 } from "./Site";
-import { Data as BreadcrumbsData } from "./Breadcrumbs";
-import { generateGetMicroCopy } from "./MicroCopy";
-import ErrorFallback from "./ErrorFallback";
-import { Data as SEOContentData } from "./SEOContent";
-import VisualiserProvider from "./Visualiser";
-import Calculator from "./PitchedRoofCalcualtor";
 import { Product, VariantOption } from "./types/pim";
-import "../../src/styles/fonts.module.scss";
-import { Head } from "./Head";
+import VisualiserProvider from "./Visualiser";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;

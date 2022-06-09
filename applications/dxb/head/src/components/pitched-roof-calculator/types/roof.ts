@@ -75,4 +75,8 @@ export type Roof = RoofBase & {
   roofPitchField: string;
 };
 
+export type RoofV2 = Roof & {
+  id: string;
+};
+
 export type Protrusion = RoofBase;

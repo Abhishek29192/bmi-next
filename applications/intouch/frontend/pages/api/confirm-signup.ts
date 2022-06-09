@@ -1,4 +1,5 @@
 import { gql } from "@apollo/client";
+import validator from "validator";
 import withCors from "../../lib/middleware/withCors";
 import { initializeApollo } from "../../lib/apolloClient";
 import { getSecret } from "../../lib/utils/secrets";
@@ -34,11 +35,11 @@ export const handler = async (req, res) => {
     const { data } = await apolloClient.mutate({
       mutation: DELETE_INVITED_USER,
       variables: {
-        email
+        email: validator.escape(email)
       }
     });
     if (data) {
-      res.status(200).json({ data: data.deleteInvitedUser });
+      res.status(200).json({ data: validator.escape(data.deleteInvitedUser) });
     }
   } catch (error) {
     logger.error(error.message);

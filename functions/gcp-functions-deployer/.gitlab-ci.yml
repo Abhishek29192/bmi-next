@@ -1,17 +1,17 @@
 build_gcp-functions-deployer:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
     ROOT_DIR: "functions/gcp-functions-deployer"
 
 test_gcp-functions-deployer:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
     ROOT_DIR: "functions/gcp-functions-deployer"
 
 package_gcp-functions-deployer:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-functions-deployer
   dependencies:
@@ -21,7 +21,7 @@ package_gcp-functions-deployer:
     ROOT_DIR: functions/gcp-functions-deployer
 
 deploy_gcp-functions-deployer:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-functions-deployer
   dependencies:

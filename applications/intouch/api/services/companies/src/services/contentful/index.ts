@@ -187,6 +187,7 @@ fragment GuaranteeTemplateDetailFragment on GuaranteeTemplate {
   headingValidity
   headingExpiry
   footer
+  mailSubject
   mailBody
   filenamePrefix
   titleLine1

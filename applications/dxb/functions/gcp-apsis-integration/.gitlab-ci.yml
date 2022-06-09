@@ -1,17 +1,17 @@
 test_gcp-apsis-integration:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-apsis-integration"
     ROOT_DIR: "applications/functions/gcp-apsis-integration"
 
 build_gcp-apsis-integration:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-apsis-integration"
     ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
 
 package_gcp-apsis-integration:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-apsis-integration
   dependencies:
@@ -21,7 +21,7 @@ package_gcp-apsis-integration:
     ROOT_DIR: "applications/dxb/functions/gcp-apsis-integration"
 
 deploy_gcp-apsis-integration:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-apsis-integration
   dependencies:

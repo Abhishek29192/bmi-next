@@ -28,17 +28,62 @@ const EmbeddedTable = ({ fields }: Props) => {
       <Table>
         <Table.Head>
           <Table.Row>
-            {head.map((cellText, cellIndex) => (
-              <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
+            {head.map((cellValue, cellIndex) => (
+              <Table.Cell key={cellIndex}>
+                {cellValue && cellValue.includes("[{")
+                  ? JSON.parse(cellValue).map((cellElement, cellElIndex) => {
+                      if (cellElement.attributes.link) {
+                        return (
+                          <a
+                            rel="noreferrer"
+                            target="_blank"
+                            key={cellElIndex}
+                            href={cellElement.attributes.link}
+                          >
+                            {cellElement.insert}
+                          </a>
+                        );
+                      }
+                      return (
+                        <span key={cellElIndex}>{cellElement.insert}</span>
+                      );
+                    })
+                  : cellValue}
+              </Table.Cell>
             ))}
           </Table.Row>
         </Table.Head>
+
         {rows.length > 0 ? (
           <Table.Body>
             {rows.map((row, rowIndex) => (
               <Table.Row key={rowIndex}>
-                {row.map((cellText, cellIndex) => (
-                  <Table.Cell key={cellIndex}>{cellText}</Table.Cell>
+                {row.map((cellValue, cellIndex) => (
+                  <Table.Cell key={cellIndex}>
+                    {cellValue && cellValue.includes("[{")
+                      ? JSON.parse(cellValue).map(
+                          (cellElement, cellElIndex) => {
+                            if (cellElement.attributes.link) {
+                              return (
+                                <a
+                                  rel="noreferrer"
+                                  target="_blank"
+                                  key={cellElIndex}
+                                  href={cellElement.attributes.link}
+                                >
+                                  {cellElement.insert}
+                                </a>
+                              );
+                            }
+                            return (
+                              <span key={cellElIndex}>
+                                {cellElement.insert}
+                              </span>
+                            );
+                          }
+                        )
+                      : cellValue}
+                  </Table.Cell>
                 ))}
               </Table.Row>
             ))}

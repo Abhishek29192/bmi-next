@@ -1,11 +1,11 @@
 test_pim-types:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/pim-types"
     ROOT_DIR: "applications/dxb/libraries/pim-types"
 
 build_pim-types:
-  extends: .build
+  extends: .build_yarn_workspace
   variables:
     WORKSPACE: "@bmi/pim-types"
     ROOT_DIR: "applications/dxb/libraries/pim-types"

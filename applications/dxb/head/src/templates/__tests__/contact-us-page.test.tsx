@@ -51,7 +51,7 @@ describe("Contact us page", () => {
         title: "featuredVideo",
         label: "label",
         subtitle: null,
-        youtubeId: "youtubeId",
+        videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
         videoRatio: null
       },
@@ -216,7 +216,7 @@ describe("Contact us page", () => {
                 label: "BMI Group VIDEO LABEL",
                 subtitle:
                   "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
-                youtubeId: "TDNEwZbm_Nk",
+                videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
                 previewMedia: null,
                 videoRatio: { width: 17776, height: 9999 }
               },

@@ -243,6 +243,6 @@ export const handleRequest: HttpFunction = async (req, res) => {
   } catch (error) {
     logger.error({ message: (error as Error).message });
   }
-
+  logger.info({ message: "Build triggered successfully" });
   res.status(200).send("ok");
 };

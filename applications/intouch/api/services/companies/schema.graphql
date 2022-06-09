@@ -3562,6 +3562,7 @@ type ContentfulGuaranteeTemplate {
   headingValidity: String
   headingExpiry: String
   footer: String
+  mailSubject: String
   mailBody: String
   filenamePrefix: String
   titleLine1: String
@@ -6165,6 +6166,7 @@ type Mutation {
   ): ImportAccountsCompaniesFromCSVResult
   sendReminderToIncompleteCompanyProfile: String
   restartGuarantee(projectId: Int!): String
+  archiveProjects: String
 }
 
 """The output of our create `Address` mutation."""

@@ -1,0 +1,814 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
+<div>
+  <div
+    class="Results"
+  >
+    <div
+      class="Alert Alert--first"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alert"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+              MC: results.alerts.quantities.title
+            </h5>
+            MC: results.alerts.quantities.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert Alert--last"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alabaster"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              MC: results.alerts.needToKnow.title
+            </h5>
+            MC: results.alerts.needToKnow.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-2"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-2"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Results component renders with debugging mode on 1`] = `
+<div>
+  <div
+    class="Results"
+  >
+    <div
+      class="Alert Alert--first"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alert"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+              MC: results.alerts.quantities.title
+            </h5>
+            MC: results.alerts.quantities.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert Alert--last"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alabaster"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              MC: results.alerts.needToKnow.title
+            </h5>
+            MC: results.alerts.needToKnow.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-6"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-6"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <h3
+        class="MuiTypography-root Typography MuiTypography-h3"
+      >
+        Measurements (showing because debugging mode is ON)
+      </h3>
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+      >
+        Lines
+      </h4>
+      <ul>
+        <li>
+          <b>
+            ridge
+            :
+          </b>
+           
+          1500.00
+        </li>
+        <li>
+          <b>
+            eave
+            :
+          </b>
+           
+          900.00 | 900.00 | 1500.00 | 1500.00
+        </li>
+        <li>
+          <b>
+            leftVerge
+            :
+          </b>
+           
+          505.05 | 505.05
+        </li>
+        <li>
+          <b>
+            rightVerge
+            :
+          </b>
+           
+          505.05 | 505.05
+        </li>
+      </ul>
+      <h4
+        class="MuiTypography-root Typography MuiTypography-h4"
+      >
+        Faces
+      </h4>
+      <ul>
+        <li>
+          <b>
+            face 
+            1
+             battens (width):
+          </b>
+           
+          1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00
+        </li>
+        <li>
+          <b>
+            face 
+            2
+             battens (width):
+          </b>
+           
+          1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00 | 1500.00
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Results component renders with default ridge 1`] = `
+<div>
+  <div
+    class="Results"
+  >
+    <div
+      class="Alert Alert--first"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alert"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+              MC: results.alerts.quantities.title
+            </h5>
+            MC: results.alerts.quantities.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert Alert--last"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alabaster"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              MC: results.alerts.needToKnow.title
+            </h5>
+            MC: results.alerts.needToKnow.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-18"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-18"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Results component renders with main tile as verge 1`] = `
+<div>
+  <div
+    class="Results"
+  >
+    <div
+      class="Alert Alert--first"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alert"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+              MC: results.alerts.quantities.title
+            </h5>
+            MC: results.alerts.quantities.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert Alert--last"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alabaster"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              MC: results.alerts.needToKnow.title
+            </h5>
+            MC: results.alerts.needToKnow.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-14"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-14"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator Results component renders with no guttering 1`] = `
+<div>
+  <div
+    class="Results"
+  >
+    <div
+      class="Alert Alert--first"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alert"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+                />
+              </svg>
+              MC: results.alerts.quantities.title
+            </h5>
+            MC: results.alerts.quantities.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert Alert--last"
+    >
+      <div
+        class="Alert ColorPair ColorPair--alabaster"
+      >
+        <div
+          class="actions"
+        />
+        <div
+          class="Container"
+        >
+          <div
+            class="MuiContainer-root MuiContainer-maxWidthXl"
+          >
+            <h5
+              class="MuiTypography-root title Typography MuiTypography-h5"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root icon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                />
+              </svg>
+              MC: results.alerts.needToKnow.title
+            </h5>
+            MC: results.alerts.needToKnow.text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="name"
+              placeholder="name"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-10"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root MuiTextField-root TextField"
+        >
+          <div
+            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+          >
+            <input
+              aria-invalid="false"
+              class="MuiInputBase-input MuiOutlinedInput-input"
+              name="email"
+              placeholder="email"
+              required=""
+              type="text"
+              value=""
+            />
+            <fieldset
+              aria-hidden="true"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              style="padding-left: 8px;"
+            >
+              <legend
+                class="PrivateNotchedOutline-legend-10"
+                style="width: 0.01px;"
+              >
+                <span>
+                  ​
+                </span>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <button>
+          Submit button
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

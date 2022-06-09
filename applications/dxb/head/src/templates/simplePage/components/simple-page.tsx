@@ -33,6 +33,7 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
+import BackToResults from "../../../components/BackToResults";
 
 export type Data = PageInfoData &
   PageData & {
@@ -101,12 +102,13 @@ const SimplePage = ({ data, pageContext }: Props) => {
   );
   const heroLevel = generateHeroLevel(heroType, enhancedBreadcrumbs);
 
+  const isDarkThemed = heroType === "Spotlight" || heroLevel !== 3;
   const breadcrumbsNode = (
-    <Breadcrumbs
-      data={enhancedBreadcrumbs}
-      isDarkThemed={heroType === "Spotlight" || heroLevel !== 3}
-    />
+    <BackToResults isDarkThemed={isDarkThemed}>
+      <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed={isDarkThemed} />
+    </BackToResults>
   );
+
   const pageData: PageData = {
     breadcrumbs: enhancedBreadcrumbs,
     signupBlock: data.contentfulSimplePage.signupBlock,
@@ -141,7 +143,9 @@ const SimplePage = ({ data, pageContext }: Props) => {
           </Section>
         )}
         <Section backgroundColor="alabaster" isSlim>
-          <Breadcrumbs data={enhancedBreadcrumbs} />
+          <BackToResults>
+            <Breadcrumbs data={enhancedBreadcrumbs} />
+          </BackToResults>
         </Section>
       </TableOfContent>
     </Page>

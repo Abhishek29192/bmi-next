@@ -46,9 +46,9 @@ const IntegratedSignupBlock = ({
         buttonComponent={(props: ButtonProps) => (
           <GTMButton
             gtm={{
-              id: "cta-click1",
-              label: signupLabel,
-              action: "Opens dialog"
+              id: "cta-click-sign-up",
+              label: `${title} - ${signupLabel}`,
+              action: "sign up started"
             }}
             {...props}
           />

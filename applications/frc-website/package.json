@@ -13,10 +13,11 @@
   },
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "compile": "tsc",
     "dev": "gatsby clean && gatsby develop",
-    "start": "gatsby build && gatsby serve"
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "start": "gatsby build && gatsby serve",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi/components": "1.2.0-monorepo",

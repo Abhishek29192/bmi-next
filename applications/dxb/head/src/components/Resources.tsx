@@ -35,6 +35,10 @@ export type Data = {
   welcomeDialogTitle: string | null;
   welcomeDialogBrands: [string] | null;
   welcomeDialogBody: RichTextData | null;
+  ieDialogTitle: string | null;
+  ieDialogBody: RichTextData | null;
+  ieDialogActionLabel: string | null;
+  ieDialogActionLink: string | null;
   countryNavigationIntroduction?: RichTextData | null;
   maximumSamples: number | null;
   sampleBasketLink: PageInfoData | null;
@@ -110,6 +114,7 @@ export const query = graphql`
       ...TitleWithContentFragment
     }
     ...WelcomeDialogFragment
+    ...IEDialogFragment
     ...HeaderLanguageFragment
     sdpBimDescription {
       ...RichTextFragment

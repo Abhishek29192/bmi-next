@@ -1,9 +1,9 @@
-import { Context, Node } from "../types";
+import createAsset from "../../../__tests__/AssetHelper";
 import {
   resolveDocumentsFromContentful,
   resolveDocumentsFromProducts
 } from "../documents";
-import createAsset from "../../../__tests__/AssetHelper";
+import { Context, Node } from "../types";
 
 const context: Context = {
   nodeModel: {

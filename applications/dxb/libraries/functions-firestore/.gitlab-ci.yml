@@ -1,11 +1,11 @@
 test_functions-firestore:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/functions-firestore"
     ROOT_DIR: "applications/dxb/libraries/functions-firestore"
 
 build_functions-firestore:
-  extends: .build
+  extends: .build_yarn_workspace
   variables:
     WORKSPACE: "@bmi/functions-firestore"
     ROOT_DIR: "applications/dxb/libraries/functions-firestore"

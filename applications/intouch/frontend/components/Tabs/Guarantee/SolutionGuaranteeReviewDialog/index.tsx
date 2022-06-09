@@ -15,6 +15,7 @@ import {
   GetProjectDocument,
   useUpdateGuaranteeMutation
 } from "../../../../graphql/generated/hooks";
+import { InlineAddress } from "../../../Address/inlineAddress";
 import styles from "./styles.module.scss";
 
 type SolutionGuaranteeReviewProps = {
@@ -131,7 +132,7 @@ const GuaranteeReview = ({ project }: GuaranteeReviewProps) => {
         {project.buildingOwnerMail}
       </InfoPair>
       <InfoPair title={t("building_owner.address")}>
-        {`${project.buildingOwnerAddress?.firstLine}, ${project.buildingOwnerAddress?.secondLine}, ${project.buildingOwnerAddress?.region}, ${project.buildingOwnerAddress?.town}, ${project.buildingOwnerAddress?.postcode}`}
+        <InlineAddress address={project.buildingOwnerAddress} />
       </InfoPair>
 
       <AlertBanner severity="info">

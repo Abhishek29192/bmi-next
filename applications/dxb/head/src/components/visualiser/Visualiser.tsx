@@ -1,3 +1,25 @@
+import {
+  BMI,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  ContainerDialog,
+  Grid,
+  Logo,
+  SelectRoof,
+  SelectTile,
+  SelectWallColour,
+  TileColour,
+  ToggleCard,
+  Typography
+} from "@bmi/components";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Popover from "@material-ui/core/Popover";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import ShareIcon from "@material-ui/icons/Share";
+import classnames from "classnames";
 import React, {
   Dispatch,
   ReactNode,
@@ -8,37 +30,21 @@ import React, {
   useRef,
   useState
 } from "react";
-import { Button } from "@bmi/components";
-import { Card, CardActions, CardContent } from "@bmi/components";
-import { ContainerDialog } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import {
-  SelectRoof,
-  SelectTile,
-  SelectWallColour,
-  TileColour
-} from "@bmi/components";
-import { Logo, BMI } from "@bmi/components";
-import { ToggleCard } from "@bmi/components";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Popover from "@material-ui/core/Popover";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import ShareIcon from "@material-ui/icons/Share";
-import classnames from "classnames";
+import { microCopy } from "./constants/microCopy";
 import getRef from "./GetRef";
+import { useMicroCopy } from "./helpers/useMicroCopy";
 import HouseViewer from "./HouseViewer";
-import TileViewer from "./TileViewer";
+import HouseViewerOld from "./HouseViewerOld";
 import styles from "./styles/Visualiser.module.scss";
+import TileViewer from "./TileViewer";
 import { Colour, Material, Siding, Tile } from "./Types";
 
 const MATERIAL_NAME_MAP: {
   [material in Material]: string;
 } = {
-  "1": "Betongtakstein",
-  "2": "Telgtakstein",
-  "3": "Takpanner"
+  "1": microCopy.materials.material1,
+  "2": microCopy.materials.material2,
+  "3": microCopy.materials.material3
 };
 
 export type Parameters = {
@@ -96,6 +102,7 @@ const Actions = ({
   viewMode: Props["viewMode"];
   onButtonClick: (data: { type: string; label: string }) => void;
 }) => {
+  const { getMicroCopy } = useMicroCopy();
   return (
     <nav className={styles["actions"]}>
       <Button
@@ -108,11 +115,11 @@ const Actions = ({
           );
           onButtonClick({
             type: "bottom-menu",
-            label: "Velg produkt"
+            label: getMicroCopy(microCopy.actions.selectProduct)
           });
         }}
       >
-        Velg produkt
+        {getMicroCopy(microCopy.actions.selectProduct)}
       </Button>
       <Button
         hasDarkBackground
@@ -126,11 +133,11 @@ const Actions = ({
           );
           onButtonClick({
             type: "bottom-menu",
-            label: "Farge på vegg"
+            label: getMicroCopy(microCopy.actions.wallColor)
           });
         }}
       >
-        Farge på vegg
+        {getMicroCopy(microCopy.actions.wallColor)}
       </Button>
       {viewMode === "tile" && (
         <Button
@@ -141,11 +148,11 @@ const Actions = ({
             setViewMode({ viewMode: "roof" });
             onButtonClick({
               type: "bottom-menu",
-              label: "Vis produktet på en bolig"
+              label: getMicroCopy(microCopy.actions.roofMode)
             });
           }}
         >
-          Vis produktet på en bolig
+          {getMicroCopy(microCopy.actions.roofMode)}
         </Button>
       )}
       {viewMode === "roof" && (
@@ -157,11 +164,11 @@ const Actions = ({
             setViewMode({ viewMode: "tile" });
             onButtonClick({
               type: "bottom-menu",
-              label: "Kun produktet"
+              label: getMicroCopy(microCopy.actions.tileMode)
             });
           }}
         >
-          Kun produktet
+          {getMicroCopy(microCopy.actions.tileMode)}
         </Button>
       )}
     </nav>
@@ -181,6 +188,8 @@ const SelectionOptions = ({
   title: string;
   onClick: (data: { tileId: number; colourId: number; label: string }) => any;
 }) => {
+  const { getMicroCopy } = useMicroCopy();
+
   return (
     <div className={styles["select-options"]}>
       <Typography variant="h5" component="h3" className={styles["group-title"]}>
@@ -208,7 +217,9 @@ const SelectionOptions = ({
                   styles["active-selection-option"]
               )}
               aria-label={
-                defaultValue === `${id}-${colour.id}` ? "Valgt" : undefined
+                defaultValue === `${id}-${colour.id}`
+                  ? getMicroCopy(microCopy.selectionOptions.default)
+                  : undefined
               }
             >
               <ToggleCard.Paragraph>{colour.name}</ToggleCard.Paragraph>
@@ -229,6 +240,7 @@ const TileSectorDialog = ({
   onButtonClick,
   tiles
 }: TileSectorDialogProps) => {
+  const { getMicroCopy } = useMicroCopy();
   const productProps = useMemo(
     () =>
       tiles.flatMap(({ colours, ...rest }) =>
@@ -270,11 +282,10 @@ const TileSectorDialog = ({
         align="center"
         className={styles["group-title"]}
       >
-        Velg produkt
+        {getMicroCopy(microCopy.titleSelector.title)}
       </Typography>
       <Typography gutterBottom>
-        Denne tjenesten skal kun brukes som veiledning. Faktiske
-        produktoverflater- og farger kan variere fra de som vises.
+        {getMicroCopy(microCopy.titleSelector.description)}
       </Typography>
 
       {Object.keys(productPropsGroupedByMaterial).map((key) => (
@@ -282,7 +293,7 @@ const TileSectorDialog = ({
           contentSource={contentSource}
           defaultValue={defaultTileIdentifier}
           key={`material-group-${key}`}
-          title={MATERIAL_NAME_MAP[key as Material]}
+          title={getMicroCopy(MATERIAL_NAME_MAP[key as Material])}
           // eslint-disable-next-line security/detect-object-injection
           products={productPropsGroupedByMaterial[key]}
           onClick={onButtonClick}
@@ -309,6 +320,7 @@ const SidingsSelectorDialog = ({
   onConfirmClick: (data: { sidingId: number }) => void;
   onClick: (event: { type: string; label: string }) => void;
 }) => {
+  const { getMicroCopy } = useMicroCopy();
   return (
     <ContainerDialog
       open={open}
@@ -330,7 +342,7 @@ const SidingsSelectorDialog = ({
         align="center"
         className={styles["group-title"]}
       >
-        Velg farge på vegg
+        {getMicroCopy(microCopy.sidingsSelector.title)}
       </Typography>
       <Grid container spacing={2}>
         {sidings.map(({ id, name, diffuseMapRef }) => (
@@ -353,7 +365,11 @@ const SidingsSelectorDialog = ({
               className={classnames(
                 activeSiding.id === id && styles["active-selection-option"]
               )}
-              aria-label={activeSiding.id === id ? "Valgt" : undefined}
+              aria-label={
+                activeSiding.id === id
+                  ? getMicroCopy(microCopy.selectionOptions.default)
+                  : undefined
+              }
             />
           </Grid>
         ))}
@@ -372,6 +388,7 @@ const SharePopover = ({
   const [anchorElement, setAnchorElement] = useState<HTMLDivElement | null>(
     null
   );
+  const { getMicroCopy } = useMicroCopy();
 
   const handlePopoverClick = () => {
     setAnchorElement(anchorRef.current);
@@ -387,7 +404,9 @@ const SharePopover = ({
         isIconButton
         className={styles["share-button"]}
         variant="text"
-        accessibilityLabel={"Lukk"}
+        accessibilityLabel={getMicroCopy(
+          microCopy.sharePopover.accessibilityLabel
+        )}
         aria-describedby="share-popover"
         onClick={handlePopoverClick}
       >
@@ -417,7 +436,10 @@ const SharePopover = ({
 
 const viewerComponentMap = {
   tile: TileViewer,
-  roof: HouseViewer
+  roof:
+    process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
+      ? HouseViewer
+      : HouseViewerOld
 };
 
 const Visualiser = ({
@@ -440,6 +462,7 @@ const Visualiser = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const header = useRef<HTMLDivElement>(null);
   const [state, _setState] = useState({ tileId, colourId, sidingId, viewMode });
+  const { getMicroCopy } = useMicroCopy();
 
   const stateRef = React.useRef(state);
   const setState = useCallback(
@@ -566,12 +589,12 @@ const Visualiser = ({
                       onClick={() =>
                         handleOnClick({
                           type: "product-link",
-                          label: "Les mer om produktet",
+                          label: getMicroCopy(microCopy.readMore),
                           data: { variantCode: activeColour.variantCode }
                         })
                       }
                     >
-                      Les mer om produktet
+                      {getMicroCopy(microCopy.readMore)}
                     </Button>
                   </CardActions>
                 )}

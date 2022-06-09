@@ -40,7 +40,7 @@ describe("Brand Landing Page Template", () => {
       title: "featuredVideo",
       label: "label",
       subtitle: null,
-      youtubeId: "youtubeId",
+      videoUrl: "https://www.youtube.com/watch?v=youtubeId",
       previewMedia: null,
       videoRatio: null
     },
@@ -64,7 +64,7 @@ describe("Brand Landing Page Template", () => {
         title: "featuredVideo",
         label: "label",
         subtitle: null,
-        youtubeId: "youtubeId",
+        videoUrl: "https://www.youtube.com/watch?v=youtubeId",
         previewMedia: null,
         videoRatio: null
       },
@@ -122,7 +122,7 @@ describe("Brand Landing Page Template", () => {
           title: "featuredVideo",
           label: "label",
           subtitle: null,
-          youtubeId: "youtubeId",
+          videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
           videoRatio: null
         }
@@ -137,7 +137,7 @@ describe("Brand Landing Page Template", () => {
           title: "featuredVideo",
           label: "label",
           subtitle: null,
-          youtubeId: "youtubeId",
+          videoUrl: "https://www.youtube.com/watch?v=youtubeId",
           previewMedia: null,
           videoRatio: null
         }

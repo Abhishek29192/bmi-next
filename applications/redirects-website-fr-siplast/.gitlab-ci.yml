@@ -6,7 +6,7 @@ build_redirects_website_fr_siplast:
         - applications/redirects-website-fr-siplast/**/*
         - yarn.lock
   needs:
-    - job: install
+    - job: install_yarn
       optional: true
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"

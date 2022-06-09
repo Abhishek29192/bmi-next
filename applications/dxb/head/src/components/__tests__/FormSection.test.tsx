@@ -1,11 +1,12 @@
-import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import * as Gatsby from "gatsby";
+import React from "react";
+import { ConfigProvider } from "../../contexts/ConfigProvider";
 import FormSection, { Data, FormInputs, InputWidthType } from "../FormSection";
 import { DataTypeEnum } from "../Link";
 import { SiteContextProvider } from "../Site";
-import { ConfigProvider } from "../../contexts/ConfigProvider";
+import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
@@ -50,6 +51,12 @@ const data: Data = {
       label: "Checkbox",
       name: "checkbox",
       type: "checkbox"
+    },
+    {
+      label: "CheckboxGroup",
+      name: "checkboxGroup Name",
+      options: "CheckboxGroup1, CheckboxGroup2, CheckboxGroup3",
+      type: "checkboxGroup"
     },
     {
       label: "Radio",
@@ -130,7 +137,7 @@ const dataHubSpot: Data = {
     dialogContent: null,
     hubSpotCTAID: null
   },
-  source: "HubSpot",
+  source: SourceType.HubSpot,
   hubSpotFormGuid: "abc123"
 };
 
@@ -151,6 +158,7 @@ axios.CancelToken.source = jest.fn().mockReturnValue({
 });
 
 afterEach(() => {
+  jest.clearAllMocks();
   jest.restoreAllMocks();
 });
 
@@ -515,6 +523,53 @@ describe("FormSection component", () => {
     expect(options[0]).toHaveTextContent("MC: form.none.selection");
     expect(options[1]).toHaveTextContent("Option1");
   });
+
+  it("test multiply options in a checkbox group", async () => {
+    const specificData = [
+      {
+        label: "Pizza",
+        name: "pizza",
+        options: "Parma, Caprize, Margarita",
+        type: "checkboxGroup"
+      }
+    ];
+
+    const { container } = render(
+      <ConfigProvider
+        configObject={{
+          gcpFormSubmitEndpoint: "GATSBY_GCP_FORM_SUBMIT_ENDPOINT"
+        }}
+      >
+        <MockSiteContext>
+          <FormSection
+            data={{ ...data, inputs: specificData }}
+            backgroundColor="white"
+            onSuccess={jest.fn()}
+          />
+        </MockSiteContext>
+      </ConfigProvider>
+    );
+
+    const checkboxes = container.querySelectorAll(`input[type="checkbox"]`);
+    expect(container).toMatchSnapshot();
+    fireEvent.click(checkboxes[2]);
+    fireEvent.click(checkboxes[0]);
+    fireEvent.submit(container.querySelector("form"));
+    expect(await waitFor(() => mockedAxios.post)).toHaveBeenCalledWith(
+      "GATSBY_GCP_FORM_SUBMIT_ENDPOINT",
+      {
+        emailSubjectFormat: undefined,
+        locale: "en-GB",
+        recipients: "recipient@mail.com",
+        title: "Test form",
+        values: { pizza: ["Margarita", "Parma"] }
+      },
+      {
+        cancelToken: "this",
+        headers: { "X-Recaptcha-Token": "RECAPTCHA" }
+      }
+    );
+  });
 });
 
 describe("Hubspot FormSection component", () => {
@@ -529,7 +584,6 @@ describe("Hubspot FormSection component", () => {
   it("renders correctly with sampleIds", () => {
     const sampleIds = "0945848_test_prod_variant1, 0945849_test_prod_variant2";
 
-    window.addEventListener = jest.fn();
     const onFormReadyEvent = new MessageEvent("message", {
       data: {
         type: "hsFormCallback",
@@ -545,7 +599,6 @@ describe("Hubspot FormSection component", () => {
       />
     );
     window.dispatchEvent(onFormReadyEvent);
-    expect(window.addEventListener).toBeCalled();
 
     expect(container).toMatchSnapshot();
   });
@@ -557,5 +610,23 @@ describe("Hubspot FormSection component", () => {
       <FormSection data={dataHubSpot} backgroundColor="white" />
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it("calls onSuccess function", () => {
+    render(
+      <FormSection
+        data={dataHubSpot}
+        backgroundColor="white"
+        onSuccess={onSuccess}
+      />
+    );
+
+    const onFormSubmittedEvent = new MessageEvent("message", {
+      data: {
+        eventName: "onFormSubmitted"
+      }
+    });
+    window.dispatchEvent(onFormSubmittedEvent);
+    expect(onSuccess).toHaveBeenCalledTimes(1);
   });
 });

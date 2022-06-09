@@ -1,12 +1,13 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import Sections, { Data } from "../Sections";
-import { SiteContextProvider } from "../Site";
-import { EntryTypeEnum } from "../Service";
+import React from "react";
+import { renderWithRouter } from "../../test/renderWithRouter";
 import createService from "../../__tests__/ServiceHelper";
 import { DataTypeEnum } from "../Link";
-import { renderWithRouter } from "../../test/renderWithRouter";
+import Sections, { Data } from "../Sections";
+import { EntryTypeEnum } from "../Service";
+import { SiteContextProvider } from "../Site";
+import { SourceType } from "../types/FormSectionTypes";
 
 const MockSiteContext = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -273,7 +274,7 @@ describe("Sections component", () => {
           title: "Video",
           label: "Video",
           subtitle: null,
-          youtubeId: "abc123",
+          videoUrl: "https://www.youtube.com/watch?v=abc123",
           previewMedia: null,
           videoRatio: null
         },
@@ -441,7 +442,7 @@ describe("Sections component", () => {
           __typename: "ContentfulVideo",
           title: "Video title",
           label: "Video label",
-          youtubeId: "A-RfHC91Ewc",
+          videoUrl: "https://www.youtube.com/watch?v=A-RfHC91Ewc",
           subtitle: null,
           previewMedia: null,
           videoRatio: { width: 16, height: 9 }
@@ -671,7 +672,7 @@ describe("Sections component", () => {
           dialogContent: null,
           hubSpotCTAID: null
         },
-        source: "Contentful",
+        source: SourceType.Contentful,
         hubSpotFormGuid: null
       }
     ];

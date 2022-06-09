@@ -1,17 +1,17 @@
 test_es-pim-products-ingest:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 build_es-pim-products-ingest:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 package_es-pim-products-ingest:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_es-pim-products-ingest
   dependencies:
@@ -21,7 +21,7 @@ package_es-pim-products-ingest:
     ROOT_DIR: applications/dxb/functions/es-pim-products-ingest
 
 deploy_es-pim-products-ingest:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_es-pim-products-ingest
   dependencies:

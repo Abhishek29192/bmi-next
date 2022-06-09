@@ -281,6 +281,7 @@ const NavigationList = ({
                             </span>
                           )
                         }
+                        target="_blank"
                       >
                         {isLabelHidden ? null : label}
                       </NavigationListButton>
@@ -354,10 +355,13 @@ const NavigationList = ({
   );
 };
 
+type TargetOptions = "_blank" | "_self" | "_parent" | "_top";
+
 type NavigationListButtonProps = ButtonProps & {
   active?: boolean;
   action?: ClickableAction;
   component?: React.ComponentType<any>; // TODO
+  target?: TargetOptions;
 };
 
 export const NavigationListButton = ({
@@ -365,6 +369,7 @@ export const NavigationListButton = ({
   component: Component = DefaultButton,
   children,
   className,
+  target,
   ...rest
 }: NavigationListButtonProps) => (
   <Component
@@ -379,6 +384,7 @@ export const NavigationListButton = ({
         !rest.isIconButton && styles["NavigationListButton--outline"]
       )
     }}
+    target={target}
     {...rest}
   >
     {children}

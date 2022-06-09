@@ -141,7 +141,13 @@ exports[`Upload component render correctly with error 2`] = `
         type="file"
       />
     </div>
-    <div />
+    <div>
+      <p
+        class="MuiFormHelperText-root Mui-error"
+      >
+        fieldIsRequiredError
+      </p>
+    </div>
   </div>
 </div>
 `;

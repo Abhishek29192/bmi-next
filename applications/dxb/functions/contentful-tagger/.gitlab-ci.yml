@@ -1,17 +1,41 @@
 test_contentful-tagger:
-  extends: .test_jest
+  extends: .test_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/functions/contentful-tagger"
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 build_contentful-tagger:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
   variables:
     WORKSPACE: "@bmi/contentful-tagger"
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 package_contentful-tagger:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_contentful-tagger
   dependencies:
@@ -26,7 +50,7 @@ package_contentful-tagger:
     ROOT_DIR: "applications/dxb/functions/contentful-tagger"
 
 deploy_contentful-tagger:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_contentful-tagger
   dependencies:

@@ -1,4 +1,5 @@
 import type { System } from "@bmi/pim-types";
+import logger from "@bmi-digital/functions-logger";
 
 export type EsSystem = {
   approvalStatus: System["approvalStatus"];
@@ -19,6 +20,9 @@ const getBrandCode = (categories: System["categories"]): string | undefined => {
 export const transformSystem = (system: System): EsSystem => {
   const { approvalStatus, type, images, code, name, shortDescription } = system;
   const brand = getBrandCode(system.categories);
+  logger.info({
+    message: `System brand: ${brand}`
+  });
   return {
     approvalStatus,
     brand,

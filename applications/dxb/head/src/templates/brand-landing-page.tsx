@@ -21,6 +21,7 @@ import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 import { useConfig } from "../contexts/ConfigProvider";
+import BackToResults from "../components/BackToResults";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -131,7 +132,9 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
             <Hero
               level={0}
               breadcrumbs={
-                <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+                <BackToResults isDarkThemed>
+                  <Breadcrumbs data={enhancedBreadcrumbs} isDarkThemed />
+                </BackToResults>
               }
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom

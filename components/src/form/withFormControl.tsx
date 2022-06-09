@@ -6,6 +6,7 @@ export type InputValue = string | number | boolean | File[] | string[];
 
 export type Props<I extends InputValue> = {
   isRequired?: boolean;
+  groupName?: React.ReactNode;
   fieldIsRequiredError?: string;
   // TODO: pass all values so that validation could depend on other fields
   getValidationError?: (val?: I) => ValidationResult;
@@ -26,12 +27,13 @@ const withFormControl = <P, I extends InputValue>(
     getValidationError,
     value,
     defaultValue,
+    groupName,
     ...props
-  }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur"> & Props<I>) => {
+  }: Omit<P, "onChange" | "defaultValue" | "value" | "onBlur" | "groupName"> &
+    Props<I>) => {
     const { hasBeenSubmitted, updateFormState } = useContext(FormContext);
-
     const getError = (val?: I): ValidationResult => {
-      if (isRequired && !val) {
+      if (isRequired && (!val || (Array.isArray(val) && !val.length))) {
         return fieldIsRequiredError || null;
       }
       if (getValidationError && getValidationError(val)) {
@@ -57,6 +59,7 @@ const withFormControl = <P, I extends InputValue>(
       const errorMessage = getError(val);
       setError(errorMessage);
       updateFormState({ [name]: val }, { [name]: errorMessage });
+
       if (onChange) {
         onChange(val);
       }
@@ -76,6 +79,7 @@ const withFormControl = <P, I extends InputValue>(
         onBlur={() => setBlurred(true)}
         onChange={handleChange}
         error={showError}
+        groupName={groupName}
         {...valueProps}
       />
     );

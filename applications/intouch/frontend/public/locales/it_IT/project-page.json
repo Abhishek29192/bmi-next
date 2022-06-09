@@ -301,7 +301,8 @@
       "NOT_ASSIGNABLE": "Non assegnabile",
       "REASSIGN_SOLUTION": "Riassegnami",
       "UNASSIGN_SOLUTION": "Non assegna",
-      "edit": "Modifica"
+      "edit": "Modifica",
+      "copy": "Copy?"
     },
     "description": "Descrizione progetto",
     "endDate": "Data finale progetto",
@@ -385,5 +386,10 @@
       "title": "Restart Guarantee?",
       "description": "Restarting a guarantee will permanently remove the guarantee from a project, so a new guarantee can be requested. Any team members and uploaded files added to the project will be retained. "
     }
+  },
+  "copyDialog": {
+    "title": "Copy this project",
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}"
   }
 }

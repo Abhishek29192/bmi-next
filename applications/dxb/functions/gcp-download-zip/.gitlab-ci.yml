@@ -1,17 +1,17 @@
 test_gcp-download-zip:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-download-zip"
     ROOT_DIR: "applications/functions/gcp-download-zip"
 
 build_gcp-download-zip:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-download-zip"
     ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
 
 package_gcp-download-zip:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-download-zip
   dependencies:
@@ -21,7 +21,7 @@ package_gcp-download-zip:
     ROOT_DIR: "applications/dxb/functions/gcp-download-zip"
 
 deploy_gcp-download-zip:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-download-zip
   dependencies:

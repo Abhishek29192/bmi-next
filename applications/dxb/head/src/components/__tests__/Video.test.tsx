@@ -22,7 +22,11 @@ jest.mock("../Image", () => ({
 
 jest.mock("@bmi/components", () => ({
   YoutubeVideo: (props: YoutubeVideoProps) => (
-    <div data-testid="wrapper" data-gtm={JSON.stringify(props.dataGTM)}>
+    <div
+      data-testid="wrapper"
+      data-gtm={JSON.stringify(props.dataGTM)}
+      {...props}
+    >
       <button onClick={props.onGTMEvent}>GTM Event button</button>
       {props.previewImageSource}
     </div>
@@ -33,7 +37,7 @@ const mockData = {
   title: "testTitle",
   label: "mockLabel",
   subtitle: "mockSubtitle",
-  youtubeId: "testId",
+  videoUrl: "https://www.youtube.com/watch?v=testId",
   videoRatio: null,
   previewMedia: null
 };
@@ -79,5 +83,20 @@ describe("renderVideo", () => {
       render(<VideoRenderComponent {...mockData} />);
       expect(screen.queryByTestId("image")).not.toBeInTheDocument();
     });
+  });
+
+  it("should assign correct videoRatio", () => {
+    const localData = {
+      ...mockData,
+      videoRatio: {
+        width: 200,
+        height: 100
+      }
+    };
+
+    render(<VideoRenderComponent {...localData} />);
+    const wrapper = screen.getByTestId("wrapper");
+    expect(wrapper).toHaveAttribute("embedheight", "100");
+    expect(wrapper).toHaveAttribute("embedwidth", "200");
   });
 });

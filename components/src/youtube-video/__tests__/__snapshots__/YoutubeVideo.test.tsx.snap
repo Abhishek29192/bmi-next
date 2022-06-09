@@ -245,7 +245,7 @@ exports[`YoutubeVideo component renders with dimensions correctly 1`] = `
       <img
         alt="test video"
         class="preview-image"
-        src="https://i.ytimg.com/vi/A - RfHC91Ewc/maxresdefault.jpg"
+        src="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
       />
       <span
         class="AlternativeContent"

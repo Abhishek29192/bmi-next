@@ -47,7 +47,7 @@ describe("Document Library page", () => {
     label: "BMI Group VIDEO LABEL",
     subtitle:
       "BMI Group - The beginning of a new era in the roofing and waterproofing industry.",
-    youtubeId: "TDNEwZbm_Nk",
+    videoUrl: "https://www.youtube.com/watch?v=TDNEwZbm_Nk",
     previewMedia: null,
     videoRatio: { width: 17776, height: 9999 }
   };

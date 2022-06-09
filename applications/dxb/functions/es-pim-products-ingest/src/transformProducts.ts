@@ -1,24 +1,25 @@
 /* eslint-disable security/detect-object-injection */
+import logger from "@bmi-digital/functions-logger";
 import {
+  BaseProduct,
   Category,
   Classification,
   Feature,
+  filterTwoOneAttributes,
   Product as PIMProduct,
-  VariantOption as PIMVariant,
-  BaseProduct,
-  filterTwoOneAttributes
+  VariantOption as PIMVariant
 } from "@bmi/pim-types";
-import type { ProductVariant as ESProduct } from "./es-model";
 import {
+  ESIndexObject,
   findProductBrandLogoCode,
   getSizeLabel,
-  mapProductClassifications,
-  TransformedMeasurementValue,
-  indexFeatures,
-  IndexedItemGroup,
   groupBy,
-  ESIndexObject
+  IndexedItemGroup,
+  indexFeatures,
+  mapProductClassifications,
+  TransformedMeasurementValue
 } from "./CLONE";
+import type { ProductVariant as ESProduct } from "./es-model";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -45,14 +46,18 @@ const combineVariantClassifications = (
       classification
     ])
   );
-
+  logger.info({
+    message: `product classification: ${productClassificationMap}`
+  });
   // process variant classifications except "scoringWeightAttributes"
   const vairantClassificationsMap = new Map(
     (variant.classifications || [])
       .filter(({ code }) => code !== "scoringWeightAttributes")
       .map((classification) => [classification.code, classification])
   );
-
+  logger.info({
+    message: `variant classifications except "scoringWeightAttributes": ${vairantClassificationsMap}`
+  });
   // take all COMMON classifications and Variant ONLY classifications
   // merge their features in such that base features
   // are overwritten by variant features of same classifications
@@ -82,12 +87,18 @@ const combineVariantClassifications = (
       Array.from(mergedFeaturesMap.values())
     );
     mergedClassifications.set(key, variantClassification);
+    logger.info({
+      message: `mergedClassifications common and variant classification: ${mergedClassifications}`
+    });
   });
 
   // process remaining classifications that exists ONLY in base/product
   // add them to collection at the end
   productClassificationMap.forEach((classification, key) => {
     if (vairantClassificationsMap.get(key) === undefined) {
+      logger.info({
+        message: `classifications that exists ONLY in base/product: ${classification}`
+      });
       const origFeatures = classification.features || [];
       classification.features = filterTwoOneAttributes(
         PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
@@ -97,7 +108,11 @@ const combineVariantClassifications = (
       mergedClassifications.set(key, classification);
     }
   });
-
+  logger.info({
+    message: `mergedClassifications with base product classification: ${Array.from(
+      mergedClassifications.values()
+    )}`
+  });
   return Array.from(mergedClassifications.values());
 };
 
@@ -109,11 +124,11 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
   );
 
   const categoryGroups: IndexedItemGroup<Category> = groupBy(
-    product.categories,
+    product.categories || [],
     "categoryType"
   );
   const groupsByParentCategoryCodes: IndexedItemGroup<Category> = groupBy(
-    product.categories,
+    product.categories || [],
     "parentCategoryCode"
   );
 
@@ -121,30 +136,45 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     ...categoryGroups,
     ...groupsByParentCategoryCodes
   };
+
+  logger.info({
+    message: `allGroupsOfCategories: ${allGroupsOfCategories}`
+  });
+
+  //TODO: remove `toUpperCase` when case agnostic to be reverted!
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
     .filter((key) => key.length > 0 && key !== "undefined")
     .reduce((categoryAsProps, catName) => {
+      const origialCatName = catName;
+      const catNameCapitalised = catName.toUpperCase();
       // eslint-disable-next-line security/detect-object-injection
-      const nameAndCodeValues = allGroupsOfCategories[catName].map((cat) => {
-        return {
-          code: cat.code,
-          name: cat.name
-        };
-      });
+      const nameAndCodeValues = allGroupsOfCategories[origialCatName].map(
+        (cat) => {
+          return {
+            code: cat.code,
+            name: cat.name
+          };
+        }
+      );
       return {
         ...categoryAsProps,
-        [catName]: nameAndCodeValues
+        [catNameCapitalised]: nameAndCodeValues
       };
     }, {});
 
+  logger.info({
+    message: `allCategoriesAsProps: ${allCategoriesAsProps}`
+  });
   return (product.variantOptions || []).map((variant) => {
     const combinedClassifications = combineVariantClassifications(
       product,
       variant
     );
-
+    logger.info({
+      message: `combinedClassifications: ${combinedClassifications}`
+    });
     const indexedFeatures = indexFeatures(
       PIM_CLASSIFICATION_CATALOGUE_NAMESPACE,
       combinedClassifications
@@ -175,7 +205,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "shortDescription",
       "productBenefits"
     );
-
+    logger.info({
+      message: `baseAttributes: ${baseAttributes}`
+    });
     let measurementValue: string | undefined;
 
     const measurementsClassification =
@@ -185,7 +217,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         measurementsClassification as TransformedMeasurementValue
       );
     }
-
+    logger.info({
+      message: `measurementsClassification: ${measurementsClassification}`
+    });
     const baseProduct: BaseProduct = {
       code: product.code,
       name: product.name
@@ -215,6 +249,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           : 0,
       totalVariantCount: product.variantOptions.length
     };
+    logger.info({
+      message: `productVariant: ${productVariant}`
+    });
     return productVariant;
   });
 };

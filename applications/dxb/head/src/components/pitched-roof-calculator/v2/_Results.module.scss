@@ -1,0 +1,19 @@
+@import "~@bmi-digital/styles";
+
+.Result {
+  h2 {
+    & {
+      margin-bottom: 24px !important;
+      font-size: 1.35rem;
+    }
+  }
+
+  .help {
+    margin-bottom: 40px;
+    width: 50%;
+
+    @media (max-width: $breakpoint-lg) {
+      width: 100%;
+    }
+  }
+}

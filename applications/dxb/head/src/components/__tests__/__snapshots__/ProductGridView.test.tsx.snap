@@ -18,8 +18,64 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     <a
       aria-disabled="false"
       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/\\"}"
-      href="/undefined/test1/"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/?pathname=%2F\\"}"
+      href="/undefined/test1/?pathname=%2F"
+      role="button"
+      tabindex="0"
+    >
+      <img
+        alt=" imaproduct"
+        class="header-picture Media Media--contain"
+      />
+      <div
+        class="body"
+      >
+        <h5
+          class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
+        >
+          imaproduct
+        </h5>
+        
+        <div
+          class="children text"
+        />
+        <div
+          class="footer"
+        >
+          <span
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
+            type="button"
+          >
+            <span>
+              MC: plp.product.viewDetails
+            </span>
+            <svg
+              aria-hidden="true"
+              class="icon"
+              data-testid="internal"
+              focusable="false"
+            />
+          </span>
+        </div>
+      </div>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ProductsGridView component renders correctly when not empty with filters from url 1`] = `
+<div>
+  <div
+    class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6 MuiGrid-grid-lg-4"
+  >
+    <a
+      aria-disabled="false"
+      class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
+      href="/undefined/test1/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
       role="button"
       tabindex="0"
     >

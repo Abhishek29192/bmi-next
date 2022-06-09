@@ -3,7 +3,7 @@ import {
   getCollapseVariantsByBaseProductCodeQuery,
   getUniqueBaseProductCountCodeAggrigation
 } from "./elasticSearchCommonQuery";
-import { removePLPFilterPrefix, ProductFilter } from "./product-filters";
+import { ProductFilter, removePLPFilterPrefix } from "./product-filters";
 
 export type Aggregations = Record<
   string,
@@ -32,7 +32,8 @@ export const disableFiltersFromAggregationsPLP = (
       ...filter,
       options: filter.options.map((option) => {
         const buckets =
-          aggregations[removePLPFilterPrefix(filter.name)]?.buckets;
+          aggregations[removePLPFilterPrefix(filter.name).toUpperCase()]
+            ?.buckets;
 
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
@@ -105,7 +106,7 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
     .reduce((acc, currFilter) => {
       const termsQuery = (name, value) => ({
         terms: {
-          [`${removePLPFilterPrefix(name)}.code.keyword`]: value
+          [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
         }
       });
       const query = termsQuery(currFilter.name, currFilter.value);
@@ -131,9 +132,13 @@ const generateAllowFiltersAggs = (allowFilterBy?: string[]) =>
   (allowFilterBy || []).reduce(
     (acc: Record<string, { terms: { include: [] } }>, allowValue: string) => {
       const allowValueArr = allowValue.split("|");
-      const categoryKey = allowValueArr[0].trim();
+      const categoryKey = allowValueArr[0].trim().toUpperCase();
       const optionKey = allowValueArr[1]?.trim();
-      const agg = createAggregation(categoryKey, optionKey);
+      const agg = createAggregation(
+        categoryKey,
+        // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+        optionKey?.includes(".") ? optionKey.toUpperCase() : optionKey
+      );
       if (optionKey) {
         // eslint-disable-next-line security/detect-object-injection
         const include = acc[categoryKey]?.terms?.include || [];

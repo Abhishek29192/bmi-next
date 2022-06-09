@@ -49,6 +49,22 @@ export const renderAsReal =
         </UserProvider>
       </I18nextProvider>
     );
+export const renderAsDeep =
+  ({ account = {}, market = {} } = {}) =>
+  (Component: JSX.Element) =>
+    render(
+      <I18nextProvider>
+        <UserProvider>
+          <ApolloProvider>
+            <MarketProvider market={generateMarketContext(market)}>
+              <AccountProvider account={generateAccount(account)}>
+                {Component}
+              </AccountProvider>
+            </MarketProvider>
+          </ApolloProvider>
+        </UserProvider>
+      </I18nextProvider>
+    );
 export function createMockRouter(router: Partial<NextRouter>): NextRouter {
   return {
     basePath: "",

@@ -24,7 +24,7 @@ build_intouch_migration_db_service:
     - docker push eu.gcr.io/$BMI_PROJECT/db-migrations:$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_migration_to_cloudrun_bmi:
-  stage: migration
+  stage: pre deploy
   cache: {}
   needs:
     - build_intouch_migration_db_service
@@ -46,7 +46,7 @@ deploy_intouch_migration_to_cloudrun_bmi:
 
 # Run only on release branch
 release_intouch_migration_to_cloudrun_bmi:
-  stage: migration
+  stage: pre deploy
   cache: {}
   image: google/cloud-sdk
   variables:
@@ -98,7 +98,7 @@ release_intouch_migration_to_cloudrun_bmi:
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/db-migrations:latest --region=europe-west3 --platform=managed
 
 migrate_training_db_bmi:
-  stage: migration
+  stage: pre deploy
   image: google/cloud-sdk
   needs:
     - job: deploy_intouch_migration_to_cloudrun_bmi
@@ -146,7 +146,7 @@ migrate_training_db_bmi:
     - 'curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" "$DB_MIGRATION_SERVICE_URL/migrate-training-db?migrate=true&direction=up"'
 
 migrate_companies_db_bmi:
-  stage: migration
+  stage: pre deploy
   image: google/cloud-sdk
   needs:
     - job: deploy_intouch_migration_to_cloudrun_bmi

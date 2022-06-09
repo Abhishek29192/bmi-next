@@ -24,6 +24,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -43,6 +44,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -62,6 +64,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -81,6 +84,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -103,6 +107,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label"
@@ -909,6 +914,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/roof-tiles/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -928,6 +934,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/roof-tiles/stone-roof-tiles/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -958,6 +965,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/roof-tiles/betongtakstein/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -1061,6 +1069,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/aerodek-quadro-plus/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -1164,6 +1173,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/kontakt-oss/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -1183,6 +1193,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/kontakt-oss/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -1286,6 +1297,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   href="/en/takstige/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -1320,6 +1332,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1344,6 +1357,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1368,6 +1382,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1392,6 +1407,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1489,6 +1505,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Pitched Roof\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1507,6 +1524,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat roof\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1525,6 +1543,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Membranes\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1541,6 +1560,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Sealing systems\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -1634,6 +1654,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/icopal-base/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1664,6 +1685,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/aerodek-quadro-plus/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1694,6 +1716,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/zanda-arktis/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -1867,6 +1890,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             href="/en/case-study-landing-page/"
                             role="button"
                             tabindex="0"
+                            target="_blank"
                           >
                             <span
                               class="MuiButton-label buttonStyles-label"
@@ -1883,6 +1907,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Homeowners\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -1900,6 +1925,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Professionals\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -1917,6 +1943,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Commercial building\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -1934,6 +1961,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Architect and engineer\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -2024,6 +2052,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For Professionals\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -2111,6 +2140,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build houses\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -2128,6 +2158,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build cottage\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -2145,6 +2176,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build terrace\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -2162,6 +2194,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build garage\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -2182,6 +2215,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Other construction tips\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -2202,6 +2236,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2292,6 +2327,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof Calculator\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2312,6 +2348,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/ofte-stilte-sporsmal/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -2331,6 +2368,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/test-page-puja/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -2420,6 +2458,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Documentation\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2437,6 +2476,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Test Doc Lib\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -2457,6 +2497,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                       href="/en/simple-page-playground-gp/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -3009,7 +3050,7 @@ exports[`Simple page renders correctly when no feature media 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"signupBlockTitle - submitButtonLabel\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >
@@ -3454,6 +3495,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a dealer\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -3473,6 +3515,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Find a roofer\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -3492,6 +3535,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"Partner portal\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -3511,6 +3555,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text utilities-button MuiButton-textPrimary"
                 data-gtm="{\\"id\\":\\"nav-top-utilities-bar\\",\\"label\\":\\"News\\"}"
                 tabindex="0"
+                target="_blank"
                 type="button"
               >
                 <span
@@ -3533,6 +3578,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                 href="/en/kontakt-oss/"
                 role="button"
                 tabindex="0"
+                target="_blank"
               >
                 <span
                   class="MuiButton-label buttonStyles-label"
@@ -4339,6 +4385,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/roof-tiles/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4358,6 +4405,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/roof-tiles/stone-roof-tiles/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4388,6 +4436,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/roof-tiles/betongtakstein/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4491,6 +4540,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/aerodek-quadro-plus/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4594,6 +4644,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/kontakt-oss/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4613,6 +4664,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/kontakt-oss/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4716,6 +4768,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   href="/en/takstige/"
                                   role="button"
                                   tabindex="0"
+                                  target="_blank"
                                 >
                                   <span
                                     class="MuiButton-label buttonStyles-label"
@@ -4750,6 +4803,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Icopal\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4774,6 +4828,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Zanda\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4798,6 +4853,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Monier\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4822,6 +4878,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"AeroDek\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4919,6 +4976,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Pitched Roof\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4937,6 +4995,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Flat roof\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4955,6 +5014,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Membranes\\"}"
                       href="#"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -4971,6 +5031,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Sealing systems\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5064,6 +5125,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/icopal-base/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -5094,6 +5156,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/aerodek-quadro-plus/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -5124,6 +5187,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/zanda-arktis/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -5297,6 +5361,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             href="/en/case-study-landing-page/"
                             role="button"
                             tabindex="0"
+                            target="_blank"
                           >
                             <span
                               class="MuiButton-label buttonStyles-label"
@@ -5313,6 +5378,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Homeowners\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5330,6 +5396,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Professionals\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5347,6 +5414,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Commercial building\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5364,6 +5432,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Architect and engineer\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5454,6 +5523,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"For Professionals\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5541,6 +5611,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build houses\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -5558,6 +5629,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build cottage\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -5575,6 +5647,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build terrace\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -5592,6 +5665,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                                   class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                                   data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Build garage\\"}"
                                   tabindex="0"
+                                  target="_blank"
                                   type="button"
                                 >
                                   <span
@@ -5612,6 +5686,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                             class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                             data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Other construction tips\\"}"
                             tabindex="0"
+                            target="_blank"
                             type="button"
                           >
                             <span
@@ -5632,6 +5707,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"News\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5722,6 +5798,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Roof Calculator\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5742,6 +5819,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/ofte-stilte-sporsmal/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -5761,6 +5839,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/test-page-puja/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -5850,6 +5929,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"All Documentation\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5867,6 +5947,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-text buttonStyles-text NavigationListButton MuiButton-textPrimary"
                       data-gtm="{\\"id\\":\\"nav-main-menu\\",\\"label\\":\\"Test Doc Lib\\"}"
                       tabindex="0"
+                      target="_blank"
                       type="button"
                     >
                       <span
@@ -5887,6 +5968,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                       href="/en/simple-page-playground-gp/"
                       role="button"
                       tabindex="0"
+                      target="_blank"
                     >
                       <span
                         class="MuiButton-label buttonStyles-label"
@@ -6636,7 +6718,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root buttonStyles-root MuiButton-contained buttonStyles-contained buttonStyles-containedDarkBg signupLabel MuiButton-containedPrimary"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"submitButtonLabel\\",\\"action\\":\\"Opens dialog\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click-sign-up\\",\\"label\\":\\"signupBlockTitle - submitButtonLabel\\",\\"action\\":\\"sign up started\\"}"
                       tabindex="0"
                       type="button"
                     >

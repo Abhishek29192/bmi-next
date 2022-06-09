@@ -5,8 +5,10 @@
   "private": true,
   "main": "./src/index",
   "scripts": {
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit"
+    "build": "tsc",
+    "compile": "tsc",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@bmi-digital/functions-secret-client": "1.1.1"
