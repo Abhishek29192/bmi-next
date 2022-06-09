@@ -155,28 +155,37 @@ const VisualiserProvider = ({
     return <>{children}</>;
   }
 
+  const VisualizerComponent = (
+    <Visualiser
+      open={isOpen}
+      contentSource={contentSource}
+      onChange={(params) => handleOnChange(params)}
+      onClose={() => setIsOpen(false)}
+      tiles={tilesSetData.tiles as Tile[]}
+      sidings={sidingsSetData.sidings}
+      {...parsedQueryParameters}
+      {...parameters}
+      shareWidget={
+        shareWidgetData ? (
+          <ShareWidgetSectionWithContext data={shareWidgetData} />
+        ) : undefined
+      }
+      onClick={handleOnClick}
+    />
+  );
   return (
     <VisualiserContext.Provider value={{ isOpen, open }}>
       {children}
 
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <Visualiser
-            open={isOpen}
-            contentSource={contentSource}
-            onChange={(params) => handleOnChange(params)}
-            onClose={() => setIsOpen(false)}
-            tiles={tilesSetData.tiles as Tile[]}
-            sidings={sidingsSetData.sidings}
-            {...parsedQueryParameters}
-            {...parameters}
-            shareWidget={
-              shareWidgetData ? (
-                <ShareWidgetSectionWithContext data={shareWidgetData} />
-              ) : undefined
-            }
-            onClick={handleOnClick}
-          />
+          {process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true" ? (
+            { VisualizerComponent }
+          ) : (
+            <MicroCopy.Provider values={no}>
+              {VisualizerComponent}
+            </MicroCopy.Provider>
+          )}
         </Suspense>
       ) : undefined}
     </VisualiserContext.Provider>
@@ -192,13 +201,4 @@ export const query = graphql`
   }
 `;
 
-const ToggledVisualiser =
-  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true"
-    ? VisualiserProvider
-    : (props: Props) => (
-        <MicroCopy.Provider values={no}>
-          <VisualiserProvider {...props} />
-        </MicroCopy.Provider>
-      );
-
-export default ToggledVisualiser;
+export default VisualiserProvider;
