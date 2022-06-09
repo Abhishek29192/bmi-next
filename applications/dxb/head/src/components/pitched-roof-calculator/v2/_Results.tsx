@@ -25,7 +25,7 @@ import Alert from "./subcomponents/_Alert";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { GutteringSelections } from "./_Guttering";
 import styles from "./_Results.module.scss";
-import { TileOptionsSeletions } from "./_TileOptions";
+import { TileOptionsSelections } from "./_TileOptions";
 
 type EmailAddressCollectionProps = {
   results: ResultsObject;
@@ -166,9 +166,9 @@ export type ResultProps = {
   isDebugging?: boolean;
   measurements: Measurements;
   variant: MainTileVariant;
-  tileOptions: TileOptionsSeletions;
+  tileOptions: TileOptionsSelections;
   underlay: Underlay;
-  guttering: GutteringSelections;
+  guttering?: GutteringSelections;
 };
 
 const Results = ({
@@ -211,7 +211,7 @@ const Results = ({
 
     let gutteringVariant, gutteringHook;
 
-    if (guttering.gutteringVariant) {
+    if (guttering?.gutteringVariant) {
       gutteringVariant = gutters
         .find(({ name }) => guttering.guttering === name)
         ?.variants.find(
@@ -220,7 +220,7 @@ const Results = ({
         );
     }
 
-    if (guttering.gutteringHook) {
+    if (guttering?.gutteringHook) {
       gutteringHook = gutterHooks.find(
         ({ externalProductCode }) =>
           guttering.gutteringHook === externalProductCode
@@ -244,8 +244,8 @@ const Results = ({
       underlay: selectedUnderlay,
       gutteringVariant,
       gutteringHook,
-      downPipes: guttering.downPipes,
-      downPipeConnectors: guttering.downPipeConnectors
+      downPipes: guttering?.downPipes,
+      downPipeConnectors: guttering?.downPipeConnectors
     });
 
     return quantitiesCalculator.getResultsRowsByCategory();
