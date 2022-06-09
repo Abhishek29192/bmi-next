@@ -24,6 +24,7 @@ import log from "../../lib/logger";
 import { mergeByKey } from "../../lib/utils/object";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
 import { useMarkAllNotificationsAsReadMutation } from "../../graphql/generated/hooks";
+import AccessControl from "../../lib/permissions/AccessControl";
 import styles from "./styles.module.scss";
 
 type HeaderLink = {
@@ -94,14 +95,7 @@ export const Header = ({
     }
   });
 
-  const toggleDrawer = (anchor: string, open?: boolean) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
+  const toggleDrawer = (anchor: string, open?: boolean) => () => {
     // If open is not passed, toggle state.
     if (typeof open === "undefined") {
       // eslint-disable-next-line security/detect-object-injection
@@ -183,7 +177,7 @@ export const Header = ({
 
   const MobileUserMenu = () => {
     return (
-      <div className={styles.mobileUserMenu}>
+      <div className={styles.mobileUserMenu} data-testId="mobile-user-menu">
         <div className={styles.mobileUserMenuHeader}>
           <Avatar className={styles.mobileUserAvatar} />
           <Typography component="span" className={styles.mobileUserHeading}>
@@ -211,6 +205,7 @@ export const Header = ({
               <Link
                 href={contactUsLink.href}
                 isExternal={contactUsLink.isExternal}
+                data-testID="contact-us-link"
               >
                 {contactUsLink.label}
               </Link>
@@ -220,6 +215,7 @@ export const Header = ({
               <Link
                 href={globalExternalLink.href}
                 isExternal={globalExternalLink.isExternal}
+                data-testID="global-external-link"
               >
                 {globalExternalLink.label}
               </Link>
@@ -236,14 +232,16 @@ export const Header = ({
             />
           </Link>
           <div className={styles.midHeaderNav}>
-            <IconButton
-              classes={notificationsIconClasses}
-              onClick={toggleDrawer("notifications")}
-              id="notifications-panel-toggle"
-              aria-label={t("aria.notifications")}
-            >
-              <Icon source={Notifications} color="primary" fontSize="large" />
-            </IconButton>
+            <AccessControl dataModel="navigation" action="notification">
+              <IconButton
+                classes={notificationsIconClasses}
+                onClick={toggleDrawer("notifications")}
+                id="notifications-panel-toggle"
+                aria-label={t("aria.notifications")}
+              >
+                <Icon source={Notifications} color="primary" fontSize="large" />
+              </IconButton>
+            </AccessControl>
             <TabletNavButton />
             <MobileNavButton />
           </div>
@@ -275,34 +273,38 @@ export const Header = ({
           </div>
 
           <div className={styles.lowerHeaderNav}>
-            <IconButton
-              classes={notificationsIconClasses}
-              onClick={toggleDrawer("notifications")}
-            >
-              <Icon source={Notifications} color="primary" />
-            </IconButton>
+            <AccessControl dataModel="navigation" action="notification">
+              <IconButton
+                classes={notificationsIconClasses}
+                onClick={toggleDrawer("notifications")}
+              >
+                <Icon source={Notifications} color="primary" />
+              </IconButton>
+            </AccessControl>
             <UserMenu />
           </div>
         </div>
       </div>
 
-      <Drawer
-        className={styles.notificationsContainer}
-        anchor="right"
-        open={state["notifications"]}
-        onClose={toggleDrawer("notifications", false)}
-        BackdropProps={{ style: { opacity: 0 } }}
-      >
-        <div className={styles.notifications}>
-          <div className={styles.notificationsHeader}>
-            <Typography variant="h5">{t("Notifications")}</Typography>
-            <IconButton onClick={toggleDrawer("notifications", false)}>
-              <Icon source={Close} style={{ fontSize: 24 }} />
-            </IconButton>
+      <AccessControl dataModel="navigation" action="notification">
+        <Drawer
+          className={styles.notificationsContainer}
+          anchor="right"
+          open={state["notifications"]}
+          onClose={toggleDrawer("notifications", false)}
+          BackdropProps={{ style: { opacity: 0 } }}
+        >
+          <div className={styles.notifications}>
+            <div className={styles.notificationsHeader}>
+              <Typography variant="h5">{t("Notifications")}</Typography>
+              <IconButton onClick={toggleDrawer("notifications", false)}>
+                <Icon source={Close} style={{ fontSize: 24 }} />
+              </IconButton>
+            </div>
+            <NotificationsPanel notifications={notifications} />
           </div>
-          <NotificationsPanel notifications={notifications} />
-        </div>
-      </Drawer>
+        </Drawer>
+      </AccessControl>
 
       <Drawer
         anchor="left"

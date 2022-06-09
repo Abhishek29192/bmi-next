@@ -1,148 +1,114 @@
-import {
-  getDbPool,
-  actAs,
-  curryContext,
-  insertOne as dbInsertOne,
-  PERMISSION_DENIED
-} from "../test-utils/db";
+import { getDbPool, actAs, PERMISSION_DENIED, initDb } from "../test-utils/db";
 
 let pool;
-
-const initDb = async (
-  pool,
-  client,
-  accountRole = "INSTALLER",
-  adminRole = "SUPER_ADMIN"
-) => {
-  const context = {
-    pool,
-    client,
-    cleanupBucket: {}
-  };
-  const insertOne = curryContext(context, dbInsertOne);
-  const market = await insertOne("market", {
-    domain: "ooo",
-    language: "da"
-  });
-
-  const account = await insertOne("account", {
-    role: accountRole,
-    email: "somemail@email.com",
-    market_id: market.id
-  });
-
-  const admin = await insertOne("account", {
-    role: adminRole,
-    email: "someothermail@email.com",
-    market_id: market.id
-  });
-
-  return { insertOne, account, admin, market, context };
-};
+let client;
 
 describe("Market", () => {
   beforeAll(async () => {
     pool = await getDbPool();
   });
 
+  beforeEach(async () => {
+    client = await pool.connect();
+    await client.query("BEGIN");
+  });
+
   afterAll(async () => {
     await pool.end();
   });
 
+  afterEach(async () => {
+    await client.query("ROLLBACK");
+    client.release();
+  });
+
   describe("Super Admin", () => {
-    it("shouldn't be able to create a market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+    it("should be able to create a market", async () => {
+      const { superAdmin, dbInsertOne } = await initDb(pool, client);
 
-      try {
-        const { admin, insertOne } = await initDb(pool, client);
+      await actAs(client, superAdmin);
 
-        await actAs(client, admin);
+      const market = await dbInsertOne("market", {
+        domain: "rrr",
+        language: "pt"
+      });
 
-        const market = await insertOne("market", {
+      expect(market).not.toBeNull();
+      expect(market).toEqual(
+        expect.objectContaining({
           domain: "rrr",
           language: "pt"
-        });
-
-        expect(market).not.toBeNull();
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+        })
+      );
     });
   });
+
   describe("Market Admin", () => {
     it("shouldn't be able to create a market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { admin, insertOne } = await initDb(
-          pool,
-          client,
-          "INSTALLER",
-          "MARKET_ADMIN"
-        );
+        const { marketAdmin, dbInsertOne } = await initDb(pool, client);
 
-        await actAs(client, admin);
+        await actAs(client, marketAdmin);
 
-        await insertOne("market", {
+        const market = await dbInsertOne("market", {
           domain: "rrr",
           language: "pt"
         });
+
+        expect(market).toBe(0);
       } catch (error) {
         expect(error.message).toEqual(PERMISSION_DENIED("market"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
   });
+
   describe("Company Admin", () => {
     it("shouldn't be able to create a market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { account, insertOne } = await initDb(
-          pool,
-          client,
-          "COMPANY_ADMIN"
-        );
-
-        await actAs(client, account);
-
-        await insertOne("market", {
+        const { companyAdmin, dbInsertOne } = await initDb(pool, client);
+        await actAs(client, companyAdmin);
+        const market = await dbInsertOne("market", {
           domain: "rrr",
           language: "pt"
         });
+
+        expect(market).toBe(0);
       } catch (error) {
         expect(error.message).toEqual(PERMISSION_DENIED("market"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
   });
+
   describe("Installer", () => {
     it("shouldn't be able to create a market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { account, insertOne } = await initDb(pool, client);
-
+        const { account, dbInsertOne } = await initDb(pool, client);
         await actAs(client, account);
-
-        await insertOne("market", {
+        const market = await dbInsertOne("market", {
           domain: "rrr",
           language: "pt"
         });
+
+        expect(market).toBe(0);
       } catch (error) {
         expect(error.message).toEqual(PERMISSION_DENIED("market"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
+      }
+    });
+  });
+
+  describe("Auditor", () => {
+    it("shouldn't be able to create a market", async () => {
+      try {
+        const { account, dbInsertOne } = await initDb(pool, client);
+        await actAs(client, account);
+        const market = await dbInsertOne("market", {
+          domain: "rrr",
+          language: "pt"
+        });
+
+        expect(market).toBe(0);
+      } catch (error) {
+        expect(error.message).toEqual(PERMISSION_DENIED("market"));
       }
     });
   });

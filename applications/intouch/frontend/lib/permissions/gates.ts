@@ -21,7 +21,7 @@ export const isCompanyMember = (
 };
 
 export const canSeeProjects = (account) => {
-  if ([ROLES.SUPER_ADMIN].includes(account?.role)) {
+  if ([ROLES.SUPER_ADMIN, ROLES.AUDITOR].includes(account?.role)) {
     return true;
   }
 
@@ -67,68 +67,79 @@ export const gates = {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: false
     },
     view: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: isCompanyMember,
-      COMPANY_ADMIN: isCompanyMember
+      COMPANY_ADMIN: isCompanyMember,
+      AUDITOR: false
     },
     edit: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: isCompanyMember
+      COMPANY_ADMIN: isCompanyMember,
+      AUDITOR: false
     },
     editOperations: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: false
     },
     editTier: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: false
     },
     //Only company admin invites people to their company. Market admin and super admin have more company
     inviteUser: {
       SUPER_ADMIN: false,
       MARKET_ADMIN: false,
       INSTALLER: false,
-      COMPANY_ADMIN: true
+      COMPANY_ADMIN: true,
+      AUDITOR: false
     },
     removeUser: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: true
+      COMPANY_ADMIN: true,
+      AUDITOR: false
     },
     changeRole: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: true
+      COMPANY_ADMIN: true,
+      AUDITOR: false
     },
     downloadReport: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: true
     },
     addDocument: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     changeStatus: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: false,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: false
     }
   },
   project: {
@@ -136,79 +147,99 @@ export const gates = {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: true
+      COMPANY_ADMIN: true,
+      AUDITOR: false
     },
     restartSolutionGuarantee: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: false,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: false
     },
     adminActions: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: false,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     addNote: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     edit: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     nominateResponsible: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: false,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
+    },
+    addEvidence: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: true,
+      INSTALLER: true,
+      AUDITOR: false
     },
     deleteEvidence: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     addProject: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     downloadReport: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: true
+      COMPANY_ADMIN: true,
+      AUDITOR: true
     },
     downloadGuaranteeReport: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
-      COMPANY_ADMIN: false
+      COMPANY_ADMIN: false,
+      AUDITOR: true
     },
     addTeamMember: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     removeTeamMember: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     copy: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     }
   },
   page: {
@@ -222,7 +253,9 @@ export const gates = {
     // Projects (Available to all enabled Markets for all authenticated users except Installers who are not assigned to any Projects)
     projects: canSeeProjects,
     // Training (Available to all authenticated users, although not critical for Market Admins and Super Admins).
-    training: true,
+    training: (account) => {
+      return ![ROLES.AUDITOR].includes(account?.role);
+    },
     // Team (Available to Company Admins and Market Admins)
     team: (account) => {
       return [
@@ -244,32 +277,39 @@ export const gates = {
     productsAdmin: isSuperOrMarketAdmin,
     // Inventory (Available to Super Admins)
     accountsAdmin: isSuperAdmin,
-    marketsAdmin: isSuperAdmin
+    marketsAdmin: isSuperAdmin,
+    notification: (account) => {
+      return ![ROLES.AUDITOR].includes(account?.role);
+    }
   },
   home: {
     CTA_PROJECT: {
       SUPER_ADMIN: false,
       MARKET_ADMIN: false,
       COMPANY_ADMIN: true,
-      INSTALLER: false
+      INSTALLER: false,
+      AUDITOR: false
     },
     CTA_MERCHANDISE: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: true
+      INSTALLER: true,
+      AUDITOR: false
     },
     CTA_TRAINING: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: true
+      INSTALLER: true,
+      AUDITOR: false
     },
     CTA_CUSTOM: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       COMPANY_ADMIN: true,
-      INSTALLER: true
+      INSTALLER: true,
+      AUDITOR: false
     }
   }
 };

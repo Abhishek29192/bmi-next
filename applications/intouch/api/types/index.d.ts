@@ -16324,6 +16324,7 @@ export type RequestStatus =
   | "SUBMITTED";
 
 export type Role =
+  | "AUDITOR"
   | "COMPANY_ADMIN"
   | "INSTALLER"
   | "MARKET_ADMIN"

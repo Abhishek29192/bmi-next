@@ -65,7 +65,8 @@
     "COMPANY_ADMIN": "Bedriftsadministrator",
     "INSTALLER": "Medlem",
     "MARKET_ADMIN": "Markedsadministrator",
-    "SUPER_ADMIN": "Super Admin"
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Prosjektrevisor"
   },
   "session": {
     "dialog": {

@@ -1,68 +1,26 @@
-import { Role } from "@bmi/intouch-api-types";
 import {
   getDbPool,
   actAs,
-  curryContext,
-  insertOne as dbInsertOne,
   PERMISSION_DENIED,
-  RLS_ERROR
+  RLS_ERROR,
+  initDb
 } from "../test-utils/db";
 
 let pool;
 let client;
-let context;
-let insertOne;
-
-// TODO: Not entirely happy this uses global insertOne
-// but maybe it's "acceptable" conside tests already leverage file scope
-const setupData = async (role: Role) => {
-  const market = await insertOne("market", {
-    domain: "MARKET_DOMAIN",
-    language: "en",
-    projects_enabled: true
-  });
-
-  const [company, account] = await Promise.all([
-    insertOne("company", {
-      market_id: market.id
-    }),
-    insertOne("account", {
-      role,
-      market_id: market.id
-    })
-  ]);
-
-  await insertOne("company_member", {
-    account_id: account.id,
-    company_id: company.id,
-    market_id: market.id
-  });
-
-  return {
-    market,
-    company,
-    account
-  };
-};
 
 describe("Project", () => {
   beforeAll(async () => {
     pool = await getDbPool();
   });
 
-  afterAll(async () => {
-    await pool.end();
-  });
-
   beforeEach(async () => {
     client = await pool.connect();
-    context = {
-      client,
-      cleanupBucket: {}
-    };
     await client.query("BEGIN");
+  });
 
-    insertOne = curryContext(context, dbInsertOne);
+  afterAll(async () => {
+    await pool.end();
   });
 
   afterEach(async () => {
@@ -73,11 +31,15 @@ describe("Project", () => {
   describe("DB permissions", () => {
     describe("Company admin", () => {
       it("should be able to add a project", async () => {
-        const { account, company } = await setupData("COMPANY_ADMIN");
+        const { account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "COMPANY_ADMIN"
+        );
 
         await actAs(client, account);
 
-        const project = insertOne("project", {
+        const project = dbInsertOne("project", {
           company_id: company.id
         });
 
@@ -85,41 +47,51 @@ describe("Project", () => {
       });
 
       it("should not be able to see a hidden project", async () => {
-        const { account, company } = await setupData("COMPANY_ADMIN");
+        const { account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "COMPANY_ADMIN"
+        );
 
-        // Setup, without authorization
-        const project = await insertOne("project", {
+        const project = await dbInsertOne("project", {
           company_id: company.id,
           hidden: true
         });
-        await insertOne("project_member", {
+        await dbInsertOne("project_member", {
           project_id: project.id,
           account_id: account.id
         });
 
         await actAs(client, account);
 
-        const { rows: projects } = await client.query("select * from project");
+        const { rows: projects } = await client.query(
+          `select * from project WHERE id = $1`,
+          [project.id]
+        );
 
         expect(projects.length).toEqual(0);
       });
 
       it("shouldn't be able to add a project to another company", async () => {
-        const { account } = await setupData("COMPANY_ADMIN");
+        const { account, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "COMPANY_ADMIN"
+        );
         // TODO: setup separate company I guess to try to insert with that ID
-        const otherMarket = await insertOne("market", {
+        const otherMarket = await dbInsertOne("market", {
           domain: "OTHER_MARKET_DOMAIN",
           language: "en",
           projects_enabled: true
         });
 
-        const otherCompany = await insertOne("company", {
+        const otherCompany = await dbInsertOne("company", {
           market_id: otherMarket.id
         });
 
         try {
           await actAs(client, account);
-          await insertOne("project", {
+          await dbInsertOne("project", {
             company_id: otherCompany.id
           });
         } catch (error) {
@@ -131,14 +103,15 @@ describe("Project", () => {
         const {
           market,
           account: companyAdminAccount,
-          company
-        } = await setupData("COMPANY_ADMIN");
+          company,
+          dbInsertOne
+        } = await initDb(pool, client, "COMPANY_ADMIN");
 
-        const project = await insertOne("project", {
+        const project = await dbInsertOne("project", {
           company_id: company.id
         });
 
-        const installerAccount = await insertOne("account", {
+        const installerAccount = await dbInsertOne("account", {
           role: "INSTALLER",
           market_id: market.id,
           // Specify email so it doesn't clash with account from setupDate
@@ -146,7 +119,7 @@ describe("Project", () => {
         });
 
         await actAs(client, companyAdminAccount);
-        const projectMember = await insertOne("project_member", {
+        const projectMember = await dbInsertOne("project_member", {
           project_id: project.id,
           account_id: installerAccount.id
         });
@@ -157,35 +130,36 @@ describe("Project", () => {
 
     describe("Market Admin", () => {
       it("should not be able to see projects outside of own market", async () => {
+        const { otherMarket, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "COMPANY_ADMIN"
+        );
         // NOTE: Projects get market via company
-        const otherMarket = await insertOne("market", {
-          domain: "OTHER_MARKET_DOMAIN",
-          language: "en"
-        });
-        const company = await insertOne("company", {
+        const company = await dbInsertOne("company", {
           market_id: otherMarket.id
         });
-        await insertOne("project", {
+        await dbInsertOne("project", {
           company_id: company.id,
           technology: "PITCHED"
         });
 
         // Separate market, separate account
-        const myMarket = await insertOne("market", {
+        const myMarket = await dbInsertOne("market", {
           domain: "MY_MARKET_DOMAIN",
           language: "en"
         });
-        const myCompany = await insertOne("company", {
+        const myCompany = await dbInsertOne("company", {
           market_id: myMarket.id
         });
-        await insertOne("project", {
+        await dbInsertOne("project", {
           name: "My Project",
           company_id: myCompany.id,
           technology: "PITCHED"
         });
         // NOTE: account is not related to company,
         // market adming sees all projects in own market
-        const account = await insertOne("account", {
+        const account = await dbInsertOne("account", {
           role: "MARKET_ADMIN",
           market_id: myMarket.id
         });
@@ -205,7 +179,7 @@ describe("Project", () => {
 
     describe("Installer", () => {
       it("shouldn't be able to see projects of other companies", async () => {
-        const { account } = await setupData("INSTALLER");
+        const { account } = await initDb(pool, client, "INSTALLER");
 
         await actAs(client, account);
         const { rows: projects } = await client.query(
@@ -216,14 +190,18 @@ describe("Project", () => {
       });
 
       it("shouldn't be able to see hidden project", async () => {
-        const { account, company } = await setupData("INSTALLER");
+        const { account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "INSTALLER"
+        );
 
         // Setup, without authorization
-        const createdProject = await insertOne("project", {
+        const createdProject = await dbInsertOne("project", {
           company_id: company.id,
           hidden: true
         });
-        await insertOne("project_member", {
+        await dbInsertOne("project_member", {
           project_id: createdProject.id,
           account_id: account.id
         });
@@ -235,14 +213,18 @@ describe("Project", () => {
       });
 
       it("shouldn't be able to add an installer to the project", async () => {
-        const { account, company } = await setupData("INSTALLER");
+        const { account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "INSTALLER"
+        );
 
-        const project = await insertOne("project", {
+        const project = await dbInsertOne("project", {
           company_id: company.id
         });
 
         try {
-          await insertOne("project_member", {
+          await dbInsertOne("project_member", {
             project_id: project.id,
             account_id: account.id
           });
@@ -252,13 +234,17 @@ describe("Project", () => {
       });
 
       it("should be able to remove themselves from a project", async () => {
-        const { account, company } = await setupData("INSTALLER");
+        const { account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "INSTALLER"
+        );
 
         // Setup, without authorization
-        const project = await insertOne("project", {
+        const project = await dbInsertOne("project", {
           company_id: company.id
         });
-        await insertOne("project_member", {
+        await dbInsertOne("project_member", {
           project_id: project.id,
           account_id: account.id
         });
@@ -272,18 +258,22 @@ describe("Project", () => {
       });
 
       it("should not be able to remove another account from a project", async () => {
-        const { market, account, company } = await setupData("INSTALLER");
+        const { market, account, company, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "INSTALLER"
+        );
 
         // Setup, without authorization
-        const otherInstallerAccount = await insertOne("account", {
+        const otherInstallerAccount = await dbInsertOne("account", {
           role: "INSTALLER",
           market_id: market.id,
           email: "anotherInstaller@email.invalid"
         });
-        const project = await insertOne("project", {
+        const project = await dbInsertOne("project", {
           company_id: company.id
         });
-        await insertOne("project_member", {
+        await dbInsertOne("project_member", {
           project_id: project.id,
           account_id: otherInstallerAccount.id
         });
@@ -298,6 +288,76 @@ describe("Project", () => {
           expect(error.message).toEqual(PERMISSION_DENIED("project_member"));
         }
       });
+    });
+  });
+
+  describe("Auditor", () => {
+    it("should be able to see all projects", async () => {
+      const { auditor } = await initDb(pool, client);
+
+      await actAs(client, auditor);
+
+      const { rows: projects } = await client.query("SELECT * FROM project");
+
+      expect(projects.length).toBeGreaterThan(0);
+    });
+
+    it("should not be able to see projects outside of own market", async () => {
+      const { auditor, otherMarket, dbInsertOne } = await initDb(
+        pool,
+        client,
+        "SUPER_ADMIN"
+      );
+      const company = await dbInsertOne("company", {
+        market_id: otherMarket.id
+      });
+      const project = await dbInsertOne("project", {
+        company_id: company.id,
+        technology: "PITCHED"
+      });
+
+      await actAs(client, auditor);
+
+      const { rows: visibleProjects } = await client.query(
+        "SELECT * FROM project WHERE id = $1",
+        [project.id]
+      );
+
+      expect(visibleProjects.length).toEqual(0);
+    });
+
+    it("shouldn't be able to update any projects", async () => {
+      const updatedName = "Updated Name";
+      try {
+        const { auditor, product } = await initDb(pool, client);
+
+        await actAs(client, auditor);
+
+        const { rows: projects } = await client.query(
+          "UPDATE project SET name = $2 WHERE id = $1",
+          [product.id, updatedName]
+        );
+
+        expect(projects.length).toBe(0);
+      } catch (error) {
+        expect(error.message).toBe(PERMISSION_DENIED("project"));
+      }
+    });
+
+    it("shouldn't be able to delete any projects", async () => {
+      try {
+        const { auditor, project, dbDeleteRow } = await initDb(pool, client);
+
+        await actAs(client, auditor);
+
+        const { rows: projects } = await dbDeleteRow("project", {
+          id: project.id
+        });
+
+        expect(projects.length).toBe(0);
+      } catch (error) {
+        expect(error.message).toBe(PERMISSION_DENIED("project"));
+      }
     });
   });
 });

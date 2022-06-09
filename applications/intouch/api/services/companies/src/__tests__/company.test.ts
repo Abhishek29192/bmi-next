@@ -1,155 +1,69 @@
 import {
   getDbPool,
   actAs,
-  curryContext,
-  insertOne as dbInsertOne,
   RLS_ERROR,
-  CONSTRAINT_ERROR
+  CONSTRAINT_ERROR,
+  initDb,
+  PERMISSION_DENIED
 } from "../test-utils/db";
 
 let pool;
-
-const initDb = async (pool, client, accountRole = "INSTALLER") => {
-  const context = {
-    pool,
-    client,
-    cleanupBucket: {}
-  };
-  const insertOne = curryContext(context, dbInsertOne);
-  const market = await insertOne("market", {
-    domain: "da",
-    language: "da"
-  });
-
-  const installerSolo = await insertOne("account", {
-    role: "INSTALLER",
-    email: "somemail2@email.com",
-    market_id: market.id
-  });
-
-  const companyAdminSolo = await insertOne("account", {
-    role: "COMPANY_ADMIN",
-    email: "somemail0@email.com",
-    market_id: market.id
-  });
-
-  const company = await insertOne("company", {
-    name: "Name 2",
-    market_id: market.id
-  });
-
-  const account = await insertOne("account", {
-    role: accountRole,
-    email: "somemail@email.com",
-    market_id: market.id
-  });
-
-  const otherCompany = await insertOne("company", {
-    name: "Name 1",
-    market_id: market.id
-  });
-
-  const otherAccount = await insertOne("account", {
-    role: accountRole,
-    email: "somemail1@email.com",
-    market_id: market.id
-  });
-
-  await insertOne("company_member", {
-    market_id: market.id,
-    company_id: company.id,
-    account_id: account.id
-  });
-  await insertOne("company_member", {
-    market_id: market.id,
-    company_id: otherCompany.id,
-    account_id: otherAccount.id
-  });
-
-  return {
-    insertOne,
-    account,
-    company,
-    otherAccount,
-    otherCompany,
-    market,
-    context,
-    installerSolo,
-    companyAdminSolo
-  };
-};
+let client;
 
 describe("Company", () => {
   beforeAll(async () => {
     pool = await getDbPool();
   });
 
+  beforeEach(async () => {
+    client = await pool.connect();
+    await client.query("BEGIN");
+  });
+
   afterAll(async () => {
     await pool.end();
   });
 
+  afterEach(async () => {
+    await client.query("ROLLBACK");
+    client.release();
+  });
+
   describe("Installer", () => {
     it("shouldn't be able to see any company if not member", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { company, installerSolo } = await initDb(pool, client);
+      await actAs(client, installerSolo);
 
-      try {
-        const { company, installerSolo } = await initDb(pool, client);
-        await actAs(client, installerSolo);
-
-        const { rows } = await client.query(
-          "SELECT * FROM company where id = $1",
-          [company.id]
-        );
-        expect(rows.length).toEqual(0);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "SELECT * FROM company where id = $1",
+        [company.id]
+      );
+      expect(rows.length).toEqual(0);
     });
 
     it("shouldn't be able to see another company if not member", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { company, otherAccount } = await initDb(pool, client);
+      await actAs(client, otherAccount);
 
-      try {
-        const { company, otherAccount } = await initDb(pool, client);
-        await actAs(client, otherAccount);
-
-        const { rows } = await client.query(
-          "SELECT * FROM company where id = $1",
-          [company.id]
-        );
-        expect(rows.length).toEqual(0);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "SELECT * FROM company where id = $1",
+        [company.id]
+      );
+      expect(rows.length).toEqual(0);
     });
 
     it("should be able to create a company with create_company", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { installerSolo } = await initDb(pool, client);
+      await actAs(client, installerSolo);
 
-      try {
-        const { installerSolo } = await initDb(pool, client);
-        await actAs(client, installerSolo);
-
-        const { rows } = await client.query(
-          "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
-          ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
-        );
-        expect(rows.length).toEqual(1);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+      );
+      expect(rows.length).toEqual(1);
     });
 
     it("shouldn't be able to add himself to a company", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
         const { company, installerSolo, market } = await initDb(
           pool,
@@ -164,79 +78,49 @@ describe("Company", () => {
         );
       } catch (error) {
         expect(error.message).toEqual(RLS_ERROR("company_member"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
   });
 
   describe("Company Admin", () => {
     it("shouldn't be able to create a company directly", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { installerSolo, market } = await initDb(pool, client);
+      await actAs(client, installerSolo);
 
-      try {
-        const { installerSolo, market } = await initDb(pool, client);
-        await actAs(client, installerSolo);
-
-        const { rows } = await client.query(
-          "INSERT INTO company (market_id, name) VALUES ($1, $2)",
-          [market.id, "Name 123"]
-        );
-        expect(rows.length).toEqual(0);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "INSERT INTO company (market_id, name) VALUES ($1, $2)",
+        [market.id, "Name 123"]
+      );
+      expect(rows.length).toEqual(0);
     });
 
     it("should be able to create a company with create_company", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { companyAdmin } = await initDb(pool, client);
+      await actAs(client, companyAdmin);
 
-      try {
-        const { companyAdminSolo } = await initDb(pool, client);
-        await actAs(client, companyAdminSolo);
-
-        const { rows } = await client.query(
-          "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
-          ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
-        );
-        expect(rows.length).toEqual(1);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "SELECT * FROM create_company($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)",
+        ["", "", "", null, null, "NEW", "", "", "", "", "", "", "", ""]
+      );
+      expect(rows.length).toEqual(1);
     });
 
     it("shouldn't be able to see any company if not member", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { company, otherAccount } = await initDb(
+        pool,
+        client,
+        "COMPANY_ADMIN"
+      );
+      await actAs(client, otherAccount);
 
-      try {
-        const { company, otherAccount } = await initDb(
-          pool,
-          client,
-          "COMPANY_ADMIN"
-        );
-        await actAs(client, otherAccount);
-
-        const { rows } = await client.query(
-          "SELECT * FROM company where id = $1",
-          [company.id]
-        );
-        expect(rows.length).toEqual(0);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      const { rows } = await client.query(
+        "SELECT * FROM company where id = $1",
+        [company.id]
+      );
+      expect(rows.length).toEqual(0);
     });
 
     it("shouldn't be able to add himself to another company", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
         const { company, otherAccount, market } = await initDb(
           pool,
@@ -251,15 +135,9 @@ describe("Company", () => {
         );
       } catch (error) {
         expect(error.message).toEqual(RLS_ERROR("company_member"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
     it("shouldn't be able to create a company with the same name in a market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
         const { company, market } = await initDb(pool, client, "COMPANY_ADMIN");
 
@@ -272,10 +150,58 @@ describe("Company", () => {
           CONSTRAINT_ERROR("company_market_id_name_key"),
           CONSTRAINT_ERROR("company_name_key")
         ]).toContain(error.message);
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
+    });
+  });
+
+  describe("Auditor", () => {
+    it("should be able to see any company if not a member", async () => {
+      const { auditor } = await initDb(pool, client);
+      await actAs(client, auditor);
+
+      const { rows } = await client.query("SELECT * FROM company");
+
+      expect(rows.length).toBeGreaterThan(0);
+    });
+
+    it("shouldn't be able to add himself to a company", async () => {
+      try {
+        const { company, auditor, market, dbInsertOne } = await initDb(
+          pool,
+          client
+        );
+        await actAs(client, auditor);
+
+        const companyMember = await dbInsertOne("company_member", {
+          account_id: auditor.id,
+          company_id: company.id,
+          market_id: market.id
+        });
+
+        expect(companyMember).toBeTruthy();
+      } catch (error) {
+        expect(error.message).toEqual(PERMISSION_DENIED("company_member"));
+      }
+    });
+
+    it("shouldn't be able to see any company from other market based on RLS", async () => {
+      const { auditor, otherMarket, dbInsertOne, superAdmin } = await initDb(
+        pool,
+        client
+      );
+      await actAs(client, superAdmin);
+      const otherMarketCompany = await dbInsertOne("company", {
+        name: "Other Market Company",
+        market_id: otherMarket.id
+      });
+      await actAs(client, auditor);
+
+      const { rows } = await client.query(
+        `SELECT * FROM company WHERE id = $1`,
+        [otherMarketCompany.id]
+      );
+
+      expect(rows.length).toBe(0);
     });
   });
 });

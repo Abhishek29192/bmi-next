@@ -75,6 +75,7 @@ exports[`Training Page render correctly 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -872,6 +873,7 @@ exports[`Training Page render correctly when error in trainingData 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -1179,6 +1181,7 @@ exports[`Training Page render correctly when no items in trainingContentCollecti
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"
