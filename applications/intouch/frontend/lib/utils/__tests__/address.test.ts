@@ -27,4 +27,10 @@ describe("Address utility", () => {
       firstLine: "test"
     });
   });
+  it("copyOfSiteAddress empty address", () => {
+    expect(copyOfSiteAddress(null)).toBeNull();
+  });
+  it("copyOfBuildingOwnerAddress empty address", () => {
+    expect(copyOfBuildingOwnerAddress(null)).toBeNull();
+  });
 });
