@@ -18,6 +18,24 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
             class="MuiTabs-root tabStyles-TabsRoot-189"
           >
             <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+            <div
               class="MuiTabs-scrollable"
               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
             />
@@ -53,6 +71,24 @@ exports[`TabLeadBlock tests should not render technical Specification tab 1`] = 
               <span
                 class="PrivateTabIndicator-root-191 PrivateTabIndicator-colorPrimary-192 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
+              />
+            </div>
+            <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
               />
             </div>
           </div>
@@ -225,6 +261,24 @@ exports[`TabLeadBlock tests should render 1`] = `
             class="MuiTabs-root tabStyles-TabsRoot-2"
           >
             <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+            <div
               class="MuiTabs-scrollable"
               style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
             />
@@ -298,6 +352,24 @@ exports[`TabLeadBlock tests should render 1`] = `
               <span
                 class="PrivateTabIndicator-root-4 PrivateTabIndicator-colorPrimary-5 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
+              />
+            </div>
+            <div
+              aria-disabled="false"
+              class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                />
+              </svg>
+              <span
+                class="MuiTouchRipple-root"
               />
             </div>
           </div>

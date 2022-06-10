@@ -2,7 +2,8 @@ import { AppBarProps } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 import {
   Tab as MaterialTab,
-  TabProps as MaterialTabProps
+  TabProps as MaterialTabProps,
+  Theme
 } from "@material-ui/core";
 import {
   Tabs as MaterialTabs,
@@ -18,7 +19,7 @@ import { transformHyphens } from "../utils/commonUtils";
 import styles from "./Tabs.module.scss";
 
 export const useGlobalTabStyles = makeStyles(
-  () => ({
+  (theme: Theme) => ({
     ContainerRoot: {
       fontSize: "1rem",
       paddingLeft: "0px",
@@ -26,7 +27,26 @@ export const useGlobalTabStyles = makeStyles(
     },
     TabsRoot: {
       fontSize: "1rem",
-      marginBottom: "2px"
+      marginBottom: "2px",
+      "& .tabsScrollBtn": {
+        position: "absolute",
+        height: "100%",
+        zIndex: 2,
+        background: theme.palette.common.white,
+        transition: "all 0.2s ease-out",
+        "&:first-child": {
+          left: 0,
+          opacity: 1
+        },
+        "&:last-child": {
+          right: 0,
+          opacity: 1
+        },
+        "&.Mui-disabled": {
+          opacity: 0,
+          transition: "all 0.2s ease-out"
+        }
+      }
     },
     TabRoot: {
       fontSize: "1rem",
@@ -144,7 +164,8 @@ const Tabs = ({
             aria-label="tabs"
             indicatorColor="primary"
             onChange={handleChange}
-            scrollButtons="auto"
+            scrollButtons="on"
+            TabScrollButtonProps={{ className: "tabsScrollBtn" }}
             textColor="primary"
             variant="scrollable"
             value={value}

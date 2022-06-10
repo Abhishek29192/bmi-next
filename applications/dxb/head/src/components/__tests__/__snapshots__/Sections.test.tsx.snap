@@ -294,6 +294,24 @@ HTMLCollection [
                       class="MuiTabs-root tabStyles-TabsRoot-13"
                     >
                       <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                      <div
                         class="MuiTabs-scrollable"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
@@ -329,6 +347,24 @@ HTMLCollection [
                         <span
                           class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
                         />
                       </div>
                     </div>
@@ -2189,6 +2225,24 @@ HTMLCollection [
                           class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-13 MuiContainer-maxWidthXl"
                         >
                           <div
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </div>
+                          <div
                             class="MuiTabs-scrollable"
                             style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                           />
@@ -2224,6 +2278,24 @@ HTMLCollection [
                             <span
                               class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
                               style="left: 0px; width: 0px;"
+                            />
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root"
                             />
                           </div>
                         </div>
@@ -2372,6 +2444,24 @@ HTMLCollection [
                           class="MuiContainer-root MuiTabs-root tabStyles-TabsRoot-13 MuiContainer-maxWidthXl"
                         >
                           <div
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root"
+                            />
+                          </div>
+                          <div
                             class="MuiTabs-scrollable"
                             style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                           />
@@ -2426,6 +2516,24 @@ HTMLCollection [
                             <span
                               class="PrivateTabIndicator-root-15 PrivateTabIndicator-colorPrimary-16 MuiTabs-indicator"
                               style="left: 0px; width: 0px;"
+                            />
+                          </div>
+                          <div
+                            aria-disabled="false"
+                            class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                              />
+                            </svg>
+                            <span
+                              class="MuiTouchRipple-root"
                             />
                           </div>
                         </div>
@@ -3484,6 +3592,24 @@ HTMLCollection [
                       class="MuiTabs-root tabStyles-TabsRoot-67"
                     >
                       <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                      <div
                         class="MuiTabs-scrollable"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
@@ -3519,6 +3645,24 @@ HTMLCollection [
                         <span
                           class="PrivateTabIndicator-root-69 PrivateTabIndicator-colorPrimary-70 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
                         />
                       </div>
                     </div>
@@ -3720,6 +3864,24 @@ HTMLCollection [
                       class="MuiTabs-root tabStyles-TabsRoot-86"
                     >
                       <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                      <div
                         class="MuiTabs-scrollable"
                         style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
                       />
@@ -3755,6 +3917,24 @@ HTMLCollection [
                         <span
                           class="PrivateTabIndicator-root-88 PrivateTabIndicator-colorPrimary-89 MuiTabs-indicator"
                           style="left: 0px; width: 0px;"
+                        />
+                      </div>
+                      <div
+                        aria-disabled="false"
+                        class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn Mui-disabled"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root"
                         />
                       </div>
                     </div>

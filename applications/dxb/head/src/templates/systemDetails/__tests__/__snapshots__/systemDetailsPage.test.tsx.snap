@@ -3069,6 +3069,24 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -3142,6 +3160,24 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
@@ -7265,6 +7301,24 @@ exports[`SystemDetailsPage template component should render 1`] = `
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -7338,6 +7392,24 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
@@ -11461,6 +11533,24 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -11534,6 +11624,24 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
@@ -15657,6 +15765,24 @@ exports[`SystemDetailsPage template component should render without BrandProvide
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -15730,6 +15856,24 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
@@ -19853,6 +19997,24 @@ exports[`SystemDetailsPage template component should render without specificatio
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -19926,6 +20088,24 @@ exports[`SystemDetailsPage template component should render without specificatio
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
@@ -24008,6 +24188,24 @@ exports[`SystemDetailsPage template component should render without systemLayers
               class="MuiTabs-root tabStyles-TabsRoot"
             >
               <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+              <div
                 class="MuiTabs-scrollable"
                 style="width: 99px; height: 99px; position: absolute; top: -9999px; overflow: scroll;"
               />
@@ -24081,6 +24279,24 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 <span
                   class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator"
                   style="left: 0px; width: 0px;"
+                />
+              </div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTabScrollButton-root tabsScrollBtn MuiTabScrollButton-disabled"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root"
                 />
               </div>
             </div>
