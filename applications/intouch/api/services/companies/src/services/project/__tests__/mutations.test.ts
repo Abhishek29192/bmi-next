@@ -152,8 +152,8 @@ describe("Project", () => {
         );
         expect(query).toHaveBeenNthCalledWith(
           3,
-          `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status != $1 AND p.end_date < $2 AND g.coverage in ($3,$4) AND p.hidden = false`,
-          ["APPROVED", criteria2, "SOLUTION", "SYSTEM"]
+          `SELECT p.id FROM project p LEFT JOIN guarantee g ON g.project_id = p.id WHERE g.project_id IS NOT NULL AND g.status != $1 AND p.end_date < $2 AND p.hidden = false group by p.id`,
+          ["APPROVED", criteria2]
         );
         expect(query).toHaveBeenNthCalledWith(
           4,
