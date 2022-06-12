@@ -144,6 +144,7 @@ const Page = ({
                 }
                 regions={regions}
                 sampleBasketLink={resources?.sampleBasketLink}
+                maximumSamples={resources?.maximumSamples}
               />
               <BrandProvider brand={brand}>
                 <ErrorBoundary

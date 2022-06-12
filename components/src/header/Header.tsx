@@ -1,16 +1,23 @@
-import { Tab as DefaultTab } from "@material-ui/core";
-import { Tabs } from "@material-ui/core";
-import { Backdrop } from "@material-ui/core";
-import { Paper } from "@material-ui/core";
-import { Slide } from "@material-ui/core";
-import { ChevronLeft } from "@material-ui/icons";
-import { Close } from "@material-ui/icons";
-import { KeyboardArrowDown } from "@material-ui/icons";
-import { Menu } from "@material-ui/icons";
-import { Search as SearchIcon } from "@material-ui/icons";
-import { ShoppingCartOutlined } from "@material-ui/icons";
+import {
+  Backdrop,
+  Paper,
+  Slide,
+  Tab as DefaultTab,
+  Tabs,
+  useMediaQuery,
+  useTheme
+} from "@material-ui/core";
+import {
+  ChevronLeft,
+  Close,
+  KeyboardArrowDown,
+  Menu,
+  Search as SearchIcon,
+  ShoppingCartOutlined
+} from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef, useMemo } from "react";
+import { GTM } from "../";
 import Button from "../button/Button";
 import Clickable, {
   ClickableAction,
@@ -30,7 +37,6 @@ import Navigation, {
 } from "../navigation/Navigation";
 import Search from "../search/Search";
 import Typography from "../typography/Typography";
-import { GTM } from "../";
 import styles from "./Header.module.scss";
 import {
   getElementWidths,
@@ -60,7 +66,6 @@ type HeaderProps = {
   isBasketEmpty?: boolean;
   searchAction?: string;
   searchLabel?: string;
-  basketAction?: ClickableAction;
   searchPlaceholder?: string;
   basketLabel?: string;
   searchTitle?: string;
@@ -69,6 +74,7 @@ type HeaderProps = {
   mainMenuDefaultLabel?: string;
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
+  SampleBasketDialog?: React.ElementType;
 };
 
 const Header = ({
@@ -90,7 +96,6 @@ const Header = ({
   searchAction,
   searchLabel = "Search",
   searchPlaceholder = "Search BMI...",
-  basketAction,
   basketLabel = "Basket",
   searchTitle = "How can we help you today?",
   openLabel = "Open menu",
@@ -100,6 +105,7 @@ const Header = ({
   languageIntroduction,
   navUtilityLinkButton: NavUtilityLinkButton = Button,
   closeButtonComponent: CloseButtonComponent = Button,
+  SampleBasketDialog,
   onCountrySelection,
   useGTM
 }: HeaderProps) => {
@@ -115,8 +121,11 @@ const Header = ({
   const [showLanguageSelection, setShowLanguageSelection] =
     React.useState<boolean>(false);
   const [showSearch, setShowSearch] = React.useState<boolean>(false);
+  const [showCart, setShowCart] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<number | boolean>(false);
   const elementWidths = getElementWidths(navigation);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const gtm = useMemo(() => {
     const languageSectionState = !showLanguageSelection ? "open" : "close";
@@ -147,6 +156,7 @@ const Header = ({
     } else {
       amendClassList(styles.MenuIsOpen!, "add");
       setShowSearch(false);
+      setShowCart(false);
       setValue(newValue);
     }
   };
@@ -158,6 +168,7 @@ const Header = ({
     } else {
       amendClassList(styles.MenuIsOpen!, "add");
       setShowSearch(false);
+      setShowCart(false);
       setValue(!value);
     }
   };
@@ -167,11 +178,23 @@ const Header = ({
     pushGTMEvent();
   };
 
+  const toggleCart = () => {
+    if (!showCart) {
+      setValue(false);
+      amendClassList(styles.MenuIsOpen!, "remove");
+    }
+    if (showSearch) {
+      setShowSearch(false);
+    }
+    setShowCart(!showCart);
+  };
+
   const toggleSearch = () => {
     if (!showSearch) {
       setValue(false);
       amendClassList(styles.MenuIsOpen!, "remove");
     }
+    setShowCart(false);
     setShowSearch(!showSearch);
   };
 
@@ -179,6 +202,7 @@ const Header = ({
     setValue(false);
     setShowLanguageSelection(false);
     setShowSearch(false);
+    setShowCart(false);
     amendClassList(styles.MenuIsOpen!, "remove");
   };
 
@@ -408,11 +432,11 @@ const Header = ({
             <div className={styles["navigation-bar-buttons"]}>
               {!isBasketEmpty && (
                 <Button
-                  action={basketAction}
                   accessibilityLabel={basketLabel}
                   className={classnames(styles["basket-button"])}
                   variant={!sizes.length ? "text" : "contained"}
                   isIconButton
+                  onClick={toggleCart}
                 >
                   <Icon source={ShoppingCartOutlined} />
                 </Button>
@@ -446,7 +470,9 @@ const Header = ({
       </div>
       <Backdrop
         className={styles["backdrop"]}
-        open={value !== false || showSearch || showLanguageSelection}
+        open={
+          value !== false || showSearch || showLanguageSelection || showCart
+        }
         onClick={hideAll}
       />
       <Slide direction={!sizes.length ? "left" : "down"} in={value !== false}>
@@ -505,6 +531,18 @@ const Header = ({
                 />
               )}
             </div>
+          </div>
+        </Slide>
+      )}
+      {!isBasketEmpty && SampleBasketDialog && (
+        <Slide direction={isMobile ? "left" : "down"} in={showCart}>
+          <div
+            className={classnames(styles["cart-drawer-container"], {
+              [styles["cart-drawer-container--hidden"]!]:
+                !showCart && !sizes.length
+            })}
+          >
+            <SampleBasketDialog toggleCart={toggleCart} />
           </div>
         </Slide>
       )}

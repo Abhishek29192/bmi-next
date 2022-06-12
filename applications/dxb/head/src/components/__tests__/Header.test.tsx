@@ -1,13 +1,14 @@
-import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
+import * as Gatsby from "gatsby";
 import mockConsole from "jest-mock-console";
+import React from "react";
 import { microCopy } from "../../constants/microCopies";
-import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
-import { Data as PromoData } from "../Promo";
-import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
-import Header from "../Header";
-import { Data as PageInfoData } from "../PageInfo";
 import BasketContext from "../../contexts/SampleBasketContext";
+import Header from "../Header";
+import { Data as LinkData, DataTypeEnum, NavigationData } from "../Link";
+import { fallbackGetMicroCopy as getMicroCopy } from "../MicroCopy";
+import { Data as PageInfoData } from "../PageInfo";
+import { Data as PromoData } from "../Promo";
 
 beforeAll(() => {
   mockConsole();
@@ -251,7 +252,8 @@ const sampleBasketProducts: any = {
         name: "test product",
         code: "S",
         path: "s",
-        image: "S"
+        image: "S",
+        classifications: []
       }
     ]
   }
@@ -317,6 +319,11 @@ describe("Header component", () => {
   });
 
   it("shows sample basket icon", () => {
+    jest.spyOn(Gatsby, "useStaticQuery").mockImplementation(() => ({
+      contentfulSampleBasketSection: {
+        title: "Basket title"
+      }
+    }));
     const { container, getByLabelText } = render(
       <BasketContext.Provider value={sampleBasketProducts}>
         <Header
@@ -330,10 +337,40 @@ describe("Header component", () => {
       </BasketContext.Provider>
     );
 
-    const basketLabel = getMicroCopy(microCopy.BASKET_LABEL);
-    const basketButton = getByLabelText(basketLabel);
+    const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
 
     expect(basketButton).toBeTruthy();
     expect(container).toMatchSnapshot();
+  });
+
+  it("shows sample basket dialog on clicking on basket and hide it clicking on close", async () => {
+    jest.spyOn(Gatsby, "useStaticQuery").mockImplementation(() => ({
+      contentfulSampleBasketSection: {
+        title: "Basket title"
+      }
+    }));
+    const { container, getByLabelText } = render(
+      <BasketContext.Provider value={sampleBasketProducts}>
+        <Header
+          activeLabel="Main"
+          countryCode="gb"
+          navigationData={navigationData}
+          utilitiesData={utilitiesData}
+          regions={regions}
+          sampleBasketLink={sampleBasketLinkInfo}
+        />
+      </BasketContext.Provider>
+    );
+    expect(container.querySelector(".cart-drawer-container")).not.toBeVisible();
+    const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
+    fireEvent.click(basketButton);
+
+    expect(container.querySelector(".cart-drawer-container")).toBeVisible();
+    fireEvent.click(getByLabelText(getMicroCopy(microCopy.DIALOG_CLOSE)));
+    await waitFor(() =>
+      expect(
+        container.querySelector(".cart-drawer-container")
+      ).not.toBeVisible()
+    );
   });
 });
