@@ -1,29 +1,17 @@
 test_gcp-cron-auto-archive-project:
-  extends: .test_yarn_workspace
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-cron-auto-archive-project/**/*
+  extends: .test_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-auto-archive-project"
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
 
 build_gcp-cron-auto-archive-project:
-  extends: .build_function_yarn_workspace
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-cron-auto-archive-project/**/*
+  extends: .build_intouch_function
   variables:
     WORKSPACE: "@bmi/gcp-cron-auto-archive-project"
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
 
 package_gcp-cron-auto-archive-project:
   extends: .package_intouch_function
-  rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-cron-auto-archive-project/**/*
   needs:
     - build_gcp-cron-auto-archive-project
   dependencies:
@@ -35,10 +23,6 @@ package_gcp-cron-auto-archive-project:
 # Deploy to BMI environments
 deploy_gcp-cron-auto-archive-project_bmi:
   extends: .deploy_intouch_function
-  rules:
-    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
-      changes:
-        - applications/intouch/functions/gcp-cron-auto-archive-project/**/*
   variables:
     FUNCTION_NAME: pubsub-cron-auto-archive-project
     ROOT_DIR: applications/intouch/functions/gcp-cron-auto-archive-project
