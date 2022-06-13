@@ -1,11 +1,19 @@
 build_gcp-intouch-handle-message:
   extends: .build_intouch_function
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
     WORKSPACE: "@bmi/gcp-intouch-handle-message"
 
 package_gcp-intouch-handle-message:
   extends: .package_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
   variables:
     FUNCTION_NAME: pubsub-handle-message
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
@@ -17,6 +25,10 @@ package_gcp-intouch-handle-message:
 # Deploy to BMI environments
 deploy_gcp-intouch-handle-message_bmi:
   extends: .deploy_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-handle-message/**/*
   variables:
     FUNCTION_NAME: pubsub-handle-message
     ROOT_DIR: applications/intouch/functions/gcp-handle-message

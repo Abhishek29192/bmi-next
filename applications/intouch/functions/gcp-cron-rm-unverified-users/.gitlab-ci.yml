@@ -1,17 +1,29 @@
 test_gcp-intouch-remove-unverified-users:
   extends: .test_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 build_gcp-intouch-remove-unverified-users:
   extends: .build_function_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
   variables:
     WORKSPACE: "@bmi/gcp-cron-rm-unverified-users"
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
 
 package_gcp-intouch-remove-unverified-users:
   extends: .package_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
   needs:
     - build_gcp-intouch-remove-unverified-users
   dependencies:
@@ -23,6 +35,10 @@ package_gcp-intouch-remove-unverified-users:
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-rm-unverified-users_bmi:
   extends: .deploy_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-rm-unverified-users/**/*
   variables:
     FUNCTION_NAME: pubsub-cron-rm-unverified-users
     ROOT_DIR: applications/intouch/functions/gcp-cron-rm-unverified-users
