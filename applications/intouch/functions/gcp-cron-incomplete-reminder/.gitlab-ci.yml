@@ -1,11 +1,19 @@
 build_gcp-intouch-cron-incomplete-reminder:
   extends: .build_function_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-cron-incomplete-reminder
     WORKSPACE: "@bmi/gcp-intouch-cron-incomplete-reminder"
 
 package_gcp-intouch-cron-incomplete-reminder:
   extends: .package_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
   variables:
     FUNCTION_NAME: pubsub-cron-incomplete-reminder
     ROOT_DIR: applications/intouch/functions/gcp-cron-incomplete-reminder
@@ -17,6 +25,10 @@ package_gcp-intouch-cron-incomplete-reminder:
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-incomplete-reminder_bmi:
   extends: .deploy_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-cron-incomplete-reminder/**/*
   variables:
     FUNCTION_NAME: pubsub-cron-incomplete-reminder
     ROOT_DIR: applications/intouch/functions/gcp-cron-incomplete-reminder

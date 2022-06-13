@@ -1,11 +1,19 @@
 build_gcp-intouch-generate-guarantee:
   extends: .build_function_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
     WORKSPACE: "@bmi/gcp-intouch-generate-guarantee"
 
 package_gcp-intouch-generate-guarantee:
   extends: .package_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
   variables:
     FUNCTION_NAME: pubsub-generate-guarantee
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
@@ -17,6 +25,10 @@ package_gcp-intouch-generate-guarantee:
 # Deploy to BMI environments
 deploy_gcp-intouch-generate-guarantee_bmi:
   extends: .deploy_intouch_function
+  rules:
+    - if: "($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'intouch/environment/qa' || $CI_COMMIT_BRANCH == 'intouch/environment/preprod' || $CI_COMMIT_BRANCH == 'intouch/environment/prod'))"
+      changes:
+        - applications/intouch/functions/gcp-generate-guarantee/**/*
   variables:
     FUNCTION_NAME: pubsub-generate-guarantee
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
