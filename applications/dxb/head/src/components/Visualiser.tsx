@@ -180,7 +180,7 @@ const VisualiserProvider = ({
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
           {process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true" ? (
-            { VisualizerComponent }
+            VisualizerComponent
           ) : (
             <MicroCopy.Provider values={no}>
               {VisualizerComponent}
