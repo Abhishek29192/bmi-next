@@ -218,7 +218,7 @@ export type GutteringSelections = {
 };
 
 export type GutteringProps = {
-  selections: GutteringSelections;
+  selections?: GutteringSelections;
   gutters: GutteringType[];
   gutterHooks: LengthBasedProduct[];
 };
@@ -232,22 +232,22 @@ const Guttering = ({ selections, gutters, gutterHooks }: GutteringProps) => {
   ).variants;
   return (
     <div>
-      <GutteringSelection selected={selections.guttering} options={gutters} />
+      <GutteringSelection selected={selections?.guttering} options={gutters} />
       {values["guttering"] ? (
         <GutteringVariantSelection
-          selected={selections.gutteringVariant}
+          selected={selections?.gutteringVariant}
           options={variants}
         />
       ) : null}
       {values["gutteringVariant"] ? (
         <>
           <GutteringHookSelection
-            selected={selections.gutteringHook}
+            selected={selections?.gutteringHook}
             options={gutterHooks}
           />
           <DownPipeSelection
-            downPipes={selections.downPipes}
-            downPipeConnectors={selections.downPipeConnectors}
+            downPipes={selections?.downPipes}
+            downPipeConnectors={selections?.downPipeConnectors}
           />
         </>
       ) : null}
