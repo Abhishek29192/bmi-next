@@ -10,7 +10,7 @@ const MaybeTooltip = ({ children, show, ...props }: MaybeTooltipProps) => {
     return <>{children}</>;
   }
 
-  // Span to accomodate tooltip hover behaviour while child may be disabled
+  // Span to accommodate tooltip hover behaviour while child may be disabled.
   return (
     <Tooltip {...props}>
       <span>{children}</span>

@@ -1,17 +1,22 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import { Grid } from "@bmi/components";
-import { FilterProps, Filter } from "@bmi/components";
+import { Filter, FilterProps, Grid } from "@bmi/components";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import ProductsGridView from "../components/ProductsGridView";
-import { clearFilterValues, updateFilterValue } from "../utils/filters";
+import { devLog } from "../utils/devLog";
 import {
-  queryElasticSearch,
   compileElasticSearchQuery,
   disableFiltersFromAggregations,
-  removeIrrelevantFilters,
-  getCountQuery
+  getCountQuery,
+  queryElasticSearch,
+  removeIrrelevantFilters
 } from "../utils/elasticSearch";
-import { devLog } from "../utils/devLog";
+import {
+  clearFilterValues,
+  getUpdatedFilters,
+  getURLFilterValues,
+  setFiltersUrl,
+  updateFilterValue
+} from "../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../utils/filtersUI";
 import ResultsPagination from "./ResultsPagination";
 
@@ -27,7 +32,7 @@ type Props = {
   pageContext: any; // TODO
 };
 
-export const getCount = async (searchQuery) => {
+export const getCount = async (searchQuery: string): Promise<number> => {
   // See how much this function doesn't actually need this, RETHINK compile query
   const esQueryObject = compileElasticSearchQuery([], null, 0, 0, searchQuery);
 
@@ -137,21 +142,27 @@ const SearchTabPanelProducts = (props: Props) => {
   // =======================================
 
   const onFiltersChange = async (newFilters: Filter[]) => {
-    const result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+    let result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
+      if (isInitialLoad.current) {
+        newFilters = removeIrrelevantFilters(newFilters, result.aggregations);
+        isInitialLoad.current = false;
+
+        newFilters = getUpdatedFilters(newFilters);
+        if (getURLFilterValues().length > 0) {
+          result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+        }
+      }
+
       newFilters = disableFiltersFromAggregations(
         newFilters,
         result.aggregations
       );
-
-      if (isInitialLoad.current) {
-        newFilters = removeIrrelevantFilters(newFilters, result.aggregations);
-        isInitialLoad.current = false;
-      }
     }
 
     setFilters(newFilters);
+    setFiltersUrl(newFilters);
   };
 
   const handleFiltersChange: FilterProps["onChange"] = (

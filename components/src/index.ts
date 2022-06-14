@@ -22,7 +22,7 @@ import CardCheckboxGroup from "./card-checkbox-group";
 import CardInput, { CardInputProps } from "./card-input";
 import CardRadioGroup, { CardRadioGroupProps } from "./card-radio-group";
 import Carousel, { getPageFromAbsoluteIndex } from "./carousel";
-import Checkbox, { Props as CheckboxProps } from "./checkbox";
+import Checkbox, { Props as CheckboxProps, checkboxStyles } from "./checkbox";
 import Chip, { Props as ChipProps } from "./chip";
 import Clickable, {
   ClickableAction,
@@ -247,12 +247,7 @@ import VerticalRoller, {
   Slide as VerticalRollerSlide
 } from "./vertical-roller";
 import Villain, { VillainProps } from "./villain";
-import YoutubeVideo, {
-  getDefaultPreviewImage,
-  Layout,
-  YoutubeVideoProps,
-  GTM
-} from "./youtube-video";
+import YoutubeVideo, { Layout, YoutubeVideoProps, GTM } from "./youtube-video";
 import { transformHyphens } from "./utils/commonUtils";
 
 export type {
@@ -364,6 +359,7 @@ export {
   Carousel,
   getPageFromAbsoluteIndex,
   Checkbox,
+  checkboxStyles,
   Chip,
   Clickable,
   withClickable,
@@ -539,6 +535,5 @@ export {
   VerticalRoller,
   Villain,
   YoutubeVideo,
-  getDefaultPreviewImage,
   transformHyphens
 };

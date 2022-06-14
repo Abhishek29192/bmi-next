@@ -14,6 +14,7 @@ import {
 } from "../../../utils/product-details-transforms";
 import { Product } from "../../../components/types/pim";
 import withGTM from "../../../utils/google-tag-manager";
+import { getSearchParams } from "../../../utils/filters";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
@@ -44,10 +45,10 @@ export const renderProducts = (
     const brandLogo = iconMap[brandLogoCode];
     const mainImage = findMasterImageUrl(variant.images);
     const product: Product = variant.baseProduct;
-    const productUrl = getProductUrl(
+    const productUrl = `${getProductUrl(
       countryCode,
       pageContext.variantCodeToPathMap[variant.code]
-    );
+    )}${getSearchParams()}`;
     const uniqueClassifications = mapClassificationValues(
       findUniqueVariantClassifications(
         { ...variant, _product: product },

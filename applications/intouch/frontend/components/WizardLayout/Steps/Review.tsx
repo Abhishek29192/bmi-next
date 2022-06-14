@@ -6,6 +6,7 @@ import { InfoPair } from "../../InfoPair";
 import { useWizardContext } from "../WizardContext";
 import { WizardProductDetailCard } from "../WizardProductDetailCard";
 import { WizardSystemDetailCard } from "../WizardSystemDetailCard";
+import { InlineAddress } from "../../Address/inlineAddress";
 import styles from "./styles.module.scss";
 
 type SectionContainer = {
@@ -87,7 +88,7 @@ const Review = () => {
           {project.buildingOwnerMail}
         </InfoPair>
         <InfoPair title={t("building_owner.address")}>
-          {`${project.buildingOwnerAddress?.firstLine}, ${project.buildingOwnerAddress?.secondLine}, ${project.buildingOwnerAddress?.region}, ${project.buildingOwnerAddress?.town}, ${project.buildingOwnerAddress?.postcode}`}
+          <InlineAddress address={project.buildingOwnerAddress} />
         </InfoPair>
       </SectionContainer>
       <SectionContainer>

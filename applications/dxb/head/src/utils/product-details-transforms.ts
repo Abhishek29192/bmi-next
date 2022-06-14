@@ -786,9 +786,10 @@ export const getProductAttributes = (
   ];
 };
 
+// TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
 const IGNORED_ATTRIBUTES = [
-  "scoringWeightAttributes.scoringweight",
-  "appearanceAttributes.colourfamily"
+  "SCORINGWEIGHTATTRIBUTES.SCORINGWEIGHT",
+  "APPEARANCEATTRIBUTES.COLOURFAMILY"
 ];
 
 export const getValidClassification = (
@@ -801,8 +802,9 @@ export const getValidClassification = (
 
   const classificationsToReturn = classifications.filter(
     ({ features }) =>
+      // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
       !IGNORED_CLASSIFICATIONS.includes(
-        features && features.length && features[0].code
+        features && features.length && features[0].code.toUpperCase()
       )
   );
   return classificationsToReturn;
@@ -815,8 +817,9 @@ export const getValidFeatures = (classificationNamespace: string, features) => {
     (value) => `${classificationNamespace}/${value}`
   );
 
+  // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
   return features
-    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code))
+    .filter(({ code }) => !IGNORED_CLASSIFICATIONS.includes(code.toUpperCase()))
     .sort((a, b) => (a.name > b.name ? 1 : a.name < b.name ? -1 : 0));
 };
 
@@ -1086,7 +1089,10 @@ export const getMergedClassifications = (
 
 export const getYoutubeId = (urlOrCode: string) => {
   const regExp =
-    /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
-  const match = urlOrCode.match(regExp);
-  return match && match.length > 0 ? match[1] : urlOrCode;
+    /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?.*v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
+  const match = urlOrCode?.match(regExp);
+  return match?.length ? match[1] : urlOrCode;
 };
+
+export const getDefaultPreviewImage = (videoUrl: string) =>
+  `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;

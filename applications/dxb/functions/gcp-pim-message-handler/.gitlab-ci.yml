@@ -1,17 +1,17 @@
 test_gcp-pim-message-handler:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 build_gcp-pim-message-handler:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 package_gcp-pim-message-handler:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-pim-message-handler
   dependencies:
@@ -31,7 +31,7 @@ package_gcp-pim-message-handler:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-message-handler:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-pim-message-handler
   dependencies:

@@ -1,8 +1,8 @@
-import { getDefaultPreviewImage, MediaData } from "@bmi/components";
+import { MediaData } from "@bmi/components";
 import { Data as ImageData, renderImage } from "../components/Image";
 import { Data as VideoData, renderVideo } from "../components/Video";
 import { Asset } from "../components/types/pim";
-import { getYoutubeId } from "./product-details-transforms";
+import { getDefaultPreviewImage } from "./product-details-transforms";
 
 export const getJpgImage = (ogImageUrl: string) => {
   if (
@@ -62,7 +62,7 @@ export const transformMediaSrc = (
           media: renderVideo(item),
           thumbnail:
             item.previewMedia?.image?.thumbnail?.src ||
-            getDefaultPreviewImage(item.youtubeId),
+            getDefaultPreviewImage(item.videoUrl),
           caption: item.subtitle || undefined,
           altText: item.previewMedia?.altText || undefined,
           isVideo: true
@@ -70,7 +70,7 @@ export const transformMediaSrc = (
       case "PimVideo":
         return {
           media: renderVideo(item),
-          thumbnail: getDefaultPreviewImage(item.youtubeId),
+          thumbnail: getDefaultPreviewImage(item.videoUrl),
           caption: item.title,
           isVideo: true
         };
@@ -91,7 +91,7 @@ export const filterAndTransformVideoData = (
         subtitle: null,
         previewMedia: null,
         videoRatio: null,
-        youtubeId: video.url ? getYoutubeId(video.url) : ""
+        videoUrl: video.url ? video.url : ""
       };
     });
 };

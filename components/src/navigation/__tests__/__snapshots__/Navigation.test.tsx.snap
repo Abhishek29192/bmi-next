@@ -259,6 +259,7 @@ exports[`Navigation component expands submenu 1`] = `
                             <button
                               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                               tabindex="0"
+                              target="_blank"
                               type="button"
                             >
                               <span
@@ -278,6 +279,7 @@ exports[`Navigation component expands submenu 1`] = `
                       <button
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                         tabindex="0"
+                        target="_blank"
                         type="button"
                       >
                         <span
@@ -297,6 +299,7 @@ exports[`Navigation component expands submenu 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -327,6 +330,7 @@ exports[`Navigation component expands submenu 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -345,6 +349,7 @@ exports[`Navigation component expands submenu 1`] = `
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
+                  target="_blank"
                   to="/documentation/"
                   type="button"
                 >
@@ -364,6 +369,7 @@ exports[`Navigation component expands submenu 1`] = `
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
             role="button"
             tabindex="0"
+            target="_blank"
             to="/clay/"
             type="button"
           >
@@ -694,6 +700,7 @@ exports[`Navigation component expands submenu 2`] = `
                             <button
                               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                               tabindex="0"
+                              target="_blank"
                               type="button"
                             >
                               <span
@@ -713,6 +720,7 @@ exports[`Navigation component expands submenu 2`] = `
                       <button
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                         tabindex="0"
+                        target="_blank"
                         type="button"
                       >
                         <span
@@ -732,6 +740,7 @@ exports[`Navigation component expands submenu 2`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -762,6 +771,7 @@ exports[`Navigation component expands submenu 2`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -780,6 +790,7 @@ exports[`Navigation component expands submenu 2`] = `
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
+                  target="_blank"
                   to="/documentation/"
                   type="button"
                 >
@@ -799,6 +810,7 @@ exports[`Navigation component expands submenu 2`] = `
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
             role="button"
             tabindex="0"
+            target="_blank"
             to="/clay/"
             type="button"
           >
@@ -1129,6 +1141,7 @@ exports[`Navigation component expands submenu 3`] = `
                             <button
                               class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                               tabindex="0"
+                              target="_blank"
                               type="button"
                             >
                               <span
@@ -1148,6 +1161,7 @@ exports[`Navigation component expands submenu 3`] = `
                       <button
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                         tabindex="0"
+                        target="_blank"
                         type="button"
                       >
                         <span
@@ -1167,6 +1181,7 @@ exports[`Navigation component expands submenu 3`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -1197,6 +1212,7 @@ exports[`Navigation component expands submenu 3`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -1215,6 +1231,7 @@ exports[`Navigation component expands submenu 3`] = `
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
+                  target="_blank"
                   to="/documentation/"
                   type="button"
                 >
@@ -1234,6 +1251,7 @@ exports[`Navigation component expands submenu 3`] = `
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-21 MuiButton-text buttonStyles-text-22 NavigationListButton MuiButton-textPrimary"
             role="button"
             tabindex="0"
+            target="_blank"
             to="/clay/"
             type="button"
           >
@@ -1564,6 +1582,7 @@ exports[`Navigation component renders correctly 1`] = `
                             <button
                               class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                               tabindex="0"
+                              target="_blank"
                               type="button"
                             >
                               <span
@@ -1583,6 +1602,7 @@ exports[`Navigation component renders correctly 1`] = `
                       <button
                         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                         tabindex="0"
+                        target="_blank"
                         type="button"
                       >
                         <span
@@ -1602,6 +1622,7 @@ exports[`Navigation component renders correctly 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -1632,6 +1653,7 @@ exports[`Navigation component renders correctly 1`] = `
                 <button
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   tabindex="0"
+                  target="_blank"
                   type="button"
                 >
                   <span
@@ -1650,6 +1672,7 @@ exports[`Navigation component renders correctly 1`] = `
                   class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
                   role="button"
                   tabindex="0"
+                  target="_blank"
                   to="/documentation/"
                   type="button"
                 >
@@ -1672,6 +1695,7 @@ exports[`Navigation component renders correctly 1`] = `
             class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 NavigationListButton MuiButton-textPrimary"
             role="button"
             tabindex="0"
+            target="_blank"
             to="/clay/"
             type="button"
           >

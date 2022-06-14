@@ -1,18 +1,33 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
+  "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "eslint.enable": true,
   "editor.rulers": [80],
+  "eslint.enable": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "jest.jestCommandLine": "yarn jest --config=jest.config.js --maxWorkers=2",
+  "shellformat.useEditorConfig": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "files.eol": "\n"
+  },
   "spellright.language": ["en"],
   "spellright.documentTypes": ["latex", "plaintext"],
   "[sql]": {
     "editor.formatOnSave": false
   },
-  "jest.jestCommandLine": "yarn jest --config=jest.config.js --maxWorkers=4"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "yaml.customTags": ["!reference sequence"],
+  "yaml.schemas": {
+    "https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json": "*.gitlab-ci.yml"
+  }
 }

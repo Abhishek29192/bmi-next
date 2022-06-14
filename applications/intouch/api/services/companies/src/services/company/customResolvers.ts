@@ -87,6 +87,7 @@ export const guaranteeResolver = async ({
     headingValidity
     headingExpiry
     footer
+    mailSubject
     mailBody
     filenamePrefix
     titleLine1

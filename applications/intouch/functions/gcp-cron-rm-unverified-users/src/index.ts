@@ -1,4 +1,5 @@
-import { parseJSON, differenceInSeconds } from "date-fns";
+import { differenceInSeconds } from "date-fns";
+import logger from "@bmi-digital/functions-logger";
 import Auth0Client from "./Auth0Client";
 
 type User = {
@@ -10,10 +11,7 @@ type User = {
 
 type GetUnverifiedUser = { users: User[]; total: number; length: number };
 
-export const removeAuth0UnverifiedAccount = async (
-  postEvent?: any,
-  context?: any
-) => {
+export const removeAuth0UnverifiedAccount = async () => {
   const { AUTH0_INVITATION_LIFETIME } = process.env;
   const auth0 = new Auth0Client();
   try {
@@ -33,44 +31,55 @@ export const removeAuth0UnverifiedAccount = async (
     }
 
     if (userList.length) {
-      console.log(`succesfully fetched uninvited ${userList.length} users`);
+      logger.info({
+        message: `succesfully fetched unverified ${userList.length} users`
+      });
       const invitationExpiredUser = userList.filter(
         ({ created_at: createdAt }) => {
           return (
-            differenceInSeconds(new Date(), parseJSON(createdAt)) >
-            parseInt(AUTH0_INVITATION_LIFETIME)
+            differenceInSeconds(new Date(), new Date(createdAt)) >
+            parseInt(AUTH0_INVITATION_LIFETIME!)
           );
         }
       );
+      logger.info({
+        message: `${
+          invitationExpiredUser.length
+        } users are created over ${AUTH0_INVITATION_LIFETIME!}s`
+      });
 
-      if (invitationExpiredUser.length) {
-        const pending = invitationExpiredUser.map(
-          ({ user_id: userId, email }) => ({ id: userId, email })
-        );
-        while (pending.length) {
-          //limit call to 2 to avoid too many request
-          const userInfo = pending.splice(0, 2);
-          await Promise.allSettled([
-            ...userInfo.map((user) => auth0.deleteUser(user))
-          ]).then((value) => {
-            value.map(({ status }: any, id) => {
-              if (status === "fulfilled") {
-                console.log(
-                  `successfully deleted user with email ${
-                    userInfo[`${id}`].email
-                  } auth0 Id: ${userInfo[`${id}`].id}`
-                );
-              }
-            });
+      while (invitationExpiredUser.length) {
+        //limit call to 2 to avoid too many request
+        const userInfo = invitationExpiredUser.splice(0, 2);
+        await Promise.allSettled([
+          ...userInfo.map(({ email }) => auth0.deleteUser({ email }))
+        ]).then((value) => {
+          value.map((result, id) => {
+            if (result.status === "fulfilled") {
+              logger.info({
+                message: `successfully deleted user with email ${
+                  userInfo[id as unknown as number].email
+                } auth0 Id: ${userInfo[id as unknown as number].user_id}`
+              });
+            }
+            if (result.status === "rejected") {
+              logger.error({
+                message: `failed to delete user with email ${
+                  userInfo[id as unknown as number].email
+                } auth0 Id: ${userInfo[id as unknown as number].user_id}, ${
+                  result.reason
+                }`
+              });
+            }
           });
-          // delay call to avoid rate limit
-          await new Promise((resolve) =>
-            setTimeout(() => resolve("delayed"), 1000)
-          );
-        }
+        });
+        // delay call to avoid rate limit
+        await new Promise((resolve) =>
+          setTimeout(() => resolve("delayed"), 1000)
+        );
       }
     }
   } catch (error) {
-    console.log(error);
+    logger.error(error as any);
   }
 };

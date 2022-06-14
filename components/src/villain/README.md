@@ -36,7 +36,12 @@ import greyRoofHouseImage from "./__tests__/images/grey-roof-house.png";
   <Villain
     title="With video"
     media={
-      <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+      <YoutubeVideo
+        videoUrl="https://youtu.be/A-RfHC91Ewc"
+        previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+        embedWidth={1280}
+        embedHeight={720}
+      />
     }
     cta={<Button>Call to action</Button>}
     isReversed
@@ -77,7 +82,12 @@ import YoutubeVideo from "../youtube-video";
 <Villain
   title="H2 Heading"
   media={
-    <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+    <YoutubeVideo
+      videoUrl="https://youtu.be/A-RfHC91Ewc"
+      previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+      embedWidth={1280}
+      embedHeight={720}
+    />
   }
   cta={<Button>Call to action</Button>}
   isFullWidth

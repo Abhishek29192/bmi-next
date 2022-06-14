@@ -2,6 +2,7 @@ import { MailService } from "@sendgrid/mail";
 import { AttachmentData } from "@sendgrid/helpers/classes/attachment";
 import { Guarantee } from "@bmi/intouch-api-types";
 import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import logger from "@bmi-digital/functions-logger";
 import { replaceData } from "./util/mail";
 import GuaranteePdfGenerator from "./GuaranteePdf";
 import StorageClient from "./storage-client";
@@ -24,6 +25,10 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       Buffer.from(postEvent.data, "base64").toString()
     );
 
+    logger.info({
+      message: `successfully fetched guarantee with ID: ${payload.id}`
+    });
+
     const {
       id,
       project,
@@ -42,7 +47,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
 
     const file = await guaranteePdf.create();
 
-    //Write file to google cloud
+    // Write file to google cloud
     const fileName = `guarantee/${id}/${file.name}`;
     await storageClient.uploadFile(
       GCP_PRIVATE_BUCKET_NAME,
@@ -50,7 +55,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       file.data
     );
 
-    //Update guarantee
+    // Update guarantee
     await gatewayClient.updateGuaranteeFileStorage(id, fileName);
 
     const attachment: AttachmentData = {
@@ -66,7 +71,7 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       replyTo,
       to: project.buildingOwnerMail,
       from: MAIL_FROM,
-      subject: `${template.titleLine1} ${template.titleLine2}`,
+      subject: template.mailSubject,
       text: replaceData(template.mailBody, {
         product,
         system
@@ -74,7 +79,6 @@ export const sendGuaranteePdf = async (postEvent: any) => {
       attachments: [attachment]
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log("Error pdf create:", error);
+    logger.error(error as any);
   }
 };

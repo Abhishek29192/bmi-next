@@ -1,6 +1,6 @@
 import { Address } from "@bmi/intouch-api-types";
 
-export const stringifyAddress = (address: Partial<Address>) =>
+export const stringifyAddress = (address: Partial<Address>, separator = " ") =>
   [
     address?.firstLine,
     address?.secondLine,
@@ -9,4 +9,14 @@ export const stringifyAddress = (address: Partial<Address>) =>
     address?.country
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(separator);
+
+export const copyOfSiteAddress = (address: Partial<Address>) => {
+  const { id, __typename, ...parentSiteAddress } = address;
+  return parentSiteAddress;
+};
+
+export const copyOfBuildingOwnerAddress = (address: Partial<Address>) => {
+  const { id, __typename, ...parentBuildingOwnerAddress } = address;
+  return parentBuildingOwnerAddress;
+};

@@ -5,13 +5,14 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode=production",
-    "check:ts": "tsc",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
+    "compile": "tsc",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist/dist/function --target=handleRequest --port=9056",
-    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=handleRequest --port=9056"
+    "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=handleRequest --port=9056",
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
-    "@bmi-digital/functions-logger": "1.1.1",
+    "@bmi-digital/functions-logger": "1.2.0",
     "@bmi/pim-api": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/pubsub": "^2.5.0",

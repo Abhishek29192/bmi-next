@@ -48,6 +48,7 @@ const documentsQuery = `{
             contentType
           }
         }
+        noIndex
         assetType {
           name
           code
@@ -163,16 +164,20 @@ const queries = [
         ...allPIMDocument.map((item) => ({
           titleAndSize: `${item.title}_${item.fileSize}`,
           isLinkDocument: isLinkDocument(item),
+          noIndex: false,
           ...item
         })),
         ...allContentfulDocument.edges
-          .filter((node) => !node.noIndex && node.asset)
-          .map(({ node }) => ({
-            titleAndSize: `${node.title}_${node.asset.file.details.size}`,
-            realFileName: `${node.asset.file.fileName}`,
-            isLinkDocument: isLinkDocument(node),
-            ...node
-          }))
+          .filter(({ node }) => node.asset)
+          .map(({ node }) => {
+            return {
+              titleAndSize: `${node.title}_${node.asset.file.details.size}`,
+              realFileName: `${node.asset.file.fileName}`,
+              isLinkDocument: isLinkDocument(node),
+              noIndex: node.noIndex || false,
+              ...node
+            };
+          })
       ];
     },
     indexName: process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS

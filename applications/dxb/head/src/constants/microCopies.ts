@@ -151,6 +151,8 @@ export const microCopy = {
   SEARCH_PAGE_HELPER_TEXT: "searchPage.helperText",
   SEARCH_PAGE_PLACEHOLDER: "searchPage.placeholder",
 
+  SEARCH_BACK_TO_RESULTS: "searchPage.backToResults",
+
   CONFIRMATION_MESSAGE_TITLE: "confirmationMessage.title",
   CONFIRMATION_MESSAGE_BODY: "confirmationMessage.body",
 

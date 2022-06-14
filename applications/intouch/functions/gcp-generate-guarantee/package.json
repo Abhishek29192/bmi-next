@@ -5,28 +5,28 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "tsc -b .",
-    "dev": "tsc && functions-framework --source=dist --target=sendGuaranteePdf --port=3001",
+    "build": "webpack --mode=production",
+    "compile": "tsc",
+    "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist --target=sendGuaranteePdf --port=3004",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "manual-test": "js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json  ts-node test.ts",
-    "start": "node dist/index.js",
-    "deploy": "yarn build && gcloud functions deploy gcp-generate-guarantee --runtime=nodejs14 --entry-point=sendGuaranteePdf --source=.  --region=europe-west2 --trigger-topic=guarantee-pdf"
+    "test": "jest --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
+    "@bmi-digital/functions-logger": "1.2.0",
     "@bmi-digital/react-pdf-maker": "1.1.1",
+    "@google-cloud/secret-manager": "^3.7.1",
+    "@google-cloud/storage": "^5.7.0",
     "@sendgrid/mail": "^7.4.2",
+    "google-auth-library": "^7.5.0",
     "pdf-lib": "^1.16.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "@google-cloud/secret-manager": "^3.7.1",
-    "@google-cloud/storage": "^5.7.0",
-    "google-auth-library": "^7.5.0"
+    "react-is": "^16.13.1"
   },
   "devDependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
     "@types/node": "^14.14.20",
-    "concurrently": "^6.0.0",
-    "dotenv": "^8.2.0",
-    "nodemon": "latest",
-    "@google-cloud/functions-framework": "^3.0.0"
+    "concurrently": "^6.0.0"
   }
 }

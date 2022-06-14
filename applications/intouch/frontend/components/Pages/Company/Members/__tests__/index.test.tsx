@@ -7,6 +7,7 @@ import {
   waitFor,
   waitForElementToBeRemoved
 } from "@testing-library/react";
+import { Certification } from "@bmi/intouch-api-types";
 import I18nProvider from "../../../../../lib/tests/fixtures/i18n";
 import Apollo from "../../../../../lib/tests/fixtures/apollo";
 import CompanyMembersPage, { PageProps } from "..";
@@ -22,17 +23,34 @@ import { TeamMembersQuery } from "../../../../../graphql/generated/operations";
 const inviteMock = jest.fn();
 const mockDelete = jest.fn();
 const mockCompanyMembers = jest.fn();
+const mockCompanyMembersOnCompleted = jest.fn();
 const mockRoleAccountMutation = jest.fn();
-
+const mockRoleAccountOnCompleted = jest.fn();
+const mockRoleAccountOnError = jest.fn();
+const mockDeleteOnCompleted = jest.fn();
+const mockDeleteOnError = jest.fn();
+const mockRoterPush = jest.fn();
 jest.mock("../../../../../graphql/generated/hooks", () => ({
   __esModule: true,
   useInviteMutation: () => [inviteMock, { loading: false }],
-  useDeleteCompanyMemberMutation: () => [mockDelete, { loading: false }],
-  useTeamMembersLazyQuery: () => [mockCompanyMembers, { loading: false }],
-  useUpdateRoleAccountMutation: () => [
-    mockRoleAccountMutation,
-    { loading: false }
-  ],
+  useDeleteCompanyMemberMutation: ({ onCompleted, onError }) => {
+    mockDeleteOnCompleted.mockImplementation(() => onCompleted());
+    mockDeleteOnError.mockImplementation(() => onError());
+    return [mockDelete, { loading: false }];
+  },
+  useTeamMembersLazyQuery: ({ onCompleted }) => {
+    mockCompanyMembersOnCompleted.mockImplementation((data) =>
+      onCompleted(data)
+    );
+    return [mockCompanyMembers, { loading: false }];
+  },
+  useUpdateRoleAccountMutation: ({ onCompleted, onError }) => {
+    mockRoleAccountOnCompleted.mockImplementation((params) =>
+      onCompleted(params)
+    );
+    mockRoleAccountOnError.mockImplementation((message) => onError(message));
+    return [mockRoleAccountMutation, { loading: false }];
+  },
   useGetTeamsReportLazyQuery: () => [jest.fn(), { loading: false }]
 }));
 
@@ -47,6 +65,15 @@ jest.mock("../../../../../context/AccountContext", () => ({
 jest.mock("../../../../../context/MarketContext", () => ({
   useMarketContext: jest.fn()
 }));
+jest.mock("next/router", () => {
+  const original = jest.requireActual("next/router");
+  return {
+    ...original,
+    useRouter: () => ({
+      push: (...params) => mockRoterPush(params)
+    })
+  };
+});
 
 describe("Company Members Page", () => {
   let wrapper;
@@ -62,7 +89,7 @@ describe("Company Members Page", () => {
 
   beforeEach(() => {
     (useAccountContext as jest.Mock).mockImplementation(() => ({
-      account: { role: "COMPANY_ADMIN" }
+      account: { id: 1, role: "COMPANY_ADMIN" }
     }));
 
     wrapper = render(
@@ -150,6 +177,139 @@ describe("Company Members Page", () => {
 
         screen.getByText("sidePanel.search.noResult");
       });
+
+      it("companyName could not be found", () => {
+        const data = {
+          accounts: {
+            totalCount: 4,
+            nodes: [
+              ...adminTeamMembers,
+              {
+                ...installerTeamMembers[0],
+                companyMembers: {
+                  nodes: []
+                }
+              }
+            ]
+          }
+        };
+        wrapper.rerender(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        fireEvent.change(wrapper.container.querySelector("#filter"), {
+          target: { value: installerTeamMembers[0].email }
+        });
+        expect(wrapper.queryAllByTestId("list-item")).toHaveLength(1);
+      });
+
+      it("run search correctly if a record does not contain firstname, lastName or email", () => {
+        const installer = { ...installerTeamMembers[0] };
+        delete installer.firstName;
+        delete installer.lastName;
+        delete installer.email;
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [...adminTeamMembers, installer]
+          }
+        };
+        wrapper.unmount();
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        fireEvent.change(wrapper.container.querySelector("#filter"), {
+          target: { value: "alex" }
+        });
+        expect(wrapper.queryAllByTestId("list-item")).toHaveLength(1);
+      });
+
+      describe("search as powerful user", () => {
+        beforeEach(() => {
+          (useAccountContext as jest.Mock).mockImplementation(() => ({
+            account: { role: "SUPER_ADMIN" }
+          }));
+          (useMarketContext as jest.Mock).mockImplementation(() => ({
+            market: { id: 1 }
+          }));
+        });
+
+        it("show comapny name on search result", () => {
+          const data = {
+            accounts: {
+              totalCount: 4,
+              nodes: [
+                ...adminTeamMembers,
+                {
+                  ...installerTeamMembers[0],
+                  companyMembers: {
+                    nodes: [
+                      {
+                        id: 2,
+                        company: {
+                          name: "A Company name"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          };
+          wrapper.rerender(
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          );
+          fireEvent.change(wrapper.container.querySelector("#filter"), {
+            target: { value: "A Company name" }
+          });
+          expect(wrapper.queryAllByTestId("list-item")).toHaveLength(1);
+          expect(
+            within(wrapper.queryAllByTestId("list-item")[0]).getByText(
+              "A Company name"
+            )
+          ).toBeTruthy();
+        });
+
+        it("result does not have company name", () => {
+          const data = {
+            accounts: {
+              totalCount: 4,
+              nodes: [
+                ...adminTeamMembers,
+                {
+                  ...installerTeamMembers[0],
+                  companyMembers: {
+                    nodes: []
+                  }
+                }
+              ]
+            }
+          };
+          wrapper.rerender(
+            <Apollo>
+              <I18nProvider>
+                <CompanyMembersPage {...{ data }} />
+              </I18nProvider>
+            </Apollo>
+          );
+          fireEvent.change(wrapper.container.querySelector("#filter"), {
+            target: { value: installerTeamMembers[0].email }
+          });
+          expect(wrapper.queryAllByTestId("list-item")).toHaveLength(1);
+          expect(wrapper.getByTestId("company-name")).toHaveTextContent("");
+        });
+      });
     });
   });
 
@@ -178,6 +338,41 @@ describe("Company Members Page", () => {
       expect(table).toHaveTextContent("Certification name 22");
     });
 
+    it("does not show certificationClass when cert is active", () => {
+      const expiryDate = `${new Date().getFullYear() + 1}-1-1`;
+      const data = {
+        accounts: {
+          totalCount: 1,
+          nodes: [
+            {
+              ...installerTeamMembers[0],
+              certificationsByDoceboUserId: {
+                nodes: [
+                  {
+                    expiryDate,
+                    name: "Certification name 2",
+                    technology: "FLAT"
+                  } as Certification
+                ]
+              }
+            }
+          ]
+        }
+      };
+      wrapper.unmount();
+      wrapper = render(
+        <Apollo>
+          <I18nProvider>
+            <CompanyMembersPage {...{ data }} />
+          </I18nProvider>
+        </Apollo>
+      );
+
+      expect(screen.getByTestId("certification-0-undefined")).not.toHaveClass(
+        "expired"
+      );
+    });
+
     describe("Member invitation", () => {
       it("should invite new users", () => {
         fireEvent.click(screen.getByTestId("footer-btn"));
@@ -195,6 +390,15 @@ describe("Company Members Page", () => {
             }
           }
         });
+      });
+
+      it("should close dialog when click on cancel", () => {
+        fireEvent.click(screen.getByTestId("footer-btn"));
+        fireEvent.click(screen.getByTestId("invite-dialog-cancel"));
+
+        expect(
+          screen.queryByTestId("members-invitation-dialog")
+        ).not.toBeInTheDocument();
       });
     });
 
@@ -266,11 +470,20 @@ describe("Company Members Page", () => {
           screen.getByText("user_card.confirm")
         );
 
-        mockDelete.mockResolvedValueOnce(() => ({}));
+        mockDelete.mockReturnValueOnce(mockDeleteOnCompleted());
 
         expect(mockDelete).toHaveBeenCalledWith({
           variables: { id: 2 }
         });
+        expect(mockCompanyMembers).toHaveBeenCalledTimes(1);
+        expect(mockCompanyMembers.mock.calls[0]).toEqual([
+          {
+            variables: {
+              expiryDate: expect.any(Date)
+            }
+          }
+        ]);
+        expect(screen.getByText("memberRemoved")).toBeTruthy();
       });
 
       it("the remove button shouldn't be visible if installer", async () => {
@@ -290,6 +503,32 @@ describe("Company Members Page", () => {
           within(wrapper.container).queryByTestId("remove-member")
         ).toBeNull();
       });
+
+      it("show error message when fail to remove member", async () => {
+        render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage data={installerData} />
+            </I18nProvider>
+          </Apollo>
+        );
+
+        fireEvent.click(screen.getByTestId("remove-member"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        await waitForElementToBeRemoved(() =>
+          screen.getByText("user_card.confirm")
+        );
+
+        mockDelete.mockRejectedValueOnce(mockDeleteOnError());
+        expect(mockDelete).toHaveBeenCalledWith({
+          variables: { id: 2 }
+        });
+        expect(screen.getByText("genericError")).toBeTruthy();
+      });
     });
 
     describe("Change user role", () => {
@@ -302,6 +541,7 @@ describe("Company Members Page", () => {
 
         expect(mockRoleAccountMutation).toHaveBeenCalledTimes(0);
       });
+
       it("Should change the role to installer", async () => {
         fireEvent.click(screen.getByTestId("change-role"));
 
@@ -309,11 +549,19 @@ describe("Company Members Page", () => {
 
         fireEvent.click(screen.getByText("user_card.confirm"));
 
-        mockRoleAccountMutation.mockResolvedValueOnce(() => ({}));
+        mockRoleAccountMutation.mockResolvedValueOnce(
+          mockRoleAccountOnCompleted({ updateAccount: { account: { id: 1 } } })
+        );
 
         expect(mockRoleAccountMutation).toHaveBeenCalledWith({
           variables: { input: { id: 1, patch: { role: "INSTALLER" } } }
         });
+        expect(mockCompanyMembers).toHaveBeenCalledTimes(1);
+        expect(mockRoterPush).toHaveBeenCalledWith([
+          `/profile`,
+          undefined,
+          { shallow: false }
+        ]);
       });
 
       it("Should change the role to copmany admin", async () => {
@@ -357,7 +605,42 @@ describe("Company Members Page", () => {
           within(wrapper.container).queryByTestId("change-role")
         ).toBeNull();
       });
+
+      it("fail to update account with last_company_admin error", async () => {
+        fireEvent.click(screen.getByTestId("change-role"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        mockRoleAccountMutation.mockRejectedValueOnce(
+          mockRoleAccountOnError({ message: "last_company_admin" })
+        );
+
+        expect(mockRoleAccountMutation).toHaveBeenCalledWith({
+          variables: { input: { id: 1, patch: { role: "INSTALLER" } } }
+        });
+        expect(screen.getByText("lastCompanyAdminError")).toBeTruthy();
+      });
+
+      it("fail to update account with generic error", async () => {
+        fireEvent.click(screen.getByTestId("change-role"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        mockRoleAccountMutation.mockRejectedValueOnce(
+          mockRoleAccountOnError({ message: "generic" })
+        );
+
+        expect(mockRoleAccountMutation).toHaveBeenCalledWith({
+          variables: { input: { id: 1, patch: { role: "INSTALLER" } } }
+        });
+        expect(screen.getByText("genericError")).toBeTruthy();
+      });
     });
+
     describe("User Action", () => {
       it("the user action button shouldn't be visible if installer", async () => {
         (useAccountContext as jest.Mock).mockImplementation(() => ({
@@ -411,6 +694,121 @@ describe("Company Members Page", () => {
 
         expect(
           within(wrapper.container).getByTestId("change-user-status")
+        ).toBeTruthy();
+      });
+
+      it("execute user action button", async () => {
+        (useAccountContext as jest.Mock).mockImplementation(() => ({
+          account: { role: "SUPER_ADMIN" }
+        }));
+        (useMarketContext as jest.Mock).mockImplementation(() => ({
+          market: { id: 1 }
+        }));
+        mockRoleAccountMutation.mockImplementationOnce(() =>
+          mockRoleAccountOnError({ message: "generic??" })
+        );
+
+        wrapper.unmount();
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...props} />
+            </I18nProvider>
+          </Apollo>
+        );
+        const button = within(wrapper.container).getByTestId(
+          "change-user-status"
+        );
+
+        fireEvent.click(button);
+        expect(mockRoleAccountMutation).toHaveBeenCalledTimes(1);
+        expect(mockRoleAccountOnError).toHaveBeenCalledTimes(1);
+        await waitFor(() => screen.getByTestId("CloseButton"));
+        const closeButton = screen.getByTestId("CloseButton");
+
+        fireEvent.click(closeButton);
+        expect(screen.queryByTestId("CloseButton")).not.toBeInTheDocument();
+      });
+    });
+
+    describe("Refresh Member List and Details", () => {
+      it("should update current member details if its details being opened", async () => {
+        (useAccountContext as jest.Mock).mockImplementationOnce(() => ({
+          account: adminTeamMembers
+        }));
+        mockRoleAccountMutation.mockImplementationOnce(() =>
+          mockRoleAccountOnCompleted({
+            updateAccount: {
+              account: { ...adminTeamMembers[0] }
+            }
+          })
+        );
+        mockCompanyMembers.mockImplementationOnce(() =>
+          mockCompanyMembersOnCompleted({
+            accounts: {
+              nodes: [
+                {
+                  ...adminTeamMembers[0],
+                  role: "INSTALLER"
+                }
+              ]
+            }
+          })
+        );
+        fireEvent.click(screen.getByTestId("change-role"));
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        expect(screen.getAllByText("roles.INSTALLER").length).toBe(2);
+      });
+
+      it("should update currentMember to first returned if newCurrent is not exist in the returned list after update", async () => {
+        const data = {
+          accounts: {
+            totalCount: 1,
+            nodes: [...installerTeamMembers, adminTeamMembers[0]]
+          }
+        };
+        (useAccountContext as jest.Mock).mockImplementationOnce(() => ({
+          account: installerTeamMembers
+        }));
+        mockDelete.mockImplementationOnce(() => mockDeleteOnCompleted());
+        mockCompanyMembers.mockImplementationOnce(async () => {
+          await Promise.resolve((r) => setTimeout(r, 1000));
+          mockCompanyMembersOnCompleted({
+            accounts: {
+              nodes: [adminTeamMembers[0]]
+            }
+          });
+        });
+        wrapper.unmount();
+        wrapper = render(
+          <Apollo>
+            <I18nProvider>
+              <CompanyMembersPage {...{ data }} />
+            </I18nProvider>
+          </Apollo>
+        );
+        const { getByText } = within(screen.getByTestId("user-card"));
+        expect(
+          getByText(
+            `${installerTeamMembers[0].firstName} ${installerTeamMembers[0].lastName}`
+          )
+        ).toBeTruthy();
+        fireEvent.click(screen.getByTestId("remove-member"));
+
+        await waitFor(() => screen.getByText("user_card.confirm"));
+
+        fireEvent.click(screen.getByText("user_card.confirm"));
+
+        await waitFor(() => screen.getByText("memberRemoved"));
+
+        const newUserCard = within(screen.getByTestId("user-card"));
+        expect(
+          newUserCard.getByText(
+            `${adminTeamMembers[0].firstName} ${adminTeamMembers[0].lastName}`
+          )
         ).toBeTruthy();
       });
     });

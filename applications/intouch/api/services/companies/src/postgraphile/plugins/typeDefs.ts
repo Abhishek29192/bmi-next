@@ -104,6 +104,7 @@ export default gql`
     headingValidity: String
     headingExpiry: String
     footer: String
+    mailSubject: String
     mailBody: String
     filenamePrefix: String
     titleLine1: String
@@ -313,5 +314,6 @@ export default gql`
     ): ImportAccountsCompaniesFromCSVResult
     sendReminderToIncompleteCompanyProfile: String
     restartGuarantee(projectId: Int!): String
+    archiveProjects: String
   }
 `;

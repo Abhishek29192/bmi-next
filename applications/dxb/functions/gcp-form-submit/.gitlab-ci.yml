@@ -1,17 +1,17 @@
 test_gcp-form-submit:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-form-submit"
     ROOT_DIR: "applications/functions/gcp-form-submit"
 
 build_gcp-form-submit:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-form-submit"
     ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
 
 package_gcp-form-submit:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-form-submit
   dependencies:
@@ -21,7 +21,7 @@ package_gcp-form-submit:
     ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
 
 deploy_gcp-form-submit:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-form-submit
   dependencies:

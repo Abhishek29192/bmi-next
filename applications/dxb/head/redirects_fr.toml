@@ -15,6 +15,131 @@
  to="/fr/documentation/"
  force=true
 
+[[redirects]]
+ from="/fr/professionnels/vous-avez-un-projet-en-genie-civil/dossiers-thematiques-genie-civil/ponts-routes/"
+ to="/fr/inspirations/dossiers-thematiques/ponts-routes/"
+ force=true
+
+[[redirects]]
+ from="/fr/professionnels/vous-avez-un-projet-en-genie-civil/dossiers-thematiques-genie-civil/ponts-rails/"
+ to="/fr/inspirations/dossiers-thematiques/ponts-rails/"
+ force=true
+
+[[redirects]]
+ from="/fr/professionnels/solutions-bim/biblioth%C3%A8que-d%27objets-bim-toit-en-pente/"
+ to="/fr/professionnels/solutions-bim/bibliotheque-des-objets-bim-toit-en-pente/"
+ force=true
+
+[[redirects]]
+ from="/fr/professionnels/solutions-bim/biblioth%C3%A8que-d%27objets-bim-toit-en-pente/"
+ to="/fr/professionnels/solutions-bim/bibliotheque-des-objets-bim-toit-plat/"
+ force=true
+
+[[redirects]]
+ from="/fr/p/tuile-vieille-france/rouge-vieilli/3255653122/"
+ to="/fr/p/tuile-vieille-france-rouge-vieilli-b%C3%A9ton-3255653122"
+ force=true
+
+[[redirects]]
+ from="/fr/p/tuile-metallique-robuste-plus-acier-galvanisé-902238553"
+ to="/fr/tuiles-metalliques/robuste-plus/"
+ force=true
+
+[[redirects]]
+ from="/fr/p/tuile-metallique-robuste-plus-acier-galvanis%C3%A9-902238553"
+ to="/fr/tuiles-metalliques/robuste-plus/"
+ force=true
+
+[[redirects]]
+ from="/fr/p/bande-monarplan-gris-gris-399297907"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/inspirations/partagez-avec-nous-vos-plus-beaux-chantiers/"
+ to="/fr/inspirations/r%C3%A9alisations-de-nos-clients/partagez-avec-nous-vos-plus-beaux-chantiers/"
+ force=true
+
+[[redirects]]
+ from="/fr/documentation/notices-de-pose/"
+ to="/fr/documentation/notices-de-pose-et-ccp/"
+ force=true
+
+[[redirects]]
+ from="/fr/documentation/certifications/?msclkid=459ef4afb70411eca762bd90dcbdd5d1"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/fr/documentation/certifications/"
+ to="/fr/documentation/toutes-nos-certifications/"
+ force=true
+
+[[redirects]]
+ from="/fr/composants/noue/"
+ to="/fr/composants/noues/"
+ force=true
+
+[[redirects]]
+ from="/fr/composants/eclairement/"
+ to="/fr/composants/eclairements/"
+ force=true
+
+[[redirects]]
+ from="/fr/composants/closoirs/traitement-egouts-et-noues/"
+ to="/fr/composants/closoirs/traitement-egouts/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/wp-content/uploads/2014/08/fp-renov-sol-bitume.pdf"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/wp-content/uploads/2014/08/fp-monartop-ultra.pdf"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/wp-content/uploads/2014/08/fp-monartop-3d.pdf"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/wp-content/uploads/2012/04/part_verticalm.pdf"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/produits/etancheite-et-fondations/travaux-accessoires-de-couverture-raccords-detancheite/fiche-monaralu/"
+ to="/fr/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/produits/bardeaux/couverture/fiche-monartop-ultra-2/"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/produits-home/travaux-accessoires-de-couverture-raccords-detancheite/"
+ to="/fr/accessoires/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/monarfondation-membrane"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/monarflex-pose-installation/la-pose-decrans-de-sous-toiture-est-elle-obligatoire/"
+ to="/fr/bmi-siplast/"
+ force=true
+
+[[redirects]]
+ from="/fr/bmi-siplast/home_mobile.php"
+ to="/fr/"
+ force=true
+
 
 
 

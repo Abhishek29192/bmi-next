@@ -1,8 +1,8 @@
 import { Filter } from "@bmi/components";
 import {
+  Aggregations,
   compileESQueryPLP,
   disableFiltersFromAggregationsPLP,
-  Aggregations,
   xferFilterValue
 } from "../elasticSearchPLP";
 import { ProductFilter } from "../product-filters";
@@ -15,7 +15,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
   it("should disable based on aggregations", () => {
     const filters: Filter[] = [
       {
-        name: "colour",
+        name: "COLOUR",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -24,7 +24,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
       }
     ];
     const aggregations: Aggregations = {
-      colour: {
+      COLOUR: {
         buckets: [
           { key: "colour1", doc_count: 1 },
           { key: "bar", doc_count: 1 }
@@ -38,7 +38,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
     );
     const result = [
       {
-        name: "colour",
+        name: "COLOUR",
         label: "Colour",
         options: [
           { label: "1", value: "colour1", isDisabled: false },
@@ -62,7 +62,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
         }
       ];
       const aggregations: Aggregations = {
-        colour: {
+        COLOUR: {
           buckets: [
             { key: "colour1", doc_count: 1 },
             { key: "bar", doc_count: 1 }
@@ -114,10 +114,10 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofAttributes.minimumpitch": {
+              "ROOFATTRIBUTES.MINIMUMPITCH": {
                 terms: {
                   size: "300",
-                  field: "roofAttributes.minimumpitch.code.keyword",
+                  field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                   include: undefined
                 }
               },
@@ -168,24 +168,24 @@ describe("compileESQueryPLP function", () => {
               { "name.keyword": "asc" }
             ],
             aggs: {
-              "roofAttributes.minimumpitch": {
+              "ROOFATTRIBUTES.MINIMUMPITCH": {
                 terms: {
                   size: "300",
-                  field: "roofAttributes.minimumpitch.code.keyword",
+                  field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                   include: undefined
                 }
               },
-              "measurements.length": {
+              "MEASUREMENTS.LENGTH": {
                 terms: {
                   size: "300",
-                  field: "measurements.length.code.keyword",
+                  field: "MEASUREMENTS.LENGTH.code.keyword",
                   include: undefined
                 }
               },
-              "generalInformation.materials": {
+              "GENERALINFORMATION.MATERIALS": {
                 terms: {
                   size: "300",
-                  field: "generalInformation.materials.code.keyword",
+                  field: "GENERALINFORMATION.MATERIALS.code.keyword",
                   include: undefined
                 }
               },
@@ -382,7 +382,7 @@ describe("compileESQueryPLP function", () => {
             bool: {
               must: [
                 { terms: { "allCategories.code.keyword": ["Category"] } },
-                { terms: { "filter-1.code.keyword": ["option-1"] } }
+                { terms: { "FILTER-1.code.keyword": ["option-1"] } }
               ]
             }
           },
@@ -437,8 +437,8 @@ describe("compileESQueryPLP function", () => {
             bool: {
               must: [
                 { terms: { "allCategories.code.keyword": ["Category"] } },
-                { terms: { "filter-1.code.keyword": ["option-1"] } },
-                { terms: { "filter-2.code.keyword": ["fl2-option-1"] } }
+                { terms: { "FILTER-1.code.keyword": ["option-1"] } },
+                { terms: { "FILTER-2.code.keyword": ["fl2-option-1"] } }
               ]
             }
           },
@@ -552,17 +552,17 @@ describe("compileESQueryPLP function", () => {
           { "name.keyword": "asc" }
         ],
         aggs: {
-          Category: {
+          CATEGORY: {
             terms: {
               size: "300",
-              field: "Category.code.keyword",
+              field: "CATEGORY.code.keyword",
               include: undefined
             }
           },
-          Brand: {
+          BRAND: {
             terms: {
               size: "300",
-              field: "Brand.code.keyword",
+              field: "BRAND.code.keyword",
               include: undefined
             }
           },
@@ -603,17 +603,17 @@ describe("compileESQueryPLP function", () => {
           { "name.keyword": "asc" }
         ],
         aggs: {
-          Category: {
+          CATEGORY: {
             terms: {
               size: "300",
-              field: "Category.code.keyword",
+              field: "CATEGORY.code.keyword",
               include: ["PRODUCTS_NO"]
             }
           },
-          Brand: {
+          BRAND: {
             terms: {
               size: "300",
-              field: "Brand.code.keyword",
+              field: "BRAND.code.keyword",
               include: undefined
             }
           },
@@ -658,10 +658,10 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofAttributes.minimumpitch": {
+            "ROOFATTRIBUTES.MINIMUMPITCH": {
               terms: {
                 size: "300",
-                field: "roofAttributes.minimumpitch.code.keyword",
+                field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                 include: undefined
               }
             },
@@ -709,24 +709,24 @@ describe("compileESQueryPLP function", () => {
             { "name.keyword": "asc" }
           ],
           aggs: {
-            "roofAttributes.minimumpitch": {
+            "ROOFATTRIBUTES.MINIMUMPITCH": {
               terms: {
                 size: "300",
-                field: "roofAttributes.minimumpitch.code.keyword",
+                field: "ROOFATTRIBUTES.MINIMUMPITCH.code.keyword",
                 include: undefined
               }
             },
-            "measurements.length": {
+            "MEASUREMENTS.LENGTH": {
               terms: {
                 size: "300",
-                field: "measurements.length.code.keyword",
+                field: "MEASUREMENTS.LENGTH.code.keyword",
                 include: undefined
               }
             },
-            "generalInformation.materials": {
+            "GENERALINFORMATION.MATERIALS": {
               terms: {
                 size: "300",
-                field: "generalInformation.materials.code.keyword",
+                field: "GENERALINFORMATION.MATERIALS.code.keyword",
                 include: undefined
               }
             },

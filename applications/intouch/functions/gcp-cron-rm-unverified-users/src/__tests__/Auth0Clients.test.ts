@@ -1,127 +1,81 @@
-import { userFactory } from "../lib/utils/tests/user";
 import Auth0Client from "../Auth0Client";
+import { userFactory } from "./utils/user";
 
 process.env.GCP_SECRET_PROJECT = "GCP_SECRET_PROJECT";
 process.env.AUTH0_MANAGEMENT_CLIENT_ID = "AUTH0_MANAGEMENT_CLIENT_ID";
 process.env.AUTH0_ISSUER_BASE_URL = "AUTH0_ISSUER_BASE_URL";
 process.env.AUTH0_AUDIENCE = "AUTH0_AUDIENCE";
+process.env.FRONTEND_BASE_URL = "FRONTEND_BASE_URL";
 
 const getSecretMock = jest.fn().mockReturnValue("gcp secret acquired");
-jest.mock("../utils/secrets", () => ({
-  getSecret: (...params) => getSecretMock(params)
+jest.mock("@bmi-digital/functions-secret-client", () => ({
+  getSecret: (params: any) => getSecretMock(params)
 }));
-const axiosMock = jest.fn();
-jest.mock("axios", () => {
-  const original = jest.requireActual("axios");
+const fetchMock = jest.fn();
+jest.mock("node-fetch", () => {
+  const original = jest.requireActual("node-fetch");
   return {
     ...original,
     __esModule: true,
-    default: (config) => axiosMock(config)
+    default: (...config: any) => fetchMock(...config)
   };
 });
-const consoleLogSpy = jest.fn();
-global.console = {
-  ...console,
-  log: (...params) => consoleLogSpy(...params)
-};
+const loggerError = jest.fn();
+const loggerInfo = jest.fn();
+jest.mock("@bmi-digital/functions-logger", () => ({
+  error: (message: any) => loggerError(message),
+  info: (message: any) => loggerInfo(message)
+}));
 
 describe("Auth0Client", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
+  const fetchResponseFactory = (response: any, config = {}) => ({
+    ok: true,
+    json: () => response,
+    ...config
+  });
+
   describe("private function", () => {
     describe("errorLogger", () => {
-      it("log response data message", async () => {
-        const auth0 = new Auth0Client();
-        const errorMessage = "data message: fetch token error";
-        const erorrObject = new Error("default message");
-        (erorrObject as any).response = {
-          data: { message: errorMessage, error: "data error" }
-        };
-
-        axiosMock.mockRejectedValueOnce(erorrObject);
-
-        await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
-
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          1,
-          "Error fetching token:",
-          errorMessage
-        );
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          2,
-          "Error fetching unverified users:",
-          errorMessage
-        );
-      });
-
-      it("log response data error when no data message", async () => {
-        const auth0 = new Auth0Client();
-        const errorMessage = "data error: fetch token error";
-        const erorrObject = new Error("default message");
-        (erorrObject as any).response = { data: { error: errorMessage } };
-
-        axiosMock.mockRejectedValueOnce(erorrObject);
-
-        await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
-
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          1,
-          "Error fetching token:",
-          errorMessage
-        );
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          2,
-          "Error fetching unverified users:",
-          errorMessage
-        );
-      });
-
       it("log error message", async () => {
         const auth0 = new Auth0Client();
-        const errorMessage = "data error: fetch token error";
-        const erorrObject = new Error("default message");
-        (erorrObject as any).message = errorMessage;
+        const errorMessage = "data message: fetch token error";
+        const erorrObject = new Error(errorMessage);
 
-        axiosMock.mockRejectedValueOnce(erorrObject);
+        fetchMock.mockRejectedValueOnce(erorrObject);
 
         await expect(auth0.getUnverifiedUser()).rejects.toThrow(erorrObject);
 
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          1,
-          "Error fetching token:",
-          errorMessage
-        );
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          2,
-          "Error fetching unverified users:",
-          errorMessage
-        );
+        expect(loggerError).toHaveBeenNthCalledWith(1, {
+          message: `Error fetching token: ${errorMessage}`
+        });
+        expect(loggerError).toHaveBeenNthCalledWith(2, {
+          message: `Error fetching unverified users: ${errorMessage}`
+        });
       });
 
-      it("log whole error when contains no response and messsgae", async () => {
+      it("log error when on message", async () => {
         const auth0 = new Auth0Client();
-        const errorMessage = "plain error: fetch token error";
+        const errorMessage = "data message: fetch token error";
 
-        axiosMock.mockRejectedValueOnce(errorMessage);
+        fetchMock.mockRejectedValueOnce(errorMessage);
 
+        // await expect(auth0.getUnverifiedUser()).rejects.toThrow(errorMessage);
         try {
           await auth0.getUnverifiedUser();
         } catch (error) {
           expect(error).toBe(errorMessage);
         }
 
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          1,
-          "Error fetching token:",
-          errorMessage
-        );
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          2,
-          "Error fetching unverified users:",
-          errorMessage
-        );
+        expect(loggerError).toHaveBeenNthCalledWith(1, {
+          message: `Error fetching token: ${errorMessage}`
+        });
+        expect(loggerError).toHaveBeenNthCalledWith(2, {
+          message: `Error fetching unverified users: ${errorMessage}`
+        });
       });
     });
 
@@ -131,48 +85,91 @@ describe("Auth0Client", () => {
 
       it("normal case", async () => {
         const auth0 = new Auth0Client();
-        axiosMock
-          .mockReturnValueOnce({ data: { access_token: token } })
-          .mockReturnValueOnce({ data: users });
+        fetchMock
+          .mockReturnValueOnce(fetchResponseFactory({ access_token: token }))
+          .mockReturnValueOnce(fetchResponseFactory({ users }));
 
         await auth0.getUnverifiedUser();
 
-        expect(getSecretMock).toHaveBeenCalledWith([
-          process.env.GCP_SECRET_PROJECT,
-          "AUTH0_API_CLIENT_SECRET"
-        ]);
-        expect(axiosMock).toHaveBeenNthCalledWith(1, {
-          method: "POST",
-          url: `${process.env.AUTH0_ISSUER_BASE_URL}/oauth/token`,
-          headers: {
-            "content-type": "application/json"
-          },
-          data: {
-            grant_type: "client_credentials",
-            client_id: process.env.AUTH0_MANAGEMENT_CLIENT_ID,
-            client_secret: "gcp secret acquired",
-            audience: process.env.AUTH0_AUDIENCE
+        expect(getSecretMock).toHaveBeenCalledWith("AUTH0_API_CLIENT_SECRET");
+        expect(fetchMock).toHaveBeenNthCalledWith(
+          1,
+          `${process.env.AUTH0_ISSUER_BASE_URL}/oauth/token`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify({
+              grant_type: "client_credentials",
+              client_id: process.env.AUTH0_MANAGEMENT_CLIENT_ID,
+              client_secret: "gcp secret acquired",
+              audience: process.env.AUTH0_AUDIENCE
+            })
           }
-        });
+        );
       });
 
       it("throw error when fails to fetch token", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "fetch token error";
-        axiosMock.mockRejectedValueOnce(new Error(errorMessage));
+        const errorObject = new Error(errorMessage);
+        (errorObject as any).statusText = errorMessage;
+        fetchMock.mockRejectedValueOnce(errorObject);
 
         await expect(auth0.getUnverifiedUser()).rejects.toThrow(errorMessage);
 
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          1,
-          "Error fetching token:",
-          errorMessage
-        );
-        expect(consoleLogSpy).toHaveBeenNthCalledWith(
-          2,
-          "Error fetching unverified users:",
-          errorMessage
-        );
+        expect(loggerError).toHaveBeenNthCalledWith(1, {
+          message: `Error fetching token: ${errorMessage}`
+        });
+        expect(loggerError).toHaveBeenNthCalledWith(2, {
+          message: `Error fetching unverified users: ${errorMessage}`
+        });
+      });
+
+      it("throw error when getManagementToken api return not ok", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "fetch token error";
+        const errorObject = new Error(errorMessage);
+        const fetchResponse = fetchResponseFactory(errorObject, {
+          ok: false,
+          statusText: errorMessage
+        });
+        fetchMock.mockReturnValueOnce(fetchResponse);
+
+        try {
+          await auth0.getUnverifiedUser();
+        } catch (error) {
+          expect((error as any).message).toBe(errorMessage);
+        }
+        expect(loggerError).toHaveBeenNthCalledWith(1, {
+          message: `Error fetching token: ${errorMessage}`
+        });
+        expect(loggerError).toHaveBeenNthCalledWith(2, {
+          message: `Error fetching unverified users: ${errorMessage}`
+        });
+      });
+
+      it("throw error when getUnverified api return not ok", async () => {
+        const auth0 = new Auth0Client();
+        const errorMessage = "fetch token error";
+        const errorObject = new Error(errorMessage);
+        const fetchResponse = fetchResponseFactory(errorObject, {
+          ok: false,
+          statusText: errorMessage
+        });
+        fetchMock
+          .mockReturnValueOnce(fetchResponseFactory({ access_token: token }))
+          .mockReturnValueOnce(fetchResponse);
+
+        try {
+          await auth0.getUnverifiedUser();
+        } catch (error) {
+          expect((error as any).message).toBe(errorMessage);
+        }
+        expect(loggerError).toHaveBeenNthCalledWith(1, {
+          message: `Error fetching unverified users: ${errorMessage}`
+        });
       });
     });
   });
@@ -189,27 +186,31 @@ describe("Auth0Client", () => {
 
       it("normal case", async () => {
         const auth0 = new Auth0Client();
-        axiosMock
-          .mockReturnValueOnce({ data: { access_token: token } })
-          .mockReturnValueOnce({ data: users });
+        const userResponse = { users, length: 1, total: 1 };
+        fetchMock
+          .mockReturnValueOnce(fetchResponseFactory({ access_token: token }))
+          .mockReturnValueOnce(fetchResponseFactory(userResponse));
 
         const result = await auth0.getUnverifiedUser();
 
-        expect(result).toBe(users);
-        expect(axiosMock).toHaveBeenNthCalledWith(2, {
-          method: "GET",
-          url: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false&per_page=100&include_totals=true&page=0`,
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`
+        expect(result).toBe(userResponse);
+        expect(fetchMock).toHaveBeenNthCalledWith(
+          2,
+          `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/users?q=email_verified:false&per_page=100&include_totals=true&page=0`,
+          {
+            method: "GET",
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${token}`
+            }
           }
-        });
+        );
       });
 
       it("throw error when fails to fetch token", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "failed to fetch token";
-        axiosMock.mockRejectedValueOnce(new Error(errorMessage));
+        fetchMock.mockRejectedValueOnce(new Error(errorMessage));
 
         await expect(auth0.getUnverifiedUser()).rejects.toThrowError(
           errorMessage
@@ -229,8 +230,8 @@ describe("Auth0Client", () => {
       it("throw error when fails to fetch user", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "failed to fetch user";
-        axiosMock
-          .mockReturnValueOnce({ data: { access_token: token } })
+        fetchMock
+          .mockReturnValueOnce(fetchResponseFactory({ access_token: token }))
           .mockRejectedValueOnce(new Error(errorMessage));
 
         await expect(auth0.getUnverifiedUser()).rejects.toThrowError(
@@ -245,79 +246,74 @@ describe("Auth0Client", () => {
     });
 
     describe("deleteUser", () => {
-      const token = "managementToken";
       const email = "test@test.com";
 
       it("normal case", async () => {
         const auth0 = new Auth0Client();
-        axiosMock.mockReturnValueOnce({ data: { access_token: token } });
-
-        await auth0.deleteUser({ id: "1", email });
-
-        expect(axiosMock).toHaveBeenNthCalledWith(2, {
-          method: "DELETE",
-          url: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/users/1`,
-          headers: {
-            "content-type": "application/json",
-            Authorization: `Bearer ${token}`
-          }
-        });
-      });
-
-      it("throw error when fails to fetch token", async () => {
-        const auth0 = new Auth0Client();
-        const errorMessage = "failed to fetch token";
-        axiosMock.mockRejectedValueOnce(new Error(errorMessage));
-
-        await expect(auth0.deleteUser({ id: "1", email })).rejects.toThrowError(
-          errorMessage
+        fetchMock.mockReturnValueOnce(
+          fetchResponseFactory(fetchResponseFactory({}))
         );
-        expect(errorLoggerSpy).toHaveBeenNthCalledWith(
+
+        await auth0.deleteUser({ email });
+
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(fetchMock).toHaveBeenNthCalledWith(
           1,
-          new Error(errorMessage),
-          "Error fetching token:"
-        );
-        expect(errorLoggerSpy).toHaveBeenNthCalledWith(
-          2,
-          new Error(errorMessage),
-          `Error deleting user with ${email}:`
+          `${process.env.FRONTEND_BASE_URL}/api/confirm-signup`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+              email
+            })
+          }
         );
       });
 
       it("throw error when fails to delete user", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "failed to delete user";
-        axiosMock
-          .mockReturnValueOnce({ data: { access_token: token } })
-          .mockRejectedValueOnce(new Error(errorMessage));
+        const errorObject = new Error(errorMessage);
+        const response = fetchResponseFactory(errorObject, {
+          ok: false,
+          statusText: errorMessage
+        });
+        fetchMock.mockReturnValueOnce(response);
 
-        await expect(auth0.deleteUser({ id: "1", email })).rejects.toThrowError(
-          errorMessage
-        );
+        try {
+          await auth0.deleteUser({ email });
+        } catch (error) {
+          expect((error as any).message).toBe(errorMessage);
+        }
         expect(errorLoggerSpy).toHaveBeenNthCalledWith(
           1,
-          new Error(errorMessage),
+          errorObject,
           `Error deleting user with ${email}:`
         );
       });
 
-      it("request token when error status is 429", async () => {
+      it("call api again when error status is 429", async () => {
         const auth0 = new Auth0Client();
         const errorMessage = "failed to delete user";
         const errorObject = new Error(errorMessage);
         const resultMessage = "result";
-        (errorObject as any).data = { statusCode: 429 };
-        axiosMock
-          .mockReturnValueOnce({ data: { access_token: token } })
-          .mockRejectedValueOnce(errorObject)
-          .mockReturnValueOnce({ data: { access_token: token } })
-          .mockReturnValueOnce(resultMessage);
+        const resultObject = fetchResponseFactory(resultMessage);
+        fetchMock
+          .mockReturnValueOnce(
+            fetchResponseFactory(errorObject, {
+              ok: false,
+              status: 429
+            })
+          )
+          .mockReturnValueOnce(resultObject);
 
-        const result = await auth0.deleteUser({ id: "1", email });
+        const result = await auth0.deleteUser({ email });
 
-        expect(axiosMock).toHaveBeenCalledTimes(4);
+        expect(fetchMock).toHaveBeenCalledTimes(2);
         expect(errorLoggerSpy).toHaveBeenCalledTimes(0);
-        expect(result).toBe(resultMessage);
+        expect(result).toBe(resultObject);
       });
     });
   });

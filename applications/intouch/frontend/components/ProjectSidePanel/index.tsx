@@ -218,10 +218,10 @@ export const ProjectSidePanel = ({
           ? [name, company?.name]
           : [
               name,
-              siteAddress.town,
+              siteAddress?.town,
               // NOTE: Postcode can match with or without space
-              siteAddress.postcode,
-              siteAddress.postcode.replace(/\s*/g, "")
+              siteAddress?.postcode,
+              siteAddress?.postcode.replace(/\s*/g, "")
             ];
 
         const query = searchQuery.toLowerCase().trim();
@@ -269,7 +269,7 @@ export const ProjectSidePanel = ({
           company
         }) => {
           const filterResultBody = isPowerfulUser
-            ? company.name
+            ? company?.name
             : [siteAddress?.town, siteAddress?.postcode]
                 .filter(Boolean)
                 .join(", ");

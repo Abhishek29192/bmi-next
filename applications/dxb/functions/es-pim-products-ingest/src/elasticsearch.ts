@@ -18,7 +18,7 @@ const getChunks = <T extends ProductVariant | EsSystem>(
     const chunk = items.slice(i, i + chunkSize);
     chunksArray.push(chunk);
   }
-
+  logger.info({ message: `Chunk array: ${chunksArray}` });
   return chunksArray;
 };
 
@@ -51,6 +51,7 @@ const getBulkOperations = <T extends ProductVariant | EsSystem>(
   action?: Operation
 ): (DeleteOperation | (IndexOperation | T))[] => {
   if (!action) {
+    logger.info({ message: "No action passed to getBulkOperations function" });
     return documents.reduce(
       (allOps, item) => [
         ...allOps,
@@ -62,6 +63,7 @@ const getBulkOperations = <T extends ProductVariant | EsSystem>(
     );
   }
   // action is only sent in as "delete"
+  logger.info({ message: "Deleted action" });
   return documents.reduce<DeleteOperation[]>(
     (allOps, item) => [...allOps, ...getDeleteOperation(indexName, item)],
     []
@@ -74,11 +76,13 @@ export const updateElasticSearch = async (
   action?: Operation
 ) => {
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
+  logger.info({ message: `update ElasticSearch by index: ${index}` });
   const client = await getEsClient();
   // Chunk the request to avoid exceeding ES bulk request limits.
   const bulkOperations = getChunks(esProducts).map((c) =>
     getBulkOperations(index, c, action)
   );
+  logger.info({ message: `all bulkOperations: ${bulkOperations}` });
   // Having to do this synchronously as we are seeing errors and ES dropping
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
@@ -104,6 +108,9 @@ export const updateElasticSearch = async (
           });
         });
     }
+    logger.info({
+      message: `bulk response body items: ${response.body.items}`
+    });
   }
 
   const {

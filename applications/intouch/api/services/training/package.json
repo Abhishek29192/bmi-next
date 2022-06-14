@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsc --build tsconfig.prod.json ",
     "dev": "tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema:watch\"",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "migrate-db": "node scripts/init-db.js",
     "prettify-schema": "prettier --write schema.graphql",
     "prettify-schema:watch": "onchange \"schema.graphql\" -- yarn prettify-schema",

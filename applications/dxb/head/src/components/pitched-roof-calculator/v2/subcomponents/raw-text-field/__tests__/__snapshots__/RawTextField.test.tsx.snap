@@ -1,0 +1,520 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RawTextField component does not display rightAdornment if provided and error is true 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField RawTextField--error"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+    >
+      <input
+        aria-invalid="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root Error"
+          focusable="false"
+          style="color: red;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 11c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z"
+          />
+        </svg>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-19"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-3"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if error is true 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField RawTextField--error"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+    >
+      <input
+        aria-invalid="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root Error"
+          focusable="false"
+          style="color: red;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 11c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z"
+          />
+        </svg>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-7"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if errorText is populated 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField RawTextField--error"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-error Mui-error"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root Mui-error Mui-error MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+    >
+      <input
+        aria-describedby="email-helper-text"
+        aria-invalid="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root Error"
+          focusable="false"
+          style="color: red;"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 11c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1 4h-2v-2h2v2z"
+          />
+        </svg>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-37 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-39"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained Mui-error"
+      id="email-helper-text"
+    >
+      errorText
+    </p>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if helperText is populated 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+    >
+      <input
+        aria-describedby="email-helper-text"
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-35"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+    <p
+      class="MuiFormHelperText-root MuiFormHelperText-contained"
+      id="email-helper-text"
+    >
+      helperText
+    </p>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if isRequired is true 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-29 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-31"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if isTextArea is true 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+    >
+      <textarea
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        rows="1"
+        style="height: 0px; overflow: hidden;"
+      />
+      <textarea
+        aria-hidden="true"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+        readonly=""
+        style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); width: 100%;"
+        tabindex="-1"
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-25 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-27"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if variant === hybrid 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiFilledInput-input"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly if variant === outlined 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-23"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly with leftAdornment 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField RawTextField--leftAdornment"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+      >
+        <div>
+          leftAdornment
+        </div>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-11"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`RawTextField component renders correctly with rightAdornment 1`] = `
+<div>
+  <div
+    class="MuiFormControl-root MuiTextField-root RawTextField"
+  >
+    <label
+      class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+      data-shrink="false"
+      for="email"
+      id="email-label"
+    >
+      Email address
+    </label>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+        id="email"
+        placeholder="e.g. lorem@ipsum.com"
+        type="text"
+        value=""
+      />
+      <div
+        class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+      >
+        <div>
+          rightAdornment
+        </div>
+      </div>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="PrivateNotchedOutline-legendLabelled-15"
+        >
+          <span>
+            Email address
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;

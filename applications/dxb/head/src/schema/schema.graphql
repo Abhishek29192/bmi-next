@@ -992,6 +992,18 @@ type ContentfulResources implements Node {
 
   welcomeDialogBrands: [String]
 
+  "Internet Explorer dialog: Title of dialog"
+  ieDialogTitle: String
+
+  "Internet Explorer dialog: Body of dialog"
+  ieDialogBody: ContentfulRichText
+
+  "Internet Explorer dialog: Label of the CTA"
+  ieDialogActionLabel: String
+
+  "Internet Explorer dialog: Link of the CTA"
+  ieDialogActionLink: String
+
   "Set PIM documents' names pattern."
   productDocumentNameMap: String
 
@@ -1023,6 +1035,9 @@ type ContentfulResources implements Node {
   "The specification notes with on system details page"
   sdpSpecificationNotesCta: ContentfulSpecificationNotesWithCta
     @link(from: "sdpSpecificationNotesCta___NODE")
+
+  "The document display format"
+  documentDisplayFormat: String
 }
 
 """

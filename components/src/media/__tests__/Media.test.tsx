@@ -50,9 +50,10 @@ describe("Media component", () => {
       <Media size="contain">
         <YoutubeVideo
           label="label"
-          videoId="youtubeId"
+          videoUrl="https://youtu.be/youtubeId"
           embedHeight={500}
           embedWidth={900}
+          previewImageSource="https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
         />
       </Media>
     );

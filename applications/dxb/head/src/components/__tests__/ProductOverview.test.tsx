@@ -33,10 +33,11 @@ describe("ProductOverview component", () => {
         media: (
           <YoutubeVideo
             label="test video"
-            videoId="A-RfHC91Ewc"
+            videoUrl="https://youtu.be/A-RfHC91Ewc"
             embedHeight={720}
             embedWidth={1280}
             layout="dialog"
+            previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
           />
         ),
         thumbnail: "",

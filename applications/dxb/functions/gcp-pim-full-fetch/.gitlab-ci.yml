@@ -1,17 +1,17 @@
 test_gcp-pim-full-fetch:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
 
 build_gcp-pim-full-fetch:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
 
 package_gcp-pim-full-fetch:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-pim-full-fetch
   dependencies:
@@ -31,7 +31,7 @@ package_gcp-pim-full-fetch:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-full-fetch:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-pim-full-fetch
   dependencies:

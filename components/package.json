@@ -6,10 +6,10 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "check:ts": "tsc",
-    "test": "jest",
-    "coverage:jest": "jest --coverage --reporters=default --reporters=jest-junit",
-    "build": "yarn run check:ts -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
+    "compile": "tsc",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "husky install",
     "workbench": "styleguidist server",
     "workbench:build": "styleguidist build"

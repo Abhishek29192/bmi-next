@@ -1,11 +1,11 @@
 build_gcp-firestore-writer:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
 
 package_gcp-firestore-writer:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-firestore-writer
   dependencies:
@@ -25,7 +25,7 @@ package_gcp-firestore-writer:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-firestore-writer:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-firestore-writer
   dependencies:

@@ -12,7 +12,6 @@ import ContainerDialog from "../container-dialog/ContainerDialog";
 import Icon, { iconMap } from "../icon";
 import Typography from "../typography/Typography";
 import { YoutubeContext } from "../media-gallery";
-import { getDefaultPreviewImageSource, getVideoURL } from "./utils";
 import styles from "./YoutubeVideo.module.scss";
 
 export type GTM = {
@@ -25,8 +24,8 @@ export type GTM = {
 export type Props = {
   label: React.ReactNode;
   subtitle?: React.ReactNode;
-  videoId: string;
-  previewImageSource?: string | React.ReactNode;
+  videoUrl: string;
+  previewImageSource: string | React.ReactNode;
   className?: string;
   embedHeight: number;
   embedWidth: number;
@@ -88,9 +87,9 @@ const getValidPreviewImage = (
 };
 
 const DialogVideo = ({
-  videoId,
+  videoUrl,
   className,
-  previewImageSource = getDefaultPreviewImageSource(videoId),
+  previewImageSource,
   label,
   embedWidth,
   embedHeight,
@@ -155,7 +154,7 @@ const DialogVideo = ({
         <div ref={!!ref && ref} style={{ height: "100%", display: "flex" }}>
           {dimensions.width && (
             <ReactPlayer
-              url={getVideoURL(videoId)}
+              url={videoUrl}
               width="100%"
               height={isMobileDevice || isXLDevice ? "" : calculatedHeight}
               controls
@@ -175,7 +174,7 @@ const DialogVideo = ({
 };
 
 const InPlaceVideo = ({
-  videoId,
+  videoUrl,
   className,
   embedHeight,
   embedWidth
@@ -194,7 +193,7 @@ const InPlaceVideo = ({
     >
       {dimensions.width && (
         <ReactPlayer
-          url={getVideoURL(videoId)}
+          url={videoUrl}
           width={width}
           height={height}
           style={playerStyle}
@@ -215,9 +214,9 @@ const InPlaceVideo = ({
 };
 
 const InlineVideo = ({
-  videoId,
+  videoUrl,
   className,
-  previewImageSource = getDefaultPreviewImageSource(videoId),
+  previewImageSource,
   subtitle,
   label,
   embedWidth = 16,
@@ -259,7 +258,7 @@ const InlineVideo = ({
       </div>
       <Fade in={isPlaying} timeout={250} style={{ transitionDelay: "500ms" }}>
         <ReactPlayer
-          url={getVideoURL(videoId)}
+          url={videoUrl}
           controls
           playing={isPlaying}
           config={{

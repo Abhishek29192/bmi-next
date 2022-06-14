@@ -23,28 +23,29 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
 import { graphql, navigate } from "gatsby";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
-import { getPathWithCountryCode } from "../utils/path";
-import { useConfig } from "../contexts/ConfigProvider";
-import withGTM, { GTM } from "../utils/google-tag-manager";
-import { isValidEmail } from "../utils/emailUtils";
 import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
+import { isValidEmail } from "../utils/emailUtils";
+import withGTM, { GTM } from "../utils/google-tag-manager";
+import { isRichText } from "../utils/isRichText";
+import { getPathWithCountryCode } from "../utils/path";
+import ControlledCheckboxGroup from "./CheckboxGroup";
 import HiddenInput from "./HiddenInput";
-import styles from "./styles/FormSection.module.scss";
-import { useSiteContext } from "./Site";
-import RichText, { RichTextData } from "./RichText";
 import { Data as LinkData, isExternalUrl } from "./Link";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
-
-type SourceType = "Contentful" | "HubSpot";
+import RichText, { RichTextData } from "./RichText";
+import { useSiteContext } from "./Site";
+import styles from "./styles/FormSection.module.scss";
+import { SourceType } from "./types/FormSectionTypes";
 
 export type Data = {
   __typename: "ContentfulFormSection";
-  title: string;
+  title?: string;
   showTitle: boolean | null;
-  description?: RichTextData | null;
+  description?: React.ReactNode | RichTextData | null;
   recipients: string;
   inputs: InputType[] | null;
   submitText: string | null;
@@ -79,7 +80,7 @@ export type InputType = {
   token?: string;
 };
 
-const convertMarkdownLinksToAnchorLinks = (
+export const convertMarkdownLinksToAnchorLinks = (
   source?: string
 ): React.ReactNode => {
   if (!source) {
@@ -251,6 +252,18 @@ const Input = ({
           )}
         />
       );
+    case "checkboxGroup":
+      return (
+        <ControlledCheckboxGroup
+          name={name}
+          options={options}
+          groupName={convertMarkdownLinksToAnchorLinks(label)}
+          isRequired={required}
+          fieldIsRequiredError={getMicroCopy(
+            microCopy.UPLOAD_FIELD_IS_REQUIRED
+          )}
+        />
+      );
     case "hubspot-text":
       return (
         <>
@@ -318,16 +331,18 @@ const HubspotForm = ({
   title,
   description,
   onSuccess,
-  additionalValues
+  additionalValues,
+  className
 }: {
   id: string;
   hubSpotFormGuid: string;
   backgroundColor: "pearl" | "white";
   showTitle: boolean;
-  title: string;
-  description: RichTextData;
+  title?: string;
+  description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
   additionalValues: FormSectionProps["additionalValues"];
+  className?: string;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -343,11 +358,12 @@ const HubspotForm = ({
     target: `#${hubSpotFormID}`
   });
 
-  typeof window !== "undefined" &&
-    window.addEventListener("message", (event: MessageEvent) => {
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
       if (
         event.data.type === "hsFormCallback" &&
-        event.data.eventName === "onFormReady"
+        event.data.eventName === "onFormReady" &&
+        additionalValues
       ) {
         if (additionalValues["samples"]) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
@@ -370,14 +386,31 @@ const HubspotForm = ({
       }
 
       if (event.data.eventName === "onFormSubmitted") {
-        onSuccess && onSuccess();
+        onSuccess?.();
       }
-    });
+    };
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("message", handleMessage);
+    }
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, [additionalValues, onSuccess]);
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} className={className}>
       {showTitle && <Section.Title>{title}</Section.Title>}
-      {description && <RichText document={description} />}
+      {description && (
+        <>
+          {isRichText(description) ? (
+            <RichText document={description} />
+          ) : (
+            description
+          )}
+        </>
+      )}
       <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
     </Section>
   );
@@ -392,6 +425,7 @@ type FormSectionProps = {
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
+  className?: string;
 };
 
 const FormSection = ({
@@ -412,7 +446,8 @@ const FormSection = ({
   additionalValues,
   isSubmitDisabled,
   gtmOverride,
-  onSuccess
+  onSuccess,
+  className
 }: FormSectionProps) => {
   const {
     config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
@@ -453,6 +488,16 @@ const FormSection = ({
     try {
       const source = axios.CancelToken.source();
       const token = await executeRecaptcha();
+      // remove all blank values
+      const valuesToSent = Object.entries(values).reduce(
+        (acc, [key, value]) => {
+          if (Array.isArray(value) && !value.length) {
+            return acc;
+          }
+          return value ? ((acc[`${key}`] = value), acc) : acc;
+        },
+        {}
+      );
 
       await axios.post(
         gcpFormSubmitEndpoint,
@@ -460,7 +505,7 @@ const FormSection = ({
           locale: node_locale,
           title,
           recipients: conditionalRecipients,
-          values,
+          values: valuesToSent,
           emailSubjectFormat
         },
         {
@@ -578,7 +623,7 @@ const FormSection = ({
     }
   };
 
-  if (source === "HubSpot" && hubSpotFormGuid) {
+  if (source === SourceType.HubSpot && hubSpotFormGuid) {
     return (
       <HubspotProvider async={false} addToHead={true}>
         <HubspotForm
@@ -590,19 +635,28 @@ const FormSection = ({
           description={description}
           onSuccess={onSuccess}
           additionalValues={additionalValues}
+          className={className}
         />
       </HubspotProvider>
     );
   }
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} className={className}>
       {showTitle && <Section.Title>{title}</Section.Title>}
-      {description && <RichText document={description} />}
+      {description && (
+        <>
+          {isRichText(description) ? (
+            <RichText document={description} />
+          ) : (
+            description
+          )}
+        </>
+      )}
       {inputs ? (
         <Form
           onSubmit={
             // TODO Handle/remove after HubSpot mapping has been decided
-            source === "HubSpot" && hubSpotFormGuid
+            source === SourceType.HubSpot && hubSpotFormGuid
               ? handleHubSpotSubmit
               : handleSubmit
           }

@@ -1,8 +1,8 @@
 /* eslint-disable security/detect-object-injection */
 import {
-  Product,
-  Classification,
   Category,
+  Classification,
+  Product,
   TwoOneIgnoreDictionary
 } from "@bmi/pim-types";
 
@@ -214,7 +214,8 @@ export const indexFeatures = (
         });
         return {
           ...featureAsProp,
-          [featureCode]: nameAndCodeValues
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
+          [featureCode.toUpperCase()]: nameAndCodeValues
         };
       },
       {}

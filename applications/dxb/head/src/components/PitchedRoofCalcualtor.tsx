@@ -1,16 +1,26 @@
-import React, { createContext, Suspense, useEffect, useState } from "react";
 import { MicroCopy } from "@bmi/components";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import axios from "axios";
+import React, {
+  createContext,
+  Suspense,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
-import { Data } from "./pitched-roof-calculator/types";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
 import sampleData from "./pitched-roof-calculator/samples/data.json";
+import { Data } from "./pitched-roof-calculator/types";
 
-const PitchedRoofCalculator = React.lazy(
-  () => import("./pitched-roof-calculator/PitchedRoofCalculator")
+const PitchedRoofCalculatorV1 = React.lazy(
+  () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
+);
+
+const PitchedRoofCalculatorV2 = React.lazy(
+  () => import("./pitched-roof-calculator/v2/PitchedRoofCalculator")
 );
 
 type Parameters = {
@@ -41,9 +51,11 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     config: {
       webtoolsCalculatorDataUrl,
       isWebToolsCalculatorEnabled,
-      webToolsCalculatorApsisEndpoint
+      webToolsCalculatorApsisEndpoint,
+      isV2WebToolsCalculatorEnabled
     }
   } = useConfig();
+  const showCalculatorDialog = !(typeof window === "undefined") && isOpen;
 
   const open: Context["open"] = (params = {}) => {
     setParameters(params);
@@ -85,6 +97,36 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     return () => cancelTokenSouce.cancel();
   }, [isOpen]);
 
+  const calculatorProps = useMemo(
+    () => ({
+      isOpen,
+      onClose: () => setIsOpen(false),
+      isDebugging: parameters?.isDebugging,
+      data,
+      onAnalyticsEvent: pushToDataLayer,
+      sendEmailAddress: async (values) => {
+        if (!webToolsCalculatorApsisEndpoint) {
+          devLog("WebTools calculator api endpoint for apsis isn't configured");
+          return;
+        }
+
+        const token = await executeRecaptcha();
+
+        try {
+          await axios.post(webToolsCalculatorApsisEndpoint, values, {
+            headers: {
+              "X-Recaptcha-Token": token
+            }
+          });
+        } catch (error) {
+          // Ignore errors if any as this isn't necessary for PDF download to proceed
+          devLog("WebTools calculator api endpoint error", error);
+        }
+      }
+    }),
+    [data, isOpen, parameters]
+  );
+
   return (
     <CalculatorContext.Provider
       value={{
@@ -98,40 +140,17 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     >
       {children}
       {/* Currently, this is only available for Norway */}
-      <MicroCopy.Provider values={no}>
-        {!(typeof window === "undefined") && isOpen ? (
+      {!showCalculatorDialog ? null : isV2WebToolsCalculatorEnabled ? (
+        <Suspense fallback={<div>Loading...</div>}>
+          <PitchedRoofCalculatorV2 {...calculatorProps} />
+        </Suspense>
+      ) : (
+        <MicroCopy.Provider values={no}>
           <Suspense fallback={<div>Loading...</div>}>
-            <PitchedRoofCalculator
-              isOpen={isOpen}
-              onClose={() => setIsOpen(false)}
-              isDebugging={parameters?.isDebugging}
-              data={data}
-              onAnalyticsEvent={pushToDataLayer}
-              sendEmailAddress={async (values) => {
-                if (!webToolsCalculatorApsisEndpoint) {
-                  devLog(
-                    "WebTools calculator api endpoint for apsis isn't configured"
-                  );
-                  return;
-                }
-
-                const token = await executeRecaptcha();
-
-                try {
-                  await axios.post(webToolsCalculatorApsisEndpoint, values, {
-                    headers: {
-                      "X-Recaptcha-Token": token
-                    }
-                  });
-                } catch (error) {
-                  // Ignore errors if any as this isn't necessary for PDF download to proceed
-                  devLog("WebTools calculator api endpoint error", error);
-                }
-              }}
-            />
+            <PitchedRoofCalculatorV1 {...calculatorProps} />
           </Suspense>
-        ) : undefined}
-      </MicroCopy.Provider>
+        </MicroCopy.Provider>
+      )}
     </CalculatorContext.Provider>
   );
 };

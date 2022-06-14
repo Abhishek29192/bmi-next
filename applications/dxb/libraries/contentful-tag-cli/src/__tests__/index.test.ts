@@ -1,4 +1,4 @@
-import { Space, ClientAPI } from "contentful-management";
+import { ClientAPI, Space } from "contentful-management";
 
 const main = async () => (await import("..")).main();
 
@@ -26,8 +26,9 @@ jest.mock("contentful-management", () => {
 const tagAndUpdate = jest.fn();
 const publishAll = jest.fn();
 const createTag = jest.fn();
+const sleep = jest.fn();
 jest.mock("@bmi/contentful-tag-utility", () => {
-  return { tagAndUpdate, publishAll, createTag };
+  return { tagAndUpdate, publishAll, createTag, sleep };
 });
 
 describe("main", () => {

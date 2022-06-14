@@ -1,5 +1,5 @@
 test_gatsby-plugin-elasticsearch:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:

@@ -7,7 +7,8 @@
 ```jsx
 <div style={{ height: "400px" }}>
   <YoutubeVideo
-    videoId="A-RfHC91Ewc"
+    videoUrl="https://youtu.be/A-RfHC91Ewc"
+    previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     layout="in-place"
     embedWidth={1280}
     embedHeight={720}
@@ -19,7 +20,12 @@
 
 ```jsx
 <div style={{ height: "400px" }}>
-  <YoutubeVideo videoId="A-RfHC91Ewc" embedWidth={1280} embedHeight={720} />
+  <YoutubeVideo
+    videoUrl="https://youtu.be/A-RfHC91Ewc"
+    previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
+    embedWidth={1280}
+    embedHeight={720}
+  />
 </div>
 ```
 
@@ -27,7 +33,8 @@
 
 ```jsx
 <YoutubeVideo
-  videoId="A-RfHC91Ewc"
+  videoUrl="https://youtu.be/A-RfHC91Ewc"
+  previewImageSource="https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
   layout="inline"
   embedWidth={1280}
   embedHeight={720}

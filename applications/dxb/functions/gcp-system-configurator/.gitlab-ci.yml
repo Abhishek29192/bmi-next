@@ -1,17 +1,17 @@
 test_gcp-system-configurator:
-  extends: .test_jest
+  extends: .test_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
 
 build_gcp-system-configurator:
-  extends: .build_function
+  extends: .build_function_yarn_workspace
   variables:
     WORKSPACE: "@bmi/gcp-system-configurator"
     ROOT_DIR: "applications/dxb/functions/gcp-system-configurator"
 
 package_gcp-system-configurator:
-  extends: .package_function
+  extends: .package_function_yarn_workspace
   needs:
     - build_gcp-system-configurator
   dependencies:
@@ -22,7 +22,7 @@ package_gcp-system-configurator:
 
 # Deploy to QA or Pre-Production or Production Storage
 deploy_gcp-system-configurator:
-  extends: .deploy_function
+  extends: .deploy_function_yarn_workspace
   needs:
     - package_gcp-system-configurator
   dependencies:

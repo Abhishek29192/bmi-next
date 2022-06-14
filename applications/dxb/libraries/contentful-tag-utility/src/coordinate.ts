@@ -1,10 +1,11 @@
 import {
   Asset,
-  Entry,
-  Environment,
   BulkAction,
-  BulkActionPublishPayload
+  BulkActionPublishPayload,
+  Entry,
+  Environment
 } from "contentful-management";
+import { copyDefaultValues, findIrrelevantLocales } from "./locale";
 import { tagEntity } from "./tag";
 
 // Free tier has an CM API limit of 7 calls per second.
@@ -22,13 +23,19 @@ export const sleep = async (ms: number) => {
   });
 };
 
-async function* fetchAllEntries(environment: Environment, limit = 100) {
+async function* fetchAllEntries(
+  environment: Environment,
+  limit = 100,
+  tag?: string
+) {
   let offset = 0;
   while (true) {
     const entries = await environment.getEntries({
       skip: offset,
       limit,
-      order: "sys.createdAt"
+      order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
+      ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
     if (!entries.items || entries.items.length <= 0) {
@@ -39,13 +46,19 @@ async function* fetchAllEntries(environment: Environment, limit = 100) {
   }
 }
 
-async function* fetchAllAssets(environment: Environment, limit = 100) {
+async function* fetchAllAssets(
+  environment: Environment,
+  limit = 100,
+  tag?: string
+) {
   let offset = 0;
   while (true) {
     const assets = await environment.getAssets({
       skip: offset,
       limit,
-      order: "sys.createdAt"
+      order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
+      ...(tag !== undefined && { "metadata.tags.sys.id[in]": tag })
     });
 
     if (!assets.items || assets.items.length <= 0) {
@@ -145,6 +158,57 @@ export const publishAll = async (environment: Environment) => {
         bullkPublishProgress = [];
       }
 
+      itrResult = await iterator.next();
+    }
+  }
+};
+
+export const fillDefaultValues = async (
+  environment: Environment,
+  tag: string,
+  marketLocales: string[]
+) => {
+  const iterators = [
+    fetchAllEntries(environment, 100, tag),
+    fetchAllAssets(environment, 100, tag)
+  ];
+  const localesToBePopulated = await findIrrelevantLocales(
+    environment,
+    marketLocales
+  );
+
+  if (!localesToBePopulated || localesToBePopulated.length <= 0) {
+    throw new Error("Could not find irrelevant locales");
+  }
+
+  console.log(`Populating these locales: ${localesToBePopulated}`);
+
+  for (const iterator of iterators) {
+    let itrResult = await iterator.next();
+    while (!itrResult.done) {
+      const entries = itrResult.value;
+      let runs = 0;
+      const updatePromises: Promise<boolean>[] = [];
+
+      for (const entryOrAsset of entries.items) {
+        console.log(`Adding default values for item: ${entryOrAsset.sys.id}`);
+        updatePromises.push(
+          copyDefaultValues(
+            entryOrAsset,
+            localesToBePopulated,
+            marketLocales[0]
+          )
+        );
+
+        runs++;
+        if (runs % RATE_LIMIT == 0) {
+          console.log(`Runs: ${runs}. Sleep for 1000ms`);
+          await sleep(WAIT_DURATION_MS);
+          runs = 0;
+        }
+      }
+      const result = await Promise.allSettled(updatePromises);
+      console.log(JSON.stringify(result));
       itrResult = await iterator.next();
     }
   }

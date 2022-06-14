@@ -1,12 +1,13 @@
-import { Environment, Entry, Asset } from "contentful-management";
-import {} from "../tag";
+import { Asset, Entry, Environment } from "contentful-management";
 import mockConsole from "jest-mock-console";
-import SampleEntriesPage1 from "./resources/entries_page_1.json";
-import SampleEntriesPage2 from "./resources/entries_page_2.json";
-import SampleEntriesPage3 from "./resources/entries_page_3.json";
+import {} from "../tag";
 import SampleAssetsPage1 from "./resources/assets_page_1.json";
 import SampleAssetsPage2 from "./resources/assets_page_2.json";
 import SampleAssetsPage3 from "./resources/assets_page_3.json";
+import SampleEntriesPage1 from "./resources/entries_page_1.json";
+import SampleEntriesPage2 from "./resources/entries_page_2.json";
+import SampleEntriesPage3 from "./resources/entries_page_3.json";
+import SpaceLocales from "./resources/locales.json";
 
 const tagAndUpdate = async (environment: Partial<Environment>) =>
   (await import("../coordinate")).tagAndUpdate(environment as Environment);
@@ -14,9 +15,28 @@ const tagAndUpdate = async (environment: Partial<Environment>) =>
 const publishAll = async (environment: Partial<Environment>) =>
   (await import("../coordinate")).publishAll(environment as Environment);
 
+const fillDefaultValues = async (
+  environment: Partial<Environment>,
+  tag: string,
+  marketLocales: string[]
+) =>
+  (await import("../coordinate")).fillDefaultValues(
+    environment as Environment,
+    tag,
+    marketLocales
+  );
+
 const tagEntity = jest.fn();
 jest.mock("../tag", () => {
   return { tagEntity };
+});
+
+const copyDefaultValues = jest.fn().mockResolvedValue(true);
+const findIrrelevantLocales = jest
+  .fn()
+  .mockResolvedValue(SpaceLocales.items.filter((i) => i.code !== "en-GB"));
+jest.mock("../locale", () => {
+  return { copyDefaultValues, findIrrelevantLocales };
 });
 
 let getEntries: jest.Mock;
@@ -36,12 +56,14 @@ SampleAssetsPage3.items.forEach((i) => addFunctions(i as unknown as Entry));
 
 const waitProcessing = jest.fn().mockResolvedValue({});
 const createPublishBulkAction = jest.fn().mockReturnValue({ waitProcessing });
+const getLocales = jest.fn().mockResolvedValue(SpaceLocales);
 const mockEnvironment = (): Partial<Environment> => {
   const env: Partial<Environment> = {};
   env.createTag = jest.fn();
   env.getEntries = getEntries;
   env.getAssets = getAssets;
   env.createPublishBulkAction = createPublishBulkAction;
+  env.getLocales = getLocales;
   return env;
 };
 
@@ -110,5 +132,62 @@ describe("publishAll", () => {
     await publishAll(environment);
 
     expect(createPublishBulkAction).toBeCalledTimes(6);
+  });
+});
+
+describe("fillDefaultValues", () => {
+  it("Fills default values", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    await fillDefaultValues(environment, tag, marketLocales);
+
+    expect(copyDefaultValues).toBeCalledTimes(600);
+  });
+
+  it("Throws an error if target locales are not found", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    findIrrelevantLocales.mockResolvedValueOnce([]);
+    try {
+      await fillDefaultValues(environment, tag, marketLocales);
+    } catch (e) {
+      expect((e as Error).message).toEqual("Could not find irrelevant locales");
+    }
+  });
+
+  it("adds the tag filter to the entries query", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    await fillDefaultValues(environment, tag, marketLocales);
+
+    expect(getEntries).toBeCalledWith({
+      skip: 0,
+      limit: 100,
+      order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
+      "metadata.tags.sys.id[in]": tag
+    });
+  });
+
+  it("adds the tag filter to the assets query", async () => {
+    const environment = mockEnvironment();
+    const marketLocales = ["en-GB"];
+    const tag = "market__uk";
+    update.mockResolvedValueOnce({});
+    await fillDefaultValues(environment, tag, marketLocales);
+
+    expect(getAssets).toBeCalledWith({
+      skip: 0,
+      limit: 100,
+      order: "sys.createdAt",
+      "sys.archivedVersion[exists]": false,
+      "metadata.tags.sys.id[in]": tag
+    });
   });
 });

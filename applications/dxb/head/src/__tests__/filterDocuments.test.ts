@@ -705,7 +705,25 @@ describe("filter document tests", () => {
                   code: "product_family_2"
                 })
               ]
-            })
+            }),
+            relatedProducts: [
+              createProduct({
+                categories: [
+                  createCategory({
+                    categoryType: "ProductFamily",
+                    code: "product_family_3"
+                  })
+                ]
+              }),
+              createProduct({
+                categories: [
+                  createCategory({
+                    categoryType: "ProductFamily",
+                    code: "product_family_4"
+                  })
+                ]
+              })
+            ]
           });
 
           inputDataItems.push(pimDocument);
@@ -736,6 +754,15 @@ describe("filter document tests", () => {
           result = filterDocuments(inputDataItems, [
             createProductFamilyFilterCriteria({
               value: ["AeroDek_Quadro_Plus", "product_family_2"]
+            })
+          ]);
+
+          expect(result).toEqual(expectedResults);
+
+          // when searched with related product product family in search filter criteria
+          result = filterDocuments(inputDataItems, [
+            createProductFamilyFilterCriteria({
+              value: ["product_family_4"]
             })
           ]);
 

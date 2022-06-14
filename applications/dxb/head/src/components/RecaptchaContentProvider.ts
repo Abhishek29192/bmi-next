@@ -90,12 +90,32 @@ const recaptchaContent_AT: RecaptchaPolicyContentType = {
 
 const recaptchaContent_TR: RecaptchaPolicyContentType = {
   startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
-  privacyPloicyText: "Gizlilik Politikas",
+  privacyPloicyText: "Gizlilik Politikası",
   andText: " ve ",
   termsOfServiceText: "Hizmet Şartları",
   endText: " geçerlidir.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=tr",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=tr"
+};
+
+const recaptchaContent_ES: RecaptchaPolicyContentType = {
+  startText: "Este sitio web está protegido por reCAPTCHA y Google ",
+  privacyPloicyText: "Política de privacidad",
+  andText: " y ",
+  termsOfServiceText: "Términos de servicio",
+  endText: " aplicar.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=es",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=es"
+};
+
+const recaptchaContent_PT: RecaptchaPolicyContentType = {
+  startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
+  privacyPloicyText: "Política de Privacidade",
+  andText: " y ",
+  termsOfServiceText: "Termos de serviço",
+  endText: " aplique.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=pt",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=pt"
 };
 
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
@@ -108,6 +128,8 @@ RecaptchaPrivacyContentMap["de"] = recaptchaContent_DE;
 RecaptchaPrivacyContentMap["at"] = recaptchaContent_AT;
 RecaptchaPrivacyContentMap["nl"] = recaptchaContent_NL;
 RecaptchaPrivacyContentMap["tr"] = recaptchaContent_TR;
+RecaptchaPrivacyContentMap["es"] = recaptchaContent_ES;
+RecaptchaPrivacyContentMap["pt"] = recaptchaContent_PT;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string

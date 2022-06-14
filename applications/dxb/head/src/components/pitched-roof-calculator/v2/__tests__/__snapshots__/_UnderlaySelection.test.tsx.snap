@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PitchedRoofCalculator UnderlaySelection component renders correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="CardRadioGroup"
+      >
+        <div
+          class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="underlay"
+                  type="radio"
+                  value="45917056"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Underlay Divoroll Prima 1-5x50m
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Short underlay description
+                    </p>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      MC: calculator.nobb.label
+                      :
+                       
+                      45917056
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+          <div
+            class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-2"
+          >
+            <div
+              class="CardInput item"
+            >
+              <label>
+                <input
+                  class="input"
+                  name="underlay"
+                  type="radio"
+                  value="26583450"
+                />
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root ToggleCard card"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiPaper-root MuiCard-root body MuiPaper-elevation1 MuiPaper-rounded"
+                  >
+                    <div
+                      class="image"
+                      style="background-image: url(https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg);"
+                    />
+                    <h6
+                      class="MuiTypography-root title Typography MuiTypography-h6"
+                    >
+                      Underlay Divoroll TOP RU
+                    </h6>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      Short underlay description
+                    </p>
+                    <p
+                      class="MuiTypography-root paragraph Typography MuiTypography-body1"
+                    >
+                      MC: calculator.nobb.label
+                      :
+                       
+                      26583450
+                    </p>
+                  </div>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PitchedRoofCalculator UnderlaySelection component renders with no options 1`] = `
+<div>
+  <div>
+    <h4
+      class="MuiTypography-root Typography MuiTypography-h4"
+    >
+      MC: underlaySelection.empty
+    </h4>
+  </div>
+</div>
+`;

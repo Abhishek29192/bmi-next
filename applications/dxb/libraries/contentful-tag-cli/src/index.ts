@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-import { config } from "dotenv";
-import { createClient } from "contentful-management";
 import {
   createTag,
-  tagAndUpdate,
-  publishAll
+  publishAll,
+  sleep,
+  tagAndUpdate
 } from "@bmi/contentful-tag-utility";
+import { createClient } from "contentful-management";
+import { config } from "dotenv";
 
 /* istanbul ignore next */
 config({
@@ -23,6 +24,10 @@ export async function main() {
   );
 
   await createTag(environment, process.env.DXB_MARKET!);
+
+  console.log("Sleeping for 5000 milliseconds");
+  await sleep(5000);
+
   await tagAndUpdate(environment);
   await publishAll(environment);
 }

@@ -32,7 +32,7 @@ describe("Search Page Template", () => {
   };
   const locationSpy = jest.spyOn(window, "location", "get");
 
-  jest.setTimeout(10000);
+  jest.setTimeout(15000);
 
   beforeEach(() => {
     jest.resetModules();
@@ -66,6 +66,218 @@ describe("Search Page Template", () => {
     ).toBe("MC: searchPage.title");
     expect(getByText("MC: searchPage.helperText")).toBeTruthy();
     expect(getByText("MC: searchPage.placeholder")).toBeTruthy();
+  });
+
+  it("should setup tab if provided in url params", async () => {
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search: "q=queryString&tab=pages"
+    });
+
+    jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(2);
+    jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
+    jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(3);
+    const { getByText, container } = renderWithRouter(
+      <SearchPage
+        data={data}
+        pageContext={{
+          variantCodeToPathMap: null,
+          siteId: "siteId",
+          countryCode: "en",
+          categoryCode: "categoryCode",
+          pimClassificationCatalogueNamespace: "nameSpace"
+        }}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
+    );
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.pages (3)")).toBeTruthy()
+    );
+
+    expect(
+      container
+        .querySelector("#tab-products")
+        .classList.contains("Mui-selected")
+    ).toBeFalsy();
+    expect(
+      container.querySelector("#tab-pages").classList.contains("Mui-selected")
+    ).toBeTruthy();
+  });
+
+  it("should setup url filters for products if provided in url params", async () => {
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search:
+        'q=queryString&filters=%5B%7B"name"%3A"filterName"%2C"value"%3A%5B"filterValue"%5D%7D%5D'
+    });
+
+    jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(2);
+    jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
+    jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(null);
+
+    const elasticSearchSpy = jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValue({
+        hits: {
+          hits: [],
+          total: { value: 2 }
+        },
+        aggregations: {
+          unique_base_products_count: { value: 2 },
+          allCategories: {
+            buckets: [{ key: "filterValue", doc_count: 2 }]
+          }
+        }
+      });
+
+    window.history.replaceState = jest.fn();
+    const { getByText, container } = renderWithRouter(
+      <SearchPage
+        data={data}
+        pageContext={{
+          variantCodeToPathMap: null,
+          siteId: "siteId",
+          countryCode: "en",
+          categoryCode: "categoryCode",
+          pimClassificationCatalogueNamespace: "nameSpace"
+        }}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
+    );
+
+    elasticSearchSpy.mockReset();
+
+    fireEvent.click(container.querySelector('input[type="checkbox"]'));
+
+    await waitFor(() =>
+      expect((window.history.replaceState as jest.Mock).mock.calls).toEqual([
+        [
+          null,
+          null,
+          "/?filters=%5B%7B%22name%22%3A%22filterName%22%2C%22value%22%3A%5B%22filterValue%22%5D%7D%5D&q=queryString"
+        ],
+        [null, null, "/?q=queryString"]
+      ])
+    );
+  });
+
+  it("should reset url filters if invalid", async () => {
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search:
+        'q=queryString&filters=%5B%7B"name"%3A"filterName"%2C"value"%3A%5B"filterValue"'
+    });
+
+    jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(2);
+    jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
+    jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(null);
+
+    const elasticSearchSpy = jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValue({
+        hits: {
+          hits: [],
+          total: { value: 2 }
+        },
+        aggregations: {
+          unique_base_products_count: { value: 2 },
+          allCategories: {
+            buckets: [{ key: "filterValue", doc_count: 2 }]
+          }
+        }
+      });
+
+    window.history.replaceState = jest.fn();
+    const consoleSpy = jest.spyOn(console, "error");
+    const { getByText } = renderWithRouter(
+      <SearchPage
+        data={data}
+        pageContext={{
+          variantCodeToPathMap: null,
+          siteId: "siteId",
+          countryCode: "en",
+          categoryCode: "categoryCode",
+          pimClassificationCatalogueNamespace: "nameSpace"
+        }}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
+    );
+
+    expect(consoleSpy.mock.calls).toContainEqual(["Filters can not be parsed"]);
+    expect(window.history.replaceState).toBeCalledWith(
+      null,
+      null,
+      "/?q=queryString"
+    );
+
+    elasticSearchSpy.mockReset();
+  });
+
+  it("should setup url filters for pages if provided in url params", async () => {
+    locationSpy.mockReturnValue({
+      ...window.location,
+      search:
+        'q=queryString&filters=%5B%7B"name"%3A"filterName"%2C"value"%3A%5B"filterValue"%5D%7D%5D&tab=pages&tab=products'
+    });
+
+    jest.spyOn(SearchTabProducts, "getCount").mockResolvedValueOnce(2);
+    jest.spyOn(SearchTabDocuments, "getCount").mockResolvedValueOnce(null);
+    jest.spyOn(SearchTabPages, "getCount").mockResolvedValueOnce(2);
+
+    const elasticSearchSpy = jest
+      .spyOn(elasticSearch, "queryElasticSearch")
+      .mockResolvedValue({
+        hits: {
+          hits: [],
+          total: { value: 2 }
+        },
+        aggregations: {
+          unique_base_products_count: { value: 2 },
+          allCategories: {
+            buckets: [{ key: "filterValue", doc_count: 2 }]
+          },
+          tags: {
+            buckets: []
+          }
+        }
+      });
+
+    const { getByText, container } = renderWithRouter(
+      <SearchPage
+        data={data}
+        pageContext={{
+          variantCodeToPathMap: null,
+          siteId: "siteId",
+          countryCode: "en",
+          categoryCode: "categoryCode",
+          pimClassificationCatalogueNamespace: "nameSpace"
+        }}
+      />
+    );
+
+    await waitFor(() =>
+      expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy()
+    );
+    expect(getByText("MC: search.tabHeadings.products (2)")).toBeTruthy();
+    expect(
+      container.querySelector("#tab-pages").classList.contains("Mui-selected")
+    ).toBeTruthy();
+
+    elasticSearchSpy.mockReset();
+
+    const filter: HTMLInputElement = container.querySelector(
+      'input[type="checkbox"]'
+    );
+    expect(filter.checked).toBeTruthy();
   });
 
   it("render search Result correctly", async () => {
@@ -243,7 +455,7 @@ describe("Search Page Template", () => {
 
     const elasticSearchSpy = jest
       .spyOn(elasticSearch, "queryElasticSearch")
-      .mockResolvedValue({
+      .mockResolvedValueOnce({
         hits: {
           hits: [],
           total: { value: 20 }
@@ -263,7 +475,7 @@ describe("Search Page Template", () => {
     await waitFor(() =>
       expect(getByText("MC: search.tabHeadings.products (3)")).toBeTruthy()
     );
-    expect(elasticSearchSpy).toBeCalledTimes(1);
+    expect(elasticSearchSpy).toBeCalledTimes(2);
   });
 
   it("run handleSubmit and return message correctly when GATSBY_PREVIEW exists", async () => {

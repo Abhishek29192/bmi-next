@@ -1,13 +1,14 @@
-import fetch, { Response } from "node-fetch";
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import logger from "@bmi-digital/functions-logger";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
-import { deleteFirestoreCollection } from "./firestore";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import fetch, { Response } from "node-fetch";
 import {
+  createElasticSearchIndex,
   deleteElasticSearchIndex,
   ElasticsearchIndexes
 } from "./elasticsearch";
+import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
 
 const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
@@ -51,7 +52,7 @@ const triggerFullFetch = async (
     }
     numberOfRetries++;
   } while (numberOfRetries < 5 && response.status === 429);
-
+  logger.info({ message: `Success triggerFullFetch: ${response}.` });
   return response;
 };
 
@@ -77,6 +78,7 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
   ) {
     throw new Error(`Failed to get all of the ${type} data.`);
   }
+  logger.info({ message: `Success for triggerFullFetchBatch type: ${type}.` });
 };
 
 /**
@@ -100,6 +102,9 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   await deleteElasticSearchIndex(ElasticsearchIndexes.Products);
   await deleteElasticSearchIndex(ElasticsearchIndexes.Systems);
+  await createElasticSearchIndex(ElasticsearchIndexes.Products);
+  await createElasticSearchIndex(ElasticsearchIndexes.Systems);
+
   await deleteFirestoreCollection(FirestoreCollections.Products);
   await deleteFirestoreCollection(FirestoreCollections.Systems);
 
@@ -117,7 +122,7 @@ const handleRequest: HttpFunction = async (req, res) => {
       message: `Error whilst trying to trigger the build. ${error}`
     });
   });
-
+  logger.info({ message: "Build triggered successfully" });
   res.status(200).send("ok");
 };
 

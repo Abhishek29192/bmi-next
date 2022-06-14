@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
 import { Grid } from "@bmi/components";
+import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
+import { microCopy } from "../constants/microCopies";
+import { devLog } from "../utils/devLog";
+import {
+  disableFiltersFromAggregations,
+  getCountQuery,
+  queryElasticSearch
+} from "../utils/elasticSearch";
 import {
   clearFilterValues,
+  getUpdatedFilters,
+  getURLFilterValues,
+  setFiltersUrl,
   sortAlphabeticallyBy,
-  updateFilterValue
+  updateFilterValue,
+  useSearchParams
 } from "../utils/filters";
-import {
-  queryElasticSearch,
-  disableFiltersFromAggregations,
-  getCountQuery
-} from "../utils/elasticSearch";
-import { devLog } from "../utils/devLog";
-import { microCopy } from "../constants/microCopies";
 import PageSummaryCard from "./PageSummaryCard";
-import { useSiteContext } from "./Site";
 import ResultsPagination from "./ResultsPagination";
+import { useSiteContext } from "./Site";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
@@ -132,6 +136,7 @@ const SearchTabPanelPages = (props: Props) => {
   const [pageCount, setPageCount] = useState(
     Math.ceil(results.length / PAGE_SIZE)
   );
+  const searchParams = useSearchParams();
 
   // =======================================
   // Loading status
@@ -187,13 +192,18 @@ const SearchTabPanelPages = (props: Props) => {
   // =======================================
 
   const onFiltersChange = async (newFilters) => {
-    const result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+    let result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
       // On first request we need to evaluate the results to get the filters
       if (isInitialLoad.current) {
         newFilters = getPagesFilters(result.aggregations, getMicroCopy);
         isInitialLoad.current = false;
+
+        newFilters = getUpdatedFilters(newFilters);
+        if (getURLFilterValues().length > 0) {
+          result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+        }
       }
 
       newFilters = disableFiltersFromAggregations(
@@ -203,6 +213,7 @@ const SearchTabPanelPages = (props: Props) => {
     }
 
     setFilters(newFilters);
+    setFiltersUrl(newFilters);
   };
 
   const handleFiltersChange = (filterName, filterValue, checked) => {
@@ -270,7 +281,7 @@ const SearchTabPanelPages = (props: Props) => {
               key={index}
               title={result.title}
               subtitle={result.subtitle}
-              path={result.path}
+              path={`${result.path}${searchParams}`}
               countryCode={pageContext.countryCode}
             />
           ))}

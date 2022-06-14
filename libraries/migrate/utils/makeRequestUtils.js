@@ -78,5 +78,11 @@ module.exports = {
       }
     });
     return deleted;
+  },
+  getExtensions: async (makeRequest) => {
+    return await makeRequest({
+      method: "GET",
+      url: `/extensions`
+    });
   }
 };

@@ -1,19 +1,21 @@
 // TODO: Move to under visualiser
-import React, { createContext, Suspense, useState } from "react";
-import queryString from "query-string";
-import { graphql, navigate } from "gatsby";
+import { MicroCopy } from "@bmi/components";
 import { navigate as navigateWithParams, useLocation } from "@reach/router";
+import { graphql, navigate } from "gatsby";
+import queryString from "query-string";
+import React, { createContext, Suspense, useState } from "react";
 import { devLog } from "../utils/devLog";
-import { getProductUrl } from "../utils/product-details-transforms";
 import { GTMContext, pushToDataLayer } from "../utils/google-tag-manager";
-import { Parameters } from "./visualiser/Visualiser";
-import sidingsSetData from "./visualiser/data/sidings.json";
-import tilesSetData from "./visualiser/data/tiles.json";
-import { Tile } from "./visualiser/Types";
-import { useSiteContext } from "./Site";
+import { getProductUrl } from "../utils/product-details-transforms";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "./ShareWidgetSection";
+import { useSiteContext } from "./Site";
+import no from "./visualiser/data/copy/no.json";
+import sidingsSetData from "./visualiser/data/sidings.json";
+import tilesSetData from "./visualiser/data/tiles.json";
+import { Tile } from "./visualiser/Types";
+import { Parameters } from "./visualiser/Visualiser";
 
 const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
 
@@ -153,28 +155,37 @@ const VisualiserProvider = ({
     return <>{children}</>;
   }
 
+  const VisualizerComponent = (
+    <Visualiser
+      open={isOpen}
+      contentSource={contentSource}
+      onChange={(params) => handleOnChange(params)}
+      onClose={() => setIsOpen(false)}
+      tiles={tilesSetData.tiles as Tile[]}
+      sidings={sidingsSetData.sidings}
+      {...parsedQueryParameters}
+      {...parameters}
+      shareWidget={
+        shareWidgetData ? (
+          <ShareWidgetSectionWithContext data={shareWidgetData} />
+        ) : undefined
+      }
+      onClick={handleOnClick}
+    />
+  );
   return (
     <VisualiserContext.Provider value={{ isOpen, open }}>
       {children}
 
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <Visualiser
-            open={isOpen}
-            contentSource={contentSource}
-            onChange={(params) => handleOnChange(params)}
-            onClose={() => setIsOpen(false)}
-            tiles={tilesSetData.tiles as Tile[]}
-            sidings={sidingsSetData.sidings}
-            {...parsedQueryParameters}
-            {...parameters}
-            shareWidget={
-              shareWidgetData ? (
-                <ShareWidgetSectionWithContext data={shareWidgetData} />
-              ) : undefined
-            }
-            onClick={handleOnClick}
-          />
+          {process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true" ? (
+            { VisualizerComponent }
+          ) : (
+            <MicroCopy.Provider values={no}>
+              {VisualizerComponent}
+            </MicroCopy.Provider>
+          )}
         </Suspense>
       ) : undefined}
     </VisualiserContext.Provider>

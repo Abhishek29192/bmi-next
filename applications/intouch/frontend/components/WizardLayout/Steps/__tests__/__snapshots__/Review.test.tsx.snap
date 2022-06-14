@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Review empty project members 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.header
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.preferred_language
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          EN
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.receipt_title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.receipt_subTitle
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div>
+            test
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        building_owner.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.contact_detail
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerFirstname 
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.email
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerMail
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.address
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            data-testid="address"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.required.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.required.evidence
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <ul>
+            <li>
+              Waterproofing
+            </li>
+            <li>
+              Drainage
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.responsible_installer.title
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          guarantee_tab.apply_guarantee.review.responsible_installer.description
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert ColorPair ColorPair--alabaster"
+    >
+      <div
+        class="actions"
+      />
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h5
+            class="MuiTypography-root title Typography MuiTypography-h5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+              />
+            </svg>
+            guarantee_tab.apply_guarantee.review.alert_banner.title
+          </h5>
+          guarantee_tab.apply_guarantee.review.alert_banner.description
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Review installer is responsible 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.header
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.preferred_language
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          EN
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.system_title
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              class="MuiCardHeader-root"
+            >
+              <div
+                class="MuiCardHeader-content"
+              />
+            </div>
+            <div
+              class="MuiCardContent-root"
+            >
+              <h6
+                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+              />
+              <div
+                class="footer"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.receipt_title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.receipt_subTitle
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div>
+            test
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        building_owner.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.contact_detail
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerFirstname 
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.email
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerMail
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.address
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            data-testid="address"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        <div>
+          responsible_installer.title
+        </div>
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          responsible_installer.contact_detail
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+           
+        </div>
+      </div>
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.required.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.required.evidence
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <ul>
+            <li>
+              Waterproofing
+            </li>
+            <li>
+              Drainage
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert ColorPair ColorPair--alabaster"
+    >
+      <div
+        class="actions"
+      />
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h5
+            class="MuiTypography-root title Typography MuiTypography-h5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+              />
+            </svg>
+            guarantee_tab.apply_guarantee.review.alert_banner.title
+          </h5>
+          guarantee_tab.apply_guarantee.review.alert_banner.description
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Review should render correct 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.header
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.preferred_language
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          EN
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.product_title
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <span
+              class="MuiCardHeader-root cardHeader"
+            >
+              <div
+                class="MuiCardHeader-content"
+              >
+                <span
+                  class="MuiTypography-root MuiCardHeader-title MuiTypography-body1 MuiTypography-displayBlock"
+                >
+                  name
+                </span>
+              </div>
+            </span>
+            <div
+              class="footer"
+            >
+              <span
+                class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+              >
+                brand
+              </span>
+              <span
+                class="MuiTypography-root footer__inner Typography MuiTypography-caption"
+              >
+                family
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.system_title
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            class="MuiPaper-root MuiCard-root main MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <div
+              class="MuiCardHeader-root"
+            >
+              <div
+                class="MuiCardHeader-content"
+              >
+                <span
+                  class="MuiTypography-root MuiCardHeader-title MuiTypography-h5 MuiTypography-displayBlock"
+                >
+                  BMI-NO-PROD-001
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiCardContent-root"
+            >
+              <h6
+                class="MuiTypography-root Typography MuiTypography-subtitle2 MuiTypography-colorTextSecondary"
+              />
+              <div
+                class="footer"
+              >
+                <div>
+                  <table
+                    class="MuiTable-root Table Table--row-even-color"
+                  >
+                    <thead
+                      class="MuiTableHead-root ColorPair ColorPair--pearl"
+                    >
+                      <tr
+                        class="MuiTableRow-root MuiTableRow-head"
+                      >
+                        <th
+                          class="MuiTableCell-root MuiTableCell-head"
+                          scope="col"
+                        >
+                          Products
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="MuiTableBody-root"
+                    >
+                      <tr
+                        class="MuiTableRow-root"
+                        data-testid="system-product-item"
+                      >
+                        <td
+                          class="MuiTableCell-root MuiTableCell-body"
+                        >
+                          name - family - brand
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.receipt_title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.receipt_subTitle
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div>
+            test
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        building_owner.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.contact_detail
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerFirstname 
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.email
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          buildingOwnerMail
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          building_owner.address
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <div
+            data-testid="address"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="sectionContainer"
+    >
+      <h4
+        class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+      >
+        guarantee_tab.apply_guarantee.review.required.title
+      </h4>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.required.evidence
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          <ul>
+            <li>
+              Waterproofing
+            </li>
+            <li>
+              Drainage
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        style="margin-bottom: 1.5rem;"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          guarantee_tab.apply_guarantee.review.responsible_installer.title
+        </h6>
+        <div
+          class="MuiTypography-root Typography MuiTypography-body1"
+        >
+          guarantee_tab.apply_guarantee.review.responsible_installer.description
+        </div>
+      </div>
+    </div>
+    <div
+      class="Alert ColorPair ColorPair--alabaster"
+    >
+      <div
+        class="actions"
+      />
+      <div
+        class="Container"
+      >
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthXl"
+        >
+          <h5
+            class="MuiTypography-root title Typography MuiTypography-h5"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root icon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+              />
+            </svg>
+            guarantee_tab.apply_guarantee.review.alert_banner.title
+          </h5>
+          guarantee_tab.apply_guarantee.review.alert_banner.description
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

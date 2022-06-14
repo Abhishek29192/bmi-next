@@ -39,6 +39,7 @@ export const Checkbox = ({
     const target = event.target;
     !disabled && "checked" in target && onChange(target.checked as boolean);
   };
+
   const checkbox = (
     <FormControl
       error={!!error}
