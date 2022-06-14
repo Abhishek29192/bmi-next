@@ -1,5 +1,19 @@
 build_intouch_migration_db_service:
-  stage: build
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/db-migrations/**/*
+  variables:
+    WORKSPACE: "@bmi/intouch-api-migration-scripts"
+    ROOT_DIR: "applications/intouch/api/db-migrations"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/db-migrations/dist
+
+package_intouch_migration_db_service:
+  stage: package
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -8,6 +22,8 @@ build_intouch_migration_db_service:
     - name: docker:20-dind
       alias: docker
   cache: {}
+  needs:
+    - build_intouch_migration_db_service
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
@@ -27,7 +43,7 @@ deploy_intouch_migration_to_cloudrun_bmi:
   stage: pre deploy
   cache: {}
   needs:
-    - build_intouch_migration_db_service
+    - package_intouch_migration_db_service
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"

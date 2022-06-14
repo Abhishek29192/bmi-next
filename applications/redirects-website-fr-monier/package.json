@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "gatsby build --prefix-paths",
-    "build:debug": "node --nolazy --inspect node_modules/.bin/gatsby build",
+    "debug": "node --nolazy --inspect node_modules/.bin/gatsby develop",
     "dev": "gatsby clean && gatsby develop",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "start": "gatsby build && gatsby serve"

@@ -1,36 +1,6 @@
 FROM node:14-alpine
 
-# Directory --> monorepo directory
 WORKDIR /usr/src/app
-
-# Use same yarn version as monorepo
-COPY ./.yarn ./.yarn
-COPY ./.yarnrc ./.yarnrc
-
-# NPM Token needed to install private registry packages
-ARG NPM_AUTH_READ_TOKEN
-COPY .npmrc .npmrc
-
-# Copy workspace source files
-COPY ./applications/intouch/libraries ./applications/intouch/libraries
-COPY ./applications/intouch/api/types ./applications/intouch/api/types
-COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
-
-# Use Monorepo lockfile to resolve dependencies
-COPY ./yarn.lock ./applications/intouch/api/services/training/yarn.lock
-
-WORKDIR /usr/src/app/applications/intouch/api/services/training
-
-# Install production
-RUN yarn install --pure-lockfile --production --cache-folder ./ycache && \
-  rm -rf ./ycache
-
-
-RUN rm -f ../../../../../.npmrc
-
-# Build
-RUN yarn run build
-
-# Start
-CMD [ "yarn", "start" ]
+COPY ./applications/intouch/api/services/training/dist .
 EXPOSE 8080
+CMD [ "node", "index.js" ]

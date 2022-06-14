@@ -29,8 +29,25 @@ test_intouch_companies:
         - applications/intouch/api/services/companies/junit.xml
 
 build_intouch_api_companies:
-  stage: build
-  needs: []
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/companies/**/*
+        - libraries/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-api-service-companies"
+    ROOT_DIR: "applications/intouch/api/services/companies"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/services/companies/dist
+
+package_intouch_api_companies:
+  stage: package
+  needs:
+    - build_intouch_api_companies
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -60,7 +77,7 @@ deploy_intouch_companies_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   needs:
-    - build_intouch_api_companies
+    - package_intouch_api_companies
     - test_intouch_companies
     - job: migrate_companies_db_bmi
       optional: true

@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
 import {
   Button,
   Clickable,
@@ -12,22 +10,24 @@ import {
   Table
 } from "@bmi/components";
 import axios from "axios";
+import classnames from "classnames";
+import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
-import { microCopy } from "../constants/microCopies";
-import AssetHeader from "./_AssetHeader";
-import { useSiteContext } from "./Site";
 import { Data as AssetTypeData } from "./AssetType";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { Format } from "./types";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
+import { useSiteContext } from "./Site";
+import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { Format } from "./types";
+import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
+import AssetHeader from "./_AssetHeader";
 
 interface Props {
   documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
@@ -63,7 +63,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format]}
+          source={fileIconsMap[asset.format] || iconMap.External}
           className={styles["format-icon"]}
         />
       </GTMClickable>
@@ -154,9 +154,7 @@ const DesktopDocumentTechnicalTableResults = ({
         gtm={{
           id: "download1",
           label: "Download",
-          action: JSON.stringify(
-            Object.values(assets).map((asset) => asset.url)
-          )
+          action: JSON.stringify(assets.map((asset) => asset.url))
         }}
         disableTouchRipple={true}
         className={styles["external-download-button"]}

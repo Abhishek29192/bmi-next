@@ -170,41 +170,36 @@
 - - :approve
   - axois
   - :who: Benjamin Sproule
-    :why:
-      Used by gatsby-source-hubspot-forms but was taken down for security reasons,
+    :why: Used by gatsby-source-hubspot-forms but was taken down for security reasons,
       so no license provide. Remove when gatsby-source-hubspot-forms is updated.
     :versions:
-      - 0.0.1-security
+    - 0.0.1-security
     :when: 2021-03-29 10:50:24.257125000 Z
 - - :approve
   - traffic-mesh-agent-darwin-x64
   - :who: Benjamin Sproule
-    :why:
-      MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 19:53:15.331768000 Z
 - - :approve
   - traffic-mesh-agent-win32-x64
   - :who: Benjamin Sproule
-    :why:
-      MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 19:53:22.014190000 Z
 - - :approve
   - traffic-mesh-agent-linux-x64
   - :who: Benjamin Sproule
-    :why:
-      MIT licensed, but license_finder can't access the repo (required by Netlify
+    :why: MIT licensed, but license_finder can't access the repo (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 20:03:37.332003000 Z
 - - :approve
   - safe-join
   - :who: Benjamin Sproule
-    :why:
-      No license, but only a few lines to join strings together (required by Netlify
+    :why: No license, but only a few lines to join strings together (required by Netlify
       CLI)
     :versions: []
     :when: 2021-04-07 20:05:58.930504000 Z
@@ -223,7 +218,8 @@
 - - :approve
   - cycle
   - :who: Francesco Venica
-    :why: Licensed under PUBLIC DOMAIN, but not provided in a format license_finder can find
+    :why: Licensed under PUBLIC DOMAIN, but not provided in a format license_finder
+      can find
     :versions: []
     :when: 2021-11-25 12:37:45.891775000 Z
 - - :permit
@@ -251,31 +247,31 @@
     :versions: []
     :when: 2022-03-07 15:02:13.432143100 Z
 - - :approve
-  - "lmdb-darwin-arm64"
+  - lmdb-darwin-arm64
   - :who: Benjamin Sproule
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
     :when: 2022-04-19 12:34:21.321254310 Z
 - - :approve
-  - "lmdb-darwin-x64"
+  - lmdb-darwin-x64
   - :who: Benjamin Sproule
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
     :when: 2022-04-19 12:34:21.321254310 Z
 - - :approve
-  - "lmdb-linux-arm"
+  - lmdb-linux-arm
   - :who: Benjamin Sproule
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
     :when: 2022-04-19 12:34:21.321254310 Z
 - - :approve
-  - "lmdb-linux-arm64"
+  - lmdb-linux-arm64
   - :who: Benjamin Sproule
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
     :when: 2022-04-19 12:34:21.321254310 Z
 - - :approve
-  - "lmdb-win32-x64"
+  - lmdb-win32-x64
   - :who: Benjamin Sproule
     :why: Needed for gatsby-plugin-sitemap
     :versions: []
@@ -286,3 +282,15 @@
     :why: Acceptable license
     :versions: []
     :when: 2022-04-29 12:42:53.114385000 Z
+- - :approve
+  - "@bmi-digital/tsconfig"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-06-06 17:21:13.238098000 Z
+- - :approve
+  - "@bmi-digital/eslint-config"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-06-06 17:21:19.509965000 Z

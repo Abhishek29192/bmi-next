@@ -9,7 +9,7 @@
     "codegen": "graphql-codegen -r dotenv/config --config codegen.yml",
     "codegen:watch": "yarn codegen -e --watch \"**/!(generated)/*.(ts|tsx|graphql)\"",
     "dev": "concurrently \"next dev\" \"yarn codegen:watch\"",
-    "dev:debug": "NODE_OPTIONS='--inspect' next dev",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "test": "jest --coverage --reporters=default --reporters=jest-junit",

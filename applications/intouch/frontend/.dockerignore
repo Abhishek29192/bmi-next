@@ -1,5 +1,4 @@
 node_modules
-.next
 .env
 gcp.json
 .git
