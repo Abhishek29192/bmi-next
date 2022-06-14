@@ -22,7 +22,7 @@ exports.up = function (db) {
   var filePath = path.join(
     __dirname,
     "sqls",
-    "20220504145150-alter-grant-permission-super-admin-guarantee-up.sql"
+    "20220504145151-alter-grant-permission-super-admin-guarantee-up.sql"
   );
   return new Promise(function (resolve, reject) {
     fs.readFile(filePath, { encoding: "utf-8" }, function (err, data) {
@@ -40,7 +40,7 @@ exports.down = function (db) {
   var filePath = path.join(
     __dirname,
     "sqls",
-    "20220504145150-alter-grant-permission-super-admin-guarantee-down.sql"
+    "20220504145151-alter-grant-permission-super-admin-guarantee-down.sql"
   );
   return new Promise(function (resolve, reject) {
     fs.readFile(filePath, { encoding: "utf-8" }, function (err, data) {
