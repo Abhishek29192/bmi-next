@@ -87,11 +87,6 @@ export const pimFragments = graphql`
       code
       parentCategoryCode
     }
-    productFilters {
-      code
-      filterCode
-      name
-    }
   }
 
   fragment PIMDocumentWithPseudoZipFragment on PIMDocumentWithPseudoZip {
