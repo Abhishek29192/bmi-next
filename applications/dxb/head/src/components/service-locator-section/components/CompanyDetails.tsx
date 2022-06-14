@@ -17,8 +17,6 @@ export const createCompanyDetails = (
 ): CompanyDetailProps[] => {
   const shouldShowIcons = sectionType === EntryTypeEnum.ROOFER_TYPE;
   const isAddressClickable = sectionType !== EntryTypeEnum.MERCHANT_TYPE;
-  const shouldShowWebsiteLinkAsLabel =
-    sectionType === EntryTypeEnum.MERCHANT_TYPE;
   const shouldShowGetDirectionsButton =
     sectionType !== EntryTypeEnum.ROOFER_TYPE;
 
@@ -28,7 +26,6 @@ export const createCompanyDetails = (
     directionsLabel: localizationCb("findARoofer.getDirectionsLabel"),
     globalTelephone: localizationCb("global.telephone"),
     globalEmail: localizationCb("global.email"),
-    websiteLabel: localizationCb("findARoofer.websiteLabel"),
     globalWebsite: localizationCb("global.website"),
     faxLabel: localizationCb("global.fax"),
     roofTypeLabel: localizationCb("findARoofer.roofTypeLabel"),
@@ -54,6 +51,10 @@ export const createCompanyDetails = (
       return { id: EVENT_CAT_ID_LINK_CLICKS, label, action };
     }
   };
+
+  const websiteWithProtocol: string = service.website?.startsWith("http")
+    ? service.website
+    : `https://${service.website}`;
 
   const actions = {
     address: getClickableActionFromUrl(
@@ -102,20 +103,13 @@ export const createCompanyDetails = (
     ),
     website: getClickableActionFromUrl(
       undefined,
-      service.website,
+      websiteWithProtocol,
       countryCode,
       undefined,
-      shouldShowWebsiteLinkAsLabel
-        ? localization.globalWebsite
-        : localization.websiteLabel,
+      localization.globalWebsite,
       undefined,
       undefined,
-      getServiceDataGTM(
-        service.website,
-        shouldShowWebsiteLinkAsLabel
-          ? localization.globalWebsite
-          : localization.websiteLabel
-      )
+      getServiceDataGTM(websiteWithProtocol, localization.globalWebsite)
     ),
     email: getClickableActionFromUrl(
       undefined,
@@ -173,17 +167,13 @@ export const createCompanyDetails = (
         label: localization.globalEmail
       }
     : undefined;
-  const website: CompanyDetailProps | undefined = service.website
+  const website: CompanyDetailProps | undefined = websiteWithProtocol
     ? {
         type: "website",
         display: shouldShowIcons ? "icon" : "label",
-        text: shouldShowWebsiteLinkAsLabel
-          ? service.website
-          : localization.websiteLabel,
+        text: new URL(websiteWithProtocol).hostname,
         action: actions.website,
-        label: shouldShowWebsiteLinkAsLabel
-          ? localization.globalWebsite
-          : localization.websiteLabel
+        label: localization.globalWebsite
       }
     : undefined;
   const fax: CompanyDetailProps | undefined = service.fax
@@ -232,9 +222,15 @@ export const createCompanyDetails = (
         certification
       ].filter(Boolean);
     case EntryTypeEnum.BRANCH_TYPE:
-      return [...detailsStart, distance, phone, email, fax, directions].filter(
-        Boolean
-      );
+      return [
+        ...detailsStart,
+        distance,
+        phone,
+        email,
+        fax,
+        website,
+        directions
+      ].filter(Boolean);
     case EntryTypeEnum.MERCHANT_TYPE:
       return [
         ...detailsStart,

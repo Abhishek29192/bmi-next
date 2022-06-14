@@ -1760,7 +1760,7 @@ HTMLCollection [
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        findARoofer.websiteLabel
+                                        global.website
                                       </span>
                                     </dt>
                                     <dd
@@ -1768,11 +1768,13 @@ HTMLCollection [
                                     >
                                       <a
                                         class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"www.test.com\\"}"
-                                        href="www.test.com"
+                                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 1 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.test.com\\"}"
+                                        href="https://www.test.com"
+                                        rel="noopener noreferrer"
+                                        target="_blank"
                                       >
                                         <span>
-                                          findARoofer.websiteLabel
+                                          www.test.com
                                         </span>
                                       </a>
                                     </dd>
@@ -1952,7 +1954,7 @@ HTMLCollection [
                                       <span
                                         class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                       >
-                                        findARoofer.websiteLabel
+                                        global.website
                                       </span>
                                     </dt>
                                     <dd
@@ -1960,11 +1962,13 @@ HTMLCollection [
                                     >
                                       <a
                                         class="MuiTypography-root MuiLink-root MuiLink-underlineHover link Anchorlink MuiTypography-colorPrimary"
-                                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"www.test.com\\"}"
-                                        href="www.test.com"
+                                        data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"roofer 2 - address 1 - Pitched Roof\\",\\"action\\":\\"https://www.test.com\\"}"
+                                        href="https://www.test.com"
+                                        rel="noopener noreferrer"
+                                        target="_blank"
                                       >
                                         <span>
-                                          findARoofer.websiteLabel
+                                          www.test.com
                                         </span>
                                       </a>
                                     </dd>
