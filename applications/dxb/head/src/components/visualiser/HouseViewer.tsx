@@ -265,7 +265,7 @@ export default class HouseViewer extends Viewer<Props, State> {
 
           // Offset along the axis by the min of the bounding box such that the min face
           // sits exactly at 0. This helps line up objects of varying length.
-          placementHelper.position.set(0, -0.05, -(boundingBox?.min.z || 0));
+          placementHelper.position.set(0, -0.05, boundingBox?.min.z || 0);
           placementHelper.rotation.y = Math.PI;
           placementHelper.updateMatrix();
 
@@ -274,7 +274,7 @@ export default class HouseViewer extends Viewer<Props, State> {
           placementHelper.position.set(
             0,
             -0.05,
-            ridgeLength - ridgeEndLength - (boundingBox?.min.z || 0)
+            -ridgeLength + ridgeEndLength + (boundingBox?.min.z / 2 || 0)
           );
           placementHelper.rotation.y = 0;
           placementHelper.updateMatrix();
