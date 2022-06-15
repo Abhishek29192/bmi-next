@@ -361,6 +361,9 @@ describe("Header component", () => {
         />
       </BasketContext.Provider>
     );
+    expect(
+      container.getElementsByClassName("MuiBadge-badge")[0]
+    ).toHaveTextContent("1");
     expect(container.querySelector(".cart-drawer-container")).not.toBeVisible();
     const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
     fireEvent.click(basketButton);
