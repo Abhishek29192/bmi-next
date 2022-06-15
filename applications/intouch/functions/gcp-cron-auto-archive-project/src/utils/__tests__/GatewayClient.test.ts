@@ -8,7 +8,7 @@ jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
   return {
     __esModule: true,
-    ...original(),
+    ...original,
     default: (...options: any[]) => fetchSpy(options),
     Request: jest.fn((...options: any[]) => requestSpy(options))
   };
