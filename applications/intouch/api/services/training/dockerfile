@@ -1,6 +1,29 @@
 FROM node:14-alpine
 
 WORKDIR /usr/src/app
-COPY ./applications/intouch/api/services/training/dist .
-EXPOSE 8080
-CMD [ "node", "index.js" ]
+COPY ./.yarn ./.yarn
+COPY ./.yarnrc ./.yarnrc
+
+ARG NPM_AUTH_READ_TOKEN
+COPY .npmrc .npmrc
+
+COPY ./applications/intouch/libraries ./applications/intouch/libraries
+COPY ./applications/intouch/api/types ./applications/intouch/api/types
+COPY ./applications/intouch/api/services/training ./applications/intouch/api/services/training
+
+COPY ./yarn.lock ./applications/intouch/api/services/training/yarn.lock
+
+WORKDIR /usr/src/app/applications/intouch/api/services/training
+
+# Install production
+RUN yarn install --pure-lockfile --production --cache-folder ./ycache && \
+  rm -rf ./ycache
+
+
+RUN rm -f ../../../../../.npmrc
+
+# Build
+RUN yarn run build
+
+# Start
+CMD [ "yarn", "start" ]

@@ -1,11 +1,12 @@
 {
-  "extends": "../../../../../tsconfig.json",
+  "extends": "@bmi-digital/tsconfig/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
     "strict": false,
     "baseUrl": ".",
     "paths": {
       "@bmi/intouch-api-types": ["../../types/index.d.ts"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "@types"]
   }
 }
