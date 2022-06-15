@@ -1,12 +1,4 @@
-import {
-  Classification,
-  Product,
-  VariantOption,
-  ClassificationCodeEnum,
-  FeatureCodeEnum
-} from "../components/types/pim";
-import { extractFeatureValuesByClassification } from "./features-from-classifications-transfroms";
-import { combineVariantClassifications } from "./filters";
+import { Product, RelatedVariant } from "@bmi/firestore-types";
 
 export const generateUrl = (urlParts: string[]) => {
   return urlParts
@@ -24,75 +16,30 @@ export const generateUrl = (urlParts: string[]) => {
     .replace(/--+/g, "-")
     .toLowerCase();
 };
-
-const generateVariantAttributeUrl = (
-  productName: string,
-  classifications: Classification[],
-  productIdHash: string
-): string => {
-  const variantAttributeMap = {
-    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-      { attrName: FeatureCodeEnum.VARIANT_ATTRIBUTE }
-    ]
-  };
-  const variantAttributePath = extractFeatureValuesByClassification(
-    classifications,
-    variantAttributeMap
-  );
-  if (variantAttributePath.length > 0) {
-    return generateUrl([productName, ...variantAttributePath, productIdHash]);
-  }
-  return "";
-};
-
-const generateOtherAttributesUrl = (
-  productName: string,
-  classifications: Classification[],
-  productIdHash: string
-): string => {
-  const featureAttributeMapForUrl = {
-    [ClassificationCodeEnum.APPEARANCE_ATTRIBUTE]: [
-      { attrName: FeatureCodeEnum.COLOUR },
-      { attrName: FeatureCodeEnum.TEXTURE_FAMILY }
-    ],
-    [ClassificationCodeEnum.GENERAL_INFORMATION]: [
-      { attrName: FeatureCodeEnum.MATERIALS }
-    ]
-  };
-
-  const classificationsPath = extractFeatureValuesByClassification(
-    classifications,
-    featureAttributeMapForUrl
-  );
-
-  return generateUrl([productName, ...classificationsPath, productIdHash]);
-};
-
 // To opt-in to `variant attribute` url
 // set useVariantAttribute to `true`
 export const generateSimpleProductUrl = (
-  baseProduct: Product,
-  variant: VariantOption,
-  productIdHash: string,
+  variant: Product | RelatedVariant,
   useVariantAttribute: boolean
 ): string => {
-  const productName = baseProduct.name;
-  const classifications = combineVariantClassifications(baseProduct, variant);
+  const productName = variant.name;
 
-  if (useVariantAttribute) {
-    const variantAttributeUrl = generateVariantAttributeUrl(
+  if (useVariantAttribute && variant.variantAttribute) {
+    const variantAttributeUrl = generateUrl([
       productName,
-      classifications,
-      productIdHash
-    );
+      variant.variantAttribute,
+      variant.hashedCode
+    ]);
     if (variantAttributeUrl.length) {
       return variantAttributeUrl;
     }
   }
 
-  return generateOtherAttributesUrl(
+  return generateUrl([
     productName,
-    classifications,
-    productIdHash
-  );
+    variant.colour,
+    variant.textureFamily,
+    variant.materials,
+    variant.hashedCode
+  ]);
 };

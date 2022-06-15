@@ -52,7 +52,7 @@ import EqualHeights from "./equal-heights";
 import ExpandableCard, { ExpandableCardProps } from "./expandable-card";
 import ExpandableLinksTextCard from "./expandable-links-text-card";
 import ExploreBar from "./explore-bar";
-import Filters, { Filter, FilterProps } from "./filters";
+import Filters, { Filter, FilterProps, PLPFilterResponse } from "./filters";
 import Footer, { MenuItem as FooterMenuItem } from "./footer";
 import Form, {
   FormContext,
@@ -274,6 +274,7 @@ export type {
   ExpandableCardProps,
   Filter,
   FilterProps,
+  PLPFilterResponse,
   FooterMenuItem,
   FormProps,
   ValidationResult,

@@ -1,11 +1,12 @@
 import ContentfulSite from "../ContentfulSite";
-import { Context } from "../types";
+import { Context } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
     findAll: jest
       .fn()
       .mockResolvedValue({ entries: [{ type: "ContentfulSite" }] }),
+    findOne: jest.fn(),
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn()
   }

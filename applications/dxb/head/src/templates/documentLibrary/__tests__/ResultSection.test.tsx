@@ -3,11 +3,7 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import ResultSection, {
   Props as ResultSectionProps
 } from "../components/ResultSection";
-import createPimDocument from "../../../__tests__/PimDocumentHelper";
-import createProduct from "../../../__tests__/PimDocumentProductHelper";
-import createCategory from "../../../__tests__/CategoryHelper";
-import createClassification from "../../../__tests__/ClassificationHelper";
-import { PIMDocumentData } from "../../../components/types/PIMDocumentBase";
+import createPimDocument from "../../../__tests__/helpers/PimDocumentHelper";
 import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
@@ -29,14 +25,10 @@ beforeEach(() => {
 
 describe("ResultSection", () => {
   const handlePageChange = jest.fn();
-  const pimDocument: PIMDocumentData = createPimDocument({
+  const pimDocument = createPimDocument({
     id: `pim-doc-id`,
     url: `pim-doc-url`,
-    title: "documentTitle",
-    product: createProduct({
-      categories: [createCategory({ categoryType: "Brand" })],
-      classifications: [createClassification()]
-    })
+    title: "documentTitle"
   });
   const props: ResultSectionProps = {
     results: [pimDocument],

@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
+import { Feature } from "../../types/pim";
 import ProductFeaturesTable from "../ProductFeaturesTable";
-import { Feature } from "../types/pim";
 
 describe("ProductFeaturesTable component", () => {
   describe("Renders correctly", () => {
@@ -16,13 +16,11 @@ describe("ProductFeaturesTable component", () => {
       const features: Feature[] = [
         {
           name: "feature1",
-          code: "feature1-code1",
-          featureValues: [{ code: "height-1", value: "200" }]
+          value: "200"
         },
         {
           name: "feature-2",
-          code: "feature2-code1",
-          featureValues: [{ code: "height-2", value: "300" }]
+          value: "300"
         }
       ];
 
@@ -36,13 +34,11 @@ describe("ProductFeaturesTable component", () => {
       const features: Feature[] = [
         {
           name: "feature1",
-          code: "feature1-code1",
-          featureValues: [{ code: "height-1", value: "200" }]
+          value: "200"
         },
         {
           name: "feature-2",
-          code: "feature2-code1",
-          featureValues: [{ code: "height-2", value: "300" }]
+          value: "300"
         }
       ];
 
@@ -56,13 +52,11 @@ describe("ProductFeaturesTable component", () => {
       const features: Feature[] = [
         {
           name: "feature1",
-          code: "feature1-code1",
-          featureValues: [{ code: "height-1", value: "200" }]
+          value: "200"
         },
         {
           name: "feature-2",
-          code: "feature2-code1",
-          featureValues: [{ code: "height-2", value: "300" }]
+          value: "300"
         }
       ];
 
@@ -80,13 +74,11 @@ describe("ProductFeaturesTable component", () => {
       const features: Feature[] = [
         {
           name: "feature1",
-          code: "feature1-code1",
-          featureValues: [{ code: "height-1", value: "200" }]
+          value: "200"
         },
         {
           name: "feature-2",
-          code: "feature2-code1",
-          featureValues: [{ code: "height-2", value: "300" }]
+          value: "300"
         }
       ];
 

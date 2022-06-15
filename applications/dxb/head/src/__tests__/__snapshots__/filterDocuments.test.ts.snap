@@ -10,7 +10,7 @@ Array [
     "__typename": "ContentfulDocument",
     "asset": Object {
       "file": Object {
-        "contentType": "",
+        "contentType": "image/jpg",
         "details": Object {
           "size": 89898,
         },
@@ -107,79 +107,12 @@ Array [
     "fileSize": 1,
     "format": "application/pdf",
     "id": "pim-document-id",
-    "product": Object {
-      "categories": Array [
-        Object {
-          "categoryType": "category-category-type",
-          "code": "category-code",
-          "name": "category-name",
-          "parentCategoryCode": "category-parent-category-code",
-        },
-      ],
-      "classifications": Array [
-        Object {
-          "code": "appearanceAttributes",
-          "features": Array [
-            Object {
-              "code": "classification-feature-code",
-              "featureUnit": Object {
-                "name": "classification-feature-feature-unit-name",
-                "symbol": "classification-feature-feature-unit-symbol",
-                "unitType": "classification-feature-feature-unit-unit-type",
-              },
-              "featureValues": Array [
-                Object {
-                  "code": "classification-feature-feature-value-code",
-                  "value": "classification-feature-feature-value-value",
-                },
-              ],
-              "name": "classification-feature-name",
-            },
-          ],
-          "name": "appearanceAttributes",
-        },
-      ],
-      "code": "product-code",
-      "name": "product-name",
-    },
+    "isLinkDocument": false,
+    "productBaseCode": "product-base-code",
+    "productCategories": Array [],
+    "productFilters": Array [],
+    "productName": "product-name",
     "realFileName": "pim-document-id.pdf",
-    "relatedProducts": Array [
-      Object {
-        "categories": Array [
-          Object {
-            "categoryType": "category-category-type",
-            "code": "category-code",
-            "name": "category-name",
-            "parentCategoryCode": "category-parent-category-code",
-          },
-        ],
-        "classifications": Array [
-          Object {
-            "code": "appearanceAttributes",
-            "features": Array [
-              Object {
-                "code": "classification-feature-code",
-                "featureUnit": Object {
-                  "name": "classification-feature-feature-unit-name",
-                  "symbol": "classification-feature-feature-unit-symbol",
-                  "unitType": "classification-feature-feature-unit-unit-type",
-                },
-                "featureValues": Array [
-                  Object {
-                    "code": "classification-feature-feature-value-code",
-                    "value": "classification-feature-feature-value-value",
-                  },
-                ],
-                "name": "classification-feature-name",
-              },
-            ],
-            "name": "appearanceAttributes",
-          },
-        ],
-        "code": "product-code",
-        "name": "product-name",
-      },
-    ],
     "title": "pim-document-title",
     "url": "http://localhost/pim-document-id",
   },
@@ -189,8 +122,9 @@ Array [
 exports[`updateFilterValue tests When non checked updateFilterValue is requested Then: returns updated filters 1`] = `
 Array [
   Object {
-    "label": "filterLabels.brand",
-    "name": "brand",
+    "filterCode": "Brand",
+    "label": "Brand",
+    "name": "Brand",
     "options": Array [
       Object {
         "label": "AeroDek",
@@ -206,7 +140,6 @@ Array [
       },
     ],
     "value": Array [
-      "AeroDek",
       "AeroDek",
     ],
   },
@@ -216,8 +149,9 @@ Array [
 exports[`updateFilterValue tests When updateFilterValue is requested Then: returns updated filters 1`] = `
 Array [
   Object {
-    "label": "filterLabels.brand",
-    "name": "brand",
+    "filterCode": "Brand",
+    "label": "Brand",
+    "name": "Brand",
     "options": Array [
       Object {
         "label": "AeroDek",
@@ -234,7 +168,6 @@ Array [
     ],
     "value": Array [
       "AeroDek",
-      "Icopal",
     ],
   },
 ]

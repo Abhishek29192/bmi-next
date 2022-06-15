@@ -9,34 +9,43 @@ import {
   IconButtonProps,
   iconMap
 } from "@bmi/components";
+import {
+  ProductDocument as PIMProductDocument,
+  SystemDocument as PIMSystemDocument
+} from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
+import { Data as AssetTypeData } from "../types/AssetType";
 import AssetHeader from "./_AssetHeader";
-import { Data as AssetTypeData } from "./AssetType";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import { Format } from "./types";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 
 interface Props {
-  documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
+  documentsByProduct: [string, (PIMProductDocument | PIMSystemDocument)[]][];
   assetTypes: AssetTypeData[];
   fileIconsMap: Record<Format, React.ComponentType>;
 }
+
+const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
+const GTMClickable = withGTM<ClickableProps>(Clickable);
+const GTMButton = withGTM<IconButtonProps>(Button);
 
 const MobileDocumentTechnicalTableResults = ({
   documentsByProduct,
   assetTypes,
   fileIconsMap
 }: Props) => {
-  const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
-  const GTMClickable = withGTM<ClickableProps>(Clickable);
-  const GTMButton = withGTM<IconButtonProps>(Button);
-
   return (
     <div className={styles["accordion-div"]}>
       <Accordion>
         {documentsByProduct.map(([productName, assets], index) => {
           const key = `${
-            assets.find(({ product }) => product.code)?.product.code
+            (
+              assets.find(
+                (asset) =>
+                  "productBaseCode" in asset &&
+                  asset.productBaseCode !== undefined
+              ) as PIMProductDocument | undefined
+            )?.productBaseCode
           }-${index}`;
           return (
             <Accordion.Item key={key}>
@@ -47,10 +56,15 @@ const MobileDocumentTechnicalTableResults = ({
                   action: "Selector – Accordion"
                 }}
               >
-                {assets.length > 0 ? assets[0].product.name : productName}
+                {assets.length > 0 && "productName" in assets[0]
+                  ? assets[0].productName
+                  : productName}
               </GTMAccordionSummary>
               {assetTypes.map((assetType, index) => {
-                const filteredAssets = assets.filter(
+                const filteredAssets: (
+                  | PIMProductDocument
+                  | PIMSystemDocument
+                )[] = assets.filter(
                   ({ assetType: { id } }) => id === assetType.id
                 );
 
@@ -60,7 +74,7 @@ const MobileDocumentTechnicalTableResults = ({
                     className={styles["accordion-details"]}
                   >
                     <div className={styles["icon-container"]}>
-                      {asset.__typename !== "PIMLinkDocument" ? (
+                      {!asset.isLinkDocument ? (
                         <Icon
                           source={
                             fileIconsMap[asset.format] || iconMap.External
@@ -81,7 +95,7 @@ const MobileDocumentTechnicalTableResults = ({
                       <AssetHeader assetType={assetType} />
                     </div>
                     <div className={styles["download-icon-container"]}>
-                      {asset.__typename !== "PIMLinkDocument" ? (
+                      {!asset.isLinkDocument ? (
                         <GTMClickable
                           model="download"
                           href={asset.url}

@@ -9,5 +9,6 @@ export const createEsSystem = (esSystem?: Partial<EsSystem>): EsSystem => ({
   code: "code",
   name: "name",
   shortDescription: "Short description",
+  hashedCode: "hashed-code",
   ...esSystem
 });

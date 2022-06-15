@@ -32,7 +32,7 @@ export type Props = {
   brandLogo?: SVGImport;
   nobb: string | null;
   nobbLabel: string;
-  attributes?: Attribute[];
+  attributes: Attribute[];
   children?: React.ReactNode;
   thumbnailComponent?: React.ComponentType<any>; // TODO
 };

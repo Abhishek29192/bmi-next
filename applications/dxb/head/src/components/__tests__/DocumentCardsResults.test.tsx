@@ -1,8 +1,8 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
+import { Data as DocumentData } from "../../types/Document";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 import DocumentCardsResults, { getCount } from "../DocumentCardsResults";
-import createContentfulDocument from "../../__tests__/ContentfulDocumentHelper";
-import { Data as DocumentData } from "./../Document";
 
 describe("Brands component", () => {
   const docs: DocumentData[] = [

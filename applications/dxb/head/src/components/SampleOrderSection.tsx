@@ -1,8 +1,7 @@
-import { Button } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { ButtonProps } from "@bmi/components";
+import { Button, ButtonProps, Section } from "@bmi/components";
 import { Add, Remove, ShoppingCart } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
+import { Product } from "../types/pim";
 import {
   ACTION_TYPES,
   createSample,
@@ -14,35 +13,32 @@ import styles from "./styles/SampleOrderSection.module.scss";
 import { useSiteContext } from "./Site";
 import { getCTA } from "./Link";
 import { Data as PageInfoData } from "./PageInfo";
-import { Product, VariantOption } from "./types/pim";
 
 const SampleOrderSection = ({
   isSampleOrderAllowed,
   product,
-  variant,
   maximumSamples,
   sampleBasketLinkInfo,
   actionLabel
 }: {
   isSampleOrderAllowed: boolean;
   product: Product;
-  variant?: VariantOption;
   maximumSamples?: number;
   sampleBasketLinkInfo?: PageInfoData;
   actionLabel?: string;
 }) => {
   const { basketState, basketDispatch } = useBasketContext();
   //actions
-  const addToBasket = (variant: VariantOption) => {
+  const addToBasket = (product: Product) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_ADD,
-      payload: createSample(product, variant)
+      payload: createSample(product)
     });
   };
-  const removeFromBasket = (variant: VariantOption) => {
+  const removeFromBasket = (product: Product) => {
     basketDispatch({
       type: ACTION_TYPES.BASKET_REMOVE,
-      payload: createSample(product, variant)
+      payload: createSample(product)
     });
   };
 
@@ -62,10 +58,11 @@ const SampleOrderSection = ({
   const [basketHasProducts, setBasketHasProducts] = useState(false);
   const { countryCode } = useSiteContext();
   useEffect(() => {
-    if (variant) {
+    if (product) {
       setHasSampleInTheBasket(
-        basketState.products.filter((product) => product.code === variant.code)
-          .length > 0
+        basketState.products.filter(
+          (brasketProduct) => brasketProduct.code === product.code
+        ).length > 0
       );
     }
     setIsBasketFull(basketState?.products?.length >= maximumSamples);
@@ -91,7 +88,7 @@ const SampleOrderSection = ({
                   <Button
                     className={styles["remove-from-basket"]}
                     endIcon={<Remove />}
-                    onClick={() => removeFromBasket(variant)}
+                    onClick={() => removeFromBasket(product)}
                     variant="text"
                   >
                     {getMicroCopy(microCopy.PDP_OVERVIEW_REMOVE_SAMPLE)}
@@ -100,7 +97,7 @@ const SampleOrderSection = ({
                   <GTMButton
                     className={styles["add-to-basket"]}
                     endIcon={<Add />}
-                    onClick={() => addToBasket(variant)}
+                    onClick={() => addToBasket(product)}
                     gtm={{
                       id: "cta-click1-samples-ordering",
                       label: getMicroCopy(microCopy.PDP_OVERVIEW_ADD_SAMPLE),

@@ -1,3 +1,9 @@
+test_gcp-firestore-writer:
+  extends: .test_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/gcp-firestore-writer"
+    ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
+
 build_gcp-firestore-writer:
   extends: .build_function_yarn_workspace
   variables:

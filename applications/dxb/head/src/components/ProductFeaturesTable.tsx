@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "@bmi/components";
-import { Feature } from "./types/pim";
+import { Feature } from "@bmi/firestore-types";
 
 type featureTableProps = {
   features: Feature[];
@@ -20,12 +20,10 @@ const ProductFeaturesTable = ({
       {HeadRow && <Table.Head>{HeadRow}</Table.Head>}
       <Table.Body>
         {features &&
-          features.map(({ name, code, featureValues, featureUnit }, index) => (
-            <Table.Row key={`feat-row-${name}-${code}--${index}`}>
+          features.map(({ name, value }, index) => (
+            <Table.Row key={`feat-row-${name}--${index}`}>
               <Table.Cell align="left">{name}</Table.Cell>
-              <Table.Cell align="right">
-                {`${featureValues[0].value} ${featureUnit?.symbol || ""}`}
-              </Table.Cell>
+              <Table.Cell align="right">{value}</Table.Cell>
             </Table.Row>
           ))}
       </Table.Body>

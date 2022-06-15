@@ -1,5 +1,3 @@
-import React, { useMemo, useRef, useState } from "react";
-import { graphql } from "gatsby";
 import {
   AlertBanner,
   DownloadList,
@@ -8,35 +6,34 @@ import {
   Hero,
   Section
 } from "@bmi/components";
-import { Data as SiteData } from "../../components/Site";
-import { Data as PageInfoData } from "../../components/PageInfo";
-import Page, { Data as PageData } from "../../components/Page";
-import { microCopy } from "../../constants/microCopies";
+import { graphql } from "gatsby";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import BackToResults from "../../components/BackToResults";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../components/Breadcrumbs";
-import {
-  Data as DocumentResultsData,
-  Format
-} from "../../components/DocumentResults";
+import { getCount as getCardsCount } from "../../components/DocumentCardsResults";
+import { DocumentResultData, Format } from "../../components/DocumentResults";
+import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
+import { getCount as getTechnicalTableCount } from "../../components/DocumentTechnicalTableResults";
+import Page, { Data as PageData } from "../../components/Page";
+import { Data as PageInfoData } from "../../components/PageInfo";
+import ProgressIndicator from "../../components/ProgressIndicator";
 import RichText, { RichTextData } from "../../components/RichText";
+import Scrim from "../../components/Scrim";
+import { Data as SiteData } from "../../components/Site";
+import filterStyles from "../../components/styles/Filters.module.scss";
+import { microCopy } from "../../constants/microCopies";
+import { useConfig } from "../../contexts/ConfigProvider";
+import { DocumentsWithFilters } from "../../types/documentsWithFilters";
+import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
+import { devLog } from "../../utils/devLog";
 import {
   filterDocuments,
   generateUniqueDocuments,
-  getDocumentFilters,
   ResultType,
   Source
 } from "../../utils/filters";
-import { devLog } from "../../utils/devLog";
-import ProgressIndicator from "../../components/ProgressIndicator";
-import Scrim from "../../components/Scrim";
-import filterStyles from "../../components/styles/Filters.module.scss";
-import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
-import { getCount as getCardsCount } from "../../components/DocumentCardsResults";
-import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
-import { getCount as getTechnicalTableCount } from "../../components/DocumentTechnicalTableResults";
-import { useConfig } from "../../contexts/ConfigProvider";
-import BackToResults from "../../components/BackToResults";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
 import { sourceToSortMap } from "./helpers/documnetLibraryHelpers";
@@ -49,10 +46,10 @@ export type Data = PageInfoData &
     allowFilterBy: string[] | null;
     source: Source;
     resultsType: ResultType;
-    documents: DocumentResultsData | null;
     breadcrumbs: BreadcrumbsData;
     categoryCodes: string[];
     breadcrumbTitle: string;
+    documentsWithFilters: DocumentsWithFilters | null;
   };
 
 type Props = {
@@ -71,7 +68,7 @@ type Props = {
 
 const documentCountMap: Record<
   Format,
-  (documents: DocumentResultsData) => number
+  (documents: DocumentResultData[]) => number
 > = {
   simpleTable: getSimpleTableCount,
   technicalTable: getTechnicalTableCount,
@@ -103,14 +100,14 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const {
     title,
     description,
-    documents: unsortedDocuments,
     source,
     resultsType,
     breadcrumbs,
     breadcrumbTitle,
     seo,
-    allowFilterBy
+    documentsWithFilters
   } = data.contentfulDocumentLibraryPage;
+  const unsortedDocuments = documentsWithFilters.documents;
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
@@ -147,15 +144,13 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const [filters, setFilters] = useState(
-    getDocumentFilters(
-      initialDocuments,
-      source,
-      resultsType,
-      pageContext.pimClassificationCatalogueNamespace,
-      allowFilterBy || []
-    ).filter(Boolean)
-  );
+  const [filters, setFilters] = useState([]);
+
+  useEffect(() => {
+    if (documentsWithFilters) {
+      setFilters(documentsWithFilters.filters);
+    }
+  }, [documentsWithFilters]);
   const maxSize = documentDownloadMaxLimit * 1048576;
 
   const fakeSearch = async (documents, filters, page) => {
@@ -186,7 +181,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   // Largely similar to product-lister-page.tsx
   const handleFiltersChange =
     (resetDownloadList) => async (filterName, filterValue, checked) => {
-      const addToArray = (array, value) => [...array, value];
+      const addToArray = (array, value) => [...(array || []), value];
       const removeFromArray = (array, value) =>
         array.filter((v) => v !== value);
       const getNewValue = (filter, checked, value) => {
@@ -209,6 +204,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       await fakeSearch(initialDocuments, newFilters, 1);
 
       resetDownloadList();
+
       setFilters(newFilters);
     };
 
@@ -316,8 +312,19 @@ export const pageQuery = graphql`
       categoryCodes
       allowFilterBy
       resultsType
-      documents {
-        ...DocumentResultsFragment
+      documentsWithFilters {
+        documents {
+          ...DocumentResultsFragment
+        }
+        filters {
+          filterCode
+          label
+          name
+          options {
+            label
+            value
+          }
+        }
       }
     }
     contentfulSite(id: { eq: $siteId }) {

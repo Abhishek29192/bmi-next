@@ -1,5 +1,5 @@
 import { EntryTypeEnum } from "../../Service";
-import createService from "../../../__tests__/ServiceHelper";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 import * as devLog from "../../../utils/devLog";
 import { createCompanyDetails } from "../components";
 

@@ -1,5 +1,5 @@
 import ContentfulFormSection from "../ContentfulFormSection";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 const source: Node = {
   id: "source",
@@ -13,6 +13,7 @@ const context: Context = {
     findAll: jest
       .fn()
       .mockResolvedValue([{ id: "asset-type-1" }, { id: "asset-type-2" }]),
+    findOne: jest.fn(),
     getNodeById: jest.fn().mockImplementation(({ id }: { id: string }) =>
       Promise.resolve({
         id
@@ -39,12 +40,12 @@ const createHubSpotField = (field?: Partial<HubSpotField>): HubSpotField => ({
   ...field
 });
 
-jest.mock("../../../utils/encryption", () => {
-  const originalModule = jest.requireActual("../../../utils/encryption");
+jest.mock("@bmi/utils", () => {
+  const originalModule = jest.requireActual("@bmi/utils");
 
   return {
     ...originalModule,
-    generateIdFromString: (name: string) => name
+    generateHashFromString: (name: string) => name
   };
 });
 
@@ -114,9 +115,9 @@ describe("ContentfulFormSection resolver", () => {
       ).toEqual([
         {
           children: [],
-          id: "sourcefield",
+          id: expect.any(String),
           internal: {
-            contentDigest: "aed9249b4b7119f217d97cef5cace77f",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -130,9 +131,9 @@ describe("ContentfulFormSection resolver", () => {
         },
         {
           children: [],
-          id: "sourcemobilephone",
+          id: expect.any(String),
           internal: {
-            contentDigest: "8e401a6b4c8e493b3c83ea91627774f5",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -146,9 +147,9 @@ describe("ContentfulFormSection resolver", () => {
         },
         {
           children: [],
-          id: "sourceemail",
+          id: expect.any(String),
           internal: {
-            contentDigest: "c9241c34a371b2633344da6812a66695",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -162,9 +163,9 @@ describe("ContentfulFormSection resolver", () => {
         },
         {
           children: [],
-          id: "sourcefield",
+          id: expect.any(String),
           internal: {
-            contentDigest: "42f769406683d11825d6b21ad9a15c59",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -203,9 +204,9 @@ describe("ContentfulFormSection resolver", () => {
       ).toEqual([
         {
           children: [],
-          id: "sourcefield",
+          id: expect.any(String),
           internal: {
-            contentDigest: "42f769406683d11825d6b21ad9a15c59",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -221,7 +222,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.isLegitimateInterest.communication-type-1",
           internal: {
-            contentDigest: "42d52085fd58890df30ea302f1705ba2",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -235,7 +236,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.ID.communication-type-1",
           internal: {
-            contentDigest: "c486b8cbbca0c7c924206f818bec4535",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -248,7 +249,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.communicationConsentText.communication-type-1",
           internal: {
-            contentDigest: "f09763aa501e94d7b4a4f9939fdcc6e3",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -262,7 +263,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.processingConsentText.communication-type-1",
           internal: {
-            contentDigest: "e85a1d6fb14ac304cb07f91d3fcd1c08",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -276,7 +277,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.processingConsentType.communication-type-1",
           internal: {
-            contentDigest: "2770f3875e1847265be1efcd5232ee0e",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -291,7 +292,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.privacyPolicyText.communication-type-1",
           internal: {
-            contentDigest: "2d3802bd97b002effc5f595152b624aa",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -328,9 +329,9 @@ describe("ContentfulFormSection resolver", () => {
       ).toEqual([
         {
           children: [],
-          id: "sourcefield",
+          id: expect.any(String),
           internal: {
-            contentDigest: "42f769406683d11825d6b21ad9a15c59",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -347,7 +348,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "HubSpot.Legal.ID.communication-type-1",
           internal: {
-            contentDigest: "c486b8cbbca0c7c924206f818bec4535",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -360,7 +361,7 @@ describe("ContentfulFormSection resolver", () => {
           children: [],
           id: "LEGAL_CONSENTcommunication-type-1",
           internal: {
-            contentDigest: "2b14e23f3e9179c0435503559cf0daee",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },
@@ -389,9 +390,9 @@ describe("ContentfulFormSection resolver", () => {
       ).toEqual([
         {
           children: [],
-          id: "sourcefield",
+          id: expect.any(String),
           internal: {
-            contentDigest: "42f769406683d11825d6b21ad9a15c59",
+            contentDigest: expect.any(String),
             owner: "@bmi/resolvers",
             type: "contentfulFormSectionInputsJsonNode"
           },

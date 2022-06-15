@@ -1,26 +1,29 @@
-import { Button, ButtonProps } from "@bmi/components";
-import { DownloadList, DownloadListContext } from "@bmi/components";
-import { Pagination } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  DownloadList,
+  DownloadListContext,
+  Pagination
+} from "@bmi/components";
+import { useMediaQuery } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import axios from "axios";
+import classnames from "classnames";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/core/styles";
-import classnames from "classnames";
-import { downloadAs, getDownloadLink } from "../utils/client-download";
-import withGTM from "../utils/google-tag-manager";
-import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
-import { devLog } from "../utils/devLog";
 import { microCopy } from "../constants/microCopies";
+import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
+import { devLog } from "../utils/devLog";
+import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
-import { useSiteContext } from "./Site";
+import { DocumentResultData } from "./DocumentResults";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
+import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";
-import { Data } from "./DocumentResults";
 
 export const useGlobalDocResFooterStyles = makeStyles(
   () => ({
@@ -74,7 +77,7 @@ export const handleDownloadClick = async (
       createAssetFileCountMap(assets);
     const documents = assets.map(
       ({ __typename, asset, extension, title, url }, index) => {
-        if (__typename === "SDPDocument") {
+        if (__typename === "PIMSystemDocument") {
           return {
             href: asset.file.url,
             name: asset.file.fileName
@@ -115,10 +118,13 @@ export const handleDownloadClick = async (
 };
 
 const extractUrl = (el) => {
-  return el.__typename === "PIMDocument" ? el.url : el.asset.file.url;
+  return el.__typename === "PIMDocument" ||
+    el.__typename === "PIMSystemDocument"
+    ? el.url
+    : el.asset.file.url;
 };
 
-const getListOfUrl = (item: Data) => {
+const getListOfUrl = (item: DocumentResultData[]) => {
   return item
     .map((el) => {
       return extractUrl(el);
@@ -126,7 +132,7 @@ const getListOfUrl = (item: Data) => {
     .join(",");
 };
 
-const getAction = (list: Record<string, Data>) => {
+const getAction = (list: Record<string, DocumentResultData>) => {
   return JSON.stringify(
     Object.values(list)
       .map((item) => {

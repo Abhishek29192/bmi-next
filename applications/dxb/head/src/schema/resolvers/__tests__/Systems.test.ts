@@ -1,5 +1,5 @@
-import Systems from "../Systems";
-import { Context, Node } from "../types";
+import Systems from "../System";
+import { Context, Node } from "../types/Gatsby";
 import * as SystemsUtils from "../../../utils/systems";
 
 jest.mock("../../../utils/systems");
@@ -8,7 +8,8 @@ const context: Context = {
   nodeModel: {
     getNodeById: jest.fn().mockResolvedValue({ subtitle: "subtitle" }),
     getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    findOne: jest.fn()
   }
 };
 
@@ -22,16 +23,16 @@ const source: Node = {
 
 describe("ContentfulServiceLocatorSection resolver", () => {
   it("should contain specific type", () => {
-    expect(Systems.relatedProducts.type).toEqual(["Products"]);
-    expect(Systems.relatedOptionalProducts.type).toEqual(["Products"]);
+    expect(Systems.relatedProducts.type).toEqual(["Product"]);
+    expect(Systems.relatedOptionalProducts.type).toEqual(["Product"]);
   });
 
   describe("path", () => {
     it("should resolve path", async () => {
-      const path = { path: "some-path" };
-      jest.spyOn(SystemsUtils, "generateSystemPath").mockResolvedValue(path);
+      const path = "some-path";
+      jest.spyOn(SystemsUtils, "generateSystemPath").mockReturnValue(path);
 
-      expect(await Systems.path.resolve(source)).toEqual({ path: "some-path" });
+      expect(await Systems.path.resolve(source)).toEqual(path);
       expect(SystemsUtils.generateSystemPath).toHaveBeenCalledWith(source);
     });
   });

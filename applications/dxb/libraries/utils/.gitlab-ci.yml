@@ -1,0 +1,11 @@
+test_utils:
+  extends: .test_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/utils"
+    ROOT_DIR: "applications/dxb/libraries/utils"
+
+build_utils:
+  extends: .build_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/utils"
+    ROOT_DIR: "applications/dxb/libraries/utils"

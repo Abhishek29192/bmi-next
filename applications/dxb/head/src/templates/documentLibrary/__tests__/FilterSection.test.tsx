@@ -1,5 +1,5 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import FilterSection, {
   Props as FilterSectionProps
 } from "../components/FilterSection";
@@ -12,6 +12,7 @@ describe("FilterSection", () => {
   const props: FilterSectionProps = {
     filters: [
       {
+        filterCode: "filter1",
         label: "filter1",
         name: "filter1",
         value: [],

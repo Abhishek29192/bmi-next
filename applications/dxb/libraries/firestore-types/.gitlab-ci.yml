@@ -1,0 +1,5 @@
+build_firestore-types:
+  extends: .build_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/firestore-types"
+    ROOT_DIR: "applications/dxb/libraries/firestore-types"

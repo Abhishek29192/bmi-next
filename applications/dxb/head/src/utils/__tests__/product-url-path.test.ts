@@ -1,15 +1,6 @@
+import createProduct from "../../__tests__/helpers/ProductHelper";
+import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import { generateSimpleProductUrl, generateUrl } from "../product-url-path";
-import {
-  createBaseProduct,
-  createVariantOption
-} from "../../__tests__/PimDocumentProductHelper";
-import createClassification, {
-  createFeature
-} from "../../__tests__/ClassificationHelper";
-import {
-  ClassificationCodeEnum,
-  FeatureCodeEnum
-} from "../../components/types/pim";
 
 describe("product-url-path tests", () => {
   describe("generateUrl tests", () => {
@@ -167,9 +158,14 @@ describe("product-url-path tests", () => {
     describe("And feature attributes do NOT exist", () => {
       it("generates simple url with product name and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption(),
-          "7824579245254",
+          createProduct({
+            name: "product-name",
+            colour: undefined,
+            textureFamily: undefined,
+            materials: undefined,
+            variantAttribute: undefined,
+            hashedCode: "7824579245254"
+          }),
           false
         );
         expect(result).toEqual("product-name-7824579245254");
@@ -178,22 +174,14 @@ describe("product-url-path tests", () => {
     describe("And ONLY `colour` feature attribute exists", () => {
       it("generates simple url with product name, colour value and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                features: [
-                  createFeature({
-                    code: FeatureCodeEnum.COLOUR,
-                    featureValues: [{ code: "RED", value: "red" }]
-                  })
-                ]
-              })
-            ]
+          createProduct({
+            name: "product-name",
+            colour: "red",
+            textureFamily: undefined,
+            materials: undefined,
+            variantAttribute: undefined,
+            hashedCode: "7824579245254"
           }),
-          "7824579245254",
           false
         );
         expect(result).toEqual("product-name-red-7824579245254");
@@ -202,22 +190,14 @@ describe("product-url-path tests", () => {
     describe("And ONLY `texturefamily` feature attribute exists", () => {
       it("generates simple url with product name, texturefamily and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                features: [
-                  createFeature({
-                    code: FeatureCodeEnum.TEXTURE_FAMILY,
-                    featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                  })
-                ]
-              })
-            ]
+          createProduct({
+            name: "product-name",
+            colour: undefined,
+            textureFamily: "smooth",
+            materials: undefined,
+            variantAttribute: undefined,
+            hashedCode: "7824579245254"
           }),
-          "7824579245254",
           false
         );
         expect(result).toEqual("product-name-smooth-7824579245254");
@@ -226,22 +206,14 @@ describe("product-url-path tests", () => {
     describe("And ONLY `materials` feature attribute exists", () => {
       it("generates simple url with product name, materials and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: ClassificationCodeEnum.GENERAL_INFORMATION,
-                name: ClassificationCodeEnum.GENERAL_INFORMATION,
-                features: [
-                  createFeature({
-                    code: FeatureCodeEnum.MATERIALS,
-                    featureValues: [{ code: "OVERFLATE", value: "overflate" }]
-                  })
-                ]
-              })
-            ]
+          createProduct({
+            name: "product-name",
+            colour: undefined,
+            textureFamily: undefined,
+            materials: "overflate",
+            variantAttribute: undefined,
+            hashedCode: "7824579245254"
           }),
-          "7824579245254",
           false
         );
         expect(result).toEqual("product-name-overflate-7824579245254");
@@ -251,26 +223,14 @@ describe("product-url-path tests", () => {
       describe("And `colour` and `texturefamily` feature attributes exists", () => {
         it("generates simple url with product name, colour value , texturefamily value and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.COLOUR,
-                      featureValues: [{ code: "RED", value: "red" }]
-                    }),
-                    createFeature({
-                      code: FeatureCodeEnum.TEXTURE_FAMILY,
-                      featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                    })
-                  ]
-                })
-              ]
+            createProduct({
+              name: "product-name",
+              colour: "red",
+              textureFamily: "smooth",
+              materials: undefined,
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             false
           );
           expect(result).toEqual("product-name-red-smooth-7824579245254");
@@ -279,32 +239,14 @@ describe("product-url-path tests", () => {
       describe("And `colour` and `materials` feature attributes exists", () => {
         it("generates simple url with product name, colour value , materials value and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.COLOUR,
-                      featureValues: [{ code: "RED", value: "red" }]
-                    })
-                  ]
-                }),
-                createClassification({
-                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.MATERIALS,
-                      featureValues: [{ code: "OVERFLATE", value: "overflate" }]
-                    })
-                  ]
-                })
-              ]
+            createProduct({
+              name: "product-name",
+              colour: "red",
+              textureFamily: undefined,
+              materials: "overflate",
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             false
           );
           expect(result).toEqual("product-name-red-overflate-7824579245254");
@@ -313,32 +255,14 @@ describe("product-url-path tests", () => {
       describe("And `texturefamily` and `materials` feature attributes exists", () => {
         it("generates simple url with product name, texturefamily value , materials value and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.TEXTURE_FAMILY,
-                      featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                    })
-                  ]
-                }),
-                createClassification({
-                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.MATERIALS,
-                      featureValues: [{ code: "OVERFLATE", value: "overflate" }]
-                    })
-                  ]
-                })
-              ]
+            createProduct({
+              name: "product-name",
+              colour: undefined,
+              textureFamily: "smooth",
+              materials: "overflate",
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             false
           );
           expect(result).toEqual("product-name-smooth-overflate-7824579245254");
@@ -350,36 +274,14 @@ describe("product-url-path tests", () => {
       describe("And features have at least one value", () => {
         it("generates simple url with product name, ALL three attribute values and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.COLOUR,
-                      featureValues: [{ code: "RED", value: "red" }]
-                    }),
-                    createFeature({
-                      code: FeatureCodeEnum.TEXTURE_FAMILY,
-                      featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                    })
-                  ]
-                }),
-                createClassification({
-                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.MATERIALS,
-                      featureValues: [{ code: "OVERFLATE", value: "overflate" }]
-                    })
-                  ]
-                })
-              ]
+            createProduct({
+              name: "product-name",
+              colour: "red",
+              textureFamily: "smooth",
+              materials: "overflate",
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             false
           );
           expect(result).toEqual(
@@ -390,36 +292,14 @@ describe("product-url-path tests", () => {
       describe("And some eatures do NOT have at least one value", () => {
         it("generates simple url with product name, ALL three attribute values and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.COLOUR,
-                      featureValues: [{ code: "RED", value: "red" }]
-                    }),
-                    createFeature({
-                      code: FeatureCodeEnum.TEXTURE_FAMILY,
-                      featureValues: []
-                    })
-                  ]
-                }),
-                createClassification({
-                  code: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  name: ClassificationCodeEnum.GENERAL_INFORMATION,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.MATERIALS,
-                      featureValues: [{ code: "OVERFLATE", value: "overflate" }]
-                    })
-                  ]
-                })
-              ]
+            createProduct({
+              name: "product-name",
+              colour: "red",
+              textureFamily: undefined,
+              materials: "overflate",
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             false
           );
           expect(result).toEqual("product-name-red-overflate-7824579245254");
@@ -433,9 +313,10 @@ describe("product-url-path tests", () => {
       describe("And other feature attributes do NOT exist", () => {
         it("generates simple url with product name and hash", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption(),
-            "7824579245254",
+            createRelatedVariant({
+              name: "product name",
+              hashedCode: "7824579245254"
+            }),
             true
           );
           expect(result).toEqual("product-name-7824579245254");
@@ -445,26 +326,14 @@ describe("product-url-path tests", () => {
       describe("And other feature attributes exists", () => {
         it("generates simple url with available fallback feature attributes", () => {
           const result = generateSimpleProductUrl(
-            createBaseProduct(),
-            createVariantOption({
-              classifications: [
-                createClassification({
-                  code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                  features: [
-                    createFeature({
-                      code: FeatureCodeEnum.COLOUR,
-                      featureValues: [{ code: "RED", value: "red" }]
-                    }),
-                    createFeature({
-                      code: FeatureCodeEnum.TEXTURE_FAMILY,
-                      featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                    })
-                  ]
-                })
-              ]
+            createRelatedVariant({
+              name: "product-name",
+              colour: "red",
+              textureFamily: "smooth",
+              materials: undefined,
+              variantAttribute: undefined,
+              hashedCode: "7824579245254"
             }),
-            "7824579245254",
             true
           );
           expect(result).toEqual("product-name-red-smooth-7824579245254");
@@ -474,27 +343,14 @@ describe("product-url-path tests", () => {
     describe("And variantattribute feature attribute with value exists", () => {
       it("generates simple url with product name, variantattribute value and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                features: [
-                  createFeature({
-                    code: "variantattribute",
-                    featureValues: [
-                      {
-                        code: "var-attrib-1",
-                        value: "110mm length and variant attribute"
-                      }
-                    ]
-                  })
-                ]
-              })
-            ]
+          createRelatedVariant({
+            name: "product-name",
+            colour: "red",
+            textureFamily: "smooth",
+            materials: "overflate",
+            variantAttribute: "110mm length and variant attribute",
+            hashedCode: "7824579245254"
           }),
-          "7824579245254",
           true
         );
         expect(result).toEqual(
@@ -505,22 +361,10 @@ describe("product-url-path tests", () => {
     describe("And variantattribute feature attribute exists but value does NOT exists", () => {
       it("generates simple url with product name and hash", () => {
         const result = generateSimpleProductUrl(
-          createBaseProduct(),
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-                features: [
-                  createFeature({
-                    code: "variantattribute",
-                    featureValues: []
-                  })
-                ]
-              })
-            ]
+          createRelatedVariant({
+            name: "product-name",
+            hashedCode: "7824579245254"
           }),
-          "7824579245254",
           true
         );
         expect(result).toEqual("product-name-7824579245254");
@@ -530,36 +374,13 @@ describe("product-url-path tests", () => {
   describe("product-url-path returns sanitised path test", () => {
     it("generates simple url with product name, ALL three attribute values and hash", () => {
       const result = generateSimpleProductUrl(
-        createBaseProduct({ name: `bad*product-Name"""1` }),
-        createVariantOption({
-          classifications: [
-            createClassification({
-              code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-              name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-              features: [
-                createFeature({
-                  code: FeatureCodeEnum.COLOUR,
-                  featureValues: [{ code: "RED", value: "red" }]
-                }),
-                createFeature({
-                  code: FeatureCodeEnum.TEXTURE_FAMILY,
-                  featureValues: [{ code: "SMOOTH", value: "smooth" }]
-                })
-              ]
-            }),
-            createClassification({
-              code: ClassificationCodeEnum.GENERAL_INFORMATION,
-              name: ClassificationCodeEnum.GENERAL_INFORMATION,
-              features: [
-                createFeature({
-                  code: FeatureCodeEnum.MATERIALS,
-                  featureValues: [{ code: "OVERFLATE", value: "over**flate" }]
-                })
-              ]
-            })
-          ]
+        createProduct({
+          colour: "red",
+          textureFamily: "smooth",
+          materials: "overflate",
+          name: `bad*product-Name"""1`,
+          hashedCode: "7824579245254"
         }),
-        "7824579245254",
         false
       );
       expect(result).toEqual(

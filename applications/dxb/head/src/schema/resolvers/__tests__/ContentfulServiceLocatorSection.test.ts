@@ -1,5 +1,5 @@
 import ContentfulServiceLocatorSection from "../ContentfulServiceLocatorSection";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -7,7 +7,8 @@ const context: Context = {
     getNodesByIds: jest.fn(),
     findAll: jest.fn().mockResolvedValue({
       entries: [{ type: "ContentfulServiceLocatorSection" }]
-    })
+    }),
+    findOne: jest.fn()
   }
 };
 

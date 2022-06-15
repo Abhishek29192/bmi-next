@@ -3,7 +3,7 @@ import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../index";
 import { EntryTypeEnum } from "../../Service";
-import createService from "../../../__tests__/ServiceHelper";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 
 jest.mock("@reach/router", () => ({

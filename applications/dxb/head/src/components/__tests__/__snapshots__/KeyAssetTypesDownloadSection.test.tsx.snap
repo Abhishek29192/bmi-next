@@ -8,7 +8,8 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
     <div>
       <button
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
-        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\",\\\\\\"http://doesnot-exist.com/fileName\\\\\\"]\\"}"
+        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
+        data-testid="SATDownload"
         tabindex="0"
         type="button"
       >
@@ -31,8 +32,9 @@ exports[`KeyAssetTypesDownloadSection component renders correctly 1`] = `
       <a
         aria-disabled="false"
         class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-text buttonStyles-text-2 MuiButton-textPrimary"
-        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://doesnot-exist.com/fileName\\\\\\"]\\"}"
-        href="http://doesnot-exist.com/fileName"
+        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\"]\\"}"
+        data-testid="AATDownload"
+        href="http://pimdocument/"
         rel="noopener noreferrer"
         tabindex="0"
         target="_blank"

@@ -1,516 +1,65 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
+import { RelatedProduct } from "../../types/pim";
+import createRelatedProduct from "../../__tests__/helpers/RelatedProductHelper";
 import RelatedProducts from "../RelatedProducts";
-import { ClassificationCodeEnum, Product } from "../types/pim";
-import {
-  createBaseProduct,
-  createVariantOption
-} from "../../__tests__/PimDocumentProductHelper";
-import createCategory from "../../__tests__/CategoryHelper";
 
 describe("RelatedProducts component", () => {
-  it("renders correctly with no products", () => {
-    const prods: Product[] = [];
-
+  it("renders correctly with no related products", () => {
     const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"pimClassificationNamespace"}
-        products={prods}
-      />
+      <RelatedProducts countryCode="en" products={[]} />
     );
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly with no variants", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        variantOptions: []
-      })
+  it("renders correctly with related products", () => {
+    const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
+
+    const { container } = render(
+      <RelatedProducts countryCode="en" products={relatedProducts} />
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it("renders correctly with related products without groups", () => {
+    const relatedProducts: RelatedProduct[] = [
+      createRelatedProduct({ groups: [] })
     ];
 
     const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
+      <RelatedProducts countryCode="en" products={relatedProducts} />
     );
     expect(container).toMatchSnapshot();
   });
 
-  it("renders correctly with products", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        categories: [createCategory({ categoryType: "Category" })]
-      })
+  it("renders correctly without Brand and External Product code on related products", () => {
+    const relatedProducts: RelatedProduct[] = [
+      createRelatedProduct({ brand: null }),
+      createRelatedProduct({ externalProductCode: null }),
+      createRelatedProduct({ brand: null, externalProductCode: null })
     ];
 
     const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly with products without categories", () => {
-    const prods: Product[] = [createBaseProduct({ categories: [] })];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  // TODO: What on earth is going on here?!
-  it("renders variants correctly with products without classifications or externalProductCode", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: null,
-        externalProductCode: "test1"
-      }),
-      createBaseProduct({
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [],
-        externalProductCode: "test2"
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly with scoringweight", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        name: "product-1",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      }),
-      createBaseProduct({
-        name: "product-2",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "4",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
+      <RelatedProducts countryCode="en" products={relatedProducts} />
     );
     expect(container).toMatchSnapshot();
   });
 
   it("renders with correct gtmLabel", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        variantOptions: [createVariantOption(), createVariantOption()],
-        name: "product-1",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [
-                  {
-                    value: "blue",
-                    code: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
-                  }
-                ],
-                name: "colour"
-              }
-            ],
-            name: ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
-          }
-        ]
-      })
-    ];
+    const relatedProducts: RelatedProduct[] = [createRelatedProduct()];
 
     const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
+      <RelatedProducts countryCode="en" products={relatedProducts} />
     );
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
-      label: "product-1 - MC: pdp.relatedProducts.viewDetails",
-      action: "/en/some-path/"
+      label:
+        "name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails",
+      action: "/en/path/"
     });
 
     const elemsWithGTM = container.querySelectorAll(".OverviewCard");
-    expect(elemsWithGTM).toHaveLength(2);
+    expect(elemsWithGTM).toHaveLength(1);
     expect(elemsWithGTM[0].getAttribute("data-gtm")).toEqual(expectedDataGtm);
-    expect(elemsWithGTM[1].getAttribute("data-gtm")).toEqual(expectedDataGtm);
-  });
-
-  // TODO: improve test to check order correctly
-  it("renders correctly when scoringweight equal", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        name: "product-1",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      }),
-      createBaseProduct({
-        name: "product-2",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  // TODO: improve test to check order correctly
-  it("renders correctly when scoringweight equal & names equal", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        name: "product",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      }),
-      createBaseProduct({
-        name: "product",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  // TODO: improve test to check order correctly
-  it("renders correctly when scoringweight equal & names sorted opposite", () => {
-    const prods: Product[] = [
-      createBaseProduct({
-        name: "product-2",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      }),
-      createBaseProduct({
-        name: "product-1",
-        categories: [
-          createCategory({
-            categoryType: "Category",
-            code: "parent-category",
-            parentCategoryCode: ""
-          }),
-          createCategory({
-            categoryType: "Category",
-            parentCategoryCode: "parent-category"
-          })
-        ],
-        classifications: [
-          {
-            code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES,
-            features: [
-              {
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [
-                  {
-                    value: "1",
-                    code: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-                  }
-                ],
-                name: "Scoring Weight"
-              }
-            ],
-            name: ClassificationCodeEnum.SCORING_WEIGHT_ATTRIBUTES
-          }
-        ]
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it("renders correctly with GATSBY_HIDE_RECOMMENDED_PRODUCTS = true", () => {
-    process.env.GATSBY_HIDE_RECOMMENDED_PRODUCTS = "true";
-    const prods: Product[] = [
-      createBaseProduct({
-        categories: [createCategory({ categoryType: "Category" })]
-      })
-    ];
-
-    const { container } = render(
-      <RelatedProducts
-        countryCode="en"
-        classificationNamespace={"bmiClassificationCatalog/1.0"}
-        products={prods}
-      />
-    );
-    expect(container).toMatchSnapshot();
   });
 });

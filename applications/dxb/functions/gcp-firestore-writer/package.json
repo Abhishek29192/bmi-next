@@ -11,17 +11,21 @@
     "compile": "tsc",
     "dev": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json functions-framework --source=dist/dist/function --target=handleMessage",
     "dev:top": "yarn build && js-yaml ./.env.yaml > ./.env.json && env-cmd -r ./.env.json process-top ./node_modules/.bin/functions-framework --source=dist/dist/function --target=handleMessage",
-    "lint": "eslint \"**/*.{js,ts,tsx}\""
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@bmi/functions-firestore": "0.0.0",
+    "@bmi/gcp-pim-message-handler": "0.0.0",
+    "@bmi/utils": "0.0.0",
+    "@bmi/pim-types": "0.0.0",
+    "@bmi/firestore-types": "0.0.0",
     "@bmi-digital/functions-logger": "1.2.0",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@bmi/gcp-pim-message-handler": "0.0.0",
     "env-cmd": "^10.1.0",
     "inspectpack": "^4.7.1",
     "js-yaml": "^4.0.0",

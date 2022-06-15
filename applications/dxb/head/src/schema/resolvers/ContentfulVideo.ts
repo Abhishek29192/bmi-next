@@ -2,7 +2,7 @@ import { google, youtube_v3 } from "googleapis";
 import { config } from "dotenv";
 import fetch, { Response } from "node-fetch";
 import { getYoutubeId } from "../../utils/product-details-transforms";
-import { Node } from "./types";
+import { Node } from "./types/Gatsby";
 
 config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -81,7 +81,7 @@ export default {
           })
         : null;
 
-      if (!ENABLE_YOUTUBE_CACHE) {
+      if (ENABLE_YOUTUBE_CACHE !== "true") {
         if (!youtube) {
           if (process.env.NODE_ENV === "production") {
             throwMissingEnvVariable("GOOGLE_YOUTUBE_API_KEY");

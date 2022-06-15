@@ -1,23 +1,18 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Component from "../technicalSpecificationLeadBlock";
-import {
-  Classification,
-  ClassificationCodeEnum,
-  Feature
-} from "../../../components/types/pim";
+
 import { DataTypeEnum } from "../../../components/Link";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
+import { Classification, Feature } from "../../../types/pim";
 
 const technicalSpecClassifications: Classification[] = [
   {
-    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+    name: "systemAttributes",
     features: [
       {
         name: "feature1",
-        code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.roofbuildup",
-        featureValues: [{ value: "200" }]
+        value: "200"
       }
     ]
   }
@@ -53,8 +48,7 @@ const specificationNotesData: SDPSpecificationNotesData = {
 };
 
 const featureWithUnit: Feature = {
-  ...technicalSpecClassifications[0].features[0],
-  featureUnit
+  ...technicalSpecClassifications[0].features[0]
 };
 
 describe("TechnicalSpecificationLeadBlock tests", () => {
@@ -117,15 +111,16 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
       it("With a feature units", () => {
         const classifications: Classification[] = [
           {
-            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            name: "systemAttributes",
             features: [featureWithUnit]
           }
         ];
         const { container, queryByText } = render(
           <Component technicalSpecClassifications={classifications} />
         );
-        const unitTypeText = queryByText(featureUnit.symbol, { exact: false });
+        const unitTypeText = queryByText(featureWithUnit.value, {
+          exact: false
+        });
 
         expect(container).toMatchSnapshot();
         expect(unitTypeText).toBeInTheDocument();
@@ -157,20 +152,18 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
       it("With more than one feature units", () => {
         const classifications: Classification[] = [
           {
-            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            name: "systemAttributes",
             features: [featureWithUnit, featureWithUnit]
           },
           {
-            name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-            code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
+            name: "systemAttributes",
             features: [featureWithUnit, featureWithUnit]
           }
         ];
         const { container, queryAllByText } = render(
           <Component technicalSpecClassifications={classifications} />
         );
-        const unitTypeText = queryAllByText(featureUnit.symbol, {
+        const unitTypeText = queryAllByText(featureWithUnit.value, {
           exact: false
         });
 

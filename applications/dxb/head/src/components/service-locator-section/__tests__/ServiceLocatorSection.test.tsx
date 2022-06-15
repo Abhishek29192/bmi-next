@@ -3,7 +3,7 @@ import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
 import { EntryTypeEnum } from "../../Service";
 import { Data as ServiceType } from "../../ServiceType";
-import createService from "../../../__tests__/ServiceHelper";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 import { renderWithRouter } from "../../../test/renderWithRouter";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType

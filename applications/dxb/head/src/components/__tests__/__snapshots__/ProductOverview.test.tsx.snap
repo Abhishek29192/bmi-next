@@ -151,33 +151,6 @@ exports[`ProductOverview component renders correctly with Recapcha 1`] = `
             text
           </p>
         </div>
-        <p
-          class="MuiTypography-root keyAssetTypesDownload Typography MuiTypography-body1"
-        >
-          This site is protected by reCAPTCHA and the Google 
-          <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-            href="https://policies.google.com/privacy"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <span>
-              Privacy Policy
-            </span>
-          </a>
-           and 
-          <a
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover Anchorlink MuiTypography-colorPrimary"
-            href="https://policies.google.com/terms"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            <span>
-              Terms of Service
-            </span>
-          </a>
-           apply.
-        </p>
       </div>
     </div>
   </div>

@@ -1,21 +1,13 @@
+import createAssetType from "../../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument from "../../../__tests__/helpers/PimDocumentHelper";
 import { sourceToSortMap } from "../helpers/documnetLibraryHelpers";
-import createPimDocument from "../../../__tests__/PimDocumentHelper";
-import createProduct from "../../../__tests__/PimDocumentProductHelper";
-import createCategory from "../../../__tests__/CategoryHelper";
-import createClassification from "../../../__tests__/ClassificationHelper";
-import createAssetType from "../../../__tests__/AssetTypeHelper";
-import { PIMDocumentData } from "../../../components/types/PIMDocumentBase";
 
 describe("documentLibraryHelpers", () => {
   describe("sourceToSortMap", () => {
-    const pimDocument: PIMDocumentData = createPimDocument({
+    const pimDocument = createPimDocument({
       id: `pim-doc-id`,
       url: `pim-doc-url`,
-      title: "documentTitle",
-      product: createProduct({
-        categories: [createCategory({ categoryType: "Brand" })],
-        classifications: [createClassification()]
-      })
+      title: "documentTitle"
     });
     const documents = [
       {
@@ -23,7 +15,7 @@ describe("documentLibraryHelpers", () => {
         id: "2",
         url: "2",
         title: "documentTitle2",
-        assetType: createAssetType({ name: "c", code: "c" }),
+        assetType: createAssetType({ name: "c", code: "c", pimCode: "c" }),
         brand: "c"
       },
       {
@@ -31,7 +23,7 @@ describe("documentLibraryHelpers", () => {
         id: "3",
         url: "3",
         title: "documentTitle2",
-        assetType: createAssetType({ name: "e", code: "e" }),
+        assetType: createAssetType({ name: "e", code: "e", pimCode: "e" }),
         brand: "e"
       },
       {
@@ -39,7 +31,7 @@ describe("documentLibraryHelpers", () => {
         id: "5",
         url: "5",
         title: "documentTitle5",
-        assetType: createAssetType({ name: "c", code: "c" }),
+        assetType: createAssetType({ name: "c", code: "c", pimCode: "c" }),
         brand: "c"
       },
       {
@@ -47,7 +39,7 @@ describe("documentLibraryHelpers", () => {
         id: "6",
         url: "6",
         title: "documentTitle6",
-        assetType: createAssetType({ name: "e", code: "e" }),
+        assetType: createAssetType({ name: "e", code: "e", pimCode: "e" }),
         brand: "e"
       },
       {
@@ -55,7 +47,7 @@ describe("documentLibraryHelpers", () => {
         id: "0",
         url: "0",
         title: "documentTitle4",
-        assetType: createAssetType({ name: "e", code: "e" }),
+        assetType: createAssetType({ name: "e", code: "e", pimCode: "e" }),
         brand: "e"
       },
       {
@@ -63,7 +55,7 @@ describe("documentLibraryHelpers", () => {
         id: "1",
         url: "1",
         title: "documentTitle1",
-        assetType: createAssetType({ name: "d", code: "d" }),
+        assetType: createAssetType({ name: "d", code: "d", pimCode: "d" }),
         brand: "d"
       }
     ];
@@ -82,7 +74,6 @@ describe("documentLibraryHelpers", () => {
 
     it("sort documents correctly using PIM", () => {
       const result = sourceToSortMap["PIM"](documents);
-
       expect(result).toEqual([
         documents[5],
         documents[0],

@@ -1,11 +1,11 @@
 import { Filter } from "@bmi/components";
+import { ProductFilter } from "../../types/pim";
 import {
   Aggregations,
   compileESQueryPLP,
   disableFiltersFromAggregationsPLP,
   xferFilterValue
 } from "../elasticSearchPLP";
-import { ProductFilter } from "../product-filters";
 
 beforeEach(() => {
   process.env.GATSBY_GROUP_BY_VARIANT = "false";
@@ -15,6 +15,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
   it("should disable based on aggregations", () => {
     const filters: Filter[] = [
       {
+        filterCode: "COLOUR",
         name: "COLOUR",
         label: "Colour",
         options: [
@@ -38,6 +39,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
     );
     const result = [
       {
+        filterCode: "COLOUR",
         name: "COLOUR",
         label: "Colour",
         options: [
@@ -53,6 +55,7 @@ describe("disableFiltersFromAggregationsPLP function", () => {
     it("should remove prefix and disable based on aggregations", () => {
       const filters: Filter[] = [
         {
+          filterCode: "plpFilter.colour",
           name: "plpFilter.colour",
           label: "Colour",
           options: [
@@ -76,10 +79,11 @@ describe("disableFiltersFromAggregationsPLP function", () => {
       );
       const result = [
         {
+          filterCode: "plpFilter.colour",
           name: "plpFilter.colour",
           label: "Colour",
           options: [
-            { label: "1", value: "colour1", isDisabled: false },
+            { label: "1", value: "colour1", isDisabled: true },
             { label: "2", value: "colour2", isDisabled: true }
           ]
         }
@@ -300,6 +304,7 @@ describe("compileESQueryPLP function", () => {
         const query = compileESQueryPLP({
           filters: [
             {
+              filterCode: "filter-1",
               label: "filter-1",
               name: "filter-1",
               options: [{ label: "option-1", value: "option-1" }]
@@ -345,12 +350,14 @@ describe("compileESQueryPLP function", () => {
         const query = compileESQueryPLP({
           filters: [
             {
+              filterCode: "filter-1",
               label: "filter-1",
               name: "filter-1",
               value: ["option-1"],
               options: [{ label: "option-1-label", value: "option-1" }]
             },
             {
+              filterCode: "filter-2",
               label: "filter-2",
               name: "filter-2",
               value: [],
@@ -400,12 +407,14 @@ describe("compileESQueryPLP function", () => {
         const query = compileESQueryPLP({
           filters: [
             {
+              filterCode: "filter-1",
               label: "filter-1",
               name: "filter-1",
               value: ["option-1"],
               options: [{ label: "option-1-label", value: "option-1" }]
             },
             {
+              filterCode: "filter-2",
               label: "filter-2",
               name: "filter-2",
               value: ["fl2-option-1"],
@@ -755,8 +764,9 @@ describe("compileESQueryPLP function", () => {
 describe("syncFilterValue function", () => {
   describe("When matching filter is found in target", () => {
     it("should transfer the filter value from source to target filters", () => {
-      const srcFilters: ProductFilter[] = [
+      const srcFilters = [
         {
+          filterCode: "colour",
           name: "colour",
           label: "Colour",
           value: ["colour1"],
@@ -769,6 +779,7 @@ describe("syncFilterValue function", () => {
 
       const targetFilters: Filter[] = [
         {
+          filterCode: "colour",
           name: "colour",
           label: "Colour",
           options: [
@@ -781,6 +792,7 @@ describe("syncFilterValue function", () => {
       const updatedFilters = xferFilterValue(srcFilters, targetFilters);
       const result = [
         {
+          filterCode: "colour",
           name: "colour",
           label: "Colour",
           value: ["colour1"],
@@ -799,6 +811,7 @@ describe("syncFilterValue function", () => {
     it("should transfer the filter value from source to target filters", () => {
       const srcFilters: ProductFilter[] = [
         {
+          filterCode: "colour",
           name: "height",
           label: "Height",
           value: ["height1"],
@@ -811,6 +824,7 @@ describe("syncFilterValue function", () => {
 
       const targetFilters: Filter[] = [
         {
+          filterCode: "colour",
           name: "colour",
           label: "Colour",
           options: [
@@ -823,9 +837,10 @@ describe("syncFilterValue function", () => {
       const updatedFilters = xferFilterValue(srcFilters, targetFilters);
       const result = [
         {
+          filterCode: "colour",
           name: "colour",
           label: "Colour",
-          value: [],
+          value: ["height1"],
           options: [
             { label: "1", value: "colour1" },
             { label: "2", value: "colour2" }

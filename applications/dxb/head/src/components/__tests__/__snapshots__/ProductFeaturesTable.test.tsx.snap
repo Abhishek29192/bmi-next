@@ -37,7 +37,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              200 
+              200
             </td>
           </tr>
           <tr
@@ -51,7 +51,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              300 
+              300
             </td>
           </tr>
         </tbody>
@@ -82,7 +82,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              200 
+              200
             </td>
           </tr>
           <tr
@@ -96,7 +96,7 @@ exports[`ProductFeaturesTable component Renders correctly With default row patte
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              300 
+              300
             </td>
           </tr>
         </tbody>
@@ -127,7 +127,7 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              200 
+              200
             </td>
           </tr>
           <tr
@@ -141,7 +141,7 @@ exports[`ProductFeaturesTable component Renders correctly With even row pattern 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              300 
+              300
             </td>
           </tr>
         </tbody>
@@ -179,7 +179,7 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              200 
+              200
             </td>
           </tr>
           <tr
@@ -193,7 +193,7 @@ exports[`ProductFeaturesTable component Renders correctly With header row 1`] = 
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
             >
-              300 
+              300
             </td>
           </tr>
         </tbody>

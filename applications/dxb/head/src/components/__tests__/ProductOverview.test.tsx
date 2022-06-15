@@ -1,12 +1,12 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import { YoutubeVideo } from "@bmi/components";
+import { render } from "@testing-library/react";
+import React from "react";
 import ProductOverview from "../ProductOverview";
 
 describe("ProductOverview component", () => {
   const data = {
     name: "name",
-    brandName: "brandName",
+    brandCode: "brandName",
     nobb: null,
     images: [
       {

@@ -1,6 +1,6 @@
-import React from "react";
 import { fireEvent, render } from "@testing-library/react";
-import Filters from "../Filters";
+import React from "react";
+import Filters, { Filter as ProductFilter } from "../Filters";
 
 describe("Filters component", () => {
   it("renders correctly", () => {
@@ -9,9 +9,10 @@ describe("Filters component", () => {
   });
 
   it("renders multiple filters", () => {
-    const filters = [
+    const filters: ProductFilter[] = [
       {
-        label: "Label 1",
+        label: "group-label",
+        filterCode: "filter-code",
         name: "product-1",
         options: [
           {
@@ -25,7 +26,8 @@ describe("Filters component", () => {
         ]
       },
       {
-        label: "Label 2",
+        label: "group-label-2",
+        filterCode: "filter-code-2",
         name: "product-2",
         options: [
           {
@@ -47,7 +49,8 @@ describe("Filters component", () => {
   it("renders selected filters", () => {
     const filters = [
       {
-        label: "Label 1",
+        label: "group-label",
+        filterCode: "filter-code",
         name: "product-1",
         value: ["option-2"],
         options: [
@@ -70,7 +73,8 @@ describe("Filters component", () => {
   it("renders disabled filters", () => {
     const filters = [
       {
-        label: "Label 1",
+        label: "group-label",
+        filterCode: "filter-code",
         name: "product-1",
         value: ["option-2"],
         options: [
@@ -94,7 +98,8 @@ describe("Filters component", () => {
   it("calls onChange handler", () => {
     const filters = [
       {
-        label: "Label 1",
+        label: "group-label",
+        filterCode: "filter-code",
         name: "product-1",
         value: ["option-3"],
         options: [
@@ -126,7 +131,8 @@ describe("Filters component", () => {
   it("renders correct summaryLabel if filter.label is an empty string", () => {
     const filters = [
       {
-        label: "",
+        label: "group-label",
+        filterCode: "filter-code",
         name: "product-1",
         value: ["option-2"],
         options: [

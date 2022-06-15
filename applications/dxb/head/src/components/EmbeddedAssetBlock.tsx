@@ -1,13 +1,12 @@
 import React from "react";
 import { Block } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
-import { FileContentTypeEnum } from "./types/pim";
 
 type FileData = {
   title: string;
   file: {
     url: string;
-    contentType: FileContentTypeEnum;
+    contentType: keyof typeof contentTypeMap;
   };
 };
 
@@ -54,6 +53,7 @@ const EmbeddedAssetBlock = ({
 export default EmbeddedAssetBlock;
 
 export const query = graphql`
+  # TODO: This doesn't match the schema
   fragment EmbeddedAssetBlockFragment on ContentfulAsset {
     contentful_id
     title

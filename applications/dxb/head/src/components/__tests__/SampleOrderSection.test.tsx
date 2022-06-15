@@ -1,11 +1,11 @@
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import SampleOrderSection from "../SampleOrderSection";
 import { BasketContextProvider } from "../../contexts/SampleBasketContext";
+import { Product } from "../../types/pim";
+import createProduct from "../../__tests__/helpers/ProductHelper";
 import { Data as PageInfoData } from "../PageInfo";
+import SampleOrderSection from "../SampleOrderSection";
 import { SiteContextProvider } from "../Site";
-import { Product } from "../types/pim";
-import { createVariantOption } from "../../__tests__/PimDocumentProductHelper";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
 
 afterEach(() => {
@@ -26,21 +26,17 @@ const sampleBasketLinkInfo: PageInfoData = {
   date: null,
   tags: null
 };
-const variant = createVariantOption({
-  code: "somthing"
-});
-const variant2 = { ...variant, code: "variant2" };
 
-const product: Product = {
-  code: "product",
-  documents: null,
-  isSampleOrderAllowed: null,
-  longDescription: null,
-  shortDescription: null,
-  description: null,
-  name: "product",
-  summary: null
-};
+const product: Product = createProduct({
+  hashedCode: "id-1",
+  code: "product-1",
+  name: "product-1"
+});
+const product2: Product = createProduct({
+  hashedCode: "id-2",
+  code: "product-2",
+  name: "product-2"
+});
 
 describe("Functionality of sample basket", () => {
   it("'remove from basket' & 'complete sample order' cta is displayed if add to basket cta is clicked and vice versa ", async () => {
@@ -54,7 +50,6 @@ describe("Functionality of sample basket", () => {
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
@@ -97,7 +92,6 @@ describe("Functionality of sample basket", () => {
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
           product={product}
         ></SampleOrderSection>
@@ -148,7 +142,6 @@ describe("disable 'Add to basket' if basket is full", () => {
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
           product={product}
         ></SampleOrderSection>
@@ -172,9 +165,8 @@ describe("disable 'Add to basket' if basket is full", () => {
         <BasketContextProvider>
           <SampleOrderSection
             isSampleOrderAllowed={true}
-            variant={variant2}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
-            product={product}
+            product={product2}
           />
         </BasketContextProvider>
       </SiteContextProvider>
@@ -211,7 +203,6 @@ describe("disable 'Add to basket' if basket is full", () => {
         <BasketContextProvider>
           <SampleOrderSection
             isSampleOrderAllowed={true}
-            variant={variant}
             maximumSamples={maximumSamples}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
             product={product}
@@ -226,7 +217,7 @@ describe("disable 'Add to basket' if basket is full", () => {
       name: `MC: pdp.overview.addSample`
     });
     addSampleCta.click();
-    render(
+    await render(
       <SiteContextProvider
         value={{
           ...getMockSiteContext("no"),
@@ -237,10 +228,9 @@ describe("disable 'Add to basket' if basket is full", () => {
         <BasketContextProvider>
           <SampleOrderSection
             isSampleOrderAllowed={true}
-            variant={variant2}
             maximumSamples={maximumSamples}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
-            product={product}
+            product={product2}
           />
         </BasketContextProvider>
       </SiteContextProvider>
@@ -263,7 +253,7 @@ describe("disable 'Add to basket' if basket is full", () => {
   });
   it("not ordered max samples & sample unavailable, show MC: canAddOtherMessage", async () => {
     const maximumSamples = 4;
-    render(
+    await render(
       <SiteContextProvider
         value={{
           ...getMockSiteContext("no"),
@@ -274,18 +264,17 @@ describe("disable 'Add to basket' if basket is full", () => {
         <BasketContextProvider>
           <SampleOrderSection
             isSampleOrderAllowed={true}
-            variant={variant}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
             product={product}
           />
         </BasketContextProvider>
       </SiteContextProvider>
     );
-    const addSampleCta = screen.getByRole("button", {
+    const addSampleCta = await screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     addSampleCta.click();
-    render(
+    await render(
       <SiteContextProvider
         value={{
           ...getMockSiteContext("no"),
@@ -296,14 +285,13 @@ describe("disable 'Add to basket' if basket is full", () => {
         <BasketContextProvider>
           <SampleOrderSection
             isSampleOrderAllowed={true}
-            variant={variant2}
             sampleBasketLinkInfo={sampleBasketLinkInfo}
-            product={product}
+            product={product2}
           />
         </BasketContextProvider>
       </SiteContextProvider>
     );
-    const addSampleCtaAgain = screen.getByRole("button", {
+    const addSampleCtaAgain = await screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     //maximum sample has reached
@@ -353,7 +341,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
@@ -362,12 +349,12 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
         wrapper: BasketContextProvider
       }
     );
-    localStorage.setItem("basketItems", JSON.stringify(variant));
+    localStorage.setItem("basketItems", JSON.stringify(product));
     const addSampleCta = screen.getByRole("button", {
       name: `MC: pdp.overview.addSample`
     });
     addSampleCta.click();
-    expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(variant);
+    expect(JSON.parse(localStorage.getItem("basketItems"))).toEqual(product);
   });
   it("add redirect url to 'Complete order' CTA", async () => {
     render(
@@ -380,7 +367,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           product={product}
           sampleBasketLinkInfo={sampleBasketLinkInfo}
         ></SampleOrderSection>
@@ -412,7 +398,6 @@ describe("Test Functionality of redirections by click on 'Complete order' ", () 
       >
         <SampleOrderSection
           isSampleOrderAllowed={true}
-          variant={variant}
           product={product}
           sampleBasketLinkInfo={null}
         ></SampleOrderSection>

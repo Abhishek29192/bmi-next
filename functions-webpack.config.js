@@ -2,6 +2,7 @@
 
 const { DuplicatesPlugin } = require("inspectpack/plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -15,7 +16,12 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js"],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: "./tsconfig.json"
+      })
+    ]
   },
   output: {
     filename: "index.js",
