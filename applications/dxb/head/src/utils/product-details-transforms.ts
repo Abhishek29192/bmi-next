@@ -800,14 +800,16 @@ export const getValidClassification = (
     `${classificationNamespace}/${value}`.toUpperCase()
   );
 
-  const classificationsToReturn = classifications.filter(
-    ({ features }) =>
+  return classifications
+    .map((classification) => ({
+      ...classification,
       // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-      !IGNORED_CLASSIFICATIONS.includes(
-        features && features.length && features[0].code.toUpperCase()
+      features: classification.features.filter(
+        (feature) =>
+          !IGNORED_CLASSIFICATIONS.includes(feature.code.toUpperCase())
       )
-  );
-  return classificationsToReturn;
+    }))
+    .filter(({ features }) => features.length > 0);
 };
 
 export const getValidFeatures = (classificationNamespace: string, features) => {
