@@ -212,11 +212,16 @@ describe("ProjectSidePanel component", () => {
   it("should show project side panel footer if user company admin", () => {
     renderWithUserProvider(
       <ApolloProvider>
-        <AccountContextWrapper
-          account={generateAccount({ role: "COMPANY_ADMIN", hasCompany: true })}
-        >
-          <ProjectSidePanel projects={[]} />
-        </AccountContextWrapper>
+        <MarketProvider market={generateMarketContext({ id: 1 })}>
+          <AccountContextWrapper
+            account={generateAccount({
+              role: "COMPANY_ADMIN",
+              hasCompany: true
+            })}
+          >
+            <ProjectSidePanel projects={[]} />
+          </AccountContextWrapper>
+        </MarketProvider>
       </ApolloProvider>
     );
     expect(screen.getByTestId("project-side-panel-footer-button")).toBeTruthy();
@@ -247,6 +252,40 @@ describe("ProjectSidePanel component", () => {
     const filterListButtons = container.querySelectorAll(".filterButton .Chip");
     fireEvent.click(filterListButtons[1]);
     expect(screen.queryByText("fallback.noResults")).toBeTruthy();
+  });
+  it("should show project side panel if user COMPANY_ADMIN", () => {
+    const guarantee = generateGuarantee({
+      coverage: "PRODUCT",
+      reviewerAccountId: null,
+      status: "SUBMITTED"
+    });
+    const project = generateProject({
+      guarantees: {
+        nodes: [guarantee]
+      },
+      company: null
+    });
+
+    // Mocking the date, should be sufficient for the purpose of this test
+    Date.now = jest.fn(() => Date.parse("2022-01-01"));
+    const { container } = renderWithUserProvider(
+      <ApolloProvider>
+        <MarketProvider market={generateMarketContext({ id: 1 })}>
+          <AccountContextWrapper
+            account={generateAccount({
+              role: "COMPANY_ADMIN",
+              hasCompany: true
+            })}
+          >
+            <ProjectSidePanel projects={[project]} />
+          </AccountContextWrapper>
+        </MarketProvider>
+      </ApolloProvider>
+    );
+
+    const filterListButtons = container.querySelectorAll(".filterButton .Chip");
+    fireEvent.click(filterListButtons[2]);
+    expect(screen.queryByText("fallback.noResults")).toBeFalsy();
   });
   it("check case with company record missing", () => {
     const account = generateAccount({

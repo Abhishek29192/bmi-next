@@ -9,10 +9,13 @@ import { GetProjectsReportQuery } from "../../../graphql/generated/operations";
 import { getProjectStatus } from "../../../lib/utils/project";
 import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
+import { isSuperOrMarketAdmin } from "../../../lib/account";
+import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
 const getReportData = (
-  projects: GetProjectsReportQuery["projectsByMarket"]
+  projects: GetProjectsReportQuery["projectsByMarket"],
+  t
 ) => {
   return [...projects.nodes]
     .map((project) => {
@@ -22,6 +25,7 @@ const getReportData = (
         company,
         guarantees,
         projectMembers,
+        hidden,
         ...rest
       } = project;
 
@@ -32,12 +36,10 @@ const getReportData = (
       const companyName = company?.name;
       const companyStatus = company?.status;
 
-      const guaranteeTypeName =
-        guarantees?.nodes[0]?.guaranteeTypes?.items[0]?.name;
+      const guaranteeTypeName = guarantees?.nodes[0]?.guaranteeType?.name || "";
 
-      const projectStatus = getProjectStatus(
-        project.startDate,
-        project.endDate
+      const projectStatus = t(
+        getProjectStatus(project.startDate, project.endDate)
       );
 
       const projectMember = projectMembers.nodes
@@ -46,6 +48,7 @@ const getReportData = (
 
       return {
         ...rest,
+        archived: hidden,
         siteAddressTown,
         companyName,
         companyStatus,
@@ -60,16 +63,67 @@ const getReportData = (
     );
 };
 
+const getNonSuperUserReportData = (
+  projects: GetProjectsReportQuery["projectsByMarket"],
+  t
+) => {
+  return [...projects.nodes]
+    .map((project) => {
+      const {
+        __typename,
+        id,
+        siteAddress,
+        company,
+        guarantees,
+        projectMembers,
+        hidden,
+        ...rest
+      } = project;
+
+      const siteAddressTown = [siteAddress?.town, siteAddress?.country]
+        .filter(Boolean)
+        .join(" ");
+
+      const companyName = company?.name;
+
+      const guaranteeTypeName = guarantees?.nodes[0]?.guaranteeType?.name || "";
+
+      const projectStatus = t(
+        getProjectStatus(project.startDate, project.endDate)
+      );
+
+      const projectMember = projectMembers.nodes
+        .map((member) => member.account.email)
+        .join();
+
+      return {
+        ...rest,
+        siteAddressTown,
+        companyName,
+        guaranteeTypeName,
+        projectStatus,
+        projectMember
+      };
+    })
+    .sort(
+      ({ updatedAt: firstDate }, { updatedAt: secondDate }) =>
+        new Date(secondDate).getTime() - new Date(firstDate).getTime()
+    );
+};
+
 const ProjectReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
   const { market } = useMarketContext();
+  const { account } = useAccountContext();
 
   const [getSystemsReport] = useGetProjectsReportLazyQuery({
     variables: {
       market: market.id
     },
     onCompleted: ({ projectsByMarket }) => {
-      const data = getReportData(projectsByMarket);
+      const data = isSuperOrMarketAdmin(account)
+        ? getReportData(projectsByMarket, t)
+        : getNonSuperUserReportData(projectsByMarket, t);
 
       exportCsv(data, {
         filename: `projects-${Date.now()}`,
@@ -117,6 +171,9 @@ export const GET_PROJECTS_REPORT = gql`
             coverage
             languageCode
             guaranteeReferenceCode
+            guaranteeType {
+              name
+            }
             guaranteeTypes {
               items {
                 name

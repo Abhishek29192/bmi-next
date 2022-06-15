@@ -1881,6 +1881,9 @@ export const GetProjectsReportDocument = gql`
             coverage
             languageCode
             guaranteeReferenceCode
+            guaranteeType {
+              name
+            }
             guaranteeTypes {
               items {
                 name
