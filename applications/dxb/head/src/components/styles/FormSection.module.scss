@@ -141,7 +141,8 @@
             width: 24px;
             height: 24px;
             content: "";
-            -webkit-mask: url("/icons/checkbox_outline.svg") no-repeat center center;
+            -webkit-mask: url("/icons/checkbox_outline.svg") no-repeat center
+              center;
             mask: url("/icons/checkbox_outline.svg") no-repeat center center;
             background-color: $color-theme-inter;
             // This would be preferable, but I can't get this to work unfortunately.
@@ -166,7 +167,8 @@
             content: "";
             width: 24px;
             height: 24px;
-            -webkit-mask: url("/icons/radio_outline.svg") no-repeat center center;
+            -webkit-mask: url("/icons/radio_outline.svg") no-repeat center
+              center;
             mask: url("/icons/radio_outline.svg") no-repeat center center;
             background-color: $color-theme-inter;
           }
@@ -251,17 +253,17 @@
         font-size: 16px;
         font-weight: 500;
         box-shadow: 0px 3px 1px -2px #00000033, 0px 2px 2px 0px #00000024,
-        0px 1px 5px 0px #0000001f;
+          0px 1px 5px 0px #0000001f;
         padding: 6px 16px;
         line-height: 1.75;
         min-width: 64px;
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+          box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+          border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
         &:hover {
           box-shadow: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
-          0px 1px 10px 0px #0000001f;
+            0px 1px 10px 0px #0000001f;
           background-color: $color-theme-focus;
           cursor: pointer;
         }
@@ -281,6 +283,14 @@
       h6 {
         color: $color-charcoal;
       }
+    }
+  }
+  &--dialog {
+    border: none;
+    padding: 0;
+    margin: 0;
+    input[type="submit"] {
+      display: none;
     }
   }
 
