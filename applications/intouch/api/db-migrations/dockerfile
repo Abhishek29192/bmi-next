@@ -1,6 +1,11 @@
 FROM node:14-alpine
 
 WORKDIR /usr/src/app
-COPY ./applications/intouch/api/db-migrations/dist .
+COPY ./applications/intouch/api/db-migrations ./applications/intouch/api/db-migrations
+
+WORKDIR /usr/src/app/applications/intouch/api/db-migrations
+
+RUN yarn install
+RUN yarn run build
 EXPOSE 8080
-CMD [ "node", "index.js" ]
+CMD [ "yarn", "start" ]
