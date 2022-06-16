@@ -1,0 +1,24 @@
+{
+  "name": "@bmi/dxb-contentful-migrate",
+  "private": true,
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "src": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "debug": "node --inspect ./dist/index.js",
+    "down": "node ./dist/down.js",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prod": "node ./dist/index.js",
+    "up": "node ./dist/up.js"
+  },
+  "dependencies": {
+    "@bmi/utils": "0.0.0",
+    "@bmi-digital/contentful-migration": "^1.1.1",
+    "ora": "^5.3.0",
+    "semver-parser": "^3.0.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

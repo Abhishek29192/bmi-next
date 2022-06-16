@@ -2,7 +2,7 @@
   "name": "@bmi/cms-consolidation-utility",
   "version": "0.0.0",
   "private": true,
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "main": "./src/index",
   "scripts": {
     "build": "tsc --build",

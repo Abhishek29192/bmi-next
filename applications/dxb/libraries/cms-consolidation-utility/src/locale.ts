@@ -1,4 +1,4 @@
-import { Asset, Entry, Environment, Locale } from "contentful-management";
+import type { Asset, Entry, Environment, Locale } from "contentful-management";
 
 export const findIrrelevantLocales = async (
   environment: Environment,

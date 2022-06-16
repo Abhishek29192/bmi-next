@@ -15,8 +15,6 @@ applications/intouch/api/types/index.d.ts
 !**/.eslintrc.js
 
 # Ignore auto-generated migrations from Contentful
-libraries/migrate/projects/**/migrations
-libraries/migrate/projects/**/mocks
 applications/intouch/auth0/auth0-login/src/js/app.js
 applications/intouch/api/db-migrations/migration-companies
 applications/intouch/api/db-migrations/migration-training

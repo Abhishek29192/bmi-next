@@ -1,4 +1,4 @@
-import { ClientAPI, Space } from "contentful-management";
+import type { ClientAPI, Space } from "contentful-management";
 import mockConsole from "jest-mock-console";
 
 const main = async (tag: string, locales: string[]) =>

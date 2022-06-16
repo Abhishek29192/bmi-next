@@ -1,4 +1,4 @@
-import { ClientAPI, Space } from "contentful-management";
+import type { ClientAPI, Space } from "contentful-management";
 
 const main = async () => (await import("..")).main();
 

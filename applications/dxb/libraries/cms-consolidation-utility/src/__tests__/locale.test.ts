@@ -1,4 +1,10 @@
-import { Asset, Entry, Environment, Link, Locale } from "contentful-management";
+import type {
+  Asset,
+  Entry,
+  Environment,
+  Link,
+  Locale
+} from "contentful-management";
 import AllLocales from "./resources/locales.json";
 import SampleAsset from "./resources/sample_asset.json";
 import SampleEntry from "./resources/sample_entry.json";
