@@ -1,7 +1,7 @@
-import { Link } from "gatsby";
 import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
-import React from "react";
 import { filterTwoOneAttributes } from "@bmi/pim-types";
+import { Link } from "gatsby";
+import React from "react";
 import {
   Category,
   Classification,
@@ -16,9 +16,9 @@ import {
   VariantOptionWithProduct
 } from "../components/types/pim";
 import { GalleryImageType } from "../templates/systemDetails/types";
-import { getPathWithCountryCode } from "./path";
 import { combineVariantClassifications } from "./filters";
 import groupBy from "./groupBy";
+import { getPathWithCountryCode } from "./path";
 
 export const getProductUrl = (countryCode, path) =>
   getPathWithCountryCode(countryCode, path);
@@ -796,18 +796,20 @@ export const getValidClassification = (
   classificationNamespace: string,
   classifications: Array<Classification>
 ): Array<Classification> => {
-  const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map(
-    (value) => `${classificationNamespace}/${value}`
+  const IGNORED_CLASSIFICATIONS = IGNORED_ATTRIBUTES.map((value) =>
+    `${classificationNamespace}/${value}`.toUpperCase()
   );
 
-  const classificationsToReturn = classifications.filter(
-    ({ features }) =>
+  return classifications
+    .map((classification) => ({
+      ...classification,
       // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-      !IGNORED_CLASSIFICATIONS.includes(
-        features && features.length && features[0].code.toUpperCase()
+      features: classification.features.filter(
+        (feature) =>
+          !IGNORED_CLASSIFICATIONS.includes(feature.code.toUpperCase())
       )
-  );
-  return classificationsToReturn;
+    }))
+    .filter(({ features }) => features.length > 0);
 };
 
 export const getValidFeatures = (classificationNamespace: string, features) => {
