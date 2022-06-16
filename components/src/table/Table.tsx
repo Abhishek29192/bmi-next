@@ -1,23 +1,27 @@
+import useDimensions from "@bmi-digital/use-dimensions";
+import {
+  Table as MuiTable,
+  TableBody,
+  TableBodyProps,
+  TableCell,
+  TableCellProps,
+  TableHead as MuiTableHead,
+  TableHeadProps,
+  TableProps as MuiTableProps,
+  TableRow,
+  TableRowProps
+} from "@material-ui/core";
+import classnames from "classnames";
 import React, {
   createContext,
+  Fragment,
   isValidElement,
+  MutableRefObject,
   useContext,
   useEffect,
   useMemo,
-  useState,
-  Fragment,
-  MutableRefObject
+  useState
 } from "react";
-import classnames from "classnames";
-import {
-  Table as MuiTable,
-  TableProps as MuiTableProps
-} from "@material-ui/core";
-import { TableBody, TableBodyProps } from "@material-ui/core";
-import { TableCell, TableCellProps } from "@material-ui/core";
-import { TableHead as MuiTableHead, TableHeadProps } from "@material-ui/core";
-import { TableRow, TableRowProps } from "@material-ui/core";
-import useDimensions from "@bmi-digital/use-dimensions";
 import ColorPair, { Colors } from "../color-pair/ColorPair";
 import styles from "./Table.module.scss";
 
@@ -169,7 +173,6 @@ const Table = ({
 
 const MediumTable = React.forwardRef<HTMLTableElement, TableProps>(
   function MediumTable(
-    // eslint-disable-next-line react/prop-types -- TODO: Look into why it doesn't think hasNoBorder, children and theme aren't defined
     { hasNoBorder, children, theme, ...rest }: TableProps,
     ref:
       | ((instance: HTMLTableElement | null) => void)

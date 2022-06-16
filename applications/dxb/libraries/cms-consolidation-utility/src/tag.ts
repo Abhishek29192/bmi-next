@@ -1,4 +1,4 @@
-import { Asset, Entry, Link, Environment } from "contentful-management";
+import type { Asset, Entry, Environment, Link } from "contentful-management";
 
 const buildTagId = (market: string) => {
   return `market__${market.replace(/ /g, "").toLowerCase()}`;

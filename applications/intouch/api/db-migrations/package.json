@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "description": "BMI InTouch Migration scripts",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "build": "tsc --build tsconfig.prod.json",
@@ -30,6 +30,6 @@
     "express": "^4.17.1",
     "google-auth-library": "^7.5.0",
     "pg": "^8.7.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   }
 }

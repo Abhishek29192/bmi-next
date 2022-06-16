@@ -1,7 +1,8 @@
 import { Storage } from "@google-cloud/storage";
 
 export interface StorageClientType {
-  // eslint-disable-next-line @typescript-eslint/ban-types -- This has to be Function as it's a constructor
+  // This has to be Function as it's a constructor
+  // eslint-disable-next-line @typescript-eslint/ban-types
   readonly constructor: Function;
 
   uploadFile(

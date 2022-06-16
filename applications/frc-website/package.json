@@ -3,7 +3,7 @@
   "private": true,
   "description": "BMI Flat Roof Calculator",
   "version": "0.0.0",
-  "license": "BMI-DXB",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@bmi/components": "1.2.0-monorepo",
-    "@bmi-digital/styles": "1.0.1",
+    "@bmi-digital/styles": "^1.3.3",
     "@material-ui/core": "^4.10.2",
     "@material-ui/styles": "^4.10.0",
     "babel-eslint": "^10.1.0",

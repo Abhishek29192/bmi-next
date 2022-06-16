@@ -6,13 +6,8 @@ import archiver from "archiver";
 import fetch from "node-fetch";
 import { verifyOrigins } from "./verify";
 
-const {
-  GCS_NAME,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- is being used in an optional chain, but eslint isn't detecting it
-  DXB_VALID_HOSTS,
-  RECAPTCHA_KEY,
-  RECAPTCHA_MINIMUM_SCORE
-} = process.env;
+const { GCS_NAME, DXB_VALID_HOSTS, RECAPTCHA_KEY, RECAPTCHA_MINIMUM_SCORE } =
+  process.env;
 
 const storage = new Storage();
 const bucket = GCS_NAME && storage.bucket(GCS_NAME);
