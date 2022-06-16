@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
 import { Button, Section } from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import React, { useEffect, useState } from "react";
+import { microCopy } from "../constants/microCopies";
 import {
   ACTION_TYPES,
   SampleOrderElement,
@@ -10,23 +10,13 @@ import {
 } from "../contexts/SampleBasketContext";
 import { createActionLabel } from "../utils/createActionLabelForAnalytics";
 import { getPathWithCountryCode } from "../utils/path";
-import { microCopy } from "../constants/microCopies";
-import RichText, { RichTextData } from "./RichText";
+import FormSection from "./FormSection";
+import { getCTA } from "./Link";
+import RichText from "./RichText";
+import { Data } from "./SampleBasketBase";
 import SampleBasketSectionProducts from "./SampleBasketSectionProducts";
 import { useSiteContext } from "./Site";
-import FormSection, { Data as FormData } from "./FormSection";
 import styles from "./styles/SampleBasketSection.module.scss";
-import { Data as PageInfoData } from "./PageInfo";
-import { getCTA } from "./Link";
-
-export type Data = {
-  __typename: "SampleBasketSection";
-  description: RichTextData | null;
-  checkoutFormSection: FormData | null;
-  emptyBasketMessage: RichTextData | null;
-  browseProductsCTALabel: string | null;
-  browseProductsCTA: PageInfoData | null;
-};
 
 const formatSamples = (samples: SampleOrderElement[]) =>
   samples
@@ -138,26 +128,3 @@ const SampleBasketSection = ({
 };
 
 export default SampleBasketSection;
-
-export const query = graphql`
-  fragment SampleBasketSectionFragment on ContentfulSampleBasketSection {
-    description {
-      ...RichTextFragment
-    }
-    checkoutFormSection {
-      ...FormSectionFragment
-    }
-    emptyBasketMessage {
-      ...RichTextFragment
-    }
-    browseProductsCTALabel
-    browseProductsCTA {
-      ... on ContentfulHomePage {
-        path
-      }
-      ... on ContentfulPage {
-        path
-      }
-    }
-  }
-`;

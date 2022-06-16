@@ -157,6 +157,9 @@ $chevron-margin-left-lg: 3px;
 
   .backdrop {
     z-index: 12;
+    @media (min-width: $breakpoint-md) {
+      z-index: 11;
+    }
   }
 
   .drawer {
@@ -185,6 +188,13 @@ $chevron-margin-left-lg: 3px;
 
     &--hidden {
       display: none;
+    }
+  }
+  .cart-drawer-container {
+    @extend .search-drawer-container;
+    @media (min-width: $breakpoint-md) {
+      top: auto;
+      z-index: 11;
     }
   }
 

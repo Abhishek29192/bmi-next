@@ -1,15 +1,19 @@
-import React, { useMemo } from "react";
-import { graphql, Link, withPrefix } from "gatsby";
-import { Button, ButtonProps } from "@bmi/components";
-import { Header as HeaderComponent } from "@bmi/components";
-import { HidePrint } from "@bmi/components";
+import {
+  Button,
+  ButtonProps,
+  Header as HeaderComponent,
+  HidePrint,
+  Tab,
+  TabProps
+} from "@bmi/components";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { Tab, TabProps } from "@bmi/components";
-import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
+import { graphql, Link, withPrefix } from "gatsby";
+import React, { useMemo } from "react";
 import Image from "../components/Image";
-import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
 import { useBasketContext } from "../contexts/SampleBasketContext";
+import withGTM, { pushToDataLayer, useGTM } from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import {
   Data as LinkData,
@@ -17,9 +21,10 @@ import {
   NavigationData,
   NavigationItem
 } from "./Link";
-import { useSiteContext } from "./Site";
-import RichText, { RichTextData } from "./RichText";
 import { Data as PageInfoData } from "./PageInfo";
+import RichText, { RichTextData } from "./RichText";
+import SampleBasketDialog from "./SampleBasketDialog";
+import { useSiteContext } from "./Site";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(
@@ -162,7 +167,8 @@ const Header = ({
   isOnSearchPage,
   countryNavigationIntroduction,
   regions,
-  sampleBasketLink
+  sampleBasketLink,
+  maximumSamples
 }: {
   navigationData: NavigationData;
   utilitiesData: NavigationData;
@@ -172,6 +178,7 @@ const Header = ({
   countryNavigationIntroduction?: RichTextData | null;
   regions: Region[];
   sampleBasketLink?: PageInfoData;
+  maximumSamples?: number;
 }) => {
   const languages = useMemo(
     () =>
@@ -252,8 +259,14 @@ const Header = ({
             />
           )}
           isBasketEmpty={productsInBasket.length === 0}
-          basketAction={basketCta?.action}
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
+          SampleBasketDialog={(props: () => void) => (
+            <SampleBasketDialog
+              maximumSamples={maximumSamples}
+              basketAction={basketCta?.action}
+              {...props}
+            />
+          )}
           navigationButtonComponent={(props: ButtonProps) => (
             <GTMNavigationButton
               gtm={{

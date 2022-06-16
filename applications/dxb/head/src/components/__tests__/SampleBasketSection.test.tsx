@@ -9,7 +9,8 @@ import {
   Sample
 } from "../../contexts/SampleBasketContext";
 import { local } from "../../utils/storage";
-import SampleBasketSection, { Data } from "../SampleBasketSection";
+import { Data } from "../SampleBasketBase";
+import SampleBasketSection from "../SampleBasketSection";
 import { SiteContextProvider } from "../Site";
 import { SourceType } from "../types/FormSectionTypes";
 import { getMockSiteContext } from "./utils/SiteContextProvider";
