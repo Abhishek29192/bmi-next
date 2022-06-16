@@ -153,6 +153,11 @@ const PitchedRoofCalculatorSteps = ({
 
   const formattedArea = ((measurements?.area || 0) / 10000).toFixed(2);
 
+  const getUnderlayByProductCode = (externalProductCode: string): Underlay =>
+    data.underlays.find(
+      (underlay) => underlay.externalProductCode === externalProductCode
+    );
+
   useEffect(() => {
     if (selected === "your-solution-contains") {
       pushEvent({
@@ -285,7 +290,12 @@ const PitchedRoofCalculatorSteps = ({
               label: getMicroCopy(microCopy.UNDERLAY_SELECTION_NEXT_LABEL),
               action: "selected"
             });
-            saveAndMove(e, values as Underlay, setUnderlay, "guttering");
+            saveAndMove(
+              e,
+              getUnderlayByProductCode(String(values.underlay)),
+              setUnderlay,
+              "guttering"
+            );
           }}
           backLabel={getMicroCopy(microCopy.UNDERLAY_SELECTION_BACK_LABEL)}
           backButtonOnClick={() => {

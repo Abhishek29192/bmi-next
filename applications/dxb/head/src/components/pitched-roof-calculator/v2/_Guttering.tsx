@@ -171,6 +171,7 @@ const DownPipeSelection = ({
             <NumericInput
               name="downPipes"
               defaultValue={downPipes}
+              min={0}
               onChange={(value) => {
                 pushEvent({
                   event: "dxb.button_click",
@@ -191,6 +192,7 @@ const DownPipeSelection = ({
             <NumericInput
               name="downPipeConnectors"
               defaultValue={downPipeConnectors}
+              min={0}
               onChange={(value) => {
                 pushEvent({
                   event: "dxb.button_click",
