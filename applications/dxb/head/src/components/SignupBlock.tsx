@@ -1,16 +1,13 @@
 /* eslint-disable no-unreachable */
-import React, { useState } from "react";
-import { graphql } from "gatsby";
-import { SignupBlock } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
+import { Button, ButtonProps, Dialog, SignupBlock } from "@bmi/components";
 import { SignupBlockTheme } from "@bmi/components/src/signup-block/SignupBlock";
-import withGTM from "../utils/google-tag-manager";
+import { graphql } from "gatsby";
+import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";
-
-import styles from "./styles/SignupBlock.module.scss";
 import { useSiteContext } from "./Site";
+import styles from "./styles/SignupBlock.module.scss";
 
 export type Data = {
   __typename: "ContentfulSignupBlock";
@@ -35,6 +32,9 @@ const IntegratedSignupBlock = ({
   const [dialogOpen, setDialogOpen] = useState(false);
   const { title, description, signupLabel, signupDialogContent } = data;
   const GTMButton = withGTM<ButtonProps>(Button);
+  const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+
+  const onSuccess = () => setFormSubmitted(true);
 
   return (
     <div className={styles["SignupBlock"]}>
@@ -57,21 +57,36 @@ const IntegratedSignupBlock = ({
           setDialogOpen(true);
         }}
       />
-      {
-        //todo use dialog action buttons instead of forms submit button
-      }
       {dialogOpen && (
         <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
           <Dialog.Title hasUnderline> {title} </Dialog.Title>
-          <FormSection data={signupDialogContent} backgroundColor="white" />
+          <FormSection
+            data={signupDialogContent}
+            backgroundColor="white"
+            isDialog
+            onSuccess={onSuccess}
+          />
 
           <Dialog.Actions
-            cancelLabel={getMicroCopy(microCopy.DIALOG_CANCEL)}
-            onCancelClick={() => setDialogOpen(false)}
-            confirmLabel={signupLabel}
-            onConfirmClick={() => {
+            cancelLabel={
+              !formSubmitted
+                ? getMicroCopy(microCopy.DIALOG_CANCEL)
+                : getMicroCopy(microCopy.DIALOG_CLOSE)
+            }
+            onCancelClick={() => {
               setDialogOpen(false);
+              setFormSubmitted(false);
             }}
+            confirmLabel={!formSubmitted && signupLabel}
+            onConfirmClick={
+              !formSubmitted &&
+              (() =>
+                document
+                  .querySelector<HTMLFormElement>(
+                    "div[id*='bmi-hubspot-form'] form"
+                  )
+                  .submit())
+            }
           />
         </Dialog>
       )}

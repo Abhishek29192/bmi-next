@@ -1,5 +1,6 @@
-import { render, fireEvent } from "@testing-library/react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
+import { microCopy } from "../../constants/microCopies";
 import SignupBlock, { Data } from "../SignupBlock";
 
 const data: Data = {
@@ -52,5 +53,43 @@ describe("SignupBlock component", () => {
     const closeButton = getByRole("button", { name: "Close" });
     fireEvent.click(closeButton);
     expect(queryByText("signmeup")).toBeNull();
+  });
+  it("renders correctly when clicked on cancel button", () => {
+    const { getByRole, queryByRole } = render(<SignupBlock data={data} />);
+    const signupButton = getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+    const cancelButton = getByRole("button", {
+      name: `MC: ${microCopy.DIALOG_CANCEL}`
+    });
+    fireEvent.click(cancelButton);
+    expect(
+      queryByRole("button", { name: `MC: ${microCopy.DIALOG_CANCEL}` })
+    ).toBeFalsy();
+  });
+  it("renders correctly when clicked on close button once the form is submitted", () => {
+    const onFormSubmittedEvent = new MessageEvent("message", {
+      data: {
+        eventName: "onFormSubmitted"
+      }
+    });
+    const { container, getByRole, queryByRole } = render(
+      <SignupBlock data={data} />
+    );
+    const signupButton = getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+
+    window.dispatchEvent(onFormSubmittedEvent);
+    waitFor(() => {
+      expect(
+        container.querySelectorAll(".Dialog-module__actions button").length
+      ).toBe(1);
+      const cancelButton = getByRole("button", {
+        name: `MC: ${microCopy.DIALOG_CLOSE}`
+      });
+      fireEvent.click(cancelButton);
+      expect(
+        queryByRole("button", { name: `MC: ${microCopy.DIALOG_CLOSE}` })
+      ).toBeFalsy();
+    });
   });
 });

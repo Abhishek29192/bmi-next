@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from "react";
 import classnames from "classnames";
+import React, { createContext, useContext } from "react";
 import Container, { Props as ContainerProps } from "../container/Container";
 import Typography, { Props as TypographyProps } from "../typography/Typography";
 import styles from "./Section.module.scss";
@@ -18,6 +18,7 @@ export type Props = {
   hasNoPadding?: boolean;
   isSlim?: boolean;
   overflowVisible?: boolean;
+  isDialog?: boolean;
 } & ContainerProps;
 
 const Section = ({
@@ -30,6 +31,7 @@ const Section = ({
   hasNoPadding = false,
   isSlim = false,
   overflowVisible = false,
+  isDialog = false,
   ...containerProps
 }: Props) => {
   const isNested = useContext(SectionContext);
@@ -52,7 +54,7 @@ const Section = ({
         id={id}
         className={classnames(
           className,
-          styles["Section"],
+          !isDialog && styles["Section"],
           backgroundColor !== "transparent" &&
             styles[`Section--${backgroundColor}`],
           spacing === "none" && styles["Section--no-spacing"],
