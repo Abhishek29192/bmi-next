@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Accordion from "../accordion/Accordion";
 import DefaultCheckbox from "../checkbox/Checkbox";
+import { getMicroCopy, MicroCopyContext } from "../micro-copy/MicroCopy";
 import Typography from "../typography/Typography";
 import styles from "./Filters.module.scss";
 
@@ -36,6 +37,8 @@ const Filters = ({
   checkboxComponent: Checkbox = DefaultCheckbox,
   accordionSummaryComponent: AccordionSummary = Accordion.Summary
 }: Props) => {
+  const copy = useContext(MicroCopyContext);
+
   const handleCheckboxChange: Props["onChange"] = (...args) => {
     onChange && onChange(...args);
   };
@@ -56,7 +59,10 @@ const Filters = ({
             }
           );
 
-          const summaryLabel = filter.label;
+          let summaryLabel = filter.label;
+          if (summaryLabel.startsWith("plpFilter.")) {
+            summaryLabel = getMicroCopy(copy, filter.label);
+          }
           return (
             <Accordion.Item key={filter.name}>
               <AccordionSummary aria-label={summaryLabel}>

@@ -129,7 +129,7 @@ export const generateFilters = (
           ? firestoreFilters[0].groupLabel
           : anyFilterWithGroupLabel?.groupLabel
           ? anyFilterWithGroupLabel.groupLabel
-          : filterNameKey;
+          : `plpFilter.${filterNameKey}`;
 
       const tryConvertToNumber = (value: string) =>
         parseInt(value.replace(/\D+/gi, ""));

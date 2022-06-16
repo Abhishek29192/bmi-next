@@ -1,3 +1,7 @@
+import { MediaGallery } from "@bmi/components";
+import { render } from "@testing-library/react";
+import { Link } from "gatsby";
+import React from "react";
 import createClassification, {
   createFeature
 } from "../../__tests__/helpers/ClassificationHelper";
@@ -8,7 +12,8 @@ import {
   getDefaultPreviewImage,
   getProductAttributes,
   getYoutubeId,
-  mapClassificationValues
+  mapClassificationValues,
+  transformImages
 } from "../product-details-transforms";
 
 describe("product-details-transforms tests", () => {
@@ -396,6 +401,79 @@ describe("product-details-transforms tests", () => {
                 }
               ];
               expect(result).toEqual(expectedResult);
+            });
+
+            it("and related variant has color availability with ascending value", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                relatedVariants: [createRelatedVariant({ colour: "blue" })]
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              // console.log(JSON.stringify(result));
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    {
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      },
+                      availability: false,
+                      isSelected: false,
+                      label: "blue",
+                      thumbnail: undefined
+                    },
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "colour",
+                      thumbnail: undefined
+                    }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "texture-family"
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "6x7x8symbol"
+                    },
+                    { availability: false, isSelected: false, label: "label" }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "variant-attribute"
+                    }
+                  ]
+                }
+              ];
+              expect(result).toMatchObject(expectedResult);
             });
           });
           describe("And color is NOT selected", () => {
@@ -1403,6 +1481,55 @@ describe("product-details-transforms tests", () => {
       expect(getDefaultPreviewImage("youtubeId")).toEqual(
         "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
       );
+    });
+  });
+  describe("transformImages tests", () => {
+    describe("when empty images are provided", () => {
+      it("should return empty medias", () => {
+        expect(transformImages([])).toEqual([]);
+      });
+    });
+    describe("when single image is provided", () => {
+      it("should return transformed media data", () => {
+        const imgMainSource = "https://mainsource.com";
+        const result = transformImages([
+          {
+            mainSource: imgMainSource,
+            thumbnail: null,
+            altText: "alt text"
+          }
+        ]);
+
+        const wrapper = render(<MediaGallery media={[...result]} />);
+        const linkResult = wrapper.container.querySelectorAll("img");
+        expect(linkResult).toHaveLength(1);
+        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
+        //unmount();
+      });
+    });
+    describe("when multiple images is provided", () => {
+      it("should return multiple transformed media data", () => {
+        const imgMainSource = "https://mainsource.com";
+        const imgMainSource2 = "https://mainsource2.com";
+        const result = transformImages([
+          {
+            mainSource: imgMainSource,
+            thumbnail: null,
+            altText: "alt text"
+          },
+          {
+            mainSource: imgMainSource2,
+            thumbnail: null,
+            altText: "alt text 2"
+          }
+        ]);
+        const wrapper = render(<MediaGallery media={[...result]} />);
+        const linkResult = wrapper.container.querySelectorAll("img");
+        expect(linkResult).toHaveLength(3);
+        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
+        expect(linkResult[1].getAttribute("src")).toEqual(imgMainSource);
+        expect(linkResult[2].getAttribute("src")).toEqual(imgMainSource2);
+      });
     });
   });
 });

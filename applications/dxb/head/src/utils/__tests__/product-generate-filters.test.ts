@@ -10,6 +10,20 @@ describe("product-filters geterateFilters tests", () => {
       });
     });
 
+    describe("When firestore filters are null", () => {
+      it("should return empty productFilters", () => {
+        const allowedFilters = new Map<string, string[]>();
+        expect(generateFilters(null, allowedFilters, allowedFilters)).toEqual(
+          []
+        );
+      });
+    });
+
+    describe("When categories and feature filters are null", () => {
+      it("should return empty productFilters", () => {
+        expect(generateFilters([], null, null)).toEqual([]);
+      });
+    });
     describe("When categories are empty array", () => {
       it("should return empty productFilters", () => {
         const categoryFilter = new Map<string, string[]>();
@@ -74,7 +88,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "Category",
+              label: "plpFilter.Category",
               value: [],
               options: [
                 {
@@ -116,7 +130,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "Category",
+              label: "plpFilter.Category",
               value: [],
               options: [
                 {
@@ -161,7 +175,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "Category",
+              label: "plpFilter.Category",
               value: [],
               options: [
                 {
@@ -203,7 +217,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "PITCHROOF_NO",
+              label: "plpFilter.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -251,7 +265,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "Category",
+              label: "plpFilter.Category",
               value: [],
               options: [
                 {
@@ -271,7 +285,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "PITCHROOF_NO",
+              label: "plpFilter.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -287,6 +301,67 @@ describe("product-filters geterateFilters tests", () => {
               ]
             }
           ]);
+        });
+        describe("and filter code is undefined", () => {
+          it("should return filter out invalid firestore category", () => {
+            const categoryFilter = new Map<string, string[]>();
+            categoryFilter.set("PITCHROOF_NO", []);
+            categoryFilter.set("Category", []);
+            const classFilter = new Map<string, string[]>();
+            expect(
+              generateFilters(
+                [
+                  createFirestoreFilter({
+                    filterCode: "Category",
+                    code: null,
+                    name: "category-1",
+                    parentFilterCode: ""
+                  }),
+                  createFirestoreFilter({
+                    filterCode: "Category",
+                    code: "category-2",
+                    name: "category-2",
+                    parentFilterCode: "PITCHROOF_NO"
+                  })
+                ],
+                categoryFilter,
+                classFilter
+              )
+            ).toEqual([
+              {
+                filterCode: "Category",
+                name: "Category",
+                label: "plpFilter.Category",
+                value: [],
+                options: [
+                  {
+                    label: "category-1",
+                    value: "",
+                    sortValue: "category-1"
+                  },
+                  {
+                    label: "category-2",
+                    value: "category-2",
+
+                    sortValue: "category-2"
+                  }
+                ]
+              },
+              {
+                filterCode: "PITCHROOF_NO",
+                name: "PITCHROOF_NO",
+                label: "plpFilter.PITCHROOF_NO",
+                value: [],
+                options: [
+                  {
+                    label: "category-2",
+                    value: "category-2",
+                    sortValue: "category-2"
+                  }
+                ]
+              }
+            ]);
+          });
         });
       });
     });
