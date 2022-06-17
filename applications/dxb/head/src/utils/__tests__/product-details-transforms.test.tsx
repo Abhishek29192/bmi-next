@@ -1254,22 +1254,6 @@ describe("product-details-transforms tests", () => {
       describe("And measurement Classification is provided", () => {
         it("returns value for measurements", () => {
           const result = mapClassificationValues(
-            // createProduct({
-            //   measurements: createMeasurements({
-            //     length: {
-            //       unit: "mm",
-            //       value: 10
-            //     },
-            //     height: {
-            //       unit: "mm",
-            //       value: 20
-            //     },
-            //     width: {
-            //       unit: "mm",
-            //       value: 30
-            //     }
-            //   })
-            // })
             createProduct({
               colour: undefined,
               colourFamily: undefined,
@@ -1339,41 +1323,6 @@ describe("product-details-transforms tests", () => {
     });
   });
 
-  // TODO: function 'findProductBrandLogoCode' is moved to CLONE.TS
-  // move these tests in clone.test.ts
-
-  // describe("findProductBrandLogoCode tests", () => {
-  //   describe("When Product with BMI Brands is NOT provided", () => {
-  //     it("returns brand logo code", () => {
-  //       const result = findProductBrandLogoCode(
-  //         createProduct({
-  //           categories: [
-  //             createCategory({
-  //               code: "ICOPAL",
-  //               parentCategoryCode: "NOT_BRANDS_CATEGORY"
-  //             })
-  //           ]
-  //         })
-  //       );
-  //       expect(result).toEqual(undefined);
-  //     });
-  //   });
-  //   describe("When Product with BMI Brands is provided", () => {
-  //     it("returns brand logo code", () => {
-  //       const result = findProductBrandLogoCode(
-  //         createProduct({
-  //           categories: [
-  //             createCategory({
-  //               code: "ICOPAL",
-  //               categoryType: "Brand"
-  //             })
-  //           ]
-  //         })
-  //       );
-  //       expect(result).toEqual("ICOPAL");
-  //     });
-  //   });
-  // });
   describe("getYoutubeId", () => {
     it("returns ID for standard URL", () => {
       const expectedYoutubeId = "HgeCkGZrPRs";
