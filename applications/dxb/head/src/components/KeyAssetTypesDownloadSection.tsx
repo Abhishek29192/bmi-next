@@ -3,32 +3,17 @@ import axios from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Button, ButtonProps, ClickableAction } from "@bmi/components";
 import { GetApp } from "@material-ui/icons";
-import { getDownloadLink, downloadAs } from "../utils/client-download";
+import { downloadAs, getDownloadLink } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { DocumentData as SDPDocumentData } from "../templates/systemDetails/types";
-import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { useConfig } from "../contexts/ConfigProvider";
+import { ProductDocument } from "../types/pim";
+import { devLog } from "../utils/devLog";
+import { KeyAssetDocument } from "../types/pim";
 import Icon from "./Icon";
-
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
-import { Data as DocumentData } from "./Document";
-
 import styles from "./styles/KeyAssetTypesDownloadSection.module.scss";
 
-export type Data =
-  | PIMDocumentData
-  | DocumentData
-  | PIMLinkDocumentData
-  | SDPDocumentData;
-
 type Props = {
-  assetTypes: string[];
-  documents: Data[];
-};
-
-type CommonData = {
-  href: string;
-  name: string;
-  assetType: string;
+  keyAssetDocuments: KeyAssetDocument[];
 };
 
 const GTMButton = withGTM<
@@ -37,39 +22,18 @@ const GTMButton = withGTM<
   }
 >(Button);
 
-export const handleDownloadClick = async (
-  list: CommonData[],
+const handleDownloadClick = async (
+  list: readonly ProductDocument[],
   token: string,
-  config: EnvConfig["config"]
+  documentDownloadEndpoint: string
 ) => {
-  const { isPreviewMode, documentDownloadEndpoint } = config;
-  const [currentTime] = new Date().toJSON().replace(/-|:|T/g, "").split(".");
-
-  if (list.length === 0) {
-    return () => {
-      // no-op
-    };
-  }
-
-  if (isPreviewMode) {
-    alert("You cannot download documents on the preview enviornment.");
-
-    return () => {
-      // no-op
-    };
-  }
+  const [currentTime] = new Date().toJSON().replace(/[-:T]/g, "").split(".");
 
   try {
-    if (!documentDownloadEndpoint) {
-      throw Error(
-        "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
-      );
-    }
-
-    const documents = list.map((item) => {
-      const { assetType, ...rest } = item;
-      return rest;
-    });
+    const documents = list.map((item) => ({
+      href: item.url,
+      name: item.title
+    }));
 
     const response = await axios.post(
       documentDownloadEndpoint,
@@ -79,90 +43,69 @@ export const handleDownloadClick = async (
 
     await downloadAs(response.data.url, `BMI_${currentTime}.zip`);
   } catch (error) {
-    console.error("KeyAssetTypesDownloadSection", error); // eslint-disable-line
+    devLog("KeyAssetTypesDownloadSection", error);
   }
 };
 
-export const mapAssetToCommonData = (data: Data): CommonData => {
-  if (data.__typename === "PIMDocument") {
-    const { url, assetType, title, extension } = data;
-
-    return {
-      href: url,
-      name: `${title}.${extension}`,
-      assetType: assetType.name
-    };
-  }
-
-  if (data.__typename === "PIMLinkDocument") {
-    const { url, assetType, title } = data;
-
-    return {
-      href: url,
-      name: `${title}.${url.split(".").pop()}`,
-      assetType: assetType.name
-    };
-  }
-
-  const {
-    asset: { file },
-    assetType,
-    title
-  } = data;
-
-  return {
-    href: file.url,
-    name: `${title}.${file.fileName.split(".").pop()}`,
-    assetType: assetType.name
-  };
-};
-
-const KeyAssetTypesDownloadSection = (props: Props) => {
+const KeyAssetTypesDownloadSection = ({ keyAssetDocuments }: Props) => {
   const { executeRecaptcha } = useGoogleReCaptcha();
-  const { assetTypes, documents } = props;
   const { config } = useConfig();
 
   return (
     <div className={styles["container"]}>
-      {assetTypes.map((assetType) => {
-        const mappedDocuments = documents
-          .filter((document) => document.assetType.pimCode === assetType)
-          .map((document) => mapAssetToCommonData(document));
-
-        if (!mappedDocuments.length) return null;
-
+      {keyAssetDocuments.map(({ assetType, documents }) => {
         return (
           <div key={assetType}>
             <GTMButton
               gtm={{
                 id: "download1",
                 label: "Download",
-                action: JSON.stringify(mappedDocuments.map((item) => item.href))
+                action: JSON.stringify(documents.map((item) => item.url))
               }}
               variant="text"
               startIcon={
-                mappedDocuments.length === 1 ? (
-                  <GetApp />
-                ) : (
-                  <Icon name="FolderZip" />
-                )
+                documents.length === 1 ? <GetApp /> : <Icon name="FolderZip" />
               }
               action={
-                mappedDocuments.length === 1 && {
-                  model: "download",
-                  href: getDownloadLink(mappedDocuments[0].href)
-                }
+                documents.length === 1
+                  ? {
+                      model: "download",
+                      href: getDownloadLink(documents[0].url)
+                    }
+                  : undefined
               }
               onClick={
-                mappedDocuments.length > 1 &&
-                (async () => {
-                  const token = await executeRecaptcha();
+                documents.length > 1
+                  ? async () => {
+                      const { isPreviewMode, documentDownloadEndpoint } =
+                        config;
 
-                  handleDownloadClick(mappedDocuments, token, config);
-                })
+                      if (isPreviewMode) {
+                        alert(
+                          "You cannot download documents on the preview environment."
+                        );
+                        return;
+                      }
+
+                      if (!documentDownloadEndpoint) {
+                        console.error(
+                          "`GATSBY_DOCUMENT_DOWNLOAD_ENDPOINT` missing in environment config"
+                        );
+                        return;
+                      }
+
+                      const token = await executeRecaptcha();
+                      await handleDownloadClick(
+                        documents,
+                        token,
+                        documentDownloadEndpoint
+                      );
+                    }
+                  : undefined
               }
+              data-testid={`${assetType}Download`}
             >
-              {mappedDocuments[0].assetType}
+              {documents[0].assetType.name}
             </GTMButton>
           </div>
         );

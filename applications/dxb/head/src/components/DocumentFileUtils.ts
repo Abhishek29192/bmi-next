@@ -1,4 +1,4 @@
-import { PIMDocumentData } from "./types/PIMDocumentBase";
+import { ProductDocument, SystemDocument } from "../types/pim";
 
 export interface AssetUniqueFileCountMap {
   uniqueFileMap: { [fileName: string]: number };
@@ -6,7 +6,7 @@ export interface AssetUniqueFileCountMap {
 }
 
 const createAssetFileCountMap = (
-  assets: PIMDocumentData[]
+  assets: (ProductDocument | SystemDocument)[]
 ): AssetUniqueFileCountMap => {
   const uniqueFileMap = {};
   const fileIndexCount = assets.map((asset) => {
@@ -41,7 +41,7 @@ export const generateFileNamebyTitle = (
 
 export const generateFilenameByRealFileName = (
   assetFileCountMap: AssetUniqueFileCountMap,
-  asset: PIMDocumentData,
+  asset: ProductDocument | SystemDocument,
   index: number
 ): string => {
   if (!assetFileCountMap.uniqueFileMap[asset.realFileName]) {

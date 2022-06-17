@@ -1,34 +1,33 @@
-import React from "react";
-import { LeadBlock } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { IconList } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
-import CheckIcon from "@material-ui/icons/Check";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  ButtonProps,
+  Icon,
+  IconList,
+  LeadBlock,
+  transformHyphens,
+  Typography
+} from "@bmi/components";
 import { Launch } from "@material-ui/icons";
-import { AnchorLink } from "@bmi/components";
-import { AnchorLinkProps, transformHyphens } from "@bmi/components";
-import { microCopy } from "../../constants/microCopies";
-import { useSiteContext } from "../../components/Site";
-import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
-import RichText from "../../components/RichText";
-import { Asset, Feature } from "../../components/types/pim";
-import withGTM from "../../utils/google-tag-manager";
+import CheckIcon from "@material-ui/icons/Check";
+import React from "react";
 import {
   getClickableActionFromUrl,
   isExternalUrl
 } from "../../components/Link";
+import RichText from "../../components/RichText";
+import { useSiteContext } from "../../components/Site";
+import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
+import { microCopy } from "../../constants/microCopies";
+import { System } from "../../types/pim";
+import withGTM from "../../utils/google-tag-manager";
 import styles from "./styles/aboutLeadBlock.module.scss";
 
 const GTMButton = withGTM<ButtonProps>(Button);
 
 type Props = {
-  longDescription: string;
-  guaranteesAndWarranties?: Asset[];
-  awardsAndCertificates?: Asset[];
-  keyFeatures?: Feature;
-  systemBenefits?: string[];
-  specification?: Asset;
+  system: System;
   sidebarItem?: ContentfulTitleWithContent;
 };
 
@@ -41,7 +40,7 @@ const LeadBlockCardContent = ({
   contents
 }: {
   title: string;
-  contents: string[];
+  contents: readonly string[];
 }) => (
   <LeadBlock.Card.Section>
     <LeadBlock.Card.Heading hasUnderline>{title}</LeadBlock.Card.Heading>
@@ -60,29 +59,22 @@ const LeadBlockCardContent = ({
   </LeadBlock.Card.Section>
 );
 
-const AboutLeadBlock = ({
-  longDescription,
-  guaranteesAndWarranties,
-  awardsAndCertificates,
-  keyFeatures,
-  systemBenefits,
-  specification,
-  sidebarItem
-}: Props) => {
+const AboutLeadBlock = ({ system, sidebarItem }: Props) => {
   const { getMicroCopy, countryCode } = useSiteContext();
   const GTMAnchorLink = withGTM<AnchorLinkProps>(AnchorLink);
-  const isImageAsset = (asset: Asset) => {
+  const isImageAsset = (asset) => {
     return (
       asset.realFileName?.indexOf(".jpg") > -1 ||
       asset.realFileName?.indexOf(".png") > -1
     );
   };
 
-  const guaranteesAndWarrantiesLinks = (guaranteesAndWarranties || []).filter(
-    (item) => !item.realFileName && item.url
-  );
-  const guaranteesImages = guaranteesAndWarranties?.filter((item) =>
-    isImageAsset(item)
+  const guaranteesAndWarrantiesLinks =
+    system.guaranteesAndWarrantiesLinks?.filter(
+      (item) => !item.realFileName && item.url
+    );
+  const guaranteesImages = system.guaranteesAndWarrantiesImages?.filter(
+    (item) => isImageAsset(item)
   );
 
   return (
@@ -92,11 +84,14 @@ const AboutLeadBlock = ({
           <Typography
             component="div"
             dangerouslySetInnerHTML={{
-              __html: transformHyphens(longDescription)
+              __html: transformHyphens(system.description)
             }}
           />
         </LeadBlock.Content.Section>
-        {guaranteesAndWarranties && guaranteesAndWarranties.length > 0 && (
+        {((system.guaranteesAndWarrantiesImages &&
+          system.guaranteesAndWarrantiesImages.length > 0) ||
+          (system.guaranteesAndWarrantiesLinks &&
+            system.guaranteesAndWarrantiesLinks.length > 0)) && (
           <LeadBlock.Content.Section
             className={styles["guaranteesAndAwardsAsset"]}
           >
@@ -136,24 +131,25 @@ const AboutLeadBlock = ({
             ))}
           </LeadBlock.Content.Section>
         )}
-        {awardsAndCertificates && awardsAndCertificates.length > 0 && (
-          <LeadBlock.Content.Section
-            className={styles["guaranteesAndAwardsAsset"]}
-          >
-            <LeadBlock.Content.Heading variant="h6">
-              {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
-            </LeadBlock.Content.Heading>
-            {awardsAndCertificates.map((item, i) => (
-              <img
-                key={i}
-                src={item.url}
-                alt={item.name}
-                className={styles["image"]}
-              />
-            ))}
-          </LeadBlock.Content.Section>
-        )}
-        {specification && (
+        {system.awardsAndCertificateImages &&
+          system.awardsAndCertificateImages.length > 0 && (
+            <LeadBlock.Content.Section
+              className={styles["guaranteesAndAwardsAsset"]}
+            >
+              <LeadBlock.Content.Heading variant="h6">
+                {getMicroCopy(microCopy.PDP_LEAD_BLOCK_AWARDS_CERTIFICATES)}
+              </LeadBlock.Content.Heading>
+              {system.awardsAndCertificateImages.map((item, i) => (
+                <img
+                  key={i}
+                  src={item.url}
+                  alt={item.name}
+                  className={styles["image"]}
+                />
+              ))}
+            </LeadBlock.Content.Section>
+          )}
+        {system.specification && (
           <LeadBlock.Content.Section>
             <LeadBlock.Content.Heading variant="h6">
               {getMicroCopy(microCopy.SDP_LEAD_BLOCK_SPECIFICATION)}
@@ -163,34 +159,34 @@ const AboutLeadBlock = ({
               variant="outlined"
               action={{
                 model: "htmlLink",
-                href: specification.url,
+                href: system.specification.url,
                 target: "_blank",
                 rel: "noopener noreferrer"
               }}
               endIcon={<Launch />}
               gtm={{
                 id: "cta-click1",
-                label: specification.name,
-                action: specification.url
+                label: system.specification.name,
+                action: system.specification.url
               }}
             >
-              {specification.name}
+              {system.specification.name}
             </GTMButton>
           </LeadBlock.Content.Section>
         )}
       </LeadBlock.Content>
-      {(keyFeatures || systemBenefits || sidebarItem) && (
+      {(system.keyFeatures || system.systemBenefits || sidebarItem) && (
         <LeadBlock.Card theme="pearl" data-testid="sidebar">
-          {keyFeatures && (
+          {system.keyFeatures && (
             <LeadBlockCardContent
-              title={keyFeatures.name}
-              contents={keyFeatures.featureValues.map(({ value }) => value)}
+              title={system.keyFeatures.name}
+              contents={system.keyFeatures.values}
             />
           )}
-          {systemBenefits && (
+          {system.systemBenefits && (
             <LeadBlockCardContent
               title={getMicroCopy(microCopy.SDP_LEAD_BLOCK_SYSTEM_BENEFITS)}
-              contents={systemBenefits}
+              contents={system.systemBenefits}
             />
           )}
           {sidebarItem && (

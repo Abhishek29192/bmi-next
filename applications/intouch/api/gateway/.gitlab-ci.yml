@@ -1,6 +1,23 @@
 build_intouch_api_gateway:
-  stage: build
-  needs: []
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/**/*
+        - libraries/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-api-gateway"
+    ROOT_DIR: "applications/intouch/api/gateway"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/gateway/dist
+
+package_intouch_api_gateway:
+  stage: package
+  needs:
+    - build_intouch_api_gateway
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -31,7 +48,7 @@ deploy_intouch_gateway_to_cloudrun_bmi:
   cache: {}
   image: google/cloud-sdk
   needs:
-    - build_intouch_api_gateway
+    - package_intouch_api_gateway
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
       changes:
@@ -48,7 +65,7 @@ deploy_intouch_gateway_to_cloudrun_bmi:
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
 
-# Run only on release branch!
+# Run only on release branch!!
 release_intouch_gateway_to_cloudrun_bmi:
   stage: deploy
   cache: {}

@@ -6,7 +6,7 @@
   "license": "BMI-DXB",
   "private": true,
   "scripts": {
-    "build": "tsc --build tsconfig.prod.json ",
+    "build": "tsc --build tsconfig.prod.json",
     "dev": "tsc --build && concurrently \"tsc -w\" \"nodemon dist/index.js\" \"yarn prettify-schema:watch\"",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "migrate-db": "node scripts/init-db.js",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@bmi-digital/logger": "0.0.11",
+    "@bmi-digital/tsconfig": "^1.3.0",
     "@google-cloud/secret-manager": "^3.7.1",
     "@graphile-contrib/pg-simplify-inflector": "^6.1.0",
     "@graphile/federation": "^0.0.3",

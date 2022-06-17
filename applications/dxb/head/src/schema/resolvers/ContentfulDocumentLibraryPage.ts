@@ -1,17 +1,18 @@
+import { DocumentsWithFilters } from "../../types/documentsWithFilters";
+import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import {
-  resolveDocumentsFromProducts,
-  resolveDocumentsFromContentful
-} from "./documents";
-import { Context, Node, ResolveArgs } from "./types";
+  resolveDocumentsFromContentful,
+  resolveDocumentsFromProducts
+} from "./utils/documents";
 
 export default {
-  documents: {
-    type: ["Document"],
+  documentsWithFilters: {
+    type: "DocumentsWithFiltersResponse",
     async resolve(
       source: Node,
       args: ResolveArgs,
       context: Context
-    ): Promise<Node[]> {
+    ): Promise<DocumentsWithFilters> {
       let assetTypes = [];
       if (source.assetTypes___NODE && source.assetTypes___NODE.length) {
         assetTypes = await Promise.all(
@@ -29,30 +30,105 @@ export default {
         );
         assetTypes = [...entries];
       }
+
       if (source.source === "PIM") {
-        return await resolveDocumentsFromProducts(assetTypes, {
-          source,
-          context
-        });
+        let allowFilterBy = source.allowFilterBy as string[];
+
+        switch (source.resultsType) {
+          case "Simple":
+            allowFilterBy = [
+              "Brand",
+              "ProductFamily",
+              "appearanceAttributes.texturefamily",
+              ...allowFilterBy
+            ];
+            break;
+          case "Technical":
+            allowFilterBy = ["Brand", "ProductFamily", ...allowFilterBy];
+            break;
+          default:
+            allowFilterBy = [];
+        }
+
+        const pimDouments = await resolveDocumentsFromProducts(
+          assetTypes,
+          {
+            source,
+            context
+          },
+          allowFilterBy
+        );
+        return {
+          filters: pimDouments.filters.filter(Boolean),
+          documents: pimDouments.documents
+        };
       }
 
       if (source.source === "CMS") {
-        return await resolveDocumentsFromContentful(assetTypes, { context });
+        let allowFilterBy = source.allowFilterBy as string[];
+        switch (source.resultsType) {
+          case "Card Collection":
+            allowFilterBy = ["Brand"];
+            break;
+          case "Simple":
+            allowFilterBy = ["Brand", "AssetType"];
+            break;
+          default:
+            allowFilterBy = [];
+        }
+        const cmsDocuments = await resolveDocumentsFromContentful(
+          assetTypes,
+          { source, context },
+          allowFilterBy
+        );
+
+        return cmsDocuments;
       }
 
       if (source.source === "ALL") {
-        const cmsDocuments = (await resolveDocumentsFromContentful(assetTypes, {
-          context
-        })) as Node[];
-        const pimDocuments = await resolveDocumentsFromProducts(assetTypes, {
-          source,
-          context
-        });
+        let allowFilterBy = source.allowFilterBy as string[];
 
-        return [...cmsDocuments, ...pimDocuments];
+        switch (source.resultsType) {
+          case "Simple":
+            allowFilterBy = [...allowFilterBy];
+            break;
+          default:
+            allowFilterBy = [];
+        }
+
+        const cmsDocuments = await resolveDocumentsFromContentful(
+          assetTypes,
+          {
+            source,
+            context
+          },
+          ["Brand", "AssetType"]
+        );
+        const pimDocuments = await resolveDocumentsFromProducts(
+          assetTypes,
+          {
+            source,
+            context
+          },
+          allowFilterBy
+        );
+
+        const allDocs = [...cmsDocuments.documents, ...pimDocuments.documents];
+
+        //TODO: merge "Brand" filter and de-duplicate its options
+        // currently in PROD no duplication is done for Brand filters
+        const allFilters = [
+          ...(pimDocuments.filters || []),
+          ...(cmsDocuments.filters || [])
+        ];
+
+        return {
+          filters: allFilters,
+          documents: allDocs
+        };
       }
 
-      return [];
+      return { filters: [], documents: [] };
     }
   }
 };

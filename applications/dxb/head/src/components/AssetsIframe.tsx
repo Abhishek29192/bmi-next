@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { Asset, AssetAssetType } from "./types/pim";
+import { Asset, AssetAssetType } from "@bmi/pim-types";
 import styles from "./styles/AssetsIframe.module.scss";
 
 type Props = {

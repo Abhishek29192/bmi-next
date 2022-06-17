@@ -1,6 +1,12 @@
 import { Category, createSystem } from "@bmi/pim-types";
 import { transformSystem } from "../transformSystems";
 
+const generateHashFromString = jest.fn();
+jest.mock("@bmi/utils", () => ({
+  generateHashFromString: (str: string, useDate: boolean) =>
+    generateHashFromString(str, useDate)
+}));
+
 describe("transformSystem", () => {
   it("should transform system to object", () => {
     const system = createSystem();
@@ -9,6 +15,7 @@ describe("transformSystem", () => {
     const brand = system.categories.find(
       ({ categoryType }) => categoryType === "Brand"
     )?.code;
+    generateHashFromString.mockReturnValue("hashed-system-code");
 
     expect(transformSystem(system)).toStrictEqual({
       brand,
@@ -17,14 +24,17 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
   });
 
   it("should transform system to object without brand", () => {
     const system = createSystem({ categories: [] });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: undefined,
@@ -33,8 +43,10 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
   });
 
   it("should find brand Category by categoryType", () => {
@@ -48,6 +60,7 @@ describe("transformSystem", () => {
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: brandCategory.code,
@@ -56,8 +69,10 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
   });
 
   it("should not find brand Category if no brand categoryType", () => {
@@ -71,6 +86,7 @@ describe("transformSystem", () => {
     const system = createSystem({ categories: [brandCategory] });
     const { approvalStatus, type, images, code, name, shortDescription } =
       system;
+    generateHashFromString.mockReturnValue("hashed-system-code");
 
     expect(transformSystem(system)).toStrictEqual({
       brand: undefined,
@@ -79,7 +95,9 @@ describe("transformSystem", () => {
       images,
       code,
       name,
-      shortDescription
+      shortDescription,
+      hashedCode: "hashed-system-code"
     });
+    expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
   });
 });

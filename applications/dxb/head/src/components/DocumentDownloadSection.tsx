@@ -1,17 +1,14 @@
-import React from "react";
-import { graphql } from "gatsby";
+import { Button, ButtonProps, Icon, Section, Table } from "@bmi/components";
 import filesize from "filesize";
-import { Section } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Button, ButtonProps } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
-import { microCopy } from "../constants/microCopies";
+import { graphql } from "gatsby";
+import React from "react";
 import fileIconsMap from "../components/FileIconsMap";
+import { microCopy } from "../constants/microCopies";
+import { Data as DocumentData } from "../types/Document";
+import withGTM from "../utils/google-tag-manager";
+import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";
 import { useSiteContext } from "./Site";
-import { Data as DocumentData } from "./Document";
-import { getClickableActionFromUrl } from "./Link";
 
 export type Data = {
   __typename: "ContentfulDocumentDownloadSection";

@@ -1,5 +1,5 @@
 build_gcp-intouch-generate-guarantee:
-  extends: .build_function_yarn_workspace
+  extends: .build_intouch_function
   variables:
     ROOT_DIR: applications/intouch/functions/gcp-generate-guarantee
     WORKSPACE: "@bmi/gcp-intouch-generate-guarantee"

@@ -17,11 +17,12 @@
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
     "@google-cloud/functions-framework": "^3.0.0",
-    "@elastic/elasticsearch": "^7.8.0"
-  },
-  "devDependencies": {
+    "@elastic/elasticsearch": "^7.8.0",
     "@bmi/gcp-pim-message-handler": "0.0.0",
     "@bmi/pim-types": "0.0.0",
+    "@bmi/utils": "0.0.0"
+  },
+  "devDependencies": {
     "env-cmd": "^10.1.0",
     "inspectpack": "^4.7.1",
     "js-yaml": "^4.0.0",

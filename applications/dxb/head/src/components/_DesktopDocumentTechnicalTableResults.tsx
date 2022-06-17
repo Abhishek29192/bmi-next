@@ -1,5 +1,3 @@
-import React, { useContext } from "react";
-import classnames from "classnames";
 import {
   Button,
   Clickable,
@@ -12,25 +10,27 @@ import {
   Table
 } from "@bmi/components";
 import axios from "axios";
+import classnames from "classnames";
+import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
+import { Data as AssetTypeData } from "../types/AssetType";
+import { ProductDocument } from "../types/pim";
 import { downloadAs } from "../utils/client-download";
 import withGTM from "../utils/google-tag-manager";
-import { useConfig } from "../contexts/ConfigProvider";
-import { microCopy } from "../constants/microCopies";
-import AssetHeader from "./_AssetHeader";
-import { useSiteContext } from "./Site";
-import { Data as AssetTypeData } from "./AssetType";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { Format } from "./types";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
+import { useSiteContext } from "./Site";
+import styles from "./styles/DocumentTechnicalTableResults.module.scss";
+import { Format } from "./types";
+import AssetHeader from "./_AssetHeader";
 
 interface Props {
-  documentsByProduct: [string, (PIMDocumentData | PIMLinkDocumentData)[]][];
+  documentsByProduct: [string, ProductDocument[]][];
   assetTypes: AssetTypeData[];
   fileIconsMap: Record<Format, React.ComponentType>;
 }
@@ -50,8 +50,8 @@ const DesktopDocumentTechnicalTableResults = ({
   const GTMClickable = withGTM<ClickableProps>(Clickable);
   const GTMButton = withGTM<IconButtonProps>(Button);
 
-  const singleDocument = (asset: PIMDocumentData | PIMLinkDocumentData) =>
-    asset.__typename !== "PIMLinkDocument" ? (
+  const singleDocument = (asset: ProductDocument) =>
+    !asset.isLinkDocument ? (
       <GTMClickable
         model="download"
         href={asset.url}
@@ -63,7 +63,7 @@ const DesktopDocumentTechnicalTableResults = ({
         }}
       >
         <Icon
-          source={fileIconsMap[asset.format]}
+          source={fileIconsMap[asset.format] || iconMap.External}
           className={styles["format-icon"]}
         />
       </GTMClickable>
@@ -93,9 +93,7 @@ const DesktopDocumentTechnicalTableResults = ({
       </GTMButton>
     );
 
-  const multipleDocuments = (
-    assets: (PIMDocumentData | PIMLinkDocumentData)[]
-  ) => {
+  const multipleDocuments = (assets: ProductDocument[]) => {
     const downloadMultipleFiles = async () => {
       try {
         if (!documentDownloadEndpoint) {
@@ -108,13 +106,13 @@ const DesktopDocumentTechnicalTableResults = ({
           .replace(/-|:|T/g, "")
           .split(".");
         let zipFileName = `BMI_${currentTime}.zip`;
-        if (assets.length > 0 && assets[0].product && assets[0].assetType) {
-          zipFileName = `${assets[0].product?.name} ${assets[0].assetType.name}.zip`;
+        if (assets.length > 0 && assets[0].assetType) {
+          zipFileName = `${assets[0].productName} ${assets[0].assetType.name}.zip`;
         }
 
         const token = await executeRecaptcha();
-        const pimDocumentAssets: PIMDocumentData[] = assets.filter(
-          (asset): asset is PIMDocumentData =>
+        const pimDocumentAssets: ProductDocument[] = assets.filter(
+          (asset): asset is ProductDocument =>
             asset.__typename === "PIMDocument"
         );
         const assetFileCountMap: AssetUniqueFileCountMap =
@@ -154,9 +152,7 @@ const DesktopDocumentTechnicalTableResults = ({
         gtm={{
           id: "download1",
           label: "Download",
-          action: JSON.stringify(
-            Object.values(assets).map((asset) => asset.url)
-          )
+          action: JSON.stringify(assets.map((asset) => asset.url))
         }}
         disableTouchRipple={true}
         className={styles["external-download-button"]}
@@ -201,10 +197,10 @@ const DesktopDocumentTechnicalTableResults = ({
         <Table.Body>
           {documentsByProduct.map(([productName, assets], index) => {
             const key = `${
-              assets.find(({ product }) => product.code)?.product.code
+              assets.find((asset) => asset.productBaseCode)?.productBaseCode
             }-${index}`;
             const hasOnlyExternalAssets = assets.every(
-              (asset) => asset.__typename === "PIMLinkDocument"
+              (asset) => asset.isLinkDocument
             );
             return (
               <Table.Row
@@ -215,7 +211,7 @@ const DesktopDocumentTechnicalTableResults = ({
                 })}
               >
                 <Table.Cell>
-                  {assets.length > 0 ? assets[0].product.name : productName}
+                  {assets.length > 0 ? assets[0].productName : productName}
                 </Table.Cell>
                 {assetTypes.map((assetType, index) => {
                   const filteredAssets = assets.filter(
@@ -257,11 +253,9 @@ const DesktopDocumentTechnicalTableResults = ({
                       ariaLabel={`${getMicroCopy(
                         microCopy.DOCUMENT_LIBRARY_DOWNLOAD
                       )} ${productName}`}
-                      value={assets.filter(
-                        ({ __typename }) => __typename !== "PIMLinkDocument"
-                      )}
+                      value={assets.filter((asset) => !asset.isLinkDocument)}
                       fileSize={assets.reduce((acc, curr) => {
-                        if (curr.__typename === "PIMLinkDocument") {
+                        if (curr.isLinkDocument) {
                           return 0;
                         }
                         return acc + (curr.fileSize || 0);

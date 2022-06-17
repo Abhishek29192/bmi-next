@@ -20,7 +20,7 @@ export const createFeatureValue = (
 export const createFeatureUnit = (
   featureUnit?: Partial<FeatureUnit>
 ): FeatureUnit => ({
-  name: "name",
+  name: "unit-name",
   symbol: "symbol",
   unitType: "unit-type",
   ...featureUnit
@@ -29,11 +29,7 @@ export const createFeatureUnit = (
 export const createFeature = (feature?: Partial<Feature>): Feature => ({
   code: "classification-feature-code",
   featureValues: [createFeatureValue()],
-  featureUnit: {
-    name: "unit-name",
-    symbol: "symbol",
-    unitType: "unit-type"
-  },
+  featureUnit: createFeatureUnit(),
   name: "name",
   ...feature
 });
@@ -118,6 +114,15 @@ export const createMeasurementsClassification = (
     code: "measurements"
   });
 
+const createClassification = (
+  classification?: Partial<Classification>
+): Classification => ({
+  code: "code",
+  features: [createFeature()],
+  name: "name",
+  ...classification
+});
+
 export const createTwoOneClassifications = (
   pimClassificationNamepspace:
     | string
@@ -179,14 +184,5 @@ export const createTwoOneClassification = (
   }
   return createClassification();
 };
-
-const createClassification = (
-  classification?: Partial<Classification>
-): Classification => ({
-  code: "code",
-  features: [createFeature()],
-  name: "name",
-  ...classification
-});
 
 export default createClassification;

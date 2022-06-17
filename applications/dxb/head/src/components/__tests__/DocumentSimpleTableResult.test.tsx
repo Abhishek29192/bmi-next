@@ -1,14 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { useMediaQuery } from "@material-ui/core";
+import { ProductDocument as PIMDocument } from "../../types/pim";
 import DocumentSimpleTableResults, {
   Props
 } from "../DocumentSimpleTableResults";
-import {
-  PIMDocumentBase,
-  PIMDocumentData,
-  PIMLinkDocumentData
-} from "../types/PIMDocumentBase";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 
 jest.mock("@material-ui/core", () => ({
   ...(jest.requireActual("@material-ui/core") as any),
@@ -19,36 +16,11 @@ jest.mock("../DocumentSimpleTableResultsMobile", () => ({
   DocumentSimpleTableResultsMobile: () => <div>Mobile Results</div>
 }));
 
-const defaultDocument: PIMDocumentBase = {
-  id: "hash1",
-  title: "document",
-  product: { code: "1", name: "some-product" },
-  url: "http://somelink.com",
-  assetType: {
-    __typename: "ContentfulAssetType",
-    id: "asset-id",
-    name: "asset",
-    code: "asset-code",
-    description: null,
-    pimCode: null
-  }
-};
+const pimLinkDocument: PIMDocument = createPimDocument({
+  isLinkDocument: true
+});
 
-const pimLinkDocument: PIMLinkDocumentData = {
-  ...defaultDocument,
-  isLinkDocument: true,
-  __typename: "PIMLinkDocument"
-};
-
-const pimDocument: PIMDocumentData = {
-  ...defaultDocument,
-  fileSize: 10,
-  format: "image/jpeg",
-  extension: "extension",
-  realFileName: "document.jpeg",
-  isLinkDocument: false,
-  __typename: "PIMDocument"
-};
+const pimDocument: PIMDocument = createPimDocument({ isLinkDocument: false });
 
 const mockUseMediaQuery = useMediaQuery as jest.Mock<
   ReturnType<typeof useMediaQuery>
@@ -87,7 +59,7 @@ describe("DocumentSimpleTableResult", () => {
         renderDocumentResults({ documents: [pimDocument] });
         expect(
           screen.getByRole("checkbox", {
-            name: "MC: documentLibrary.download document"
+            name: "MC: documentLibrary.download Pim Document"
           })
         ).toBeInTheDocument();
       });

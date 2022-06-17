@@ -21,7 +21,7 @@ import { generateSystemPath } from "../utils/systems";
 import { getPathWithCountryCode } from "../utils/path";
 import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
-import { System } from "./types/pim";
+import { RelatedSystem } from "../types/pim";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import { SystemCard } from "./RelatedSystems";
 import ProgressIndicator from "./ProgressIndicator";
@@ -113,9 +113,10 @@ type SystemConfiguratorQuestionData = {
   isReload: boolean;
   stateSoFar?: string[];
 };
+
 const SystemConfiguratorQuestion = ({
   index,
-  id,
+  id, // TODO: Is this still needed? I have a feeling it has some odd reason to exist
   question,
   storedAnswers,
   isReload,
@@ -317,7 +318,7 @@ const SystemConfiguratorResult = ({
   const ref = useScrollToOnLoad(false, ACCORDION_TRANSITION);
   const { countryCode } = useSiteContext();
   const [recommendedSystemPimObjects, setRecommendedSystemPimObjects] =
-    useState<Partial<System>[]>([]);
+    useState<RelatedSystem[]>([]);
   const {
     config: { esIndexNameSystem }
   } = useConfig();

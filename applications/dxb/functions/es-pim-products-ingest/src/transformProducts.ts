@@ -11,7 +11,9 @@ import {
 } from "@bmi/pim-types";
 import {
   ESIndexObject,
+  findMainImage,
   findProductBrandLogoCode,
+  generateSubtitleValues,
   getSizeLabel,
   groupBy,
   IndexedItemGroup,
@@ -205,10 +207,8 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       "shortDescription",
       "productBenefits"
     );
-    logger.info({
-      message: `baseAttributes: ${baseAttributes}`
-    });
-    let measurementValue: string | undefined;
+
+    let measurementValue: string;
 
     const measurementsClassification =
       mappedClassifications[variant.code]?.measurements;
@@ -216,10 +216,20 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       measurementValue = getSizeLabel(
         measurementsClassification as TransformedMeasurementValue
       );
+    } else {
+      measurementValue = "";
     }
     logger.info({
       message: `measurementsClassification: ${measurementsClassification}`
     });
+    const colorTextureSubtitle: string = generateSubtitleValues(
+      combinedClassifications
+    );
+    const subTitle: string =
+      colorTextureSubtitle.length === 0
+        ? measurementValue
+        : colorTextureSubtitle;
+
     const baseProduct: BaseProduct = {
       code: product.code,
       name: product.name
@@ -229,13 +239,20 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       ...indexedFeatures,
       ...allCategoriesAsProps,
       ...baseAttributes,
+      externalProductCode: baseAttributes.externalProductCode || "",
+      isSampleOrderAllowed: baseAttributes.isSampleOrderAllowed || false,
       code: variant.code,
       baseProduct: { ...baseProduct },
       brandCode: findProductBrandLogoCode(product),
       // TODO: Perhaps we're only interested in specific images?
       images: [...(variant.images || []), ...(product.images || [])],
       // All cats, PLP could be by any type of cat, Brand and ProductFamily cats here are important
-      allCategories: product.categories || [],
+      allCategories: product.categories
+        ? product.categories.map((cat) => ({
+            code: cat.code,
+            parentCategoryCode: cat.parentCategoryCode || ""
+          }))
+        : [],
       classifications: combinedClassifications,
       measurementValue,
       productScoringWeightInt:
@@ -247,7 +264,12 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         Number.isFinite(Number.parseInt(variantScoringWeight))
           ? Number.parseInt(variantScoringWeight)
           : 0,
-      totalVariantCount: product.variantOptions.length
+      totalVariantCount: product.variantOptions?.length || 0,
+      mainImage: findMainImage([
+        ...(variant.images || []),
+        ...(product.images || [])
+      ]),
+      subTitle
     };
     logger.info({
       message: `productVariant: ${productVariant}`

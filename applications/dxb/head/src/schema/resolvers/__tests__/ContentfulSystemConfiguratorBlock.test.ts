@@ -1,5 +1,5 @@
 import ContentfulSystemConfiguratorBlock from "../ContentfulSystemConfiguratorBlock";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -34,7 +34,8 @@ const context: Context = {
         }
       }
     ]),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    findOne: jest.fn()
   }
 };
 

@@ -21,7 +21,7 @@ import styles from "./_PitchedRoofCalculatorSteps.module.scss";
 import Results from "./_Results";
 import RoofDimensions from "./_RoofDimensions";
 import RoofSelection from "./_RoofSelection";
-import TileOptions, { TileOptionsSeletions } from "./_TileOptions";
+import TileOptions, { TileOptionsSelections } from "./_TileOptions";
 import TileSelection from "./_TileSelection";
 import UnderlaySelection from "./_UnderlaySelection";
 import VariantSelection from "./_VariantSelection";
@@ -59,7 +59,7 @@ const PitchedRoofCalculatorSteps = ({
     undefined
   );
   const [tileOptions, setTileOptions] = useState<
-    TileOptionsSeletions | undefined
+    TileOptionsSelections | undefined
   >(undefined);
   const [underlay, setUnderlay] = useState<Underlay | undefined>(undefined);
   const [guttering, setGuttering] = useState<GutteringSelections | undefined>(
@@ -269,7 +269,7 @@ const PitchedRoofCalculatorSteps = ({
             setSelected("select-variant");
           }}
         >
-          {variant && tileOptions ? (
+          {variant ? (
             <TileOptions variant={variant} selections={tileOptions} />
           ) : null}
         </CalculatorStepper.Step>
@@ -306,7 +306,7 @@ const PitchedRoofCalculatorSteps = ({
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           key="guttering"
-          title={getMicroCopy(microCopy.GUTTERING_GUTTER_TITLE)}
+          title={getMicroCopy(microCopy.GUTTERING_TITLE)}
           subtitle={getMicroCopy(microCopy.GUTTERING_SUBTITLE)}
           nextLabel={getMicroCopy(microCopy.GUTTERING_NEXT_LABEL)}
           nextButtonOnClick={(e, values) => {
@@ -339,13 +339,11 @@ const PitchedRoofCalculatorSteps = ({
             setSelected("your-solution-contains");
           }}
         >
-          {guttering ? (
-            <Guttering
-              selections={guttering}
-              gutters={data.gutters}
-              gutterHooks={data.gutterHooks}
-            />
-          ) : null}
+          <Guttering
+            selections={guttering}
+            gutters={data.gutters}
+            gutterHooks={data.gutterHooks}
+          />
         </CalculatorStepper.Step>
         <CalculatorStepper.Step
           isForm={false}
@@ -384,7 +382,7 @@ const PitchedRoofCalculatorSteps = ({
             setRoof(undefined);
           }}
         >
-          {measurements && variant && tileOptions && underlay && guttering && (
+          {measurements && variant && tileOptions && underlay && (
             <Results
               underlays={data.underlays}
               gutters={data.gutters}

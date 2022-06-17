@@ -89,7 +89,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                 <button
                   aria-label="Download"
                   class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-document-id\\\\\\",\\\\\\"http://localhost/pim-document-id\\\\\\"]\\"}"
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://pimDocument\\\\\\",\\\\\\"http://pimDocument\\\\\\"]\\"}"
                   tabindex="0"
                   type="button"
                 >
@@ -128,7 +128,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                             aria-label="MC: documentLibrary.download product1"
                             class="PrivateSwitchBase-input-72"
                             data-indeterminate="false"
-                            name="product-code-0"
+                            name="product-base-code-0"
                             type="checkbox"
                             value=""
                           />
@@ -154,40 +154,6 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when m
                   </div>
                 </span>
               </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root row"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-              >
-                product-name
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              >
-                <button
-                  aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-text-62 external-download-button"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"[\\\\\\"http://localhost/pim-link-document-id\\\\\\",\\\\\\"http://localhost/pim-link-document-id\\\\\\"]\\"}"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      class="format-icon"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              />
             </tr>
             <tr
               class="MuiTableRow-root row"
@@ -336,9 +302,9 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
                 <a
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-document-id\\"}"
-                  download="pim-document-title"
-                  href="http://localhost/pim-document-id"
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  download="Pim Document"
+                  href="http://pimDocument"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -377,7 +343,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                             aria-label="MC: documentLibrary.download product1"
                             class="PrivateSwitchBase-input-48"
                             data-indeterminate="false"
-                            name="product-code-0"
+                            name="product-base-code-0"
                             type="checkbox"
                             value=""
                           />
@@ -403,50 +369,6 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when n
                   </div>
                 </span>
               </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root row"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-              >
-                product-name
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              >
-                <svg
-                  class="no-document-icon"
-                />
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-text-38 external-download-button"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
-                  href="http://localhost/pim-link-document-id"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      class="external-link-icon"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              />
             </tr>
             <tr
               class="MuiTableRow-root row"
@@ -569,9 +491,9 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                 class="MuiTableCell-root MuiTableCell-body align-center"
               >
                 <a
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-document-id\\"}"
-                  download="pim-document-title"
-                  href="http://localhost/pim-document-id"
+                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                  download="Pim Document"
+                  href="http://pimDocument"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -603,7 +525,7 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                             aria-label="MC: documentLibrary.download product1"
                             class="PrivateSwitchBase-input-24"
                             data-indeterminate="false"
-                            name="product-code-0"
+                            name="product-base-code-0"
                             type="checkbox"
                             value=""
                           />
@@ -629,43 +551,6 @@ exports[`DesktopDocumentTechnicalTableResults component Renders correctly when o
                   </div>
                 </span>
               </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root row"
-            >
-              <td
-                class="MuiTableCell-root MuiTableCell-body"
-              >
-                product-name
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              >
-                <a
-                  aria-disabled="false"
-                  aria-label="Download"
-                  class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-text-14 external-download-button"
-                  data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://localhost/pim-link-document-id\\"}"
-                  href="http://localhost/pim-link-document-id"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                >
-                  <span
-                    class="MuiIconButton-label"
-                  >
-                    <svg
-                      class="external-link-icon"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </a>
-              </td>
-              <td
-                class="MuiTableCell-root MuiTableCell-body align-center"
-              />
             </tr>
             <tr
               class="MuiTableRow-root row"

@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase-admin/app";
 import {
-  getFirestore as getAdminFirestore,
-  Firestore
+  Firestore,
+  getFirestore as getAdminFirestore
 } from "firebase-admin/firestore";
 
 const { GCP_PROJECT_ID } = process.env;
@@ -19,6 +19,9 @@ export const getFirestore = (): Firestore => {
     });
 
     firestoreCache = getAdminFirestore(app);
+    firestoreCache.settings({
+      ignoreUndefinedProperties: true
+    });
   }
   return firestoreCache;
 };

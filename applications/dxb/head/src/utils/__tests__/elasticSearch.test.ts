@@ -12,8 +12,9 @@ describe("removeIrrelevantFilters function", () => {
   it("should remove irrelevant filters", () => {
     const filters: Filter[] = [
       {
-        name: "colour",
-        label: "Colour",
+        name: "appearanceAttributes.colourfamily",
+        filterCode: "colourfamily",
+        label: "Colour Family",
         options: [
           { label: "1", value: "colour1" },
           { label: "2", value: "colour2" }
@@ -32,8 +33,9 @@ describe("removeIrrelevantFilters function", () => {
     const updatedFilters = removeIrrelevantFilters(filters, aggregations);
     const result = [
       {
-        name: "colour",
-        label: "Colour",
+        filterCode: "colourfamily",
+        name: "appearanceAttributes.colourfamily",
+        label: "Colour Family",
         options: [{ label: "1", value: "colour1" }]
       }
     ];
@@ -45,6 +47,7 @@ describe("removeIrrelevantFilters function", () => {
     const filters: Filter[] = [
       {
         name: "colour",
+        filterCode: "colour",
         label: "Colour",
         options: [
           { label: "1", value: "colour1" },
@@ -86,8 +89,9 @@ describe("disableFiltersFromAggregations function", () => {
   it("should disable based on aggregations", () => {
     const filters: Filter[] = [
       {
-        name: "colour",
-        label: "Colour",
+        name: "appearanceAttributes.colourfamily",
+        filterCode: "colourfamily",
+        label: "Colour Family",
         options: [
           { label: "1", value: "colour1" },
           { label: "2", value: "colour2" }
@@ -107,10 +111,12 @@ describe("disableFiltersFromAggregations function", () => {
       filters,
       aggregations
     );
+
     const result = [
       {
-        name: "colour",
-        label: "Colour",
+        filterCode: "colourfamily",
+        name: "appearanceAttributes.colourfamily",
+        label: "Colour Family",
         options: [
           { label: "1", value: "colour1", isDisabled: false },
           { label: "2", value: "colour2", isDisabled: true }
@@ -126,6 +132,7 @@ describe("compileElasticSearchQuery function", () => {
   const filters: Filter[] = [
     {
       name: "foo",
+      filterCode: "foo",
       label: "Foo",
       options: [
         { label: "1", value: "1" },
@@ -134,12 +141,14 @@ describe("compileElasticSearchQuery function", () => {
     },
     {
       name: "bar",
+      filterCode: "bar",
       label: "Bar",
       value: ["BAR"],
       options: [{ label: "1", value: "1" }]
     },
     {
       name: "colour",
+      filterCode: "colour",
       label: "Colour",
       value: ["Colour"],
       options: [{ label: "1", value: "colour1" }]
@@ -227,7 +236,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -310,7 +319,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -391,7 +400,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -495,7 +504,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -599,7 +608,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -703,7 +712,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -807,7 +816,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -911,7 +920,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -1015,7 +1024,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],
@@ -1119,7 +1128,7 @@ describe("compileElasticSearchQuery function", () => {
               },
               Object {
                 "term": Object {
-                  "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword": "Colour",
+                  "allCategories.code.keyword": "Colour",
                 },
               },
             ],

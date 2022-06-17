@@ -3,16 +3,12 @@ import { AnchorLink, Button, Dialog, Icon, Tooltip } from "@bmi/components";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import InfoIcon from "@material-ui/icons/Info";
 import { microCopy } from "../constants/microCopies";
+import { Data as AssetTypeData } from "../types/AssetType";
 import RichText from "./RichText";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
 
-const AssetHeader = ({
-  assetType
-}: {
-  assetType: PIMDocumentData["assetType"] | PIMLinkDocumentData["assetType"];
-}) => {
+const AssetHeader = ({ assetType }: { assetType: AssetTypeData }) => {
   const { name, code, description } = assetType;
   const [isTooltipActive, setIsTooltipActive] = useState<boolean>(false);
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);

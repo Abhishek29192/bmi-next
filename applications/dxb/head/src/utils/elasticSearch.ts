@@ -6,10 +6,9 @@ import {
 } from "./elasticSearchCommonQuery";
 
 const ES_AGGREGATION_NAMES = {
-  // TODO: Rename filter.name to colourfamily
-  colour: "colourfamily",
-  materials: "materials",
-  texturefamily: "texturefamily",
+  "appearanceAttributes.colourfamily": "colourfamily",
+  "appearanceAttributes.materials": "materials",
+  "appearanceAttributes.texturefamily": "texturefamily",
   productFamily: "allCategories",
   productLine: "allCategories",
   brand: "allCategories",
@@ -27,28 +26,31 @@ export type Aggregations = Record<
 export const removeIrrelevantFilters = (
   filters: Filter[],
   aggregations: Aggregations
-): Filter[] =>
-  filters
-    .map((filter) => {
-      return {
-        ...filter,
-        options: filter.options.filter((option) => {
-          // NOTE: all other filters are assumed to be categories
-          const aggregationName =
-            ES_AGGREGATION_NAMES[filter.name] || "allCategories";
-          // eslint-disable-next-line security/detect-object-injection
-          const buckets = aggregations[aggregationName]?.buckets;
+): Filter[] => {
+  return (
+    filters
+      .map((filter) => {
+        return {
+          ...filter,
+          options: filter.options.filter((option) => {
+            // NOTE: all other filters are assumed to be categories
+            const aggregationName =
+              ES_AGGREGATION_NAMES[filter.name] || "allCategories";
+            // eslint-disable-next-line security/detect-object-injection
+            const buckets = aggregations[aggregationName]?.buckets;
 
-          const aggregate = (buckets || []).find(
-            ({ key }) => key === option.value
-          );
+            const aggregate = (buckets || []).find(
+              ({ key }) => key === option.value
+            );
 
-          return aggregate && aggregate.doc_count > 0;
-        })
-      };
-    })
-    // Return only filters with options
-    .filter(({ options }) => options.length);
+            return aggregate && aggregate.doc_count > 0;
+          })
+        };
+      })
+      // Return only filters with options
+      .filter(({ options }) => options.length)
+  );
+};
 
 export const disableFiltersFromAggregations = (
   filters: Filter[],
@@ -79,9 +81,11 @@ export const disableFiltersFromAggregations = (
 // Filter.name => ES index mapping
 const searchTerms = {
   // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
-  colour: "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-  materials: "GENERALINFORMATION.MATERIALS.code.keyword",
-  texturefamily: "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+  "appearanceAttributes.colourfamily":
+    "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+  "appearanceAttributes.materials": "GENERALINFORMATION.MATERIALS.code.keyword",
+  "appearanceAttributes.texturefamily":
+    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
   allCategories: "allCategories.code.keyword"
 };
 
@@ -104,9 +108,9 @@ export const compileElasticSearchQuery = (
 
     // Handle these specific filters or fallback to "category".
     const searchTerm = [
-      "colour",
-      "materials",
-      "texturefamily",
+      "appearanceAttributes.colourfamily",
+      "appearanceAttributes.materials",
+      "appearanceAttributes.texturefamily",
       "productFamily",
       "productLine",
       "brand"

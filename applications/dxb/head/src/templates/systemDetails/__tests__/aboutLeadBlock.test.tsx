@@ -1,42 +1,8 @@
-import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import AboutLeadBlock from "../aboutLeadBlock";
-import createSystemDetails from "../../../test/systemDetailsMockData";
-import { Asset, Feature } from "../../../components/types/pim";
+import React from "react";
 import { Data as TitleWithContentData } from "../../../components/TitleWithContent";
-
-const systemDetailsMockData = createSystemDetails();
-const guaranteesAndWarranties: Asset[] = systemDetailsMockData.assets.filter(
-  ({ assetType }) => assetType === "WARRANTIES"
-) as Asset[];
-const awardsAndCertificates: Asset[] = systemDetailsMockData.assets.filter(
-  ({ assetType }) => assetType === "AWARDS"
-) as Asset[];
-
-const keyFeatures: Feature = {
-  code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.keyfeatures",
-  featureValues: [
-    {
-      value: "Sample KF value"
-    },
-    {
-      value: "Sample KF value 2"
-    }
-  ],
-  name: "Key Features"
-};
-
-const systemBenefits = systemDetailsMockData.systemBenefits;
-
-const specification: Asset = {
-  allowedToDownload: true,
-  assetType: "SPECIFICATION",
-  fileSize: 689490,
-  mime: "application/pdf",
-  name: "Spec Test",
-  realFileName: "Teknisk-godkjenning-2012-Icopal-2-lag-asfalt-takbelegg.pdf",
-  url: "test"
-};
+import createSystem from "../../../__tests__/helpers/SystemHelper";
+import AboutLeadBlock from "../aboutLeadBlock";
 
 const guaranteesWarrantiesMicroCopy = "pdp.leadBlock.guaranteesWarranties";
 const awardsCertificatesMicroCopy = "pdp.leadBlock.awardsCertificates";
@@ -57,19 +23,14 @@ describe("AboutLeadBlock tests", () => {
   afterEach(cleanup);
 
   it("should render", () => {
-    const longDescription = "longDescription";
+    const systemDetailsMockData = createSystem();
+
     const { container, queryByText } = render(
       <AboutLeadBlock
-        longDescription={longDescription}
-        guaranteesAndWarranties={guaranteesAndWarranties}
-        awardsAndCertificates={awardsAndCertificates}
-        keyFeatures={keyFeatures}
-        systemBenefits={systemBenefits}
-        specification={specification}
+        system={systemDetailsMockData}
         sidebarItem={sidebarItem}
       />
     );
-    const longDescriptionText = queryByText(longDescription);
     const guaranteesWarrantiesTitle = queryByText(
       guaranteesWarrantiesMicroCopy,
       {
@@ -90,7 +51,6 @@ describe("AboutLeadBlock tests", () => {
     });
 
     expect(container).toMatchSnapshot();
-    expect(longDescriptionText).toBeInTheDocument();
     expect(guaranteesWarrantiesTitle).toBeInTheDocument();
     expect(awardsCertificatesTitle).toBeInTheDocument();
     expect(specificationTitle).toBeInTheDocument();
@@ -100,14 +60,13 @@ describe("AboutLeadBlock tests", () => {
 
   describe("should not render", () => {
     it("if no guaranteesAndWarranties assets", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.awardsAndCertificateDocuments = null;
+      systemDetailsMockData.awardsAndCertificateImages = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={[]}
-          awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={keyFeatures}
-          systemBenefits={systemBenefits}
-          specification={specification}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
       const text = queryByText("sdp.leadBlock.guaranteesWarranties", {
@@ -117,15 +76,14 @@ describe("AboutLeadBlock tests", () => {
       expect(text).not.toBeInTheDocument();
     });
 
-    it("if no awardsAndCertificates assets", () => {
+    it("if no awardsAndCertificate images and document assets are provided", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.awardsAndCertificateImages = null;
+      systemDetailsMockData.awardsAndCertificateDocuments = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={[]}
-          keyFeatures={keyFeatures}
-          systemBenefits={systemBenefits}
-          specification={specification}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
       const text = queryByText(awardsCertificatesMicroCopy, {
@@ -136,16 +94,15 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no keyFeatures", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.keyFeatures = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={null}
-          systemBenefits={systemBenefits}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
-      const text = queryByText(keyFeatures.name, {
+      const text = queryByText("Key Features", {
         exact: false
       });
       expect(container).toMatchSnapshot();
@@ -153,12 +110,12 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no systemBenefits", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.systemBenefits = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-          specification={null}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
 
@@ -170,13 +127,12 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no keyFeatures and systemBenefits", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.keyFeatures = null;
+      systemDetailsMockData.systemBenefits = null;
       const { container, queryByTestId } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={null}
-          systemBenefits={null}
+          system={systemDetailsMockData}
           sidebarItem={sidebarItem}
         />
       );
@@ -188,14 +144,11 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no siderbar, keyFeatures and systemBenefits", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.keyFeatures = null;
+      systemDetailsMockData.systemBenefits = null;
       const { container, queryByTestId } = render(
-        <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={[]}
-          awardsAndCertificates={[]}
-          keyFeatures={null}
-          systemBenefits={null}
-        />
+        <AboutLeadBlock system={systemDetailsMockData} sidebarItem={null} />
       );
 
       expect(container).toMatchSnapshot();
@@ -203,13 +156,12 @@ describe("AboutLeadBlock tests", () => {
     });
 
     it("if no specification asset", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.specification = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={null}
-          systemBenefits={systemBenefits}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
 
@@ -227,45 +179,44 @@ describe("AboutLeadBlock tests", () => {
 
   describe("specification section", () => {
     it("Button should open new tab", () => {
+      const systemDetailsMockData = createSystem();
       const { container } = render(
         <AboutLeadBlock
-          longDescription={systemDetailsMockData.longDescription}
-          guaranteesAndWarranties={guaranteesAndWarranties}
-          awardsAndCertificates={awardsAndCertificates}
-          keyFeatures={keyFeatures}
-          systemBenefits={systemBenefits}
-          specification={specification}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
 
       const specificationButton = container.querySelector(
         `[rel="noopener noreferrer"]`
       );
-      expect(specificationButton).toHaveAttribute("href", specification.url);
+      expect(specificationButton).toHaveAttribute(
+        "href",
+        systemDetailsMockData.specification.url
+      );
       expect(specificationButton).toHaveAttribute("target", "_blank");
     });
 
-    it("move up if no guaranteesAndWarranties and awardsAndCertificates assets", () => {
-      const longDescription = "longDescription";
+    it("move up if no guaranteesAndWarranties assets and awardsAndCertificates assets", () => {
+      const systemDetailsMockData = createSystem();
+      systemDetailsMockData.guaranteesAndWarrantiesImages = null;
+      systemDetailsMockData.guaranteesAndWarrantiesLinks = null;
+      systemDetailsMockData.awardsAndCertificateImages = null;
+      systemDetailsMockData.awardsAndCertificateDocuments = null;
       const { container, queryByText } = render(
         <AboutLeadBlock
-          longDescription={longDescription}
-          guaranteesAndWarranties={[]}
-          awardsAndCertificates={[]}
-          specification={specification}
+          system={systemDetailsMockData}
+          sidebarItem={sidebarItem}
         />
       );
       expect(container).toMatchSnapshot();
       const leadBlockSections = container.querySelectorAll(
         ".LeadBlockContentSection"
       );
-      const descriptionSection = queryByText(longDescription, {
-        exact: false
-      }).closest(".LeadBlockContentSection");
+
       const specificationSection = queryByText(specificationMicroCopy, {
         exact: false
       }).closest(".LeadBlockContentSection");
-      expect(leadBlockSections[0]).toBe(descriptionSection);
       expect(leadBlockSections[1]).toBe(specificationSection);
     });
   });

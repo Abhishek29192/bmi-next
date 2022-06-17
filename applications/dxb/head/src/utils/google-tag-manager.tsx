@@ -183,7 +183,9 @@ export default function withGTM<P>(
       }
 
       // TS doesn't like that P may have onClick
-      "onClick" in props && (props as any).onClick(...args);
+      "onClick" in props &&
+        (props as any).onClick &&
+        (props as any).onClick(...args);
     };
 
     return (

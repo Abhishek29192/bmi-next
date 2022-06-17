@@ -4,13 +4,13 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";
 import DocumentResults, {
-  Data as DocumentResultsData,
+  DocumentResultData,
   Format
 } from "../../../components/DocumentResults";
 import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 
 export type Props = {
-  results: DocumentResultsData;
+  results: DocumentResultData[];
   format: Format;
   page: number;
   pageCount: number;

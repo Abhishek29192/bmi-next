@@ -7,50 +7,10 @@ import {
 } from "@reach/router";
 import LeadBlockSection from "../leadBlockSection";
 import { Data as LinkData, DataTypeEnum } from "../../../components/Link";
-import {
-  Category,
-  Classification,
-  ClassificationCodeEnum
-} from "../../../components/types/pim";
 import { iconMap } from "../../../components/Icon";
 
 const leadBlockSectionName = "lead Block section";
-const leadBlockCategories: Category[] = [
-  {
-    categoryType: "Brand",
-    code: "code_category_1",
-    name: "category_1",
-    image: {
-      realFileName: "test",
-      url: "dummy",
-      fileSize: 0,
-      mime: "image/png",
-      name: "test_img",
-      allowedToDownload: false
-    }
-  }
-];
-const leadBlockClassifications: Classification[] = [
-  {
-    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-    features: [
-      {
-        code: "bmiSystemsClassificationCatalog/1.0/systemAttributes.promotionalcontent",
-        featureValues: [{ value: "fature value 1" }],
-        name: "feature 1"
-      }
-    ],
-    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
-  }
-];
-
-const leadBlockClassificationsNoFeatures: Classification[] = [
-  {
-    code: ClassificationCodeEnum.SYSTEM_ATTRIBUTES,
-    features: [],
-    name: ClassificationCodeEnum.SYSTEM_ATTRIBUTES
-  }
-];
+const uniqueSellingPropositions = ["feature 1", "feature 2"];
 
 const ctaLabel = "cta label";
 const backToYourSelectionLabel = "MC: sdp.leadBlock.backToYourSelection";
@@ -74,8 +34,6 @@ describe("LeadBlockSection tests", () => {
       <LocationProvider>
         <LeadBlockSection
           name={leadBlockSectionName}
-          categories={[]}
-          classifications={[]}
           cta={linkData}
           brandLogo={iconMap.Icopal}
         />
@@ -87,28 +45,6 @@ describe("LeadBlockSection tests", () => {
     expect(container).toMatchSnapshot();
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
-  });
-
-  it("should render with categories", () => {
-    const { container, queryByText } = render(
-      <LocationProvider>
-        <LeadBlockSection
-          name={leadBlockSectionName}
-          categories={leadBlockCategories}
-          classifications={[]}
-          cta={linkData}
-          brandLogo={iconMap.Icopal}
-        />
-      </LocationProvider>
-    );
-
-    const setionName = queryByText(leadBlockSectionName);
-    const ctaLabelElement = queryByText(ctaLabel);
-    const brandLogo = container.querySelector(`.brandLogo`);
-    expect(container).toMatchSnapshot();
-    expect(setionName).toBeInTheDocument();
-    expect(ctaLabelElement).toBeInTheDocument();
-    expect(brandLogo).toBeTruthy();
   });
 
   it("should render with uniqueSellingPropositions", () => {
@@ -116,10 +52,8 @@ describe("LeadBlockSection tests", () => {
       <LocationProvider>
         <LeadBlockSection
           name={leadBlockSectionName}
-          categories={[]}
-          classifications={[]}
           cta={linkData}
-          uniqueSellingPropositions={leadBlockClassifications[0].features[0]}
+          uniqueSellingPropositions={uniqueSellingPropositions}
           brandLogo={iconMap.Icopal}
         />
       </LocationProvider>
@@ -128,9 +62,7 @@ describe("LeadBlockSection tests", () => {
     const setionName = queryByText(leadBlockSectionName);
     const ctaLabelElement = queryByText(ctaLabel);
     const systemAttributesContent = queryByTestId("system-attributes-card");
-    const feature = queryByText(
-      leadBlockClassifications[0].features[0].featureValues[0].value
-    );
+    const feature = queryByText(uniqueSellingPropositions[0]);
     expect(container).toMatchSnapshot();
     expect(setionName).toBeInTheDocument();
     expect(ctaLabelElement).toBeInTheDocument();
@@ -138,15 +70,14 @@ describe("LeadBlockSection tests", () => {
     expect(feature).toBeInTheDocument();
   });
 
-  it("should not render systemAttributes Card with no uniqueSellingPropositions", () => {
+  it("should not render systemAttributes Card with empty uniqueSellingPropositions", () => {
     const { container, queryByText, queryByTestId } = render(
       <LocationProvider>
         <LeadBlockSection
           name={leadBlockSectionName}
-          categories={[]}
-          classifications={[]}
           cta={linkData}
           brandLogo={iconMap.Icopal}
+          uniqueSellingPropositions={[]}
         />
       </LocationProvider>
     );
@@ -160,48 +91,6 @@ describe("LeadBlockSection tests", () => {
     expect(systemAttributesContent).toBeFalsy();
   });
 
-  describe("When classifications are provided", () => {
-    it("should render with classifications", () => {
-      const { container, queryByText } = render(
-        <LocationProvider>
-          <LeadBlockSection
-            name={leadBlockSectionName}
-            categories={leadBlockCategories}
-            classifications={leadBlockClassifications}
-            cta={linkData}
-            brandLogo={iconMap.Icopal}
-          />
-        </LocationProvider>
-      );
-
-      const setionName = queryByText(leadBlockSectionName);
-      const ctaLabelElement = queryByText(ctaLabel);
-      expect(container).toMatchSnapshot();
-      expect(setionName).toBeInTheDocument();
-      expect(ctaLabelElement).toBeInTheDocument();
-    });
-
-    it("should render with classifications without features", () => {
-      const { container, queryByText } = render(
-        <LocationProvider>
-          <LeadBlockSection
-            name={leadBlockSectionName}
-            categories={leadBlockCategories}
-            classifications={leadBlockClassificationsNoFeatures}
-            cta={linkData}
-            brandLogo={iconMap.Icopal}
-          />
-        </LocationProvider>
-      );
-
-      const setionName = queryByText(leadBlockSectionName);
-      const ctaLabelElement = queryByText(ctaLabel);
-      expect(container).toMatchSnapshot();
-      expect(setionName).toBeInTheDocument();
-      expect(ctaLabelElement).toBeInTheDocument();
-    });
-  });
-
   describe("When user navigates with selected systems query string", () => {
     it("should render back to your selection button", () => {
       const route =
@@ -211,22 +100,6 @@ describe("LeadBlockSection tests", () => {
         <LocationProvider history={history}>
           <LeadBlockSection
             name={leadBlockSectionName}
-            categories={[
-              {
-                categoryType: "Brand",
-                code: "code_category_1",
-                name: "category_1",
-                image: {
-                  realFileName: "test",
-                  url: "dummy",
-                  fileSize: 0,
-                  mime: "image/png",
-                  name: "test_img",
-                  allowedToDownload: false
-                }
-              }
-            ]}
-            classifications={[]}
             cta={linkData}
             brandLogo={iconMap.Icopal}
           />

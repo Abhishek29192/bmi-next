@@ -1,9 +1,10 @@
 import { Filter } from "@bmi/components";
+import { ProductFilter } from "../types/pim";
 import {
   getCollapseVariantsByBaseProductCodeQuery,
   getUniqueBaseProductCountCodeAggrigation
 } from "./elasticSearchCommonQuery";
-import { ProductFilter, removePLPFilterPrefix } from "./product-filters";
+import { removePLPFilterPrefix } from "./product-filters";
 
 export type Aggregations = Record<
   string,
@@ -18,7 +19,8 @@ export const xferFilterValue = (
     return {
       ...tFilter,
       value:
-        source.find((sFilter) => sFilter.name === tFilter.name)?.value || []
+        source.find((sFilter) => sFilter.filterCode === tFilter.filterCode)
+          ?.value || []
     };
   });
 };
@@ -26,15 +28,22 @@ export const xferFilterValue = (
 export const disableFiltersFromAggregationsPLP = (
   filters: Filter[],
   aggregations: Aggregations
-): Filter[] =>
-  filters.map((filter) => {
+): Filter[] => {
+  //TODO: talk to Ben about this
+  //make keys of aggregations lowercase as the buckets and filterCode should match!
+  const aggregationsCopy: Aggregations = {};
+  Object.keys(aggregations).forEach((key) => {
+    // eslint-disable-next-line security/detect-object-injection
+    aggregationsCopy[key.toLowerCase()] = aggregations[key];
+  });
+  return filters.map((filter) => {
+    const buckets =
+      aggregationsCopy[removePLPFilterPrefix(filter.filterCode.toLowerCase())]
+        ?.buckets;
+
     return {
       ...filter,
       options: filter.options.map((option) => {
-        const buckets =
-          aggregations[removePLPFilterPrefix(filter.name).toUpperCase()]
-            ?.buckets;
-
         const aggregate = (buckets || []).find(
           ({ key }) => key === option.value
         );
@@ -46,6 +55,7 @@ export const disableFiltersFromAggregationsPLP = (
       })
     };
   });
+};
 
 const searchTerms = {
   allCategories: "allCategories.code.keyword"

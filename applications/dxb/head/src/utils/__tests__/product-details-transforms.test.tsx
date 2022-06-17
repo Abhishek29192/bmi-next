@@ -1,0 +1,1484 @@
+import { MediaGallery } from "@bmi/components";
+import { render } from "@testing-library/react";
+import { Link } from "gatsby";
+import React from "react";
+import createClassification, {
+  createFeature
+} from "../../__tests__/helpers/ClassificationHelper";
+import createMeasurements from "../../__tests__/helpers/MeasurementsHelper";
+import createProduct from "../../__tests__/helpers/ProductHelper";
+import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
+import {
+  getDefaultPreviewImage,
+  getProductAttributes,
+  getYoutubeId,
+  mapClassificationValues,
+  transformImages
+} from "../product-details-transforms";
+
+describe("product-details-transforms tests", () => {
+  describe("getProductAttributes tests", () => {
+    const getProductAttributesWithCommonParams = (product) =>
+      getProductAttributes(
+        product,
+        "no",
+        { size: "Size", variantAttribute: "variantattribute" },
+        {
+          color: "unavaialbeMicroCopy",
+          size: "unavaialbeMicroCopy 2",
+          variantattribute: "unavaialbeMicroCopy 3",
+          texturefamily: "unavaialbeMicroCopy 4"
+        }
+      );
+
+    describe("when productClassifications is empty object", () => {
+      it("returns minimum result", () => {
+        const result = getProductAttributesWithCommonParams(createProduct());
+        const expectedResult = [
+          {
+            name: "Colour",
+            type: "thumbnails",
+            unavailableMicroCopy: "unavaialbeMicroCopy",
+            variants: [
+              { label: "colour", isSelected: true, availability: false }
+            ]
+          },
+          {
+            name: "Texture Family",
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 4",
+            variants: [
+              { label: "texture-family", isSelected: true, availability: false }
+            ]
+          },
+          {
+            name: "Size",
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 2",
+            variants: [
+              { label: "6x7x8symbol", isSelected: true, availability: false },
+              { label: "label", isSelected: false, availability: false }
+            ]
+          },
+          {
+            name: "variantattribute",
+            type: "chips",
+            unavailableMicroCopy: "unavaialbeMicroCopy 3",
+            variants: [
+              {
+                label: "variant-attribute",
+                isSelected: true,
+                availability: false
+              }
+            ]
+          }
+        ];
+
+        expect(result).toEqual(expectedResult);
+      });
+    });
+    describe("when productClassifications is NOT empty object", () => {
+      describe("And self product is a Product object", () => {
+        describe("And should return availability corretly", () => {
+          it("for colour", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 1 hierarchy", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 2 hierarchies", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+
+            expect(result).toEqual(expectedResult);
+          });
+          it("for 3 hierarchies", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+
+            expect(result).toEqual(expectedResult);
+          });
+        });
+        describe("And color props are populated on classifications", () => {
+          describe("And color is selected", () => {
+            it("returns color prop as selected in result", () => {
+              const selfProduct = createProduct({ code: "product-code-1" });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+
+            it("and related variant has color availability", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                relatedVariants: [createRelatedVariant({ colour: "colour" })]
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+
+            it("and related variant has color availability with ascending value", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                relatedVariants: [createRelatedVariant({ colour: "blue" })]
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              // console.log(JSON.stringify(result));
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    {
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      },
+                      availability: false,
+                      isSelected: false,
+                      label: "blue",
+                      thumbnail: undefined
+                    },
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "colour",
+                      thumbnail: undefined
+                    }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "texture-family"
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "6x7x8symbol"
+                    },
+                    { availability: false, isSelected: false, label: "label" }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      availability: false,
+                      isSelected: true,
+                      label: "variant-attribute"
+                    }
+                  ]
+                }
+              ];
+              expect(result).toMatchObject(expectedResult);
+            });
+          });
+          describe("And color is NOT selected", () => {
+            it("returns color prop result", () => {
+              const productClassifications = {
+                "product-code-1": {
+                  colour: {
+                    name: "colour",
+                    value: { value: "red", code: "code" }
+                  }
+                }
+              };
+              const result = getProductAttributesWithCommonParams(
+                productClassifications
+              );
+              const expectedResult = [
+                {
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: []
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
+              ];
+
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+
+            expect(result).toEqual(expectedResult);
+          });
+        });
+        describe("And measurements props are populated on classifications", () => {
+          describe("And product measurements is selected", () => {
+            it("returns measurements prop result", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                classifications: [
+                  createClassification({
+                    name: "measurements",
+                    features: [
+                      createFeature({ name: "length", value: "10" }),
+                      createFeature({ name: "height", value: "20" }),
+                      createFeature({ name: "width", value: "30" })
+                    ]
+                  })
+                ],
+                colour: undefined,
+                textureFamily: undefined,
+                variantAttribute: undefined,
+                relatedVariants: [],
+                measurements: createMeasurements()
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: []
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: []
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: []
+                }
+              ];
+
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          describe("And product measurements is not selected", () => {
+            it("returns measurements prop result", () => {
+              const selfProduct = createProduct();
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+
+            expect(result).toEqual(expectedResult);
+          });
+        });
+        describe("And texturefamily props are populated on classifications", () => {
+          describe("And texturefamily is selected", () => {
+            it("returns texturefamily prop as selected in result", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                classifications: [createClassification()]
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          describe("And texturefamily is NOT selected", () => {
+            it("returns texturefamily prop result", () => {
+              const selfProduct = createProduct();
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+        });
+
+        describe("And colourfamily props are populated on classifications", () => {
+          describe("And colourfamily is selected", () => {
+            it("returns colourfamily prop as selected in result", () => {
+              const selfProduct = createProduct({
+                code: "product-code-1",
+                classifications: [createClassification()]
+              });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          describe("And colourfamily is NOT selected", () => {
+            it("returns colourfamily prop result", () => {
+              const selfProduct = createProduct();
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+        });
+
+        describe("And variantattribute props are populated on classifications", () => {
+          describe("And product variantattribute is selected", () => {
+            it("returns variantattribute prop result", () => {
+              const selfProduct = createProduct({ code: "product-code-1" });
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          describe("And product variantattribute is not selected", () => {
+            it("returns variantattribute prop result", () => {
+              const selfProduct = createProduct();
+              const result = getProductAttributesWithCommonParams(selfProduct);
+              const expectedResult = [
+                {
+                  name: "Colour",
+                  type: "thumbnails",
+                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  variants: [
+                    { label: "colour", isSelected: true, availability: false }
+                  ]
+                },
+                {
+                  name: "Texture Family",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  variants: [
+                    {
+                      label: "texture-family",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                },
+                {
+                  name: "Size",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  variants: [
+                    {
+                      label: "6x7x8symbol",
+                      isSelected: true,
+                      availability: false
+                    },
+                    { label: "label", isSelected: false, availability: false }
+                  ]
+                },
+                {
+                  name: "variantattribute",
+                  type: "chips",
+                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  variants: [
+                    {
+                      label: "variant-attribute",
+                      isSelected: true,
+                      availability: false
+                    }
+                  ]
+                }
+              ];
+              expect(result).toEqual(expectedResult);
+            });
+          });
+          it("returns sorted Product Attributes", () => {
+            const selfProduct = createProduct({ code: "product-code-1" });
+            const result = getProductAttributesWithCommonParams(selfProduct);
+            const expectedResult = [
+              {
+                name: "Colour",
+                type: "thumbnails",
+                unavailableMicroCopy: "unavaialbeMicroCopy",
+                variants: [
+                  { label: "colour", isSelected: true, availability: false }
+                ]
+              },
+              {
+                name: "Texture Family",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                variants: [
+                  {
+                    label: "texture-family",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              },
+              {
+                name: "Size",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                variants: [
+                  {
+                    label: "6x7x8symbol",
+                    isSelected: true,
+                    availability: false
+                  },
+                  { label: "label", isSelected: false, availability: false }
+                ]
+              },
+              {
+                name: "variantattribute",
+                type: "chips",
+                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                variants: [
+                  {
+                    label: "variant-attribute",
+                    isSelected: true,
+                    availability: false
+                  }
+                ]
+              }
+            ];
+            expect(result).toEqual(expectedResult);
+          });
+        });
+      });
+    });
+  });
+
+  describe("mapClassificationValues tests", () => {
+    describe("When classifiction map is unexpected keys", () => {
+      it("returns empty string", () => {
+        const result = mapClassificationValues(
+          createProduct({
+            colour: undefined,
+            colourFamily: undefined,
+            textureFamily: undefined,
+            measurements: undefined
+          })
+        );
+        expect(result).toEqual("");
+      });
+    });
+    describe("When classifiction map is exptected keys", () => {
+      describe("And measurement Classification is provided", () => {
+        it("returns value for measurements", () => {
+          const result = mapClassificationValues(
+            createProduct({
+              colour: undefined,
+              colourFamily: undefined,
+              textureFamily: undefined,
+              measurements: createMeasurements()
+            })
+          );
+          expect(result).toEqual("6x7x8symbol");
+        });
+      });
+      describe("And colour Classification is provided", () => {
+        describe("And colour value is n/a", () => {
+          it("returns n/a for colour", () => {
+            const result = mapClassificationValues(
+              createProduct({
+                colour: "n/a",
+                colourFamily: undefined,
+                textureFamily: undefined,
+                measurements: undefined
+              })
+            );
+            expect(result).toEqual("n/a");
+          });
+        });
+        describe("And colour value is object is provided", () => {
+          it("returns value for colour", () => {
+            const result = mapClassificationValues(
+              createProduct({
+                colour: "red",
+                colourFamily: undefined,
+                textureFamily: undefined,
+                measurements: undefined
+              })
+            );
+            expect(result).toEqual("red");
+          });
+        });
+      });
+      describe("And texturefamily Classification is provided", () => {
+        describe("And texturefamily value is n/a", () => {
+          it("returns n/a for texturefamily", () => {
+            const result = mapClassificationValues(
+              createProduct({
+                colour: undefined,
+                colourFamily: undefined,
+                textureFamily: "n/a",
+                measurements: undefined
+              })
+            );
+            expect(result).toEqual("n/a");
+          });
+        });
+        describe("And colour value is an object", () => {
+          it("returns value for texturefamily", () => {
+            const result = mapClassificationValues(
+              createProduct({
+                textureFamily: "smooth",
+                colour: undefined,
+                measurements: undefined,
+                colourFamily: undefined
+              })
+            );
+            expect(result).toEqual("smooth");
+          });
+        });
+      });
+    });
+  });
+
+  describe("getYoutubeId", () => {
+    it("returns ID for standard URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for standard URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/watch?v=${expectedYoutubeId}&t=10s`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for share link URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtu.be/${expectedYoutubeId}?t=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for privacy-enhanced embedded URL with start time", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}?start=10`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without 'www.'", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `https://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL without protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns ID for URL with http protocol", () => {
+      const expectedYoutubeId = "HgeCkGZrPRs";
+      const actualYoutubeId = getYoutubeId(
+        `http://youtube.com/watch?v=${expectedYoutubeId}`
+      );
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+
+    it("returns passes through any value that doesn't match the regex", () => {
+      const expectedYoutubeId = "djskhvjksdvjksdb";
+      const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
+      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+    });
+  });
+
+  describe("getDefaultPreviewImage", () => {
+    it("should return correct image source if url provided", () => {
+      expect(getDefaultPreviewImage(`https://youtu.be/youtubeId `)).toEqual(
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      );
+    });
+
+    it("should return correct image source if id provided", () => {
+      expect(getDefaultPreviewImage("youtubeId")).toEqual(
+        "https://i.ytimg.com/vi/youtubeId/maxresdefault.jpg"
+      );
+    });
+  });
+  describe("transformImages tests", () => {
+    describe("when empty images are provided", () => {
+      it("should return empty medias", () => {
+        expect(transformImages([])).toEqual([]);
+      });
+    });
+    describe("when single image is provided", () => {
+      it("should return transformed media data", () => {
+        const imgMainSource = "https://mainsource.com";
+        const result = transformImages([
+          {
+            mainSource: imgMainSource,
+            thumbnail: null,
+            altText: "alt text"
+          }
+        ]);
+
+        const wrapper = render(<MediaGallery media={[...result]} />);
+        const linkResult = wrapper.container.querySelectorAll("img");
+        expect(linkResult).toHaveLength(1);
+        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
+        //unmount();
+      });
+    });
+    describe("when multiple images is provided", () => {
+      it("should return multiple transformed media data", () => {
+        const imgMainSource = "https://mainsource.com";
+        const imgMainSource2 = "https://mainsource2.com";
+        const result = transformImages([
+          {
+            mainSource: imgMainSource,
+            thumbnail: null,
+            altText: "alt text"
+          },
+          {
+            mainSource: imgMainSource2,
+            thumbnail: null,
+            altText: "alt text 2"
+          }
+        ]);
+        const wrapper = render(<MediaGallery media={[...result]} />);
+        const linkResult = wrapper.container.querySelectorAll("img");
+        expect(linkResult).toHaveLength(3);
+        expect(linkResult[0].getAttribute("src")).toEqual(imgMainSource);
+        expect(linkResult[1].getAttribute("src")).toEqual(imgMainSource);
+        expect(linkResult[2].getAttribute("src")).toEqual(imgMainSource2);
+      });
+    });
+  });
+});

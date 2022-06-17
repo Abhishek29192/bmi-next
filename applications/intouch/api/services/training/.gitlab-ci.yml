@@ -1,5 +1,21 @@
 build_intouch_api_training:
-  stage: build
+  extends: .build_yarn_workspace
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+      changes:
+        - applications/intouch/api/services/training/**/*
+        - libraries/**/*
+        - yarn.lock
+  variables:
+    WORKSPACE: "@bmi/intouch-api-service-training"
+    ROOT_DIR: "applications/intouch/api/services/training"
+  artifacts:
+    untracked: false
+    paths:
+      - applications/intouch/api/services/training/dist
+
+package_intouch_api_training:
+  stage: package
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -7,7 +23,8 @@ build_intouch_api_training:
   services:
     - name: docker:20-dind
       alias: docker
-  needs: []
+  needs:
+    - build_intouch_api_training
   cache: {}
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
@@ -30,7 +47,7 @@ deploy_intouch_training_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   needs:
-    - build_intouch_api_training
+    - package_intouch_api_training
     - job: migrate_training_db_bmi
       optional: true
   image: google/cloud-sdk
@@ -43,14 +60,14 @@ deploy_intouch_training_to_cloudrun_bmi:
         BMI_PROJECT: "$GCP_BMI_INTOUCH_DEV_PROJECT_ID"
         BMI_KEY: "$GCP_BMI_INTOUCH_DEV_SERVICEACCOUNT"
   script:
-    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts
+    - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts.
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
     - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-service-training:latest
 
-# Run only on release branch!
+# Run only on release branch!!
 release_intouch_training_to_cloudrun_bmi:
   stage: deploy
   cache: {}

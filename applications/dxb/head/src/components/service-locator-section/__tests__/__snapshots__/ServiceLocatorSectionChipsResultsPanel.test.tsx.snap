@@ -448,13 +448,13 @@ exports[`ServiceLocatorSection resulst list pannel component should render resul
                                     <span
                                       class="MuiTypography-root label accessibility-label Typography MuiTypography-body1"
                                     >
-                                      MC: findARoofer.websiteLabel
+                                      MC: global.website
                                     </span>
                                   </dt>
                                   <dd
                                     class="description"
                                   >
-                                    MC: findARoofer.websiteLabel
+                                    www.test.com
                                   </dd>
                                 </div>
                                 <div

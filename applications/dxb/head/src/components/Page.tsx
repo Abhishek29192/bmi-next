@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useConfig } from "../contexts/ConfigProvider";
 import { BasketContextProvider } from "../contexts/SampleBasketContext";
+import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -23,7 +24,6 @@ import {
   SiteContextProvider,
   useSiteContext
 } from "./Site";
-import { Product, VariantOption } from "./types/pim";
 import VisualiserProvider from "./Visualiser";
 
 export type Data = {
@@ -48,8 +48,7 @@ type Props = {
   isSearchPage?: boolean;
   variantCodeToPathMap?: Record<string, string>;
   ogImageUrl?: string;
-  baseproduct?: Product;
-  variantProduct?: VariantOption;
+  variantProduct?: Product;
 };
 
 const Content = ({ children }: { children: Children }) => {
@@ -67,7 +66,6 @@ const Page = ({
   isSearchPage,
   variantCodeToPathMap,
   ogImageUrl,
-  baseproduct,
   variantProduct
 }: Props) => {
   const {
@@ -121,7 +119,6 @@ const Page = ({
         }}
         path={path}
         seo={seo}
-        baseProduct={baseproduct}
         variantProduct={variantProduct}
         countryCode={countryCode}
       />
@@ -147,6 +144,7 @@ const Page = ({
                 }
                 regions={regions}
                 sampleBasketLink={resources?.sampleBasketLink}
+                maximumSamples={resources?.maximumSamples}
               />
               <BrandProvider brand={brand}>
                 <ErrorBoundary

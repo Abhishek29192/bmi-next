@@ -1,10 +1,6 @@
 import { convertStrToBool } from "../convertStrToBool";
 
 describe("convertStrToBool", () => {
-  it("should return boolean if argument type is boolean", () => {
-    const result = convertStrToBool(true);
-    expect(typeof result).toEqual("boolean");
-  });
   it("should return true if argument is 'true'", () => {
     const result = convertStrToBool("true");
     expect(result).toEqual(true);

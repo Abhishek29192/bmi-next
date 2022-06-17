@@ -1,11 +1,9 @@
 import React from "react";
-import { OverviewCard } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Icon } from "@bmi/components";
-import { Button } from "@bmi/components";
+import { Button, Icon, OverviewCard, Typography } from "@bmi/components";
 import { Remove } from "@material-ui/icons";
 import { navigate } from "gatsby";
 import { useMediaQuery, useTheme } from "@material-ui/core";
+import { isDefined } from "@bmi/utils";
 import { getPathWithCountryCode } from "../utils/path";
 import { microCopy } from "../constants/microCopies";
 import {
@@ -16,41 +14,6 @@ import {
 import styles from "./styles/SampleBasketSectionProducts.module.scss";
 import { renderImage } from "./Image";
 import { useSiteContext } from "./Site";
-import { Classification } from "./types/pim";
-
-interface Options {
-  code: string;
-  separator?: string;
-  featureUnitRequired?: boolean;
-}
-
-export const getFeatures = (
-  classifications: Classification[],
-  options: Options
-) => {
-  const classification = classifications.find(
-    (classification) => classification.code === options.code
-  );
-
-  if (!classification) {
-    return null;
-  }
-
-  const features = [
-    ...new Set(
-      classification?.features.flatMap((feature) =>
-        feature.featureValues.map(({ value }) => value)
-      )
-    )
-  ].filter((value) => value);
-
-  const units =
-    (options.featureUnitRequired &&
-      classification?.features[0]?.featureUnit?.symbol) ||
-    "";
-
-  return `${features.join(options.separator || " | ")} ${units}`.trim();
-};
 
 const SampleBasketSectionProducts = () => {
   const { basketState, basketDispatch } = useBasketContext();
@@ -119,16 +82,12 @@ const SampleBasketSectionProducts = () => {
               {sample.name}
             </Typography>
             <Typography className={styles["product-color"]}>
-              {getFeatures(sample.classifications, {
-                code: "appearanceAttributes"
-              })}
+              {[sample.colour, sample.textureFamily]
+                .filter(isDefined)
+                .join(" | ")}
             </Typography>
             <Typography className={styles["product-size"]}>
-              {getFeatures(sample.classifications, {
-                code: "measurements",
-                separator: "x",
-                featureUnitRequired: true
-              })}
+              {sample.measurements}
             </Typography>
           </div>
           {isMobile && (

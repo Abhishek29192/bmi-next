@@ -1,4 +1,4 @@
-import { Context, Node } from "../../types";
+import { Context, Node } from "../../types/Gatsby";
 import { getUrlFromPath, resolvePath } from "../path";
 
 describe("Path resolver util", () => {
@@ -36,7 +36,8 @@ describe("Path resolver util", () => {
       nodeModel: {
         getNodeById: jest.fn(),
         getNodesByIds: jest.fn(),
-        findAll: jest.fn()
+        findAll: jest.fn(),
+        findOne: jest.fn()
       }
     };
 

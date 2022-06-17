@@ -1,52 +1,36 @@
 import React from "react";
-import { Accordion } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { getValidFeatures } from "../utils/product-details-transforms";
+import { Accordion, Table, Typography } from "@bmi/components";
+import { Product } from "../types/pim";
 import { microCopy } from "../constants/microCopies";
-import { Classification, ClassificationCodeEnum } from "./types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
 import styles from "./styles/ProductTechnicalSpec.module.scss";
 import { useSiteContext } from "./Site";
 
 type ProductTechnicalSpecProps = {
-  classifications: readonly Classification[];
-  classificationNamespace: string;
-  isSingleVariant?: boolean;
+  product: Product;
 };
 
-const ProductTechnicalSpec = ({
-  classifications,
-  classificationNamespace,
-  isSingleVariant
-}: ProductTechnicalSpecProps) => {
+//TODO: will this component may need to update and use
+// `product.measurements` property to display measurements??
+const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
   const { getMicroCopy } = useSiteContext();
   const NoTechSpecMessage = () => (
     <div className={styles["ProductTechnicalSpec"]}>
       {getMicroCopy(microCopy.PDP_NO_TECH_SPEC_MESSAGE)}
     </div>
   );
+  const classifications = product.classifications;
   if (classifications.length === 0) {
     return <NoTechSpecMessage />;
   }
 
   if (classifications.length === 1) {
     const classification = classifications[0];
-    const validFeatures = getValidFeatures(
-      classificationNamespace,
-      classification.features
-    );
-    if (
-      isSingleVariant &&
-      classification.code === ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
-    ) {
-      return <NoTechSpecMessage />;
-    }
     return (
       <div className={styles["ProductTechnicalSpec"]}>
         <ProductFeaturesTable
           key={`tech-spec-${classification.name}`}
-          features={validFeatures}
+          features={classification.features}
           rowBgColorPattern="even"
           HeadRow={
             <Table.Row>
@@ -64,18 +48,7 @@ const ProductTechnicalSpec = ({
     return (
       <div className={styles["ProductTechnicalSpec"]}>
         <Accordion noInnerPadding>
-          {classifications.map((classification, index) => {
-            const validFeatures = getValidFeatures(
-              classificationNamespace,
-              classification.features
-            );
-            if (
-              isSingleVariant &&
-              classification.code ===
-                ClassificationCodeEnum.APPEARANCE_ATTRIBUTE
-            ) {
-              return <></>;
-            }
+          {classifications.map((classification) => {
             return (
               <Accordion.Item
                 key={`tech-spec-${classification.name}`}
@@ -86,7 +59,7 @@ const ProductTechnicalSpec = ({
                 </Accordion.Summary>
                 <Accordion.Details className={styles["accordion-details"]}>
                   <ProductFeaturesTable
-                    features={validFeatures}
+                    features={classification.features}
                     rowBgColorPattern="even"
                     hasNoBorder={true}
                   />

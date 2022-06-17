@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { ServiceLocatorResultList } from "../components";
-import createService from "../../../__tests__/ServiceHelper";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 
 afterEach(() => {
   jest.clearAllMocks();

@@ -1,17 +1,6 @@
 /* eslint-disable security/detect-object-injection */
-import { Category, Feature, FeatureValue } from "../components/types/pim";
-
-type ProductFilterOption = {
-  label: string;
-  value: string;
-};
-
-export type ProductFilter = {
-  label: string;
-  name: string;
-  options: ProductFilterOption[];
-  value?: string[];
-};
+import { Filter as FirestoreFilter } from "@bmi/firestore-types";
+import { ProductFilter } from "../types/pim";
 
 export interface IndexedItem<T = any> {
   [key: string]: T;
@@ -57,86 +46,140 @@ export const groupDistinctBy = <T extends IndexedItem>(
   }, {});
 };
 
-export const generateCategoryFilters = (
-  categories: Category[] = [],
-  allowedFilters: string[] = []
+export const generateFilters = (
+  firestoreFilters: FirestoreFilter[] = [],
+  allowedCategoryFilters: Map<string, string[]> = new Map(),
+  allowedFeatureFilters: Map<string, string[]> = new Map()
 ): ProductFilter[] => {
-  if (allowedFilters.length === 0 || categories.length === 0) return [];
+  if (
+    !firestoreFilters ||
+    (!allowedCategoryFilters && !allowedFeatureFilters)
+  ) {
+    return [];
+  }
+  if (
+    allowedCategoryFilters &&
+    allowedCategoryFilters.size === 0 &&
+    allowedFeatureFilters &&
+    allowedFeatureFilters.size === 0
+  ) {
+    return [];
+  }
 
-  const uniqueFiltersWithoutPipe = new Set(
-    allowedFilters
-      .filter((filter) => filter.indexOf("|") === -1)
-      .map((filter) => filter)
-  );
-
-  const exclusiveFilterWithPipe = new Set(
-    allowedFilters
-      .filter(
-        (allowedFilter) =>
-          allowedFilter.indexOf("|") > -1 &&
-          !uniqueFiltersWithoutPipe.has(allowedFilter.split("|")[0].trim())
-      )
-      .map((filter) => filter)
-  );
-
-  const categoryFiltersWithOptionsOnly = new Map();
-  exclusiveFilterWithPipe.forEach((key) => {
-    const keyArray = key.split("|");
-    const filterKeyName = keyArray[0].trim();
-    const filterKeyOptionName = keyArray[1].trim();
-
-    const collection = categoryFiltersWithOptionsOnly.get(filterKeyName) || [];
-    categoryFiltersWithOptionsOnly.set(filterKeyName, [
-      ...collection,
-      filterKeyOptionName
-    ]);
-  });
-
-  const eligibleCategories = categories.filter(
-    (category) =>
-      uniqueFiltersWithoutPipe.has(category.categoryType) ||
-      categoryFiltersWithOptionsOnly.has(category.categoryType)
-  );
+  const eligibleCategories =
+    allowedCategoryFilters && allowedCategoryFilters.size > 0
+      ? firestoreFilters.filter((firestoreFilter) =>
+          allowedCategoryFilters.has(firestoreFilter.filterCode)
+        )
+      : [];
 
   const groupedCategories = groupDistinctBy(
     eligibleCategories,
-    "categoryType",
+    "filterCode",
     "code"
   );
 
-  const categoryCodeEligibleCategories = categories.filter(
-    (category) =>
-      uniqueFiltersWithoutPipe.has(category.parentCategoryCode) ||
-      categoryFiltersWithOptionsOnly.has(category.parentCategoryCode)
-  );
+  const categoryCodeEligibleCategories =
+    allowedCategoryFilters && allowedCategoryFilters.size > 0
+      ? firestoreFilters.filter((firestoreFilter) =>
+          allowedCategoryFilters.has(firestoreFilter.parentFilterCode)
+        )
+      : [];
+
   const groupedByParentCategoryCode = groupDistinctBy(
     categoryCodeEligibleCategories,
-    "parentCategoryCode",
+    "parentFilterCode",
     "code"
   );
 
-  const combinedGroupedCategories = {
+  const eligibleFirestoreClassFilters =
+    allowedFeatureFilters && allowedFeatureFilters.size > 0
+      ? firestoreFilters.filter((firestoreFilter) =>
+          allowedFeatureFilters.has(firestoreFilter.filterCode.toLowerCase())
+        )
+      : [];
+
+  const groupedClassificationFilters = groupDistinctBy(
+    eligibleFirestoreClassFilters,
+    "filterCode",
+    "value"
+  );
+
+  const combinedGroupedFirestoreFilterValues = {
+    ...groupedClassificationFilters,
     ...groupedCategories,
     ...groupedByParentCategoryCode
   };
 
-  const categoryFilterGroup = Object.keys(combinedGroupedCategories)
+  const categoryFilterGroup = Object.keys(combinedGroupedFirestoreFilterValues)
     .filter((key) => key.length > 0)
-    .reduce((prevValue, categoryNameKey) => {
-      //first get list of all options from grouped categories
-      let allOptions: ProductFilterOption[] = combinedGroupedCategories[
-        categoryNameKey
-      ]
-        .map((category) => ({
-          label: category.name,
-          value: category.code
-        }))
-        .sort((a, b) => (a.label > b.label ? 1 : b.label > a.label ? -1 : 0));
+    .reduce((prevValue, filterNameKey) => {
+      const firestoreFilters: FirestoreFilter[] =
+        combinedGroupedFirestoreFilterValues[filterNameKey];
+      const anyFilterWithGroupLabel = (firestoreFilters || []).find(
+        (filter) => (filter.groupLabel || "").length > 0
+      );
+
+      // grpLabel : cannot be undefined. it breaks the UI ( matchin checkboxed etc.)
+      // TODO: need to see, if we can use name field
+      const groupLabel =
+        firestoreFilters &&
+        firestoreFilters.length &&
+        firestoreFilters[0].groupLabel
+          ? firestoreFilters[0].groupLabel
+          : anyFilterWithGroupLabel?.groupLabel
+          ? anyFilterWithGroupLabel.groupLabel
+          : `plpFilter.${filterNameKey}`;
+
+      const tryConvertToNumber = (value: string) =>
+        parseInt(value.replace(/\D+/gi, ""));
+
+      const getLabel = (firestoreFilter: FirestoreFilter) => {
+        if (firestoreFilter.isCategory) {
+          return firestoreFilter.name.trim();
+        }
+        return `${firestoreFilter.value} ${firestoreFilter.unit || ""}`.trim();
+      };
+
+      const getSortValue = (firestoreFilter: FirestoreFilter) => {
+        const optionSortValue = tryConvertToNumber(firestoreFilter.value);
+        if (firestoreFilter.isCategory) {
+          return firestoreFilter.name.trim();
+        }
+        return isNaN(optionSortValue) ? firestoreFilter.value : optionSortValue;
+      };
+
+      const getValue = (firestoreFilter: FirestoreFilter) => {
+        if (firestoreFilter.isCategory) {
+          return `${firestoreFilter.code || ""}`.trim();
+        }
+
+        return `${firestoreFilter.code || firestoreFilter.value || ""}${
+          firestoreFilter.unit || ""
+        }`.trim();
+      };
+
+      let allOptions = combinedGroupedFirestoreFilterValues[filterNameKey].map(
+        (firestoreFilter) => {
+          const filterOption = {
+            label: getLabel(firestoreFilter),
+            value: getValue(firestoreFilter),
+            sortValue: getSortValue(firestoreFilter)
+          };
+          return filterOption;
+        }
+      );
+
+      allOptions = Object.values(
+        groupBy([...(prevValue["options"] || []), ...allOptions], "value")
+      ).flatMap((item) => item[0]);
+
+      if (allOptions.length === 0) return undefined;
 
       // check if individual options are configured for this category!
       // i.e. if the categoryFilterWithOptiosOnly has this categor?
       const optionsCollection: string[] =
-        categoryFiltersWithOptionsOnly.get(categoryNameKey) || [];
+        allowedCategoryFilters.get(filterNameKey) || [];
 
       // remove the unwanted options from all optios and keep only the
       // individual options if they are requested!!
@@ -144,6 +187,7 @@ export const generateCategoryFilters = (
         allOptions = allOptions.filter((option) =>
           optionsCollection.some((optionValue) => optionValue === option.value)
         );
+
         //order the options in the order specified in filterOptions
         allOptions.sort((a, b) => {
           return (
@@ -154,85 +198,10 @@ export const generateCategoryFilters = (
       }
       return {
         ...prevValue,
-        [categoryNameKey]: {
-          name: `plpFilter.${categoryNameKey}`,
-          label: "",
-          value: [],
-          options: allOptions
-        }
-      };
-    }, {});
-
-  return Object.values(categoryFilterGroup);
-};
-
-export const generateFeatureFilters = (
-  pimClassificationNamespace: string,
-  features: Feature[] = [],
-  allowedFilters: string[] = []
-): ProductFilter[] => {
-  if ((allowedFilters || []).length === 0 || (features || []).length === 0)
-    return [];
-
-  const uniqueAllowedFilters = Array.from(
-    new Set(allowedFilters.map((filter) => filter.split("|")[0].trim()))
-  );
-
-  const groupedFeatures = groupBy(features, "code");
-
-  const featureFilters = Object.keys(groupedFeatures)
-    .filter((featureCode) =>
-      uniqueAllowedFilters.some(
-        (uniqueCode) =>
-          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          uniqueCode.toUpperCase() ===
-          (featureCode || "")
-            .replace(`${pimClassificationNamespace}/`, "")
-            .toUpperCase()
-      )
-    )
-    .map((featureCode) => {
-      return groupedFeatures[featureCode].reduce((plpFilter, feature) => {
-        const allFeatureValues = [
-          ...(plpFilter["featureValues"] || []),
-          ...(feature.featureValues || [])
-        ].map((featureValue: FeatureValue) => {
-          const createfeatureLabel = (item: FeatureValue) =>
-            `${item.value} ${feature?.featureUnit?.symbol || ""}`.trim();
-
-          const createOptionValueWithUnit = (item: FeatureValue) =>
-            `${item.code || item.value}${
-              feature?.featureUnit?.symbol || ""
-            }`.trim();
-
-          const tryConvertToNumber = (value: string) =>
-            parseInt(`${value}`.replace(/[^0-9]+/gi, ""));
-          const optionSortValue = tryConvertToNumber(featureValue.value);
-          return {
-            label: createfeatureLabel(featureValue),
-            value: createOptionValueWithUnit(featureValue),
-            sortValue: isNaN(optionSortValue)
-              ? featureValue.value
-              : optionSortValue
-          };
-        });
-        const groupedFeatureValues = groupBy(allFeatureValues, "value");
-        const resultValues = Object.values(groupedFeatureValues).flatMap(
-          (item) => item[0]
-        );
-
-        const allOptions = Object.values(
-          groupBy([...(plpFilter["options"] || []), ...resultValues], "value")
-        ).flatMap((item) => item[0]);
-
-        if (allOptions.length === 0) return undefined;
-        return {
-          ...plpFilter,
-          label: feature.name,
-          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
-          name: (feature.code || "")
-            .replace(`${pimClassificationNamespace}/`, "")
-            .toUpperCase(),
+        [filterNameKey]: {
+          name: filterNameKey,
+          filterCode: filterNameKey,
+          label: groupLabel,
           value: [],
           options: allOptions.sort((a, b) => {
             //sort based on string or number value
@@ -244,9 +213,73 @@ export const generateFeatureFilters = (
             }
             return a.sortValue - b.sortValue;
           })
-        };
-      }, {});
-    });
+        } as ProductFilter
+      };
+    }, {});
 
-  return (featureFilters as ProductFilter[]).filter(Boolean);
+  return Object.values(categoryFilterGroup);
+};
+
+export const extractAllowedFeatures = (
+  allowedFilters: string[]
+): Map<string, string[]> => {
+  if (!allowedFilters) {
+    return new Map();
+  }
+  const featuresFilters = new Set(
+    allowedFilters
+      .filter((allowedFilter) => allowedFilter.indexOf(".") > -1)
+      .map((allowedFilter) => allowedFilter.toLowerCase())
+  );
+  const eligibleFeatureFilters = new Map<string, string[]>();
+  featuresFilters.forEach((key) => {
+    eligibleFeatureFilters.set(key, []);
+  });
+  return eligibleFeatureFilters;
+};
+
+export const extractAllowedCategories = (
+  allowedFilters: string[]
+): Map<string, string[]> => {
+  if (!allowedFilters) {
+    return new Map();
+  }
+  const allowedCategoryFiltersWithoutPipe = new Set(
+    allowedFilters
+      .filter(
+        (allowedFilter) =>
+          allowedFilter.indexOf("|") === -1 && allowedFilter.indexOf(".") === -1
+      )
+      .map((filter) => filter)
+  );
+
+  const exclusiveAllowedFilterWithPipe = new Set(
+    allowedFilters
+      .filter(
+        (allowedFilter) =>
+          allowedFilter.indexOf("|") > -1 &&
+          !allowedCategoryFiltersWithoutPipe.has(
+            allowedFilter.split("|")[0].trim()
+          )
+      )
+      .map((allowedFilter) => allowedFilter)
+  );
+
+  const eligibleFilterCategories = new Map<string, string[]>();
+  exclusiveAllowedFilterWithPipe.forEach((key) => {
+    const keyArray = key.split("|");
+    const filterKeyName = keyArray[0].trim();
+    const filterKeyOptionName = keyArray[1].trim();
+
+    const collection = eligibleFilterCategories.get(filterKeyName) || [];
+    eligibleFilterCategories.set(filterKeyName, [
+      ...collection,
+      filterKeyOptionName
+    ]);
+  });
+
+  allowedCategoryFiltersWithoutPipe.forEach((categoryWithoutPipe) =>
+    eligibleFilterCategories.set(categoryWithoutPipe, [])
+  );
+  return eligibleFilterCategories;
 };

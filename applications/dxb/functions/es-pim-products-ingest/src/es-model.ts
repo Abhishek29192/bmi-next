@@ -26,13 +26,15 @@ export type ProductVariant = {
   code: string; // Needed
   baseProduct?: BaseProduct; // Needed
   brandCode?: string; // Needed
-  images: readonly Image[]; // Needed
-  allCategories: readonly Category[];
-  classifications: readonly Classification[];
+  images: Image[]; // Needed
+  allCategories: Category[];
+  classifications: Classification[];
   approvalStatus: ApprovalStatus;
   productScoringWeightInt: number;
   variantScoringWeightInt: number;
   totalVariantCount: number;
+  mainImage: string;
+  subTitle: string;
 } & {
   [extractedFilter: string]: any;
 };

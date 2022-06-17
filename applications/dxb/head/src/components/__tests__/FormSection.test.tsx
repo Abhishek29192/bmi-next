@@ -629,4 +629,11 @@ describe("Hubspot FormSection component", () => {
     window.dispatchEvent(onFormSubmittedEvent);
     expect(onSuccess).toHaveBeenCalledTimes(1);
   });
+  it("renders correctly for dialog", () => {
+    const { container } = render(
+      <FormSection data={dataHubSpot} backgroundColor="white" isDialog />
+    );
+    expect(container.querySelector(".Section")).toBeNull();
+    expect(container).toMatchSnapshot();
+  });
 });

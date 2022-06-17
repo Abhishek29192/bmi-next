@@ -1,14 +1,14 @@
+import { ProductDocument } from "../../types/pim";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
 } from "../DocumentFileUtils";
-import { PIMDocumentData } from "../../components/types/PIMDocumentBase";
-import createPimDocument from "../../__tests__/PimDocumentHelper";
 
 const createAssetsWithRealFileNames = (
   realFileNames: string[]
-): PIMDocumentData[] => {
+): ProductDocument[] => {
   return realFileNames.map((filename) =>
     createPimDocument({
       realFileName: filename
@@ -16,7 +16,7 @@ const createAssetsWithRealFileNames = (
   );
 };
 
-const createAssetsWithTitles = (titles: string[]): PIMDocumentData[] => {
+const createAssetsWithTitles = (titles: string[]): ProductDocument[] => {
   return titles.map((title) =>
     createPimDocument({
       title: title,

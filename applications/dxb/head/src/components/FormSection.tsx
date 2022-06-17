@@ -22,6 +22,7 @@ import {
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import axios from "axios";
+import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
@@ -332,7 +333,8 @@ const HubspotForm = ({
   description,
   onSuccess,
   additionalValues,
-  className
+  className,
+  isDialog = false
 }: {
   id: string;
   hubSpotFormGuid: string;
@@ -343,6 +345,7 @@ const HubspotForm = ({
   onSuccess: FormSectionProps["onSuccess"];
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
+  isDialog?: boolean;
 }) => {
   const hubSpotFormID = `bmi-hubspot-form-${id || "no-id"}`;
   const {
@@ -400,7 +403,11 @@ const HubspotForm = ({
   }, [additionalValues, onSuccess]);
 
   return (
-    <Section backgroundColor={backgroundColor} className={className}>
+    <Section
+      backgroundColor={backgroundColor}
+      className={className}
+      isDialog={isDialog}
+    >
       {showTitle && <Section.Title>{title}</Section.Title>}
       {description && (
         <>
@@ -411,7 +418,13 @@ const HubspotForm = ({
           )}
         </>
       )}
-      <div id={hubSpotFormID} className={styles["Form--hubSpot"]} />
+      <div
+        id={hubSpotFormID}
+        className={classNames(
+          styles["Form--hubSpot"],
+          isDialog && styles["Form--dialog"]
+        )}
+      />
     </Section>
   );
 };
@@ -426,6 +439,7 @@ type FormSectionProps = {
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
   className?: string;
+  isDialog?: boolean;
 };
 
 const FormSection = ({
@@ -447,7 +461,8 @@ const FormSection = ({
   isSubmitDisabled,
   gtmOverride,
   onSuccess,
-  className
+  className,
+  isDialog = false
 }: FormSectionProps) => {
   const {
     config: { isPreviewMode, gcpFormSubmitEndpoint, hubspotApiUrl, hubSpotId }
@@ -630,12 +645,13 @@ const FormSection = ({
           id={id}
           hubSpotFormGuid={hubSpotFormGuid}
           backgroundColor={backgroundColor}
-          showTitle={showTitle}
+          showTitle={showTitle && !isDialog}
           title={title}
           description={description}
           onSuccess={onSuccess}
           additionalValues={additionalValues}
           className={className}
+          isDialog={isDialog}
         />
       </HubspotProvider>
     );

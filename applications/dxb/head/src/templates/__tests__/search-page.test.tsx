@@ -15,6 +15,7 @@ describe("Search Page Template", () => {
     pimCode: "pimCode"
   };
   const filter = {
+    filterCode: "filterName",
     label: "filterLabel",
     name: "filterName",
     options: [
@@ -28,7 +29,7 @@ describe("Search Page Template", () => {
   const data: SearchPageData["data"] = {
     contentfulSite: createMockSiteData(),
     allContentfulAssetType: { nodes: [contentfulAsset] },
-    productFilters: [filter]
+    plpFilters: { filters: [filter], allowFilterBy: [] }
   };
   const locationSpy = jest.spyOn(window, "location", "get");
 

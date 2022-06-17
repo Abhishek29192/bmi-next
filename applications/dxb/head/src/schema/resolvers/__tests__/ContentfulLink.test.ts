@@ -1,5 +1,5 @@
 import ContentfulLink from "../ContentfulLink";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
@@ -10,7 +10,8 @@ const context: Context = {
       viewMode: "tile"
     }),
     getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    findOne: jest.fn()
   }
 };
 

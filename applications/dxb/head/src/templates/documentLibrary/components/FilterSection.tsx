@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionSummaryProps,
@@ -6,17 +5,18 @@ import {
   Checkbox,
   CheckboxProps,
   DownloadListContext,
+  Filter,
   FilterProps,
   Filters,
   Typography
 } from "@bmi/components";
+import React from "react";
+import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";
 import withGTM from "../../../utils/google-tag-manager";
-import { useSiteContext } from "../../../components/Site";
-import { getDocumentFilters } from "../../../utils/filters";
 
 export type Props = {
-  filters: ReturnType<typeof getDocumentFilters>;
+  filters: Filter[];
   handleFiltersChange: (resetList: () => void) => FilterProps["onChange"];
   clearFilters: () => void;
 };

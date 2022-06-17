@@ -1,6 +1,6 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import { FormContext } from "@bmi/components";
+import { render } from "@testing-library/react";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/data.json";
@@ -49,7 +49,6 @@ describe("PitchedRoofCalculator TileOptions component", () => {
           }}
         >
           <TileOptions
-            selections={{}}
             variant={
               {
                 ...data.mainTiles[0].variants[0],

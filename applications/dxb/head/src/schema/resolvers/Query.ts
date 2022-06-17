@@ -1,8 +1,8 @@
-import { PimAssetType, Product } from "../../components/types/pim";
-import { getFilters, getPlpFilters } from "../../utils/filters";
-import { ProductFilter } from "../../utils/product-filters";
-import { resolveDocumentsFromProducts } from "./documents";
-import { Context, Node, ResolveArgs } from "./types";
+import { Product } from "@bmi/firestore-types";
+import { AssetType, PLPFilterResponse, ProductDocument } from "../../types/pim";
+import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
+import { resolveDocumentsFromProducts } from "./utils/documents";
+import { getPlpFilters } from "./utils/filters";
 
 export default {
   allPIMDocument: {
@@ -11,24 +11,27 @@ export default {
       source: Node,
       args: ResolveArgs,
       context: Context
-    ): Promise<Node[]> {
-      const { entries } = await context.nodeModel.findAll<PimAssetType>(
+    ): Promise<ProductDocument[]> {
+      const { entries } = await context.nodeModel.findAll<AssetType>(
         { query: {}, type: "ContentfulAssetType" },
         { connectionType: "ContentfulAssetType" }
       );
       const allAssetTypes = [...entries];
-      return resolveDocumentsFromProducts(allAssetTypes, {
-        source: {},
-        context
-      });
+      const result = await resolveDocumentsFromProducts(
+        allAssetTypes,
+        {
+          source: {},
+          context
+        },
+        null
+      );
+      return result.documents;
     }
   },
   plpFilters: {
-    type: ["Filter"],
+    type: "PLPFilterResponse",
     args: {
-      pimClassificationCatalogueNamespace: "String!",
       categoryCodes: "[String!]",
-      showBrandFilter: "Boolean",
       allowFilterBy: "[String!]"
     },
 
@@ -36,59 +39,8 @@ export default {
       source: Node,
       args: ResolveArgs,
       context: Context
-    ): Promise<ProductFilter[]> {
-      const {
-        pimClassificationCatalogueNamespace,
-        categoryCodes,
-        allowFilterBy
-      } = args;
-
-      const { entries } = await context.nodeModel.findAll<Product>({
-        query: categoryCodes
-          ? {
-              filter: {
-                categories: { elemMatch: { code: { in: categoryCodes } } },
-                approvalStatus: { eq: "approved" },
-                variantOptions: {
-                  elemMatch: { approvalStatus: { eq: "approved" } }
-                }
-              }
-            }
-          : {},
-        type: "Products"
-      });
-
-      const resolvedProducts = [...entries];
-
-      if (resolvedProducts.length === 0) {
-        return [];
-      }
-
-      return getPlpFilters({
-        pimClassificationNamespace: pimClassificationCatalogueNamespace,
-        products: resolvedProducts,
-        allowedFilters: allowFilterBy
-      });
-    }
-  },
-  // Filters available on the page, resolved from products related to the page's product category.
-  productFilters: {
-    type: ["Filter"],
-    args: {
-      pimClassificationCatalogueNamespace: "String!",
-      categoryCodes: "[String!]",
-      showBrandFilter: "Boolean"
-    },
-    async resolve(
-      source: Node,
-      args: ResolveArgs,
-      context: Context
-    ): Promise<ProductFilter[]> {
-      const {
-        pimClassificationCatalogueNamespace,
-        categoryCodes,
-        showBrandFilter
-      } = args;
+    ): Promise<PLPFilterResponse> {
+      const { categoryCodes, allowFilterBy } = args;
 
       const { entries } = await context.nodeModel.findAll<Product>({
         query: categoryCodes
@@ -98,25 +50,121 @@ export default {
               }
             }
           : {},
-        type: "Products"
+        type: "Product"
       });
 
       const resolvedProducts = [...entries];
 
       if (resolvedProducts.length === 0) {
-        return [];
+        return { filters: [], allowFilterBy: allowFilterBy };
       }
 
-      const category = (resolvedProducts[0].categories || []).find(({ code }) =>
-        (categoryCodes || []).includes(code)
-      );
+      let allowFilterByLocal = allowFilterBy;
+      //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
+      // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
+      if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
+        allowFilterByLocal = [];
 
-      return getFilters(
-        pimClassificationCatalogueNamespace,
-        resolvedProducts,
-        category,
-        showBrandFilter
-      );
+        const pageCategory = (resolvedProducts[0].categories || []).find(
+          ({ code }) => (categoryCodes || []).includes(code)
+        );
+
+        allowFilterByLocal.push("Brand");
+
+        if (pageCategory) {
+          if (pageCategory.categoryType !== "ProductFamily") {
+            allowFilterByLocal.push("ProductFamily");
+          }
+          if (pageCategory.categoryType !== "ProductLine") {
+            allowFilterByLocal.push("ProductLine");
+          }
+        }
+        allowFilterByLocal.push("appearanceAttributes.colourfamily");
+        allowFilterByLocal.push("generalInformation.materials");
+        //couldnt see this in Elastic search response..hence all the options are disabled on the UI!
+        allowFilterByLocal.push("appearanceAttributes.texturefamily");
+        //if you are nont on a category product listing page, then show category filters!
+        if (pageCategory && pageCategory.categoryType !== "Category") {
+          const categoryGroupCodes = Array.from(
+            new Set(
+              resolvedProducts
+                .flatMap((product) => product.groups.flatMap((group) => group))
+                .sort((a, b) => {
+                  if (a.label > b.label) {
+                    return 1;
+                  }
+                  if (a.label < b.label) {
+                    return -1;
+                  }
+                  return 0;
+                })
+                .map((group) => group.code)
+                .filter((categoryCode) => categoryCode.length > 0)
+            )
+          );
+          if (categoryGroupCodes && categoryGroupCodes.length) {
+            categoryGroupCodes.forEach((categoryCode) =>
+              allowFilterByLocal.push(`${categoryCode}`)
+            );
+          }
+        }
+      }
+
+      const productFilters = await getPlpFilters({
+        products: resolvedProducts,
+        allowedFilters: allowFilterByLocal
+      });
+
+      const plpMicrocopyPrefix = "plpFilter";
+      //are there any empty labels in the group labels?
+      //if so, try too find their microcopies using their filtercode
+      const missingLabelKeys = productFilters
+        .filter(
+          (item) => !item.label || (item.label && item.label.length === 0)
+        )
+        .map((filter) => `${plpMicrocopyPrefix}.${filter.filterCode}`);
+
+      if (missingLabelKeys.length) {
+        const { entries: resourceEntries } =
+          await context.nodeModel.findAll<MicroCopy>(
+            {
+              query: {
+                filter: {
+                  key: {
+                    in: [...missingLabelKeys]
+                  }
+                }
+              },
+              type: "ContentfulMicroCopy"
+            },
+            { connectionType: "ContentfulMicroCopy" }
+          );
+        const filterMicroCopies = [...resourceEntries];
+
+        //go through each product filter and if /groupLabel/ is empty, then get microcopy using its code/name
+        productFilters.forEach((productFilter) => {
+          if (
+            !productFilter.label ||
+            (productFilter.label && productFilter.label.length === 0)
+          ) {
+            const microCopyObj = filterMicroCopies.find(
+              (item) =>
+                item.key === `${plpMicrocopyPrefix}.${productFilter.filterCode}`
+            );
+            //update the label
+            if (microCopyObj) {
+              productFilter.label = microCopyObj.value;
+            } else {
+              // microcopy is in contentful missing.. should we create 'MC:plpFilter.{filtercode}'?
+              productFilter.label = `MC:${plpMicrocopyPrefix}.${productFilter.filterCode}`;
+            }
+          }
+        });
+      }
+      return {
+        filters: productFilters,
+        allowFilterBy: allowFilterByLocal
+      };
     }
   }
 };

@@ -1,3 +1,4 @@
+# Inotuch child yml files!!
 include:
   - local: "/applications/intouch/api/db-migrations/.gitlab-ci.yml"
   - local: "/applications/intouch/api/gateway/.gitlab-ci.yml"

@@ -1,30 +1,32 @@
-import { Hero } from "@bmi/components";
-import { Container } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { Filter } from "@bmi/components";
-import { QUERY_KEY } from "@bmi/components";
+import {
+  Container,
+  Hero,
+  PLPFilterResponse,
+  QUERY_KEY,
+  Section,
+  Tabs
+} from "@bmi/components";
 import { graphql } from "gatsby";
-import React, { useEffect, useMemo, useState, FormEvent } from "react";
-import { microCopy } from "../constants/microCopies";
+import React, { FormEvent, useEffect, useMemo, useState } from "react";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { generateGetMicroCopy } from "../components/MicroCopy";
 import NextBestActions from "../components/NextBestActions";
 import Page from "../components/Page";
 import ProgressIndicator from "../components/ProgressIndicator";
-import SearchBlock from "../components/SearchBlock";
 import Scrim from "../components/Scrim";
-import { Data as SiteData } from "../components/Site";
-import SearchTabPanelProducts, {
-  getCount as getProductsCount
-} from "../components/SearchTabProducts";
+import SearchBlock from "../components/SearchBlock";
 import SearchTabPanelDocuments, {
   getCount as getDocumentsCount
 } from "../components/SearchTabDocuments";
 import SearchTabPanelPages, {
   getCount as getPagesCount
 } from "../components/SearchTabPages";
+import SearchTabPanelProducts, {
+  getCount as getProductsCount
+} from "../components/SearchTabProducts";
+import { Data as SiteData } from "../components/Site";
+import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { getSearchTabUrl, setSearchTabUrl } from "../utils/filters";
 
@@ -46,7 +48,7 @@ export type Props = {
         pimCode: string;
       }>;
     };
-    productFilters: ReadonlyArray<Filter>;
+    plpFilters: PLPFilterResponse;
   };
 };
 
@@ -57,8 +59,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite, allContentfulAssetType, productFilters } = data;
-
+  const { contentfulSite, allContentfulAssetType, plpFilters } = data;
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
@@ -258,7 +259,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   onLoadingChange={(isLoading) =>
                     handleTabIsLoading(tabKey, isLoading)
                   }
-                  initialFilters={productFilters}
+                  initialFilters={plpFilters?.filters}
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
@@ -351,10 +352,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
 export default SearchPage;
 
 export const pageQuery = graphql`
-  query SearchPageBySiteId(
-    $siteId: String!
-    $pimClassificationCatalogueNamespace: String!
-  ) {
+  query SearchPageBySiteId($siteId: String!) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
@@ -364,16 +362,27 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    productFilters(
-      pimClassificationCatalogueNamespace: $pimClassificationCatalogueNamespace
-      showBrandFilter: true
+    plpFilters(
+      allowFilterBy: [
+        "ProductFamily"
+        "Category"
+        "ProductLine"
+        "Brand"
+        "appearanceAttributes.colourfamily"
+        "generalInformation.materials"
+        "appearanceAttributes.texturefamily"
+      ]
     ) {
-      label
-      name
-      options {
+      filters {
+        filterCode
         label
-        value
+        name
+        options {
+          label
+          value
+        }
       }
+      allowFilterBy
     }
   }
 `;

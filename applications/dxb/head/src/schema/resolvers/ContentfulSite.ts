@@ -1,4 +1,4 @@
-import { Context, Node, ResolveArgs } from "./types";
+import { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 export default {
   regions: {

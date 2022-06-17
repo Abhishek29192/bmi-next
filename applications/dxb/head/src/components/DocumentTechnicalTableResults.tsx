@@ -1,27 +1,27 @@
-import React, { useMemo } from "react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import React, { useMemo } from "react";
+import { Data as AssetTypeData } from "../types/AssetType";
+import { ProductDocument } from "../types/pim";
 import groupBy from "../utils/groupBy";
-import { PIMDocumentData, PIMLinkDocumentData } from "./types/PIMDocumentBase";
+import fileIconsMap from "./FileIconsMap";
+import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
-import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import fileIconsMap from "./FileIconsMap";
-import { Data as AssetTypeData } from "./AssetType";
 
 type Props = {
-  documents: (PIMDocumentData | PIMLinkDocumentData)[];
+  documents: ProductDocument[];
   page: number;
   documentsPerPage: number;
 };
 
 export const groupDocuments = (
-  documents: (PIMDocumentData | PIMLinkDocumentData)[],
+  documents: readonly ProductDocument[],
   byAssetType = false
-): [string, (PIMDocumentData | PIMLinkDocumentData)[]][] =>
+): [string, ProductDocument[]][] =>
   Object.entries(
     groupBy(documents, (document) =>
-      byAssetType ? document.assetType.code : document.product.code
+      byAssetType ? document.assetType.pimCode : document.productBaseCode
     )
   );
 
@@ -44,7 +44,14 @@ const DocumentTechnicalTableResults = ({
         .map(({ assetType }) => assetType)
         .reduce<AssetTypeData[]>((assetTypes, assetType) => {
           assetTypes.find((type) => type.id === assetType.id) ||
-            assetTypes.push(assetType);
+            assetTypes.push({
+              __typename: "ContentfulAssetType",
+              code: assetType.pimCode,
+              id: assetType.id,
+              name: assetType.name,
+              pimCode: assetType.pimCode,
+              description: null
+            });
           return assetTypes;
         }, []),
     [documents]

@@ -1,11 +1,12 @@
 import ContentfulImage from "../ContentfulImage";
-import { Context, Node } from "../types";
+import { Context, Node } from "../types/Gatsby";
 
 const context: Context = {
   nodeModel: {
     getNodeById: jest.fn(),
     getNodesByIds: jest.fn(),
-    findAll: jest.fn()
+    findAll: jest.fn(),
+    findOne: jest.fn()
   }
 };
 

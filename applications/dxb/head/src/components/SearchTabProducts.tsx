@@ -67,7 +67,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // NOTE: map colour filter values to specific colour swatch representation
   const enhancedFilters: Filter[] = useMemo(() => {
     return initialFilters.map((filter) => {
-      if (filter.name === "colour") {
+      if (filter.name.toLowerCase().endsWith("colourfamily")) {
         return enhanceColourFilterWithSwatches(filter);
       }
 
