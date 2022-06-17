@@ -540,7 +540,7 @@ type ContentfulTeamSection implements Node {
 type ContentfulAssetType implements Node {
   id: ID!
   name: String!
-  code: String
+  code: String!
   description: ContentfulRichText
   pimCode: String
 }

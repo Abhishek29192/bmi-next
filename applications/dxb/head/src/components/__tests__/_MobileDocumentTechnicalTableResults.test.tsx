@@ -1,13 +1,13 @@
-import React from "react";
 import { render } from "@testing-library/react";
-import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
+import React from "react";
 import { Data as AssetTypeData } from "../../types/AssetType";
+import { ProductDocument } from "../../types/pim";
 import createAssetType, {
   createAssetTypeInvalid
 } from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import fileIconsMap from "../FileIconsMap";
-import { ProductDocument } from "../../types/pim";
+import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
 
 describe("MobileDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
@@ -80,11 +80,21 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           "product1",
           [
             createPimDocument({
-              assetType: { pimCode: "pim-code", name: "pim-code", id: "id" },
+              assetType: {
+                code: "pim-code",
+                pimCode: "pim-code",
+                name: "pim-code",
+                id: "id"
+              },
               isLinkDocument: false
             }),
             createPimDocument({
-              assetType: { pimCode: "pim-code", name: "pim-code", id: "id-2" },
+              assetType: {
+                code: "pim-code",
+                pimCode: "pim-code",
+                name: "pim-code",
+                id: "id-2"
+              },
               isLinkDocument: false,
               format: "image/jpg"
             })
@@ -115,10 +125,20 @@ describe("MobileDocumentTechnicalTableResults component", () => {
           "product1",
           [
             createPimDocument({
-              assetType: { pimCode: "inValid", name: "inValid", id: "id" }
+              assetType: {
+                code: "inValid",
+                pimCode: "inValid",
+                name: "inValid",
+                id: "id"
+              }
             }),
             createPimDocument({
-              assetType: { pimCode: "inValid-2", name: "inValid-2", id: "id-2" }
+              assetType: {
+                code: "inValid-2",
+                pimCode: "inValid-2",
+                name: "inValid-2",
+                id: "id-2"
+              }
             })
           ]
         ]

@@ -55,7 +55,6 @@ export type Props = {
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
-  // documentsByAssetType?: [string, (PIMDocument | PIMSystemDocument)[]][];
 };
 
 const GTMButton = withGTM<

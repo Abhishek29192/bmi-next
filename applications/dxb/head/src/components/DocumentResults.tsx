@@ -33,8 +33,7 @@ const DocumentResults = ({ data, format, page }: Props) => {
   const ResultsComponent = documentResultsMap[format];
   const assetTypesCount = useMemo(
     () =>
-      Object.keys(groupBy(data, (document) => document.assetType.pimCode))
-        .length,
+      Object.keys(groupBy(data, (document) => document.assetType.code)).length,
     [data]
   );
   const tableHeaders = ["typeCode", "title", "download", "add"].filter(

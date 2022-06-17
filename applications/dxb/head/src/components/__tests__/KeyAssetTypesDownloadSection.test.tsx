@@ -1,7 +1,7 @@
-import React from "react";
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import axios from "axios";
 import MockDate from "mockdate";
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import React from "react";
 import * as ClientDownloadUtils from "../../utils/client-download";
 import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
 import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
@@ -83,7 +83,12 @@ describe("KeyAssetTypesDownloadSection component", () => {
       const document = createPimDocument({
         url: "http://localhost:8000/document.pdf"
       });
-      document.assetType = { pimCode: "AAT", name: "AAT", id: "AAT" };
+      document.assetType = {
+        code: "AAT",
+        pimCode: "AAT",
+        name: "AAT",
+        id: "AAT"
+      };
       const assetDocuments = [
         {
           assetType: document.assetType.pimCode,
@@ -111,7 +116,12 @@ describe("KeyAssetTypesDownloadSection component", () => {
       const document = createPimDocument({
         url: "localhost:8000/document.pdf"
       });
-      document.assetType = { pimCode: "AAT", name: "AAT", id: "AAT" };
+      document.assetType = {
+        code: "AAT",
+        pimCode: "AAT",
+        name: "AAT",
+        id: "AAT"
+      };
       const assetDocuments = [
         {
           assetType: document.assetType.pimCode,
