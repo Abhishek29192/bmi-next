@@ -35,3 +35,19 @@ release:
     - yarn config set cache-folder ${PWD}/.yarn_cache
   script:
     - yarn run semantic-release
+
+open_mr_preprod_to_master:
+  image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
+  stage: release
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'pre-production'
+  script:
+    - gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN -t master -c WIP
+
+open_mr_prod_to_preprod_to_master:
+  image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
+  stage: release
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'production'
+  script:
+    - gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN -t pre-production -c WIP
