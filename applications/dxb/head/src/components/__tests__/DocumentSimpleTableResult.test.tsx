@@ -1,11 +1,14 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
 import { useMediaQuery } from "@material-ui/core";
+import { render, screen } from "@testing-library/react";
+import React from "react";
 import { ProductDocument as PIMDocument } from "../../types/pim";
+import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument, {
+  createPseudoZipDocument
+} from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentSimpleTableResults, {
   Props
 } from "../DocumentSimpleTableResults";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 
 jest.mock("@material-ui/core", () => ({
   ...(jest.requireActual("@material-ui/core") as any),
@@ -21,7 +24,10 @@ const pimLinkDocument: PIMDocument = createPimDocument({
 });
 
 const pimDocument: PIMDocument = createPimDocument({ isLinkDocument: false });
-
+const pseudoZipAssetTypeName = "pseudo-zip-asset-type";
+const pseudoZipPIMDocument = createPseudoZipDocument({
+  assetType: createAssetType({ name: pseudoZipAssetTypeName })
+});
 const mockUseMediaQuery = useMediaQuery as jest.Mock<
   ReturnType<typeof useMediaQuery>
 >;
@@ -62,6 +68,54 @@ describe("DocumentSimpleTableResult", () => {
             name: "MC: documentLibrary.download Pim Document"
           })
         ).toBeInTheDocument();
+      });
+    });
+
+    describe("when all headers are present", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [pimDocument],
+          headers: ["typeCode", "type", "name", "title", "download", "add"]
+        });
+        expect(
+          screen.getByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          })
+        ).toBeInTheDocument();
+      });
+    });
+
+    describe("when multiple types of documents are present", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [pimDocument, pseudoZipPIMDocument],
+          headers: ["typeCode", "type", "name", "title", "download", "add"]
+        });
+        expect(
+          screen.getByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          })
+        ).toBeInTheDocument();
+        expect(
+          screen.getByRole("checkbox", {
+            name: `MC: documentLibrary.download ${pseudoZipAssetTypeName}`
+          })
+        ).toBeInTheDocument();
+      });
+    });
+
+    describe("when multiple types of documents are present with pagination", () => {
+      it("should render documents", () => {
+        renderDocumentResults({
+          documents: [null],
+          headers: ["typeCode", "type", "name", "title", "download", "add"],
+          documentsPerPage: 1
+        });
+        expect(
+          screen.queryAllByRole("checkbox", {
+            name: "MC: documentLibrary.download Pim Document"
+          }).length
+        ).toEqual(0);
       });
     });
   });

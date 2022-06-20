@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DocumentTechnicalTableResults component in desktop view renders correctly 1`] = `
+<div>
+  <div
+    class="DocumentTechnicalTableResults"
+  >
+    <div
+      class="accordion-div"
+    >
+      <div
+        class="accordionStyles-root-1"
+      >
+        <div
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-2 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            aria-disabled="false"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-5"
+            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-7"
+            >
+              product-name
+            </div>
+            <div
+              aria-disabled="false"
+              aria-hidden="true"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-hidden"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper"
+            >
+              <div
+                class="MuiCollapse-wrapperInner"
+              >
+                <div
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root accordion-details"
+                  >
+                    <div
+                      class="icon-container"
+                    >
+                      <svg
+                        class="format-icon"
+                      />
+                    </div>
+                    <div
+                      class="icon-container"
+                    >
+                      asset-code
+                    </div>
+                    <div
+                      class="info-icon-container"
+                    >
+                      <div
+                        class="Tooltip"
+                      >
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-23 iconButtonStyles-42-22 iconButtonStyles-text-25"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiIconButton-label"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root tooltip-icon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="download-icon-container"
+                    >
+                      <a
+                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        download="Pim Document"
+                        href="http://pimDocument"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <svg
+                          class="all-files-icon"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DocumentTechnicalTableResults component in mobile view renders correctly 1`] = `
+<div>
+  <div
+    class="DocumentTechnicalTableResults"
+  >
+    <div
+      class="accordion-div"
+    >
+      <div
+        class="accordionStyles-root-32"
+      >
+        <div
+          class="MuiPaper-root MuiAccordion-root accordionStyles-item-33 MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            aria-disabled="false"
+            aria-expanded="false"
+            class="MuiButtonBase-root MuiAccordionSummary-root accordionStyles-summaryRoot-36"
+            data-gtm="{\\"id\\":\\"selector-accordion1\\",\\"label\\":\\"product-base-code\\",\\"action\\":\\"Selector – Accordion\\"}"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="MuiAccordionSummary-content accordionStyles-summaryContent-38"
+            >
+              product-name
+            </div>
+            <div
+              aria-disabled="false"
+              aria-hidden="true"
+              class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </div>
+          </div>
+          <div
+            class="MuiCollapse-root MuiCollapse-hidden"
+            style="min-height: 0px;"
+          >
+            <div
+              class="MuiCollapse-wrapper"
+            >
+              <div
+                class="MuiCollapse-wrapperInner"
+              >
+                <div
+                  role="region"
+                >
+                  <div
+                    class="MuiAccordionDetails-root accordion-details"
+                  >
+                    <div
+                      class="icon-container"
+                    >
+                      <svg
+                        class="format-icon"
+                      />
+                    </div>
+                    <div
+                      class="icon-container"
+                    >
+                      asset-code
+                    </div>
+                    <div
+                      class="info-icon-container"
+                    >
+                      <div
+                        class="Tooltip"
+                      >
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-54 iconButtonStyles-42-53 iconButtonStyles-text-56"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="MuiIconButton-label"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root tooltip-icon"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="download-icon-container"
+                    >
+                      <a
+                        data-gtm="{\\"id\\":\\"download1\\",\\"label\\":\\"Download\\",\\"action\\":\\"http://pimDocument\\"}"
+                        download="Pim Document"
+                        href="http://pimDocument"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        <svg
+                          class="all-files-icon"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

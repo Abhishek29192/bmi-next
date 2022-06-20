@@ -226,9 +226,10 @@ export type RelatedProduct = Pick<
 };
 
 export type AssetType = {
+  code: string;
   pimCode: string | null;
-  name: string | null;
-  id: string | null;
+  name: string;
+  id: string;
 };
 
 export type Image = {

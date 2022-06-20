@@ -16,14 +16,9 @@ type Props = {
 };
 
 export const groupDocuments = (
-  documents: readonly ProductDocument[],
-  byAssetType = false
+  documents: readonly ProductDocument[]
 ): [string, ProductDocument[]][] =>
-  Object.entries(
-    groupBy(documents, (document) =>
-      byAssetType ? document.assetType.pimCode : document.productBaseCode
-    )
-  );
+  Object.entries(groupBy(documents, (document) => document.productBaseCode));
 
 export const getCount = (documents: Props["documents"]): number => {
   return groupDocuments(documents).length;
@@ -43,15 +38,17 @@ const DocumentTechnicalTableResults = ({
       documents
         .map(({ assetType }) => assetType)
         .reduce<AssetTypeData[]>((assetTypes, assetType) => {
-          assetTypes.find((type) => type.id === assetType.id) ||
-            assetTypes.push({
-              __typename: "ContentfulAssetType",
-              code: assetType.pimCode,
-              id: assetType.id,
-              name: assetType.name,
-              pimCode: assetType.pimCode,
-              description: null
-            });
+          if (assetType) {
+            assetTypes.find((type) => type.id === assetType.id) ||
+              assetTypes.push({
+                __typename: "ContentfulAssetType",
+                code: assetType.code,
+                id: assetType.id,
+                name: assetType.name,
+                pimCode: assetType.pimCode,
+                description: null
+              });
+          }
           return assetTypes;
         }, []),
     [documents]
