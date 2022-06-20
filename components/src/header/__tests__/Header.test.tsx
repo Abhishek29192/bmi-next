@@ -1,7 +1,7 @@
 import { render, waitFor } from "@testing-library/react";
 import React from "react";
-import Clickable from "../../clickable/Clickable";
 import { Arrow } from "../../icon";
+import Clickable from "../../clickable/Clickable";
 import languages from "../../language-selection/languages";
 import Header from "../Header";
 

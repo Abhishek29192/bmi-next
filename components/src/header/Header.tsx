@@ -12,8 +12,7 @@ import {
   Close,
   KeyboardArrowDown,
   Menu,
-  Search as SearchIcon,
-  ShoppingCartOutlined
+  Search as SearchIcon
 } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef, useMemo } from "react";
@@ -75,6 +74,7 @@ type HeaderProps = {
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
   SampleBasketDialog?: React.ElementType;
+  ShoppingCartBadge?: React.ReactNode;
 };
 
 const Header = ({
@@ -107,7 +107,8 @@ const Header = ({
   closeButtonComponent: CloseButtonComponent = Button,
   SampleBasketDialog,
   onCountrySelection,
-  useGTM
+  useGTM,
+  ShoppingCartBadge
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -438,7 +439,7 @@ const Header = ({
                   isIconButton
                   onClick={toggleCart}
                 >
-                  <Icon source={ShoppingCartOutlined} />
+                  {ShoppingCartBadge}
                 </Button>
               )}
               {!isSearchDisabled && (
