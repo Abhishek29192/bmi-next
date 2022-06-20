@@ -315,7 +315,8 @@
     "loading": "Loading project details",
     "roofArea": "Total roof measurement",
     "startDate": "Project start date",
-    "status": "Project status"
+    "status": "Project status",
+    "archived": "Archived"
   },
   "report": {
     "guarantee": "Download guarantee report",
@@ -391,5 +392,9 @@
     "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
     "copyOf": "Copy of {{name}}",
     "title": "Copy this project"
+  },
+  "bool": {
+    "True": "Stimmt",
+    "False": "Falsch"
   }
 }

@@ -315,7 +315,8 @@
     "loading": "Caricamento dei dettagli del progetto",
     "roofArea": "Superficie della copertura (m2)",
     "startDate": "Data di inizio progetto",
-    "status": "Stato progetto"
+    "status": "Stato progetto",
+    "archived": "Archiviato"
   },
   "report": {
     "guarantee": "Scarica il report di garanzia",
@@ -391,5 +392,9 @@
     "content": "Vuoi copiare questo progetto (dettagli del progetto e dettagli del proprietario dell'edificio) per crearne uno nuovo?",
     "copyOf": "Copia di {{name}}",
     "title": "Copia questo progetto"
+  },
+  "bool": {
+    "True": "Vero",
+    "False": "Falso"
   }
 }

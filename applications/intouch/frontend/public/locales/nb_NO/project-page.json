@@ -315,7 +315,8 @@
     "loading": "Laster inn prosjektdetaljer",
     "roofArea": "Total tak måling",
     "startDate": "Startdato",
-    "status": "Prosjekt status"
+    "status": "Prosjekt status",
+    "archived": "Arkivert"
   },
   "report": {
     "guarantee": "Last ned garantirapport",
@@ -391,5 +392,9 @@
     "content": "Vil du kopiere dette prosjektet (prosjektdetaljer og bygningseierdetaljer) for å opprette et nytt?",
     "copyOf": "Kopi av {{name}}",
     "title": "Kopier dette prosjektet"
+  },
+  "bool": {
+    "True": "Ekte",
+    "False": "Falsk"
   }
 }

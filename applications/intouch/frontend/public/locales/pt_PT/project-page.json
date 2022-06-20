@@ -323,7 +323,8 @@
     "loading": "Carregando dados do projeto",
     "roofArea": "Area total do telhado (m2)",
     "startDate": "Data de início do projeto",
-    "status": "Estado do projeto"
+    "status": "Estado do projeto",
+    "archived": "Arquivado"
   },
   "report": {
     "guarantee": "Descarregar relatório de garantia",
@@ -391,5 +392,9 @@
     "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
     "copyOf": "Cópia de {{name}}",
     "title": "Copie este projeto"
+  },
+  "bool": {
+    "True": "Verdade",
+    "False": "Falso"
   }
 }
