@@ -1500,12 +1500,19 @@ export type GetGuaranteesReportQuery = {
       startDate?: any | null;
       expiryDate?: any | null;
       signedFileStorageUrl?: string | null;
+      fileStorageId?: string | null;
       project?: {
         __typename?: "Project";
         name: string;
         technology: SchemaTypes.Technology;
         roofArea: number;
+        hidden?: boolean | null;
         company?: { __typename?: "Company"; name?: string | null } | null;
+      } | null;
+      requestorAccount?: {
+        __typename?: "Account";
+        firstName?: string | null;
+        lastName?: string | null;
       } | null;
       guaranteeType?: {
         __typename?: "ContentfulGuaranteeType";
