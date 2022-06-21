@@ -1,16 +1,16 @@
 import {
+  Accessory,
+  BaseVariant,
+  GutteringVariant,
   LengthBasedProduct,
   MainTileVariant,
+  ProductCategory,
+  ResultsObject,
   ResultsRow,
   Underlay,
-  VergeOption,
-  VergeTileOption,
-  ProductCategory,
-  BaseVariant,
   VergeMetalFlushOption,
-  Accessory,
-  ResultsObject,
-  GutteringVariant
+  VergeOption,
+  VergeTileOption
 } from "../../types";
 import {
   Face,
@@ -430,7 +430,7 @@ class QuantitiesCalculator {
     lines.eave.forEach(({ length }) =>
       mainTileVariant.eaveAccessories.forEach((accessory) =>
         this.addProduct(
-          "accessories",
+          accessory.category,
           accessory,
           Math.ceil(length / 1000) // These are calculated as one per eave meter
         )
@@ -440,7 +440,7 @@ class QuantitiesCalculator {
 
   addOtherAccessories(accessories: Accessory[]) {
     accessories.forEach((accessory) =>
-      this.addProduct("accessories", accessory, 0)
+      this.addProduct(accessory.category, accessory, 0)
     );
   }
 

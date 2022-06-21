@@ -307,6 +307,22 @@ const resultsProps = {
         externalProductCode: "5555550",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
         category: "accessories"
+      },
+      {
+        code: "306222100_Storm_clips_55_Zanda_Minster",
+        name: "Storm_clips_55_Zanda_Minster",
+        externalProductCode: "21282017",
+        image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+        category: "fixings",
+        packSize: 125
+      },
+      {
+        code: "304200051_M_Glue_290ml_grey",
+        name: "M_Glue_290ml",
+        externalProductCode: "51531703",
+        image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+        category: "sealing",
+        packSize: 1
       }
     ],
     eaveAccessories: [
@@ -437,9 +453,7 @@ const resultsProps = {
     ridge: "46035761",
     ventilation: ["100456781"]
   } as any,
-  underlay: {
-    underlay: "26583450"
-  } as any,
+  underlay: data.underlays[0],
   guttering: {
     guttering: "Test Guttering",
     gutteringVariant: "4391",
@@ -453,16 +467,6 @@ const resultsProps = {
 };
 
 describe("PitchedRoofCalculator Results component", () => {
-  it("renders correctly", () => {
-    const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
   it("renders with debugging mode on", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -528,5 +532,80 @@ describe("PitchedRoofCalculator Results component", () => {
 
     fireEvent.click(screen.getByText("Submit button"));
     waitFor(() => expect(openPdf).toHaveBeenCalledTimes(1));
+  });
+
+  it("renders without final report if ridgeOptions are empty", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results
+          {...resultsProps}
+          variant={{ ...resultsProps.variant, ridgeOptions: [] }}
+        />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.categories.tiles")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.fixings")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.sealing")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.ventilation")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.accessories")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders without final report if underlay is empty", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} underlays={[]} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.categories.tiles")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.fixings")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.sealing")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.ventilation")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.accessories")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders with final report", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.getByText("MC: results.categories.tiles")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.fixings")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.sealing")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.ventilation")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.accessories")
+    ).toBeInTheDocument();
   });
 });

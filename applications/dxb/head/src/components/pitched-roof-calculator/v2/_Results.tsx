@@ -296,18 +296,6 @@ const Results = ({
           />
         </FieldContainer>
       ) : null}
-      {sealingRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
-        >
-          <QuantityTable
-            onDelete={getRemoveRow(setSealingRows)}
-            onChangeQuantity={getChangeQuantity(setSealingRows)}
-            rows={sealingRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
       {ventilationRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
@@ -316,6 +304,18 @@ const Results = ({
             onDelete={getRemoveRow(setVentilationRows)}
             onChangeQuantity={getChangeQuantity(setVentilationRows)}
             rows={ventilationRows}
+            {...tableLabels}
+          />
+        </FieldContainer>
+      ) : null}
+      {sealingRows.length ? (
+        <FieldContainer
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
+        >
+          <QuantityTable
+            onDelete={getRemoveRow(setSealingRows)}
+            onChangeQuantity={getChangeQuantity(setSealingRows)}
+            rows={sealingRows}
             {...tableLabels}
           />
         </FieldContainer>

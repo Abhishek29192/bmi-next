@@ -41,6 +41,7 @@
 
   .smallDescription {
     margin: 10px;
+    word-break: break-all;
   }
 
   .packSizes {
@@ -63,6 +64,7 @@
   .firstDescription {
     margin-left: 10px;
     align-self: center;
+    word-break: break-all;
   }
 
   .cellRowLast {
@@ -89,9 +91,19 @@
 
   .iteratorCellSmall {
     max-width: 170px;
+
+    input {
+      padding: 18px 12px;
+      text-align: center;
+    }
   }
 
   .iteratorCellMedium {
     min-width: 170px;
+
+    input {
+      padding: 18px 12px;
+      text-align: center;
+    }
   }
 }

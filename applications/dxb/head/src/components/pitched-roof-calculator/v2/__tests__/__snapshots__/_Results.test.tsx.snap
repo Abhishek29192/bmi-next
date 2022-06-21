@@ -1,159 +1,307 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PitchedRoofCalculator Results component renders correctly 1`] = `
-<div>
-  <div
-    class="Results"
-  >
-    <div
-      class="Alert Alert--first"
-    >
-      <div
-        class="Alert ColorPair ColorPair--alert"
-      >
-        <div
-          class="actions"
-        />
-        <div
-          class="Container"
-        >
-          <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
-          >
-            <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-                />
-              </svg>
-              MC: results.alerts.quantities.title
-            </h5>
-            MC: results.alerts.quantities.text
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="Alert Alert--last"
-    >
-      <div
-        class="Alert ColorPair ColorPair--alabaster"
-      >
-        <div
-          class="actions"
-        />
-        <div
-          class="Container"
-        >
-          <div
-            class="MuiContainer-root MuiContainer-maxWidthXl"
-          >
-            <h5
-              class="MuiTypography-root title Typography MuiTypography-h5"
-            >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root icon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-                />
-              </svg>
-              MC: results.alerts.needToKnow.title
-            </h5>
-            MC: results.alerts.needToKnow.text
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <form>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="name"
-              placeholder="name"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-2"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="email"
-              placeholder="email"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-2"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <button>
-          Submit button
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`PitchedRoofCalculator Results component renders with debugging mode on 1`] = `
 <div>
   <div
     class="Results"
   >
     <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.tiles
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector main tile black",
+      "externalProductCode": "46035712",
+      "packSize": "-",
+      "quantity": 1418
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector half tile black",
+      "externalProductCode": "46035795",
+      "packSize": "-",
+      "quantity": 32
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_ridge tile black",
+      "externalProductCode": "46035761",
+      "packSize": "-",
+      "quantity": 49
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.fixings
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "fixings",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Storm_clips_55_Zanda_Minster",
+      "externalProductCode": "21282017",
+      "packSize": "125",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.ventilation
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "ventilation",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ventilation Hood 1",
+      "externalProductCode": "100456781",
+      "packSize": "-",
+      "quantity": 2
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.sealing
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "sealing",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "M_Glue_290ml",
+      "externalProductCode": "51531703",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.accessories
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left start",
+      "externalProductCode": "86035763",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left",
+      "externalProductCode": "86035761",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right start",
+      "externalProductCode": "86035764",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right",
+      "externalProductCode": "86035762",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Grey",
+      "externalProductCode": "4391",
+      "packSize": "-",
+      "quantity": 11
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Hook Grey",
+      "externalProductCode": "4392",
+      "packSize": "-",
+      "quantity": 15
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe",
+      "externalProductCode": "33332",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe Connector",
+      "externalProductCode": "33331",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 281
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1312
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 2
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
+      "description": "Underlay Divoroll TOP RU",
+      "externalProductCode": "26583450",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Fuglelist ventilert",
+      "externalProductCode": "5555551",
+      "packSize": "-",
+      "quantity": 7
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Other accesories example",
+      "externalProductCode": "5555550",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
       class="Alert Alert--first"
     >
       <div
@@ -242,11 +390,11 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-6"
+                class="PrivateNotchedOutline-legend-2"
                 style="width: 0.01px;"
               >
                 <span>
@@ -273,11 +421,11 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-6"
+                class="PrivateNotchedOutline-legend-2"
                 style="width: 0.01px;"
               >
                 <span>
@@ -375,6 +523,302 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
     class="Results"
   >
     <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.tiles
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector main tile black",
+      "externalProductCode": "46035712",
+      "packSize": "-",
+      "quantity": 1418
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector half tile black",
+      "externalProductCode": "46035795",
+      "packSize": "-",
+      "quantity": 32
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_ridge tile black",
+      "externalProductCode": "46035761",
+      "packSize": "-",
+      "quantity": 49
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.fixings
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "fixings",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Storm_clips_55_Zanda_Minster",
+      "externalProductCode": "21282017",
+      "packSize": "125",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.ventilation
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "ventilation",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ventilation Hood 1",
+      "externalProductCode": "100456781",
+      "packSize": "-",
+      "quantity": 2
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.sealing
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "sealing",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "M_Glue_290ml",
+      "externalProductCode": "51531703",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.accessories
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left start",
+      "externalProductCode": "86035763",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left",
+      "externalProductCode": "86035761",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right start",
+      "externalProductCode": "86035764",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right",
+      "externalProductCode": "86035762",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Grey",
+      "externalProductCode": "4391",
+      "packSize": "-",
+      "quantity": 11
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Hook Grey",
+      "externalProductCode": "4392",
+      "packSize": "-",
+      "quantity": 15
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe",
+      "externalProductCode": "33332",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe Connector",
+      "externalProductCode": "33331",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 281
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1312
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 2
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
+      "description": "Underlay Divoroll TOP RU",
+      "externalProductCode": "26583450",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Fuglelist ventilert",
+      "externalProductCode": "5555551",
+      "packSize": "-",
+      "quantity": 7
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Other accesories example",
+      "externalProductCode": "5555550",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
       class="Alert Alert--first"
     >
       <div
@@ -463,11 +907,11 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-18"
+                class="PrivateNotchedOutline-legend-14"
                 style="width: 0.01px;"
               >
                 <span>
@@ -494,11 +938,11 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-17 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-18"
+                class="PrivateNotchedOutline-legend-14"
                 style="width: 0.01px;"
               >
                 <span>
@@ -523,6 +967,270 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
     class="Results"
   >
     <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.tiles
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector main tile black",
+      "externalProductCode": "46035712",
+      "packSize": "-",
+      "quantity": 1418
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector half tile black",
+      "externalProductCode": "46035795",
+      "packSize": "-",
+      "quantity": 32
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_ridge tile black",
+      "externalProductCode": "46035761",
+      "packSize": "-",
+      "quantity": 49
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.fixings
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "fixings",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Storm_clips_55_Zanda_Minster",
+      "externalProductCode": "21282017",
+      "packSize": "125",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.ventilation
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "ventilation",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ventilation Hood 1",
+      "externalProductCode": "100456781",
+      "packSize": "-",
+      "quantity": 2
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.sealing
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "sealing",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "M_Glue_290ml",
+      "externalProductCode": "51531703",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.accessories
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Grey",
+      "externalProductCode": "4391",
+      "packSize": "-",
+      "quantity": 11
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Test Guttering Hook Grey",
+      "externalProductCode": "4392",
+      "packSize": "-",
+      "quantity": 15
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe",
+      "externalProductCode": "33332",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
+      "description": "Downpipe Connector",
+      "externalProductCode": "33331",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 281
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1312
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 2
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
+      "description": "Underlay Divoroll TOP RU",
+      "externalProductCode": "26583450",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Fuglelist ventilert",
+      "externalProductCode": "5555551",
+      "packSize": "-",
+      "quantity": 7
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Other accesories example",
+      "externalProductCode": "5555550",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
       class="Alert Alert--first"
     >
       <div
@@ -611,11 +1319,11 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-14"
+                class="PrivateNotchedOutline-legend-10"
                 style="width: 0.01px;"
               >
                 <span>
@@ -642,11 +1350,11 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-14"
+                class="PrivateNotchedOutline-legend-10"
                 style="width: 0.01px;"
               >
                 <span>
@@ -671,6 +1379,270 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
     class="Results"
   >
     <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.tiles
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector main tile black",
+      "externalProductCode": "46035712",
+      "packSize": "-",
+      "quantity": 1418
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda Protector half tile black",
+      "externalProductCode": "46035795",
+      "packSize": "-",
+      "quantity": 32
+    },
+    {
+      "category": "tiles",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_ridge tile black",
+      "externalProductCode": "46035761",
+      "packSize": "-",
+      "quantity": 49
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.fixings
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "fixings",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Storm_clips_55_Zanda_Minster",
+      "externalProductCode": "21282017",
+      "packSize": "125",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.ventilation
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "ventilation",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ventilation Hood 1",
+      "externalProductCode": "100456781",
+      "packSize": "-",
+      "quantity": 2
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.sealing
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "sealing",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "M_Glue_290ml",
+      "externalProductCode": "51531703",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
+      class="FieldContainer"
+    >
+      <div
+        class="head"
+      >
+        <h6
+          class="MuiTypography-root Typography MuiTypography-h6"
+        >
+          MC: results.categories.accessories
+        </h6>
+      </div>
+      <p>
+        {
+  "rows": [
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left start",
+      "externalProductCode": "86035763",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black left",
+      "externalProductCode": "86035761",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right start",
+      "externalProductCode": "86035764",
+      "packSize": "-",
+      "quantity": 3
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Zanda_Protector_verge metal flush black right",
+      "externalProductCode": "86035762",
+      "packSize": "-",
+      "quantity": 105
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 97
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 281
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1312
+    },
+    {
+      "category": "accessories",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 2
+    },
+    {
+      "category": "accessories",
+      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
+      "description": "Underlay Divoroll TOP RU",
+      "externalProductCode": "26583450",
+      "packSize": "-",
+      "quantity": 4
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Fuglelist ventilert",
+      "externalProductCode": "5555551",
+      "packSize": "-",
+      "quantity": 7
+    },
+    {
+      "category": "accessories",
+      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
+      "description": "Other accesories example",
+      "externalProductCode": "5555550",
+      "packSize": "-",
+      "quantity": 0
+    }
+  ],
+  "title": "MC: results.table.title",
+  "packSize": "MC: results.table.packSize",
+  "externalProductCode": "MC: results.table.externalProductCode",
+  "quantity": "MC: results.table.quantity",
+  "remove": "MC: results.table.remove"
+}
+      </p>
+    </div>
+    <div
       class="Alert Alert--first"
     >
       <div
@@ -759,11 +1731,11 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-10"
+                class="PrivateNotchedOutline-legend-6"
                 style="width: 0.01px;"
               >
                 <span>
@@ -790,11 +1762,11 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
             />
             <fieldset
               aria-hidden="true"
-              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
+              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
               style="padding-left: 8px;"
             >
               <legend
-                class="PrivateNotchedOutline-legend-10"
+                class="PrivateNotchedOutline-legend-6"
                 style="width: 0.01px;"
               >
                 <span>
