@@ -1,10 +1,11 @@
-import React from "react";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { LocationProvider } from "@reach/router";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import mediaQuery from "css-mediaquery";
+import React from "react";
+import { renderWithRouter } from "../../../test/renderWithRouter";
+import createService from "../../../__tests__/helpers/ServiceHelper";
 import { EntryTypeEnum } from "../../Service";
 import { Data as ServiceType } from "../../ServiceType";
-import createService from "../../../__tests__/helpers/ServiceHelper";
-import { renderWithRouter } from "../../../test/renderWithRouter";
 import ServiceLocatorSection, {
   Data as serviceLocatorDataType
 } from "../index";
@@ -1416,5 +1417,49 @@ describe("ServiceLocatorSection component", () => {
       expect(googleAutoCompleteInput.value).toBe("Lundvegen, Hamar, Norway");
       expect(container).toMatchSnapshot();
     });
+  });
+  it("triggers analytics on selected service with marker click", () => {
+    const createMatchMedia = (width: unknown) => {
+      return (query: string): MediaQueryList =>
+        ({
+          matches: mediaQuery.match(query, { width }),
+          addListener: () => {},
+          removeListener: () => {}
+        } as unknown as MediaQueryList);
+    };
+    window.matchMedia = createMatchMedia(1500);
+    Object.defineProperty(window, "dataLayer", {
+      value: [],
+      configurable: true
+    });
+    const roofer1 = createService({ name: "roofer 1" });
+    const roofer2 = createService({ name: "roofer 2" });
+
+    const data: serviceLocatorDataType = {
+      __typename: "ContentfulServiceLocatorSection",
+      type: EntryTypeEnum.ROOFER_TYPE,
+      showDefaultResultList: true,
+      title: "service locator section",
+      label: "Main",
+      body: null,
+      position: 1,
+      centre: null,
+      zoom: 8,
+      services: [roofer1, roofer2]
+    };
+
+    renderWithRouter(<ServiceLocatorSection data={data} />);
+
+    act(() => {
+      callMarkerOnClick(roofer2);
+    });
+    expect(global.window["dataLayer"]).toEqual([
+      {
+        action: "Expanded company details",
+        id: "selector-cards6-map-pin",
+        label: "roofer 2 - address 1 - Roofer - selected"
+      }
+    ]);
+    delete global.window["dataLayer"];
   });
 });
