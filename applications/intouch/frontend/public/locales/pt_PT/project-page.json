@@ -310,7 +310,7 @@
       "REASSIGN_SOLUTION": "Reatribuido a mim",
       "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
       "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "Cópia de?"
     },
     "description": "Descrição do projeto",
     "endDate": "Data de conclusão do projeto",
@@ -388,8 +388,8 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
+    "copyOf": "Cópia de {{name}}",
+    "title": "Copie este projeto"
   }
 }
