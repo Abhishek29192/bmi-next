@@ -17,22 +17,45 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
   ]
     .reduce((allValues, value) => {
       if (
-        !allValues.find((v) =>
-          propName === "measurements"
-            ? (value as Measurements).length?.value ===
-                (v as Measurements).length?.value &&
-              (value as Measurements).width?.value ===
-                (v as Measurements).width?.value &&
-              (value as Measurements).length?.value ===
-                (v as Measurements).length?.value &&
-              (value as Measurements).thickness?.value ===
-                (v as Measurements).thickness?.value &&
-              (value as Measurements).volume?.value ===
-                (v as Measurements).volume?.value
-            : v === value
-        )
+        !allValues.find((v) => {
+          if (propName === "measurements") {
+            const valueAsMeasurement = value as Measurements;
+            const vAsMeasurement = v as Measurements;
+            if (
+              vAsMeasurement &&
+              valueAsMeasurement &&
+              vAsMeasurement.label.length > 0 &&
+              valueAsMeasurement.label.length > 0
+            ) {
+              return (
+                valueAsMeasurement.length?.value ===
+                  vAsMeasurement.length?.value &&
+                valueAsMeasurement.width?.value ===
+                  vAsMeasurement.width?.value &&
+                valueAsMeasurement.length?.value ===
+                  vAsMeasurement.length?.value &&
+                valueAsMeasurement.thickness?.value ===
+                  vAsMeasurement.thickness?.value &&
+                valueAsMeasurement.volume?.value ===
+                  vAsMeasurement.volume?.value
+              );
+            } else {
+              return valueAsMeasurement.label.length > 0;
+            }
+          } else {
+            return v === value;
+          }
+        })
       ) {
-        allValues.push(value);
+        if (propName === "measurements") {
+          if ((value as Measurements)?.label?.length > 0) {
+            allValues.push(value);
+          }
+        } else {
+          if (value) {
+            allValues.push(value);
+          }
+        }
       }
       return allValues;
     }, [])
@@ -49,8 +72,13 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
         const valueA = a[Object.keys(a)[index]];
         // eslint-disable-next-line security/detect-object-injection
         const valueB = b[Object.keys(a)[index]];
+
         if (!valueA || !valueB) return 0;
-        return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
+        return valueA.value === valueB.value //compare integer values of measurement
+          ? 0
+          : valueA.value < valueB.value
+          ? -1
+          : 1;
       }, 0);
     }
     return a < b ? -1 : 1;

@@ -1,3 +1,4 @@
+import logger from "@bmi-digital/functions-logger";
 import type {
   CategoryGroup,
   Classification,
@@ -147,6 +148,10 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
               };
             }
           });
+        });
+
+        logger.info({
+          message: `process.env.ENABLE_SAMPLE_ORDERING: ${process.env.ENABLE_SAMPLE_ORDERING}`
         });
 
         const transformedProduct: Product = {
