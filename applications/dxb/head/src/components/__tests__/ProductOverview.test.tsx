@@ -46,7 +46,8 @@ describe("ProductOverview component", () => {
       }
     ],
     attributes: null,
-    isRecapchaShown: true
+    isRecaptchaShown: true,
+    variantCode: "variant1"
   };
   it("renders correctly with Recapcha", () => {
     const { container } = render(

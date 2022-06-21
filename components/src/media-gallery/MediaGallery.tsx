@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
 import classnames from "classnames";
+import React, { useEffect, useState } from "react";
+import Icon, { iconMap } from "../icon";
 import Media from "../media/Media";
 import Truncate from "../truncate/Truncate";
 import Typography from "../typography/Typography";
+import { YoutubeContext } from "./context";
+import styles from "./MediaGallery.module.scss";
+import { Media as MediaData } from "./types";
 import DesktopThumbnails from "./_DesktopThumbnails";
 import MobileThumbnails from "./_MobileThumbnails";
-import { Media as MediaData } from "./types";
-import styles from "./MediaGallery.module.scss";
-import { YoutubeContext } from "./context";
 
 type Props = {
   media: readonly MediaData[];
@@ -73,25 +74,45 @@ const MediaGallery = ({
     }
   };
 
+  const onSlideClick = () => {
+    if (
+      currentMedia &&
+      currentMedia.visualiserParameters &&
+      typeof currentMedia.openVisualiser === "function"
+    ) {
+      currentMedia.openVisualiser(currentMedia.visualiserParameters);
+    }
+  };
+
   const onThumbnailClick = (e: Event, index: number) => {
     e.preventDefault();
     setActiveImageIndex(index);
     setCurrentMedia(currentMedias[Number(index)]);
     setShowYouTubeVideo(false);
   };
-  if (!media.length) {
+
+  useEffect(() => {
+    if (media && media.length) {
+      const medias = [...media];
+      setCurrentMedias(medias);
+      setCurrentMedia(medias[Number(activeImageIndex)]);
+    }
+  }, [media]);
+
+  if (!media || !media.length) {
     return null;
   }
-  useEffect(() => {
-    const medias = [...media];
-    setCurrentMedias(medias);
-    setCurrentMedia(medias[Number(activeImageIndex)]);
-  }, [media]);
 
   return (
     <div className={classnames(styles["MediaGallery"], className)}>
       {currentMedia && (
-        <div className={styles["image-wrapper"]}>
+        <div
+          className={classnames(
+            styles["image-wrapper"],
+            styles[currentMedia.visualiserParameters ? "visualiser-slide" : ""]
+          )}
+          onClick={onSlideClick}
+        >
           <YoutubeContext.Provider value={showYouTubeVideo}>
             {renderMedia(currentMedia, mediaSize, layout)}
           </YoutubeContext.Provider>
@@ -103,6 +124,24 @@ const MediaGallery = ({
                 className={styles["caption-text"]}
               >
                 <Truncate lines={2}>{currentMedia.caption}</Truncate>
+              </Typography>
+            </div>
+          ) : null}
+          {currentMedia.visualiserParameters ? (
+            <div className={styles["caption-holder"]}>
+              <div className={styles["cube-holder"]}>
+                <Icon
+                  source={iconMap.Cube}
+                  className={styles["cube-icon"]}
+                  name="Cube"
+                />
+              </div>
+              <Typography
+                variant="h6"
+                component="p"
+                className={styles["caption-text"]}
+              >
+                {currentMedia.visualiserParameters.caption}
               </Typography>
             </div>
           ) : null}
