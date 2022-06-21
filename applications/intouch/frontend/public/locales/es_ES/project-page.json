@@ -302,7 +302,7 @@
       "REASSIGN_SOLUTION": "Reasignarme",
       "UNASSIGN_SOLUTION": "Desasignar de mí",
       "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "¿Copiar?"
     },
     "description": "Descripción del proyecto",
     "endDate": "Fecha de finalización del proyecto",
