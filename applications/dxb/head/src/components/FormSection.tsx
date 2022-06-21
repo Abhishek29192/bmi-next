@@ -1,4 +1,5 @@
 import { useHubspotForm } from "@aaronhayes/react-use-hubspot-form";
+import logger from "@bmi-digital/functions-logger";
 import {
   AnchorLink,
   Button,
@@ -18,9 +19,9 @@ import {
 } from "@bmi/components";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import axios from "axios";
 import classNames from "classnames";
 import { graphql, navigate } from "gatsby";
+import fetch from "node-fetch";
 import React, { FormEvent, useEffect, useState } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import matchAll from "string.prototype.matchall";
@@ -522,8 +523,8 @@ const FormSection = ({
       recipientsFromValues && isEmailPresent ? recipientEmail : recipients;
 
     try {
-      const source = axios.CancelToken.source();
       const token = await executeRecaptcha();
+
       // remove all blank values
       const valuesToSent = Object.entries(values).reduce(
         (acc, [key, value]) => {
@@ -535,23 +536,30 @@ const FormSection = ({
         {}
       );
 
-      await axios.post(
-        gcpFormSubmitEndpoint,
-        {
+      const response = await fetch(gcpFormSubmitEndpoint, {
+        method: "POST",
+        body: JSON.stringify({
           locale: node_locale,
           title,
           recipients: conditionalRecipients,
           values: valuesToSent,
           emailSubjectFormat
-        },
-        {
-          cancelToken: source.token,
-          headers: { "X-Recaptcha-Token": token }
+        }),
+        headers: {
+          "X-Recaptcha-Token": token,
+          "Content-Type": "application/json"
         }
-      );
+      });
 
-      setIsSubmitting(false);
+      if (!response.ok) {
+        logger.error({
+          message: `Request to send form data failed with status ${response.status} ${response.statusText}`
+        });
+        throw new Error(response.statusText);
+      }
+
       onSuccess && onSuccess();
+
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -561,10 +569,10 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      setIsSubmitting(false);
-      // @todo Handle error
-      console.error("Error", { error }); // eslint-disable-line
+      logger.error({ message: error.message });
     }
+
+    setIsSubmitting(false);
   };
 
   //This function right now is not used. Left here only for future extend of Hubspot usage
@@ -634,16 +642,31 @@ const FormSection = ({
     };
 
     try {
-      await axios.post(`${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`, {
-        ...hsPayload,
-        ...(hsLegalFields
-          ? {
-              legalConsentOptions: getLegalOptions(hsLegalFields)
-            }
-          : {})
-      });
+      const response = await fetch(
+        `${hubspotApiUrl}${hubSpotId}/${hubSpotFormGuid}`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            ...hsPayload,
+            ...(hsLegalFields
+              ? {
+                  legalConsentOptions: getLegalOptions(hsLegalFields)
+                }
+              : {})
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
 
-      setIsSubmitting(false);
+      if (!response.ok) {
+        logger.error({
+          message: `Request to send form data failed with status ${response.status} ${response.statusText}`
+        });
+        throw new Error(response.statusText);
+      }
+
       if (successRedirect) {
         navigate(
           successRedirect.url ||
@@ -653,10 +676,10 @@ const FormSection = ({
         navigate("/");
       }
     } catch (error) {
-      setIsSubmitting(false);
-      // @todo Handle error
-      console.error("Error", { error }); // eslint-disable-line
+      logger.error({ message: error.message });
     }
+
+    setIsSubmitting(false);
   };
 
   if (source === SourceType.HubSpot && hubSpotFormGuid) {
