@@ -94,7 +94,7 @@
     }
 
     & > td:not(:first-child) {
-      padding: 24px 0;
+      padding: 45px 0 32px;
     }
   }
 
@@ -155,6 +155,5 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
   }
 }
