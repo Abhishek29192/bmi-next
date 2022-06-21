@@ -388,7 +388,8 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?"
+    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
+    "copyOf": "Copy of {{name}}",
+    "title": "Copy this project"
   }
 }

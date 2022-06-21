@@ -388,8 +388,8 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "Vil du kopiere dette prosjektet (prosjektdetaljer og bygningseierdetaljer) for å opprette et nytt?",
+    "copyOf": "Kopi av {{name}}",
+    "title": "Kopier dette prosjektet"
   }
 }
