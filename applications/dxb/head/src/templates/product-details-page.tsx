@@ -39,7 +39,6 @@ type Props = {
     countryCode: string;
     relatedProductCodes: readonly string[];
     variantCodeToPathMap: Record<string, string>;
-    variantCode: string;
   };
   data: {
     product: Product;
@@ -129,7 +128,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     },
                     attributeUnavailableMicroCopy
                   ),
-                  variantCode: pageContext.variantCode,
+                  variantCode: pageContext.productCode,
                   isRecaptchaShown:
                     Object.keys(product.keyAssetDocuments).length > 0
                 }}
