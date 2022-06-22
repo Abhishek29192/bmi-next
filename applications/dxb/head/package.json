@@ -108,7 +108,7 @@
     "@types/lodash-es": "^4.14.172",
     "@types/three": "^0.128.0",
     "babel-preset-gatsby": "^2.5.2",
-    "jest-node-exports-resolver": "^1.1.5",
+    "jest-node-exports-resolver": "^1.1.6",
     "jest-preset-gatsby": "^1.0.134",
     "schema-dts": "^1.1.0"
   }
