@@ -1,8 +1,8 @@
 import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
 import { System as EsSystem } from "@bmi/elasticsearch-types";
 import { navigate, useLocation } from "@reach/router";
-import axios, { AxiosResponse } from "axios";
 import { graphql } from "gatsby";
+import fetch, { Response } from "node-fetch";
 import React, {
   ChangeEvent,
   createContext,
@@ -140,22 +140,28 @@ const SystemConfiguratorQuestion = ({
   const allStateSoFar = [...stateSoFar, nextId];
 
   const getData = useCallback(async (answerId, locale) => {
-    const cancelTokenSource = axios.CancelToken.source();
-
     setState((state) => ({ ...state, isLoading: true }));
+
+    const controller = new AbortController();
+    const url = new URL(gcpSystemConfiguratorEndpoint);
+    url.searchParams.append(answerId, String(answerId));
+    url.searchParams.append(locale, String(locale));
+
     const recaptchaToken = await executeRecaptcha();
+
     try {
-      const {
-        data
-      }: AxiosResponse<QuestionData | ResultData | TitleWithContentData> =
-        await axios.get(`${gcpSystemConfiguratorEndpoint}`, {
-          headers: { "X-Recaptcha-Token": recaptchaToken },
-          params: {
-            answerId: answerId,
-            locale: locale
-          },
-          cancelToken: cancelTokenSource.token
-        });
+      const response: Response = await fetch(url.toString(), {
+        method: "GET",
+        headers: { "X-Recaptcha-Token": recaptchaToken },
+        signal: controller.signal
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+
+      const data: QuestionData | ResultData | TitleWithContentData =
+        await response.json();
 
       if (data.__typename === "ContentfulTitleWithContent") {
         setNextStep({ nextNoResult: data });
@@ -187,7 +193,7 @@ const SystemConfiguratorQuestion = ({
       }
     } catch (error) {
       devLog(error);
-      cancelTokenSource.cancel();
+      controller.abort();
       setState((state) => ({
         ...state,
         error,
