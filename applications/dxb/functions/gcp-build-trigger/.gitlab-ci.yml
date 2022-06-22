@@ -1,15 +1,28 @@
+test_gcp-build-trigger:
+  extends: .test_yarn_workspace
+  variables:
+    WORKSPACE: "@bmi/gcp-build-trigger"
+    ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
+
 build_gcp-build-trigger:
   extends: .build_function_yarn_workspace
+  rules:
+    - !reference [.build_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
 
 package_gcp-build-trigger:
   extends: .package_function_yarn_workspace
+  rules:
+    - !reference [.package_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   needs:
-    - build_gcp-build-trigger
-  dependencies:
-    - build_gcp-build-trigger
+    - job: build_gcp-build-trigger
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"
@@ -24,10 +37,20 @@ package_gcp-build-trigger:
 
 deploy_gcp-build-trigger:
   extends: .deploy_function_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes: !reference [.run_for_changes_on_main, rules, changes]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   needs:
-    - package_gcp-build-trigger
-  dependencies:
-    - package_gcp-build-trigger
+    - job: package_gcp-build-trigger
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-build-trigger"
     ROOT_DIR: "applications/dxb/functions/gcp-build-trigger"

@@ -1,7 +1,14 @@
 test_frc-website:
   extends: .test_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/frc-website/**/*
+        - components/**/*
+        - libraries/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/frc-website/**/*
         - components/**/*
@@ -15,7 +22,13 @@ test_frc-website:
 build_frc-website:
   extends: .build_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/frc-website/**/*
+        - components/**/*
+        - libraries/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/frc-website/**/*
         - components/**/*

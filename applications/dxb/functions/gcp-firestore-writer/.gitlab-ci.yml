@@ -1,11 +1,31 @@
 test_gcp-firestore-writer:
   extends: .test_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
   variables:
     WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
 
 build_gcp-firestore-writer:
   extends: .build_function_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
@@ -13,14 +33,15 @@ build_gcp-firestore-writer:
 package_gcp-firestore-writer:
   extends: .package_function_yarn_workspace
   needs:
-    - build_gcp-firestore-writer
-  dependencies:
-    - build_gcp-firestore-writer
+    - job: build_gcp-firestore-writer
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/functions-firestore/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
@@ -36,14 +57,21 @@ package_gcp-firestore-writer:
 deploy_gcp-firestore-writer:
   extends: .deploy_function_yarn_workspace
   needs:
-    - package_gcp-firestore-writer
-  dependencies:
-    - package_gcp-firestore-writer
+    - job: package_gcp-firestore-writer
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/functions-firestore/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"

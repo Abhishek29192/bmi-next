@@ -1,11 +1,5 @@
 test_components:
   extends: .test_yarn_workspace
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master')) || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - components/**/*
-        - jest/**/*
-        - yarn.lock
   variables:
     WORKSPACE: "@bmi/components"
     ROOT_DIR: "components"
@@ -17,17 +11,10 @@ build_components:
     ROOT_DIR: "components"
 
 build_styleguide:
-  stage: build
-  rules:
-    - if: "($CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
-      changes:
-        - components/**/*
-        - yarn.lock
-  needs:
-    - job: install_yarn
-      optional: true
-  before_script:
-    - yarn config set cache-folder ~/.yarn
+  extends: .build_yarn_workspace
+  variables:
+    ROOT_DIR: components
+    WORKSPACE: "@bmi/components"
   script:
     - yarn workspace @bmi/components workbench:build
   artifacts:
@@ -39,16 +26,16 @@ deploy_styleguide:
   variables:
     FIREBASE_TARGET: "styleguide"
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - components/**/*
   needs:
     - build_styleguide
   before_script:
     - yarn config set cache-folder ~/.yarn
-    - npm install -g firebase-tools
-    - firebase use $STYLE_GUIDE_FIREBASE_PROJECT_ID
   script:
     - |
+      npm install -g firebase-tools
+      firebase use $STYLE_GUIDE_FIREBASE_PROJECT_ID
       DEPLOY_RESULT=$(firebase deploy -m "Commit ID: $CI_COMMIT_SHA" --only hosting:$FIREBASE_TARGET --non-interactive) || exit 0
       echo ${DEPLOY_RESULT}

@@ -10,9 +10,8 @@ package_gcp-intouch-cron-certification:
     FUNCTION_NAME: pubsub-cron-certification
     ROOT_DIR: applications/intouch/functions/gcp-cron-certification
   needs:
-    - build_gcp-intouch-cron-certification
-  dependencies:
-    - build_gcp-intouch-cron-certification
+    - job: build_gcp-intouch-cron-certification
+      artifacts: true
 
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-certification_bmi:
@@ -21,6 +20,5 @@ deploy_gcp-intouch-cron-certification_bmi:
     FUNCTION_NAME: pubsub-cron-certification
     ROOT_DIR: applications/intouch/functions/gcp-cron-certification
   needs:
-    - package_gcp-intouch-cron-certification
-  dependencies:
-    - package_gcp-intouch-cron-certification
+    - job: package_gcp-intouch-cron-certification
+      artifacts: true

@@ -6,26 +6,56 @@ test_gcp-form-submit:
 
 build_gcp-form-submit:
   extends: .build_function_yarn_workspace
+  rules:
+    - !reference [.build_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/gcp-form-submit"
     ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
 
 package_gcp-form-submit:
   extends: .package_function_yarn_workspace
+  rules:
+    - !reference [.package_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   needs:
-    - build_gcp-form-submit
-  dependencies:
-    - build_gcp-form-submit
+    - job: build_gcp-form-submit
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-form-submit"
     ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
 
 deploy_gcp-form-submit:
   extends: .deploy_function_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes: !reference [.run_for_changes_on_main, rules, changes]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   needs:
-    - package_gcp-form-submit
-  dependencies:
-    - package_gcp-form-submit
+    - job: package_gcp-form-submit
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-form-submit"
     ROOT_DIR: "applications/dxb/functions/gcp-form-submit"
+  before_script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_QA
+      fi
+          
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PREPROD
+      fi
+
+      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
+        GCP_FUNCTIONS_CI=$GCP_FUNCTIONS_CI_PROD
+      fi
