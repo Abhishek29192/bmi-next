@@ -1,7 +1,7 @@
 version: "3"
 services:
   # The application image
-  api-gateway-service:
+  graph-gateway-service:
     build:
       context: .
       dockerfile: dockerfile

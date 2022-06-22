@@ -1,4 +1,4 @@
-build_intouch_api_gateway:
+build_intouch_graph_gateway:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
@@ -8,17 +8,17 @@ build_intouch_api_gateway:
         - libraries/**/*
         - yarn.lock
   variables:
-    WORKSPACE: "@bmi/intouch-api-gateway"
+    WORKSPACE: "@bmi/intouch-graph-gateway"
     ROOT_DIR: "applications/intouch/api/gateway"
   artifacts:
     untracked: false
     paths:
       - applications/intouch/api/gateway/dist
 
-package_intouch_api_gateway:
+package_intouch_graph_gateway:
   stage: package
   needs:
-    - build_intouch_api_gateway
+    - build_intouch_graph_gateway
   image: google/cloud-sdk
   variables:
     DOCKER_HOST: tcp://docker:2375
@@ -40,17 +40,17 @@ package_intouch_api_gateway:
   script:
     - echo $BMI_KEY > gcloud-service-key-bmi.json
     - echo "Building and pushing image to GCP Projects $BMI_PROJECT"
-    - docker build . -t eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/gateway/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
+    - docker build . -t eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:$CI_COMMIT_SHORT_SHA -f ./applications/intouch/api/gateway/dockerfile --build-arg NPM_AUTH_READ_TOKEN=$NPM_AUTH_READ_TOKEN
     - gcloud auth activate-service-account --key-file gcloud-service-key-bmi.json
     - gcloud auth configure-docker
-    - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA
+    - docker push eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:$CI_COMMIT_SHORT_SHA
 
 deploy_intouch_gateway_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   image: google/cloud-sdk
   needs:
-    - package_intouch_api_gateway
+    - package_intouch_graph_gateway
     - job: deploy_intouch_companies_to_cloudrun_bmi
       optional: true
     - job: deploy_intouch_training_to_cloudrun_bmi
@@ -68,8 +68,8 @@ deploy_intouch_gateway_to_cloudrun_bmi:
     - echo "Deploying to $CLOUD_RUN on BMI tenant in project $BMI_PROJECT"
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
-    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
-    - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:$CI_COMMIT_SHORT_SHA --region=europe-west3 --platform=managed
+    - gcloud container images add-tag eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:$CI_COMMIT_SHORT_SHA eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:latest
 
 # Run only on release branch!!
 release_intouch_gateway_to_cloudrun_bmi:
@@ -120,11 +120,11 @@ release_intouch_gateway_to_cloudrun_bmi:
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $PREVIOUS_ENV_BMI_PROJECT
     - gcloud auth configure-docker
-    - docker pull eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-gateway:latest
-    - docker tag eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-api-gateway:latest eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
+    - docker pull eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-graph-gateway:latest
+    - docker tag eu.gcr.io/$PREVIOUS_ENV_BMI_PROJECT/intouch-graph-gateway:latest eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:latest
     - echo $BMI_KEY > gcloud-service-key.json # Google Cloud service accounts to promote
     - gcloud auth activate-service-account --key-file gcloud-service-key.json
     - gcloud config set project $BMI_PROJECT
     - gcloud auth configure-docker
-    - docker push eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest
-    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-api-gateway:latest --region=europe-west3 --platform=managed
+    - docker push eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:latest
+    - gcloud run deploy $CLOUD_RUN --image=eu.gcr.io/$BMI_PROJECT/intouch-graph-gateway:latest --region=europe-west3 --platform=managed

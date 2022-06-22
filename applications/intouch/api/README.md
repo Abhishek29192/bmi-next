@@ -20,4 +20,4 @@ After setting up the environment variables, and having installed the monorepo de
 
 1. `yarn workspace @bmi/intouch-api-service-training dev` (run the training service)
 2. `yarn workspace @bmi/intouch-api-service-companies dev` (run the companies service)
-3. `yarn workspace @bmi/intouch-api-gateway dev` (run the gateway)
+3. `yarn workspace @bmi/intouch-graph-gateway dev` (run the gateway)
