@@ -589,8 +589,13 @@ describe("product-details-transforms tests", () => {
                 colour: undefined,
                 textureFamily: undefined,
                 variantAttribute: undefined,
-                relatedVariants: [],
-                measurements: createMeasurements()
+                measurements: createMeasurements(),
+                relatedVariants: [
+                  createRelatedVariant(),
+                  createRelatedVariant({
+                    measurements: createMeasurements({ label: "10x11x12mm" })
+                  })
+                ]
               });
               const result = getProductAttributesWithCommonParams(selfProduct);
               const expectedResult = [
@@ -615,6 +620,16 @@ describe("product-details-transforms tests", () => {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
+                    },
+                    {
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      },
+                      availability: true,
+                      isSelected: false,
+                      label: "label"
                     }
                   ]
                 },

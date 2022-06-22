@@ -1,6 +1,6 @@
-import React from "react";
-import classnames from "classnames";
 import { SVGImport } from "@bmi-digital/svg-import";
+import classnames from "classnames";
+import React from "react";
 import PureChip from "../chip/Chip";
 import { ClickableAction, withClickable } from "../clickable/Clickable";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
@@ -20,7 +20,7 @@ type Variant = {
 };
 
 type Attribute = {
-  name: string;
+  name?: string;
   type?: "chips" | "thumbnails";
   variants: Variant[];
   unavailableMicroCopy?: string;
@@ -110,7 +110,7 @@ const renderAttribute = (
 ) => {
   const key = `attribute-${index}`;
 
-  if (!attribute.variants.length) {
+  if (!attribute.variants.length || !name) {
     return null;
   }
 

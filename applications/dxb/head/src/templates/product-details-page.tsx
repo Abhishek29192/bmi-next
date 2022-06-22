@@ -1,6 +1,7 @@
 import { Container, CTACard, Grid, GridSize, Section } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
+import BackToResults from "../components/BackToResults";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
 import { renderImage } from "../components/Image";
@@ -92,7 +93,9 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
           <>
             {product.breadcrumbs.length > 0 && (
               <Section backgroundColor="pearl" isSlim>
-                <Breadcrumbs data={product.breadcrumbs} />
+                <BackToResults>
+                  <Breadcrumbs data={product.breadcrumbs} />
+                </BackToResults>
               </Section>
             )}
             <Container>
