@@ -64,22 +64,20 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
   return allValuesArray.sort((a, b) => {
     const isMeasurements = propName === "measurements";
     if (isMeasurements) {
-      // sort Measurements object on the same level by string number value
-      return Object.keys(a).reduce((prev, _, index) => {
-        // return the prev result if result has been decided.
-        if (prev !== 0) return prev;
-        // eslint-disable-next-line security/detect-object-injection
-        const valueA = a[Object.keys(a)[index]];
-        // eslint-disable-next-line security/detect-object-injection
-        const valueB = b[Object.keys(a)[index]];
+      const heightValueA = a["height"]?.value || 0;
+      const heightValueB = b["height"]?.value || 0;
 
-        if (!valueA || !valueB) return 0;
-        return valueA.value === valueB.value //compare integer values of measurement
-          ? 0
-          : valueA.value < valueB.value
-          ? -1
-          : 1;
-      }, 0);
+      const widthValueA = a["width"]?.value || 0;
+      const widthValueB = b["width"]?.value || 0;
+
+      const lengthValueA = a["length"]?.value || 0;
+      const lengthValueB = b["length"]?.value || 0;
+
+      return (
+        lengthValueB - lengthValueA ||
+        heightValueB - heightValueA ||
+        widthValueB - widthValueA
+      );
     }
     return a < b ? -1 : 1;
   });

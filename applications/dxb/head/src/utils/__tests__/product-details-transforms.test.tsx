@@ -573,7 +573,7 @@ describe("product-details-transforms tests", () => {
         });
         describe("And measurements props are populated on classifications", () => {
           describe("And product measurements is selected", () => {
-            it("returns measurements prop result", () => {
+            it("returns measurements prop result in descending order of measurements (length, height and width)", () => {
               const selfProduct = createProduct({
                 code: "product-code-1",
                 classifications: [
@@ -593,7 +593,28 @@ describe("product-details-transforms tests", () => {
                 relatedVariants: [
                   createRelatedVariant(),
                   createRelatedVariant({
-                    measurements: createMeasurements({ label: "10x11x12mm" })
+                    measurements: createMeasurements({
+                      height: { value: "10", unit: "mm" },
+                      width: { value: "11", unit: "mm" },
+                      length: { value: "12", unit: "mm" },
+                      label: "12x10x11mm"
+                    })
+                  }),
+                  createRelatedVariant({
+                    measurements: createMeasurements({
+                      height: { value: "12", unit: "mm" },
+                      width: { value: "11", unit: "mm" },
+                      length: { value: "13", unit: "mm" },
+                      label: "13x12x11mm"
+                    })
+                  }),
+                  createRelatedVariant({
+                    measurements: createMeasurements({
+                      height: { value: "3", unit: "mm" },
+                      width: { value: "4", unit: "mm" },
+                      length: { value: "5", unit: "mm" },
+                      label: "5x3x4mm"
+                    })
                   })
                 ]
               });
@@ -617,19 +638,49 @@ describe("product-details-transforms tests", () => {
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
                     {
+                      label: "13x12x11mm",
+                      isSelected: false,
+                      availability: true,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      }
+                    },
+                    {
+                      label: "12x10x11mm",
+                      isSelected: false,
+                      availability: true,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      }
+                    },
+                    {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
                     },
                     {
+                      label: "5x3x4mm",
+                      isSelected: false,
+                      availability: true,
                       action: {
                         linkComponent: Link,
                         model: "routerLink",
                         to: "/no/"
-                      },
-                      availability: true,
+                      }
+                    },
+                    {
+                      label: "label",
                       isSelected: false,
-                      label: "label"
+                      availability: true,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/"
+                      }
                     }
                   ]
                 },
