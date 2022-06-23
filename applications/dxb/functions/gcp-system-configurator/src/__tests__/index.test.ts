@@ -1806,10 +1806,6 @@ describe("HTTP function:", () => {
     const originalPreviewApi = process.env.PREVIEW_API;
     delete process.env.PREVIEW_API;
 
-    getSecret
-      .mockReturnValueOnce(recaptchaSecret)
-      .mockReturnValueOnce(contentfulDeliveryToken);
-
     const req = getMockReq({
       headers: {
         [recaptchaTokenHeader]: recaptchaSiteKey
@@ -2026,10 +2022,6 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
           variables: { answerId: "1234", locale: "en-US", preview: "false" }
         }
       }
-    );
-    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
     );
 
     process.env.PREVIEW_API = originalPreviewApi;
@@ -2039,10 +2031,6 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
     const originalPreviewApi = process.env.PREVIEW_API;
     process.env.PREVIEW_API = "false";
 
-    getSecret
-      .mockReturnValueOnce(recaptchaSecret)
-      .mockReturnValueOnce(contentfulDeliveryToken);
-
     const req = getMockReq({
       headers: {
         [recaptchaTokenHeader]: recaptchaSiteKey
@@ -2260,10 +2248,6 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
         }
       }
     );
-    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
-    );
 
     process.env.PREVIEW_API = originalPreviewApi;
   });
@@ -2271,10 +2255,6 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
   it("nextStep: returns a 200 response status when answer next step is type 'Question' and PREVIEW_API is set to true.", async () => {
     const originalPreviewApi = process.env.PREVIEW_API;
     process.env.PREVIEW_API = "true";
-
-    getSecret
-      .mockReturnValueOnce(recaptchaSecret)
-      .mockReturnValueOnce(contentfulDeliveryToken);
 
     const req = getMockReq({
       headers: {
@@ -2492,10 +2472,6 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
           variables: { answerId: "1234", locale: "en-US", preview: "true" }
         }
       }
-    );
-    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
     );
 
     process.env.PREVIEW_API = originalPreviewApi;
