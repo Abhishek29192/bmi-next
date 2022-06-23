@@ -10,11 +10,6 @@ jest.mock("@bmi/functions-firestore", () => ({
   })
 }));
 
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => ({
-  getSecret
-}));
-
 const youtube = jest.fn();
 const list = jest.fn();
 jest.mock("googleapis/build/src/apis/youtube", () => ({ youtube }));
@@ -114,25 +109,8 @@ describe("getById", () => {
 });
 
 describe("getYoutubeDetails", () => {
-  it("should throw error when get Youtube API secret throws error", async () => {
-    getSecret.mockRejectedValue(Error("Expected error"));
-
-    try {
-      await getYoutubeDetails(youtubeId);
-      expect(false).toEqual("An error should have been thrown");
-    } catch (error) {
-      expect((error as Error).message).toStrictEqual("Expected error");
-    }
-
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.GOOGLE_YOUTUBE_API_KEY_SECRET
-    );
-    expect(youtube).not.toHaveBeenCalled();
-  });
-
   it("should throw error when list Youtube videos throws error", async () => {
     const youtubeApiKey = "youtube-api-key";
-    getSecret.mockResolvedValue(youtubeApiKey);
     list.mockRejectedValue(Error("Expected error"));
 
     try {
@@ -142,9 +120,6 @@ describe("getYoutubeDetails", () => {
       expect((error as Error).message).toStrictEqual("Expected error");
     }
 
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.GOOGLE_YOUTUBE_API_KEY_SECRET
-    );
     expect(youtube).toHaveBeenCalledWith({
       version: "v3",
       auth: youtubeApiKey
@@ -158,16 +133,12 @@ describe("getYoutubeDetails", () => {
 
   it("should return data from list Youtube videos response", async () => {
     const youtubeApiKey = "youtube-api-key";
-    getSecret.mockResolvedValue(youtubeApiKey);
     const expectedYoutubeDetails = createYoutubeDetails();
     list.mockResolvedValue({ data: expectedYoutubeDetails });
 
     const actualYoutubeDetails = await getYoutubeDetails(youtubeId);
 
     expect(actualYoutubeDetails).toStrictEqual(expectedYoutubeDetails);
-    expect(getSecret).toHaveBeenCalledWith(
-      process.env.GOOGLE_YOUTUBE_API_KEY_SECRET
-    );
     expect(youtube).toHaveBeenCalledWith({
       version: "v3",
       auth: youtubeApiKey

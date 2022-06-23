@@ -1,12 +1,11 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
 import QueryString from "qs";
 import { Answer, NextStep, Response, Type } from "./types";
 
 const {
-  CONTENTFUL_DELIVERY_TOKEN_SECRET,
+  CONTENTFUL_DELIVERY_TOKEN,
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
   PREVIEW_API,
@@ -77,17 +76,13 @@ const runQuery = async (
   query: string,
   variables: QueryString.ParsedQs
 ): Promise<Answer> => {
-  const contentfulDeliveryTokenSecret = await getSecret(
-    CONTENTFUL_DELIVERY_TOKEN_SECRET!
-  );
-
   const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${contentfulDeliveryTokenSecret}`
+        Authorization: `Bearer ${CONTENTFUL_DELIVERY_TOKEN}`
       },
       body: JSON.stringify({
         query,
@@ -184,9 +179,9 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
 `;
 
 export const nextStep: HttpFunction = async (request, response) => {
-  if (!CONTENTFUL_DELIVERY_TOKEN_SECRET) {
+  if (!CONTENTFUL_DELIVERY_TOKEN) {
     logger.error({
-      message: "CONTENTFUL_DELIVERY_TOKEN_SECRET has not been set"
+      message: "CONTENTFUL_DELIVERY_TOKEN has not been set"
     });
     return response.sendStatus(500);
   }
@@ -201,8 +196,8 @@ export const nextStep: HttpFunction = async (request, response) => {
     return response.sendStatus(500);
   }
 
-  if (!RECAPTCHA_SECRET_KEY) {
-    logger.error({ message: "RECAPTCHA_SECRET_KEY has not been set" });
+  if (!RECAPTCHA_KEY) {
+    logger.error({ message: "RECAPTCHA_KEY has not been set" });
     return response.sendStatus(500);
   }
 
@@ -235,18 +230,9 @@ export const nextStep: HttpFunction = async (request, response) => {
       .send(generateError("Recaptcha token not provided."));
   }
 
-  let recaptchaKeySecret;
-
-  try {
-    recaptchaKeySecret = await getSecret(RECAPTCHA_SECRET_KEY);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    return response.status(500).send(generateError((error as Error).message));
-  }
-
   try {
     const recaptchaResponse = await fetch(
-      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaKeySecret}&response=${recaptchaToken}`,
+      `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
       { method: "POST" }
     );
     if (!recaptchaResponse.ok) {

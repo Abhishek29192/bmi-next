@@ -1,13 +1,13 @@
-import { escape } from "querystring";
-import { IncomingHttpHeaders } from "http";
-import { Request, Response } from "express";
-import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import {
   mockRequest as fetchMockRequest,
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { Request, Response } from "express";
+import fetchMockJest from "fetch-mock-jest";
+import { IncomingHttpHeaders } from "http";
+import mockConsole from "jest-mock-console";
+import { escape } from "querystring";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -24,11 +24,6 @@ const mockRequest = (
   },
   headers: IncomingHttpHeaders = { "X-Recaptcha-Token": validToken }
 ): Partial<Request> => fetchMockRequest("POST", headers, "/", body);
-
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
 
 const oAuthEndpoint = `${process.env.APSIS_API_BASE_URL}/oauth/token`;
 
@@ -74,19 +69,18 @@ beforeEach(() => {
 });
 
 describe("Invalid environment variables", () => {
-  it("should return 500 if APSIS_CLIENT_SECRET is not set", async () => {
-    const apsisClientSecret = process.env.APSIS_CLIENT_SECRET;
-    delete process.env.APSIS_CLIENT_SECRET;
+  it("should return 500 if APSIS_OAUTH_CLIENT_SECRET is not set", async () => {
+    const apsisClientSecret = process.env.APSIS_OAUTH_CLIENT_SECRET;
+    delete process.env.APSIS_OAUTH_CLIENT_SECRET;
 
     const res = mockResponse();
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.APSIS_CLIENT_SECRET = apsisClientSecret;
+    process.env.APSIS_OAUTH_CLIENT_SECRET = apsisClientSecret;
   });
   it("should return 500 if APSIS_TARGET_EMAIL_ATTRIBUTE_ID is not set", async () => {
     const apsisTargetEmailAttributeId =
@@ -97,7 +91,6 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -113,9 +106,7 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
@@ -131,30 +122,26 @@ describe("Invalid environment variables", () => {
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
     process.env.APSIS_TARGET_GDPR_2_ATTRIBUTE_ID = apsisTargetGdpr2AttributeId;
   });
 
-  it("should return 500 if RECAPTCHA_SECRET_KEY is not set", async () => {
-    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
-    delete process.env.RECAPTCHA_SECRET_KEY;
+  it("should return 500 if RECAPTCHA_KEY is not set", async () => {
+    const recaptchaSecretKey = process.env.RECAPTCHA_KEY;
+    delete process.env.RECAPTCHA_KEY;
 
     const res = mockResponse();
 
     await optInEmailMarketing(mockRequest(), res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.RECAPTCHA_SECRET_KEY = recaptchaSecretKey;
+    process.env.RECAPTCHA_KEY = recaptchaSecretKey;
   });
 });
 
@@ -167,7 +154,6 @@ describe("Making an OPTIONS request as part of CORS", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "POST");
     expect(res.set).toBeCalledWith("Access-Control-Allow-Headers", [
@@ -250,34 +236,14 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledTimes(0);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Token not provided."));
   });
 
-  it("returns status code 500 when an error is returned from Secret Manager when getting recaptcha key", async () => {
-    const req = mockRequest();
-    const res = mockResponse();
-
-    getSecret.mockRejectedValueOnce(() => {
-      new Error("Expected Error");
-    });
-
-    await optInEmailMarketing(req, res);
-
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
-    expect(fetchMock).toHaveFetchedTimes(0);
-    expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
-    expect(res.status).toBeCalledWith(500);
-    expect(res.send).toBeCalledWith(Error("Recaptcha request failed."));
-  });
-
   it("returns status code 500 when the recaptcha request fails", async () => {
     const req = mockRequest();
     const res = mockResponse();
-
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
 
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
@@ -287,7 +253,6 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -301,8 +266,6 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
-
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       method: "POST",
@@ -312,7 +275,6 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -326,8 +288,6 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
-
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       method: "POST",
@@ -339,7 +299,6 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -353,8 +312,6 @@ describe("Making a POST request", () => {
     const req = mockRequest();
     const res = mockResponse();
 
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
-
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       method: "POST",
@@ -366,7 +323,6 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
@@ -385,8 +341,6 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
-
     mockResponses(fetchMock, {
       url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       method: "POST",
@@ -398,7 +352,6 @@ describe("Making a POST request", () => {
 
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=invalid-token`,
       { method: "POST" }
@@ -421,20 +374,12 @@ describe("Making a POST request", () => {
       })
     });
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockRejectedValueOnce(() => {
-        new Error("Expected Error");
-      });
-
     await optInEmailMarketing(req, res);
 
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
   });
@@ -442,10 +387,6 @@ describe("Making a POST request", () => {
   it("returns status code 500 when an error is returned from Oauth", async () => {
     const req = mockRequest();
     const res = mockResponse();
-
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -470,12 +411,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(2);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -499,10 +438,6 @@ describe("Making a POST request", () => {
       gdpr_2: true
     });
     const res = mockResponse();
-
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -534,12 +469,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(3);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -572,10 +505,6 @@ describe("Making a POST request", () => {
       gdpr_2: true
     });
     const res = mockResponse();
-
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
 
     mockResponses(
       fetchMock,
@@ -612,12 +541,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(4);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -666,10 +593,6 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -710,12 +633,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -780,10 +701,6 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -822,12 +739,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -892,10 +807,6 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -935,12 +846,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(500);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1008,10 +917,6 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -1051,12 +956,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1121,10 +1024,6 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -1164,12 +1063,10 @@ describe("Making a POST request", () => {
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(5);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1240,8 +1137,6 @@ describe("Making a POST request", () => {
     );
     const res = mockResponse();
 
-    getSecret.mockResolvedValueOnce(recaptchaSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -1290,7 +1185,6 @@ describe("Making a POST request", () => {
     expect(res.status).toBeCalledWith(400);
     expect(res.send).toBeCalledWith(Error("Recaptcha check failed."));
     expect(fetchMock).toHaveFetchedTimes(1);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}0.9`,
       { method: "POST" }
@@ -1300,21 +1194,15 @@ describe("Making a POST request", () => {
       "X-Recaptcha-Token": `${validToken}1.0`
     });
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     await optInEmailMarketing(passReq, res);
 
     expect(res.set).toBeCalledWith("Access-Control-Allow-Origin", "*");
     expect(res.sendStatus).toBeCalledWith(200);
     expect(fetchMock).toHaveFetchedTimes(6);
-    expect(getSecret).toBeCalledWith(process.env.RECAPTCHA_SECRET_KEY);
     expect(fetchMock).toHaveFetched(
       `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}1.0`,
       { method: "POST" }
     );
-    expect(getSecret).toBeCalledWith(process.env.APSIS_CLIENT_SECRET);
     expect(fetchMock).toHaveFetched(oAuthEndpoint, {
       body: {
         client_id: process.env.APSIS_CLIENT_ID,
@@ -1383,10 +1271,6 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
@@ -1449,15 +1333,11 @@ describe("Making a POST request", () => {
     });
     const res = mockResponse();
 
-    getSecret
-      .mockResolvedValueOnce(recaptchaSecret)
-      .mockResolvedValueOnce(apsisClientSecret);
-
     mockResponses(
       fetchMock,
       {
         method: "POST",
-        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${validToken}`,
+        url: `https://recaptcha.google.com/recaptcha/api/siteverify?secret=recaptcha-secret&response=valid-token`,
         body: JSON.stringify({
           success: true,
           score: process.env.RECAPTCHA_MINIMUM_SCORE

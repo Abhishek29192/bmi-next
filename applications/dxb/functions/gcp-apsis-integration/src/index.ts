@@ -1,15 +1,14 @@
-import { escape } from "querystring";
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { getSecret } from "@bmi-digital/functions-secret-client";
+import { escape } from "querystring";
 
 type RequestRedirect = "error" | "follow" | "manual";
 
 const {
   APSIS_API_BASE_URL,
   APSIS_CLIENT_ID,
-  APSIS_CLIENT_SECRET,
+  APSIS_OAUTH_CLIENT_SECRET,
   APSIS_TARGET_KEYSPACE,
   APSIS_TARGET_SECTION,
   APSIS_CONSENT_LIST_DESCRIMINATOR,
@@ -19,7 +18,7 @@ const {
   APSIS_TARGET_GDPR_2_ATTRIBUTE_ID,
   APSIS_TARGET_FIRST_NAME_ATTRIBUTE_ID,
   APSIS_TARGET_CHANNEL,
-  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 
@@ -29,8 +28,6 @@ const recaptchaTokenHeader = "X-Recaptcha-Token";
 const apsisAudianceBase = `${APSIS_API_BASE_URL}/audience`;
 
 const getAuthToken = async () => {
-  const apsisClientSecret = await getSecret(APSIS_CLIENT_SECRET!);
-
   const requestOptions = {
     method: "POST",
     headers: {
@@ -39,7 +36,7 @@ const getAuthToken = async () => {
     },
     body: JSON.stringify({
       client_id: APSIS_CLIENT_ID,
-      client_secret: apsisClientSecret,
+      client_secret: APSIS_OAUTH_CLIENT_SECRET,
       grant_type: "client_credentials"
     }),
     redirect: "follow" as RequestRedirect
@@ -166,9 +163,9 @@ const validateGDPR = (gdpr_1: boolean, gdpr_2: boolean) => {
 };
 
 export const optInEmailMarketing: HttpFunction = async (request, response) => {
-  if (!APSIS_CLIENT_SECRET) {
+  if (!APSIS_OAUTH_CLIENT_SECRET) {
     logger.error({
-      message: "APSIS_CLIENT_SECRET was not provided"
+      message: "APSIS_OAUTH_CLIENT_SECRET was not provided"
     });
     return response.sendStatus(500);
   }
@@ -194,9 +191,9 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
     return response.sendStatus(500);
   }
 
-  if (!RECAPTCHA_SECRET_KEY) {
+  if (!RECAPTCHA_KEY) {
     logger.error({
-      message: "RECAPTCHA_SECRET_KEY was not provided"
+      message: "RECAPTCHA_KEY was not provided"
     });
     return response.sendStatus(500);
   }
@@ -234,9 +231,7 @@ export const optInEmailMarketing: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
-            RECAPTCHA_SECRET_KEY
-          )}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {

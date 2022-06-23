@@ -1,5 +1,4 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import {
   copyDefaultValues,
   findIrrelevantLocales
@@ -14,7 +13,7 @@ let environmentCache: Environment | undefined;
 const getEnvironment = async (): Promise<Environment> => {
   if (!environmentCache) {
     const client = createClient({
-      accessToken: await getSecret(process.env.MANAGEMENT_ACCESS_TOKEN_SECRET!)
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
     });
     const space = await client.getSpace(process.env.SPACE_ID!);
 
@@ -26,11 +25,11 @@ const getEnvironment = async (): Promise<Environment> => {
 };
 
 export const fill: HttpFunction = async (request, response) => {
-  if (!process.env.DEFAULT_VALUES_REQUEST_SECRET) {
+  if (!process.env.DEFAULT_VALUES_REQUEST) {
     logger.error({ message: "Request secret is not set." });
     return response.sendStatus(500);
   }
-  if (!process.env.MANAGEMENT_ACCESS_TOKEN_SECRET) {
+  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
     logger.error({ message: "Management access token is not set." });
     return response.sendStatus(500);
   }
@@ -53,7 +52,7 @@ export const fill: HttpFunction = async (request, response) => {
     return response.sendStatus(405);
   }
 
-  const reqSecret = await getSecret(process.env.DEFAULT_VALUES_REQUEST_SECRET!);
+  const reqSecret = process.env.DEFAULT_VALUES_REQUEST;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||
     request.headers.authorization?.substring("Bearer ".length) !== reqSecret

@@ -1,18 +1,18 @@
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
+import {
+  Asset,
+  ClientAPI,
+  EntityMetaSysProps,
+  Entry,
+  Environment,
+  Space
+} from "contentful-management";
 import { Request, Response } from "express";
 import mockConsole from "jest-mock-console";
-import {
-  Space,
-  ClientAPI,
-  Environment,
-  Entry,
-  Asset,
-  EntityMetaSysProps
-} from "contentful-management";
-import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleAssetWebhook from "./resources/contentfulWebhook_asset.json";
-import SampleContentfulEntry from "./resources/sample_entry.json";
+import SampleEntryWebhook from "./resources/contentfulWebhook_entry.json";
 import SampleContentfulAsset from "./resources/sample_asset.json";
+import SampleContentfulEntry from "./resources/sample_entry.json";
 
 const tagMock = async (
   request: Partial<Request>,
@@ -23,11 +23,6 @@ const tagMock = async (
   ).tag(request as Request, response as Response);
 
 const REQUEST_SECRET = "some secret";
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
-getSecret.mockReturnValue(REQUEST_SECRET);
 
 const findOwner = jest.fn().mockReturnValue({});
 const findMembership = jest.fn().mockReturnValue({
@@ -91,8 +86,8 @@ beforeEach(() => {
 
 describe("Tag", () => {
   it.each([
-    "TAGGER_REQUEST_SECRET",
-    "MANAGEMENT_ACCESS_TOKEN_SECRET",
+    "TAGGER_REQUEST",
+    "MANAGEMENT_ACCESS_TOKEN",
     "SPACE_ID",
     "CONTENTFUL_ENVIRONMENT"
   ])("Returns 500, when %s is not set", async (name) => {
@@ -149,7 +144,6 @@ describe("Tag", () => {
   });
 
   it("Returns 401 when Bearer token is missing", async () => {
-    getSecret.mockReturnValueOnce("");
     const mockReq = mockRequest("POST", { authorization: "Bearer " });
     const mockRes = mockResponse();
 
@@ -160,7 +154,6 @@ describe("Tag", () => {
 
   it("Returns 401 when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    getSecret.mockReturnValueOnce(shortSecret);
     const mockReq = mockRequest("POST", {
       authorization: `Bearer ${shortSecret}`
     });
