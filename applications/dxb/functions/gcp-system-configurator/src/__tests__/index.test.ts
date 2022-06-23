@@ -5,7 +5,6 @@ import mockConsole from "jest-mock-console";
 import { Answer, Type } from "../types";
 
 const contentfulDeliveryToken = "contentful-delivery-token";
-const recaptchaSecret = "recaptcha-secret";
 const recaptchaSiteKey = "recaptcha-site-key";
 const recaptchaTokenHeader = "X-Recaptcha-Token";
 

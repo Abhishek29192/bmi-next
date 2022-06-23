@@ -103,7 +103,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -134,7 +137,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -165,7 +171,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -208,7 +217,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -265,7 +277,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -322,7 +337,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -367,7 +385,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -413,7 +434,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {
@@ -459,7 +483,10 @@ describe("fetchData", () => {
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
     expectedUrlencoded.append("client_id", process.env.PIM_CLIENT_ID!);
-    expectedUrlencoded.append("client_secret", process.env.PIM_OAUTH_CLIENT_SECRET!);
+    expectedUrlencoded.append(
+      "client_secret",
+      process.env.PIM_OAUTH_CLIENT_SECRET!
+    );
     expectedUrlencoded.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedUrlencoded);
     expect(fetchMock).toHaveFetched(pimAuthTokenUrl, {

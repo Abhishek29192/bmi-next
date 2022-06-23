@@ -1,3 +1,6 @@
+import { readFileSync } from "fs";
+import { IncomingHttpHeaders } from "http";
+import path from "path";
 import {
   mockRequest as fetchMockRequest,
   mockResponse,
@@ -5,10 +8,7 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { readFileSync } from "fs";
-import { IncomingHttpHeaders } from "http";
 import mockConsole from "jest-mock-console";
-import path from "path";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -16,7 +16,6 @@ jest.mock("node-fetch", () => fetchMock);
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const validToken = "valid-token";
 const recaptchaSecret = "recaptcha-secret";
-const managementTokenSecret = "management-token-secret";
 
 const mockRequest = (
   body: Buffer | Record<string, unknown> = readFileSync(

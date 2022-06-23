@@ -1,3 +1,4 @@
+import { URLSearchParams } from "url";
 import {
   AuthResponse,
   ErrorResponse,
@@ -6,7 +7,6 @@ import {
   SystemsApiResponse
 } from "@bmi/pim-types";
 import fetch, { RequestRedirect } from "node-fetch";
-import { URLSearchParams } from "url";
 
 const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
   process.env;

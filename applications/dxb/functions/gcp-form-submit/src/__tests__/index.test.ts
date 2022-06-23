@@ -1,3 +1,4 @@
+import { IncomingHttpHeaders } from "http";
 import {
   mockRequest as fetchMockRequest,
   mockResponse,
@@ -5,7 +6,6 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { IncomingHttpHeaders } from "http";
 import mockConsole from "jest-mock-console";
 
 const fetchMock = fetchMockJest.sandbox();

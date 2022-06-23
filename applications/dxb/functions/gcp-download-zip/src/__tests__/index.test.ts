@@ -1,3 +1,6 @@
+import fs, { PathLike } from "fs";
+import os from "os";
+import path from "path";
 import {
   mockRequest,
   mockResponse,
@@ -5,10 +8,7 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import fs, { PathLike } from "fs";
 import mockConsole from "jest-mock-console";
-import os from "os";
-import path from "path";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);

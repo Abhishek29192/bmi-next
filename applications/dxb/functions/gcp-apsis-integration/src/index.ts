@@ -1,7 +1,7 @@
+import { escape } from "querystring";
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { escape } from "querystring";
 
 type RequestRedirect = "error" | "follow" | "manual";
 

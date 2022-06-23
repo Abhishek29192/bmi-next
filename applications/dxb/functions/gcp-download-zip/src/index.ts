@@ -1,9 +1,9 @@
+import { Writable } from "stream";
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
 import fetch from "node-fetch";
-import { Writable } from "stream";
 import { verifyOrigins } from "./verify";
 
 const {

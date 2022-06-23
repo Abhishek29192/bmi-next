@@ -1,3 +1,5 @@
+import { IncomingHttpHeaders } from "http";
+import { escape } from "querystring";
 import {
   mockRequest as fetchMockRequest,
   mockResponse,
@@ -5,9 +7,7 @@ import {
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { IncomingHttpHeaders } from "http";
 import mockConsole from "jest-mock-console";
-import { escape } from "querystring";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
