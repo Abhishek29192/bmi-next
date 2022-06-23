@@ -25,7 +25,6 @@ import { Data as PageInfoData } from "./PageInfo";
 import RichText, { RichTextData } from "./RichText";
 import SampleBasketDialog from "./SampleBasketDialog";
 import { useSiteContext } from "./Site";
-import ShoppingCartBadge from "./ShoppingCartBadge";
 
 const getPromoSection = (promo, countryCode, getMicroCopy) => {
   const cta = getCTA(
@@ -260,9 +259,6 @@ const Header = ({
             />
           )}
           isBasketEmpty={productsInBasket.length === 0}
-          ShoppingCartBadge={
-            <ShoppingCartBadge badgeCount={productsInBasket.length} />
-          }
           basketLabel={getMicroCopy(microCopy.BASKET_LABEL)}
           SampleBasketDialog={(props: () => void) => (
             <SampleBasketDialog
