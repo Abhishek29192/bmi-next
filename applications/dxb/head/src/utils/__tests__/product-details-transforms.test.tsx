@@ -1308,7 +1308,6 @@ describe("product-details-transforms tests", () => {
         const result = mapClassificationValues(
           createProduct({
             colour: undefined,
-            colourFamily: undefined,
             textureFamily: undefined,
             measurements: undefined
           })
@@ -1322,7 +1321,6 @@ describe("product-details-transforms tests", () => {
           const result = mapClassificationValues(
             createProduct({
               colour: undefined,
-              colourFamily: undefined,
               textureFamily: undefined,
               measurements: createMeasurements()
             })
@@ -1336,7 +1334,6 @@ describe("product-details-transforms tests", () => {
             const result = mapClassificationValues(
               createProduct({
                 colour: "n/a",
-                colourFamily: undefined,
                 textureFamily: undefined,
                 measurements: undefined
               })
@@ -1349,7 +1346,6 @@ describe("product-details-transforms tests", () => {
             const result = mapClassificationValues(
               createProduct({
                 colour: "red",
-                colourFamily: undefined,
                 textureFamily: undefined,
                 measurements: undefined
               })
@@ -1364,7 +1360,6 @@ describe("product-details-transforms tests", () => {
             const result = mapClassificationValues(
               createProduct({
                 colour: undefined,
-                colourFamily: undefined,
                 textureFamily: "n/a",
                 measurements: undefined
               })
@@ -1378,8 +1373,7 @@ describe("product-details-transforms tests", () => {
               createProduct({
                 textureFamily: "smooth",
                 colour: undefined,
-                measurements: undefined,
-                colourFamily: undefined
+                measurements: undefined
               })
             );
             expect(result).toEqual("smooth");

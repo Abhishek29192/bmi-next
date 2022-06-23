@@ -427,17 +427,9 @@ export const getProductAttributes = (
 // TODO: Is there not a function to get a render value of a classification?
 // TODO: Move this into 'product.subTitle' field, just like Elastic search ??
 export const mapClassificationValues = (
-  product: Pick<
-    Product,
-    "colour" | "colourFamily" | "measurements" | "textureFamily"
-  >
+  product: Pick<Product, "colour" | "measurements" | "textureFamily">
 ) => {
-  return [
-    product.colour,
-    product.colourFamily,
-    product.textureFamily,
-    product.measurements?.label
-  ]
+  return [product.colour, product.textureFamily, product.measurements?.label]
     .filter(isDefined)
     .filter((item) => item.trim().length > 0)
     .join(", ");

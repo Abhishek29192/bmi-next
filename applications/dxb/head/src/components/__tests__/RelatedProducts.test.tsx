@@ -54,7 +54,7 @@ describe("RelatedProducts component", () => {
     const expectedDataGtm = JSON.stringify({
       id: "cta-click1",
       label:
-        "name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails",
+        "name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails",
       action: "/en/path/"
     });
 
