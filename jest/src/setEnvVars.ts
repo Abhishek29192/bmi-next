@@ -64,7 +64,7 @@ process.env.PIM_CATALOG_NAME = "pim-catalog-name";
 process.env.GCP_PROJECT_ID = "gcp-project-id";
 process.env.FIRESTORE_ROOT_COLLECTION = "firestore-root-collection";
 process.env.ES_INDEX_PREFIX = "es-index-prefix";
-process.env.PIM_CLIENT_SECRET = "pim-client-secret";
+process.env.PIM_OAUTH_CLIENT_SECRET = "pim-client-secret";
 process.env.FULL_FETCH_ENDPOINT = "http://localhost:9090";
 process.env.PIM_CLIENT_ID = "TEST_PIM_CLIENT_ID";
 
