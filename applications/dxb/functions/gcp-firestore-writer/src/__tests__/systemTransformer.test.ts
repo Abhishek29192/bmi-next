@@ -280,6 +280,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
@@ -527,6 +528,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
             Object {
@@ -538,6 +540,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],

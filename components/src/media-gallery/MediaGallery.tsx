@@ -147,7 +147,7 @@ const MediaGallery = ({
           ) : null}
         </div>
       )}
-      {currentMedias.length > 1 && (
+      {currentMedias && currentMedias.length > 1 && (
         <Thumbnails
           images={currentMedias}
           component={thumbnailComponent}
