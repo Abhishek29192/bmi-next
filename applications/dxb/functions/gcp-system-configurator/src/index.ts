@@ -1,14 +1,15 @@
 import logger from "@bmi-digital/functions-logger";
 import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import QueryString from "qs";
 import fetch from "node-fetch";
+import QueryString from "qs";
 import { Answer, NextStep, Response, Type } from "./types";
 
 const {
   CONTENTFUL_DELIVERY_TOKEN_SECRET,
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
+  PREVIEW_API,
   RECAPTCHA_SECRET_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
@@ -113,8 +114,8 @@ const generateError = (message: string) => {
 const PAGE_SIZE = 9;
 
 export const query = (page: number) => `
-query NextStep($answerId: String!, $locale: String!) {
-  systemConfiguratorBlock(id: $answerId, locale: $locale) {
+query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
       ...EntryFragment
@@ -283,7 +284,11 @@ export const nextStep: HttpFunction = async (request, response) => {
 
   do {
     try {
-      data = await runQuery(query(page), { answerId, locale });
+      data = await runQuery(query(page), {
+        answerId,
+        locale,
+        preview: PREVIEW_API || "false"
+      });
     } catch (error) {
       logger.error({ message: (error as Error).message });
       return response.status(500).send(error);

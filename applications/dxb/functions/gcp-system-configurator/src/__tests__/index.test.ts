@@ -1,6 +1,6 @@
+import { getMockReq, getMockRes } from "@jest-mock/express";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
-import { getMockReq, getMockRes } from "@jest-mock/express";
 import mockConsole from "jest-mock-console";
 import { Answer, Type } from "../types";
 
@@ -1992,5 +1992,704 @@ describe("HTTP function:", () => {
     expect(getSecret).toHaveBeenCalledWith(
       process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
     );
+  });
+
+  it("nextStep: returns a 200 response status when answer next step is type 'Question' and PREVIEW_API is not set.", async () => {
+    const originalPreviewApi = process.env.PREVIEW_API;
+    delete process.env.PREVIEW_API;
+
+    getSecret
+      .mockReturnValueOnce(recaptchaSecret)
+      .mockReturnValueOnce(contentfulDeliveryToken);
+
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
+              answersCollection: {
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorBlock",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      type: "Question",
+      content: null,
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: [],
+      recommendedSystems: null
+    });
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      { method: "POST" }
+    );
+    expect(fetchMock).toHaveFetched(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${contentfulDeliveryToken}`
+        },
+        body: {
+          query: `
+query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
+    nextStep {
+      __typename
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
+      }
+    }
+  }
+}
+`,
+          variables: { answerId: "1234", locale: "en-US", preview: "false" }
+        }
+      }
+    );
+    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
+    expect(getSecret).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
+    );
+
+    process.env.PREVIEW_API = originalPreviewApi;
+  });
+
+  it("nextStep: returns a 200 response status when answer next step is type 'Question' and PREVIEW_API is set to false.", async () => {
+    const originalPreviewApi = process.env.PREVIEW_API;
+    process.env.PREVIEW_API = "false";
+
+    getSecret
+      .mockReturnValueOnce(recaptchaSecret)
+      .mockReturnValueOnce(contentfulDeliveryToken);
+
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
+              answersCollection: {
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorBlock",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      type: "Question",
+      content: null,
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: [],
+      recommendedSystems: null
+    });
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      { method: "POST" }
+    );
+    expect(fetchMock).toHaveFetched(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${contentfulDeliveryToken}`
+        },
+        body: {
+          query: `
+query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
+    nextStep {
+      __typename
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
+      }
+    }
+  }
+}
+`,
+          variables: { answerId: "1234", locale: "en-US", preview: "false" }
+        }
+      }
+    );
+    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
+    expect(getSecret).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
+    );
+
+    process.env.PREVIEW_API = originalPreviewApi;
+  });
+
+  it("nextStep: returns a 200 response status when answer next step is type 'Question' and PREVIEW_API is set to true.", async () => {
+    const originalPreviewApi = process.env.PREVIEW_API;
+    process.env.PREVIEW_API = "true";
+
+    getSecret
+      .mockReturnValueOnce(recaptchaSecret)
+      .mockReturnValueOnce(contentfulDeliveryToken);
+
+    const req = getMockReq({
+      headers: {
+        [recaptchaTokenHeader]: recaptchaSiteKey
+      },
+      method: "GET",
+      query: {
+        answerId: "1234",
+        locale: "en-US"
+      }
+    });
+
+    fetchMock.post(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      {
+        status: 200,
+        body: JSON.stringify({
+          success: true
+        })
+      }
+    );
+
+    const addContentfulResponseMock = async (
+      mockResponse: ContentfulResponse,
+      index: number
+    ) => {
+      fetchMock.mock(
+        {
+          method: "POST",
+          url: "begin:https://graphql.contentful.com",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${contentfulDeliveryToken}`
+          },
+          body: {
+            query: await query(index),
+            variables: {
+              answerId: "1234",
+              locale: "en-US"
+            }
+          },
+          matchPartialBody: true
+        },
+        mockResponse
+      );
+    };
+
+    await addContentfulResponseMock(
+      {
+        data: {
+          systemConfiguratorBlock: {
+            nextStep: {
+              __typename: "SystemConfiguratorBlock",
+              sys: {
+                id: "question2"
+              },
+              type: "Question",
+              title: "Question 2",
+              description: {
+                json: {
+                  data: {},
+                  content: [
+                    {
+                      data: {},
+                      marks: [],
+                      content: [
+                        {
+                          data: {},
+                          marks: [],
+                          value: "Question 2a rich text.",
+                          nodeType: "text"
+                        }
+                      ],
+                      nodeType: "paragraph"
+                    }
+                  ],
+                  nodeType: "document"
+                },
+                links: {
+                  assets: {
+                    block: []
+                  }
+                }
+              },
+              answersCollection: {
+                total: 0,
+                items: []
+              },
+              recommendedSystems: null
+            }
+          }
+        }
+      },
+      0
+    );
+
+    await nextStep(req, res);
+
+    expect(res.set).toBeCalledWith("Access-Control-Allow-Methods", "GET");
+    expect(res.status).toBeCalledWith(200);
+    expect(res.send).toBeCalledWith({
+      __typename: "ContentfulSystemConfiguratorBlock",
+      contentful_id: "question2",
+      id: "question2",
+      title: "Question 2",
+      type: "Question",
+      content: null,
+      description: {
+        raw: JSON.stringify({
+          data: {},
+          content: [
+            {
+              data: {},
+              marks: [],
+              content: [
+                {
+                  data: {},
+                  marks: [],
+                  value: "Question 2a rich text.",
+                  nodeType: "text"
+                }
+              ],
+              nodeType: "paragraph"
+            }
+          ],
+          nodeType: "document"
+        }),
+        references: []
+      },
+      answers: [],
+      recommendedSystems: null
+    });
+    expect(fetchMock).toHaveFetched(
+      "begin:https://recaptcha.google.com/recaptcha/api/siteverify",
+      { method: "POST" }
+    );
+    expect(fetchMock).toHaveFetched(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${contentfulDeliveryToken}`
+        },
+        body: {
+          query: `
+query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
+    nextStep {
+      __typename
+      ...EntryFragment
+      ...QuestionFragment
+      ...ResultFragment
+      ...TitleWithContentFragment
+    }
+  }
+}
+
+fragment QuestionFragment on SystemConfiguratorBlock {
+  answersCollection(limit: ${9}, skip: ${0 * 9}) {
+    total
+    items {
+      ...EntryFragment
+    }
+  }
+}
+
+fragment ResultFragment on SystemConfiguratorBlock {
+  recommendedSystems
+}
+
+fragment EntryFragment on SystemConfiguratorBlock {
+  __typename
+  sys {
+    id
+  }
+  title
+  description {
+    ...RichTextFragment
+  }
+  type
+}
+
+fragment TitleWithContentFragment on TitleWithContent {
+  sys {
+    id
+  }
+  title
+  content {
+    json
+  }
+}
+
+fragment AssetFragment on Asset {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  contentType
+}
+
+fragment RichTextFragment on SystemConfiguratorBlockDescription {
+  json
+  links {
+    assets {
+      block {
+          ...AssetFragment
+      }
+    }
+  }
+}
+`,
+          variables: { answerId: "1234", locale: "en-US", preview: "true" }
+        }
+      }
+    );
+    expect(getSecret).toHaveBeenCalledWith(process.env.RECAPTCHA_SECRET_KEY);
+    expect(getSecret).toHaveBeenCalledWith(
+      process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET
+    );
+
+    process.env.PREVIEW_API = originalPreviewApi;
   });
 });
