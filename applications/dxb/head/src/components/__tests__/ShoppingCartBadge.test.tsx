@@ -8,7 +8,7 @@ describe("ShoppingCartShoppingCartBadge component", () => {
     expect(container).toMatchSnapshot();
   });
   it("renders correctly with count more then 99", () => {
-    const { container } = render(<ShoppingCartBadge badgeCount={101} />);
+    const { container } = render(<ShoppingCartBadge badgeCount={100} />);
     expect(
       container.getElementsByClassName("MuiBadge-badge")[0]
     ).toHaveTextContent("99+");
