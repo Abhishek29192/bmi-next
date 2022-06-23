@@ -1,14 +1,12 @@
 process.env.SECRET_MAN_GCP_PROJECT_NAME = "TEST_SECRET_MAN_GCP_PROJECT_NAME";
-process.env.CONTENTFUL_MANAGEMENT_TOKEN_SECRET =
-  "TEST_CONTENTFUL_MANAGEMENT_TOKEN_SECRET";
+process.env.CONTENTFUL_MANAGEMENT_TOKEN = "management-token-secret";
 process.env.CONTENTFUL_SPACE_ID = "TEST_CONTENTFUL_SPACE_ID";
 process.env.CONTENTFUL_ENVIRONMENT = "TEST_CONTENTFUL_ENVIRONMENT";
-process.env.CONTENTFUL_DELIVERY_TOKEN_SECRET =
-  "TEST_CONTENTFUL_DELIVERY_TOKEN_SECRET";
+process.env.CONTENTFUL_DELIVERY_TOKEN = "contentful-delivery-token";
 
 process.env.APSIS_API_BASE_URL = "https://api.apsis.one";
 process.env.APSIS_CLIENT_ID = "TEST_APSIS_CLIENT_ID";
-process.env.APSIS_CLIENT_SECRET = "TEST_APSIS_CLIENT_SECRET";
+process.env.APSIS_OAUTH_CLIENT_SECRET = "apsis-client-secret";
 
 process.env.APSIS_TARGET_SECTION = "usercreated.sections.fulq3a5aou";
 process.env.APSIS_TARGET_KEYSPACE = "com.keyspaces.email";
@@ -23,10 +21,10 @@ process.env.APSIS_TARGET_CHANNEL = "com.channels.email";
 
 process.env.GCS_NAME = "TEST_GCS_NAME";
 process.env.DXB_VALID_HOSTS = "test.dxb.valid.host";
-process.env.RECAPTCHA_SECRET_KEY = "TEST_RECAPTCHA_SECRET_KEY";
+process.env.RECAPTCHA_KEY = "recaptcha-secret";
 process.env.RECAPTCHA_MINIMUM_SCORE = "0.5";
 
-process.env.SENDGRID_API_KEY_SECRET = "TEST_SENDGRID_API_KEY_SECRET";
+process.env.SENDGRID_API_KEY = "send-grid-secret";
 process.env.SENDGRID_FROM_EMAIL = "TEST_SENDGRID_FROM_EMAIL";
 
 process.env.FUNCTIONS_SOURCE_FOLDER = "sources";
@@ -79,10 +77,10 @@ process.env.BUILD_WEBHOOKS =
 process.env.BUILD_REQUEST_SECRET = "build_secret";
 process.env.GATSBY_SITE_URL = "http://localhost:8000";
 
-process.env.TAGGER_REQUEST_SECRET = "some secret";
-process.env.MANAGEMENT_ACCESS_TOKEN_SECRET = "token";
+process.env.TAGGER_REQUEST = "some secret";
+process.env.MANAGEMENT_ACCESS_TOKEN = "token";
 process.env.SPACE_ID = "space_id";
 process.env.CONTENTFUL_ENVIRONMENT = "environment_1";
 
-process.env.DEFAULT_VALUES_REQUEST_SECRET = "some secret";
+process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
