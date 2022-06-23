@@ -13,6 +13,7 @@ import styles from "./styles.module.scss";
 type ImportStatus = {
   title: string;
   severity: "success" | "error" | "warning" | "info";
+  error?: any[];
   companies?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["companies"];
   accounts?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["accounts"];
   auth0Job?: ImportAccountsCompaniesFromCvsMutation["importAccountsCompaniesFromCVS"]["auth0Job"];
@@ -24,6 +25,7 @@ const ImportAccount = () => {
   const [importResult, setImportResult] = useState<ImportStatus>({
     title: null,
     severity: null,
+    error: [],
     companies: null,
     auth0Job: null
   });
@@ -32,11 +34,21 @@ const ImportAccount = () => {
   const [importAccountAndCompanies] = useImportAccountsCompaniesFromCvsMutation(
     {
       fetchPolicy: "no-cache",
-      onError: (error) => {
+      onError: ({ graphQLErrors }) => {
+        const errors = [];
+        if (graphQLErrors) {
+          for (const err of graphQLErrors) {
+            errors.push({
+              message: err.message,
+              detail: err.extensions?.exception?.detail
+            });
+          }
+        }
         setImportResult((prevState) => ({
           ...prevState,
-          title: error.message,
-          severity: "error"
+          title: t("importFailed"),
+          severity: "error",
+          error: errors
         }));
       }
     }
@@ -63,6 +75,7 @@ const ImportAccount = () => {
         setImportResult({
           title: dryRun ? "dryRunCompleted" : "importCompleted",
           severity: "success",
+          error: [],
           accounts: data.importAccountsCompaniesFromCVS.accounts,
           companies: data.importAccountsCompaniesFromCVS.companies,
           auth0Job: data.importAccountsCompaniesFromCVS.auth0Job
@@ -115,6 +128,20 @@ const ImportAccount = () => {
             <div className={styles.alert}>
               <AlertBanner severity={importResult.severity}>
                 <AlertBanner.Title>{t(importResult.title)}</AlertBanner.Title>
+                {importResult.error.map(({ detail, message }, index) => (
+                  <div key={index} className={styles.field}>
+                    <Typography
+                      key={`${index}-field`}
+                      className={styles.listItemKey}
+                      variant="h6"
+                    >
+                      {message}
+                    </Typography>
+                    <Typography key={`${index}-value`} variant="body1">
+                      {detail}
+                    </Typography>
+                  </div>
+                ))}
               </AlertBanner>
             </div>
           )}
