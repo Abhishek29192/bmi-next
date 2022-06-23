@@ -1,15 +1,14 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
-import fetch from "node-fetch";
 import { Storage } from "@google-cloud/storage/build/src/storage";
+import fetch from "node-fetch";
 import { filterFunctionMetadata } from "./filter";
 import { FunctionMetadata } from "./types";
 
 const storage = new Storage();
 const {
   GCP_STORAGE_NAME,
-  TRIGGER_SECRET,
-  TRIGGER_API_KEY_SECRET,
+  TRIGGER_CB_SECRET,
+  TRIGGER_API_KEY,
   FUNCTIONS_METADATA_FOLDER,
   FUNCTIONS_METADATA_FILE,
   FUNCTIONS_SOURCE_FOLDER,
@@ -22,11 +21,8 @@ const triggerCloudBuild = async (
   requests: FunctionMetadata[],
   source: string
 ) => {
-  const secretText = await getSecret(TRIGGER_SECRET!);
-  const apiKey = await getSecret(TRIGGER_API_KEY_SECRET!);
-
   const triggerName = `${source}-trigger`;
-  const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiKey}&secret=${secretText}`;
+  const url = `https://cloudbuild.googleapis.com/v1/projects/${GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${TRIGGER_API_KEY}&secret=${TRIGGER_CB_SECRET}`;
 
   for (const key in requests) {
     const response = await fetch(url, {
@@ -48,12 +44,12 @@ export const deploy = async (file: { bucket: string; name: string }) => {
     throw Error("Unable to connect to a storage bucket");
   }
 
-  if (!TRIGGER_SECRET) {
-    throw Error("TRIGGER_SECRET has not been set");
+  if (!TRIGGER_CB_SECRET) {
+    throw Error("TRIGGER_CB_SECRET has not been set");
   }
 
-  if (!TRIGGER_API_KEY_SECRET) {
-    throw Error("TRIGGER_API_KEY_SECRET has not been set");
+  if (!TRIGGER_API_KEY) {
+    throw Error("TRIGGER_API_KEY has not been set");
   }
 
   logger.info({ message: `Bucket: ${file.bucket}` });

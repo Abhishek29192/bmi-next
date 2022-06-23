@@ -32,8 +32,8 @@ process.env.FUNCTIONS_METADATA_FOLDER = "functions_metadata";
 process.env.GCP_STORAGE_NAME = "dxb-gcp-storage";
 process.env.GCP_STORAGE_NAME = "dxb-gcp-storage";
 process.env.GCP_CLOUD_BUILD_TRIGGER_URL = "https://google.com";
-process.env.TRIGGER_SECRET = "seceret_key";
-process.env.TRIGGER_API_KEY_SECRET = "api_secret_key";
+process.env.TRIGGER_CB_SECRET = "trigger_secret";
+process.env.TRIGGER_API_KEY = "api_secret";
 process.env.GCP_PROJECT_NAME = "dxb-gcp-project";
 
 process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE =
