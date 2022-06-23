@@ -68,13 +68,12 @@ process.env.PIM_CLIENT_ID = "TEST_PIM_CLIENT_ID";
 
 process.env.TRANSITIONAL_TOPIC_NAME = "TEST_TRANSITIONAL_TOPIC_NAME";
 
-process.env.BEARER_TOKEN_SECRET = "TEST_BEARER_TOKEN_SECRET";
-process.env.GOOGLE_YOUTUBE_API_KEY_SECRET =
-  "TEST_GOOGLE_YOUTUBE_API_KEY_SECRET";
+process.env.BEARER_TOKEN = "valid-token";
+process.env.GOOGLE_YOUTUBE_API_KEY = "youtube-api-key";
 
 process.env.BUILD_WEBHOOKS =
   '{"norway":"https://norway.local","italy":"https://italy.local","finland":"https://finland.local"}';
-process.env.BUILD_REQUEST_SECRET = "build_secret";
+process.env.BUILD_REQUEST = "build_secret";
 process.env.GATSBY_SITE_URL = "http://localhost:8000";
 
 process.env.TAGGER_REQUEST = "some secret";

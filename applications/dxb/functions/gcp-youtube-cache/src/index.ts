@@ -1,16 +1,12 @@
-import { IncomingHttpHeaders } from "http";
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
+import { IncomingHttpHeaders } from "http";
 import { Status } from "simple-http-status";
 import { getById, getYoutubeDetails, saveById } from "./db";
 
 const getIsValidToken = async (headers: IncomingHttpHeaders) => {
   const auth = headers.authorization || headers.Authorization;
-  return Boolean(
-    auth &&
-      auth === `Bearer ${await getSecret(process.env.BEARER_TOKEN_SECRET!)}`
-  );
+  return Boolean(auth && auth === `Bearer ${process.env.BEARER_TOKEN}`);
 };
 
 export const youtubeCache: HttpFunction = async (req, res) => {
@@ -19,13 +15,13 @@ export const youtubeCache: HttpFunction = async (req, res) => {
     return res.sendStatus(500);
   }
 
-  if (!process.env.BEARER_TOKEN_SECRET) {
-    logger.error({ message: "BEARER_TOKEN_SECRET has not been set" });
+  if (!process.env.BEARER_TOKEN) {
+    logger.error({ message: "BEARER_TOKEN has not been set" });
     return res.sendStatus(500);
   }
 
-  if (!process.env.GOOGLE_YOUTUBE_API_KEY_SECRET) {
-    logger.error({ message: "GOOGLE_YOUTUBE_API_KEY_SECRET has not been set" });
+  if (!process.env.GOOGLE_YOUTUBE_API_KEY) {
+    logger.error({ message: "GOOGLE_YOUTUBE_API_KEY has not been set" });
     return res.sendStatus(500);
   }
 

@@ -1,24 +1,23 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Storage } from "@google-cloud/storage";
 import fetch from "node-fetch";
+import {
+  getMainTileQuery,
+  GET_GUTTERING_RELATED_PRODUCT_QUERY,
+  GET_MAIN_TILES_QUERY,
+  GET_UNDERLAYS_QUERY
+} from "./queries";
 import {
   transformGutterHookProduct,
   transformGutteringProduct,
   transformMainTileProduct,
   transformUnderlayProduct
 } from "./transform";
-import {
-  GET_GUTTERING_RELATED_PRODUCT_QUERY,
-  GET_MAIN_TILES_QUERY,
-  GET_UNDERLAYS_QUERY,
-  getMainTileQuery
-} from "./queries";
 
 const {
-  WEBTOOLS_UPDATE_REQUEST_SECRET,
-  WEBTOOLS_CONTENTFUL_TOKEN_SECRET,
+  WEBTOOLS_UPDATE_REQUEST,
+  WEBTOOLS_CONTENTFUL_TOKEN,
   WEBTOOLS_CALCULATOR_BUCKET,
   WEBTOOLS_CONTENTFUL_SPACE,
   WEBTOOLS_CONTENTFUL_ENVIRONMENT
@@ -28,13 +27,11 @@ const fetchData = async (
   body: Record<string, any>,
   remainingRetries = 5
 ): Promise<any> => {
-  const contentfulToken = await getSecret(WEBTOOLS_CONTENTFUL_TOKEN_SECRET!);
-
   const requestOptions = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${contentfulToken}`
+      Authorization: `Bearer ${WEBTOOLS_CONTENTFUL_TOKEN}`
     },
     body: JSON.stringify(body)
   };
@@ -179,16 +176,16 @@ const bucket =
   WEBTOOLS_CALCULATOR_BUCKET && storage.bucket(WEBTOOLS_CALCULATOR_BUCKET);
 
 const handleRequest: HttpFunction = async (req, res) => {
-  if (!WEBTOOLS_CONTENTFUL_TOKEN_SECRET) {
+  if (!WEBTOOLS_CONTENTFUL_TOKEN) {
     logger.error({
-      message: "WEBTOOLS_CONTENTFUL_TOKEN_SECRET has not been set"
+      message: "WEBTOOLS_CONTENTFUL_TOKEN has not been set"
     });
     return res.sendStatus(500);
   }
 
-  if (!WEBTOOLS_UPDATE_REQUEST_SECRET) {
+  if (!WEBTOOLS_UPDATE_REQUEST) {
     logger.error({
-      message: "WEBTOOLS_UPDATE_REQUEST_SECRET has not been set"
+      message: "WEBTOOLS_UPDATE_REQUEST has not been set"
     });
     return res.sendStatus(500);
   }
@@ -204,11 +201,11 @@ const handleRequest: HttpFunction = async (req, res) => {
   }
 
   try {
-    const requestSecret = await getSecret(WEBTOOLS_UPDATE_REQUEST_SECRET);
     if (
       !req.headers.authorization ||
       !req.headers.authorization.startsWith("Bearer ") ||
-      req.headers.authorization.substr("Bearer ".length) !== requestSecret
+      req.headers.authorization.substr("Bearer ".length) !==
+        WEBTOOLS_UPDATE_REQUEST
     ) {
       logger.warning({ message: "Failed authorization" });
       return res.status(401).send("Unauthorized");
