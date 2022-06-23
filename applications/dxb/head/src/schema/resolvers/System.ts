@@ -13,9 +13,7 @@ const createResolver = (field: keyof Node) => ({
       return [];
     }
 
-    const variantCodes = sourceField.map(
-      (productVariant) => productVariant.code
-    );
+    const variantCodes = sourceField.map((code) => code);
 
     const { entries } = await context.nodeModel.findAll<Product>({
       query: {
@@ -78,11 +76,14 @@ export default {
       return generateSystemPath(source as any);
     }
   },
-  relatedOptionalProducts: createResolver("optionalProducts"),
-  relatedProducts: createResolver("products"),
+  relatedOptionalProducts: createResolver("relatedOptionalProducts"),
+  relatedProducts: createResolver("relatedProducts"),
   relatedSystems: {
     type: ["System"],
     async resolve(source: System, args: ResolveArgs, context: Context) {
+      if (!source.systemReferences || !source.systemReferences.length) {
+        return [];
+      }
       const { entries } = await context.nodeModel.findAll<System>({
         query: {
           filter: {

@@ -169,20 +169,7 @@ POST {{esHost}}/{{systemsIndex}}/_search
 Content-Type: application/json
 Authorization: ApiKey {{esApiKey}}
 
-{
-  "size": 10,
-  "from": 0,
-  "query": {
-    "terms": {
-      "code.keyword": [
-        "Test_PIM_System1",
-        "Test_PIM_System2",
-        "Test_PIM_System3",
-        "Recomended_System1"
-      ]
-    }
-  }
-}
+{}
 
 ###
 

@@ -3014,7 +3014,6 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -3048,7 +3047,6 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -7246,7 +7244,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -7280,7 +7277,6 @@ exports[`SystemDetailsPage template component should render 1`] = `
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -11478,7 +11474,6 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -11512,7 +11507,6 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -15710,7 +15704,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -15744,7 +15737,6 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -19942,7 +19934,6 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -19976,7 +19967,6 @@ exports[`SystemDetailsPage template component should render without specificatio
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -24133,7 +24123,6 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </a>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
@@ -24167,7 +24156,6 @@ exports[`SystemDetailsPage template component should render without systemLayers
                 </div>
               </div>
             </div>
-            0
           </div>
         </div>
       </div>
