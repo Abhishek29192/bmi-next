@@ -486,6 +486,14 @@ export default class HouseViewer extends Viewer<Props, State> {
             seg.name.includes(house.roofSegmentName)
           ) as Mesh[];
 
+          // Make roof segments transparent
+          this.roofSegments.forEach((segment) => {
+            const segmentTransparentMaterial = new MeshStandardMaterial();
+            segmentTransparentMaterial.opacity = 0;
+            segmentTransparentMaterial.transparent = true;
+            segment.material = segmentTransparentMaterial;
+          });
+
           this.ridges = gltf.scene.children.filter((ridge) =>
             ridge.name.includes(house.roofRidgeName)
           ) as Mesh[];

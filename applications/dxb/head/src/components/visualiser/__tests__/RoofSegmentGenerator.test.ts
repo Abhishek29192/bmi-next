@@ -74,7 +74,7 @@ describe("generateSegment", () => {
       expect(segment).not.toBeUndefined();
     });
 
-    it("roof segment should have same x,z coordinats as roofMesh", () => {
+    it("roof segment should have same position as roofMesh", () => {
       const segment = generateSegment(
         roofMesh,
         tileMesh,
@@ -82,19 +82,7 @@ describe("generateSegment", () => {
         tileMaterial
       );
 
-      expect(segment.position.x).toBe(roofMesh.position.x);
-      expect(segment.position.z).toBe(roofMesh.position.z);
-    });
-
-    it("roof segment should have y coordinate smaller by tileThickness size", () => {
-      const segment = generateSegment(
-        roofMesh,
-        tileMesh,
-        tileInfo,
-        tileMaterial
-      );
-
-      expect(segment.position.y).toBe(-1.4);
+      expect(segment.position.equals(roofMesh.position)).toBe(true);
     });
 
     it("roof segment should have same rootation as roofMesh", () => {
