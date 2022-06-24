@@ -6,18 +6,15 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import "../../src/styles/fonts.module.scss";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useConfig } from "../contexts/ConfigProvider";
-import { BasketContextProvider } from "../contexts/SampleBasketContext";
-import { Product } from "../types/pim";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
+import { Product } from "../types/pim";
+import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
 import ErrorFallback from "./ErrorFallback";
-import { Head } from "./Head";
 import { generateGetMicroCopy } from "./MicroCopy";
-import Calculator from "./PitchedRoofCalcualtor";
 import { Data as SEOContentData } from "./SEOContent";
-import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import {
   Context as SiteContext,
   Data as SiteData,
@@ -25,6 +22,10 @@ import {
   useSiteContext
 } from "./Site";
 import VisualiserProvider from "./Visualiser";
+import Calculator from "./PitchedRoofCalcualtor";
+import "../../src/styles/fonts.module.scss";
+import { Head } from "./Head";
+import ComposeProviders from "./ComposeProviders";
 
 export type Data = {
   breadcrumbs: BreadcrumbsData | null;
@@ -122,67 +123,79 @@ const Page = ({
         variantProduct={variantProduct}
         countryCode={countryCode}
       />
-      {/* TODO: move cascade of providers to separate composition component AppProviders */}
-      <SiteContextProvider value={siteContext}>
-        <MicroCopy.Provider values={microCopyContext}>
-          <BasketContextProvider>
+      <ComposeProviders
+        components={[
+          (child) => (
+            <SiteContextProvider value={siteContext}>
+              {child}
+            </SiteContextProvider>
+          ),
+          (child) => (
+            <MicroCopy.Provider values={microCopyContext}>
+              {child}
+            </MicroCopy.Provider>
+          ),
+          (child) => (
             <GoogleReCaptchaProvider
               reCaptchaKey={gatsbyReCaptchaKey}
               useRecaptchaNet={reCaptchaNet}
               language={countryCode}
             >
-              <Header
-                navigationData={menuNavigation}
-                utilitiesData={menuUtilities}
-                countryCode={countryCode}
-                activeLabel={
-                  (breadcrumbs && breadcrumbs[0]?.label) || undefined
-                }
-                isOnSearchPage={isSearchPage}
-                countryNavigationIntroduction={
-                  resources?.countryNavigationIntroduction
-                }
-                regions={regions}
-                sampleBasketLink={resources?.sampleBasketLink}
-                maximumSamples={resources?.maximumSamples}
-              />
-              <BrandProvider brand={brand}>
-                <ErrorBoundary
-                  fallbackRender={() => (
-                    <ErrorFallback
-                      countryCode={countryCode}
-                      promo={resources.errorGeneral}
-                    />
-                  )}
-                  onError={() =>
-                    navigate(getPathWithCountryCode(countryCode, "422"))
-                  }
-                >
-                  <VisualiserProvider
-                    contentSource={visualizerAssetUrl}
-                    variantCodeToPathMap={variantCodeToPathMap}
-                    shareWidgetData={resources?.visualiserShareWidget}
-                  >
-                    <Calculator
-                      onError={() =>
-                        navigate(getPathWithCountryCode(countryCode, "422"))
-                      }
-                    >
-                      <Content>{children}</Content>
-                    </Calculator>
-                  </VisualiserProvider>
-                  {signupBlock ? <SignupBlock data={signupBlock} /> : null}
-                </ErrorBoundary>
-              </BrandProvider>
-              <Footer
-                mainNavigation={footerMainNavigation}
-                secondaryNavigation={footerSecondaryNavigation}
-              />
-              <BackToTop accessibilityLabel="Back to the top" />
+              {child}
             </GoogleReCaptchaProvider>
-          </BasketContextProvider>
-        </MicroCopy.Provider>
-      </SiteContextProvider>
+          ),
+          (child) => <BrandProvider brand={brand}>{child}</BrandProvider>,
+          (child) => (
+            <ErrorBoundary
+              fallbackRender={() => (
+                <ErrorFallback
+                  countryCode={countryCode}
+                  promo={resources.errorGeneral}
+                />
+              )}
+              onError={() =>
+                navigate(getPathWithCountryCode(countryCode, "422"))
+              }
+            >
+              {child}
+            </ErrorBoundary>
+          ),
+          (child) => (
+            <VisualiserProvider
+              contentSource={visualizerAssetUrl}
+              variantCodeToPathMap={variantCodeToPathMap}
+              shareWidgetData={resources?.visualiserShareWidget}
+            >
+              {child}
+            </VisualiserProvider>
+          )
+        ]}
+      >
+        <Header
+          navigationData={menuNavigation}
+          utilitiesData={menuUtilities}
+          countryCode={countryCode}
+          activeLabel={(breadcrumbs && breadcrumbs[0]?.label) || undefined}
+          isOnSearchPage={isSearchPage}
+          countryNavigationIntroduction={
+            resources?.countryNavigationIntroduction
+          }
+          regions={regions}
+          sampleBasketLink={resources?.sampleBasketLink}
+          maximumSamples={resources?.maximumSamples}
+        />
+        <Calculator
+          onError={() => navigate(getPathWithCountryCode(countryCode, "422"))}
+        >
+          <Content>{children}</Content>
+        </Calculator>
+        {signupBlock ? <SignupBlock data={signupBlock} /> : null}
+        <Footer
+          mainNavigation={footerMainNavigation}
+          secondaryNavigation={footerSecondaryNavigation}
+        />
+        <BackToTop accessibilityLabel="Back to the top" />
+      </ComposeProviders>
     </>
   );
 };

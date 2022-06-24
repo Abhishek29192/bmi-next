@@ -1,15 +1,34 @@
+import "./src/styles/global.css";
+import React from "react";
+import { HubspotProvider } from "@aaronhayes/react-use-hubspot-form";
 import { ThemeProvider } from "@bmi/components";
 import type { GatsbyBrowser } from "gatsby";
-import React from "react";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
 import "./src/styles/global.css";
+import { BasketContextProvider } from "./src/contexts/SampleBasketContext";
+
+import ComposeProviders from "./src/components/ComposeProviders";
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   element
 }) => {
   return (
-    <ConfigProvider>
-      <ThemeProvider includeCssBaseline={false}>{element}</ThemeProvider>
-    </ConfigProvider>
+    /*providers with static data*/
+    <ComposeProviders
+      components={[
+        (child) => <ConfigProvider>{child}</ConfigProvider>,
+        (child) => (
+          <ThemeProvider includeCssBaseline={false}> {child} </ThemeProvider>
+        ),
+        (child) => <BasketContextProvider>{child}</BasketContextProvider>,
+        (child) => (
+          <HubspotProvider async={false} addToHead={true}>
+            {child}
+          </HubspotProvider>
+        )
+      ]}
+    >
+      {element}
+    </ComposeProviders>
   );
 };
