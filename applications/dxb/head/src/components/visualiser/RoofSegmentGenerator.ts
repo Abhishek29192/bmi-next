@@ -71,7 +71,11 @@ export default (
   const rowHeight = tileHeight - verticalOverlap * tileHeight;
 
   // Any overflow vertically will just hang off the bottom of the roof segment.
-  const rowCount = Math.ceil(roofHeight / rowHeight);
+  let rowCount = Math.floor(roofHeight / rowHeight);
+
+  if (((roofHeight % rowHeight) * 100) / rowHeight >= 75) {
+    rowCount += 1;
+  }
 
   // Tile instance count is therefore..
   const instanceCount = rowCount * intHorizontalTiles;
@@ -95,8 +99,8 @@ export default (
 
   let rowZ =
     seg.rotation.x < 0
-      ? roofBounds.max.z - tileBounds.max.z * Math.abs(seg.rotation.x)
-      : -roofHeight / 2 - tileBounds.min.z;
+      ? roofBounds.max.z - rowHeight
+      : roofBounds.min.z + rowHeight;
 
   const horizontalOffset = (tileInfo.horizontalOffset || 0) * tileWidth;
 
@@ -165,7 +169,7 @@ export default (
   // This pair is then rotated such that both tile midpoints sit on the same horizontal line.
   // That results in the following rotation amount:
   let overlapRotation = verticalOverlap
-    ? Math.atan2(tileThickness, (1 - verticalOverlap) * tileHeight)
+    ? Math.atan2(tileThickness, (1 - verticalOverlap) * tileHeight * 2)
     : 0;
 
   if (seg.rotation.x > 0) {
@@ -199,11 +203,7 @@ export default (
     for (let h = 0; h < tilesOnThisRow; h++) {
       // Add an instance.
       // They're offset by the bounds such that the min edge is exactly touching our target box.
-      placementHelper.position.set(
-        rowX - tileBounds.min.x,
-        tileThickness,
-        rowZ
-      );
+      placementHelper.position.set(rowX - tileBounds.min.x, 0, rowZ);
       placementHelper.rotation.z = zRotation;
       placementHelper.rotation.y = yRotation;
       placementHelper.rotation.x = overlapRotation;
@@ -216,7 +216,7 @@ export default (
 
     // rowZ - tileBounds.min.z + tileWidth - offsetRowEndTileWidth
 
-    placementHelper.position.set(rowX - tileBounds.min.x, tileThickness, rowZ);
+    placementHelper.position.set(rowX - tileBounds.min.x, 0, rowZ);
     placementHelper.rotation.z = zRotation;
     placementHelper.rotation.y = yRotation;
     placementHelper.rotation.x = overlapRotation;
@@ -229,7 +229,7 @@ export default (
       );
 
       // Secondary row also has a tile at the start too:
-      placementHelper.position.set((-1 * roofWidth) / 2, tileThickness, rowZ);
+      placementHelper.position.set((-1 * roofWidth) / 2, 0, rowZ);
       placementHelper.rotation.z = zRotation;
       placementHelper.rotation.y = yRotation;
       placementHelper.rotation.x = overlapRotation;
@@ -283,6 +283,8 @@ export default (
   group.position.copy(seg.position);
 
   group.rotation.copy(seg.rotation);
+
+  seg.position.y -= tileThickness;
 
   return group;
 };

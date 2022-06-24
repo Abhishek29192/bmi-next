@@ -215,7 +215,6 @@ export default class HouseViewer extends Viewer<Props, State> {
       }
       const minZOffset = boundingBox.min.z;
       const ridgeTileLength = boundingBox.max.z - minZOffset;
-      const ridgeTileHeight = Math.abs(boundingBox.max.y - boundingBox.min.y);
       const ridges = this.ridges;
 
       for (let i = 0; i < ridges.length; i++) {
@@ -250,7 +249,7 @@ export default class HouseViewer extends Viewer<Props, State> {
         );
         const placementHelper = new Object3D();
 
-        let posZ = -ridgeLength;
+        let posZ = ridgeBoundingBox.min.z;
 
         if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
@@ -318,7 +317,6 @@ export default class HouseViewer extends Viewer<Props, State> {
         ridgeInstance.add(ridgeGap);
 
         ridgeInstance.position.copy(ridge.position);
-        ridgeInstance.position.y += ridgeTileHeight / 2;
 
         ridgeInstance.rotation.copy(ridge.rotation);
 
