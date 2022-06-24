@@ -305,22 +305,9 @@ export const getProductAttributes = (
           "colour"
         );
         const isSelected = selectedColour && colour === selectedColour;
-        let path = "";
-        if (variant) {
-          let variantPath = variant.path;
-          if (
-            queryParams &&
-            queryParams.length > 0 &&
-            variantPath.indexOf("?") < 0
-          ) {
-            variantPath = queryParams.startsWith("?")
-              ? `${variantPath}${queryParams}`
-              : `${variantPath}?${queryParams}`;
-          }
-          path = getPathWithCountryCode(countryCode, variantPath);
-        } else {
-          path = getUnavailableCTA(colour, "colour");
-        }
+        const path = variant
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
+          : getUnavailableCTA(colour, "colour");
 
         return {
           label: colour,
@@ -352,10 +339,11 @@ export const getProductAttributes = (
         );
         const isSelected =
           selectedTextureFamily && textureFamily === selectedTextureFamily;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(textureFamily, "textureFamily");
+
         return {
           label: textureFamily,
           isSelected,
@@ -385,10 +373,11 @@ export const getProductAttributes = (
           "measurements"
         );
         const isSelected = key === selectedSize.label;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(key, "measurements");
+
         return {
           label: measurements.label,
           isSelected,
@@ -420,10 +409,11 @@ export const getProductAttributes = (
           (selectedVariantAttribute &&
             selectedVariantAttribute === variantAttribute) ||
           false;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(variantAttribute, "variantattribute");
+
         return {
           label: variantAttribute,
           isSelected,
@@ -463,3 +453,17 @@ export const getYoutubeId = (urlOrCode: string) => {
 
 export const getDefaultPreviewImage = (videoUrl: string) =>
   `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;
+
+const generateVariantPathWithQuery = (
+  variant: RelatedVariant,
+  queryParams: string,
+  countryCode: string
+) => {
+  let variantPath = variant.path;
+  if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
+    variantPath = queryParams.startsWith("?")
+      ? `${variantPath}${queryParams}`
+      : `${variantPath}?${queryParams}`;
+  }
+  return getPathWithCountryCode(countryCode, variantPath);
+};
