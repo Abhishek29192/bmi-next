@@ -18,16 +18,16 @@ exports[`BackToResults component renders correctly 1`] = `
 >
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-text buttonStyles-text-102 MuiButton-textPrimary"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
     href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-84"
+      class="MuiButton-label buttonStyles-label-104"
     >
       <span
-        class="MuiButton-startIcon buttonStyles-startIcon-85 MuiButton-iconSizeMedium"
+        class="MuiButton-startIcon buttonStyles-startIcon-105 MuiButton-iconSizeMedium"
       >
         <svg
           aria-hidden="true"
@@ -105,8 +105,8 @@ exports[`BackToResults component renders cta if url query params includes previo
   <a
     aria-disabled="false"
     class="MuiButtonBase-root MuiButton-root buttonStyles-root-41 MuiButton-text buttonStyles-text-42 MuiButton-textPrimary"
-    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page?\\"}"
-    href="/en/plp-page?"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page\\"}"
+    href="/en/plp-page"
     tabindex="0"
   >
     <span
@@ -190,16 +190,16 @@ exports[`BackToResults component renders cta if url query params includes search
 >
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-81 MuiButton-text buttonStyles-text-82 MuiButton-textPrimary"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?tab=pages\\"}"
     href="/en/search/?tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-64"
+      class="MuiButton-label buttonStyles-label-84"
     >
       <span
-        class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+        class="MuiButton-startIcon buttonStyles-startIcon-85 MuiButton-iconSizeMedium"
       >
         <svg
           aria-hidden="true"
@@ -233,16 +233,16 @@ exports[`BackToResults component renders cta without children if mobile 1`] = `
 >
   <a
     aria-disabled="false"
-    class="MuiButtonBase-root MuiButton-root buttonStyles-root-101 MuiButton-text buttonStyles-text-102 MuiButton-textPrimary"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-121 MuiButton-text buttonStyles-text-122 MuiButton-textPrimary"
     data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages\\"}"
     href="/en/search/?filters=%7B%22brand%22%3A%22BRAND_1%22%7D&q=query&tab=pages"
     tabindex="0"
   >
     <span
-      class="MuiButton-label buttonStyles-label-104"
+      class="MuiButton-label buttonStyles-label-124"
     >
       <span
-        class="MuiButton-startIcon buttonStyles-startIcon-105 MuiButton-iconSizeMedium"
+        class="MuiButton-startIcon buttonStyles-startIcon-125 MuiButton-iconSizeMedium"
       >
         <svg
           aria-hidden="true"
@@ -261,5 +261,48 @@ exports[`BackToResults component renders cta without children if mobile 1`] = `
       class="MuiTouchRipple-root"
     />
   </a>
+</div>
+`;
+
+exports[`BackToResults component when url search param has more than one parameters along with pathname param renders removes only path name parameter and keeps other parameters 1`] = `
+<div
+  class="BackToResults"
+>
+  <a
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiButton-root buttonStyles-root-61 MuiButton-text buttonStyles-text-62 MuiButton-textPrimary"
+    data-gtm="{\\"id\\":\\"nav-breadcrumb-back-to-results\\",\\"label\\":\\"MC: searchPage.backToResults\\",\\"action\\":\\"/en/plp-page?tab=pages\\"}"
+    href="/en/plp-page?tab=pages"
+    tabindex="0"
+  >
+    <span
+      class="MuiButton-label buttonStyles-label-64"
+    >
+      <span
+        class="MuiButton-startIcon buttonStyles-startIcon-65 MuiButton-iconSizeMedium"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+          />
+        </svg>
+      </span>
+      MC: searchPage.backToResults
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </a>
+  <div
+    class="BackToResults--separator"
+  />
+  <h1>
+    Rest of Breadcrumbs
+  </h1>
 </div>
 `;

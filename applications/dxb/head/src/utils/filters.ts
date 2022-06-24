@@ -471,7 +471,9 @@ export const getBackToResultsPath = (countryCode: string): string => {
   const pathname = params[PATHNAME_KEY.toString()];
   if (pathname) {
     delete params[PATHNAME_KEY.toString()];
-    return `${pathname}?${QueryString.stringify(params)}`;
+    return params && Object.keys(params).length > 0
+      ? `${pathname}?${QueryString.stringify(params)}`
+      : `${pathname}`;
   }
   return `${getPathWithCountryCode(countryCode, "search")}${location.search}`;
 };

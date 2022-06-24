@@ -74,9 +74,9 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
       const lengthValueB = b["length"]?.value || 0;
 
       return (
-        lengthValueB - lengthValueA ||
-        heightValueB - heightValueA ||
-        widthValueB - widthValueA
+        lengthValueA - lengthValueB ||
+        heightValueA - heightValueB ||
+        widthValueA - widthValueB
       );
     }
     return a < b ? -1 : 1;
@@ -130,7 +130,8 @@ export const getProductAttributes = (
   product: Product,
   countryCode: string,
   options: Options,
-  unavailableMicroCopies: UnavailableMicroCopies
+  unavailableMicroCopies: UnavailableMicroCopies,
+  queryParams = ""
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedTextureFamily = product.textureFamily;
   const allTextureFamilies = getAllValues(product, "textureFamily") as string[];
@@ -282,7 +283,12 @@ export const getProductAttributes = (
     if (!bestMatch) {
       return undefined;
     }
-    const variantPath = bestMatch.path;
+    let variantPath = bestMatch.path;
+    if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
+      variantPath = queryParams.startsWith("?")
+        ? `${variantPath}${queryParams}`
+        : `${variantPath}?${queryParams}`;
+    }
     return getPathWithCountryCode(countryCode, variantPath);
   };
 
@@ -299,10 +305,23 @@ export const getProductAttributes = (
           "colour"
         );
         const isSelected = selectedColour && colour === selectedColour;
-        const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
-          : getUnavailableCTA(colour, "colour");
+        let path = "";
+        if (variant) {
+          let variantPath = variant.path;
+          if (
+            queryParams &&
+            queryParams.length > 0 &&
+            variantPath.indexOf("?") < 0
+          ) {
+            variantPath = queryParams.startsWith("?")
+              ? `${variantPath}${queryParams}`
+              : `${variantPath}?${queryParams}`;
+          }
+          path = getPathWithCountryCode(countryCode, variantPath);
+        } else {
+          path = getUnavailableCTA(colour, "colour");
+        }
+
         return {
           label: colour,
           isSelected,
