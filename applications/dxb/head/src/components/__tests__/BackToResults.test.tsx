@@ -1,11 +1,11 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { useMediaQuery } from "@material-ui/core";
-import QueryString from "query-string";
 import { QUERY_KEY } from "@bmi/components";
+import { useMediaQuery } from "@material-ui/core";
+import { render } from "@testing-library/react";
+import QueryString from "query-string";
+import React from "react";
+import { FILTER_KEY, PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
 import BackToResults from "../BackToResults";
 import { SiteContextProvider } from "../Site";
-import { FILTER_KEY, PATHNAME_KEY, SEARCHTAB_KEY } from "../../utils/filters";
 
 const getLocation = (search: unknown): Location =>
   ({
@@ -130,15 +130,43 @@ describe("BackToResults component", () => {
 
     const cta = getByRole("link") as HTMLLinkElement;
 
-    expect(cta.href).toBe("http://localhost/en/plp-page?");
+    expect(cta.href).toBe("http://localhost/en/plp-page");
     expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
       JSON.stringify({
         id: "nav-breadcrumb-back-to-results",
         label: "MC: searchPage.backToResults",
-        action: "/en/plp-page?"
+        action: "/en/plp-page"
       })
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  describe("when url search param has more than one parameters along with pathname param", () => {
+    it("renders removes only path name parameter and keeps other parameters", () => {
+      window.location = getLocation({
+        [PATHNAME_KEY]: "/en/plp-page",
+        [SEARCHTAB_KEY]: "pages"
+      });
+
+      const { container, getByRole } = render(
+        <SiteContextProvider value={getSiteContext()}>
+          <BackToResults>
+            <h1>Rest of Breadcrumbs</h1>
+          </BackToResults>
+        </SiteContextProvider>
+      );
+
+      const cta = getByRole("link") as HTMLLinkElement;
+
+      expect(cta.href).toBe("http://localhost/en/plp-page?tab=pages");
+      expect(cta.attributes.getNamedItem("data-gtm").value).toBe(
+        JSON.stringify({
+          id: "nav-breadcrumb-back-to-results",
+          label: "MC: searchPage.backToResults",
+          action: "/en/plp-page?tab=pages"
+        })
+      );
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 
   it("renders cta if url query params includes search tab", () => {

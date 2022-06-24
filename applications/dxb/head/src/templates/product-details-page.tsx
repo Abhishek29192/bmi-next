@@ -1,6 +1,7 @@
 import { Container, CTACard, Grid, GridSize, Section } from "@bmi/components";
+import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useMemo } from "react";
 import BackToResults from "../components/BackToResults";
 import Breadcrumbs from "../components/Breadcrumbs";
 import ExploreBar from "../components/ExploreBar";
@@ -64,6 +65,12 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
     pdpSpecificationDescription
   } = resources;
 
+  const location = useLocation();
+  const isSSR = typeof window === "undefined";
+  const queryParams = useMemo<string>(() => {
+    return isSSR ? "" : window.location.search;
+  }, [location]);
+
   return (
     <Page
       brand={product.brand?.code}
@@ -103,7 +110,10 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                   name: product.name,
                   brandCode: product.brand?.code,
                   nobb: product.externalProductCode,
-                  images: transformImages(product.masterImages),
+                  images: transformImages([
+                    ...product.masterImages,
+                    ...product.galleryImages
+                  ]),
                   videos: transformMediaSrc(
                     product.videos.map((video) => {
                       return {
@@ -126,7 +136,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                         microCopy.PDP_OVERVIEW_VARIANT_ATTRIBUTE
                       )
                     },
-                    attributeUnavailableMicroCopy
+                    attributeUnavailableMicroCopy,
+                    queryParams
                   ),
                   variantCode: pageContext.productCode,
                   isRecaptchaShown:

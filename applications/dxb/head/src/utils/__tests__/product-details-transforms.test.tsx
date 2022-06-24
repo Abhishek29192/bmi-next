@@ -56,8 +56,8 @@ describe("product-details-transforms tests", () => {
             type: "chips",
             unavailableMicroCopy: "unavaialbeMicroCopy 2",
             variants: [
-              { label: "6x7x8symbol", isSelected: true, availability: false },
-              { label: "label", isSelected: false, availability: false }
+              { label: "label", isSelected: false, availability: false },
+              { label: "6x7x8symbol", isSelected: true, availability: false }
             ]
           },
           {
@@ -109,12 +109,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -161,12 +161,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -214,12 +214,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -267,12 +267,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -323,12 +323,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -379,12 +379,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -409,7 +409,6 @@ describe("product-details-transforms tests", () => {
                 relatedVariants: [createRelatedVariant({ colour: "blue" })]
               });
               const result = getProductAttributesWithCommonParams(selfProduct);
-              // console.log(JSON.stringify(result));
               const expectedResult = [
                 {
                   name: "Colour",
@@ -417,22 +416,12 @@ describe("product-details-transforms tests", () => {
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
                     {
-                      action: {
-                        linkComponent: Link,
-                        model: "routerLink",
-                        to: "/no/"
-                      },
-                      availability: false,
-                      isSelected: false,
                       label: "blue",
-                      thumbnail: undefined
-                    },
-                    {
+                      isSelected: false,
                       availability: false,
-                      isSelected: true,
-                      label: "colour",
-                      thumbnail: undefined
-                    }
+                      action: { model: "routerLink", to: "/no/" }
+                    },
+                    { label: "colour", isSelected: true, availability: false }
                   ]
                 },
                 {
@@ -441,9 +430,9 @@ describe("product-details-transforms tests", () => {
                   unavailableMicroCopy: "unavaialbeMicroCopy 4",
                   variants: [
                     {
-                      availability: false,
+                      label: "texture-family",
                       isSelected: true,
-                      label: "texture-family"
+                      availability: false
                     }
                   ]
                 },
@@ -452,12 +441,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
-                      availability: false,
+                      label: "6x7x8symbol",
                       isSelected: true,
-                      label: "6x7x8symbol"
-                    },
-                    { availability: false, isSelected: false, label: "label" }
+                      availability: false
+                    }
                   ]
                 },
                 {
@@ -466,9 +455,9 @@ describe("product-details-transforms tests", () => {
                   unavailableMicroCopy: "unavaialbeMicroCopy 3",
                   variants: [
                     {
-                      availability: false,
+                      label: "variant-attribute",
                       isSelected: true,
-                      label: "variant-attribute"
+                      availability: false
                     }
                   ]
                 }
@@ -546,12 +535,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -638,7 +627,7 @@ describe("product-details-transforms tests", () => {
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
                     {
-                      label: "13x12x11mm",
+                      label: "label",
                       isSelected: false,
                       availability: true,
                       action: {
@@ -648,7 +637,7 @@ describe("product-details-transforms tests", () => {
                       }
                     },
                     {
-                      label: "12x10x11mm",
+                      label: "5x3x4mm",
                       isSelected: false,
                       availability: true,
                       action: {
@@ -663,7 +652,7 @@ describe("product-details-transforms tests", () => {
                       availability: false
                     },
                     {
-                      label: "5x3x4mm",
+                      label: "12x10x11mm",
                       isSelected: false,
                       availability: true,
                       action: {
@@ -673,7 +662,7 @@ describe("product-details-transforms tests", () => {
                       }
                     },
                     {
-                      label: "label",
+                      label: "13x12x11mm",
                       isSelected: false,
                       availability: true,
                       action: {
@@ -725,12 +714,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -778,12 +767,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -837,12 +826,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -858,6 +847,7 @@ describe("product-details-transforms tests", () => {
                   ]
                 }
               ];
+
               expect(result).toEqual(expectedResult);
             });
           });
@@ -891,12 +881,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -944,12 +934,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -1003,12 +993,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -1058,12 +1048,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -1111,12 +1101,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
@@ -1167,12 +1157,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -1221,12 +1211,12 @@ describe("product-details-transforms tests", () => {
                   type: "chips",
                   unavailableMicroCopy: "unavaialbeMicroCopy 2",
                   variants: [
+                    { label: "label", isSelected: false, availability: false },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
                       availability: false
-                    },
-                    { label: "label", isSelected: false, availability: false }
+                    }
                   ]
                 },
                 {
@@ -1274,12 +1264,12 @@ describe("product-details-transforms tests", () => {
                 type: "chips",
                 unavailableMicroCopy: "unavaialbeMicroCopy 2",
                 variants: [
+                  { label: "label", isSelected: false, availability: false },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
                     availability: false
-                  },
-                  { label: "label", isSelected: false, availability: false }
+                  }
                 ]
               },
               {
