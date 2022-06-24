@@ -284,7 +284,5 @@ export default (
 
   group.rotation.copy(seg.rotation);
 
-  seg.position.y -= tileThickness;
-
   return group;
 };
