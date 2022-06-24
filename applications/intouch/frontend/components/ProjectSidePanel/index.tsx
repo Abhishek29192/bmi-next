@@ -114,6 +114,8 @@ const SidePanelFooter = ({
       </AccessControl>
       <AccessControl dataModel="project" action="downloadReport">
         <ProjectReport disabled={projectLength === 0} />
+      </AccessControl>
+      <AccessControl dataModel="project" action="downloadGuaranteeReport">
         <GuaranteeReport disabled={guaranteeLength === 0} />
       </AccessControl>
     </div>
@@ -205,7 +207,6 @@ export const ProjectSidePanel = ({
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
         );
-
         const matchesFilter =
           filterSelection === "ALL" ||
           (knownStatuses.includes(filterSelection)

@@ -184,6 +184,12 @@ export const gates = {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,
       INSTALLER: false,
+      COMPANY_ADMIN: true
+    },
+    downloadGuaranteeReport: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
       COMPANY_ADMIN: false
     },
     addTeamMember: {
