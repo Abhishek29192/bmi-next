@@ -143,18 +143,18 @@ const SystemConfiguratorQuestion = ({
     setState((state) => ({ ...state, isLoading: true }));
 
     const controller = new AbortController();
-    const url = new URL(gcpSystemConfiguratorEndpoint);
-    url.searchParams.append(answerId, String(answerId));
-    url.searchParams.append(locale, String(locale));
 
     const recaptchaToken = await executeRecaptcha();
 
     try {
-      const response: Response = await fetch(url.toString(), {
-        method: "GET",
-        headers: { "X-Recaptcha-Token": recaptchaToken },
-        signal: controller.signal
-      });
+      const response: Response = await fetch(
+        `${gcpSystemConfiguratorEndpoint}?answerId=${answerId}&locale=locale`,
+        {
+          method: "GET",
+          headers: { "X-Recaptcha-Token": recaptchaToken },
+          signal: controller.signal
+        }
+      );
 
       if (!response.ok) {
         throw new Error(response.statusText);
