@@ -604,11 +604,22 @@ describe("transformSystems", () => {
         code: "layer 3",
         name: "layer 3",
         approvalStatus: "approved"
+      }),
+      createSystemLayer({
+        code: "layer 4",
+        name: "layer 4",
+        approvalStatus: "approved",
+        shortDescription: undefined
       })
     ]);
     const transformedSystems = transformSystems([system]);
-    expect(transformedSystems[0].systemLayers).toHaveLength(1);
+    expect(transformedSystems[0].systemLayers).toHaveLength(2);
     expect(transformedSystems[0].systemLayers![0].name).toEqual("layer 3");
+    expect(transformedSystems[0].systemLayers![0].shortDescription).toEqual(
+      "SDescription 1 NO"
+    );
+    expect(transformedSystems[0].systemLayers![1].name).toEqual("layer 4");
+    expect(transformedSystems[0].systemLayers![1].shortDescription).toEqual("");
   });
 
   it("handles no master images", () => {

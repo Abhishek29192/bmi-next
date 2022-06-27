@@ -143,7 +143,7 @@ const mapSystemLayers = (system: PimSystem): SystemLayer[] =>
         (product) => product.code
       ),
       type: systemLayer.type,
-      shortDescription: systemLayer.shortDescription
+      shortDescription: systemLayer.shortDescription || ""
     }));
 
 const mapSystemReferences = (system: PimSystem): string[] =>
