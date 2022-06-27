@@ -171,9 +171,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       showResultList
-        ? pagedFilteredRoofers.map(createMarker(selectedRoofer))
+        ? pagedFilteredRoofers.map(createMarker(selectedRoofer, matches))
         : [],
-    [selectedRoofer, pagedFilteredRoofers, showResultList]
+    [selectedRoofer, pagedFilteredRoofers, showResultList, matches]
   );
 
   const handlePageChange = (_, pageNumber: number) => {
@@ -419,6 +419,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
+            {console.log(markers)}
             <ServiceLocatorMap
               selectedRoofer={selectedRoofer}
               clearRooferAndResetMap={clearRooferAndResetMap}

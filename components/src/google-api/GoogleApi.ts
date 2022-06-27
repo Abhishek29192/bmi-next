@@ -17,6 +17,7 @@ export type MarkerOptions = google.maps.MarkerOptions;
 export type MarkerOptionsWithData<Data> = google.maps.MarkerOptions & {
   isActive: boolean;
   data: Data;
+  "data-gtm"?: string;
 };
 export type Point = google.maps.Point;
 
