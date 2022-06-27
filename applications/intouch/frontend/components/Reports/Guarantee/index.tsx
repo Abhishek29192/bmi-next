@@ -86,7 +86,7 @@ const GuaranteeReport = ({ disabled }: ReportProps) => {
         data-testid="export-button"
         disabled={disabled}
         endIcon={<GetApp />}
-        onClick={getSystemsReport}
+        onClick={() => getSystemsReport()}
         className={styles.sidePanelFooterButton}
       >
         {t("report.guarantee")}
