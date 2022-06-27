@@ -28,6 +28,7 @@ export const createCompanyDetails = (
     globalEmail: localizationCb("global.email"),
     globalWebsite: localizationCb("global.website"),
     faxLabel: localizationCb("global.fax"),
+    websiteLabel: localizationCb("findARoofer.websiteLabel"),
     roofTypeLabel: localizationCb("findARoofer.roofTypeLabel"),
     certificationLabel: localizationCb("findARoofer.certificationLabel")
   };
@@ -119,10 +120,10 @@ export const createCompanyDetails = (
           websiteWithProtocol,
           countryCode,
           undefined,
-          localization.globalWebsite,
+          localization.websiteLabel,
           undefined,
           undefined,
-          getServiceDataGTM(websiteWithProtocol, localization.globalWebsite)
+          getServiceDataGTM(websiteWithProtocol, localization.websiteLabel)
         ),
     email: !service
       ? null
@@ -190,7 +191,11 @@ export const createCompanyDetails = (
     ? {
         type: "website",
         display: shouldShowIcons ? "icon" : "label",
-        text: new URL(websiteWithProtocol).hostname,
+        text: websiteWithProtocol
+          ? service.websiteLinkAsLabel
+            ? localization.websiteLabel
+            : new URL(websiteWithProtocol).hostname
+          : null,
         action: actions.website,
         label: localization.globalWebsite
       }
