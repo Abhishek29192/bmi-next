@@ -38,7 +38,10 @@ export const getRooferTypes = (
   }, []);
 };
 
-export const createMarker = (selectedRoofer: Service | null) => {
+export const createMarker = (
+  selectedRoofer: Service | null,
+  matches?: boolean
+) => {
   return (service: Service): MarkerOptionsWithData<Service> => ({
     title: service.name,
     position: {
@@ -46,7 +49,8 @@ export const createMarker = (selectedRoofer: Service | null) => {
       lng: service.location.lon
     },
     isActive: selectedRoofer && selectedRoofer.id === service.id,
-    data: service
+    data: service,
+    "data-gtm": JSON.stringify(getResultDataGtm(service, matches, true))
   });
 };
 
