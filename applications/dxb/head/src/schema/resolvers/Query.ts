@@ -63,7 +63,7 @@ export default {
         ({ code }) => (categoryCodes || []).includes(code)
       );
 
-      let allowFilterByLocal = allowFilterBy;
+      let allowFilterByLocal = allowFilterBy || [];
       //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
       if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
