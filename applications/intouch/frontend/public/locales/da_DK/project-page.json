@@ -315,7 +315,8 @@
     "loading": "Indlæser projektoplysninger",
     "roofArea": "Samlet tagareal (m2)",
     "startDate": "Hvornår",
-    "status": "Projektstatus"
+    "status": "Projektstatus",
+    "archived": "Arkiveret"
   },
   "report": {
     "guarantee": "Download garantirapport",
@@ -391,5 +392,9 @@
     "content": "Vil du kopiere dette projekt (projektdetaljer og bygningsejeroplysninger) for at oprette et nyt?",
     "copyOf": "Kopi af {{name}}",
     "title": "Kopier dette projekt"
+  },
+  "bool": {
+    "True": "Rigtigt",
+    "False": "Falsk"
   }
 }

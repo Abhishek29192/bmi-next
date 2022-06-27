@@ -4,6 +4,7 @@ import { Button } from "@bmi/components";
 import { GuaranteeEventType, Technology } from "@bmi/intouch-api-types";
 import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
 import { useTranslation } from "next-i18next";
+import capitalize from "lodash/capitalize";
 import {
   GuaranteeStatus,
   guaranteeStatusIcons
@@ -13,6 +14,8 @@ import { formatDate } from "../../../lib/utils/date";
 import { Address, AddressProps } from "../../Address";
 import { InfoPair } from "../../InfoPair";
 import { SimpleCard } from "../SimpleCard";
+import { isSuperOrMarketAdmin } from "../../../lib/account";
+import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
 export type ProjectsHeaderProps = {
@@ -30,6 +33,7 @@ export type ProjectsHeaderProps = {
   guaranteeEventType?: GuaranteeEventType;
   guaranteeEventHandler?: (status: GuaranteeEventType) => void;
   renderActions?: () => React.ReactNode;
+  hidden?: boolean;
 };
 
 export const ProjectsHeader = ({
@@ -46,7 +50,8 @@ export const ProjectsHeader = ({
   guaranteeStatus,
   guaranteeEventType,
   guaranteeEventHandler,
-  renderActions
+  renderActions,
+  hidden
 }: ProjectsHeaderProps) => {
   const { t } = useTranslation("project-page");
 
@@ -61,6 +66,7 @@ export const ProjectsHeader = ({
 
   // eslint-disable-next-line security/detect-object-injection
   const StatusIconElement = guaranteeStatusIcons[guaranteeStatus];
+  const { account } = useAccountContext();
 
   return (
     <SimpleCard>
@@ -76,6 +82,14 @@ export const ProjectsHeader = ({
       <div className={styles.body}>
         <InfoPair title={t("projectDetails.code")}>{projectCode}</InfoPair>
         <InfoPair title={t("projectDetails.status")}>{projectStatus}</InfoPair>
+        {isSuperOrMarketAdmin(account) && (
+          <InfoPair
+            data-testid="archived-field"
+            title={t("projectDetails.archived")}
+          >
+            {t(`bool.${capitalize(hidden?.toString())}`)}
+          </InfoPair>
+        )}
         <InfoPair title={t("projectDetails.roofArea")}>
           {roofArea}m<sup>2</sup>
         </InfoPair>
