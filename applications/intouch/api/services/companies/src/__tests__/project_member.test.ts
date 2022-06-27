@@ -95,21 +95,33 @@ describe("Project Member", () => {
     });
 
     describe("Auditor", () => {
-      it("should be able to see project members", async () => {
-        const { auditor, installer, project, dbInsertOne } = await initDb(
-          pool,
-          client,
-          "SUPER_ADMIN"
-        );
+      it("should be able to see project members from the market", async () => {
+        const {
+          auditor,
+          installer,
+          project,
+          dbInsertOne,
+          otherMarketAccount,
+          otherMarketProject
+        } = await initDb(pool, client, "SUPER_ADMIN");
         await dbInsertOne("project_member", {
           project_id: project.id,
           account_id: installer.id
         });
+        const otherMarketProjectMember = await dbInsertOne("project_member", {
+          project_id: otherMarketProject.id,
+          account_id: otherMarketAccount.id
+        });
         await actAs(client, auditor);
 
         const { rows } = await client.query("SELECT * FROM project_member");
+        const { rows: otherMarketAccounts } = await client.query(
+          "SELECT * FROM project_member WHERE id = $1",
+          [otherMarketProjectMember.id]
+        );
 
         expect(rows.length).toBeGreaterThan(0);
+        expect(otherMarketAccounts.length).toBe(0);
       });
 
       it("shouldn't be able to update a project member responsible installer", async () => {

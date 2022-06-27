@@ -77,6 +77,13 @@ export const gates = {
       COMPANY_ADMIN: isCompanyMember,
       AUDITOR: false
     },
+    register: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: true,
+      COMPANY_ADMIN: true,
+      AUDITOR: false
+    },
     edit: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,

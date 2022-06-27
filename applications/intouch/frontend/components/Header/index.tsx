@@ -205,7 +205,7 @@ export const Header = ({
               <Link
                 href={contactUsLink.href}
                 isExternal={contactUsLink.isExternal}
-                data-testID="contact-us-link"
+                data-testid="contact-us-link"
               >
                 {contactUsLink.label}
               </Link>
@@ -215,7 +215,7 @@ export const Header = ({
               <Link
                 href={globalExternalLink.href}
                 isExternal={globalExternalLink.isExternal}
-                data-testID="global-external-link"
+                data-testid="global-external-link"
               >
                 {globalExternalLink.label}
               </Link>
