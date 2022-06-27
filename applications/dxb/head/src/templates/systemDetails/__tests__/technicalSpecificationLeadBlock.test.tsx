@@ -1,10 +1,9 @@
-import React from "react";
 import { render } from "@testing-library/react";
-import Component from "../technicalSpecificationLeadBlock";
-
-import { DataTypeEnum } from "../../../components/Link";
+import React from "react";
 import { Data as SDPSpecificationNotesData } from "../../../components/ContentfulSpecificationNotes";
+import { DataTypeEnum } from "../../../components/Link";
 import { Classification, Feature } from "../../../types/pim";
+import Component from "../technicalSpecificationLeadBlock";
 
 const technicalSpecClassifications: Classification[] = [
   {
@@ -202,6 +201,25 @@ describe("TechnicalSpecificationLeadBlock tests", () => {
         const specificationNotes = queryByTestId("specificationNotes");
         expect(container).toMatchSnapshot();
         expect(specificationNotes).not.toBeInTheDocument();
+      });
+      it("should pass correct gtm data data", async () => {
+        const expectedGTM = JSON.stringify({
+          id: "cta-click1",
+          label: "specification notes title - ImALink",
+          action: "https://www.external.co.uk"
+        });
+        const { getByRole } = render(
+          <Component
+            technicalSpecClassifications={[
+              ...technicalSpecClassifications,
+              ...technicalSpecClassifications
+            ]}
+            specificationNotes={specificationNotesData}
+          />
+        );
+
+        const specificationNotesCTA = getByRole("button", { name: "ImALink" });
+        expect(specificationNotesCTA).toHaveAttribute("data-gtm", expectedGTM);
       });
     });
   });
