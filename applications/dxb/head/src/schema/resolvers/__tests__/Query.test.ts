@@ -141,7 +141,11 @@ describe("Query resolver", () => {
       const filters = { allowFilterBy: [], filters: [] };
       getPlpFilters = jest.fn().mockResolvedValue([]);
       context.nodeModel.findAll = jest.fn().mockResolvedValue({
-        entries: [{ products: [{ code: "product-1" }] }]
+        entries: [
+          {
+            code: "product-1"
+          }
+        ]
       });
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
@@ -150,7 +154,51 @@ describe("Query resolver", () => {
 
       expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [],
-        products: [{ products: [{ code: "product-1" }] }]
+        products: [{ code: "product-1" }]
+      });
+    });
+
+    describe("when GATSBY_USE_LEGACY_FILTERS = false", () => {
+      it("should resolve plp filters with product categories", async () => {
+        process.env.GATSBY_USE_LEGACY_FILTERS = "false";
+        const filters = { allowFilterBy: ["PRODUCT_NO"], filters: [] };
+        getPlpFilters = jest.fn().mockResolvedValue([]);
+        context.nodeModel.findAll = jest.fn().mockResolvedValue({
+          entries: [
+            {
+              code: "product-1",
+              categories: [],
+              groups: [
+                { label: "cat 1", code: "PRODUCT_NO" },
+                { label: "cat 2", code: "PRODUCT_NO" }
+              ]
+            }
+          ]
+        });
+
+        expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
+          filters
+        );
+
+        expect(getPlpFilters).toHaveBeenCalledWith({
+          allowedFilters: ["PRODUCT_NO"],
+          products: [
+            {
+              categories: [],
+              code: "product-1",
+              groups: [
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 1"
+                },
+                {
+                  code: "PRODUCT_NO",
+                  label: "cat 2"
+                }
+              ]
+            }
+          ]
+        });
       });
     });
   });
