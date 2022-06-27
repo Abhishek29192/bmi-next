@@ -133,18 +133,24 @@ const getSpecification = (system: PimSystem): Asset | undefined =>
 const mapSystemLayers = (system: PimSystem): SystemLayer[] =>
   (system.systemLayers || [])
     .filter((systemLayer) => systemLayer.approvalStatus === "approved")
-    .map((systemLayer) => ({
-      layerNumber: systemLayer.layerNumber,
-      name: systemLayer.name,
-      relatedProducts: (systemLayer.products || []).map(
-        (product) => product.code
-      ),
-      relatedOptionalProducts: (systemLayer.optionalProducts || []).map(
-        (product) => product.code
-      ),
-      type: systemLayer.type,
-      shortDescription: systemLayer.shortDescription || ""
-    }));
+    .map((systemLayer) => {
+      const layer = {
+        layerNumber: systemLayer.layerNumber,
+        name: systemLayer.name,
+        relatedProducts: (systemLayer.products || []).map(
+          (product) => product.code
+        ),
+        relatedOptionalProducts: (systemLayer.optionalProducts || []).map(
+          (product) => product.code
+        ),
+        type: systemLayer.type,
+        shortDescription: systemLayer.shortDescription || ""
+      };
+      console.log(`----- mapped layer no. ${systemLayer.layerNumber}-----`);
+      console.log(JSON.stringify(layer));
+      console.log("----- mapped layer -----");
+      return layer;
+    });
 
 const mapSystemReferences = (system: PimSystem): string[] =>
   (system.systemReferences || [])
