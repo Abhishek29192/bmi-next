@@ -25,6 +25,9 @@ package_gcp-pim-message-handler:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
   script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
     - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json

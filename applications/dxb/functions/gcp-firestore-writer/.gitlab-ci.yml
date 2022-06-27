@@ -25,6 +25,9 @@ package_gcp-firestore-writer:
     FUNCTION_NAME: "gcp-firestore-writer"
     ROOT_DIR: "applications/dxb/functions/gcp-firestore-writer"
   script:
+    - apt-get update
+    - apt-get install -y zip unzip
+    - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
     - zip -r $CI_PROJECT_DIR/dist/functions/$FUNCTION_NAME.zip dist protos package.json
