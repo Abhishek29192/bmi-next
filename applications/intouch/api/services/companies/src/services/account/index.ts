@@ -137,7 +137,7 @@ export const updateAccount = async (
   await pgClient.query("SAVEPOINT graphql_mutation");
 
   try {
-    const termsToAccept = user[`${AUTH0_NAMESPACE}/terms_to_accept`];
+    const termsToAccept = user?.[`${AUTH0_NAMESPACE}/terms_to_accept`];
 
     if (termsToAccept && args.input.patch.termsCondition) {
       await auth0.updateUser(user.sub, {

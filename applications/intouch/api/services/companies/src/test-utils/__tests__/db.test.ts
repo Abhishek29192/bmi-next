@@ -1,4 +1,11 @@
-import { deleteRow, Context, getDbPool, actAs, insertOne } from "../db";
+import {
+  deleteRow,
+  Context,
+  getDbPool,
+  actAs,
+  insertOne,
+  cleanup
+} from "../db";
 
 process.env.PG_USER = "PG_USER";
 process.env.PG_DATABASE = "PG_DATABASE";
@@ -7,6 +14,7 @@ process.env.PG_PASSWORD = "PG_PASSWORD";
 process.env.PG_HOST = "PG_HOST";
 
 const poolSpy = jest.fn();
+const querySpy = jest.fn();
 jest.mock("pg", () => {
   const original = jest.requireActual("pg");
   return {
@@ -24,6 +32,11 @@ describe("db", () => {
       query: clientQuerySpy.mockImplementation(() =>
         Promise.resolve({ rows: ["any"] })
       )
+    },
+    pool: {
+      query: jest
+        .fn()
+        .mockImplementation((query, parameters) => querySpy(query, parameters))
     }
   } as unknown as Context;
 
@@ -130,7 +143,7 @@ describe("db", () => {
       const response = await insertOne({ ...context }, tableName, record);
 
       expect(context.client.query).toHaveBeenCalledWith(
-        `INSERT into ${tableName} (test) VALUES ($1) RETURNING *`,
+        `INSERT into ${tableName} (test) VALUES ($1) ON CONFLICT DO NOTHING RETURNING *`,
         ["test"]
       );
       expect(response).toBe("any");
@@ -140,7 +153,7 @@ describe("db", () => {
       await insertOne({ ...context }, "project", record);
 
       expect(context.client.query).toHaveBeenCalledWith(
-        `INSERT into project (name, roof_area, technology, start_date, end_date, test) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+        `INSERT into project (name, roof_area, technology, start_date, end_date, test) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING RETURNING *`,
         ["name", 1, "PITCHED", "2020-01-01", "2020-01-01", "test"]
       );
     });
@@ -149,7 +162,7 @@ describe("db", () => {
       await insertOne({ ...context }, "account", record);
 
       expect(context.client.query).toHaveBeenCalledWith(
-        `INSERT into account (first_name, last_name, email, test) VALUES ($1, $2, $3, $4) RETURNING *`,
+        `INSERT into account (first_name, last_name, email, test) VALUES ($1, $2, $3, $4) ON CONFLICT DO NOTHING RETURNING *`,
         ["Joe", "Doe", "joe@email.invalid", "test"]
       );
     });
@@ -176,6 +189,24 @@ describe("db", () => {
       expect(result).toBe(true);
       expect(clientQuerySpy).toHaveBeenCalledWith(
         `DELETE FROM ${tableName} WHERE test = 'test' AND test2 = 'test2'`
+      );
+    });
+  });
+
+  describe("cleanup", () => {
+    it("normal case", async () => {
+      const tableName = "table";
+      const record = { id: "1" };
+      await cleanup({
+        ...context,
+        cleanupBucket: {
+          [tableName]: [record]
+        }
+      });
+
+      expect(querySpy).toHaveBeenCalledWith(
+        `DELETE from ${tableName} WHERE id = ANY($1)`,
+        [[record.id]]
       );
     });
   });

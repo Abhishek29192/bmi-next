@@ -292,12 +292,14 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
       />
       <div className={styles.main}>
         <div className={styles.header}>
-          <Button
-            variant="outlined"
-            onClick={() => setEvidenceDialogOpen(true)}
-          >
-            {t("upload_tab.header")}
-          </Button>
+          <AccessControl dataModel="project" action="addEvidence">
+            <Button
+              variant="outlined"
+              onClick={() => setEvidenceDialogOpen(true)}
+            >
+              {t("upload_tab.header")}
+            </Button>
+          </AccessControl>
         </div>
         <div className={styles.body}>
           <Accordion noInnerPadding={true}>

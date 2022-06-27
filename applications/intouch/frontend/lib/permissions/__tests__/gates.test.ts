@@ -241,4 +241,76 @@ describe("permissions/gates", () => {
       expect(gates.navigation.team(null)).toBe(false);
     });
   });
+
+  describe("gates.navigation.notification", () => {
+    it("role is SUPER_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+
+      expect(gates.navigation.notification(account)).toBe(true);
+    });
+
+    it("role is MARKET_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.MARKET_ADMIN });
+
+      expect(gates.navigation.notification(account)).toBe(true);
+    });
+
+    it("role is COMPANY_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.COMPANY_ADMIN });
+
+      expect(gates.navigation.notification(account)).toBe(true);
+    });
+
+    it("role is INSTALLER ", () => {
+      const account = generateAccount({ role: ROLES.INSTALLER });
+
+      expect(gates.navigation.notification(account)).toBe(true);
+    });
+
+    it("role is AUDITOR ", () => {
+      const account = generateAccount({ role: ROLES.AUDITOR });
+
+      expect(gates.navigation.notification(account)).toBe(false);
+    });
+
+    it("has no account", () => {
+      expect(gates.navigation.notification(null)).toBe(true);
+    });
+  });
+
+  describe("gates.navigation.training", () => {
+    it("role is SUPER_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+
+      expect(gates.navigation.training(account)).toBe(true);
+    });
+
+    it("role is MARKET_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.MARKET_ADMIN });
+
+      expect(gates.navigation.training(account)).toBe(true);
+    });
+
+    it("role is COMPANY_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.COMPANY_ADMIN });
+
+      expect(gates.navigation.training(account)).toBe(true);
+    });
+
+    it("role is INSTALLER ", () => {
+      const account = generateAccount({ role: ROLES.INSTALLER });
+
+      expect(gates.navigation.training(account)).toBe(true);
+    });
+
+    it("role is AUDITOR ", () => {
+      const account = generateAccount({ role: ROLES.AUDITOR });
+
+      expect(gates.navigation.training(account)).toBe(false);
+    });
+
+    it("has no account", () => {
+      expect(gates.navigation.training(null)).toBe(true);
+    });
+  });
 });

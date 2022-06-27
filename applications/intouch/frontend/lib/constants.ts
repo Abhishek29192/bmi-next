@@ -4,7 +4,8 @@ export const ROLES: { [key: string]: Role } = {
   COMPANY_ADMIN: "COMPANY_ADMIN",
   INSTALLER: "INSTALLER",
   MARKET_ADMIN: "MARKET_ADMIN",
-  SUPER_ADMIN: "SUPER_ADMIN"
+  SUPER_ADMIN: "SUPER_ADMIN",
+  AUDITOR: "AUDITOR"
 };
 
 export const BUSINESS_TYPES: { [key: string]: BusinessType } = {

@@ -26177,6 +26177,7 @@ enum RequestStatus {
 }
 
 enum Role {
+  AUDITOR
   COMPANY_ADMIN
   INSTALLER
   MARKET_ADMIN

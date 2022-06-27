@@ -21,7 +21,12 @@ describe("permission", () => {
     "import:account:markets",
     "delete:guarantee"
   ];
-  const { INSTALLER, COMPANY_ADMIN, MARKET_ADMIN, SUPER_ADMIN } = permissions;
+  const { INSTALLER, COMPANY_ADMIN, MARKET_ADMIN, SUPER_ADMIN, AUDITOR } =
+    permissions;
+
+  it("AUDITOR", () => {
+    expect(AUDITOR).toEqual(expect.arrayContaining([]));
+  });
 
   it("INSTALLER", () => {
     expect(INSTALLER).toEqual(expect.arrayContaining([]));
