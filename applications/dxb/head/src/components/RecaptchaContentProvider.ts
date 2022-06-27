@@ -109,11 +109,11 @@ const recaptchaContent_ES: RecaptchaPolicyContentType = {
 };
 
 const recaptchaContent_PT: RecaptchaPolicyContentType = {
-  startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
+  startText: "Este site é protegido pelo reCAPTCHA e a ",
   privacyPloicyText: "Política de Privacidade",
-  andText: " y ",
-  termsOfServiceText: "Termos de serviço",
-  endText: " aplique.",
+  andText: " e os ",
+  termsOfServiceText: "Termos de Serviço",
+  endText: " do Google se aplicam.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=pt",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=pt"
 };
