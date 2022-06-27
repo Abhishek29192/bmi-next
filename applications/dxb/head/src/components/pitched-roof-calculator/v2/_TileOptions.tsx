@@ -143,6 +143,7 @@ const VentilationHoodOptions = ({
   return (
     <FieldContainer
       title={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_TITLE)}
+      help={getMicroCopy(microCopy.TILE_OPTIONS_VENTILATION_HOOD_HELP)}
     >
       <CardCheckboxGroup
         name="ventilation"

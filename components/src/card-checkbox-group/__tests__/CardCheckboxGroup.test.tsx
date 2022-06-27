@@ -1,8 +1,8 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
 import CardCheckboxGroup from "../CardCheckboxGroup";
-import demoImage from "./images/demo-product.jpg";
 import demoFormattedImage from "./images/demo-product-format.jpg";
+import demoImage from "./images/demo-product.jpg";
 
 describe("CardCheckboxGroup component", () => {
   it("renders correctly", () => {
@@ -57,10 +57,14 @@ describe("CardCheckboxGroup component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("renders with nonlabel string", () => {
+  it("renders with none label string", () => {
     const onChange = jest.fn();
-    const { container } = render(
-      <CardCheckboxGroup name="tileType" noneLabel="arktis" onChange={onChange}>
+    render(
+      <CardCheckboxGroup
+        name="tileType"
+        noneLabel="none label"
+        onChange={onChange}
+      >
         <CardCheckboxGroup.Item
           value="Zanda Arktis"
           title="Zanda Arktis"
@@ -81,9 +85,33 @@ describe("CardCheckboxGroup component", () => {
         </CardCheckboxGroup.Item>
       </CardCheckboxGroup>
     );
-    fireEvent.click(screen.getByText("arktis"));
+    fireEvent.click(screen.getByDisplayValue("none"));
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(container).toMatchSnapshot();
+  });
+
+  it("calls onChange with null", () => {
+    const onChange = jest.fn();
+    render(
+      <CardCheckboxGroup
+        name="tileType"
+        noneLabel="none label"
+        onChange={onChange}
+      >
+        <CardCheckboxGroup.Item
+          value="Zanda Arktis"
+          title="Zanda Arktis"
+          imageSource={demoFormattedImage}
+        >
+          <CardCheckboxGroup.Item.Paragraph>
+            6 colours
+          </CardCheckboxGroup.Item.Paragraph>
+        </CardCheckboxGroup.Item>
+      </CardCheckboxGroup>
+    );
+
+    fireEvent.click(screen.getByDisplayValue("none"));
+    fireEvent.click(screen.getByDisplayValue("none"));
+    expect(onChange).toHaveBeenCalledWith(null);
   });
 
   it("calls onChange", () => {

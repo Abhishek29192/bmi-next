@@ -277,6 +277,11 @@ exports[`PitchedRoofCalculator TileOptions component renders correctly 1`] = `
         >
           MC: tileOptions.ventilationHood.title
         </h6>
+        <p
+          class="MuiTypography-root help Typography MuiTypography-body2"
+        >
+          MC: tileOptions.ventilationHood.help
+        </p>
       </div>
       <div
         class="CardCheckboxGroup"
