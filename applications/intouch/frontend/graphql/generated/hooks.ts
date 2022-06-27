@@ -1717,8 +1717,13 @@ export const GetGuaranteesReportDocument = gql`
           company {
             name
           }
+          hidden
         }
         requestorAccountId
+        requestorAccount {
+          firstName
+          lastName
+        }
         coverage
         status
         languageCode
@@ -1730,6 +1735,7 @@ export const GetGuaranteesReportDocument = gql`
         startDate
         expiryDate
         signedFileStorageUrl
+        fileStorageId
         systemBySystemBmiRef {
           name
         }

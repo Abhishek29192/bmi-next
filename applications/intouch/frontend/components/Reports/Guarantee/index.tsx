@@ -22,6 +22,9 @@ const getReportData = (
       guaranteeType,
       systemBySystemBmiRef,
       productByProductBmiRef,
+      requestorAccount,
+      requestorAccountId,
+      signedFileStorageUrl,
       ...rest
     } = company;
 
@@ -36,10 +39,18 @@ const getReportData = (
       guaranteeType || {};
     const productName = productByProductBmiRef?.name;
     const systemName = systemBySystemBmiRef?.name;
+    const requestorName = [
+      requestorAccount?.firstName,
+      requestorAccount?.lastName
+    ]
+      .filter(Boolean)
+      .join(" ");
     return {
       ...rest,
+      requestorName,
       projectName,
       projectTechnology,
+      archived: project.hidden,
       roofArea,
       companyName,
       guaranteeTypeName,
@@ -99,8 +110,13 @@ export const GET_GUARANTEES_REPORT = gql`
           company {
             name
           }
+          hidden
         }
         requestorAccountId
+        requestorAccount {
+          firstName
+          lastName
+        }
         coverage
         status
         languageCode
@@ -112,6 +128,7 @@ export const GET_GUARANTEES_REPORT = gql`
         startDate
         expiryDate
         signedFileStorageUrl
+        fileStorageId
         systemBySystemBmiRef {
           name
         }
