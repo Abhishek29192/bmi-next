@@ -609,7 +609,7 @@ describe("transformSystems", () => {
         code: "layer 4",
         name: "layer 4",
         approvalStatus: "approved",
-        shortDescription: undefined
+        shortDescription: "short-description"
       })
     ]);
     const transformedSystems = transformSystems([system]);
@@ -619,7 +619,9 @@ describe("transformSystems", () => {
       "SDescription 1 NO"
     );
     expect(transformedSystems[0].systemLayers![1].name).toEqual("layer 4");
-    expect(transformedSystems[0].systemLayers![1].shortDescription).toEqual("");
+    expect(transformedSystems[0].systemLayers![1].shortDescription).toEqual(
+      "short-description"
+    );
   });
 
   it("handles no master images", () => {
