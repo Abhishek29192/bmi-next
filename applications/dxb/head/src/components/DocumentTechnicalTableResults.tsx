@@ -18,7 +18,9 @@ type Props = {
 export const groupDocuments = (
   documents: readonly ProductDocument[]
 ): [string, ProductDocument[]][] => {
-  return Object.entries(groupDistinctBy(documents, "productBaseCode", "title"));
+  return Object.entries(
+    groupDistinctBy(documents, "productBaseCode", "realFileName")
+  );
 };
 
 export const getCount = (documents: Props["documents"]): number => {
