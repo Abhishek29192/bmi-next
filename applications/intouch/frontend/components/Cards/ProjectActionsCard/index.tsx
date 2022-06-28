@@ -61,7 +61,7 @@ export const ProjectActionsCard = ({
     updateProjectHidden({
       variables: {
         projectId,
-        hidden: !isArchived
+        hidden: true
       }
     });
   };
@@ -103,11 +103,11 @@ export const ProjectActionsCard = ({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="outlined" onClick={toggleProjectArchive}>
-          {isArchived
-            ? t("projectActions.cta.unarchive")
-            : t("projectActions.cta.archive")}
-        </Button>
+        {!isArchived && (
+          <Button variant="outlined" onClick={toggleProjectArchive}>
+            {t("projectActions.cta.archive")}
+          </Button>
+        )}
         <AccessControl dataModel="project" action="restartSolutionGuarantee">
           {isSolutionOrSystemGuaranteeExist && (
             <Button
