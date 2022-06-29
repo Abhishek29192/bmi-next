@@ -1,4 +1,4 @@
-process.env.GATEWAY_API_URL = "http://localhost/";
+process.env.FRONTEND_API_URL = "http://localhost/";
 
 import GatewayClient from "../GatewayClient";
 
@@ -73,22 +73,24 @@ describe("GatewayClient", () => {
       await gateway.updateGuaranteeFileStorage(1, "2");
 
       expect(requestSpy).toHaveBeenNthCalledWith(1, [
-        process.env.GATEWAY_API_URL,
+        process.env.FRONTEND_API_URL,
         {
           headers: {
             "Content-Type": "application/json",
             "x-apigateway-api-userinfo": userinfo,
-            authorization: bearer
+            authorization: "bearer undefined",
+            "x-api-key": "bearer"
           }
         }
       ]);
       expect(requestSpy).toHaveBeenNthCalledWith(2, [
         {
-          url: process.env.GATEWAY_API_URL,
+          url: process.env.FRONTEND_API_URL,
           headers: {
             "Content-Type": "application/json",
             "x-apigateway-api-userinfo": userinfo,
-            authorization: bearer
+            authorization: "bearer undefined",
+            "x-api-key": "bearer"
           }
         },
         {
