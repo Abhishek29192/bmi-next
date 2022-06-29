@@ -35,7 +35,8 @@ export default async (req, res, next) => {
         "pdf-generator-function",
         "incomplete-reminder-function",
         "archive-guarantee-function",
-        "certification-function"
+        "certification-function",
+        "annual-inspection-function"
       ].includes(user?.source)
     ) {
       // if we want to limit access per function/service

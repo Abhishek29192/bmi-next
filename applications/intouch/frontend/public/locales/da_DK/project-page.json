@@ -24,7 +24,8 @@
             "town": "By"
           },
           "startDate": "Hvornår",
-          "technology": "Tagtype"
+          "technology": "Tagtype",
+          "inspection": "Inspection"
         },
         "hints": {
           "technology": {
