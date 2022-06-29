@@ -60,7 +60,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       ).toEqual(products);
     });
 
-    it("should warn if some variant code found", async () => {
+    it("should warn if no products found for any variant codes", async () => {
       context.nodeModel.findAll = jest
         .fn()
         .mockResolvedValueOnce({ entries: [] });

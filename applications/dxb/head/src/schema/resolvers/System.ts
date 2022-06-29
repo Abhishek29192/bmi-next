@@ -26,7 +26,9 @@ const createResolver = (field: keyof Node) => ({
 
     const products = [...entries];
 
-    if (products.length !== variantCodes.length) {
+    // fix for JIRA: https://bmigroup.atlassian.net/browse/DXB-3733
+    // ONLY log and return empty if NO products were found for ANY variant codes
+    if (variantCodes.length > 0 && products.length === 0) {
       // eslint-disable-next-line no-console
       console.warn(
         `Couldn't find ${field} that match ${JSON.stringify(
