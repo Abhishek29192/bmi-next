@@ -11,7 +11,8 @@ const createAssetsWithRealFileNames = (
 ): ProductDocument[] => {
   return realFileNames.map((filename) =>
     createPimDocument({
-      realFileName: filename
+      realFileName: filename,
+      title: null
     })
   );
 };
@@ -68,6 +69,23 @@ describe("DocumentFileUtils Tests", () => {
             "file1.pdf",
             "file2.pdf",
             "file2.pdf"
+          ]);
+          const resultFileCountMap: AssetUniqueFileCountMap =
+            createAssetFileCountMap(assets);
+          expect(resultFileCountMap).toEqual({
+            uniqueFileMap: { "file1.pdf": 2, "file2.pdf": 2 },
+            fileIndexCount: [1, 2, 1, 2]
+          });
+        });
+      });
+
+      describe("When Assets has multiple titles", () => {
+        it("returns correct File Count Map and unique file names map", () => {
+          const assets = createAssetsWithTitles([
+            "file1",
+            "file1",
+            "file2",
+            "file2"
           ]);
           const resultFileCountMap: AssetUniqueFileCountMap =
             createAssetFileCountMap(assets);
