@@ -1,6 +1,6 @@
-import React from "react";
-import classnames from "classnames";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import classnames from "classnames";
+import React from "react";
 import { withClickable } from "../clickable/Clickable";
 import Icon, { iconMap } from "../icon";
 import Media, { AcceptedNode } from "../media/Media";
@@ -63,6 +63,7 @@ const Thumbnail = ({
       disabled={state === StateEnum.DISABLED}
       disableRipple={state === StateEnum.SELECTED}
       className={classList}
+      aria-label={altText}
       {...rest}
       style={{
         backgroundColor: color,

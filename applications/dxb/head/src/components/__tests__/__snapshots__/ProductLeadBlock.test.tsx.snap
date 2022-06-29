@@ -1029,6 +1029,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe"
             src="http://bimIframUrl"
+            title="BIM iFrame"
           />
         </div>
       </div>
@@ -1086,6 +1087,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe specification-tab-iframe"
             src="http://specificationIframeUrl"
+            title="undefined iFrame"
           />
         </div>
       </div>
@@ -1104,6 +1106,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe fixing-tool-iframe"
             src="http://fixingToolIframeUrl"
+            title="undefined iFrame"
           />
         </div>
       </div>
@@ -1967,6 +1970,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe"
             src="http://bimIframUrl"
+            title="BIM iFrame"
           />
         </div>
       </div>
@@ -2024,6 +2028,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe specification-tab-iframe"
             src="http://specificationIframeUrl"
+            title="undefined iFrame"
           />
         </div>
       </div>
@@ -2042,6 +2047,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
           <iframe
             class="assetsIframe fixing-tool-iframe"
             src="http://fixingToolIframeUrl"
+            title="undefined iFrame"
           />
         </div>
       </div>
@@ -3320,6 +3326,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab 1`] = `
     <iframe
       class="assetsIframe fixing-tool-iframe"
       src="https://monier.service.bouwconnect.nl/"
+      title="undefined iFrame"
     />
   </div>
 </div>
@@ -3346,6 +3353,7 @@ exports[`ProductLeadBlock tests should render the fixing tool tab with title and
     <iframe
       class="assetsIframe fixing-tool-iframe"
       src="https://monier.service.bouwconnect.nl/"
+      title="Fixing tool title iFrame"
     />
   </div>
 </div>
@@ -3372,6 +3380,7 @@ exports[`ProductLeadBlock tests should render the specification tab 1`] = `
     <iframe
       class="assetsIframe specification-tab-iframe"
       src="https://monier.service.bouwconnect.nl/"
+      title="Specification title iFrame"
     />
   </div>
 </div>

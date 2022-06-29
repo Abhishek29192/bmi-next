@@ -1,6 +1,6 @@
-import React from "react";
 import * as all from "@bmi-digital/use-dimensions";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import React from "react";
 import YoutubeVideo from "../YoutubeVideo";
 
 function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
@@ -128,10 +128,10 @@ describe("YoutubeVideo component", () => {
       embedHeight: 720,
       previewImageSource: "https://i.ytimg.com/vi/A-RfHC91Ewc/maxresdefault.jpg"
     };
-    const { container, getByRole } = render(
+    const { container, getByTestId } = render(
       <YoutubeVideo layout="dialog" {...props} />
     );
-    const thumbnailButton = getByRole("button", { name: props.label });
+    const thumbnailButton = getByTestId("thumbnail-button");
     thumbnailButton.click();
     expect(container.parentElement).toMatchSnapshot();
   });

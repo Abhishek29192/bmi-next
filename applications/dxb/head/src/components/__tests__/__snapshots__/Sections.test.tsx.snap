@@ -807,6 +807,7 @@ HTMLCollection [
                   <button
                     aria-label="Video"
                     class="thumbnail"
+                    data-testid="thumbnail"
                     type="button"
                   >
                     <img
@@ -821,7 +822,9 @@ HTMLCollection [
                     </span>
                     <div
                       aria-disabled="false"
+                      aria-label="Video"
                       class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-31 iconButtonStyles-medium-37 iconButtonStyles-contained-32 play-button"
+                      data-testid="thumbnail-button"
                       role="button"
                       tabindex="0"
                     >
@@ -2795,6 +2798,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="first-name"
+                    id="first-name-label"
                   >
                     First name
                     <span
@@ -2811,6 +2816,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="first-name"
                       name="first-name"
                       required=""
                       type="text"
@@ -2841,6 +2847,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="second-names"
+                    id="second-names-label"
                   >
                     Second name
                     <span
@@ -2857,6 +2865,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="second-names"
                       name="second-names"
                       required=""
                       type="text"
@@ -2887,6 +2896,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="email"
+                    id="email-label"
                   >
                     Email address
                     <span
@@ -2903,6 +2914,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="email"
                       name="email"
                       required=""
                       type="text"
@@ -2933,6 +2945,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                     data-shrink="false"
+                    for="company"
+                    id="company-label"
                   >
                     Company name(if Applicable)
                   </label>
@@ -2942,6 +2956,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="company"
                       name="company"
                       type="text"
                       value=""
@@ -2970,6 +2985,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
                     data-shrink="false"
+                    for="telephone"
+                    id="telephone-label"
                   >
                     Telephone
                   </label>
@@ -2979,6 +2996,7 @@ HTMLCollection [
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input"
+                      id="telephone"
                       name="telephone"
                       type="text"
                       value=""
@@ -3130,6 +3148,8 @@ HTMLCollection [
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
                     data-shrink="false"
+                    for="message"
+                    id="message-label"
                   >
                     Your message
                     <span
@@ -3146,6 +3166,7 @@ HTMLCollection [
                     <textarea
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+                      id="message"
                       name="message"
                       required=""
                       rows="6"
@@ -3374,9 +3395,9 @@ HTMLCollection [
               class="ButtonWrapper"
             >
               <button
-                aria-action="Form section"
                 aria-label="children"
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-20 MuiButton-contained buttonStyles-contained-22 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
+                data-action="Form section"
                 data-gtm="{\\"id\\":\\"form-button1\\",\\"label\\":\\"children\\",\\"action\\":\\"Form section\\"}"
                 disabled=""
                 tabindex="-1"

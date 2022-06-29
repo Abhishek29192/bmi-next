@@ -6423,6 +6423,7 @@ exports[`Simple page renders correctly with full data 1`] = `
                           <button
                             aria-label="BMI Group VIDEO LABEL"
                             class="thumbnail"
+                            data-testid="thumbnail"
                             type="button"
                           >
                             <img
@@ -6437,7 +6438,9 @@ exports[`Simple page renders correctly with full data 1`] = `
                             </span>
                             <div
                               aria-disabled="false"
+                              aria-label="BMI Group VIDEO LABEL"
                               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root iconButtonStyles-medium iconButtonStyles-contained play-button"
+                              data-testid="thumbnail-button"
                               role="button"
                               tabindex="0"
                             >

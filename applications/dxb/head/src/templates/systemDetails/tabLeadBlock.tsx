@@ -106,6 +106,7 @@ const TabLeadBlock = ({
                   data-testid="bmi-iframe"
                   className={styles["bmiIframe"]}
                   url={system.bim.url}
+                  title={system.bim.name}
                 />
               </LeadBlock>
             </Section>

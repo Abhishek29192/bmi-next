@@ -2912,6 +2912,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                           <button
                             aria-label="label"
                             class="thumbnail"
+                            data-testid="thumbnail"
                             type="button"
                           >
                             <img
@@ -2926,7 +2927,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                             </span>
                             <div
                               aria-disabled="false"
+                              aria-label="label"
                               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-174 iconButtonStyles-medium-180 iconButtonStyles-contained-175 play-button"
+                              data-testid="thumbnail-button"
                               role="button"
                               tabindex="0"
                             >
@@ -3019,6 +3022,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -3033,7 +3037,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-174 iconButtonStyles-medium-180 iconButtonStyles-contained-175 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -3108,6 +3114,7 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -3122,7 +3129,9 @@ exports[`Brand Landing Page Template not render cta link text when cta object is
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-174 iconButtonStyles-medium-180 iconButtonStyles-contained-175 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -6524,6 +6533,7 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                           <button
                             aria-label="label"
                             class="thumbnail"
+                            data-testid="thumbnail"
                             type="button"
                           >
                             <img
@@ -6538,7 +6548,9 @@ exports[`Brand Landing Page Template render correctly 1`] = `
                             </span>
                             <div
                               aria-disabled="false"
+                              aria-label="label"
                               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 play-button"
+                              data-testid="thumbnail-button"
                               role="button"
                               tabindex="0"
                             >
@@ -10018,6 +10030,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -10032,7 +10045,9 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -10107,6 +10122,7 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -10121,7 +10137,9 @@ exports[`Brand Landing Page Template render firstslide featuredMedia instead whe
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -13601,6 +13619,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -13615,7 +13634,9 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-147 iconButtonStyles-medium-153 iconButtonStyles-contained-148 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -13690,6 +13711,7 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -13704,7 +13726,9 @@ exports[`Brand Landing Page Template render linkLabel microcopy when slide is ha
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-147 iconButtonStyles-medium-153 iconButtonStyles-contained-148 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -17208,6 +17232,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -17222,7 +17247,9 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-201 iconButtonStyles-medium-207 iconButtonStyles-contained-202 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -17297,6 +17324,7 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -17311,7 +17339,9 @@ exports[`Brand Landing Page Template render no context for firstslide when no de
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-201 iconButtonStyles-medium-207 iconButtonStyles-contained-202 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -20713,6 +20743,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                           <button
                             aria-label="label"
                             class="thumbnail"
+                            data-testid="thumbnail"
                             type="button"
                           >
                             <img
@@ -20727,7 +20758,9 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                             </span>
                             <div
                               aria-disabled="false"
+                              aria-label="label"
                               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 play-button"
+                              data-testid="thumbnail-button"
                               role="button"
                               tabindex="0"
                             >
@@ -20820,6 +20853,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -20834,7 +20868,9 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -20909,6 +20945,7 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -20923,7 +20960,9 @@ exports[`Brand Landing Page Template render overlapCards correctly 1`] = `
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-39 iconButtonStyles-medium-45 iconButtonStyles-contained-40 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -24297,6 +24336,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                           <button
                             aria-label="label"
                             class="thumbnail"
+                            data-testid="thumbnail"
                             type="button"
                           >
                             <img
@@ -24311,7 +24351,9 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                             </span>
                             <div
                               aria-disabled="false"
+                              aria-label="label"
                               class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 play-button"
+                              data-testid="thumbnail-button"
                               role="button"
                               tabindex="0"
                             >
@@ -24404,6 +24446,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -24418,7 +24461,9 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -24493,6 +24538,7 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -24507,7 +24553,9 @@ exports[`Brand Landing Page Template render sections correctly 1`] = `
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-66 iconButtonStyles-medium-72 iconButtonStyles-contained-67 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -28013,6 +28061,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -28027,7 +28076,9 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-120 iconButtonStyles-medium-126 iconButtonStyles-contained-121 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -28102,6 +28153,7 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -28116,7 +28168,9 @@ exports[`Brand Landing Page Template render slide featuredMedia instead when no 
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-120 iconButtonStyles-medium-126 iconButtonStyles-contained-121 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -31637,6 +31691,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -31651,7 +31706,9 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-228 iconButtonStyles-medium-234 iconButtonStyles-contained-229 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >
@@ -31726,6 +31783,7 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                       <button
                         aria-label="label"
                         class="thumbnail"
+                        data-testid="thumbnail"
                         type="button"
                       >
                         <img
@@ -31740,7 +31798,9 @@ exports[`Brand Landing Page Template renders cta on firstSlide if not null 1`] =
                         </span>
                         <div
                           aria-disabled="false"
+                          aria-label="label"
                           class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-228 iconButtonStyles-medium-234 iconButtonStyles-contained-229 play-button"
+                          data-testid="thumbnail-button"
                           role="button"
                           tabindex="0"
                         >

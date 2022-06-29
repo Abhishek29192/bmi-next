@@ -1,27 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
 import classnames from "classnames";
+import React, { useEffect, useRef, useState } from "react";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
 import styles from "./MediaGallery.module.scss";
-import { Media as MediaData } from "./types";
-
-type Props = {
-  images: readonly MediaData[];
-  /** The index to identify the active thumbnail */
-  activeImageIndex: number;
-  onThumbnailClick: (e: Event, index: number) => void;
-  component?: React.ComponentType<any>; // TODO
-  openYoutubeVideo?: (e: React.MouseEvent<SVGElement>, index: number) => void;
-};
+import { ThumbnailsProps } from "./types";
 
 const THUMBNAIL_WIDTH = 86;
 
 const Thumbnails = ({
-  images,
+  media: mediaData,
   activeImageIndex,
   onThumbnailClick,
   openYoutubeVideo,
   component: Thumbnail = DefaultThumbnail
-}: Props) => {
+}: ThumbnailsProps) => {
   let debouncer: NodeJS.Timeout;
   const thumbnailsRef = useRef<HTMLDivElement>(null);
   const [visibleGradients, setVisibleGradients] = useState<{
@@ -73,10 +64,10 @@ const Thumbnails = ({
         className={styles["scroller"]}
         ref={thumbnailsRef}
         style={{
-          width: `${images.length * THUMBNAIL_WIDTH}px`
+          width: `${mediaData.length * THUMBNAIL_WIDTH}px`
         }}
       >
-        {images.map(
+        {mediaData.map(
           (
             { thumbnail, isVideo, altText, media, visualiserParameters },
             index

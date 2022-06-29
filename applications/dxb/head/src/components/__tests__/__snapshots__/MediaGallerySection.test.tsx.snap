@@ -84,6 +84,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                 class="thumbnails"
               >
                 <button
+                  aria-label="Scroll left"
                   class="MuiButtonBase-root thumb-scroller thumb-scroller--left ThumbScrollerButton ThumbScrollerButton--left"
                   tabindex="-1"
                   type="button"
@@ -103,6 +104,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   />
                 </button>
                 <button
+                  aria-label="Scroll right"
                   class="MuiButtonBase-root thumb-scroller thumb-scroller--right thumb-scroller--hidden ThumbScrollerButton ThumbScrollerButton--right"
                   tabindex="-1"
                   type="button"
@@ -126,6 +128,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                   style="margin-right: 0%;"
                 >
                   <button
+                    aria-label="Lorem ipsum image alt text"
                     class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--selected Thumbnail--large"
                     data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum image alt text\\",\\"action\\":\\"//image.asset.jpg\\"}"
                     tabindex="0"
@@ -180,8 +183,9 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     </div>
                   </button>
                   <button
+                    aria-label="Lorem ipsum video label"
                     class="MuiButtonBase-root thumbnail Thumbnail Thumbnail--large"
-                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum video image alt text\\",\\"action\\":\\"//video-image.asset.jpg\\"}"
+                    data-gtm="{\\"id\\":\\"media-gallery1\\",\\"label\\":\\"Lorem ipsum video label\\",\\"action\\":\\"//video-image.asset.jpg\\"}"
                     style="background-image: url(//video-image.asset.jpg);"
                     tabindex="0"
                     type="button"
@@ -189,7 +193,7 @@ exports[`MediaGallerySection component renders correctly 1`] = `
                     <span
                       class="accessibility-text"
                     >
-                      Lorem ipsum video image alt text
+                      Lorem ipsum video label
                     </span>
                     <svg
                       aria-hidden="true"

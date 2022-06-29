@@ -1,5 +1,5 @@
+import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
 import Thumbnail from "../../thumbnail/Thumbnail";
 import DesktopThumbnails from "../_DesktopThumbnails";
 import mockImage from "./images/demo-tiles.jpg";
@@ -23,7 +23,7 @@ export const getImages = (isMedia: boolean) => [
 const renderedComponent = (isMedia = false) =>
   render(
     <DesktopThumbnails
-      images={getImages(isMedia)}
+      media={getImages(isMedia)}
       component={(props) => (
         <Thumbnail data-testid="default-thumbnail" {...props} />
       )}
