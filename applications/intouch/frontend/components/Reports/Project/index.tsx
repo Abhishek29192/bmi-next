@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useTranslation } from "next-i18next";
 import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
@@ -132,6 +132,10 @@ const ProjectReport = ({ disabled }: ReportProps) => {
     }
   });
 
+  const downloadReport = useCallback(() => {
+    getSystemsReport();
+  }, [getSystemsReport]);
+
   return (
     <div>
       <Button
@@ -139,7 +143,7 @@ const ProjectReport = ({ disabled }: ReportProps) => {
         data-testid="export-button"
         disabled={disabled}
         endIcon={<GetApp />}
-        onClick={() => getSystemsReport()}
+        onClick={downloadReport}
         className={styles.sidePanelFooterButton}
       >
         {t("report.project")}
