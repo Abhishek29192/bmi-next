@@ -1,15 +1,15 @@
-import React from "react";
-import axios from "axios";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import MockDate from "mockdate";
 import { DownloadListContext } from "@bmi/components";
+import { fireEvent, render, waitFor } from "@testing-library/react";
+import axios from "axios";
+import MockDate from "mockdate";
+import React from "react";
+import * as ClientDownloadUtils from "../../utils/client-download";
+import { devLog } from "../../utils/devLog";
+import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
+import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
 import DocumentResultsFooter, {
   handleDownloadClick
 } from "../DocumentResultsFooter";
-import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
-import * as ClientDownloadUtils from "../../utils/client-download";
-import { devLog } from "../../utils/devLog";
 
 jest.mock("axios");
 jest.mock("../../utils/devLog");
@@ -203,11 +203,11 @@ describe("DocumentResultsFooter component", () => {
             },
             {
               href: "http://pimDocument",
-              name: "Pim Document.pdf"
+              name: "Pim Document-1.pdf"
             },
             {
               href: "http://pimDocument",
-              name: "Pim Document.pdf"
+              name: "Pim Document-2.pdf"
             }
           ]
         },

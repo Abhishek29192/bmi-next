@@ -259,7 +259,7 @@ export const MultipleAssetToFileDownload = ({
             ? generateFilenameByRealFileName(assetFileCountMap, asset, index)
             : generateFileNamebyTitle(
                 assetFileCountMap,
-                asset.title,
+                asset.title || asset.realFileName,
                 asset.extension,
                 index
               )
