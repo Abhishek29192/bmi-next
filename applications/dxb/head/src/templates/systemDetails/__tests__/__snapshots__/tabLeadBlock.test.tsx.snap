@@ -740,7 +740,7 @@ exports[`TabLeadBlock tests should render 1`] = `
                                               aria-label="MC: documentLibrary.download pim-link-document-title"
                                               class="PrivateSwitchBase-input-34"
                                               data-indeterminate="false"
-                                              name="pim-link-document-id"
+                                              name="pim-link-document-id-pim-link-document-title"
                                               type="checkbox"
                                               value=""
                                             />
@@ -1085,7 +1085,7 @@ exports[`TabLeadBlock tests should render documents and downloads 1`] = `
                                           aria-label="MC: documentLibrary.download pim-link-document-title"
                                           class="PrivateSwitchBase-input-69"
                                           data-indeterminate="false"
-                                          name="pim-link-document-id"
+                                          name="pim-link-document-id-pim-link-document-title"
                                           type="checkbox"
                                           value=""
                                         />
