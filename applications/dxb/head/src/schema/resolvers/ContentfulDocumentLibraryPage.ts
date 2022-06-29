@@ -29,11 +29,15 @@ export default {
           { query: {}, type: "ContentfulAssetType" },
           { connectionType: "ContentfulAssetType" }
         );
-        assetTypes = [...entries];
+        assetTypes = entries ? [...entries] : [];
       }
 
       if (source.source === "PIM") {
         let allowFilterBy = source.allowFilterBy as string[];
+
+        if (!allowFilterBy) {
+          allowFilterBy = [];
+        }
 
         switch (source.resultsType) {
           case "Simple":
