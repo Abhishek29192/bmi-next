@@ -1,5 +1,4 @@
 import { URLSearchParams } from "url";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import {
   AuthResponse,
   ErrorResponse,
@@ -9,7 +8,7 @@ import {
 } from "@bmi/pim-types";
 import fetch, { RequestRedirect } from "node-fetch";
 
-const { PIM_CLIENT_ID, PIM_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
+const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
   process.env;
 
 // TODO: NOPE HACK!
@@ -20,17 +19,13 @@ const getAuthToken = async (): Promise<AuthResponse> => {
     throw Error("PIM_CLIENT_ID has not been set.");
   }
 
-  if (!PIM_CLIENT_SECRET) {
-    throw Error("PIM_CLIENT_SECRET has not been set.");
+  if (!PIM_OAUTH_CLIENT_SECRET) {
+    throw Error("PIM_OAUTH_CLIENT_SECRET has not been set.");
   }
-
-  // get PIM secret from Secret Manager
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Used as part of an optional chain
-  const pimClientSecret = await getSecret(PIM_CLIENT_SECRET);
 
   const urlencoded = new URLSearchParams();
   urlencoded.append("client_id", PIM_CLIENT_ID);
-  urlencoded.append("client_secret", pimClientSecret);
+  urlencoded.append("client_secret", PIM_OAUTH_CLIENT_SECRET);
   urlencoded.append("grant_type", "client_credentials");
 
   const redirect: RequestRedirect = "follow";

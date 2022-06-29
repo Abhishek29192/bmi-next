@@ -1,11 +1,11 @@
-import { Request, Response } from "express";
-import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import {
   mockRequest,
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { Request, Response } from "express";
+import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import * as mockContentfulWebhook from "./resources/contentfulWebhook.json";
 
 const FindBuildWebhook = jest.fn();
@@ -15,15 +15,9 @@ jest.mock("../find", () => {
 
 FindBuildWebhook.mockReturnValue("https://norway.local/abcd");
 
-const REQUEST_SECRET = "some secret";
+const REQUEST_SECRET = "build_secret";
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
-
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
-getSecret.mockReturnValue(REQUEST_SECRET);
 
 const build = async (req: Partial<Request>, res: Partial<Response>) =>
   (await import("../index")).build(req as Request, res as Response);
@@ -68,8 +62,8 @@ describe("Error responses", () => {
   });
 
   it("Returns 500 when request secret is not provided", async () => {
-    const buildRequestSecret = process.env.BUILD_REQUEST_SECRET;
-    delete process.env.BUILD_REQUEST_SECRET;
+    const buildRequestSecret = process.env.BUILD_REQUEST;
+    delete process.env.BUILD_REQUEST;
 
     const mockReq = mockRequest("POST");
     const mockRes = mockResponse();
@@ -78,7 +72,7 @@ describe("Error responses", () => {
 
     expect(mockRes.sendStatus).toBeCalledWith(500);
 
-    process.env.BUILD_REQUEST_SECRET = buildRequestSecret;
+    process.env.BUILD_REQUEST = buildRequestSecret;
   });
 
   it("Returns 401 when authorisation header is empty", async () => {
@@ -100,7 +94,6 @@ describe("Error responses", () => {
   });
 
   it("Returns 401 when Bearer token is missing", async () => {
-    getSecret.mockReturnValueOnce("");
     const mockReq = mockRequest("POST", { authorization: "Bearer " });
     const mockRes = mockResponse();
 
@@ -111,7 +104,6 @@ describe("Error responses", () => {
 
   it("Returns 401 when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    getSecret.mockReturnValueOnce(shortSecret);
     const mockReq = mockRequest("POST", {
       authorization: `Bearer ${shortSecret}`
     });

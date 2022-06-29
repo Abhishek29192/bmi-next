@@ -1,16 +1,15 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { createClient } from "contentful-management";
+import { Environment } from "contentful-management/dist/typings/entities/environment";
 import { fromBuffer } from "file-type";
 import fetch from "node-fetch";
-import { Environment } from "contentful-management/dist/typings/entities/environment";
 
 const {
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
-  CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
-  RECAPTCHA_SECRET_KEY,
+  CONTENTFUL_MANAGEMENT_TOKEN,
+  RECAPTCHA_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
@@ -27,10 +26,7 @@ const validMimeTypes = [
 
 const getContentfulEnvironment = async (): Promise<Environment> => {
   if (!contentfulEnvironmentCache) {
-    const managementToken = await getSecret(
-      CONTENTFUL_MANAGEMENT_TOKEN_SECRET!
-    );
-    const client = createClient({ accessToken: managementToken });
+    const client = createClient({ accessToken: CONTENTFUL_MANAGEMENT_TOKEN! });
     const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
       CONTENTFUL_ENVIRONMENT!
@@ -50,16 +46,16 @@ export const upload: HttpFunction = async (request, response) => {
     return response.sendStatus(500);
   }
 
-  if (!CONTENTFUL_MANAGEMENT_TOKEN_SECRET) {
+  if (!CONTENTFUL_MANAGEMENT_TOKEN) {
     logger.error({
-      message: "CONTENTFUL_MANAGEMENT_TOKEN_SECRET has not been set"
+      message: "CONTENTFUL_MANAGEMENT_TOKEN has not been set"
     });
     return response.sendStatus(500);
   }
 
-  if (!RECAPTCHA_SECRET_KEY) {
+  if (!RECAPTCHA_KEY) {
     logger.error({
-      message: "RECAPTCHA_SECRET_KEY has not been set"
+      message: "RECAPTCHA_KEY has not been set"
     });
     return response.sendStatus(500);
   }
@@ -94,9 +90,7 @@ export const upload: HttpFunction = async (request, response) => {
 
       try {
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
-            RECAPTCHA_SECRET_KEY
-          )}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {

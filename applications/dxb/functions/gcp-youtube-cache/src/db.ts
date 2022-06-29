@@ -1,10 +1,8 @@
-import { getSecret } from "@bmi-digital/functions-secret-client";
-import { youtube_v3 } from "googleapis/build/src/apis/youtube/v3";
-import { youtube } from "googleapis/build/src/apis/youtube";
 import { getFirestore } from "@bmi/functions-firestore";
+import { youtube } from "googleapis/build/src/apis/youtube";
+import { youtube_v3 } from "googleapis/build/src/apis/youtube/v3";
 
-const { FIRESTORE_ROOT_COLLECTION, GOOGLE_YOUTUBE_API_KEY_SECRET } =
-  process.env;
+const { FIRESTORE_ROOT_COLLECTION, GOOGLE_YOUTUBE_API_KEY } = process.env;
 
 const getYoutubeIdRef = (youtubeId: string) =>
   getFirestore().collection(FIRESTORE_ROOT_COLLECTION!).doc(youtubeId);
@@ -22,7 +20,7 @@ export const getYoutubeDetails = async (
 ): Promise<youtube_v3.Schema$VideoListResponse> => {
   const youtubeClient = youtube({
     version: "v3",
-    auth: await getSecret(GOOGLE_YOUTUBE_API_KEY_SECRET!)
+    auth: GOOGLE_YOUTUBE_API_KEY
   });
   const { data } = await youtubeClient.videos.list({
     part: ["player"],

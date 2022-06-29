@@ -1,5 +1,4 @@
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { MailService } from "@sendgrid/mail";
 import { createClient } from "contentful-management";
@@ -9,10 +8,10 @@ import fetch from "node-fetch";
 const {
   CONTENTFUL_ENVIRONMENT,
   CONTENTFUL_SPACE_ID,
-  SENDGRID_API_KEY_SECRET,
+  SENDGRID_API_KEY,
   SENDGRID_FROM_EMAIL,
-  CONTENTFUL_MANAGEMENT_TOKEN_SECRET,
-  RECAPTCHA_SECRET_KEY,
+  CONTENTFUL_MANAGEMENT_TOKEN,
+  RECAPTCHA_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 
@@ -28,10 +27,7 @@ const getContentfulEnvironment = async () => {
   if (!contentfulEnvironmentCache) {
     logger.info({ message: "No Contentful Environment Cache found" });
 
-    const managementToken = await getSecret(
-      CONTENTFUL_MANAGEMENT_TOKEN_SECRET!
-    );
-    const client = createClient({ accessToken: managementToken });
+    const client = createClient({ accessToken: CONTENTFUL_MANAGEMENT_TOKEN! });
     const space = await client.getSpace(CONTENTFUL_SPACE_ID!);
     contentfulEnvironmentCache = await space.getEnvironment(
       CONTENTFUL_ENVIRONMENT!
@@ -48,9 +44,8 @@ const getSendGridClient = async () => {
   if (!sendGridClientCache) {
     logger.info({ message: "No SendGrid Client Cache found" });
 
-    const apiKey = await getSecret(SENDGRID_API_KEY_SECRET!);
     sendGridClientCache = new MailService();
-    sendGridClientCache.setApiKey(apiKey);
+    sendGridClientCache.setApiKey(SENDGRID_API_KEY!);
 
     logger.info({ message: "Created SendGrid Client" });
   }
@@ -67,9 +62,9 @@ const getRecipientsArray = (recipients: string) => {
 };
 
 export const submit: HttpFunction = async (request, response) => {
-  if (!CONTENTFUL_MANAGEMENT_TOKEN_SECRET) {
+  if (!CONTENTFUL_MANAGEMENT_TOKEN) {
     logger.error({
-      message: "CONTENTFUL_MANAGEMENT_TOKEN_SECRET has not been set"
+      message: "CONTENTFUL_MANAGEMENT_TOKEN has not been set"
     });
     return response.sendStatus(500);
   }
@@ -84,13 +79,13 @@ export const submit: HttpFunction = async (request, response) => {
     return response.sendStatus(500);
   }
 
-  if (!RECAPTCHA_SECRET_KEY) {
-    logger.error({ message: "RECAPTCHA_SECRET_KEY has not been set" });
+  if (!RECAPTCHA_KEY) {
+    logger.error({ message: "RECAPTCHA_KEY has not been set" });
     return response.sendStatus(500);
   }
 
-  if (!SENDGRID_API_KEY_SECRET) {
-    logger.error({ message: "SENDGRID_API_KEY_SECRET has not been set" });
+  if (!SENDGRID_API_KEY) {
+    logger.error({ message: "SENDGRID_API_KEY has not been set" });
     return response.sendStatus(500);
   }
 
@@ -156,9 +151,7 @@ export const submit: HttpFunction = async (request, response) => {
       try {
         logger.info({ message: "Starting Recaptcha check" });
         const recaptchaResponse = await fetch(
-          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
-            RECAPTCHA_SECRET_KEY
-          )}&response=${recaptchaToken}`,
+          `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
           { method: "POST" }
         );
         if (!recaptchaResponse.ok) {
