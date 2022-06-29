@@ -586,13 +586,14 @@ const Visualiser = ({
                     <Button
                       variant="outlined"
                       endIcon={<ArrowForwardIcon />}
-                      onClick={() =>
+                      onClick={() => {
                         handleOnClick({
                           type: "product-link",
                           label: getMicroCopy(microCopy.readMore),
                           data: { variantCode: activeColour.variantCode }
-                        })
-                      }
+                        });
+                        handleOnClose();
+                      }}
                     >
                       {getMicroCopy(microCopy.readMore)}
                     </Button>
