@@ -181,7 +181,8 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
   const installer = await dbInsertOne("account", {
     role: "INSTALLER",
     email: "somemail2@email.com",
-    market_id: market.id
+    market_id: market.id,
+    docebo_user_id: 1
   });
 
   const otherInstaller = await dbInsertOne("account", {
@@ -241,6 +242,11 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     market_id: market.id
   });
 
+  const otherMarketCompany = await dbInsertOne("company", {
+    name: "Name 2",
+    market_id: otherMarket.id
+  });
+
   const otherAccount = await dbInsertOne("account", {
     role: accountRole,
     email: "somemail11@email.com",
@@ -250,7 +256,8 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
   const otherMarketAccount = await dbInsertOne("account", {
     role: accountRole,
     email: "somemail12@email.com",
-    market_id: otherMarket.id
+    market_id: otherMarket.id,
+    docebo_user_id: 2
   });
 
   const address = await dbInsertOne("address", {
@@ -286,6 +293,10 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
 
   const otherProject = await dbInsertOne("project", {
     company_id: otherCompany.id
+  });
+
+  const otherMarketProject = await dbInsertOne("project", {
+    company_id: otherMarketCompany.id
   });
 
   const product = await dbInsertOne("product", {
@@ -327,6 +338,14 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     body: "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
     author_id: otherMarketAccount.id,
     project_id: project.id
+  });
+
+  const certification = await dbInsertOne("certification", {
+    docebo_user_id: 1
+  });
+
+  const otherMarketCertification = await dbInsertOne("certification", {
+    docebo_user_id: 2
   });
 
   await dbInsertOne("company_member", {
@@ -377,6 +396,7 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     company,
     account,
     otherCompany,
+    otherMarketCompany,
     otherAccount,
     otherMarketAccount,
     address,
@@ -386,10 +406,13 @@ export const initDb = async (pool, client, accountRole = "INSTALLER") => {
     invitation,
     project,
     otherProject,
+    otherMarketProject,
     product,
     system,
     otherMarketSystem,
     note,
-    otherMarketNote
+    otherMarketNote,
+    certification,
+    otherMarketCertification
   };
 };

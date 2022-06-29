@@ -1,4 +1,10 @@
-import { getDbPool, actAs, PERMISSION_DENIED, initDb } from "../test-utils/db";
+import {
+  getDbPool,
+  actAs,
+  PERMISSION_DENIED,
+  initDb,
+  RLS_ERROR
+} from "../test-utils/db";
 
 let pool;
 let client;
@@ -74,15 +80,14 @@ describe("Account", () => {
       expect(rows.length).toBe(1);
     });
 
-    it("shouldn't be able to see other accounts based on RLS", async () => {
+    it("should be able to see other accounts", async () => {
       const { auditor } = await initDb(pool, client);
 
       await actAs(client, auditor);
 
       const { rows } = await client.query("SELECT * FROM account");
 
-      expect(rows).toHaveLength(1);
-      expect(rows[0]).toEqual(auditor);
+      expect(rows.length).toBeGreaterThan(0);
     });
 
     it("should be able to update the basic information", async () => {
@@ -92,7 +97,7 @@ describe("Account", () => {
         "1234",
         "updated_first_name",
         "updated_last_name",
-        1,
+        3,
         "docebo_username",
         "updated_photo",
         auditor.email
@@ -132,12 +137,15 @@ describe("Account", () => {
 
       await actAs(client, auditor);
 
-      const { rows } = await client.query(
-        "update account set phone=$2, first_name=$3, last_name=$4, docebo_user_id=$5, docebo_username=$6, photo=$7 WHERE email=$1 RETURNING *",
-        update
-      );
-      expect(rows.length).toBe(0);
-      expect(rows[0]).not.toEqual(expect.objectContaining(update));
+      try {
+        const { rows } = await client.query(
+          "update account set phone=$2, first_name=$3, last_name=$4, docebo_user_id=$5, docebo_username=$6, photo=$7 WHERE email=$1 RETURNING *",
+          update
+        );
+        expect(rows.length).toBe(0);
+      } catch (error) {
+        expect(error.message).toEqual(RLS_ERROR("account"));
+      }
     });
 
     it("shouldn't be able to update the role", async () => {
