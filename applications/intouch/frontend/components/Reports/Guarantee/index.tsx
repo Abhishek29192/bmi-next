@@ -55,7 +55,8 @@ const getReportData = (
       "Maximum Validity Years": maximumValidityYears || "",
       "Product Name": productName || "",
       "System Name": systemName || "",
-      Archived: project.hidden
+      Archived: project.hidden,
+      "Annual Inspection": project.inspection
     };
   });
 };
@@ -120,6 +121,7 @@ export const GET_GUARANTEES_REPORT = gql`
             name
           }
           hidden
+          inspection
         }
         requestorAccountId
         requestorAccount {

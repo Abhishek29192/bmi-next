@@ -7783,6 +7783,7 @@ export type EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput = {
 export type EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -8080,6 +8081,8 @@ export type EvidenceItemProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -8337,6 +8340,7 @@ export type FindRoofersOrderBy = "NATURAL";
 /** Starts life as request for a gurantee and becomes an actual issued guarantee */
 export type Guarantee = Node & {
   __typename?: "Guarantee";
+  approvedAt?: Maybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: Maybe<Scalars["String"]>;
   /** ek */
@@ -8484,6 +8488,7 @@ export type GuaranteeGuaranteePkeyDelete = {
 export type GuaranteeInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -8698,6 +8703,7 @@ export type GuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyUsingGuaranteePkeyUp
 export type GuaranteePatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -8741,6 +8747,7 @@ export type GuaranteePatch = {
 export type GuaranteeProductBmiRefFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -8871,6 +8878,7 @@ export type GuaranteeProductBmiRefFkeyProductCreateInput = {
 export type GuaranteeProjectIdFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -8990,6 +8998,8 @@ export type GuaranteeProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -9018,6 +9028,7 @@ export type GuaranteeReferenceCode =
 export type GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -9125,6 +9136,7 @@ export type GuaranteeRequestorAccountIdFkeyInverseInput = {
 export type GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -9232,6 +9244,7 @@ export type GuaranteeReviewerAccountIdFkeyInverseInput = {
 export type GuaranteeSystemBmiRefFkeyGuaranteeCreateInput = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -11890,6 +11903,7 @@ export type MigrationOrder =
 /** The root mutation type which contains root level fields which mutate data. */
 export type Mutation = {
   __typename?: "Mutation";
+  annualProjectsInspection?: Maybe<Scalars["String"]>;
   archiveProjects?: Maybe<Scalars["String"]>;
   bulkImport?: Maybe<ImportOutput>;
   completeInvitation?: Maybe<Account>;
@@ -13483,6 +13497,8 @@ export type NoteProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -14402,6 +14418,8 @@ export type Project = Node & {
   hidden?: Maybe<Scalars["Boolean"]>;
   /** Primary key */
   id: Scalars["Int"];
+  inspectedAt?: Maybe<Scalars["Datetime"]>;
+  inspection?: Maybe<Scalars["Boolean"]>;
   migrationId?: Maybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -14570,6 +14588,8 @@ export type ProjectBuildingOwnerAddressIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -14664,6 +14684,8 @@ export type ProjectCompanyIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -14738,6 +14760,8 @@ export type ProjectInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -15028,6 +15052,8 @@ export type ProjectMemberProjectIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -15286,6 +15312,8 @@ export type ProjectPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -15412,6 +15440,8 @@ export type ProjectSiteAddressIdFkeyProjectCreateInput = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name: Scalars["String"];
@@ -21340,6 +21370,7 @@ export type UpdateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkey
 export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -21383,6 +21414,7 @@ export type UpdateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch = {
 export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -21424,6 +21456,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch = {
 export type UpdateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -21466,6 +21499,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
   {
     accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
     accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+    approvedAt?: InputMaybe<Scalars["Datetime"]>;
     /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
     bmiReferenceId?: InputMaybe<Scalars["String"]>;
     /** ek */
@@ -21507,6 +21541,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch =
 export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -21548,6 +21583,7 @@ export type UpdateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch = {
 export type UpdateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch = {
   accountToRequestorAccountId?: InputMaybe<GuaranteeRequestorAccountIdFkeyInput>;
   accountToReviewerAccountId?: InputMaybe<GuaranteeReviewerAccountIdFkeyInput>;
+  approvedAt?: InputMaybe<Scalars["Datetime"]>;
   /** This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id */
   bmiReferenceId?: InputMaybe<Scalars["String"]>;
   /** ek */
@@ -22085,6 +22121,8 @@ export type UpdateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22129,6 +22167,8 @@ export type UpdateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22173,6 +22213,8 @@ export type UpdateProjectOnNoteForNoteProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22215,6 +22257,8 @@ export type UpdateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22257,6 +22301,8 @@ export type UpdateProjectOnProjectForProjectCompanyIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22301,6 +22347,8 @@ export type UpdateProjectOnProjectForProjectSiteAddressIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;
@@ -22343,6 +22391,8 @@ export type UpdateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch = {
   hidden?: InputMaybe<Scalars["Boolean"]>;
   /** Primary key */
   id?: InputMaybe<Scalars["Int"]>;
+  inspectedAt?: InputMaybe<Scalars["Datetime"]>;
+  inspection?: InputMaybe<Scalars["Boolean"]>;
   migrationId?: InputMaybe<Scalars["String"]>;
   /** Short name for the Project */
   name?: InputMaybe<Scalars["String"]>;

@@ -254,6 +254,13 @@ export const gates = {
       COMPANY_ADMIN: true,
       INSTALLER: false,
       AUDITOR: false
+    },
+    inspection: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      COMPANY_ADMIN: false,
+      INSTALLER: false,
+      AUDITOR: false
     }
   },
   page: {

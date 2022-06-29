@@ -2676,6 +2676,8 @@ type Project implements Node {
   createdAt: Datetime!
   updatedAt: Datetime!
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
 
   """Reads a single `Company` that is related to this `Project`."""
   company: Company
@@ -2986,6 +2988,7 @@ type Guarantee implements Node {
   bmiReferenceId: String
   createdAt: Datetime!
   updatedAt: Datetime!
+  approvedAt: Datetime
 
   """Reads a single `Account` that is related to this `Guarantee`."""
   requestorAccount: Account
@@ -6430,6 +6433,7 @@ type Mutation {
   sendReminderToIncompleteCompanyProfile: String
   restartGuarantee(projectId: Int!): String
   archiveProjects: String
+  annualProjectsInspection: String
   truncateAndInsertCertification(
     """
     The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
@@ -7908,6 +7912,8 @@ input updateProjectOnProjectForProjectSiteAddressIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -10011,6 +10017,8 @@ input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -10207,6 +10215,8 @@ input updateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -10635,6 +10645,7 @@ input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -10893,6 +10904,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -11005,6 +11017,8 @@ input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -11138,6 +11152,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -11918,6 +11933,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -12144,6 +12160,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -12402,6 +12419,7 @@ input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -12960,6 +12978,8 @@ input updateProjectOnProjectForProjectCompanyIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -13359,6 +13379,8 @@ input updateProjectOnNoteForNoteProjectIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -13574,6 +13596,8 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -13657,6 +13681,8 @@ input ProjectPatch {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -13725,6 +13751,8 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -14508,6 +14536,8 @@ input NoteProjectIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -14698,6 +14728,8 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -15075,6 +15107,7 @@ input GuaranteePatch {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -15134,6 +15167,7 @@ input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -15254,6 +15288,7 @@ input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -16606,6 +16641,7 @@ input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -17093,6 +17129,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -17173,6 +17210,8 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -17259,6 +17298,7 @@ input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -17382,6 +17422,7 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -17500,6 +17541,8 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -17630,6 +17673,8 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -18444,6 +18489,8 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
@@ -19384,6 +19431,7 @@ input GuaranteeInput {
   bmiReferenceId: String
   createdAt: Datetime
   updatedAt: Datetime
+  approvedAt: Datetime
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   projectToProjectId: GuaranteeProjectIdFkeyInput
   systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
@@ -19801,6 +19849,8 @@ input ProjectInput {
   createdAt: Datetime
   updatedAt: Datetime
   migrationId: String
+  inspection: Boolean
+  inspectedAt: Datetime
   companyToCompanyId: ProjectCompanyIdFkeyInput
   addressToSiteAddressId: ProjectSiteAddressIdFkeyInput
   addressToBuildingOwnerAddressId: ProjectBuildingOwnerAddressIdFkeyInput
