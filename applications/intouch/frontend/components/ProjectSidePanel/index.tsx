@@ -202,7 +202,11 @@ export const ProjectSidePanel = ({
         startDate,
         endDate,
         company,
-        guarantees
+        guarantees,
+        buildingOwnerFirstname,
+        buildingOwnerLastname,
+        buildingOwnerCompany,
+        buildingOwnerMail
       }) => {
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
@@ -222,7 +226,11 @@ export const ProjectSidePanel = ({
               siteAddress?.town,
               // NOTE: Postcode can match with or without space
               siteAddress?.postcode,
-              siteAddress?.postcode.replace(/\s*/g, "")
+              siteAddress?.postcode.replace(/\s*/g, ""),
+              buildingOwnerFirstname,
+              buildingOwnerLastname,
+              buildingOwnerCompany,
+              buildingOwnerMail
             ];
 
         const query = searchQuery.toLowerCase().trim();

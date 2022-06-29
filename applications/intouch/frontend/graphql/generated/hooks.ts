@@ -4633,6 +4633,10 @@ export const GetProjectsDocument = gql`
         technology
         startDate
         endDate
+        buildingOwnerFirstname
+        buildingOwnerLastname
+        buildingOwnerCompany
+        buildingOwnerMail
         siteAddress {
           town
           postcode

@@ -3170,6 +3170,10 @@ export type GetProjectsQuery = {
       technology: SchemaTypes.Technology;
       startDate: any;
       endDate: any;
+      buildingOwnerFirstname?: string | null;
+      buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
+      buildingOwnerMail?: string | null;
       siteAddress?: {
         __typename?: "Address";
         town?: string | null;
