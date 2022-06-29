@@ -40,7 +40,7 @@ const ImportAccount = () => {
           for (const err of graphQLErrors) {
             errors.push({
               message: err.message,
-              detail: err.extensions?.exception?.detail
+              detail: JSON.stringify(err)
             });
           }
         }
