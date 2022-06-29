@@ -28,7 +28,7 @@ export const resolveDocumentsFromProducts = async (
   const filter = assetTypes.length
     ? {
         documents: {
-          elemMatch: { assetType: { code: { in: pimAssetTypes } } }
+          elemMatch: { assetType: { pimCode: { in: pimAssetTypes } } }
         },
         ...(source.pimCodes && source.pimCodes.length
           ? { code: { in: source.pimCodes } }
