@@ -1,7 +1,7 @@
 import fetch, { Request } from "node-fetch";
 import { getSecret } from "@bmi-digital/functions-secret-client";
 
-const { GATEWAY_API_URL } = process.env;
+const { FRONTEND_API_URL } = process.env;
 
 export interface ICourseSyncConfiguration {
   configName: string;
@@ -18,11 +18,12 @@ export default class GatewayClient {
       })
     ).toString("base64");
 
-    this.client = new Request(GATEWAY_API_URL, {
+    this.client = new Request(FRONTEND_API_URL, {
       headers: {
         "Content-Type": "application/json",
-        "x-apigateway-api-userinfo": userinfo,
-        authorization: bearer
+        authorization: "bearer undefined",
+        "x-api-key": bearer,
+        "x-apigateway-api-userinfo": userinfo
       }
     });
   }
