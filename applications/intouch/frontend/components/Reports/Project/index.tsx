@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
@@ -115,26 +115,34 @@ const ProjectReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
   const { market } = useMarketContext();
   const { account } = useAccountContext();
+  const [isReportGenerated, setIsReportGenerated] = useState(false);
 
   const [getSystemsReport] = useGetProjectsReportLazyQuery({
     variables: {
       market: market.id
     },
     onCompleted: ({ projectsByMarket }) => {
-      const data = isSuperOrMarketAdmin(account)
-        ? getReportData(projectsByMarket, t)
-        : getNonSuperUserReportData(projectsByMarket, t);
+      if (!isReportGenerated) {
+        const data = isSuperOrMarketAdmin(account)
+          ? getReportData(projectsByMarket, t)
+          : getNonSuperUserReportData(projectsByMarket, t);
 
-      exportCsv(data, {
-        filename: `projects-${Date.now()}`,
-        title: "Projects"
-      });
+        exportCsv(data, {
+          filename: `projects-${Date.now()}`,
+          title: "Projects"
+        });
+        setIsReportGenerated(true);
+      }
     }
   });
 
-  const downloadReport = useCallback(() => {
-    getSystemsReport();
-  }, [getSystemsReport]);
+  const downloadReport = useCallback(
+    (event) => {
+      event.preventDefault();
+      getSystemsReport();
+    },
+    [getSystemsReport]
+  );
 
   return (
     <div>
