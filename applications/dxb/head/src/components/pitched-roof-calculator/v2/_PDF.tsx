@@ -482,6 +482,7 @@ export const getPDF = (props: PdfDocumentProps) =>
     }
   });
 
-const openPdf = (props: PdfDocumentProps) => getPDF(props).open();
+export const createPdf = (props: PdfDocumentProps) => getPDF(props);
+const openPdf = (props: PdfDocumentProps) => createPdf(props).open();
 
 export default openPdf;
