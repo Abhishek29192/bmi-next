@@ -1,8 +1,7 @@
-import React, { isValidElement, useMemo, useContext } from "react";
-import { Modal, ModalProps } from "@material-ui/core";
-import classnames from "classnames";
+import { Fade, Modal, ModalProps } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
-import { Fade } from "@material-ui/core";
+import classnames from "classnames";
+import React, { isValidElement, useContext, useMemo } from "react";
 import Button from "../button/Button";
 import { DialogClassNameContext } from "../dialog/context";
 import styles from "./ContainerDialog.module.scss";
@@ -99,15 +98,16 @@ const ContainerDialog = ({
 type HeaderProps = {
   onCloseClick?: () => any;
   children?: React.ReactNode;
+  className?: string;
 };
 
 const Header = React.forwardRef<HTMLDivElement, HeaderProps>(
   (
-    { onCloseClick, children }: HeaderProps,
+    { onCloseClick, children, className }: HeaderProps,
     ref: React.LegacyRef<HTMLDivElement>
   ) => {
     return (
-      <div className={styles["header"]} ref={ref}>
+      <div className={classnames(styles["header"], className)} ref={ref}>
         {children}
         <Button
           isIconButton
