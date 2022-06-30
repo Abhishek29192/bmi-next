@@ -329,6 +329,7 @@ const HubspotForm = ({
   title,
   description,
   onSuccess,
+  onFormReady,
   additionalValues,
   className,
   isDialog = false
@@ -340,6 +341,7 @@ const HubspotForm = ({
   title?: string;
   description?: RichTextData | React.ReactNode;
   onSuccess: FormSectionProps["onSuccess"];
+  onFormReady: FormSectionProps["onFormReady"];
   additionalValues: FormSectionProps["additionalValues"];
   className?: string;
   isDialog?: boolean;
@@ -362,10 +364,13 @@ const HubspotForm = ({
     const handleMessage = (event: MessageEvent) => {
       if (
         event.data.type === "hsFormCallback" &&
-        event.data.eventName === "onFormReady" &&
-        additionalValues
+        event.data.eventName === "onFormReady"
       ) {
-        if (additionalValues["samples"]) {
+        const iframeElement = document.querySelector<HTMLIFrameElement>(
+          `#${hubSpotFormID} iframe`
+        );
+
+        if (additionalValues && additionalValues["samples"]) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
             'input[name="sample_ids"]'
           );
@@ -373,9 +378,6 @@ const HubspotForm = ({
           if (sampleIdsInput) {
             sampleIdsInput.value = additionalValues["samples"];
           } else {
-            const iframeElement = document.querySelector<HTMLIFrameElement>(
-              `#${hubSpotFormID} iframe`
-            );
             const hiddenInput =
               iframeElement.contentWindow?.document.querySelector<HTMLInputElement>(
                 'input[name="sample_ids"]'
@@ -383,6 +385,8 @@ const HubspotForm = ({
             hiddenInput && (hiddenInput.value = additionalValues["samples"]);
           }
         }
+
+        onFormReady?.(event, iframeElement);
       }
 
       if (event.data.eventName === "onFormSubmitted") {
@@ -435,6 +439,7 @@ type FormSectionProps = {
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
+  onFormReady?: (event: MessageEvent, hsForm: HTMLIFrameElement) => void;
   className?: string;
   isDialog?: boolean;
 };
@@ -458,6 +463,7 @@ const FormSection = ({
   isSubmitDisabled,
   gtmOverride,
   onSuccess,
+  onFormReady,
   className,
   isDialog = false
 }: FormSectionProps) => {
@@ -645,6 +651,7 @@ const FormSection = ({
         title={title}
         description={description}
         onSuccess={onSuccess}
+        onFormReady={onFormReady}
         additionalValues={additionalValues}
         className={className}
         isDialog={isDialog}

@@ -371,75 +371,9 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
         </div>
       </div>
     </div>
-    <div>
-      <form>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="name"
-              placeholder="name"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-2"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="email"
-              placeholder="email"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-1 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-2"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <button>
-          Submit button
-        </button>
-      </form>
-    </div>
+    <iframe
+      title="HubSpot Form"
+    />
     <div
       class="FieldContainer"
     >
@@ -888,75 +822,9 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
         </div>
       </div>
     </div>
-    <div>
-      <form>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="name"
-              placeholder="name"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-14"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="email"
-              placeholder="email"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-13 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-14"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <button>
-          Submit button
-        </button>
-      </form>
-    </div>
+    <iframe
+      title="HubSpot Form"
+    />
   </div>
 </div>
 `;
@@ -1300,75 +1168,9 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
         </div>
       </div>
     </div>
-    <div>
-      <form>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="name"
-              placeholder="name"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-10"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="email"
-              placeholder="email"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-9 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-10"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <button>
-          Submit button
-        </button>
-      </form>
-    </div>
+    <iframe
+      title="HubSpot Form"
+    />
   </div>
 </div>
 `;
@@ -1712,75 +1514,9 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
         </div>
       </div>
     </div>
-    <div>
-      <form>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="name"
-              placeholder="name"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-6"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <div
-          class="MuiFormControl-root MuiTextField-root TextField"
-        >
-          <div
-            class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl"
-          >
-            <input
-              aria-invalid="false"
-              class="MuiInputBase-input MuiOutlinedInput-input"
-              name="email"
-              placeholder="email"
-              required=""
-              type="text"
-              value=""
-            />
-            <fieldset
-              aria-hidden="true"
-              class="PrivateNotchedOutline-root-5 MuiOutlinedInput-notchedOutline"
-              style="padding-left: 8px;"
-            >
-              <legend
-                class="PrivateNotchedOutline-legend-6"
-                style="width: 0.01px;"
-              >
-                <span>
-                  ​
-                </span>
-              </legend>
-            </fieldset>
-          </div>
-        </div>
-        <button>
-          Submit button
-        </button>
-      </form>
-    </div>
+    <iframe
+      title="HubSpot Form"
+    />
   </div>
 </div>
 `;
