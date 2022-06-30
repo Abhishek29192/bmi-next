@@ -3546,7 +3546,7 @@ exports[`SystemDetailsPage template component gtm on landing on sdp from sc run 
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />
@@ -7776,7 +7776,7 @@ exports[`SystemDetailsPage template component should render 1`] = `
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />
@@ -12006,7 +12006,7 @@ exports[`SystemDetailsPage template component should render without Brand logo 1
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />
@@ -16236,7 +16236,7 @@ exports[`SystemDetailsPage template component should render without BrandProvide
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />
@@ -20425,7 +20425,7 @@ exports[`SystemDetailsPage template component should render without specificatio
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />
@@ -24655,7 +24655,7 @@ exports[`SystemDetailsPage template component should render without systemLayers
                                                 aria-label="MC: documentLibrary.download pim-link-document-title"
                                                 class="PrivateSwitchBase-input"
                                                 data-indeterminate="false"
-                                                name="pim-link-document-id"
+                                                name="pim-link-document-id-pim-link-document-title"
                                                 type="checkbox"
                                                 value=""
                                               />

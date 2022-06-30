@@ -616,7 +616,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-422"
                                     data-indeterminate="false"
-                                    name="id-1"
+                                    name="id-1-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -703,7 +703,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-422"
                                     data-indeterminate="false"
-                                    name="id-2"
+                                    name="id-2-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -790,7 +790,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-422"
                                     data-indeterminate="false"
-                                    name="id-3"
+                                    name="id-3-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -877,7 +877,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-422"
                                     data-indeterminate="false"
-                                    name="id-3"
+                                    name="id-3-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -1728,7 +1728,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-461"
                                     data-indeterminate="false"
-                                    name="pim-document"
+                                    name="pim-document-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -1815,7 +1815,7 @@ exports[`ProductLeadBlock tests renders correctly when document display format i
                                     aria-label="MC: documentLibrary.download Pim Document"
                                     class="PrivateSwitchBase-input-461"
                                     data-indeterminate="false"
-                                    name="pim-document"
+                                    name="pim-document-Pim_Document"
                                     type="checkbox"
                                     value=""
                                   />
@@ -2162,7 +2162,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-383"
                               data-indeterminate="false"
-                              name="id-1"
+                              name="id-1-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -2249,7 +2249,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-383"
                               data-indeterminate="false"
-                              name="id-2"
+                              name="id-2-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -2336,7 +2336,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-383"
                               data-indeterminate="false"
-                              name="id-3"
+                              name="id-3-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -2423,7 +2423,7 @@ exports[`ProductLeadBlock tests should render documents tab with correct documen
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-383"
                               data-indeterminate="false"
-                              name="id-3"
+                              name="id-3-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -2903,7 +2903,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-344"
                               data-indeterminate="false"
-                              name="id-1"
+                              name="id-1-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -2990,7 +2990,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-344"
                               data-indeterminate="false"
-                              name="id-2"
+                              name="id-2-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -3077,7 +3077,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-344"
                               data-indeterminate="false"
-                              name="id-3"
+                              name="id-3-Pim_Document"
                               type="checkbox"
                               value=""
                             />
@@ -3164,7 +3164,7 @@ exports[`ProductLeadBlock tests should render the documents and download tab 1`]
                               aria-label="MC: documentLibrary.download Pim Document"
                               class="PrivateSwitchBase-input-344"
                               data-indeterminate="false"
-                              name="id-3"
+                              name="id-3-Pim_Document"
                               type="checkbox"
                               value=""
                             />
