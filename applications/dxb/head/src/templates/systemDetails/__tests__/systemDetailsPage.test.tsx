@@ -1,14 +1,16 @@
-import React from "react";
 import { History } from "@reach/router";
-import { screen } from "@testing-library/dom";
+import { screen, waitFor } from "@testing-library/dom";
+import React from "react";
 
-import { renderWithRouter } from "../../../test/renderWithRouter";
-import { createMockSiteData } from "../../../test/mockSiteData";
-import SystemDetailsPage from "../systemDetailsPage";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
-import createSystem from "../../../__tests__/helpers/SystemHelper";
+import { createMockSiteData } from "../../../test/mockSiteData";
+import { renderWithRouter } from "../../../test/renderWithRouter";
+import createProduct from "../../../__tests__/helpers/ProductHelper";
 import createRelatedSystem from "../../../__tests__/helpers/RelatedSystemHelper";
+import createSystem from "../../../__tests__/helpers/SystemHelper";
+import createSystemLayer from "../../../__tests__/helpers/SystemLayerHelper";
+import SystemDetailsPage from "../systemDetailsPage";
 
 const systemCode = "1234";
 const siteId = "1234";
@@ -220,6 +222,108 @@ describe("SystemDetailsPage template component", () => {
       });
 
       expect(container).toMatchSnapshot();
+    });
+  });
+
+  describe("systemLayers tests", () => {
+    it("should render with all systemLayers", async () => {
+      const systemDetails = createSystem({
+        systemLayers: [createSystemLayer()]
+      });
+      const { container } = withProviders({
+        customConfig: { spaceMarketCode: "no" },
+        renderComponent: (
+          <SystemDetailsPage
+            data={{
+              contentfulSite: createMockSiteData(),
+              shareWidget: null,
+              system: systemDetails,
+              allContentfulAssetType
+            }}
+            pageContext={{
+              systemCode: systemCode,
+              siteId
+            }}
+          />
+        )
+      });
+
+      expect(container).toMatchSnapshot();
+      expect(
+        screen.getByText("1. layer-type-1: system-layer-1")
+      ).toBeInTheDocument();
+
+      expect(screen.getByText("related-product-1")).toBeInTheDocument();
+      expect(screen.getByText("layer-short-description")).toBeInTheDocument();
+
+      expect(
+        screen.getByText("MC: sdp.optionalProductsTitle")
+      ).toBeInTheDocument();
+
+      expect(
+        screen.getByText("optional-related-product-1")
+      ).toBeInTheDocument();
+    });
+
+    it("should NOT render duplicate products in related products and optional related products", async () => {
+      const systemDetails = createSystem({
+        systemLayers: [
+          createSystemLayer({
+            relatedProducts: [
+              createProduct({
+                code: "duplicate-product-1",
+                name: "duplicate-product-1"
+              })
+            ],
+            relatedOptionalProducts: [
+              createProduct({
+                code: "duplicate-product-1",
+                name: "duplicate-product-1"
+              }),
+              createProduct({
+                code: "optional-related-product-1",
+                name: "optional-related-product-1"
+              })
+            ]
+          })
+        ]
+      });
+      const { container } = withProviders({
+        customConfig: { spaceMarketCode: "no" },
+        renderComponent: (
+          <SystemDetailsPage
+            data={{
+              contentfulSite: createMockSiteData(),
+              shareWidget: null,
+              system: systemDetails,
+              allContentfulAssetType
+            }}
+            pageContext={{
+              systemCode: systemCode,
+              siteId
+            }}
+          />
+        )
+      });
+
+      expect(
+        await waitFor(() => screen.findAllByText("duplicate-product-1"))
+      ).toHaveLength(1);
+
+      expect(container).toMatchSnapshot();
+      expect(
+        screen.getByText("1. layer-type-1: system-layer-1")
+      ).toBeInTheDocument();
+
+      expect(screen.getByText("layer-short-description")).toBeInTheDocument();
+
+      expect(
+        screen.getByText("MC: sdp.optionalProductsTitle")
+      ).toBeInTheDocument();
+
+      expect(
+        screen.getByText("optional-related-product-1")
+      ).toBeInTheDocument();
     });
   });
 });

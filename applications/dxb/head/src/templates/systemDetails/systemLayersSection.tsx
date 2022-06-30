@@ -46,6 +46,10 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
             const layerLabel = layer.type ? ` ${layer.type}:` : "";
 
+            const optionalRelatedProducts = (
+              layer.relatedOptionalProducts || []
+            ).filter((optProduct) => optProduct.name !== relatedProduct.name);
+
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>
                 <GTMAccordionSummary
@@ -85,7 +89,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Typography>
                     </Grid>
 
-                    {layer.relatedOptionalProducts?.length > 0 && (
+                    {optionalRelatedProducts.length > 0 && (
                       <Grid item xs={12} md={12} lg={12}>
                         <Typography variant="h5">
                           {getMicroCopy(microCopy.SDP_OPTIONAL_PRODUCTS_TITLE)}
@@ -93,7 +97,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
                       </Grid>
                     )}
 
-                    {layer.relatedOptionalProducts?.map((product, id) => {
+                    {optionalRelatedProducts.map((product, id) => {
                       const productLinkAction = createLinkAction(
                         product,
                         countryCode
