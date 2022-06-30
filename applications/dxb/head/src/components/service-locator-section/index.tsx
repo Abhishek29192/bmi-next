@@ -419,7 +419,6 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
             heading={getMicroCopy(microCopy.FIND_A_ROOFER_MAP_LABEL)}
             index="map"
           >
-            {console.log(markers)}
             <ServiceLocatorMap
               selectedRoofer={selectedRoofer}
               clearRooferAndResetMap={clearRooferAndResetMap}
