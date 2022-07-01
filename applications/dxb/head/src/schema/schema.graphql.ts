@@ -937,6 +937,7 @@ type ContentfulService implements Node {
   phone: String
   email: String
   website: String
+  websiteLinkAsLabel: Boolean
   fax: String
   serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
   certification: String
