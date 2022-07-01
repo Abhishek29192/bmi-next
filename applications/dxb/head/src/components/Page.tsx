@@ -9,6 +9,7 @@ import Header from "../components/Header";
 import { getPathWithCountryCode } from "../utils/path";
 import { useConfig } from "../contexts/ConfigProvider";
 import { Product } from "../types/pim";
+import { BasketContextProvider } from "../contexts/SampleBasketContext";
 import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import BrandProvider from "./BrandProvider";
 import { Data as BreadcrumbsData } from "./Breadcrumbs";
@@ -130,6 +131,7 @@ const Page = ({
               {child}
             </SiteContextProvider>
           ),
+          (child) => <BasketContextProvider>{child}</BasketContextProvider>,
           (child) => (
             <MicroCopy.Provider values={microCopyContext}>
               {child}

@@ -5,7 +5,6 @@ import { ThemeProvider } from "@bmi/components";
 import type { GatsbyBrowser } from "gatsby";
 import { ConfigProvider } from "./src/contexts/ConfigProvider";
 import "./src/styles/global.css";
-import { BasketContextProvider } from "./src/contexts/SampleBasketContext";
 
 import ComposeProviders from "./src/components/ComposeProviders";
 
@@ -20,7 +19,6 @@ export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
         (child) => (
           <ThemeProvider includeCssBaseline={false}> {child} </ThemeProvider>
         ),
-        (child) => <BasketContextProvider>{child}</BasketContextProvider>,
         (child) => (
           <HubspotProvider async={false} addToHead={true}>
             {child}
