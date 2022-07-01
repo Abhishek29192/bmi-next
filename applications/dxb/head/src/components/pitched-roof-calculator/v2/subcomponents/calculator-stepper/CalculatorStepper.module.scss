@@ -10,8 +10,12 @@
   }
 
   .step-title {
-    margin-top: 1rem;
+    margin-top: 48px;
     text-align: center;
+
+    @media (max-width: $breakpoint-sm) {
+      margin-top: 36px;
+    }
   }
 
   .subtitle {

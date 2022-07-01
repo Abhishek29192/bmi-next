@@ -3,16 +3,14 @@ import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/data.json";
-import { MainTile } from "../../types";
+import { CalculatorSteps, MainTile } from "../../types";
 import roofs from "../calculation/roofs";
 import {
   Props as CalculatorStepperProps,
   StepProps
 } from "../subcomponents/calculator-stepper/CalculatorStepper";
 import { GutteringProps } from "../_Guttering";
-import PitchedRoofCalculatorSteps, {
-  Step
-} from "../_PitchedRoofCalculatorSteps";
+import PitchedRoofCalculatorSteps from "../_PitchedRoofCalculatorSteps";
 import { ResultProps } from "../_Results";
 import { RoofDimensionsProps } from "../_RoofDimensions";
 import { RoofSelectionProps } from "../_RoofSelection";
@@ -164,7 +162,7 @@ describe("PitchedRoofCalculatorSteps component", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
-          selected="select-roof"
+          selected={CalculatorSteps.SelectRoof}
           setSelected={jest.fn()}
           data={data as any}
         />
@@ -174,12 +172,14 @@ describe("PitchedRoofCalculatorSteps component", () => {
   });
 
   it("moves through the steps", async () => {
-    let selected: Step = "select-roof";
+    let selected = CalculatorSteps.SelectRoof;
     const setSelected = jest
       .fn()
-      .mockImplementation((selection: Step) => (selected = selection));
+      .mockImplementation(
+        (selection: CalculatorSteps.SelectRoof) => (selected = selection)
+      );
 
-    const getComponent = (selected: Step) => (
+    const getComponent = (selected: CalculatorSteps) => (
       <MicroCopy.Provider values={en}>
         <PitchedRoofCalculatorSteps
           selected={selected}
@@ -193,93 +193,132 @@ describe("PitchedRoofCalculatorSteps component", () => {
 
     debug();
 
-    expect(renderedStep).toBe("select-roof");
+    expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
 
     act(() => componentProps["_RoofSelection"]!.select(roofs[0]));
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("enter-dimensions");
+    expect(renderedStep).toBe(CalculatorSteps.EnterDimensions);
 
     act(() =>
-      stepProps["enter-dimensions"].nextButtonOnClick!(createFormEvent(), {
-        A: "9",
-        B: "15",
-        P: "22",
-        protrusions: []
-      })
+      stepProps[CalculatorSteps.EnterDimensions].nextButtonOnClick!(
+        createFormEvent(),
+        {
+          A: "9",
+          B: "15",
+          P: "22",
+          protrusions: []
+        }
+      )
     );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("select-tile");
+    expect(renderedStep).toBe(CalculatorSteps.SelectTile);
 
     const tile = data.mainTiles[0] as MainTile;
 
     act(() => componentProps["_TileSelection"]!.select(tile));
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("select-variant");
+    expect(renderedStep).toBe(CalculatorSteps.SelectVariant);
 
     const variant = tile.variants[0];
 
     act(() => componentProps["_VariantSelection"]!.select(variant));
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("tile-options");
+    expect(renderedStep).toBe(CalculatorSteps.TileOptions);
 
     act(() =>
-      stepProps["tile-options"].nextButtonOnClick!(createFormEvent(), {
-        verge: "none",
-        ridge: variant.ridgeOptions[0].externalProductCode,
-        ventilation: "none"
-      })
+      stepProps[CalculatorSteps.TileOptions].nextButtonOnClick!(
+        createFormEvent(),
+        {
+          verge: "none",
+          ridge: variant.ridgeOptions[0].externalProductCode,
+          ventilation: "none"
+        }
+      )
     );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("select-underlay");
+    expect(renderedStep).toBe(CalculatorSteps.SelectUnderlay);
 
     const underlay = data.underlays[0];
 
     act(() =>
-      stepProps["select-underlay"].nextButtonOnClick!(createFormEvent(), {
-        underlay: underlay.externalProductCode
-      })
+      stepProps[CalculatorSteps.SelectUnderlay].nextButtonOnClick!(
+        createFormEvent(),
+        {
+          underlay: underlay.externalProductCode
+        }
+      )
     );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("guttering");
+    expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
-    act(() => stepProps["guttering"].linkOnClick!());
+    act(() => stepProps[CalculatorSteps.Guttering].linkOnClick!());
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("your-solution-contains");
+    expect(renderedStep).toBe(CalculatorSteps.YourSolutionContains);
 
-    act(() => stepProps["your-solution-contains"].backButtonOnClick!());
+    act(() =>
+      stepProps[CalculatorSteps.YourSolutionContains].backButtonOnClick!()
+    );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("guttering");
+    expect(renderedStep).toBe(CalculatorSteps.Guttering);
 
     const gutter = data.gutters[0];
     const gutterVariant = gutter.variants[0];
     const gutterHook = data.gutterHooks[0];
 
     act(() =>
-      stepProps["guttering"].nextButtonOnClick!(createFormEvent(), {
-        guttering: gutter.name,
-        gutteringVariant: gutterVariant.externalProductCode,
-        gutteringHook: gutterHook.externalProductCode,
-        downPipes: 10,
-        downPipeConnectors: 15
-      })
+      stepProps[CalculatorSteps.Guttering].nextButtonOnClick!(
+        createFormEvent(),
+        {
+          guttering: gutter.name,
+          gutteringVariant: gutterVariant.externalProductCode,
+          gutteringHook: gutterHook.externalProductCode,
+          downPipes: 10,
+          downPipeConnectors: 15
+        }
+      )
     );
     rerender(getComponent(selected));
-    expect(renderedStep).toBe("your-solution-contains");
+    expect(renderedStep).toBe(CalculatorSteps.YourSolutionContains);
 
     [
-      ["your-solution-contains", "guttering"],
-      ["guttering", "select-underlay"],
-      ["select-underlay", "tile-options"],
-      ["tile-options", "select-variant"],
-      ["select-variant", "select-tile"],
-      ["select-tile", "enter-dimensions"],
-      ["enter-dimensions", "select-roof"]
+      [CalculatorSteps.YourSolutionContains, CalculatorSteps.Guttering],
+      [CalculatorSteps.Guttering, CalculatorSteps.SelectUnderlay],
+      [CalculatorSteps.SelectUnderlay, CalculatorSteps.TileOptions],
+      [CalculatorSteps.TileOptions, CalculatorSteps.SelectVariant],
+      [CalculatorSteps.SelectVariant, CalculatorSteps.SelectTile],
+      [CalculatorSteps.SelectTile, CalculatorSteps.EnterDimensions],
+      [CalculatorSteps.EnterDimensions, CalculatorSteps.SelectRoof]
     ].forEach(([current, previous]) => {
       // eslint-disable-next-line security/detect-object-injection
       act(() => stepProps[current]!.backButtonOnClick!());
       rerender(getComponent(selected));
       expect(renderedStep).toBe(previous);
     });
+  });
+
+  it("moves to the first step from the last step", async () => {
+    let selected = CalculatorSteps.YourSolutionContains;
+    const setSelected = jest
+      .fn()
+      .mockImplementation(
+        (selection: CalculatorSteps.SelectRoof) => (selected = selection)
+      );
+
+    const getComponent = (selected: CalculatorSteps) => (
+      <MicroCopy.Provider values={en}>
+        <PitchedRoofCalculatorSteps
+          selected={selected}
+          setSelected={setSelected}
+          data={data as any}
+        />
+      </MicroCopy.Provider>
+    );
+
+    const { rerender } = render(getComponent(selected));
+    stepProps[CalculatorSteps.YourSolutionContains].linkOnClick();
+
+    rerender(getComponent(selected));
+    expect(renderedStep).toBe(CalculatorSteps.SelectRoof);
   });
 });
 
