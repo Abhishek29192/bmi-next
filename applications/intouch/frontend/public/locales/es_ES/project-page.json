@@ -316,7 +316,7 @@
     "roofArea": "Medida total de la cubierta (m2)",
     "startDate": "Fecha de inicio del proyecto",
     "status": "Estado del proyecto",
-    "archived": "Archivado"
+    "archived": "¿Archivado?"
   },
   "report": {
     "guarantee": "Descargar informe de garantías",

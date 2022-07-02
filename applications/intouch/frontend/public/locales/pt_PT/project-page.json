@@ -324,7 +324,7 @@
     "roofArea": "Area total do telhado (m2)",
     "startDate": "Data de início do projeto",
     "status": "Estado do projeto",
-    "archived": "Arquivado"
+    "archived": "Arquivado?"
   },
   "report": {
     "guarantee": "Descarregar relatório de garantia",
