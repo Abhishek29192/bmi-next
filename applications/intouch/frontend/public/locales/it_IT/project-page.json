@@ -316,7 +316,7 @@
     "roofArea": "Superficie della copertura (m2)",
     "startDate": "Data di inizio progetto",
     "status": "Stato progetto",
-    "archived": "Archiviato"
+    "archived": "Archiviato?"
   },
   "report": {
     "guarantee": "Scarica il report di garanzia",
