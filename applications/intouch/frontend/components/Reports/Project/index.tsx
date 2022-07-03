@@ -13,21 +13,20 @@ import { isSuperOrMarketAdmin } from "../../../lib/account";
 import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
+const projectStatusMap = {
+  "filters.labels.NOT_STARTED": "NOT_STARTED",
+  "filters.labels.IN_PROGRESS": "IN_PROGRESS",
+  "filters.labels.COMPLETED": "COMPLETED"
+};
+
 const getReportData = (
   projects: GetProjectsReportQuery["projectsByMarket"],
   t
 ) => {
   return [...projects.nodes]
     .map((project) => {
-      const {
-        __typename,
-        siteAddress,
-        company,
-        guarantees,
-        projectMembers,
-        hidden,
-        ...rest
-      } = project;
+      const { siteAddress, company, guarantees, projectMembers, hidden } =
+        project;
 
       const siteAddressTown = [siteAddress?.town, siteAddress?.country]
         .filter(Boolean)
@@ -36,10 +35,12 @@ const getReportData = (
       const companyName = company?.name;
       const companyStatus = company?.status;
 
-      const guaranteeTypeName = guarantees?.nodes[0]?.guaranteeType?.name || "";
+      const guaranteeTypeName =
+        guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
 
-      const projectStatus = t(
-        getProjectStatus(project.startDate, project.endDate)
+      const projectStatus = getProjectStatus(
+        project.startDate,
+        project.endDate
       );
 
       const projectMember = projectMembers.nodes
@@ -47,19 +48,31 @@ const getReportData = (
         .join();
 
       return {
-        ...rest,
-        archived: hidden,
-        siteAddressTown,
-        companyName,
-        companyStatus,
-        guaranteeTypeName,
-        projectStatus,
-        projectMember
+        Id: project.id,
+        Name: project.name,
+        Technology: project.technology,
+        "Roof Area": project.roofArea,
+        "Building Owner First Name": project.buildingOwnerFirstname || "",
+        "Building Owner Last Name": project.buildingOwnerLastname || "",
+        "Project Start Date": project.startDate,
+        "Project End Date": project.endDate,
+        Archived: hidden,
+        "Created Date": project.createdAt,
+        "Last Updated Date": project.updatedAt,
+        "Site Address": siteAddressTown,
+        "Company Name": companyName,
+        "Company Status": companyStatus,
+        "Guarantee Type Name": guaranteeTypeName,
+        // eslint-disable-next-line security/detect-object-injection
+        "Project Status": projectStatusMap[projectStatus],
+        "Project Member": projectMember
       };
     })
     .sort(
-      ({ updatedAt: firstDate }, { updatedAt: secondDate }) =>
-        new Date(secondDate).getTime() - new Date(firstDate).getTime()
+      (
+        { "Last Updated Date": firstDate },
+        { "Last Updated Date": secondDate }
+      ) => new Date(secondDate).getTime() - new Date(firstDate).getTime()
     );
 };
 
@@ -69,16 +82,7 @@ const getNonSuperUserReportData = (
 ) => {
   return [...projects.nodes]
     .map((project) => {
-      const {
-        __typename,
-        id,
-        siteAddress,
-        company,
-        guarantees,
-        projectMembers,
-        hidden,
-        ...rest
-      } = project;
+      const { siteAddress, company, guarantees, projectMembers } = project;
 
       const siteAddressTown = [siteAddress?.town, siteAddress?.country]
         .filter(Boolean)
@@ -86,10 +90,12 @@ const getNonSuperUserReportData = (
 
       const companyName = company?.name;
 
-      const guaranteeTypeName = guarantees?.nodes[0]?.guaranteeType?.name || "";
+      const guaranteeTypeName =
+        guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
 
-      const projectStatus = t(
-        getProjectStatus(project.startDate, project.endDate)
+      const projectStatus = getProjectStatus(
+        project.startDate,
+        project.endDate
       );
 
       const projectMember = projectMembers.nodes
@@ -97,17 +103,29 @@ const getNonSuperUserReportData = (
         .join();
 
       return {
-        ...rest,
-        siteAddressTown,
-        companyName,
-        guaranteeTypeName,
-        projectStatus,
-        projectMember
+        Name: project.name,
+        Technology: project.technology,
+        "Roof Area": project.roofArea,
+        "Building Owner First Name": project.buildingOwnerFirstname || "",
+        "Building Owner Last Name": project.buildingOwnerLastname || "",
+        "Building Owner Company Name": project.buildingOwnerCompany || "",
+        "Project Start Date": project.startDate,
+        "Project End Date": project.endDate,
+        "Created Date": project.createdAt,
+        "Last Updated Date": project.updatedAt,
+        "Site Address": siteAddressTown,
+        "Company Name": companyName,
+        "Guarantee Type Name": guaranteeTypeName,
+        // eslint-disable-next-line security/detect-object-injection
+        "Project Status": projectStatusMap[projectStatus],
+        "Project Member": projectMember
       };
     })
     .sort(
-      ({ updatedAt: firstDate }, { updatedAt: secondDate }) =>
-        new Date(secondDate).getTime() - new Date(firstDate).getTime()
+      (
+        { "Last Updated Date": firstDate },
+        { "Last Updated Date": secondDate }
+      ) => new Date(secondDate).getTime() - new Date(firstDate).getTime()
     );
 };
 
@@ -195,6 +213,7 @@ export const GET_PROJECTS_REPORT = gql`
         }
         buildingOwnerFirstname
         buildingOwnerLastname
+        buildingOwnerCompany
         startDate
         endDate
         hidden
