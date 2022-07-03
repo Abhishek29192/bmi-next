@@ -73,7 +73,8 @@ const defaultProject: GetProjectQuery["project"] = {
 const project2 = generateProject({
   siteAddress: null,
   company: null,
-  guarantees: null
+  guarantees: null,
+  buildingOwnerFirstname: null
 });
 const projects = [defaultProject, project2];
 

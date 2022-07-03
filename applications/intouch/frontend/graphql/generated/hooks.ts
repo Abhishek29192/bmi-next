@@ -1899,6 +1899,7 @@ export const GetProjectsReportDocument = gql`
         }
         buildingOwnerFirstname
         buildingOwnerLastname
+        buildingOwnerCompany
         startDate
         endDate
         hidden

@@ -15,17 +15,11 @@ const getReportData = (
 ) => {
   return [...guarantees.nodes].map((company) => {
     const {
-      __typename,
       project,
-      languageCode,
-      guaranteeReferenceCode,
       guaranteeType,
       systemBySystemBmiRef,
       productByProductBmiRef,
-      requestorAccount,
-      requestorAccountId,
-      signedFileStorageUrl,
-      ...rest
+      requestorAccount
     } = company;
 
     const {
@@ -46,17 +40,23 @@ const getReportData = (
       .filter(Boolean)
       .join(" ");
     return {
-      ...rest,
-      requestorName,
-      projectName,
-      projectTechnology,
-      archived: project.hidden,
-      roofArea,
-      companyName,
-      guaranteeTypeName,
-      maximumValidityYears,
-      productName,
-      systemName
+      Id: company.id,
+      "BMI Reference Id": company.bmiReferenceId || "",
+      "Requestor Account Id": requestorName,
+      Coverage: company.coverage || "",
+      "Guarantee Status": company.status || "",
+      "Guarantee Start Date": company.startDate || "",
+      "Guarantee Expiry Date": company.expiryDate || "",
+      "Signed File Storage URL": company.fileStorageId || "",
+      "Project Name": projectName || "",
+      "Project Technology": projectTechnology || "",
+      "Project Roof Area": roofArea || "",
+      "Company Name": companyName || "",
+      "Guarantee Type Name": guaranteeTypeName || "",
+      "Maximum Validity Years": maximumValidityYears || "",
+      "Product Name": productName || "",
+      "System Name": systemName || "",
+      Archived: project.hidden
     };
   });
 };

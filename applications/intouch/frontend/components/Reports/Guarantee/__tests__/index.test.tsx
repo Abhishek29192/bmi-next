@@ -49,12 +49,12 @@ const defaultGuarantee = {
 const defaultGuarantee2 = {
   id: 1,
   guaranteeReferenceCode: "PITCHED_SOLUTION",
-  coverage: "SOLUTION",
-  status: "NEW",
+  coverage: null,
+  status: null,
   project: {
-    name: "test",
+    name: null,
     company: {
-      name: "Company 1"
+      name: null
     }
   }
 };

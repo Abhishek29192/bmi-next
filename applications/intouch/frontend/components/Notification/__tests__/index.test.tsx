@@ -24,6 +24,8 @@ describe("Notification", () => {
     new Date().getFullYear() -
     new Date(Date.parse(getInitialProps().date)).getFullYear();
 
+  jest.useFakeTimers().setSystemTime(new Date("2022-01-01"));
+
   it("render correctly", () => {
     const { container } = renderWithI18NProvider(
       <Notification {...getInitialProps()} />

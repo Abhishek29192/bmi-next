@@ -1565,6 +1565,7 @@ export type GetProjectsReportQuery = {
       roofArea: number;
       buildingOwnerFirstname?: string | null;
       buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
       startDate: any;
       endDate: any;
       hidden?: boolean | null;
