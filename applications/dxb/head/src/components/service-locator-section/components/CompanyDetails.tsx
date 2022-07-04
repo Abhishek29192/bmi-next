@@ -28,7 +28,9 @@ export const createCompanyDetails = (
     globalEmail: localizationCb("global.email"),
     globalWebsite: localizationCb("global.website"),
     faxLabel: localizationCb("global.fax"),
-    websiteLabel: localizationCb("findARoofer.websiteLabel"),
+    rooferWebsiteLabel: localizationCb("findARoofer.websiteLabel"),
+    merchantWebsiteLabel: localizationCb("findAMerchant.websiteLabel"),
+    branchWebsiteLabel: localizationCb("findABranch.websiteLabel"),
     roofTypeLabel: localizationCb("findARoofer.roofTypeLabel"),
     certificationLabel: localizationCb("findARoofer.certificationLabel")
   };
@@ -58,6 +60,16 @@ export const createCompanyDetails = (
     : !service.website || service.website.startsWith("http")
     ? service.website
     : `https://${service.website}`;
+
+  const websiteLabelMicrocopy: string = !service
+    ? null
+    : service.entryType === EntryTypeEnum.ROOFER_TYPE
+    ? localization.rooferWebsiteLabel
+    : service.entryType === EntryTypeEnum.MERCHANT_TYPE
+    ? localization.merchantWebsiteLabel
+    : service.entryType === EntryTypeEnum.BRANCH_TYPE
+    ? localization.branchWebsiteLabel
+    : null;
 
   const actions = {
     address: !service
@@ -120,10 +132,10 @@ export const createCompanyDetails = (
           websiteWithProtocol,
           countryCode,
           undefined,
-          localization.websiteLabel,
+          websiteLabelMicrocopy,
           undefined,
           undefined,
-          getServiceDataGTM(websiteWithProtocol, localization.websiteLabel)
+          getServiceDataGTM(websiteWithProtocol, websiteLabelMicrocopy)
         ),
     email: !service
       ? null
@@ -193,7 +205,7 @@ export const createCompanyDetails = (
         display: shouldShowIcons ? "icon" : "label",
         text: websiteWithProtocol
           ? service.websiteLinkAsLabel
-            ? localization.websiteLabel
+            ? websiteLabelMicrocopy
             : new URL(websiteWithProtocol).hostname
           : null,
         action: actions.website,
