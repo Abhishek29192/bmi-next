@@ -109,7 +109,7 @@ const generateError = (message: string) => {
 const PAGE_SIZE = 9;
 
 export const query = (page: number) => `
-query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
