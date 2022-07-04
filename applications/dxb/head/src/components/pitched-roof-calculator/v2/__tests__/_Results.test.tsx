@@ -331,14 +331,6 @@ const resultsProps = {
         category: "accessories"
       },
       {
-        code: "306222100_Storm_clips_55_Zanda_Minster",
-        name: "Storm_clips_55_Zanda_Minster",
-        externalProductCode: "21282017",
-        image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
-        category: "fixings",
-        packSize: 125
-      },
-      {
         code: "304200051_M_Glue_290ml_grey",
         name: "M_Glue_290ml",
         externalProductCode: "51531703",
@@ -361,28 +353,28 @@ const resultsProps = {
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Clips",
       externalProductCode: "113456781",
-      category: "accessories"
+      category: "fixings"
     },
     ridgeAndHipScrew: {
       code: "ridgeAndHipScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
-      category: "accessories"
+      category: "fixings"
     },
     longScrew: {
       code: "longScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Long Screw",
       externalProductCode: "113456783",
-      category: "accessories"
+      category: "fixings"
     },
     screw: {
       code: "screw",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Screw",
       externalProductCode: "113456784",
-      category: "accessories"
+      category: "fixings"
     },
     stormBracket: {
       code: "stormBracket",

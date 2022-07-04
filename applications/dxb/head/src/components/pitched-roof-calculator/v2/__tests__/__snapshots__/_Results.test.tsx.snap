@@ -26,7 +26,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda Protector main tile black",
       "externalProductCode": "46035712",
       "packSize": "-",
-      "quantity": 1418
+      "quantity": 1454
     },
     {
       "category": "tiles",
@@ -34,7 +34,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda Protector half tile black",
       "externalProductCode": "46035795",
       "packSize": "-",
-      "quantity": 32
+      "quantity": 33
     },
     {
       "category": "tiles",
@@ -70,11 +70,43 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
   "rows": [
     {
       "category": "fixings",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Storm_clips_55_Zanda_Minster",
-      "externalProductCode": "21282017",
-      "packSize": "125",
-      "quantity": 0
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 267
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1249
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -106,7 +138,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Ventilation Hood 1",
       "externalProductCode": "100456781",
       "packSize": "-",
-      "quantity": 2
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -170,7 +202,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda_Protector_verge metal flush black left start",
       "externalProductCode": "86035763",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -178,7 +210,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda_Protector_verge metal flush black left",
       "externalProductCode": "86035761",
       "packSize": "-",
-      "quantity": 105
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -186,7 +218,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda_Protector_verge metal flush black right start",
       "externalProductCode": "86035764",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -194,7 +226,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Zanda_Protector_verge metal flush black right",
       "externalProductCode": "86035762",
       "packSize": "-",
-      "quantity": 105
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -202,7 +234,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
-      "quantity": 11
+      "quantity": 10
     },
     {
       "category": "accessories",
@@ -210,7 +242,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
-      "quantity": 15
+      "quantity": 14
     },
     {
       "category": "accessories",
@@ -218,7 +250,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -226,47 +258,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
-      "quantity": 4
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 281
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1312
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 2
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -274,7 +266,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
-      "quantity": 4
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -282,7 +274,7 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
       "description": "Fuglelist ventilert",
       "externalProductCode": "5555551",
       "packSize": "-",
-      "quantity": 7
+      "quantity": 6
     },
     {
       "category": "accessories",
@@ -477,7 +469,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda Protector main tile black",
       "externalProductCode": "46035712",
       "packSize": "-",
-      "quantity": 1418
+      "quantity": 1454
     },
     {
       "category": "tiles",
@@ -485,7 +477,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda Protector half tile black",
       "externalProductCode": "46035795",
       "packSize": "-",
-      "quantity": 32
+      "quantity": 33
     },
     {
       "category": "tiles",
@@ -521,11 +513,43 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
   "rows": [
     {
       "category": "fixings",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Storm_clips_55_Zanda_Minster",
-      "externalProductCode": "21282017",
-      "packSize": "125",
-      "quantity": 0
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 267
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1249
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -557,7 +581,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Ventilation Hood 1",
       "externalProductCode": "100456781",
       "packSize": "-",
-      "quantity": 2
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -621,7 +645,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda_Protector_verge metal flush black left start",
       "externalProductCode": "86035763",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -629,7 +653,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda_Protector_verge metal flush black left",
       "externalProductCode": "86035761",
       "packSize": "-",
-      "quantity": 105
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -637,7 +661,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda_Protector_verge metal flush black right start",
       "externalProductCode": "86035764",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -645,7 +669,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Zanda_Protector_verge metal flush black right",
       "externalProductCode": "86035762",
       "packSize": "-",
-      "quantity": 105
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -653,7 +677,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
-      "quantity": 11
+      "quantity": 10
     },
     {
       "category": "accessories",
@@ -661,7 +685,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
-      "quantity": 15
+      "quantity": 14
     },
     {
       "category": "accessories",
@@ -669,7 +693,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -677,47 +701,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
-      "quantity": 4
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 281
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1312
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 2
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -725,7 +709,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
-      "quantity": 4
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -733,7 +717,7 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
       "description": "Fuglelist ventilert",
       "externalProductCode": "5555551",
       "packSize": "-",
-      "quantity": 7
+      "quantity": 6
     },
     {
       "category": "accessories",
@@ -855,7 +839,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Zanda Protector main tile black",
       "externalProductCode": "46035712",
       "packSize": "-",
-      "quantity": 1418
+      "quantity": 1454
     },
     {
       "category": "tiles",
@@ -863,7 +847,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Zanda Protector half tile black",
       "externalProductCode": "46035795",
       "packSize": "-",
-      "quantity": 32
+      "quantity": 33
     },
     {
       "category": "tiles",
@@ -899,11 +883,43 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
   "rows": [
     {
       "category": "fixings",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Storm_clips_55_Zanda_Minster",
-      "externalProductCode": "21282017",
-      "packSize": "125",
-      "quantity": 0
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 267
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1249
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -935,7 +951,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Ventilation Hood 1",
       "externalProductCode": "100456781",
       "packSize": "-",
-      "quantity": 2
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -999,7 +1015,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Test Guttering Grey",
       "externalProductCode": "4391",
       "packSize": "-",
-      "quantity": 11
+      "quantity": 10
     },
     {
       "category": "accessories",
@@ -1007,7 +1023,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Test Guttering Hook Grey",
       "externalProductCode": "4392",
       "packSize": "-",
-      "quantity": 15
+      "quantity": 14
     },
     {
       "category": "accessories",
@@ -1015,7 +1031,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Downpipe",
       "externalProductCode": "33332",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -1023,47 +1039,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Downpipe Connector",
       "externalProductCode": "33331",
       "packSize": "-",
-      "quantity": 4
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 281
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1312
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 2
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -1071,7 +1047,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
-      "quantity": 4
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -1079,7 +1055,7 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
       "description": "Fuglelist ventilert",
       "externalProductCode": "5555551",
       "packSize": "-",
-      "quantity": 7
+      "quantity": 6
     },
     {
       "category": "accessories",
@@ -1201,7 +1177,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda Protector main tile black",
       "externalProductCode": "46035712",
       "packSize": "-",
-      "quantity": 1418
+      "quantity": 1454
     },
     {
       "category": "tiles",
@@ -1209,7 +1185,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda Protector half tile black",
       "externalProductCode": "46035795",
       "packSize": "-",
-      "quantity": 32
+      "quantity": 33
     },
     {
       "category": "tiles",
@@ -1245,11 +1221,43 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
   "rows": [
     {
       "category": "fixings",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Storm_clips_55_Zanda_Minster",
-      "externalProductCode": "21282017",
-      "packSize": "125",
-      "quantity": 0
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Clips",
+      "externalProductCode": "113456781",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Ridge and Hip Screw",
+      "externalProductCode": "113456782",
+      "packSize": "-",
+      "quantity": 98
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Long Screw",
+      "externalProductCode": "113456783",
+      "packSize": "-",
+      "quantity": 267
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Screw",
+      "externalProductCode": "113456784",
+      "packSize": "-",
+      "quantity": 1249
+    },
+    {
+      "category": "fixings",
+      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
+      "description": "Finishing Kit",
+      "externalProductCode": "113456786",
+      "packSize": "-",
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -1281,7 +1289,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Ventilation Hood 1",
       "externalProductCode": "100456781",
       "packSize": "-",
-      "quantity": 2
+      "quantity": 1
     }
   ],
   "title": "MC: results.table.title",
@@ -1345,7 +1353,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda_Protector_verge metal flush black left start",
       "externalProductCode": "86035763",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -1353,7 +1361,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda_Protector_verge metal flush black left",
       "externalProductCode": "86035761",
       "packSize": "-",
-      "quantity": 105
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -1361,7 +1369,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda_Protector_verge metal flush black right start",
       "externalProductCode": "86035764",
       "packSize": "-",
-      "quantity": 3
+      "quantity": 2
     },
     {
       "category": "accessories",
@@ -1369,47 +1377,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Zanda_Protector_verge metal flush black right",
       "externalProductCode": "86035762",
       "packSize": "-",
-      "quantity": 105
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 97
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 281
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1312
-    },
-    {
-      "category": "accessories",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 2
+      "quantity": 100
     },
     {
       "category": "accessories",
@@ -1417,7 +1385,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Underlay Divoroll TOP RU",
       "externalProductCode": "26583450",
       "packSize": "-",
-      "quantity": 4
+      "quantity": 3
     },
     {
       "category": "accessories",
@@ -1425,7 +1393,7 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
       "description": "Fuglelist ventilert",
       "externalProductCode": "5555551",
       "packSize": "-",
-      "quantity": 7
+      "quantity": 6
     },
     {
       "category": "accessories",

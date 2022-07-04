@@ -61,6 +61,16 @@ const PitchedRoofCalculatorSteps = ({
     undefined
   );
 
+  const resetData = () => {
+    setRoof(undefined);
+    setDimensions(undefined);
+    setTile(undefined);
+    setVariant(undefined);
+    setTileOptions(undefined);
+    setUnderlay(undefined);
+    setGuttering(undefined);
+  };
+
   const selectRoof = (newRoof: Roof) => {
     setSelected(CalculatorSteps.EnterDimensions);
     if (newRoof === roof) return;
@@ -393,7 +403,7 @@ const PitchedRoofCalculatorSteps = ({
               action: "selected"
             });
             setSelected(CalculatorSteps.SelectRoof);
-            setRoof(undefined);
+            resetData();
           }}
         >
           {measurements && variant && tileOptions && underlay && (
