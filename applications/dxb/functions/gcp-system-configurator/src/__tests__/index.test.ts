@@ -1950,7 +1950,7 @@ describe("HTTP function:", () => {
         },
         body: {
           query: `
-query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
@@ -2175,7 +2175,7 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
         },
         body: {
           query: `
-query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
@@ -2400,7 +2400,7 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
         },
         body: {
           query: `
-query NextStep($answerId: String!, $locale: String!, preview: Boolean) {
+query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
