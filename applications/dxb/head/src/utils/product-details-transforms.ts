@@ -312,7 +312,11 @@ export const getProductAttributes = (
         return {
           label: colour,
           isSelected,
-          thumbnail: variant?.thumbnail,
+          thumbnail: variant
+            ? variant.thumbnail
+            : product.masterImages && product.masterImages.length > 0
+            ? product.masterImages[0].thumbnail
+            : null,
           availability: checkColourAvailability(colour),
           ...(!isSelected &&
             allColours.length > 1 &&

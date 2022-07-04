@@ -40,7 +40,12 @@ describe("product-details-transforms tests", () => {
             type: "thumbnails",
             unavailableMicroCopy: "unavaialbeMicroCopy",
             variants: [
-              { label: "colour", isSelected: true, availability: false }
+              {
+                label: "colour",
+                isSelected: true,
+                availability: false,
+                thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+              }
             ]
           },
           {
@@ -89,7 +94,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -141,7 +151,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -194,7 +209,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -247,7 +267,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -303,7 +328,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -515,7 +545,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -694,7 +729,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -747,7 +787,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -806,7 +851,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -861,7 +911,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -914,7 +969,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -973,7 +1033,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -1028,7 +1093,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -1081,7 +1151,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
@@ -1137,7 +1212,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -1191,7 +1271,12 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavaialbeMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    }
                   ]
                 },
                 {
@@ -1244,7 +1329,12 @@ describe("product-details-transforms tests", () => {
                 type: "thumbnails",
                 unavailableMicroCopy: "unavaialbeMicroCopy",
                 variants: [
-                  { label: "colour", isSelected: true, availability: false }
+                  {
+                    label: "colour",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                  }
                 ]
               },
               {
