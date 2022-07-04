@@ -355,11 +355,12 @@ exports[`Header component closes menu on same tab click 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-84 iconButtonStyles-medium-90 iconButtonStyles-contained-85 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -378,7 +379,7 @@ exports[`Header component closes menu on same tab click 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-84 iconButtonStyles-medium-90 iconButtonStyles-contained-85 search-button"
@@ -1338,11 +1339,12 @@ exports[`Header component opens menu two deep 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -1361,7 +1363,7 @@ exports[`Header component opens menu two deep 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-60 iconButtonStyles-medium-66 iconButtonStyles-contained-61 search-button"
@@ -2321,11 +2323,12 @@ exports[`Header component opens menu when clicked 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -2344,7 +2347,7 @@ exports[`Header component opens menu when clicked 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-36 iconButtonStyles-medium-42 iconButtonStyles-contained-37 search-button"
@@ -3304,11 +3307,12 @@ exports[`Header component renders correctly 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -3327,7 +3331,7 @@ exports[`Header component renders correctly 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-12 iconButtonStyles-medium-18 iconButtonStyles-contained-13 search-button"
@@ -4293,11 +4297,12 @@ exports[`Header component toggle menu with buttons 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-108 iconButtonStyles-medium-114 iconButtonStyles-contained-109 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -4316,7 +4321,7 @@ exports[`Header component toggle menu with buttons 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-108 iconButtonStyles-medium-114 iconButtonStyles-contained-109 search-button"
@@ -5276,11 +5281,12 @@ exports[`Header component toggle menu with buttons 2`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-108 iconButtonStyles-medium-114 iconButtonStyles-contained-109 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -5299,7 +5305,7 @@ exports[`Header component toggle menu with buttons 2`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-108 iconButtonStyles-medium-114 iconButtonStyles-contained-109 search-button"
@@ -6259,11 +6265,12 @@ exports[`Header component toggle search 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -6282,7 +6289,7 @@ exports[`Header component toggle search 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 search-button"
@@ -7301,11 +7308,12 @@ exports[`Header component toggle search 2`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -7324,7 +7332,7 @@ exports[`Header component toggle search 2`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-132 iconButtonStyles-medium-138 iconButtonStyles-contained-133 search-button"
@@ -8291,11 +8299,12 @@ exports[`Header component toggles language selection: Language selection closed 
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-156 iconButtonStyles-medium-162 iconButtonStyles-contained-157 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -8314,7 +8323,7 @@ exports[`Header component toggles language selection: Language selection closed 
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-156 iconButtonStyles-medium-162 iconButtonStyles-contained-157 search-button"
@@ -9281,11 +9290,12 @@ exports[`Header component toggles language selection: Language selection open 1`
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="Basket"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-156 iconButtonStyles-medium-162 iconButtonStyles-contained-157 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -9304,7 +9314,7 @@ exports[`Header component toggles language selection: Language selection open 1`
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="Search"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-156 iconButtonStyles-medium-162 iconButtonStyles-contained-157 search-button"

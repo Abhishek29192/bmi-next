@@ -1877,11 +1877,12 @@ exports[`Header component shows sample basket icon 1`] = `
             <div
               class="navigation-bar-buttons"
             >
-              <button
+              <a
+                aria-disabled="false"
                 aria-label="MC: basket.label"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 basket-button"
+                role="button"
                 tabindex="0"
-                type="button"
               >
                 <span
                   class="MuiIconButton-label"
@@ -1900,7 +1901,7 @@ exports[`Header component shows sample basket icon 1`] = `
                 <span
                   class="MuiTouchRipple-root"
                 />
-              </button>
+              </a>
               <button
                 aria-label="MC: search.label"
                 class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-93 iconButtonStyles-medium-99 iconButtonStyles-contained-94 search-button"
