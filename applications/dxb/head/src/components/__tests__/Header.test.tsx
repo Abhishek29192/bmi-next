@@ -324,7 +324,7 @@ describe("Header component", () => {
         title: "Basket title"
       }
     }));
-    const { container, getByLabelText } = render(
+    const { container, queryByLabelText } = render(
       <BasketContext.Provider value={sampleBasketProducts}>
         <Header
           activeLabel="Main"
@@ -337,9 +337,9 @@ describe("Header component", () => {
       </BasketContext.Provider>
     );
 
-    const basketButton = getByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
+    const basketButton = queryByLabelText(getMicroCopy(microCopy.BASKET_LABEL));
 
-    expect(basketButton).toBeTruthy();
+    expect(basketButton).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
