@@ -222,4 +222,83 @@ describe("createCompanyDetails", () => {
       expect(ctaObject).toBeUndefined();
     });
   });
+  describe("when service websiteLinkAsLabel set to true", () => {
+    describe("and service entry type is ROOFER", () => {
+      it("should return website text as microcopy text", () => {
+        const service = createService({
+          serviceTypes: [
+            { __typename: "ContentfulServiceType", name: "Pitched Roof" }
+          ],
+          entryType: EntryTypeEnum.ROOFER_TYPE,
+          websiteLinkAsLabel: true
+        });
+        const details = createCompanyDetails(
+          EntryTypeEnum.ROOFER_TYPE,
+          service,
+          false,
+          "en",
+          getMicroCopyMock,
+          false,
+          "googleURLLatLng"
+        );
+
+        const websiteLinkLabelObj = details.find(
+          (item) => item["type"] === "website"
+        );
+
+        expect(websiteLinkLabelObj).toBeTruthy();
+        expect(websiteLinkLabelObj["text"]).toEqual("findARoofer.websiteLabel");
+      });
+    });
+    describe("and service entry type is MERCHANT", () => {
+      it("should return website text as microcopy text", () => {
+        const service = createService({
+          entryType: EntryTypeEnum.MERCHANT_TYPE,
+          websiteLinkAsLabel: true
+        });
+        const details = createCompanyDetails(
+          EntryTypeEnum.MERCHANT_TYPE,
+          service,
+          false,
+          "en",
+          getMicroCopyMock,
+          false,
+          "googleURLLatLng"
+        );
+
+        const websiteLinkLabelObj = details.find(
+          (item) => item["type"] === "website"
+        );
+
+        expect(websiteLinkLabelObj).toBeTruthy();
+        expect(websiteLinkLabelObj["text"]).toEqual(
+          "findAMerchant.websiteLabel"
+        );
+      });
+    });
+    describe("and service entry type is BRANCH", () => {
+      it("should return website text as microcopy text", () => {
+        const service = createService({
+          entryType: EntryTypeEnum.BRANCH_TYPE,
+          websiteLinkAsLabel: true
+        });
+        const details = createCompanyDetails(
+          EntryTypeEnum.BRANCH_TYPE,
+          service,
+          false,
+          "en",
+          getMicroCopyMock,
+          false,
+          "googleURLLatLng"
+        );
+
+        const websiteLinkLabelObj = details.find(
+          (item) => item["type"] === "website"
+        );
+
+        expect(websiteLinkLabelObj).toBeTruthy();
+        expect(websiteLinkLabelObj["text"]).toEqual("findABranch.websiteLabel");
+      });
+    });
+  });
 });
