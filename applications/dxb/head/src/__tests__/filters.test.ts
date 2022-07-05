@@ -1,15 +1,15 @@
 import { DocumentResultData } from "../components/DocumentResults";
+import { ProductFilter } from "../types/pim";
 import {
   clearFilterValues,
   convertToURLFilters,
   generateUniqueDocuments,
+  ResultTypeEnum,
   sortAlphabeticallyBy,
-  updateFilterValue,
-  ResultTypeEnum
+  updateFilterValue
 } from "../utils/filters";
-import { ProductFilter } from "../types/pim";
-import createPimDocument from "./helpers/PimDocumentHelper";
 import createContentfuldocument from "./helpers/ContentfulDocumentHelper";
+import createPimDocument from "./helpers/PimDocumentHelper";
 
 describe("filters tests", () => {
   describe("sortAlphabeticallyBy tests", () => {
@@ -367,8 +367,9 @@ describe("filters tests", () => {
             id: `pim-doc-id`,
             url: `${baseUrl}pim-doc-url`
           });
-          expectedResult.push(expectedPimDocument);
+
           expectedResult.push(contenfulDocument);
+          expectedResult.push(expectedPimDocument);
           expect(result).toEqual(expectedResult);
         });
 
