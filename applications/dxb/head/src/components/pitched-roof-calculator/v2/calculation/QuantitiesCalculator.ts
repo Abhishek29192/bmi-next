@@ -41,23 +41,20 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, [face.pitch], mainTileVariant)
   }));
 
-export const convertProductRowToResultsRow = (
-  {
-    name,
-    packSize = 1, // No packs by default
-    baseQuantity,
-    category,
-    externalProductCode,
-    image
-  }: ProductRow,
-  contingency = 0
-): ResultsRow => ({
+export const convertProductRowToResultsRow = ({
+  name,
+  packSize = 1, // No packs by default
+  baseQuantity,
+  category,
+  externalProductCode,
+  image
+}: ProductRow): ResultsRow => ({
   category,
   image,
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
-  quantity: Math.ceil(Math.ceil(baseQuantity / packSize) * (1 + contingency))
+  quantity: Math.ceil(baseQuantity / packSize)
 });
 
 const LONG_SCREW_PER_METER = 3.2;
@@ -350,16 +347,12 @@ class QuantitiesCalculator {
     const hipTiles = this.getProductQuantity(mainTileVariant.hip.code);
 
     if (mainTileVariant.clip) {
-      this.addProduct(
-        "accessories",
-        mainTileVariant.clip,
-        ridgeTiles + hipTiles
-      );
+      this.addProduct("fixings", mainTileVariant.clip, ridgeTiles + hipTiles);
     }
 
     if (mainTileVariant.ridgeAndHipScrew) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.ridgeAndHipScrew,
         ridgeTiles + hipTiles
       );
@@ -386,12 +379,12 @@ class QuantitiesCalculator {
           LONG_SCREW_PER_METER
       );
 
-      this.addProduct("accessories", mainTileVariant.longScrew, longScrews);
+      this.addProduct("fixings", mainTileVariant.longScrew, longScrews);
     }
 
     if (mainTileVariant.screw) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.screw,
         area
           ? Math.ceil(
@@ -407,14 +400,14 @@ class QuantitiesCalculator {
       ridge.externalProductCode === "25762568"
     ) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.stormBracket,
         ridgeTiles * STORM_BRACKET_PER_RIDGE_TILE
       );
     }
 
     if (mainTileVariant.finishingKit) {
-      this.addProduct("accessories", mainTileVariant.finishingKit, 1);
+      this.addProduct("fixings", mainTileVariant.finishingKit, 1);
     }
 
     this.addProduct(
@@ -468,7 +461,10 @@ class QuantitiesCalculator {
       ...otherCurrentProductProps,
       ...product,
       category,
-      baseQuantity: oldBaseQuantity + baseQuantity
+      baseQuantity: Math.ceil(
+        (oldBaseQuantity + baseQuantity) *
+          (category === "tiles" ? 1 + CONTINGENCY : 1)
+      )
     };
 
     this.results.set(product.code, newMapProduct);
@@ -485,9 +481,7 @@ class QuantitiesCalculator {
     };
 
     this.results.forEach((product) =>
-      result[product.category].push(
-        convertProductRowToResultsRow(product, CONTINGENCY)
-      )
+      result[product.category].push(convertProductRowToResultsRow(product))
     );
 
     return result;
