@@ -2018,7 +2018,7 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
   }
 }
 `,
-          variables: { answerId: "1234", locale: "en-US", preview: "false" }
+          variables: { answerId: "1234", locale: "en-US", preview: false }
         }
       }
     );
@@ -2243,7 +2243,7 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
   }
 }
 `,
-          variables: { answerId: "1234", locale: "en-US", preview: "false" }
+          variables: { answerId: "1234", locale: "en-US", preview: false }
         }
       }
     );
@@ -2468,7 +2468,7 @@ fragment RichTextFragment on SystemConfiguratorBlockDescription {
   }
 }
 `,
-          variables: { answerId: "1234", locale: "en-US", preview: "true" }
+          variables: { answerId: "1234", locale: "en-US", preview: true }
         }
       }
     );
