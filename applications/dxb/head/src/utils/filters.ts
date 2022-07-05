@@ -143,9 +143,11 @@ export const generateUniqueDocuments = (
       },
       []
     );
-    return [...uniquePIMDocuments, ...uniqueCMSDocuments];
+    return [...uniquePIMDocuments, ...uniqueCMSDocuments].sort((doca, docb) =>
+      doca.title > docb.title ? -1 : 1
+    );
   }
-  return documents;
+  return documents.sort((doca, docb) => (doca.title > docb.title ? -1 : 1));
 };
 
 export const isDocumentPIM = (
