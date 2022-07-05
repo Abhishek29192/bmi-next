@@ -74,7 +74,7 @@
   </head>
   <body>
     <div id="login-screen" class="login-screen" x-data="body">
-      <form onsubmit="return false;" method="post">
+      <form name="Intouch-login-form" onsubmit="return false;" method="post">
         <div class="login-box" x-show="step == 'login'">
           <h1 class="underlined-heading" x-text="$t('signup_welcome')">
             Welcome
@@ -97,6 +97,7 @@
               type="email"
               class="mdc-text-field__input"
               aria-labelledby="login-email-label"
+              name="Intouch-login-email"
             />
           </label>
 
@@ -119,6 +120,7 @@
                 type="password"
                 class="mdc-text-field__input"
                 aria-labelledby="login-password-label"
+                name="Intouch-login-password"
               />
             </label>
             <div class="forgot-password-box">
@@ -137,6 +139,7 @@
                 type="submit"
                 id="btn-login"
                 class="mdc-button mdc-button--unelevated"
+                name="Intouch-login-button"
               >
                 <span class="mdc-button__label" x-text="$t('log_in')"
                   >Log in</span
