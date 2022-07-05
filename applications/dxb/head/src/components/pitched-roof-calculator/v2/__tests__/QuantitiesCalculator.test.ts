@@ -1,14 +1,46 @@
 import mockConsole from "jest-mock-console";
+import { ResultsRow, VergeMetalFlushOption } from "../../types";
+import { Measurements } from "../../types/roof";
 import QuantitiesCalculator, {
   convertProductRowToResultsRow,
   QuantitiesCalculatorProps
 } from "../calculation/QuantitiesCalculator";
-import { ResultsRow, VergeMetalFlushOption } from "../../types";
-import { Measurements } from "../../types/roof";
 
 beforeAll(() => {
   mockConsole();
 });
+
+const vergeHalfLeftTile = {
+  code: "849702122_Zanda_Protector_verge_half_tile_black_left",
+  name: "Zanda_Protector_verge half tile black left",
+  externalProductCode: "87035763",
+  image: "",
+  width: 15
+};
+
+const vergeHalfRightTile = {
+  code: "849702122_Zanda_Protector_verge_half_tile_black_right",
+  name: "Zanda_Protector_verge half tile black right",
+  externalProductCode: "87035764",
+  image: "",
+  width: 15
+};
+
+const vergeLeftTile = {
+  code: "849702122_Zanda_Protector_verge_tile_black_left",
+  name: "Zanda_Protector_verge tile black left",
+  externalProductCode: "87035761",
+  image: "",
+  width: 30
+};
+
+const vergeRightTile = {
+  code: "849702122_Zanda_Protector_verge_tile_black_right",
+  name: "Zanda_Protector_verge tile black right",
+  externalProductCode: "87035762",
+  image: "",
+  width: 30
+};
 
 const input: QuantitiesCalculatorProps = {
   measurements: {
@@ -180,38 +212,10 @@ const input: QuantitiesCalculatorProps = {
       {
         type: "TILE",
         name: "Verge Tile",
-        left: {
-          code: "849702122_Zanda_Protector_verge_tile_black_left",
-          name: "Zanda_Protector_verge tile black left",
-          externalProductCode: "87035761",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
-          width: 30
-        },
-        right: {
-          code: "849702122_Zanda_Protector_verge_tile_black_right",
-          name: "Zanda_Protector_verge tile black right",
-          externalProductCode: "87035762",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
-          width: 30
-        },
-        halfLeft: {
-          code: "849702122_Zanda_Protector_verge_half_tile_black_left",
-          name: "Zanda_Protector_verge half tile black left",
-          externalProductCode: "87035763",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
-          width: 15
-        },
-        halfRight: {
-          code: "849702122_Zanda_Protector_verge_half_tile_black_right",
-          name: "Zanda_Protector_verge half tile black right",
-          externalProductCode: "87035764",
-          image:
-            "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
-          width: 15
-        }
+        left: vergeLeftTile,
+        right: vergeRightTile,
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile
       }
     ],
     valleyMetalFlushStart: {
@@ -1221,5 +1225,82 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(results).toMatchSnapshot();
+  });
+
+  it("returns data without half tiles", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      mainTileVariant: { ...input.mainTileVariant, brokenBond: false },
+      vergeOption: {
+        type: "TILE",
+        name: "Verge tile",
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile,
+        left: vergeLeftTile,
+        right: vergeRightTile
+      }
+    });
+
+    expect(calculations.results.get(vergeHalfLeftTile.code)).toBeUndefined();
+    expect(calculations.results.get(vergeHalfRightTile.code)).toBeUndefined();
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns correct data for VERGE faces", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      measurements: {
+        ...input.measurements,
+        faces: input.measurements.faces.map((face) => ({
+          ...face,
+          sides: ["VERGE", "VERGE"]
+        }))
+      },
+      mainTileVariant: { ...input.mainTileVariant, brokenBond: true },
+      vergeOption: {
+        type: "TILE",
+        name: "Verge tile",
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile,
+        left: vergeLeftTile,
+        right: vergeRightTile
+      }
+    });
+
+    expect(calculations.results.get(vergeHalfLeftTile.code)).toBeTruthy();
+    expect(calculations.results.get(vergeHalfRightTile.code)).toBeTruthy();
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeUndefined();
+  });
+
+  it("returns correct data for VALLEY faces", () => {
+    const calculations = new QuantitiesCalculator({
+      ...input,
+      measurements: {
+        ...input.measurements,
+        faces: input.measurements.faces.map((face) => ({
+          ...face,
+          sides: ["VALLEY", "VALLEY"]
+        }))
+      },
+      mainTileVariant: { ...input.mainTileVariant, brokenBond: true },
+      vergeOption: {
+        type: "TILE",
+        name: "Verge tile",
+        halfLeft: vergeHalfLeftTile,
+        halfRight: vergeHalfRightTile,
+        left: vergeLeftTile,
+        right: vergeRightTile
+      }
+    });
+
+    expect(calculations.results.get(vergeHalfLeftTile.code)).toBeUndefined();
+    expect(calculations.results.get(vergeHalfRightTile.code)).toBeUndefined();
+    expect(
+      calculations.results.get(input.mainTileVariant.halfTile.code)
+    ).toBeTruthy();
   });
 });

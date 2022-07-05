@@ -145,7 +145,11 @@ class QuantitiesCalculator {
 
       this.addProduct("tiles", mainTileVariant, faceTiles.quantity);
 
-      if (mainTileVariant.halfTile) {
+      if (
+        mainTileVariant.halfTile &&
+        mainTileVariant.brokenBond &&
+        faceTiles.half.quantity > 0
+      ) {
         this.addProduct(
           "tiles",
           mainTileVariant.halfTile,
@@ -160,16 +164,24 @@ class QuantitiesCalculator {
           vergeOption.right,
           faceTiles.cloakedVerge.right
         );
-        this.addProduct(
-          "tiles",
-          vergeOption.halfLeft,
-          faceTiles.cloakedVerge.halfLeft
-        );
-        this.addProduct(
-          "tiles",
-          vergeOption.halfRight,
-          faceTiles.cloakedVerge.halfRight
-        );
+
+        if (mainTileVariant.brokenBond) {
+          if (faceTiles.cloakedVerge.halfLeft) {
+            this.addProduct(
+              "tiles",
+              vergeOption.halfLeft,
+              faceTiles.cloakedVerge.halfLeft
+            );
+          }
+
+          if (faceTiles.cloakedVerge.halfRight) {
+            this.addProduct(
+              "tiles",
+              vergeOption.halfRight,
+              faceTiles.cloakedVerge.halfRight
+            );
+          }
+        }
       }
     });
   }
@@ -432,9 +444,14 @@ class QuantitiesCalculator {
   }
 
   addOtherAccessories(accessories: Accessory[]) {
-    accessories.forEach((accessory) =>
-      this.addProduct(accessory.category, accessory, 0)
-    );
+    accessories.forEach((accessory) => {
+      if (accessory.category === "sealing") {
+        this.addProduct("sealing", accessory, 0);
+        return;
+      }
+
+      this.addProduct("accessories", accessory, 0);
+    });
   }
 
   getProductQuantity(code: string) {
