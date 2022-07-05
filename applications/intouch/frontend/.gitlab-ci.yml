@@ -41,7 +41,7 @@ package_intouch_frontend_dev:
   services:
     - name: docker:20-dind
       alias: docker
-  stage: build
+  stage: package
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:

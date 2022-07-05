@@ -1,7 +1,6 @@
 import { Client } from "@elastic/elasticsearch";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 
-const { ES_API_KEY, ES_CLOUD_ID, USE_LOCAL_ES } = process.env;
+const { ES_APIKEY, ES_CLOUD_ID, USE_LOCAL_ES } = process.env;
 
 let esClientCache: Client;
 
@@ -18,18 +17,16 @@ export const getEsClient = async () => {
       throw Error("ES_CLOUD_ID was not provided");
     }
 
-    if (!ES_API_KEY) {
-      throw Error("ES_API_KEY was not provided");
+    if (!ES_APIKEY) {
+      throw Error("ES_APIKEY was not provided");
     }
-
-    const esApiKey = await getSecret(ES_API_KEY);
 
     esClientCache = new Client({
       cloud: {
         id: ES_CLOUD_ID!
       },
       auth: {
-        apiKey: esApiKey
+        apiKey: ES_APIKEY
       },
       headers: {
         "content-type": "application/json"

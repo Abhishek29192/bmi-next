@@ -1,9 +1,9 @@
-import React from "react";
 import { pdf } from "@bmi-digital/react-pdf-maker";
-import en from "../../samples/copy/en.json";
-import { getPDF, Typography } from "../_PDF";
+import React from "react";
 import { getMicroCopy } from "../../helpers/microCopy";
+import en from "../../samples/copy/en.json";
 import { ResultsObject } from "../../types";
+import { getPDF, shouldAddPageBreak, Typography } from "../_PDF";
 
 const resultsSample: ResultsObject = {
   tiles: [
@@ -177,5 +177,99 @@ describe("PitchedRoofCalculator PDF components", () => {
     const file = pdf(<Typography variant="h1">Heading 1</Typography>);
 
     expect(file).toMatchSnapshot();
+  });
+});
+
+describe("PitchedRoofCalculator shouldAddPageBreak function", () => {
+  const startPositionMock = { pageInnerHeight: 758, top: 780 };
+
+  const node = {
+    text: "mock",
+    height: 50,
+    startPosition: startPositionMock,
+    stack: false,
+    pages: 1,
+    pageNumbers: []
+  };
+
+  it("returns true if node height is greater than available space on the page", () => {
+    expect(
+      shouldAddPageBreak(
+        {
+          text: "mock",
+          height: 30,
+          startPosition: startPositionMock
+        },
+        [],
+        [node],
+        [node]
+      )
+    ).toBeTruthy();
+
+    expect(
+      shouldAddPageBreak(
+        {
+          startPosition: {
+            text: "mock",
+            height: 50,
+            ...startPositionMock
+          }
+        },
+        [],
+        [node],
+        [node]
+      )
+    ).toBeTruthy();
+  });
+
+  it("returns false if previous nodes do not exist", () => {
+    expect(
+      shouldAddPageBreak(
+        { startPosition: { ...startPositionMock } },
+        [],
+        [],
+        []
+      )
+    ).toBeFalsy();
+  });
+
+  it("returns false for svg", () => {
+    expect(
+      shouldAddPageBreak(
+        {
+          svg: <svg></svg>,
+          startPosition: { ...startPositionMock }
+        },
+        [],
+        [],
+        [node]
+      )
+    ).toBeFalsy();
+  });
+
+  it("returns false if nodes for the next page do not exist", () => {
+    expect(
+      shouldAddPageBreak(
+        {
+          startPosition: { ...startPositionMock, top: 100 }
+        },
+        [],
+        [],
+        [node]
+      )
+    ).toBeFalsy();
+  });
+
+  it("returns false be default", () => {
+    expect(
+      shouldAddPageBreak(
+        {
+          startPosition: { ...startPositionMock, top: 100 }
+        },
+        [],
+        [node],
+        [node]
+      )
+    ).toBeFalsy();
   });
 });

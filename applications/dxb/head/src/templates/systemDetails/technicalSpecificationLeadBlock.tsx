@@ -1,17 +1,21 @@
-import React from "react";
-import { Button, LeadBlock } from "@bmi/components";
-import { Table } from "@bmi/components";
-import { Accordion, AccordionSummaryProps } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { PostItCard } from "@bmi/components";
-import { Grid } from "@bmi/components";
+import {
+  Accordion,
+  AccordionSummaryProps,
+  Button,
+  Grid,
+  LeadBlock,
+  PostItCard,
+  Table,
+  Typography
+} from "@bmi/components";
 import { ButtonProps } from "@bmi/components/src";
-import withGTM from "../../utils/google-tag-manager";
+import React from "react";
+import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
+import Link from "../../components/Link";
 import ProductFeaturesTable from "../../components/ProductFeaturesTable";
 import RichText from "../../components/RichText";
-import Link from "../../components/Link";
-import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
 import { Classification } from "../../types/pim";
+import withGTM from "../../utils/google-tag-manager";
 import styles from "./styles/technicalSpecificationLeadBlock.module.scss";
 
 const GTMAccordionSummary = withGTM<AccordionSummaryProps>(Accordion.Summary);
@@ -109,7 +113,9 @@ const TechnicalSpecificationLeadBlock = ({
                       {...rest}
                       gtm={{
                         id: "cta-click1",
-                        label: specificationNotes.cta?.label || "",
+                        label:
+                          `${specificationNotes.title} - ${specificationNotes.cta?.label}` ||
+                          "",
                         action: specificationNotes.cta?.url || ""
                       }}
                     >

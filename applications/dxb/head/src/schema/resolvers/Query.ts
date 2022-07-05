@@ -59,15 +59,15 @@ export default {
         return { filters: [], allowFilterBy: allowFilterBy };
       }
 
-      let allowFilterByLocal = allowFilterBy;
+      const pageCategory = (resolvedProducts[0].categories || []).find(
+        ({ code }) => (categoryCodes || []).includes(code)
+      );
+
+      let allowFilterByLocal = allowFilterBy || [];
       //TODO: Remove feature flag 'GATSBY_USE_LEGACY_FILTERS' branch code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
       if (process.env.GATSBY_USE_LEGACY_FILTERS === "true") {
         allowFilterByLocal = [];
-
-        const pageCategory = (resolvedProducts[0].categories || []).find(
-          ({ code }) => (categoryCodes || []).includes(code)
-        );
 
         allowFilterByLocal.push("Brand");
 
@@ -83,12 +83,49 @@ export default {
         allowFilterByLocal.push("generalInformation.materials");
         //couldnt see this in Elastic search response..hence all the options are disabled on the UI!
         allowFilterByLocal.push("appearanceAttributes.texturefamily");
-        //if you are nont on a category product listing page, then show category filters!
+        // If you are not on a category product listing page, then show category filters!
+        // if `pageCategory` is specified, then check its category type too!
         if (pageCategory && pageCategory.categoryType !== "Category") {
           const categoryGroupCodes = Array.from(
             new Set(
               resolvedProducts
-                .flatMap((product) => product.groups.flatMap((group) => group))
+                .flatMap((product) =>
+                  (product.groups || []).flatMap((group) => group)
+                )
+                .sort((a, b) => {
+                  if (a.label > b.label) {
+                    return 1;
+                  }
+                  if (a.label < b.label) {
+                    return -1;
+                  }
+                  return 0;
+                })
+                .map((group) => group.code)
+                .filter((categoryCode) => categoryCode.length > 0)
+            )
+          );
+          if (categoryGroupCodes && categoryGroupCodes.length) {
+            categoryGroupCodes.forEach((categoryCode) =>
+              allowFilterByLocal.push(`${categoryCode}`)
+            );
+          }
+        }
+      } else {
+        // added this part of building category filter here again ( see similar code above )
+        // for simplicity, of, when we want to remove `LEGACY_FILTERS` code!
+        // If you are not on a category product listing page, then show category filters!
+        // if `pageCategory` is specified, then check its category type too!
+        if (
+          !pageCategory ||
+          (pageCategory && pageCategory.categoryType !== "Category")
+        ) {
+          const categoryGroupCodes = Array.from(
+            new Set(
+              resolvedProducts
+                .flatMap((product) =>
+                  (product.groups || []).flatMap((group) => group)
+                )
                 .sort((a, b) => {
                   if (a.label > b.label) {
                     return 1;

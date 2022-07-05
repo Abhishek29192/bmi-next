@@ -1,76 +1,20 @@
-import { Role } from "@bmi/intouch-api-types";
-import {
-  getDbPool,
-  actAs,
-  curryContext,
-  insertOne as dbInsertOne,
-  PERMISSION_DENIED
-} from "../test-utils/db";
+import { getDbPool, actAs, PERMISSION_DENIED, initDb } from "../test-utils/db";
 
-let pool: any;
-let insertOne;
+let pool;
 let client;
-let context;
-
-const setupData = async (role: Role) => {
-  const market = await insertOne("market", {
-    domain: "MARKET_DOMAIN",
-    language: "en",
-    projects_enabled: true
-  });
-
-  const [company, account] = await Promise.all([
-    insertOne("company", {
-      market_id: market.id
-    }),
-    insertOne("account", {
-      role,
-      market_id: market.id
-    })
-  ]);
-
-  await insertOne("company_member", {
-    account_id: account.id,
-    company_id: company.id,
-    market_id: market.id
-  });
-
-  const project = await insertOne("project", {
-    company_id: company.id
-  });
-
-  const projectMember = await insertOne("project_member", {
-    project_id: project.id,
-    account_id: account.id
-  });
-
-  return {
-    market,
-    company,
-    account,
-    project,
-    projectMember
-  };
-};
 
 describe("Project Member", () => {
   beforeAll(async () => {
     pool = await getDbPool();
   });
 
-  afterAll(async () => {
-    await pool.end();
-  });
-
   beforeEach(async () => {
     client = await pool.connect();
-    context = {
-      client,
-      cleanupBucket: {}
-    };
     await client.query("BEGIN");
+  });
 
-    insertOne = curryContext(context, dbInsertOne);
+  afterAll(async () => {
+    await pool.end();
   });
 
   afterEach(async () => {
@@ -80,13 +24,12 @@ describe("Project Member", () => {
 
   describe("Db Permission", () => {
     describe("Installer", () => {
-      const role: Role = "INSTALLER";
       it("shouldn't be able to create a project member", async () => {
-        const { account, project } = await setupData(role);
+        const { account, project, dbInsertOne } = await initDb(pool, client);
         await actAs(client, account);
 
         try {
-          await insertOne("project_member", {
+          await dbInsertOne("project_member", {
             project_id: project.id,
             account_id: account.id
           });
@@ -95,8 +38,16 @@ describe("Project Member", () => {
         }
       });
       it("shouldn't be able to update a project member responsible installer", async () => {
-        const { account, projectMember } = await setupData(role);
-        await actAs(client, account);
+        const { installer, project, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "SUPER_ADMIN"
+        );
+        const projectMember = await dbInsertOne("project_member", {
+          project_id: project.id,
+          account_id: installer.id
+        });
+        await actAs(client, installer);
 
         try {
           await client.query(
@@ -110,26 +61,91 @@ describe("Project Member", () => {
     });
 
     describe("Company Admin", () => {
-      const role: Role = "COMPANY_ADMIN";
       it("should be able to create a project member", async () => {
-        const { account, project } = await setupData(role);
-        await actAs(client, account);
+        const { companyAdmin, installer, project, dbInsertOne } = await initDb(
+          pool,
+          client
+        );
+        await actAs(client, companyAdmin);
 
-        const projectMember = await insertOne("project_member", {
+        const projectMember = await dbInsertOne("project_member", {
           project_id: project.id,
-          account_id: account.id
+          account_id: installer.id
         });
         expect(projectMember).toBeTruthy();
       });
       it("should be able to update a project member responsible installer", async () => {
-        const { account, projectMember } = await setupData(role);
-        await actAs(client, account);
+        const { companyAdmin, project, dbInsertOne, installer } = await initDb(
+          pool,
+          client,
+          "SUPER_ADMIN"
+        );
+        const projectMember = await dbInsertOne("project_member", {
+          project_id: project.id,
+          account_id: installer.id
+        });
+        await actAs(client, companyAdmin);
 
         const updatedProjectMember = await client.query(
           "update project_member set is_responsible_installer = false where id = $1 returning id",
           [projectMember.id]
         );
         expect(updatedProjectMember).toBeTruthy();
+      });
+    });
+
+    describe("Auditor", () => {
+      it("should be able to see project members from the market", async () => {
+        const {
+          auditor,
+          installer,
+          project,
+          dbInsertOne,
+          otherMarketAccount,
+          otherMarketProject
+        } = await initDb(pool, client, "SUPER_ADMIN");
+        await dbInsertOne("project_member", {
+          project_id: project.id,
+          account_id: installer.id
+        });
+        const otherMarketProjectMember = await dbInsertOne("project_member", {
+          project_id: otherMarketProject.id,
+          account_id: otherMarketAccount.id
+        });
+        await actAs(client, auditor);
+
+        const { rows } = await client.query("SELECT * FROM project_member");
+        const { rows: otherMarketAccounts } = await client.query(
+          "SELECT * FROM project_member WHERE id = $1",
+          [otherMarketProjectMember.id]
+        );
+
+        expect(rows.length).toBeGreaterThan(0);
+        expect(otherMarketAccounts.length).toBe(0);
+      });
+
+      it("shouldn't be able to update a project member responsible installer", async () => {
+        const { auditor, installer, project, dbInsertOne } = await initDb(
+          pool,
+          client,
+          "SUPER_ADMIN"
+        );
+        const projectMember = await dbInsertOne("project_member", {
+          project_id: project.id,
+          account_id: installer.id
+        });
+        await actAs(client, auditor);
+
+        try {
+          const { rows } = await client.query(
+            "update project_member set is_responsible_installer = false where id = $1 returning id",
+            [projectMember.id]
+          );
+
+          expect(rows.length).toBe(0);
+        } catch (error) {
+          expect(error.message).toEqual(PERMISSION_DENIED("project_member"));
+        }
       });
     });
   });

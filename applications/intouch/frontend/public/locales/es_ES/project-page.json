@@ -302,7 +302,7 @@
       "REASSIGN_SOLUTION": "Reasignarme",
       "UNASSIGN_SOLUTION": "Desasignar de mí",
       "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "¿Copiar?"
     },
     "description": "Descripción del proyecto",
     "endDate": "Fecha de finalización del proyecto",
@@ -315,7 +315,8 @@
     "loading": "Cargando datos del proyecto",
     "roofArea": "Medida total de la cubierta (m2)",
     "startDate": "Fecha de inicio del proyecto",
-    "status": "Estado del proyecto"
+    "status": "Estado del proyecto",
+    "archived": "¿Archivado?"
   },
   "report": {
     "guarantee": "Descargar informe de garantías",
@@ -388,8 +389,12 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "¿Le gustaría copiar este proyecto (detalles del proyecto y detalles del propietario del edificio) para crear uno nuevo?",
+    "copyOf": "Copia de {{name}}",
+    "title": "Copia este proyecto"
+  },
+  "bool": {
+    "True": "Verdadero",
+    "False": "Falso"
   }
 }

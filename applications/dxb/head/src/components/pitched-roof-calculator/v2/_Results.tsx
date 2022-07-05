@@ -1,5 +1,11 @@
 import { Typography } from "@bmi/components";
-import React, { useContext, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { devLog } from "../../../utils/devLog";
 import FormSection from "../../FormSection";
@@ -24,6 +30,7 @@ import QuantityTable from "./subcomponents/quantity-table/QuantityTable";
 import Alert from "./subcomponents/_Alert";
 import FieldContainer from "./subcomponents/_FieldContainer";
 import { GutteringSelections } from "./_Guttering";
+import { createPdf } from "./_PDF";
 import styles from "./_Results.module.scss";
 import { TileOptionsSelections } from "./_TileOptions";
 
@@ -74,18 +81,12 @@ const EmailAddressCollection = ({
   } = useConfig();
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
+  const [hubSpotForm, setHubSpotForm] = useState<HTMLIFrameElement | null>(
+    null
+  );
 
-  const onSuccess = async () => {
-    pushEvent({
-      event: "dxb.button_click",
-      id: "rc-solution",
-      label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
-      action: "selected"
-    });
-
+  const getPDFReport = useCallback(async () => {
     try {
-      const openPDF = (await import("./_PDF")).default;
-
       const resultsWithImages = { ...results };
 
       for (const category of Object.keys(results)) {
@@ -98,7 +99,7 @@ const EmailAddressCollection = ({
         );
       }
 
-      openPDF({
+      return createPdf({
         results: resultsWithImages,
         area: (area / 10000).toFixed(2),
         getMicroCopy: (...params) => getMicroCopy(...params)
@@ -106,6 +107,52 @@ const EmailAddressCollection = ({
     } catch (err) {
       devLog("Failed to generate PDF", err);
     }
+  }, [results]);
+
+  useEffect(() => {
+    addPdfReportToHSForm();
+  }, [results, getPDFReport, hubSpotForm]);
+
+  const addPdfReportToHSForm = async () => {
+    if (hubSpotForm) {
+      const pdfReport = await getPDFReport();
+      const fileInput =
+        hubSpotForm.contentDocument.querySelector<HTMLInputElement>(
+          "input[type=file]"
+        );
+
+      if (fileInput) {
+        pdfReport.getBlob((blob) => {
+          const file = new File([blob], "Calculation-report.pdf", {
+            type: "application/pdf"
+          });
+
+          const list = new DataTransfer();
+          list.items.add(file);
+          fileInput.files = list.files;
+        });
+      }
+    }
+  };
+
+  const onSuccess = async () => {
+    pushEvent({
+      event: "dxb.button_click",
+      id: "rc-solution",
+      label: getMicroCopy(microCopy.RESULTS_DOWNLOAD_PDF_LABEL),
+      action: "selected"
+    });
+
+    const pdfReport = await getPDFReport();
+    pdfReport.open();
+  };
+
+  const onFormReady = (_, hsForm: HTMLIFrameElement) => {
+    setHubSpotForm(hsForm);
+    const styles = document.createElement("style");
+    // Hides file input inside the iframe form.
+    styles.textContent = ".hs_file {  display: none; }";
+    hsForm.contentDocument.head.appendChild(styles);
   };
 
   return (
@@ -113,6 +160,7 @@ const EmailAddressCollection = ({
       id="webtool-calculator-form-id"
       backgroundColor="white"
       onSuccess={onSuccess}
+      onFormReady={onFormReady}
       className={styles["Result"]}
       data={{
         __typename: "ContentfulFormSection",
@@ -296,18 +344,6 @@ const Results = ({
           />
         </FieldContainer>
       ) : null}
-      {sealingRows.length ? (
-        <FieldContainer
-          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
-        >
-          <QuantityTable
-            onDelete={getRemoveRow(setSealingRows)}
-            onChangeQuantity={getChangeQuantity(setSealingRows)}
-            rows={sealingRows}
-            {...tableLabels}
-          />
-        </FieldContainer>
-      ) : null}
       {ventilationRows.length ? (
         <FieldContainer
           title={getMicroCopy(microCopy.RESULTS_CATEGORIES_VENTILATION)}
@@ -316,6 +352,18 @@ const Results = ({
             onDelete={getRemoveRow(setVentilationRows)}
             onChangeQuantity={getChangeQuantity(setVentilationRows)}
             rows={ventilationRows}
+            {...tableLabels}
+          />
+        </FieldContainer>
+      ) : null}
+      {sealingRows.length ? (
+        <FieldContainer
+          title={getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
+        >
+          <QuantityTable
+            onDelete={getRemoveRow(setSealingRows)}
+            onChangeQuantity={getChangeQuantity(setSealingRows)}
+            rows={sealingRows}
             {...tableLabels}
           />
         </FieldContainer>

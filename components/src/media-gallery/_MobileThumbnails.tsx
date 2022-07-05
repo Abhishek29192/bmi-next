@@ -76,24 +76,30 @@ const Thumbnails = ({
           width: `${images.length * THUMBNAIL_WIDTH}px`
         }}
       >
-        {images.map(({ thumbnail, isVideo, altText, media }, index) => {
-          return (
-            <Thumbnail
-              media={media}
-              key={`thumbnail-${index}`}
-              imageSource={thumbnail}
-              state={activeImageIndex === index ? "selected" : "enabled"}
-              onClick={(e: Event) => onThumbnailClick(e, index)}
-              className={styles["thumbnail"]}
-              size="large"
-              altText={altText}
-              isVideo={isVideo}
-              openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
-                openYoutubeVideo && openYoutubeVideo(e, index)
-              }
-            />
-          );
-        })}
+        {images.map(
+          (
+            { thumbnail, isVideo, altText, media, visualiserParameters },
+            index
+          ) => {
+            return (
+              <Thumbnail
+                media={media}
+                key={`thumbnail-${index}`}
+                imageSource={thumbnail}
+                state={activeImageIndex === index ? "selected" : "enabled"}
+                onClick={(e: Event) => onThumbnailClick(e, index)}
+                className={styles["thumbnail"]}
+                size="large"
+                altText={altText}
+                isVideo={isVideo}
+                openYoutubeVideo={(e: React.MouseEvent<SVGElement>) =>
+                  openYoutubeVideo && openYoutubeVideo(e, index)
+                }
+                visualiserParameters={visualiserParameters}
+              />
+            );
+          }
+        )}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { DocumentsWithFilters } from "../../types/documentsWithFilters";
+import { ProductFilter } from "../../types/pim";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import {
   resolveDocumentsFromContentful,
@@ -28,11 +29,15 @@ export default {
           { query: {}, type: "ContentfulAssetType" },
           { connectionType: "ContentfulAssetType" }
         );
-        assetTypes = [...entries];
+        assetTypes = entries ? [...entries] : [];
       }
 
       if (source.source === "PIM") {
         let allowFilterBy = source.allowFilterBy as string[];
+
+        if (!allowFilterBy) {
+          allowFilterBy = [];
+        }
 
         switch (source.resultsType) {
           case "Simple":
@@ -121,9 +126,31 @@ export default {
           ...(pimDocuments.filters || []),
           ...(cmsDocuments.filters || [])
         ];
-
+        const mergedFilters = allFilters.reduce<ProductFilter[]>(
+          (allFilters, currFilter) => {
+            const existingFilter = allFilters.find(
+              (filter) => filter.filterCode === currFilter.filterCode
+            );
+            if (existingFilter) {
+              currFilter.options.forEach((currOption) => {
+                const matchingOption = existingFilter.options.find(
+                  (option) =>
+                    option.label === currOption.label &&
+                    option.value === currOption.value
+                );
+                if (!matchingOption) {
+                  existingFilter.options.push(currOption);
+                }
+              });
+            } else {
+              allFilters.push(currFilter);
+            }
+            return allFilters;
+          },
+          [] as ProductFilter[]
+        );
         return {
-          filters: allFilters,
+          filters: mergedFilters,
           documents: allDocs
         };
       }

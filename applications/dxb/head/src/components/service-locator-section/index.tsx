@@ -1,31 +1,30 @@
-import { CompanyDetailProps } from "@bmi/components";
 import {
-  GoogleApi,
+  CompanyDetailProps,
   GeocoderResult as GoogleGeocoderResult,
   Google,
+  GoogleApi,
+  Grid,
   LatLngLiteral as GoogleLatLngLiteral,
-  loadGoogleApi
+  loadGoogleApi,
+  Section,
+  Tabs
 } from "@bmi/components";
-import { Grid } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Tabs } from "@bmi/components";
-import { graphql } from "gatsby";
-import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useLocation } from "@reach/router";
+import { graphql } from "gatsby";
+import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { microCopy } from "../../constants/microCopies";
+import { pushToDataLayer } from "../../utils/google-tag-manager";
 import RichText, { RichTextData } from "../RichText";
 import {
   Data as ServiceData,
   EntryTypeEnum,
-  ServiceTypesPrefixesEnum,
-  ServiceTypeFilter
+  ServiceTypeFilter,
+  ServiceTypesPrefixesEnum
 } from "../Service";
 import { Data as ServiceType } from "../ServiceType";
 import { useSiteContext } from "../Site";
-import { pushToDataLayer } from "../../utils/google-tag-manager";
-import styles from "./styles/ServiceLocatorSection.module.scss";
 import {
   createCompanyDetails,
   SearchLocationBlock,
@@ -34,19 +33,20 @@ import {
   ServiceLocatorResultList
 } from "./components";
 import {
+  DEFAULT_LEVEL_ZOOM,
+  PAGE_SIZE,
+  PLACE_LEVEL_ZOOM,
+  QUERY_CHIP_FILTER_KEY
+} from "./constants";
+import {
   createMarker,
   filterServices,
+  getResultDataGtm,
   getRooferTypes,
   getTypesFromServices,
   sortServices
 } from "./helpers";
-
-import {
-  DEFAULT_LEVEL_ZOOM,
-  PLACE_LEVEL_ZOOM,
-  QUERY_CHIP_FILTER_KEY,
-  PAGE_SIZE
-} from "./constants";
+import styles from "./styles/ServiceLocatorSection.module.scss";
 
 export type Service = ServiceData & {
   distance?: number;
@@ -171,9 +171,9 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
   const markers = useMemo(
     () =>
       showResultList
-        ? pagedFilteredRoofers.map(createMarker(selectedRoofer))
+        ? pagedFilteredRoofers.map(createMarker(selectedRoofer, matches))
         : [],
-    [selectedRoofer, pagedFilteredRoofers, showResultList]
+    [selectedRoofer, pagedFilteredRoofers, showResultList, matches]
   );
 
   const handlePageChange = (_, pageNumber: number) => {
@@ -192,8 +192,11 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
 
   const pageCount = Math.ceil(filteredRoofers.length / PAGE_SIZE);
 
-  const handleServiceClick = (service: Service) => {
+  const handleServiceClick = (service: Service, isMarker = false) => {
     setSelectedRoofer(service);
+    if (matches && isMarker) {
+      pushToDataLayer(getResultDataGtm(service, matches, isMarker));
+    }
   };
 
   const handlePlaceChange = (location?: GoogleGeocoderResult) => {
@@ -422,7 +425,7 @@ const ServiceLocatorSection = ({ data }: { data: Data }) => {
               initialMapCentre={initialMapCentre}
               centre={centre}
               markers={markers}
-              handleMarkerClick={handleServiceClick}
+              handleMarkerClick={(service) => handleServiceClick(service, true)}
               zoom={zoom}
               getCompanyDetails={getCompanyDetails}
             />

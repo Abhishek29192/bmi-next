@@ -94,6 +94,9 @@ const DesktopDocumentTechnicalTableResults = ({
     );
 
   const multipleDocuments = (assets: ProductDocument[]) => {
+    // this doesnt seem to be called now!
+    // TODO : remove it??
+
     const downloadMultipleFiles = async () => {
       try {
         if (!documentDownloadEndpoint) {
@@ -124,7 +127,7 @@ const DesktopDocumentTechnicalTableResults = ({
               ? generateFilenameByRealFileName(assetFileCountMap, asset, index)
               : generateFileNamebyTitle(
                   assetFileCountMap,
-                  asset.title,
+                  asset.title || asset.realFileName,
                   asset.extension,
                   index
                 )
@@ -148,7 +151,9 @@ const DesktopDocumentTechnicalTableResults = ({
         action={{
           model: "default"
         }}
-        onClick={downloadMultipleFiles}
+        onClick={() => {
+          downloadMultipleFiles();
+        }} //this doesnt seem to be called now!
         gtm={{
           id: "download1",
           label: "Download",

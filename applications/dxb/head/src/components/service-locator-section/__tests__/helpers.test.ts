@@ -1,4 +1,13 @@
 import * as GoogleMockApi from "@bmi/components";
+import * as devLog from "../../../utils/devLog";
+import createService from "../../../__tests__/helpers/ServiceHelper";
+import { ServiceTypeFilter } from "../../Service";
+import { Data as ServiceType } from "../../ServiceType";
+import {
+  DEFAULT_MAP_CENTRE,
+  EVENT_CAT_ID_SELECTOR_CARDS,
+  EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN
+} from "../constants";
 import {
   calculateCenter,
   createMarker,
@@ -10,11 +19,6 @@ import {
   sortServices,
   typeFilter
 } from "../helpers";
-import { ServiceTypeFilter } from "../../Service";
-import { Data as ServiceType } from "../../ServiceType";
-import createService from "../../../__tests__/helpers/ServiceHelper";
-import * as devLog from "../../../utils/devLog";
-import { DEFAULT_MAP_CENTRE, EVENT_CAT_ID_SELECTOR_CARDS } from "../constants";
 
 jest.spyOn(devLog, "devLog");
 
@@ -274,6 +278,19 @@ describe("helpers functions", () => {
       const expectResult = {
         id: EVENT_CAT_ID_SELECTOR_CARDS,
         label: `${name} - ${address}${
+          serviceTypes && serviceTypes.length === 1
+            ? ` - ${serviceTypes[0].name}`
+            : ` - ${entryType}`
+        } - selected`,
+        action: "Expanded company details"
+      };
+      expect(result).toEqual(expectResult);
+    });
+    it("should return dataGtm object for marker with service.certification in label if matches === true", () => {
+      const result = getResultDataGtm(serviceMock, true, true);
+      const expectResult = {
+        id: EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN,
+        label: `${name} - ${address} - ${certification}${
           serviceTypes && serviceTypes.length === 1
             ? ` - ${serviceTypes[0].name}`
             : ` - ${entryType}`

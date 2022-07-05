@@ -1,8 +1,11 @@
+import { Icon } from "@bmi/components";
+import { Add, Remove } from "@material-ui/icons";
 import React from "react";
 import { PerspectiveCamera, Scene, Texture, WebGLRenderer } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Colour, Siding, Tile } from "./Types";
+import { zoomStep } from "./constants/visualiser";
 import styles from "./styles/Viewer.module.scss";
+import { Colour, Siding, Tile } from "./Types";
 
 export interface Props {
   tile: Tile;
@@ -15,6 +18,9 @@ export interface Props {
 export interface State {
   isLoading: boolean;
 }
+
+const isVisualisatorEnabled =
+  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true";
 
 export default abstract class Viewer<
   P extends Props,
@@ -34,6 +40,8 @@ export default abstract class Viewer<
     this.state = state;
     this.onWindowResize = this.onWindowResize.bind(this);
     this.setIsLoading = this.setIsLoading.bind(this);
+    this.handleZoomIn = this.handleZoomIn.bind(this);
+    this.handleZoomOut = this.handleZoomOut.bind(this);
   }
 
   /**
@@ -103,14 +111,49 @@ export default abstract class Viewer<
     this.renderer!.render(this.scene!, this.camera!);
   }
 
+  handleZoomIn() {
+    if (
+      Math.floor(this.camera.position.distanceTo(this.controls.target)) > 10
+    ) {
+      this.camera.position.multiplyScalar(Math.pow(0.95, zoomStep));
+      this.controls?.update();
+    }
+  }
+
+  handleZoomOut() {
+    if (
+      Math.floor(this.camera.position.distanceTo(this.controls.target)) < 30
+    ) {
+      this.camera.position.divideScalar(Math.pow(0.95, zoomStep));
+      this.controls?.update();
+    }
+  }
+
   render() {
     return (
       <div className={styles["viewer"]}>
         <div
+          className={styles["canvas"]}
           ref={(r) => {
             this.container = r;
           }}
         />
+        {isVisualisatorEnabled && (
+          <div className={styles["controls"]}>
+            <div className={styles["controls-group"]}>
+              <Icon
+                source={Add}
+                viewBox="4 4 16 16"
+                onClick={this.handleZoomIn}
+              />
+              <Icon
+                source={Remove}
+                viewBox="4 4 16 16"
+                onClick={this.handleZoomOut}
+              />
+            </div>
+          </div>
+        )}
       </div>
     );
   }

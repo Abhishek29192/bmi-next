@@ -6,7 +6,8 @@ import { Button } from "@bmi/components";
 import { Account, Role } from "@bmi/intouch-api-types";
 import { useTranslation } from "next-i18next";
 import AccessControl from "../../lib/permissions/AccessControl";
-import { isSuperOrMarketAdmin } from "../../lib/account";
+import { isSuperOrMarketAdmin, isSuperAdmin } from "../../lib/account";
+import { useAccountContext } from "../../context/AccountContext";
 import ConfirmDialog, { DialogProps } from "./Dialog";
 
 import styles from "./styles.module.scss";
@@ -28,6 +29,7 @@ export const UserCard = ({
   details,
   onAccountUpdate
 }: UserCardProps) => {
+  const { account: user } = useAccountContext();
   const { t } = useTranslation(["common", "team-page"]);
   const [dialogState, setDialogState] = useState<DialogProps>({
     open: false,
@@ -43,16 +45,13 @@ export const UserCard = ({
     }));
   };
 
-  const onUpdateRole = () => {
+  const onUpdateRole = (role) => {
     setDialogState({
       open: true,
       title: "user_card.role_dialog.title",
       text: "user_card.role_dialog.text",
       onConfirm: () => {
-        onAccountUpdate(
-          account.id,
-          account.role === "INSTALLER" ? "COMPANY_ADMIN" : "INSTALLER"
-        );
+        onAccountUpdate(account.id, role);
         closeDialog();
       }
     });
@@ -93,7 +92,11 @@ export const UserCard = ({
           <AccessControl dataModel="company" action="changeRole">
             <Button
               data-testid="change-role"
-              onClick={onUpdateRole}
+              onClick={() =>
+                onUpdateRole(
+                  account.role === "INSTALLER" ? "COMPANY_ADMIN" : "INSTALLER"
+                )
+              }
               variant="text"
             >
               {account.role === "INSTALLER"
@@ -102,6 +105,24 @@ export const UserCard = ({
             </Button>
           </AccessControl>
         )}
+        {isSuperAdmin(user) &&
+          !isCompanyMember &&
+          (account.role === "INSTALLER" || account.role === "AUDITOR") && (
+            <AccessControl dataModel="company" action="changeRole">
+              <Button
+                data-testid="change-role-auditor"
+                onClick={() =>
+                  onUpdateRole(
+                    account.role === "INSTALLER" ? "AUDITOR" : "INSTALLER"
+                  )
+                }
+              >
+                {account.role === "INSTALLER"
+                  ? t("team-page:user_card.add_auditor")
+                  : t("team-page:user_card.remove_auditor")}
+              </Button>
+            </AccessControl>
+          )}
 
         <div className={styles.details}>
           {/* TODO: Fix CompanyDetails child requirement in DXB */}

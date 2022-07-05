@@ -57,6 +57,20 @@ exports[`ProjectsHeader component render correctly 1`] = `
           <h6
             class="MuiTypography-root Typography MuiTypography-h6"
           >
+            projectDetails.archived
+          </h6>
+          <div
+            class="MuiTypography-root Typography MuiTypography-body1"
+          >
+            bool.True
+          </div>
+        </div>
+        <div
+          style="margin-bottom: 1.5rem;"
+        >
+          <h6
+            class="MuiTypography-root Typography MuiTypography-h6"
+          >
             projectDetails.roofArea
           </h6>
           <div

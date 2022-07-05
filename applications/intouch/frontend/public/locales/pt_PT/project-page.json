@@ -310,7 +310,7 @@
       "REASSIGN_SOLUTION": "Reatribuido a mim",
       "UNASSIGN_SOLUTION": "cancelar a minha atribuição ",
       "edit": "Editar",
-      "copy": "Copy?"
+      "copy": "Cópia de?"
     },
     "description": "Descrição do projeto",
     "endDate": "Data de conclusão do projeto",
@@ -323,7 +323,8 @@
     "loading": "Carregando dados do projeto",
     "roofArea": "Area total do telhado (m2)",
     "startDate": "Data de início do projeto",
-    "status": "Estado do projeto"
+    "status": "Estado do projeto",
+    "archived": "Arquivado?"
   },
   "report": {
     "guarantee": "Descarregar relatório de garantia",
@@ -388,8 +389,12 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "Deseja copiar este projeto (detalhes do projeto e detalhes do proprietário do edifício) para criar um novo?",
+    "copyOf": "Cópia de {{name}}",
+    "title": "Copie este projeto"
+  },
+  "bool": {
+    "True": "Verdade",
+    "False": "Falso"
   }
 }

@@ -18,6 +18,7 @@ export const mockProject: Project = {
   evidenceItems: emptyNodes,
   buildingOwnerFirstname: "Herion",
   buildingOwnerLastname: "Buildmaster",
+  buildingOwnerCompany: "Company Name",
   buildingOwnerMail: "umit@digital-detox.co.uk",
   roofArea: 50,
   siteAddress: mockSiteAddress,

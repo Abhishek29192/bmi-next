@@ -10,9 +10,9 @@ const createAssetFileCountMap = (
 ): AssetUniqueFileCountMap => {
   const uniqueFileMap = {};
   const fileIndexCount = assets.map((asset) => {
-    const fName =
-      asset.realFileName ||
-      `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`;
+    const fName = asset.title
+      ? `${asset.title}${asset.extension ? `.${asset.extension}` : ""}`
+      : asset.realFileName;
     // eslint-disable-next-line security/detect-object-injection
     return (uniqueFileMap[fName] =
       // eslint-disable-next-line security/detect-object-injection

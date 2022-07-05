@@ -109,11 +109,11 @@ const recaptchaContent_ES: RecaptchaPolicyContentType = {
 };
 
 const recaptchaContent_PT: RecaptchaPolicyContentType = {
-  startText: "Bu site reCAPTCHA tarafından korunmaktadır ve Google ",
+  startText: "Este site é protegido pelo reCAPTCHA e a ",
   privacyPloicyText: "Política de Privacidade",
-  andText: " y ",
-  termsOfServiceText: "Termos de serviço",
-  endText: " aplique.",
+  andText: " e os ",
+  termsOfServiceText: "Termos de Serviço",
+  endText: " do Google se aplicam.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=pt",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=pt"
 };
@@ -126,6 +126,26 @@ const recaptchaContent_BE_NL: RecaptchaPolicyContentType = {
   endText: " zijn van toepassing.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=nl",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=nl"
+};
+
+const recaptchaContent_RO: RecaptchaPolicyContentType = {
+  startText: "Acest site este protejat de reCAPTCHA și se aplică ",
+  privacyPloicyText: "Politica de confidențialitate",
+  andText: " și ",
+  termsOfServiceText: "Termenii și condițiile",
+  endText: " Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=ro",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=ro"
+};
+
+const recaptchaContent_ID: RecaptchaPolicyContentType = {
+  startText: "Situs ini dilindungi oleh reCAPTCHA dan berlaku ",
+  privacyPloicyText: "Kebijakan Privasi",
+  andText: " dan ",
+  termsOfServiceText: "Persyaratan Layanan",
+  endText: " Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=id",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=id"
 };
 
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
@@ -141,6 +161,8 @@ RecaptchaPrivacyContentMap["tr"] = recaptchaContent_TR;
 RecaptchaPrivacyContentMap["es"] = recaptchaContent_ES;
 RecaptchaPrivacyContentMap["pt"] = recaptchaContent_PT;
 RecaptchaPrivacyContentMap["be"] = recaptchaContent_BE_NL;
+RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
+RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string

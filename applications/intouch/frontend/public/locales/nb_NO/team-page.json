@@ -55,6 +55,8 @@
     "role_dialog": {
       "text": "Vil du endre rollen?",
       "title": "Endre rolle"
-    }
+    },
+    "remove_auditor": "Fjern som prosjektrevisor",
+    "add_auditor": "Stille opp som prosjektrevisor"
   }
 }

@@ -26,6 +26,7 @@ export type Props = ButtonBaseProps & {
   size?: SizeEnum;
   isVideo: boolean;
   openYoutubeVideo?: (e: React.MouseEvent<SVGElement>) => void;
+  visualiserParameters?: Record<string, string | number>;
 };
 
 const Thumbnail = ({
@@ -38,6 +39,7 @@ const Thumbnail = ({
   className,
   isVideo = false,
   openYoutubeVideo,
+  visualiserParameters,
   ...rest
 }: Props) => {
   const classList = classnames(
@@ -74,6 +76,13 @@ const Thumbnail = ({
           source={iconMap.PlayArrow}
           className={styles["play-icon"]}
           onClick={(e) => openYoutubeVideo && openYoutubeVideo(e)}
+        />
+      )}
+      {visualiserParameters && (
+        <Icon
+          source={iconMap.Cube}
+          className={styles["cube-icon"]}
+          name="Cube"
         />
       )}
     </ButtonBase>

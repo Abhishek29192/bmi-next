@@ -55,6 +55,8 @@
     "role_dialog": {
       "text": "Möchten Sie die Rolle wechseln?",
       "title": "Rolle wechseln"
-    }
+    },
+    "remove_auditor": "Remove as Auditor",
+    "add_auditor": "Assign as Auditor"
   }
 }

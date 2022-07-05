@@ -87,7 +87,7 @@ export const NotificationsPanel = ({
   );
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} data-testId="notification-panel">
       <NotificationsSet
         notifications={today}
         title={t("notifications.today")}

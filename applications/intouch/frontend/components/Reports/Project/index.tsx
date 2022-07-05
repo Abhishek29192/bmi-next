@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { Button } from "@bmi/components";
 import { gql } from "@apollo/client";
@@ -9,21 +9,24 @@ import { GetProjectsReportQuery } from "../../../graphql/generated/operations";
 import { getProjectStatus } from "../../../lib/utils/project";
 import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
+import { isSuperOrMarketAdmin } from "../../../lib/account";
+import { useAccountContext } from "../../../context/AccountContext";
 import styles from "./styles.module.scss";
 
+const projectStatusMap = {
+  "filters.labels.NOT_STARTED": "NOT_STARTED",
+  "filters.labels.IN_PROGRESS": "IN_PROGRESS",
+  "filters.labels.COMPLETED": "COMPLETED"
+};
+
 const getReportData = (
-  projects: GetProjectsReportQuery["projectsByMarket"]
+  projects: GetProjectsReportQuery["projectsByMarket"],
+  t
 ) => {
   return [...projects.nodes]
     .map((project) => {
-      const {
-        __typename,
-        siteAddress,
-        company,
-        guarantees,
-        projectMembers,
-        ...rest
-      } = project;
+      const { siteAddress, company, guarantees, projectMembers, hidden } =
+        project;
 
       const siteAddressTown = [siteAddress?.town, siteAddress?.country]
         .filter(Boolean)
@@ -33,7 +36,7 @@ const getReportData = (
       const companyStatus = company?.status;
 
       const guaranteeTypeName =
-        guarantees?.nodes[0]?.guaranteeTypes?.items[0]?.name;
+        guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
 
       const projectStatus = getProjectStatus(
         project.startDate,
@@ -45,38 +48,119 @@ const getReportData = (
         .join();
 
       return {
-        ...rest,
-        siteAddressTown,
-        companyName,
-        companyStatus,
-        guaranteeTypeName,
-        projectStatus,
-        projectMember
+        Id: project.id,
+        Name: project.name,
+        Technology: project.technology,
+        "Roof Area": project.roofArea,
+        "Building Owner First Name": project.buildingOwnerFirstname || "",
+        "Building Owner Last Name": project.buildingOwnerLastname || "",
+        "Project Start Date": project.startDate,
+        "Project End Date": project.endDate,
+        Archived: hidden,
+        "Created Date": project.createdAt,
+        "Last Updated Date": project.updatedAt,
+        "Site Address": siteAddressTown,
+        "Company Name": companyName,
+        "Company Status": companyStatus,
+        "Guarantee Type Name": guaranteeTypeName,
+        // eslint-disable-next-line security/detect-object-injection
+        "Project Status": projectStatusMap[projectStatus],
+        "Project Member": projectMember
       };
     })
     .sort(
-      ({ updatedAt: firstDate }, { updatedAt: secondDate }) =>
-        new Date(secondDate).getTime() - new Date(firstDate).getTime()
+      (
+        { "Last Updated Date": firstDate },
+        { "Last Updated Date": secondDate }
+      ) => new Date(secondDate).getTime() - new Date(firstDate).getTime()
+    );
+};
+
+const getNonSuperUserReportData = (
+  projects: GetProjectsReportQuery["projectsByMarket"],
+  t
+) => {
+  return [...projects.nodes]
+    .map((project) => {
+      const { siteAddress, company, guarantees, projectMembers } = project;
+
+      const siteAddressTown = [siteAddress?.town, siteAddress?.country]
+        .filter(Boolean)
+        .join(" ");
+
+      const companyName = company?.name;
+
+      const guaranteeTypeName =
+        guarantees?.nodes[0]?.guaranteeType?.name || "N/A";
+
+      const projectStatus = getProjectStatus(
+        project.startDate,
+        project.endDate
+      );
+
+      const projectMember = projectMembers.nodes
+        .map((member) => member.account.email)
+        .join();
+
+      return {
+        Name: project.name,
+        Technology: project.technology,
+        "Roof Area": project.roofArea,
+        "Building Owner First Name": project.buildingOwnerFirstname || "",
+        "Building Owner Last Name": project.buildingOwnerLastname || "",
+        "Building Owner Company Name": project.buildingOwnerCompany || "",
+        "Project Start Date": project.startDate,
+        "Project End Date": project.endDate,
+        "Created Date": project.createdAt,
+        "Last Updated Date": project.updatedAt,
+        "Site Address": siteAddressTown,
+        "Company Name": companyName,
+        "Guarantee Type Name": guaranteeTypeName,
+        // eslint-disable-next-line security/detect-object-injection
+        "Project Status": projectStatusMap[projectStatus],
+        "Project Member": projectMember
+      };
+    })
+    .sort(
+      (
+        { "Last Updated Date": firstDate },
+        { "Last Updated Date": secondDate }
+      ) => new Date(secondDate).getTime() - new Date(firstDate).getTime()
     );
 };
 
 const ProjectReport = ({ disabled }: ReportProps) => {
   const { t } = useTranslation("project-page");
   const { market } = useMarketContext();
+  const { account } = useAccountContext();
+  const [isReportGenerated, setIsReportGenerated] = useState(false);
 
   const [getSystemsReport] = useGetProjectsReportLazyQuery({
     variables: {
       market: market.id
     },
     onCompleted: ({ projectsByMarket }) => {
-      const data = getReportData(projectsByMarket);
+      if (!isReportGenerated) {
+        const data = isSuperOrMarketAdmin(account)
+          ? getReportData(projectsByMarket, t)
+          : getNonSuperUserReportData(projectsByMarket, t);
 
-      exportCsv(data, {
-        filename: `projects-${Date.now()}`,
-        title: "Projects"
-      });
+        exportCsv(data, {
+          filename: `projects-${Date.now()}`,
+          title: "Projects"
+        });
+        setIsReportGenerated(true);
+      }
     }
   });
+
+  const downloadReport = useCallback(
+    (event) => {
+      event.preventDefault();
+      getSystemsReport();
+    },
+    [getSystemsReport]
+  );
 
   return (
     <div>
@@ -85,7 +169,7 @@ const ProjectReport = ({ disabled }: ReportProps) => {
         data-testid="export-button"
         disabled={disabled}
         endIcon={<GetApp />}
-        onClick={getSystemsReport}
+        onClick={downloadReport}
         className={styles.sidePanelFooterButton}
       >
         {t("report.project")}
@@ -117,6 +201,9 @@ export const GET_PROJECTS_REPORT = gql`
             coverage
             languageCode
             guaranteeReferenceCode
+            guaranteeType {
+              name
+            }
             guaranteeTypes {
               items {
                 name
@@ -126,6 +213,7 @@ export const GET_PROJECTS_REPORT = gql`
         }
         buildingOwnerFirstname
         buildingOwnerLastname
+        buildingOwnerCompany
         startDate
         endDate
         hidden

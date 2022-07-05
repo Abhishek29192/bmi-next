@@ -13,11 +13,6 @@ const fill = async (request: Partial<Request>, response: Partial<Response>) =>
   ).fill(request as Request, response as Response);
 
 const REQUEST_SECRET = "some secret";
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
-getSecret.mockReturnValue(REQUEST_SECRET);
 
 const update = jest.fn();
 const getAsset = jest
@@ -69,8 +64,8 @@ beforeEach(() => {
 
 describe("fill", () => {
   it.each([
-    "DEFAULT_VALUES_REQUEST_SECRET",
-    "MANAGEMENT_ACCESS_TOKEN_SECRET",
+    "DEFAULT_VALUES_REQUEST",
+    "MANAGEMENT_ACCESS_TOKEN",
     "SPACE_ID",
     "CONTENTFUL_ENVIRONMENT",
     "MARKET_LOCALES"
@@ -128,7 +123,6 @@ describe("fill", () => {
   });
 
   it("Returns 401 when Bearer token is missing", async () => {
-    getSecret.mockReturnValueOnce("");
     const mockReq = mockRequest("POST", { authorization: "Bearer " });
     const mockRes = mockResponse();
 
@@ -139,7 +133,6 @@ describe("fill", () => {
 
   it("Returns 401 when Bearer token is less than 10 characters long", async () => {
     const shortSecret = "123";
-    getSecret.mockReturnValueOnce(shortSecret);
     const mockReq = mockRequest("POST", {
       authorization: `Bearer ${shortSecret}`
     });

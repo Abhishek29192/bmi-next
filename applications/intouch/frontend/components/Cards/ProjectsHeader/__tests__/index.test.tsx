@@ -1,7 +1,8 @@
 import React from "react";
 import { Technology } from "@bmi/intouch-api-types";
+import merge from "lodash/merge";
 import {
-  renderWithI18NProvider,
+  fireEvent,
   renderWithUserProvider,
   screen
 } from "../../../../lib/tests/utils";
@@ -10,7 +11,9 @@ import { GuaranteeStatus } from "../../../../lib/utils/guarantee";
 import { generateAccount } from "../../../../lib/tests/factories/account";
 import { ProjectsHeader } from "..";
 
-const projectHeaderData = {
+const mockGuaranteeEventHandler = jest.fn();
+
+const defaultProjectHeaderData = {
   title: "Old Brompton Library",
   technology: "FLAT" as Technology,
   projectCode: "PROFLO-d1847",
@@ -26,13 +29,19 @@ const projectHeaderData = {
   startDate: "24 Feb 2021",
   endDate: "30 March 2022",
   guaranteeType: "Not requested",
-  guaranteeStatus: "NOT_APPLICABLE" as GuaranteeStatus
+  guaranteeStatus: "NOT_APPLICABLE" as GuaranteeStatus,
+  hidden: true
 };
+
+export const generateProjectHeaderData = (projectHeaderData = {}) =>
+  merge(defaultProjectHeaderData, projectHeaderData);
 
 describe("ProjectsHeader component", () => {
   it("render correctly", () => {
-    const { container } = renderWithI18NProvider(
-      <ProjectsHeader {...projectHeaderData} />
+    const { container } = renderWithUserProvider(
+      <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
+        <ProjectsHeader {...generateProjectHeaderData()} />
+      </AccountContextWrapper>
     );
     expect(container).toMatchSnapshot();
   });
@@ -40,7 +49,7 @@ describe("ProjectsHeader component", () => {
     renderWithUserProvider(
       <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
         <ProjectsHeader
-          {...projectHeaderData}
+          {...generateProjectHeaderData()}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>
@@ -53,7 +62,7 @@ describe("ProjectsHeader component", () => {
         account={generateAccount({ role: "MARKET_ADMIN" })}
       >
         <ProjectsHeader
-          {...projectHeaderData}
+          {...generateProjectHeaderData()}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>
@@ -65,11 +74,42 @@ describe("ProjectsHeader component", () => {
     renderWithUserProvider(
       <AccountContextWrapper account={generateAccount({ role: "INSTALLER" })}>
         <ProjectsHeader
-          {...projectHeaderData}
+          {...generateProjectHeaderData()}
           guaranteeEventType={"ASSIGN_SOLUTION"}
         />
       </AccountContextWrapper>
     );
     expect(screen.queryByTestId("guarantee-event-button")).toBeFalsy();
+  });
+
+  it("should not show archived key/value pair for installer", () => {
+    renderWithUserProvider(
+      <AccountContextWrapper account={generateAccount({ role: "INSTALLER" })}>
+        <ProjectsHeader
+          {...generateProjectHeaderData({ hidden: false })}
+          guaranteeEventType={"ASSIGN_SOLUTION"}
+        />
+      </AccountContextWrapper>
+    );
+    expect(screen.queryByTestId("archived-field")).toBeFalsy();
+  });
+
+  it("should show archived key/value pair for SUPER_ADMIN", () => {
+    renderWithUserProvider(
+      <AccountContextWrapper account={generateAccount({ role: "SUPER_ADMIN" })}>
+        <ProjectsHeader
+          {...generateProjectHeaderData({
+            hidden: null,
+            renderActions: () => {},
+            guaranteeEventHandler: mockGuaranteeEventHandler
+          })}
+          guaranteeEventType={"ASSIGN_SOLUTION"}
+        />
+      </AccountContextWrapper>
+    );
+    expect(screen.queryByText("projectDetails.archived")).toBeTruthy();
+    const guaranteeButton = screen.getByTestId("guarantee-event-button");
+    fireEvent.click(guaranteeButton);
+    expect(mockGuaranteeEventHandler).toBeCalled();
   });
 });

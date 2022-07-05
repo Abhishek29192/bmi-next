@@ -114,6 +114,8 @@ const SidePanelFooter = ({
       </AccessControl>
       <AccessControl dataModel="project" action="downloadReport">
         <ProjectReport disabled={projectLength === 0} />
+      </AccessControl>
+      <AccessControl dataModel="project" action="downloadGuaranteeReport">
         <GuaranteeReport disabled={guaranteeLength === 0} />
       </AccessControl>
     </div>
@@ -200,12 +202,15 @@ export const ProjectSidePanel = ({
         startDate,
         endDate,
         company,
-        guarantees
+        guarantees,
+        buildingOwnerFirstname,
+        buildingOwnerLastname,
+        buildingOwnerCompany,
+        buildingOwnerMail
       }) => {
         const knownStatuses = Object.values(ProjectStatus).map((value) =>
           value.toString()
         );
-
         const matchesFilter =
           filterSelection === "ALL" ||
           (knownStatuses.includes(filterSelection)
@@ -221,7 +226,11 @@ export const ProjectSidePanel = ({
               siteAddress?.town,
               // NOTE: Postcode can match with or without space
               siteAddress?.postcode,
-              siteAddress?.postcode.replace(/\s*/g, "")
+              siteAddress?.postcode.replace(/\s*/g, ""),
+              buildingOwnerFirstname,
+              buildingOwnerLastname,
+              buildingOwnerCompany,
+              buildingOwnerMail
             ];
 
         const query = searchQuery.toLowerCase().trim();

@@ -49,4 +49,14 @@
     fill: $color-white;
     cursor: pointer;
   }
+
+  .cube-icon {
+    font-size: 2rem;
+    fill: $color-white;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

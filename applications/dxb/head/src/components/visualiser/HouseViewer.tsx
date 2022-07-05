@@ -16,6 +16,7 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { maxDistance, minDistance } from "./constants/visualiser";
 import house from "./data/house.json";
 import getRef from "./GetRef";
 import modelCache from "./ModelCache";
@@ -215,7 +216,6 @@ export default class HouseViewer extends Viewer<Props, State> {
       }
       const minZOffset = boundingBox.min.z;
       const ridgeTileLength = boundingBox.max.z - minZOffset;
-      const ridgeTileHeight = Math.abs(boundingBox.max.y - boundingBox.min.y);
       const ridges = this.ridges;
 
       for (let i = 0; i < ridges.length; i++) {
@@ -250,7 +250,7 @@ export default class HouseViewer extends Viewer<Props, State> {
         );
         const placementHelper = new Object3D();
 
-        let posZ = -ridgeLength;
+        let posZ = ridgeBoundingBox.min.z;
 
         if (ridgeEndMesh) {
           // Ridge ends are the 2 specialised tiles that go
@@ -318,7 +318,6 @@ export default class HouseViewer extends Viewer<Props, State> {
         ridgeInstance.add(ridgeGap);
 
         ridgeInstance.position.copy(ridge.position);
-        ridgeInstance.position.y += ridgeTileHeight / 2;
 
         ridgeInstance.rotation.copy(ridge.rotation);
 
@@ -488,6 +487,14 @@ export default class HouseViewer extends Viewer<Props, State> {
             seg.name.includes(house.roofSegmentName)
           ) as Mesh[];
 
+          // Make roof segments transparent
+          this.roofSegments.forEach((segment) => {
+            const segmentTransparentMaterial = new MeshStandardMaterial();
+            segmentTransparentMaterial.opacity = 0;
+            segmentTransparentMaterial.transparent = true;
+            segment.material = segmentTransparentMaterial;
+          });
+
           this.ridges = gltf.scene.children.filter((ridge) =>
             ridge.name.includes(house.roofRidgeName)
           ) as Mesh[];
@@ -543,8 +550,8 @@ export default class HouseViewer extends Viewer<Props, State> {
       const controls = new OrbitControls(this.camera, this.renderer.domElement);
       controls.addEventListener("change", () => this.renderFrame());
       this.controls = controls;
-      controls.minDistance = 10;
-      controls.maxDistance = 30;
+      controls.minDistance = minDistance;
+      controls.maxDistance = maxDistance;
       controls.maxPolarAngle = 1.35;
 
       controls.target.set(0, 1, 0);

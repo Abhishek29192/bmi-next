@@ -13,9 +13,7 @@ const createResolver = (field: keyof Node) => ({
       return [];
     }
 
-    const variantCodes = sourceField.map(
-      (productVariant) => productVariant.code
-    );
+    const variantCodes = sourceField.map((code) => code);
 
     const { entries } = await context.nodeModel.findAll<Product>({
       query: {
@@ -28,7 +26,9 @@ const createResolver = (field: keyof Node) => ({
 
     const products = [...entries];
 
-    if (products.length !== variantCodes.length) {
+    // fix for JIRA: https://bmigroup.atlassian.net/browse/DXB-3733
+    // ONLY log and return empty if NO products were found for ANY variant codes
+    if (variantCodes.length > 0 && products.length === 0) {
       // eslint-disable-next-line no-console
       console.warn(
         `Couldn't find ${field} that match ${JSON.stringify(
@@ -78,11 +78,14 @@ export default {
       return generateSystemPath(source as any);
     }
   },
-  relatedOptionalProducts: createResolver("optionalProducts"),
-  relatedProducts: createResolver("products"),
+  relatedOptionalProducts: createResolver("relatedOptionalProducts"),
+  relatedProducts: createResolver("relatedProducts"),
   relatedSystems: {
     type: ["System"],
     async resolve(source: System, args: ResolveArgs, context: Context) {
+      if (!source.systemReferences || !source.systemReferences.length) {
+        return [];
+      }
       const { entries } = await context.nodeModel.findAll<System>({
         query: {
           filter: {

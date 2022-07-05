@@ -280,6 +280,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
@@ -527,6 +528,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
             Object {
@@ -538,6 +540,7 @@ describe("transformSystems", () => {
               "relatedProducts": Array [
                 "300190_Rubber_sheat",
               ],
+              "shortDescription": "SDescription 1 NO",
               "type": "LAYER_ACCESSORIES",
             },
           ],
@@ -601,11 +604,24 @@ describe("transformSystems", () => {
         code: "layer 3",
         name: "layer 3",
         approvalStatus: "approved"
+      }),
+      createSystemLayer({
+        code: "layer 4",
+        name: "layer 4",
+        approvalStatus: "approved",
+        shortDescription: "short-description"
       })
     ]);
     const transformedSystems = transformSystems([system]);
-    expect(transformedSystems[0].systemLayers).toHaveLength(1);
+    expect(transformedSystems[0].systemLayers).toHaveLength(2);
     expect(transformedSystems[0].systemLayers![0].name).toEqual("layer 3");
+    expect(transformedSystems[0].systemLayers![0].shortDescription).toEqual(
+      "SDescription 1 NO"
+    );
+    expect(transformedSystems[0].systemLayers![1].name).toEqual("layer 4");
+    expect(transformedSystems[0].systemLayers![1].shortDescription).toEqual(
+      "short-description"
+    );
   });
 
   it("handles no master images", () => {

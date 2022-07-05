@@ -106,6 +106,11 @@ const VisualiserProvider = ({
     setIsOpen(true);
   };
 
+  const handleOnClose = () => {
+    setIsOpen(false);
+    handleOnChange({});
+  };
+
   const handleOnChange = ({
     isOpen,
     ...params
@@ -163,7 +168,7 @@ const VisualiserProvider = ({
       open={isOpen}
       contentSource={contentSource}
       onChange={(params) => handleOnChange(params)}
-      onClose={() => setIsOpen(false)}
+      onClose={handleOnClose}
       tiles={tilesSetData.tiles as Tile[]}
       sidings={sidingsSetData.sidings}
       {...parsedQueryParameters}

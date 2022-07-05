@@ -39,6 +39,9 @@ export const PdfDocument = ({
   } = guaranteeData;
 
   const address = project.siteAddress;
+  const BudilingOwnerName =
+    project.buildingOwnerCompany ||
+    `${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`;
 
   if (!address) {
     throw new Error("project site address can not be undefined");
@@ -50,14 +53,14 @@ export const PdfDocument = ({
 
   const guaranteeName =
     coverage === "PRODUCT"
-      ? productByProductBmiRef?.name
-      : systemBySystemBmiRef?.name;
+      ? productByProductBmiRef.name
+      : systemBySystemBmiRef.name;
 
   const products =
     coverage === "PRODUCT"
-      ? productByProductBmiRef?.name
-      : systemBySystemBmiRef?.systemMembersBySystemBmiRef?.nodes
-          .map((member) => member.productByProductBmiRef?.name)
+      ? productByProductBmiRef.name
+      : systemBySystemBmiRef.systemMembersBySystemBmiRef.nodes
+          .map(({ productByProductBmiRef }) => productByProductBmiRef.name)
           .join(", ");
 
   return (
@@ -111,9 +114,7 @@ export const PdfDocument = ({
           </Typography>
           <Field
             title={template.headingBuildingOwnerName}
-            values={[
-              `${project.buildingOwnerFirstname} ${project.buildingOwnerLastname}`
-            ]}
+            values={[BudilingOwnerName]}
           />
           <Field
             title={template.headingBuildingAddress}

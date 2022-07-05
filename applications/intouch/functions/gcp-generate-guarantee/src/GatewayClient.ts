@@ -1,7 +1,7 @@
-import axios, { AxiosInstance } from "axios";
-import { getGCPToken } from "./util/google-auth";
+import fetch, { Request } from "node-fetch";
+import { getSecret } from "@bmi-digital/functions-secret-client";
 
-const { GATEWAY_API_URL } = process.env;
+const { FRONTEND_API_URL } = process.env;
 
 export interface ICourseSyncConfiguration {
   configName: string;
@@ -9,7 +9,7 @@ export interface ICourseSyncConfiguration {
 }
 
 export default class GatewayClient {
-  private client: AxiosInstance;
+  private client: Request;
 
   private constructor(bearer: string) {
     const userinfo = Buffer.from(
@@ -18,19 +18,18 @@ export default class GatewayClient {
       })
     ).toString("base64");
 
-    this.client = axios.create({
-      baseURL: GATEWAY_API_URL,
+    this.client = new Request(FRONTEND_API_URL, {
       headers: {
-        contentType: "application/json",
-        "x-apigateway-api-userinfo": userinfo,
-        authorization: bearer
+        "Content-Type": "application/json",
+        authorization: "bearer undefined",
+        "x-api-key": bearer,
+        "x-apigateway-api-userinfo": userinfo
       }
     });
   }
 
   public static async create(): Promise<GatewayClient> {
-    const bearer = await getGCPToken(GATEWAY_API_URL);
-
+    const bearer = await getSecret("GATEWAY_API_KEY");
     return new GatewayClient(bearer);
   }
 
@@ -51,8 +50,11 @@ export default class GatewayClient {
       }
     };
 
-    const { data } = await this.client.post("", payload);
-
-    return data;
+    return await fetch(
+      new Request(this.client, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      })
+    );
   }
 }
