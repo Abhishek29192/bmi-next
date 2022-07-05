@@ -36,18 +36,45 @@ release:
   script:
     - yarn run semantic-release
 
+auto_merge:
+  stage: post deploy
+  rules:
+    - if: $CI_COMMIT_TAG
+  script:
+    - .scripts/auto_merge.sh
+  artifacts:
+    reports:
+      dotenv: post_deploy.env
+
 open_mr_preprod_to_master:
   image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
-  stage: release
+  stage: post deploy
+  needs:
+    - auto_merge
   rules:
-    - if: $CI_COMMIT_BRANCH == 'pre-production'
+    - if: $CI_COMMIT_TAG
   script:
-    - gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN -t master -c WIP
+    - |
+      if [ "$PREPROD_MR" == "true" ];
+        then
+        gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN --source-branch pre-production -t master -c WIP
+      else
+        echo "No need to open merge request for pre-production"
+      fi
 
 open_mr_prod_to_preprod_to_master:
   image: registry.gitlab.com/gitlab-automation-toolkit/gitlab-auto-mr
-  stage: release
+  stage: post deploy
+  needs:
+    - auto_merge
   rules:
-    - if: $CI_COMMIT_BRANCH == 'production'
+    - if: $CI_COMMIT_TAG
   script:
-    - gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN -t pre-production -c WIP
+    - |
+      if [ "$PROD_MR" == "true" ];
+        then
+        gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN --source-branch production -t pre-production -c WIP
+        gitlab_auto_mr --private-token $GITLAB_PRIVATE_TOKEN --source-branch pre-production -t master -c WIP
+      else
+        echo "No need to open merge request for production"
+      fi
