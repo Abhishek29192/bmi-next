@@ -525,8 +525,32 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
             <div
               class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
-              <div>
-                projectDetails
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="main"
+                >
+                  <h4
+                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  >
+                    noProjects.title
+                  </h4>
+                  <div
+                    class="body"
+                  >
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body1
+                    </h6>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body2
+                    </h6>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1081,8 +1105,612 @@ exports[`Projects Page render correctly 1`] = `
             <div
               class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
             >
-              <div>
-                projectDetails
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="main"
+                >
+                  <h4
+                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  >
+                    noProjects.title
+                  </h4>
+                  <div
+                    class="body"
+                  >
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body1
+                    </h6>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body2
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="footer"
+        >
+          <svg
+            style="width: 50px;"
+          />
+          <nav
+            class="footerNav"
+          >
+            <a
+              href="/footer/link/relativePath"
+            >
+              Footer link title
+            </a>
+          </nav>
+          <svg
+            style="width: 120px;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Projects Page sort project with non super admin 1`] = `
+<div>
+  <div>
+    <div
+      class="appContainer"
+    >
+      <div
+        class="sidebar"
+      >
+        <div
+          class="logoContainer"
+        >
+          <svg
+            class="logo"
+            style="width: 72px; display: block;"
+          />
+        </div>
+        <nav
+          class="sidebarNavigation"
+        >
+          <a
+            class="sidebarLink"
+            href="/"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              focusable="false"
+              style="font-size: 24px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+              />
+            </svg>
+            Home
+          </a>
+          <a
+            class="sidebarLink"
+            href="/training"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+              focusable="false"
+              style="font-size: 24px;"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+              />
+            </svg>
+            Training
+          </a>
+        </nav>
+      </div>
+      <div
+        class="appMain"
+      >
+        <div
+          class="headerContainer"
+        >
+          <div
+            class="header"
+          >
+            <div
+              class="upperHeader"
+            >
+              <nav>
+                <a
+                  href="/contact"
+                >
+                  Contact
+                </a>
+                <a
+                  data-testid="global-external-link"
+                  href="https://www.bmigroup.com/no/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  BMI Norway Website
+                </a>
+              </nav>
+            </div>
+            <div
+              class="midHeader"
+            >
+              <svg
+                class="logo"
+                style="width: 50px; display: block;"
+              />
+              <div
+                class="midHeaderNav"
+              >
+                <button
+                  aria-label="aria.notifications"
+                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  id="notifications-panel-toggle"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <div
+                  class="tabletNavButton"
+                >
+                  <button
+                    aria-label="aria.navigation"
+                    class="MuiButtonBase-root"
+                    id="tablet-navigation-panel-toggle"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+                <div
+                  class="mobileNavButton"
+                >
+                  <button
+                    aria-label="aria.navigation"
+                    class="MuiButtonBase-root"
+                    id="mobile-navigation-panel-toggle"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+                      />
+                    </svg>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="lowerHeader"
+            >
+              <div
+                class="lowerHeaderMeta"
+              >
+                <h3
+                  class="MuiTypography-root Typography MuiTypography-h3"
+                >
+                  Projects
+                </h3>
+                <hr
+                  class="MuiDivider-root lowerHeaderDivider MuiDivider-flexItem MuiDivider-vertical"
+                />
+                <h3
+                  class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
+                >
+                  tier.T1
+                </h3>
+              </div>
+              <div
+                class="lowerHeaderNav"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root notificationsIcon notificationsIcon--unread"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <div
+                  class="makeStyles-root-31"
+                >
+                  <div>
+                    <button
+                      aria-haspopup="true"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-text"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="MuiButton-label"
+                      >
+                        <div
+                          class="userMenu"
+                        >
+                          <div
+                            class="avatar"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              style="width: 20px; color: rgb(238, 238, 238);"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                              />
+                            </svg>
+                          </div>
+                          <div
+                            class="userName"
+                          >
+                            Account
+                          </div>
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-colorAction"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                            />
+                          </svg>
+                        </div>
+                      </span>
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="appContent"
+        >
+          <div
+            class="sidePanelWrapper"
+          >
+            <div
+              class="main"
+            >
+              <div
+                class="sidePanel"
+              >
+                <div
+                  class="filters"
+                >
+                  <nav>
+                    <div
+                      class="MuiFormControl-root MuiTextField-root TextField TextField--leftAdornment MuiFormControl-fullWidth"
+                    >
+                      <label
+                        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                        data-shrink="false"
+                        for="filter"
+                        id="filter-label"
+                      >
+                        search.inputLabel
+                      </label>
+                      <div
+                        class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                      >
+                        <input
+                          aria-invalid="false"
+                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                          id="filter"
+                          name="filter"
+                          type="text"
+                          value=""
+                        />
+                        <div
+                          class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                            />
+                          </svg>
+                        </div>
+                        <fieldset
+                          aria-hidden="true"
+                          class="PrivateNotchedOutline-root-33 MuiOutlinedInput-notchedOutline"
+                        >
+                          <legend
+                            class="PrivateNotchedOutline-legendLabelled-35"
+                          >
+                            <span>
+                              search.inputLabel
+                            </span>
+                          </legend>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </nav>
+                  <div
+                    class="filterButtons"
+                  >
+                    <span>
+                      Show me
+                      :
+                    </span>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--theme-pearl MuiChip-colorPrimary MuiChip-clickableColorPrimary MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.ALL
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.NOT_STARTED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.IN_PROGRESS
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.COMPLETED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.FLAT
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="filterButton"
+                    >
+                      <div
+                        class="MuiButtonBase-root MuiChip-root Chip Chip--default Chip--theme-pearl MuiChip-clickable"
+                        role="button"
+                        tabindex="0"
+                      >
+                        <span
+                          class="MuiChip-label"
+                        >
+                          filters.labels.PITCHED
+                        </span>
+                        <span
+                          class="MuiTouchRipple-root"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="results"
+                >
+                  <div
+                    data-testid="projectCard"
+                  >
+                    <button
+                      class="MuiButtonBase-root MuiCardActionArea-root"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        class="MuiCardContent-root main"
+                      >
+                        <h6
+                          class="MuiTypography-root title Typography MuiTypography-h6"
+                        >
+                          Project 1
+                        </h6>
+                        <div>
+                          <p
+                            class="MuiTypography-root Typography MuiTypography-body1"
+                          >
+                            12345
+                          </p>
+                          <p
+                            class="MuiTypography-root Typography MuiTypography-body1"
+                            style="display: flex;"
+                          >
+                            <svg
+                              class="technologyIcon"
+                            />
+                            filters.labels.IN_PROGRESS
+                          </p>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root chevron MuiSvgIcon-colorDisabled"
+                          focusable="false"
+                          style="font-size: 36px;"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                          />
+                        </svg>
+                      </div>
+                      <span
+                        class="MuiCardActionArea-focusHighlight"
+                      />
+                      <span
+                        class="MuiTouchRipple-root"
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="footerBtn"
+                >
+                  <div />
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root outerGrid MuiGrid-container MuiGrid-spacing-xs-3"
+            >
+              <div
+                class="MuiGrid-root item MuiGrid-item MuiGrid-grid-xs-12"
+              >
+                <div
+                  class="main"
+                >
+                  <h4
+                    class="MuiTypography-root Typography Typography--underline MuiTypography-h4"
+                  >
+                    noProjects.title
+                  </h4>
+                  <div
+                    class="body"
+                  >
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body1
+                    </h6>
+                    <h6
+                      class="MuiTypography-root Typography MuiTypography-subtitle2"
+                    >
+                      noProjects.body2
+                    </h6>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

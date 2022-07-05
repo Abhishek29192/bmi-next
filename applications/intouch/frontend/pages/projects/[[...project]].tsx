@@ -76,7 +76,9 @@ const Projects = ({
     if (project && project.length) {
       return parseInt(project[0]);
     }
-  }, [router.query]);
+
+    return null;
+  }, [router.query, sortedProjects]);
 
   const handleProjectSelection = (projectId: number) => {
     router.push(`/projects/${projectId}`, undefined, { shallow: true });
@@ -101,14 +103,13 @@ const Projects = ({
             onProjectSelected={handleProjectSelection}
             selectedProjectId={activeProject}
           />
-
           <Grid
             container
             spacing={3}
             className={GridStyles.outerGrid}
             alignItems="stretch"
           >
-            {sortedProjects.length === 0 ? (
+            {activeProject === null ? (
               <Grid item xs={12}>
                 <NoProjectsCard title={t("project-page:noProjects.title")}>
                   <Typography variant="subtitle2">
@@ -193,18 +194,6 @@ export const getServerSideProps = withPage(
           { globalPageData, ...translations }
         );
       }
-      // Otherwise, redirect to first accessible project, if any
-    } else if (projectsByMarket?.nodes.length) {
-      const sortedProjects = sortProjects(
-        projectsByMarket.nodes,
-        isPowerfulUser
-      );
-      return {
-        redirect: {
-          permanent: false,
-          destination: `/projects/${sortedProjects[0].id}`
-        }
-      };
     }
 
     return {

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { fireEvent } from "@testing-library/react";
+import { RouterContext } from "next/dist/next-server/lib/router-context";
 import { ProjectSidePanel } from "..";
 import {
   render,
   renderWithUserProvider,
-  screen
+  screen,
+  createMockRouter
 } from "../../../lib/tests/utils";
 import I18nProvider from "../../../lib/tests/fixtures/i18n";
 import AccountContextWrapper from "../../../lib/tests/fixtures/account";
@@ -43,7 +45,12 @@ describe("ProjectSidePanel component", () => {
     const { container } = render(
       <I18nProvider>
         <AccountContextWrapper>
-          <ProjectSidePanel projects={projects} />
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => ({})}
+              projects={projects}
+            />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </I18nProvider>
     );
@@ -97,7 +104,12 @@ describe("ProjectSidePanel component", () => {
     const { container } = render(
       <I18nProvider>
         <AccountContextWrapper>
-          <ProjectSidePanel projects={projects} />
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => ({})}
+              projects={projects}
+            />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </I18nProvider>
     );
@@ -126,10 +138,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel
-              onProjectSelected={() => ({})}
-              projects={[project]}
-            />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -168,7 +182,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[project]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -203,7 +222,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[project]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -222,7 +246,9 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -239,7 +265,9 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -280,7 +308,12 @@ describe("ProjectSidePanel component", () => {
               hasCompany: true
             })}
           >
-            <ProjectSidePanel projects={[project]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={() => ({})}
+                projects={[project]}
+              />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -299,7 +332,9 @@ describe("ProjectSidePanel component", () => {
       <ApolloProvider>
         <MarketProvider market={generateMarketContext({ id: 1 })}>
           <AccountContextWrapper account={account}>
-            <ProjectSidePanel projects={[]} />
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+            </RouterContext.Provider>
           </AccountContextWrapper>
         </MarketProvider>
       </ApolloProvider>
@@ -315,13 +350,110 @@ describe("ProjectSidePanel component", () => {
         <AccountContextWrapper
           account={generateAccount({ role: "INSTALLER", hasCompany: true })}
         >
-          <ProjectSidePanel projects={[]} />
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
+          </RouterContext.Provider>
         </AccountContextWrapper>
       </ApolloProvider>
     );
     expect(
       screen.queryByTestId("project-side-panel-footer-button")
     ).toBeFalsy();
+  });
+
+  describe("should route to first available project", () => {
+    it("has available project", () => {
+      const onProjectSelectedSpy = jest.fn();
+      const projects = [projectFactory(), projectFactory({ id: 2 })];
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+          >
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={onProjectSelectedSpy}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      expect(onProjectSelectedSpy).toHaveBeenCalledWith(1);
+    });
+
+    it("no available project", () => {
+      const onProjectSelectedSpy = jest.fn();
+      const projects = [];
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper
+            account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+          >
+            <RouterContext.Provider value={createMockRouter({})}>
+              <ProjectSidePanel
+                onProjectSelected={onProjectSelectedSpy}
+                projects={projects}
+              />
+            </RouterContext.Provider>
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+      expect(onProjectSelectedSpy).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  it("reset to default filter selected when no project query and filter selected is not equal the default", () => {
+    const account = generateAccount({ role: "INSTALLER", hasCompany: true });
+    const setFilterSelectionSpy = jest.fn();
+    jest
+      .spyOn(React, "useState")
+      .mockImplementationOnce(((call) => [call, jest.fn()]) as () => [
+        unknown,
+        Dispatch<unknown>
+      ])
+      .mockImplementationOnce(((call) => [call, jest.fn()]) as () => [
+        unknown,
+        Dispatch<unknown>
+      ])
+      .mockImplementationOnce(() => [(context) => context, jest.fn()])
+      .mockImplementationOnce(() => ["UNASSIGNED", setFilterSelectionSpy]);
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper account={account}>
+          <RouterContext.Provider value={createMockRouter({})}>
+            <ProjectSidePanel
+              onProjectSelected={() => {}}
+              projects={[projectFactory()]}
+            />
+          </RouterContext.Provider>
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+
+    expect(setFilterSelectionSpy).toHaveBeenCalledWith("ALL");
+  });
+
+  it("when router.query contains project value", () => {
+    const onProjectSelectedSpy = jest.fn();
+    renderWithUserProvider(
+      <ApolloProvider>
+        <AccountContextWrapper
+          account={generateAccount({ role: "INSTALLER", hasCompany: true })}
+        >
+          <RouterContext.Provider
+            value={createMockRouter({ query: { project: "1" } })}
+          >
+            <ProjectSidePanel
+              onProjectSelected={onProjectSelectedSpy}
+              projects={[projectFactory()]}
+            />
+          </RouterContext.Provider>
+        </AccountContextWrapper>
+      </ApolloProvider>
+    );
+
+    expect(onProjectSelectedSpy).toHaveBeenCalledTimes(0);
   });
 
   describe("Search Criteria", () => {
@@ -343,10 +475,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -378,10 +512,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -416,10 +552,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -456,10 +594,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -497,10 +637,12 @@ describe("ProjectSidePanel component", () => {
                     hasCompany: true
                   })}
                 >
-                  <ProjectSidePanel
-                    onProjectSelected={() => ({})}
-                    projects={projects}
-                  />
+                  <RouterContext.Provider value={createMockRouter({})}>
+                    <ProjectSidePanel
+                      onProjectSelected={() => ({})}
+                      projects={projects}
+                    />
+                  </RouterContext.Provider>
                 </AccountContextWrapper>
               </MarketProvider>
             </ApolloProvider>
@@ -537,10 +679,12 @@ describe("ProjectSidePanel component", () => {
                     hasCompany: true
                   })}
                 >
-                  <ProjectSidePanel
-                    onProjectSelected={() => ({})}
-                    projects={projects}
-                  />
+                  <RouterContext.Provider value={createMockRouter({})}>
+                    <ProjectSidePanel
+                      onProjectSelected={() => ({})}
+                      projects={projects}
+                    />
+                  </RouterContext.Provider>
                 </AccountContextWrapper>
               </MarketProvider>
             </ApolloProvider>
@@ -577,10 +721,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -615,10 +761,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -653,10 +801,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
@@ -691,10 +841,12 @@ describe("ProjectSidePanel component", () => {
                   hasCompany: true
                 })}
               >
-                <ProjectSidePanel
-                  onProjectSelected={() => ({})}
-                  projects={projects}
-                />
+                <RouterContext.Provider value={createMockRouter({})}>
+                  <ProjectSidePanel
+                    onProjectSelected={() => ({})}
+                    projects={projects}
+                  />
+                </RouterContext.Provider>
               </AccountContextWrapper>
             </MarketProvider>
           </ApolloProvider>
