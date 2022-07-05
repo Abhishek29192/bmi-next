@@ -1,7 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import QueryString from "qs";
 import { Answer, NextStep, Response, Type } from "./types";
 
 const {
@@ -74,7 +73,7 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
 
 const runQuery = async (
   query: string,
-  variables: QueryString.ParsedQs
+  variables: { [key: string]: unknown }
 ): Promise<Answer> => {
   const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${CONTENTFUL_SPACE_ID}/environments/${CONTENTFUL_ENVIRONMENT}`,
@@ -273,7 +272,7 @@ export const nextStep: HttpFunction = async (request, response) => {
       data = await runQuery(query(page), {
         answerId,
         locale,
-        preview: PREVIEW_API || "false"
+        preview: PREVIEW_API === "true"
       });
     } catch (error) {
       logger.error({ message: (error as Error).message });
