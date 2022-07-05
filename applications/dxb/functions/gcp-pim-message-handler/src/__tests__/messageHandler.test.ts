@@ -1,11 +1,11 @@
-import mockConsole from "jest-mock-console";
-import { Request, Response } from "express";
-import fetchMockJest from "fetch-mock-jest";
 import {
   mockRequest,
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { Request, Response } from "express";
+import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import { ObjType } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
@@ -22,7 +22,7 @@ const pubsubTopicPublisher = jest.fn();
 jest.mock("@google-cloud/pubsub", () => ({
   PubSub: jest.fn(() => ({
     topic: jest.fn(() => ({
-      publish: pubsubTopicPublisher
+      publishMessage: pubsubTopicPublisher
     }))
   }))
 }));
@@ -184,24 +184,20 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 1" }]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 2" }]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 1" }]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 2" }]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -275,31 +271,27 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "DELETED",
-          itemType: "PRODUCTS",
-          items: [
-            { code: "BP1", objType: ObjType.Base_product },
-            { code: "BPÉ2", objType: ObjType.Base_product }
-          ]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "PRODUCTS",
+        items: [
+          { code: "BP1", objType: ObjType.Base_product },
+          { code: "BPÉ2", objType: ObjType.Base_product }
+        ]
+      }
+    });
 
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "DELETED",
-          itemType: "PRODUCTS",
-          items: [
-            { code: "VP1", objType: ObjType.Variant },
-            { code: "VP2", objType: ObjType.Variant }
-          ]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "PRODUCTS",
+        items: [
+          { code: "VP1", objType: ObjType.Variant },
+          { code: "VP2", objType: ObjType.Variant }
+        ]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -380,24 +372,20 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(2);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "SYSTEMS",
-          items: [{ name: "Test System 1" }]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "SYSTEMS",
-          items: [{ name: "Test System 2" }]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "SYSTEMS",
+        items: [{ name: "Test System 1" }]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "SYSTEMS",
+        items: [{ name: "Test System 2" }]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -480,30 +468,26 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "DELETED",
-          itemType: "SYSTEMS",
-          items: [
-            { code: "System1", objType: ObjType.System },
-            { code: "System2", objType: ObjType.System }
-          ]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "DELETED",
-          itemType: "SYSTEMS",
-          items: [
-            { code: "Layer1", objType: ObjType.Layer },
-            { code: "Layer2", objType: ObjType.Layer }
-          ]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "SYSTEMS",
+        items: [
+          { code: "System1", objType: ObjType.System },
+          { code: "System2", objType: ObjType.System }
+        ]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "SYSTEMS",
+        items: [
+          { code: "Layer1", objType: ObjType.Layer },
+          { code: "Layer2", objType: ObjType.Layer }
+        ]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -587,24 +571,20 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 1" }]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 2" }]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 1" }]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 2" }]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -656,24 +636,20 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 1" }]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 2" }]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 1" }]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 2" }]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(1);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
@@ -726,24 +702,20 @@ describe("handleMessage", () => {
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
     expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 1" }]
-        })
-      )
-    );
-    expect(pubsubTopicPublisher).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: "PRODUCTS",
-          items: [{ name: "Test Product 2" }]
-        })
-      )
-    );
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 1" }]
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: "PRODUCTS",
+        items: [{ name: "Test Product 2" }]
+      }
+    });
     expect(fetchMock).toHaveFetchedTimes(2);
     expect(fetchMock).toHaveFetched(
       `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
