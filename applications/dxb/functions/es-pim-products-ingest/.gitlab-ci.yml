@@ -1,38 +1,17 @@
 test_es-pim-products-ingest:
-  extends: .test_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 build_es-pim-products-ingest:
-  extends: .build_function_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.build_function_yarn_workspace, rules]
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 package_es-pim-products-ingest:
-  extends: .package_function_yarn_workspace
-  rules:
-    - !reference [.package_function_yarn_workspace, rules]
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+  extends: .package_function
   needs:
     - job: build_es-pim-products-ingest
       artifacts: true
@@ -41,18 +20,7 @@ package_es-pim-products-ingest:
     ROOT_DIR: applications/dxb/functions/es-pim-products-ingest
 
 deploy_es-pim-products-ingest:
-  extends: .deploy_function_yarn_workspace
-  rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes: !reference [.run_for_changes_on_main, rules, changes]
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
+  extends: .deploy_function
   needs:
     - job: package_es-pim-products-ingest
       artifacts: true

@@ -1,5 +1,5 @@
 test_gcp-pim-full-fetch-coordinator:
-  extends: .test_yarn_workspace
+  extends: .test_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -23,7 +23,7 @@ test_gcp-pim-full-fetch-coordinator:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
 
 build_gcp-pim-full-fetch-coordinator:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -47,7 +47,7 @@ build_gcp-pim-full-fetch-coordinator:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch-coordinator"
 
 package_gcp-pim-full-fetch-coordinator:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
     - job: build_gcp-pim-full-fetch-coordinator
       artifacts: true
@@ -55,6 +55,7 @@ package_gcp-pim-full-fetch-coordinator:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/functions-es-client/**/*
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-api/**/*
@@ -73,7 +74,7 @@ package_gcp-pim-full-fetch-coordinator:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-full-fetch-coordinator:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
     - job: package_gcp-pim-full-fetch-coordinator
       artifacts: true
@@ -81,11 +82,12 @@ deploy_gcp-pim-full-fetch-coordinator:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/functions-es-client/**/*
         - applications/dxb/libraries/functions-firestore/**/*
         - applications/dxb/libraries/pim-api/**/*
       variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD

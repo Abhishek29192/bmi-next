@@ -1,6 +1,7 @@
 test_frc-website:
   extends: .test_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/frc-website/**/*
@@ -22,6 +23,7 @@ test_frc-website:
 build_frc-website:
   extends: .build_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - applications/frc-website/**/*

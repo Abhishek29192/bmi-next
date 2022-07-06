@@ -1,26 +1,11 @@
 test_gcp-es-proxy:
-  extends: .test_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-es-proxy"
     ROOT_DIR: "applications/functions/gcp-es-proxy"
 
 build_gcp-es-proxy:
-  extends: .build_function_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.run_for_changes_on_main, rules]
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-es-proxy"
     ROOT_DIR: "applications/dxb/functions/gcp-es-proxy"
