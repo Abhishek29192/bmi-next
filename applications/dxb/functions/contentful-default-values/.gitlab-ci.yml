@@ -19,8 +19,9 @@ test_contentful-default-values:
     ROOT_DIR: "applications/functions/contentful-default-values"
 
 build_contentful-default-values:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
@@ -36,7 +37,7 @@ build_contentful-default-values:
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
 
 package_contentful-default-values:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
     - job: build_contentful-default-values
       artifacts: true
@@ -44,6 +45,7 @@ package_contentful-default-values:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/contentful-tag-utility/**/*
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
@@ -52,7 +54,7 @@ package_contentful-default-values:
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
 
 deploy_contentful-default-values:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
     - job: package_contentful-default-values
       artifacts: true
@@ -60,9 +62,10 @@ deploy_contentful-default-values:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/contentful-tag-utility/**/*
       variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD

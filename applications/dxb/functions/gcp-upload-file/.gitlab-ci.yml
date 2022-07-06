@@ -1,38 +1,17 @@
 test_gcp-upload-file:
-  extends: .test_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-    - if: !reference [.run_for_changes_on_mr, rules, if]
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
     ROOT_DIR: "applications/functions/gcp-upload-file"
 
 build_gcp-upload-file:
-  extends: .build_function_yarn_workspace
-  rules:
-    - !reference [.ingore_release_mrs, rules]
-    - !reference [.build_function_yarn_workspace, rules]
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-upload-file"
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 package_gcp-upload-file:
-  extends: .package_function_yarn_workspace
-  rules:
-    - !reference [.package_function_yarn_workspace, rules]
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
+  extends: .package_function
   needs:
     - job: build_gcp-upload-file
       artifacts: true
@@ -41,18 +20,7 @@ package_gcp-upload-file:
     ROOT_DIR: "applications/dxb/functions/gcp-upload-file"
 
 deploy_gcp-upload-file:
-  extends: .deploy_function_yarn_workspace
-  rules:
-    - if: !reference [.run_for_changes_on_main, rules, if]
-      changes: !reference [.run_for_changes_on_main, rules, changes]
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
-      variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
+  extends: .deploy_function
   needs:
     - job: package_gcp-upload-file
       artifacts: true

@@ -277,8 +277,8 @@ lighthouseci_scan_head:
     - |
       apt-get update
       apt-get install -y jq
-      export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
-      export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
+      export MANAGEMENT_ACCESS_TOKEN=$($DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
+      export SPACE_ID=$($DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
       yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
 
 .deploy_gatsby_cloud:
@@ -298,7 +298,7 @@ lighthouseci_scan_head:
     - |
       apt-get update
       apt-get install -y jq
-      DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
+      DXB_MARKET_BUILD_HOOK=$($DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
 ##############################################################
@@ -316,11 +316,6 @@ migrate_content_qa:
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
   variables:
     DXB_MARKET_ID: "NO"
-  artifacts:
-    name: "migrate_content_norway_log"
-    paths:
-      - libraries/migrate/projects/dxb/*.log
-    expire_in: 1 week
 
 deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
@@ -346,11 +341,6 @@ migrate_content_single_page_qa:
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
   variables:
     DXB_MARKET_ID: "NO"
-  artifacts:
-    name: "migrate_content_norway_log"
-    paths:
-      - libraries/migrate/projects/dxb/*.log
-    expire_in: 1 week
 
 deploy_gatsby_cloud_sing_page_qa:
   extends: .deploy_gatsby_cloud

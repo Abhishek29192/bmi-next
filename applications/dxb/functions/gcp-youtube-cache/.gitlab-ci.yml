@@ -1,8 +1,5 @@
-variables:
-  PROJECT_NAME: gcp-youtube-cache
-
 test_gcp-youtube-cache:
-  extends: .test_yarn_workspace
+  extends: .test_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -22,7 +19,7 @@ test_gcp-youtube-cache:
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 build_gcp-youtube-cache:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -42,7 +39,7 @@ build_gcp-youtube-cache:
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
 
 package_gcp-youtube-cache:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
     - job: build_gcp-youtube-cache
       artifacts: true
@@ -50,6 +47,7 @@ package_gcp-youtube-cache:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
@@ -57,8 +55,6 @@ package_gcp-youtube-cache:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
   script:
-    - apt-get update
-    - apt-get install -y zip unzip
     - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
@@ -66,7 +62,7 @@ package_gcp-youtube-cache:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-youtube-cache:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
     - job: package_gcp-youtube-cache
       artifacts: true
@@ -74,9 +70,10 @@ deploy_gcp-youtube-cache:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/functions-firestore/**/*
       variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
