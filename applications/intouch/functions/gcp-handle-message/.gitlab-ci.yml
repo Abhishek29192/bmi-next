@@ -10,9 +10,8 @@ package_gcp-intouch-handle-message:
     FUNCTION_NAME: pubsub-handle-message
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
   needs:
-    - build_gcp-intouch-handle-message
-  dependencies:
-    - build_gcp-intouch-handle-message
+    - job: build_gcp-intouch-handle-message
+      artifacts: true
 
 # Deploy to BMI environments
 deploy_gcp-intouch-handle-message_bmi:
@@ -21,6 +20,5 @@ deploy_gcp-intouch-handle-message_bmi:
     FUNCTION_NAME: pubsub-handle-message
     ROOT_DIR: applications/intouch/functions/gcp-handle-message
   needs:
-    - package_gcp-intouch-handle-message
-  dependencies:
-    - package_gcp-intouch-handle-message
+    - job: package_gcp-intouch-handle-message
+      artifacts: true

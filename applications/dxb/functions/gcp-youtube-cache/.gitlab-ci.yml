@@ -3,6 +3,15 @@ variables:
 
 test_gcp-youtube-cache:
   extends: .test_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -10,10 +19,16 @@ test_gcp-youtube-cache:
 build_gcp-youtube-cache:
   extends: .build_function_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/functions-firestore/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/functions-firestore/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -21,14 +36,15 @@ build_gcp-youtube-cache:
 package_gcp-youtube-cache:
   extends: .package_function_yarn_workspace
   needs:
-    - build_gcp-youtube-cache
-  dependencies:
-    - build_gcp-youtube-cache
+    - job: build_gcp-youtube-cache
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/functions-firestore/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
@@ -44,14 +60,21 @@ package_gcp-youtube-cache:
 deploy_gcp-youtube-cache:
   extends: .deploy_function_yarn_workspace
   needs:
-    - package_gcp-youtube-cache
-  dependencies:
-    - package_gcp-youtube-cache
+    - job: package_gcp-youtube-cache
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/functions-firestore/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
     FUNCTION_NAME: "gcp-youtube-cache"
     ROOT_DIR: "applications/dxb/functions/gcp-youtube-cache"
