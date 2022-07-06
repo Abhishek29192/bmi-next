@@ -1,6 +1,7 @@
 test_gcp-functions-deployer:
   extends: .test_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
@@ -11,14 +12,6 @@ test_gcp-functions-deployer:
         - $ROOT_DIR/**/*
         - jest/**/*
         - yarn.lock
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
-      when: never
   variables:
     WORKSPACE: "@bmi/gcp-functions-deployer"
     ROOT_DIR: "functions/gcp-functions-deployer"
@@ -26,15 +19,8 @@ test_gcp-functions-deployer:
 build_gcp-functions-deployer:
   extends: .build_function_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
-      when: never
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
-      when: never
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
