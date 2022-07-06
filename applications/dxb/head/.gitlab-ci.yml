@@ -286,11 +286,11 @@ lighthouseci_scan_head:
     - job: install_yarn
       optional: true
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         SOURCE_BRANCH: pre-production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
       variables:
         SOURCE_BRANCH: production
         DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
@@ -308,10 +308,10 @@ lighthouseci_scan_head:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
   stage: deploy
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
   cache: {}
@@ -326,15 +326,15 @@ lighthouseci_scan_head:
 # Market specific migration and deploy jobs start from here
 ##############################################################
 
-migrate_content_norway:
+migrate_content_qa:
   extends: .migrate_content
   rules:
-    - !reference [.migrate_content, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - libraries/migrate/projects/dxb/**/*
       variables:
-        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
+        SOURCE_BRANCH: master
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
   variables:
     DXB_MARKET_ID: "NO"
   artifacts:
@@ -343,17 +343,58 @@ migrate_content_norway:
       - libraries/migrate/projects/dxb/*.log
     expire_in: 1 week
 
-deploy_gatsby_cloud_norway:
+deploy_gatsby_cloud_qa:
   extends: .deploy_gatsby_cloud
   needs:
-    - migrate_content_norway
+    - migrate_content_qa
   rules:
-    - !reference [.deploy_gatsby_cloud, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - libraries/migrate/projects/dxb/**/*
       variables:
         DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
+  variables:
+    DXB_MARKET_ID: "NO"
+
+migrate_content_single_page_qa:
+  extends: .migrate_content
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+      variables:
+        SOURCE_BRANCH: master
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_QA
+  variables:
+    DXB_MARKET_ID: "NO"
+  artifacts:
+    name: "migrate_content_norway_log"
+    paths:
+      - libraries/migrate/projects/dxb/*.log
+    expire_in: 1 week
+
+deploy_gatsby_cloud_sing_page_qa:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_single_page_qa
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_SINGLE_PAGE_QA
+  variables:
+    DXB_MARKET_ID: "NO"
+
+migrate_content_norway:
+  extends: .migrate_content
+  variables:
+    DXB_MARKET_ID: "NO"
+
+deploy_gatsby_cloud_norway:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_norway
   variables:
     DXB_MARKET_ID: "NO"
 
@@ -560,7 +601,7 @@ migrate_content_sandpit:
   variables:
     DXB_MARKET_ID: "SANDPIT"
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       when: never
 
 deploy_gatsby_cloud_sandpit:
@@ -570,7 +611,7 @@ deploy_gatsby_cloud_sandpit:
   variables:
     DXB_MARKET_ID: "SANDPIT"
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       when: never
 
 migrate_content_blueprint:
@@ -578,7 +619,7 @@ migrate_content_blueprint:
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       when: never
 
 deploy_gatsby_cloud_blueprint:
@@ -588,7 +629,7 @@ deploy_gatsby_cloud_blueprint:
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
   rules:
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       when: never
 ##############################################################
 # Market specific migration and deploy jobs end here
