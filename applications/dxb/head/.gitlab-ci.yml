@@ -298,7 +298,7 @@ lighthouseci_scan_head:
     - |
       apt-get update
       apt-get install -y jq
-      DXB_MARKET_BUILD_HOOK=$($DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
+      DXB_MARKET_BUILD_HOOK=$(echo $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
 ##############################################################
