@@ -36,8 +36,8 @@ build_contentful-default-values:
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/contentful-tag-utility/**/*
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
@@ -52,8 +52,8 @@ package_contentful-default-values:
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/contentful-tag-utility/**/*
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
   variables:
     FUNCTION_NAME: "contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
@@ -70,10 +70,10 @@ deploy_contentful-default-values:
         - applications/dxb/libraries/contentful-tag-utility/**/*
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
-    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+    - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
