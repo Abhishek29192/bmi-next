@@ -1,7 +1,14 @@
 test_head:
   extends: .test_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/head/**/*
+        - components/**/*
+        - libraries/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -15,17 +22,26 @@ test_head:
 test_mr_coverage_head:
   extends: .test_mr_coverage_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/head/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
 
-build_head_mr:
+compile_head_mr:
   extends: .compile_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' || $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'pre-production') || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - applications/dxb/head/**/*
+        - components/**/*
+        - libraries/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
         - components/**/*
@@ -47,11 +63,10 @@ wait_until_head_deployed_to_gatsby:
   needs: []
   cache: {}
   timeout: 15m
-  before_script:
-    - apt-get update
-    - apt-get install -y jq
   script:
     - |
+      apt-get update
+      apt-get install -y jq
       commit_time=$(date -u +%s --date=$(git show -s --format=%cd --date=iso-strict $CI_COMMIT_SHA))
       while true; do
         notes=$(curl --header "PRIVATE-TOKEN: ${NETLIFY_GITLAB_TOKEN}" -H "Content-Type: application/json" \
@@ -239,38 +254,29 @@ lighthouseci_scan_head:
 #   DXB_MARKET_ID: NO
 ############################################################################
 .migrate_content:
+  stage: pre deploy
   variables:
     DXB_MARKET_ID: "" # Two letter market ID  -i.e. NO
-  stage: pre deploy
+    PROJECT_RELATIVE_PATH: projects/dxb
+  needs:
+    - job: install_yarn
+      optional: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
-  before_script:
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        SOURCE_BRANCH: pre-production
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        SOURCE_BRANCH: production
+        DXB_MIGRATION_CREDENTIALS: $DXB_MIGRATION_CREDENTIALS_PROD
+  script:
     - |
       apt-get update
       apt-get install -y jq
-
-      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        SOURCE_BRANCH=master
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_QA
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        SOURCE_BRANCH=pre-production
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PREPROD
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        SOURCE_BRANCH=production
-        DXB_MIGRATION_CREDENTIALS=$DXB_MIGRATION_CREDENTIALS_PROD
-      fi
-
-      export PROJECT_RELATIVE_PATH=projects/dxb
       export MANAGEMENT_ACCESS_TOKEN=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
       export SPACE_ID=$(cat $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
-  script:
-    - yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
+      yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
 
 .deploy_gatsby_cloud:
   image: !reference [.node-full-image, image]
@@ -278,28 +284,17 @@ lighthouseci_scan_head:
     DXB_MARKET_ID: "" # Market ID (as specified in GitLab CI Vars) - i.e. NO/FR/GROUP
   stage: deploy
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_PROD
   cache: {}
-  before_script:
+  script:
     - |
       apt-get update
       apt-get install -y jq
-
-      if [ "$CI_COMMIT_BRANCH" == "master" ]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_QA
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PREPROD ]]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PREPROD
-      fi
-
-      if [[ "$CI_COMMIT_TAG" =~ $DXB_RELEASE_TAG_FORMAT_PROD ]]; then
-        DXB_BUILD_HOOKS=$DXB_BUILD_HOOKS_PROD
-      fi
-  script:
-    - |
       DXB_MARKET_BUILD_HOOK=$(cat $DXB_BUILD_HOOKS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID]')
       curl -X POST -d {} $DXB_MARKET_BUILD_HOOK
 
@@ -309,9 +304,13 @@ lighthouseci_scan_head:
 
 migrate_content_norway:
   extends: .migrate_content
-  needs:
-    - job: install_yarn
-      optional: true
+  rules:
+    - !reference [.migrate_content, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
   variables:
     DXB_MARKET_ID: "NO"
   artifacts:
@@ -324,19 +323,20 @@ deploy_gatsby_cloud_norway:
   extends: .deploy_gatsby_cloud
   needs:
     - migrate_content_norway
+  rules:
+    - !reference [.deploy_gatsby_cloud, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - libraries/migrate/projects/dxb/**/*
+      variables:
+        DXB_BUILD_HOOKS: $DXB_BUILD_HOOKS_QA
   variables:
     DXB_MARKET_ID: "NO"
 
 migrate_content_italy:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "IT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Italy is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_italy:
   extends: .deploy_gatsby_cloud
@@ -344,21 +344,11 @@ deploy_gatsby_cloud_italy:
     - migrate_content_italy
   variables:
     DXB_MARKET_ID: "IT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Italy is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_finland:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "FI"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Finland is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_finland:
   extends: .deploy_gatsby_cloud
@@ -366,10 +356,6 @@ deploy_gatsby_cloud_finland:
     - migrate_content_finland
   variables:
     DXB_MARKET_ID: "FI"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Finland is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_france:
   extends: .migrate_content
@@ -378,10 +364,6 @@ migrate_content_france:
       optional: true
   variables:
     DXB_MARKET_ID: "FR"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as France is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_france:
   extends: .deploy_gatsby_cloud
@@ -389,21 +371,11 @@ deploy_gatsby_cloud_france:
     - migrate_content_france
   variables:
     DXB_MARKET_ID: "FR"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as France is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_germany:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "DE"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Germany is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_germany:
   extends: .deploy_gatsby_cloud
@@ -411,21 +383,11 @@ deploy_gatsby_cloud_germany:
     - migrate_content_germany
   variables:
     DXB_MARKET_ID: "DE"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Germany is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_austria:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "AT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Austria is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_austria:
   extends: .deploy_gatsby_cloud
@@ -433,21 +395,11 @@ deploy_gatsby_cloud_austria:
     - migrate_content_austria
   variables:
     DXB_MARKET_ID: "AT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Austria is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_netherlands:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "NL"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Netherlands is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_netherlands:
   extends: .deploy_gatsby_cloud
@@ -455,21 +407,11 @@ deploy_gatsby_cloud_netherlands:
     - migrate_content_netherlands
   variables:
     DXB_MARKET_ID: "NL"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Netherlands is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_unitedkingdom:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "UK"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_unitedkingdom:
   extends: .deploy_gatsby_cloud
@@ -477,21 +419,11 @@ deploy_gatsby_cloud_unitedkingdom:
     - migrate_content_unitedkingdom
   variables:
     DXB_MARKET_ID: "UK"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_southafrica:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "ZA"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_southafrica:
   extends: .deploy_gatsby_cloud
@@ -499,21 +431,11 @@ deploy_gatsby_cloud_southafrica:
     - migrate_content_southafrica
   variables:
     DXB_MARKET_ID: "ZA"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_turkey:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "TR"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_turkey:
   extends: .deploy_gatsby_cloud
@@ -521,21 +443,11 @@ deploy_gatsby_cloud_turkey:
     - migrate_content_turkey
   variables:
     DXB_MARKET_ID: "TR"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as UK is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_spain:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "ES"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ES is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_spain:
   extends: .deploy_gatsby_cloud
@@ -543,21 +455,11 @@ deploy_gatsby_cloud_spain:
     - migrate_content_spain
   variables:
     DXB_MARKET_ID: "ES"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ES is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_portugal:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "PT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as PT is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_portugal:
   extends: .deploy_gatsby_cloud
@@ -565,21 +467,11 @@ deploy_gatsby_cloud_portugal:
     - migrate_content_portugal
   variables:
     DXB_MARKET_ID: "PT"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as PT is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_malaysia:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "MY"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as MY is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_malaysia:
   extends: .deploy_gatsby_cloud
@@ -587,21 +479,11 @@ deploy_gatsby_cloud_malaysia:
     - migrate_content_malaysia
   variables:
     DXB_MARKET_ID: "MY"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as MY is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_belgium_nl:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "BE"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as BE is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_belgium_nl:
   extends: .deploy_gatsby_cloud
@@ -609,10 +491,6 @@ deploy_gatsby_cloud_belgium_nl:
     - migrate_content_belgium_nl
   variables:
     DXB_MARKET_ID: "BE"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as BE is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_romania:
   extends: .migrate_content
@@ -660,14 +538,8 @@ deploy_gatsby_cloud_indonesia:
 
 migrate_content_group:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "GROUP"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Group is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_group:
   extends: .deploy_gatsby_cloud
@@ -675,24 +547,17 @@ deploy_gatsby_cloud_group:
     - migrate_content_group
   variables:
     DXB_MARKET_ID: "GROUP"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as Group is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_sandpit:
   extends: .migrate_content
   needs:
-    - install_yarn
+    - job: install_yarn
+      optional: true
   variables:
     DXB_MARKET_ID: "SANDPIT"
   rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      when: never
 
 deploy_gatsby_cloud_sandpit:
   extends: .deploy_gatsby_cloud
@@ -701,26 +566,16 @@ deploy_gatsby_cloud_sandpit:
   variables:
     DXB_MARKET_ID: "SANDPIT"
   rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      when: never
 
 migrate_content_blueprint:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
   rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      when: never
 
 deploy_gatsby_cloud_blueprint:
   extends: .deploy_gatsby_cloud
@@ -729,12 +584,8 @@ deploy_gatsby_cloud_blueprint:
   variables:
     DXB_MARKET_ID: "BLUEPRINT"
   rules:
-    # Only trigger for PROD tags
-    # Gitlab CI/CD does not currently support pattern matching using a regex in
-    # a variable. see https://gitlab.com/gitlab-org/gitlab/-/issues/35438
-    - if: '$CI_COMMIT_TAG =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/'
-      changes:
-        - libraries/migrate/projects/dxb/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      when: never
 ##############################################################
 # Market specific migration and deploy jobs end here
 ##############################################################

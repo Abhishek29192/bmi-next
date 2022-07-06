@@ -10,9 +10,8 @@ package_gcp-intouch-cron-incomplete-reminder:
     FUNCTION_NAME: pubsub-cron-incomplete-reminder
     ROOT_DIR: applications/intouch/functions/gcp-cron-incomplete-reminder
   needs:
-    - build_gcp-intouch-cron-incomplete-reminder
-  dependencies:
-    - build_gcp-intouch-cron-incomplete-reminder
+    - job: build_gcp-intouch-cron-incomplete-reminder
+      artifacts: true
 
 # Deploy to BMI environments
 deploy_gcp-intouch-cron-incomplete-reminder_bmi:
@@ -21,6 +20,5 @@ deploy_gcp-intouch-cron-incomplete-reminder_bmi:
     FUNCTION_NAME: pubsub-cron-incomplete-reminder
     ROOT_DIR: applications/intouch/functions/gcp-cron-incomplete-reminder
   needs:
-    - package_gcp-intouch-cron-incomplete-reminder
-  dependencies:
-    - package_gcp-intouch-cron-incomplete-reminder
+    - job: package_gcp-intouch-cron-incomplete-reminder
+      artifacts: true

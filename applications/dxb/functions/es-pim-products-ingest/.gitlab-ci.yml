@@ -6,26 +6,43 @@ test_es-pim-products-ingest:
 
 build_es-pim-products-ingest:
   extends: .build_function_yarn_workspace
+  rules:
+    - !reference [.build_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/es-pim-products-ingest"
     ROOT_DIR: "applications/dxb/functions/es-pim-products-ingest"
 
 package_es-pim-products-ingest:
   extends: .package_function_yarn_workspace
+  rules:
+    - !reference [.package_function_yarn_workspace, rules]
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   needs:
-    - build_es-pim-products-ingest
-  dependencies:
-    - build_es-pim-products-ingest
+    - job: build_es-pim-products-ingest
+      artifacts: true
   variables:
     FUNCTION_NAME: es-pim-products-ingest
     ROOT_DIR: applications/dxb/functions/es-pim-products-ingest
 
 deploy_es-pim-products-ingest:
   extends: .deploy_function_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes: !reference [.run_for_changes_on_main, rules, changes]
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   needs:
-    - package_es-pim-products-ingest
-  dependencies:
-    - package_es-pim-products-ingest
+    - job: package_es-pim-products-ingest
+      artifacts: true
   variables:
     FUNCTION_NAME: es-pim-products-ingest
     ROOT_DIR: applications/dxb/functions/es-pim-products-ingest

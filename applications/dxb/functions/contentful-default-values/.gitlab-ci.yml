@@ -1,7 +1,13 @@
 test_contentful-default-values:
   extends: .test_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - jest/**/*
@@ -10,41 +16,36 @@ test_contentful-default-values:
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/functions/contentful-default-values"
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main'))"
-      changes:
-        - $ROOT_DIR/**/*
-        - jest/**/*
-        - yarn.lock
-        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 build_contentful-default-values:
   extends: .build_function_yarn_workspace
   rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     WORKSPACE: "@bmi/contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
-  rules:
-    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master' || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'main' || ($CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'master' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME != 'main')) || ($CI_PIPELINE_SOURCE == 'push' && ($CI_COMMIT_BRANCH == 'master' || $CI_COMMIT_BRANCH == 'main')) || $CI_COMMIT_TAG"
-      changes:
-        - $ROOT_DIR/**/*
-        - applications/dxb/libraries/contentful-tag-utility/**/*
 
 package_contentful-default-values:
   extends: .package_function_yarn_workspace
   needs:
-    - build_contentful-default-values
-  dependencies:
-    - build_contentful-default-values
+    - job: build_contentful-default-values
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/contentful-tag-utility/**/*
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
   variables:
     FUNCTION_NAME: "contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
@@ -52,14 +53,21 @@ package_contentful-default-values:
 deploy_contentful-default-values:
   extends: .deploy_function_yarn_workspace
   needs:
-    - package_contentful-default-values
-  dependencies:
-    - package_contentful-default-values
+    - job: package_contentful-default-values
+      artifacts: true
   rules:
-    - if: '($CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master") || $CI_COMMIT_TAG'
+    - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
         - applications/dxb/libraries/contentful-tag-utility/**/*
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PREPROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
+    - if: "$CI_COMMIT_TAG =~ /$DXB_RELEASE_TAG_FORMAT_PROD/"
+      variables:
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PROD
   variables:
     FUNCTION_NAME: "contentful-default-values"
     ROOT_DIR: "applications/dxb/functions/contentful-default-values"
