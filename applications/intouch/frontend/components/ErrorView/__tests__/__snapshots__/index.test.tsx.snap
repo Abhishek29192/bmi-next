@@ -75,6 +75,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -387,6 +388,7 @@ exports[`ErrorView component renders correctly with title and message 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -705,6 +707,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                   Contact
                 </a>
                 <a
+                  data-testid="global-external-link"
                   href="https://www.bmigroup.com/no/"
                   rel="noopener noreferrer"
                   target="_blank"

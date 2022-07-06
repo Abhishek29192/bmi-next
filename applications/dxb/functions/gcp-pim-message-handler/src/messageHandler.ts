@@ -24,10 +24,10 @@ const getTopicPublisher = () => {
 };
 
 const publishMessage = async (message: Message) => {
-  const messageBuffer = Buffer.from(JSON.stringify(message));
-
   try {
-    const messageId = await getTopicPublisher().publish(messageBuffer);
+    const messageId = await getTopicPublisher().publishMessage({
+      json: message
+    });
     logger.info({ message: `PUB SUB MESSAGE PUBLISHED: ${messageId}` });
   } catch (error) {
     logger.error({ message: (error as Error).message });

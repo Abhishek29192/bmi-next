@@ -1,29 +1,22 @@
-import React from "react";
 import { LeadBlock, Section, Tabs, Typography } from "@bmi/components";
 import Tab, { TabProps } from "@material-ui/core/Tab";
-import { useSiteContext } from "../../components/Site";
-import withGTM from "../../utils/google-tag-manager";
-import { microCopy } from "../../constants/microCopies";
+import React from "react";
 import AssetsIframe from "../../components/AssetsIframe";
-import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
-import RichText, { RichTextData } from "../../components/RichText";
 import { Data as SDPSpecificationNotesData } from "../../components/ContentfulSpecificationNotes";
+import RichText, { RichTextData } from "../../components/RichText";
+import { useSiteContext } from "../../components/Site";
+import { Data as ContentfulTitleWithContent } from "../../components/TitleWithContent";
+import { microCopy } from "../../constants/microCopies";
 import { System } from "../../types/pim";
+import withGTM from "../../utils/google-tag-manager";
 import AboutLeadBlock from "./aboutLeadBlock";
-import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
-import styles from "./styles/tabLeadBlock.module.scss";
 import DocumentLeadBlock from "./documentsLeadBlock";
-
-export type BimContent = {
-  title: string;
-  description: RichTextData;
-  bimIframeUrl?: string;
-};
+import styles from "./styles/tabLeadBlock.module.scss";
+import TechnicalSpecificationLeadBlock from "./technicalSpecificationLeadBlock";
 
 type Props = {
   system: System;
   aboutLeadBlockGenericContent?: ContentfulTitleWithContent;
-  bimContent?: BimContent;
   specificationNotes?: SDPSpecificationNotesData | null;
   bimDescription?: RichTextData;
 };

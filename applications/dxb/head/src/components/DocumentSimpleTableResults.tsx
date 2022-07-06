@@ -55,7 +55,6 @@ export type Props = {
   page: number;
   documentsPerPage: number;
   headers?: AvailableHeader[];
-  // documentsByAssetType?: [string, (PIMDocument | PIMSystemDocument)[]][];
 };
 
 const GTMButton = withGTM<
@@ -69,8 +68,8 @@ const isLinkDocument = (document: Document): boolean =>
 
 const getDocument = (document: Document, headers: AvailableHeader[]) => {
   const { getMicroCopy } = useSiteContext();
-  const { __typename, id } = document;
-
+  const { __typename, id, title } = document;
+  const uniqueId = `${id}-${title}`.replace(/ /g, "_");
   return headers.map((header) => {
     const key = `${__typename}-body-${header}`;
 
@@ -149,7 +148,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
-              name={id}
+              name={uniqueId}
               maxLimitReachedLabel={getMicroCopy(
                 microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
               )}
@@ -166,7 +165,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
       ) : (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
           <DownloadList.Checkbox
-            name={id}
+            name={uniqueId}
             maxLimitReachedLabel={getMicroCopy(
               microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
             )}
@@ -260,7 +259,7 @@ export const MultipleAssetToFileDownload = ({
             ? generateFilenameByRealFileName(assetFileCountMap, asset, index)
             : generateFileNamebyTitle(
                 assetFileCountMap,
-                asset.title,
+                asset.title || asset.realFileName,
                 asset.extension,
                 index
               )

@@ -1,18 +1,17 @@
-import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import logger from "@bmi-digital/functions-logger";
+import { tagEntity } from "@bmi/contentful-tag-utility";
+import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import {
+  Asset,
   createClient,
   Entry,
-  Asset,
   Environment,
   Space
 } from "contentful-management";
-import { tagEntity } from "@bmi/contentful-tag-utility";
 import {
-  findOwner,
   findMarketRole,
   findMembership,
+  findOwner,
   getMarketName
 } from "./membership";
 
@@ -22,7 +21,7 @@ let spaceCache: Space | undefined;
 const getSpace = async (): Promise<Space> => {
   if (!spaceCache) {
     const client = createClient({
-      accessToken: await getSecret(process.env.MANAGEMENT_ACCESS_TOKEN_SECRET!)
+      accessToken: process.env.MANAGEMENT_ACCESS_TOKEN!
     });
 
     spaceCache = await client.getSpace(process.env.SPACE_ID!);
@@ -41,11 +40,11 @@ const getEnvironment = async (space: Space): Promise<Environment> => {
 };
 
 export const tag: HttpFunction = async (request, response) => {
-  if (!process.env.TAGGER_REQUEST_SECRET) {
+  if (!process.env.TAGGER_REQUEST) {
     logger.error({ message: "Request secret is not set." });
     return response.sendStatus(500);
   }
-  if (!process.env.MANAGEMENT_ACCESS_TOKEN_SECRET) {
+  if (!process.env.MANAGEMENT_ACCESS_TOKEN) {
     logger.error({ message: "Management access token is not set." });
     return response.sendStatus(500);
   }
@@ -64,10 +63,11 @@ export const tag: HttpFunction = async (request, response) => {
     return response.sendStatus(405);
   }
 
-  const reqSecret = await getSecret(process.env.TAGGER_REQUEST_SECRET!);
+  const reqSecret = process.env.TAGGER_REQUEST;
   if (
     reqSecret.length < SECRET_MIN_LENGTH ||
-    request.headers.authorization?.substring("Bearer ".length) !== reqSecret
+    request.headers.authorization?.substring("Bearer ".length) !==
+      process.env.TAGGER_REQUEST
   ) {
     logger.warning({ message: "Authorisation failed." });
     return response.sendStatus(401);

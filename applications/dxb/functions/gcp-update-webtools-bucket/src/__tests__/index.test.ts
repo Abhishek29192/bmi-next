@@ -1,24 +1,18 @@
 /* eslint-disable no-console */
-import fetchMockJest from "fetch-mock-jest";
-import mockConsole from "jest-mock-console";
 import {
   mockRequest,
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
 import { Request, Response } from "express";
+import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 import responses from "./responses.json";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
 const SECRET = "SOME_SECRET";
-const CONTENTFUL_TOKEN = "SOME_TOKEN";
-
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
 
 const save = jest.fn();
 const file = jest.fn().mockReturnValue({ save });
@@ -50,8 +44,8 @@ beforeAll(() => {
 beforeEach(() => {
   process.env = {
     ...oldEnv,
-    WEBTOOLS_UPDATE_REQUEST_SECRET: "WEBTOOLS_UPDATE_REQUEST_SECRET_VALUE",
-    WEBTOOLS_CONTENTFUL_TOKEN_SECRET: "WEBTOOLS_CONTENTFUL_TOKEN_SECRET_VALUE",
+    WEBTOOLS_UPDATE_REQUEST: "SOME_SECRET",
+    WEBTOOLS_CONTENTFUL_TOKEN: "SOME_TOKEN",
     SECRET_MAN_GCP_PROJECT_NAME: "SECRET_MAN_GCP_PROJECT_NAME_VALUE",
     WEBTOOLS_CALCULATOR_BUCKET: "WEBTOOLS_CALCULATOR_BUCKET_VALUE",
     WEBTOOLS_CONTENTFUL_SPACE: "WEBTOOLS_CONTENTFUL_SPACE_VALUE",
@@ -68,10 +62,10 @@ afterAll(() => {
 });
 
 describe("Generating JSON file from WebTools space", () => {
-  it("returns a 500 response when WEBTOOLS_CONTENTFUL_TOKEN_SECRET is not set", async () => {
+  it("returns a 500 response when WEBTOOLS_CONTENTFUL_TOKEN is not set", async () => {
     const originalWebtoolsContentfulTokenSecret =
-      process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET;
-    delete process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET;
+      process.env.WEBTOOLS_CONTENTFUL_TOKEN;
+    delete process.env.WEBTOOLS_CONTENTFUL_TOKEN;
 
     const req = mockRequest(
       "GET",
@@ -91,14 +85,14 @@ describe("Generating JSON file from WebTools space", () => {
     expect(save).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.WEBTOOLS_CONTENTFUL_TOKEN_SECRET =
+    process.env.WEBTOOLS_CONTENTFUL_TOKEN =
       originalWebtoolsContentfulTokenSecret;
   });
 
-  it("returns a 500 response when WEBTOOLS_UPDATE_REQUEST_SECRET is not set", async () => {
+  it("returns a 500 response when WEBTOOLS_UPDATE_REQUEST is not set", async () => {
     const originalWebtoolsUpdateRequestSecret =
-      process.env.WEBTOOLS_UPDATE_REQUEST_SECRET;
-    delete process.env.WEBTOOLS_UPDATE_REQUEST_SECRET;
+      process.env.WEBTOOLS_UPDATE_REQUEST;
+    delete process.env.WEBTOOLS_UPDATE_REQUEST;
 
     const req = mockRequest(
       "GET",
@@ -118,13 +112,10 @@ describe("Generating JSON file from WebTools space", () => {
     expect(save).not.toHaveBeenCalled();
     expect(res.sendStatus).toBeCalledWith(500);
 
-    process.env.WEBTOOLS_UPDATE_REQUEST_SECRET =
-      originalWebtoolsUpdateRequestSecret;
+    process.env.WEBTOOLS_UPDATE_REQUEST = originalWebtoolsUpdateRequestSecret;
   });
 
   it("makes calls to Contentful and creates the transformed data file", async () => {
-    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
-
     responses.forEach(([body, { status }]) => {
       fetchMock.postOnce(() => true, {
         body: JSON.stringify(body),
@@ -168,8 +159,6 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("failes with the wrong secret", async () => {
-    getSecret.mockResolvedValueOnce(SECRET);
-
     const req = mockRequest(
       "GET",
       { authorization: `Bearer ${SECRET + "incorrect_value"}` },
@@ -188,8 +177,6 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("retries when getting 429", async () => {
-    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
-
     const [firstResponse, ...rest] = responses;
 
     [[{}, { status: 429 }], firstResponse, ...rest].forEach(
@@ -227,8 +214,6 @@ describe("Generating JSON file from WebTools space", () => {
   });
 
   it("errors after 6 retries when getting 429", async () => {
-    getSecret.mockResolvedValueOnce(SECRET).mockResolvedValue(CONTENTFUL_TOKEN);
-
     mockResponses(fetchMock, {
       url: `https://graphql.contentful.com/content/v1/spaces/${process.env.WEBTOOLS_CONTENTFUL_SPACE}/environments/${process.env.WEBTOOLS_CONTENTFUL_ENVIRONMENT}`,
       method: "POST",
@@ -276,10 +261,6 @@ describe("Generating JSON file from WebTools space", () => {
   }, 20000);
 
   it("throws when getting error other than 429", async () => {
-    getSecret
-      .mockResolvedValueOnce(SECRET)
-      .mockResolvedValueOnce(CONTENTFUL_TOKEN);
-
     fetchMock.postOnce(() => true, {
       body: JSON.stringify({ error: "details about the error" }),
       status: 400,
@@ -320,48 +301,8 @@ describe("Generating JSON file from WebTools space", () => {
     expect(res.send).toBeCalledWith("");
   });
 
-  it("fails if getSecret throws an error for request secret", async () => {
-    getSecret.mockRejectedValueOnce(new Error("Expected error"));
-
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
-
-    const res = mockResponse();
-
-    await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith("Internal Server Error");
-  });
-
-  it("fails if getSecret throws an error for Contentful token", async () => {
-    getSecret
-      .mockResolvedValueOnce(SECRET)
-      .mockRejectedValueOnce(new Error("Expected error"));
-
-    const req = mockRequest(
-      "GET",
-      { authorization: `Bearer ${SECRET}` },
-      "/",
-      {}
-    );
-
-    const res = mockResponse();
-
-    await handleRequest(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.send).toHaveBeenCalledWith("Internal Server Error");
-  });
-
   it("fails if bucket isn't provided", async () => {
     delete process.env.WEBTOOLS_CALCULATOR_BUCKET;
-
-    getSecret.mockResolvedValueOnce(SECRET);
 
     const res = mockResponse();
 

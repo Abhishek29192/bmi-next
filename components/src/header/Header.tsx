@@ -434,6 +434,7 @@ const Header = ({
                 <Button
                   accessibilityLabel={basketLabel}
                   className={classnames(styles["basket-button"])}
+                  component="a"
                   variant={!sizes.length ? "text" : "contained"}
                   isIconButton
                   onClick={toggleCart}

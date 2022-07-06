@@ -3,7 +3,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React, { useMemo } from "react";
 import { Data as AssetTypeData } from "../types/AssetType";
 import { ProductDocument } from "../types/pim";
-import groupBy from "../utils/groupBy";
+import { groupDistinctBy } from "../utils/product-filters";
 import fileIconsMap from "./FileIconsMap";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
@@ -16,14 +16,12 @@ type Props = {
 };
 
 export const groupDocuments = (
-  documents: readonly ProductDocument[],
-  byAssetType = false
-): [string, ProductDocument[]][] =>
-  Object.entries(
-    groupBy(documents, (document) =>
-      byAssetType ? document.assetType.pimCode : document.productBaseCode
-    )
+  documents: readonly ProductDocument[]
+): [string, ProductDocument[]][] => {
+  return Object.entries(
+    groupDistinctBy(documents, "productBaseCode", "realFileName")
   );
+};
 
 export const getCount = (documents: Props["documents"]): number => {
   return groupDocuments(documents).length;
@@ -34,27 +32,35 @@ const DocumentTechnicalTableResults = ({
   page,
   documentsPerPage
 }: Props) => {
-  const documentsByProduct = groupDocuments(documents).slice(
-    (page - 1) * documentsPerPage,
-    page * documentsPerPage
-  );
   const assetTypes = useMemo(
     () =>
       documents
         .map(({ assetType }) => assetType)
         .reduce<AssetTypeData[]>((assetTypes, assetType) => {
-          assetTypes.find((type) => type.id === assetType.id) ||
-            assetTypes.push({
-              __typename: "ContentfulAssetType",
-              code: assetType.pimCode,
-              id: assetType.id,
-              name: assetType.name,
-              pimCode: assetType.pimCode,
-              description: null
-            });
+          if (assetType) {
+            assetTypes.find((type) => type.id === assetType.id) ||
+              assetTypes.push({
+                __typename: "ContentfulAssetType",
+                code: assetType.code,
+                id: assetType.id,
+                name: assetType.name,
+                pimCode: assetType.pimCode,
+                description: null
+              });
+          }
           return assetTypes;
         }, []),
     [documents]
+  );
+
+  const allDocumentsGrouped = useMemo(
+    () => groupDocuments(documents),
+    [documents]
+  );
+
+  const documentsByProduct = allDocumentsGrouped.slice(
+    (page - 1) * documentsPerPage,
+    page * documentsPerPage
   );
 
   if (assetTypes.length === 0) {

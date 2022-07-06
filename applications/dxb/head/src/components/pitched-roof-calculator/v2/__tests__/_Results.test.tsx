@@ -1,22 +1,24 @@
 import { TextField } from "@bmi/components";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { renderToString } from "react-dom/server";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import data from "../../samples/data.json";
 import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
-import openPdf from "../_PDF";
 import Results from "../_Results";
 
 beforeAll(() => {
   mockConsole();
 });
 
+const openPdfMock = jest.fn();
+const getBlobMock = jest.fn();
+
 beforeEach(() => {
   jest.clearAllMocks();
-  global.open = jest.fn();
 });
 
 jest.mock("../../../FormSection", () => {
@@ -26,12 +28,24 @@ jest.mock("../../../FormSection", () => {
     title: React.ReactNode;
     description: React.ReactNode;
     onSuccess: () => void;
+    onFormReady?: (_, form: HTMLElement) => void;
   }) => {
-    return (
+    const ref = useRef<HTMLIFrameElement>(null);
+
+    useEffect(() => {
+      // inserts content into iframe document
+      ref.current.contentDocument.body.innerHTML = renderToString(<HSForm />);
+      props.onFormReady?.({}, ref.current);
+      // tracks submit event of iframe form
+      ref.current.contentDocument.querySelector("form").onsubmit =
+        props.onSuccess;
+    }, []);
+
+    const HSForm = () => (
       <div>
         {props.title}
         {props.description}
-        <form onSubmit={props.onSuccess}>
+        <form>
           <TextField
             name="name"
             variant="outlined"
@@ -44,10 +58,15 @@ jest.mock("../../../FormSection", () => {
             isRequired
             placeholder="email"
           />
-          <button>Submit button</button>
+          <div className="hs-file">
+            <input type="file" name="file" />
+          </div>
+          <button id="submit-button">Submit button</button>
         </form>
       </div>
     );
+
+    return <iframe ref={ref} title="HubSpot Form" />;
   };
 
   return {
@@ -70,9 +89,12 @@ jest.mock("../subcomponents/quantity-table/QuantityTable", () => {
 
 jest.mock("../_PDF", () => ({
   __esModule: true,
-  default: jest.fn()
+  default: jest.fn(),
+  createPdf: () => ({
+    getBlob: getBlobMock,
+    open: openPdfMock
+  })
 }));
-global.open = jest.fn();
 
 const resultsProps = {
   measurements: {
@@ -307,6 +329,14 @@ const resultsProps = {
         externalProductCode: "5555550",
         image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
         category: "accessories"
+      },
+      {
+        code: "304200051_M_Glue_290ml_grey",
+        name: "M_Glue_290ml",
+        externalProductCode: "51531703",
+        image: "893ed88a9339cf3c629e614a923f7c1c.jpg",
+        category: "sealing",
+        packSize: 1
       }
     ],
     eaveAccessories: [
@@ -323,28 +353,28 @@ const resultsProps = {
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Clips",
       externalProductCode: "113456781",
-      category: "accessories"
+      category: "fixings"
     },
     ridgeAndHipScrew: {
       code: "ridgeAndHipScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
-      category: "accessories"
+      category: "fixings"
     },
     longScrew: {
       code: "longScrew",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Long Screw",
       externalProductCode: "113456783",
-      category: "accessories"
+      category: "fixings"
     },
     screw: {
       code: "screw",
       image: "f4420511632ec8f82eb7b56aff3a072b.jpg",
       name: "Screw",
       externalProductCode: "113456784",
-      category: "accessories"
+      category: "fixings"
     },
     stormBracket: {
       code: "stormBracket",
@@ -437,9 +467,7 @@ const resultsProps = {
     ridge: "46035761",
     ventilation: ["100456781"]
   } as any,
-  underlay: {
-    underlay: "26583450"
-  } as any,
+  underlay: data.underlays[0],
   guttering: {
     guttering: "Test Guttering",
     gutteringVariant: "4391",
@@ -453,16 +481,6 @@ const resultsProps = {
 };
 
 describe("PitchedRoofCalculator Results component", () => {
-  it("renders correctly", () => {
-    const { container } = render(
-      <MicroCopy.Provider values={en}>
-        <Results {...resultsProps} />
-      </MicroCopy.Provider>
-    );
-
-    expect(container).toMatchSnapshot();
-  });
-
   it("renders with debugging mode on", () => {
     const { container } = render(
       <MicroCopy.Provider values={en}>
@@ -513,20 +531,107 @@ describe("PitchedRoofCalculator Results component", () => {
     expect(container).toMatchSnapshot();
   });
 
-  it("opens PDF file", async () => {
+  it("opens PDF report", async () => {
     render(
       <MicroCopy.Provider values={en}>
         <Results {...resultsProps} />
       </MicroCopy.Provider>
     );
 
-    const emailInput = screen.getByPlaceholderText("email");
+    const hsForm = screen.getByTitle<HTMLIFrameElement>("HubSpot Form");
+    const emailInput =
+      hsForm.contentDocument.querySelector("input[name=email]");
     fireEvent.change(emailInput, { target: { value: "test@test.test" } });
 
-    const nameInput = screen.getByPlaceholderText("name");
+    const nameInput = hsForm.contentDocument.querySelector("input[name=name]");
     fireEvent.change(nameInput, { target: { value: "Test Name" } });
 
-    fireEvent.click(screen.getByText("Submit button"));
-    waitFor(() => expect(openPdf).toHaveBeenCalledTimes(1));
+    fireEvent.click(hsForm.contentDocument.getElementById("submit-button"));
+    waitFor(() => expect(openPdfMock).toHaveBeenCalledTimes(1));
+  });
+
+  it("inserts PDF report into form", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    waitFor(() => expect(getBlobMock).toBeCalledTimes(1));
+  });
+
+  it("renders without final report if ridgeOptions are empty", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results
+          {...resultsProps}
+          variant={{ ...resultsProps.variant, ridgeOptions: [] }}
+        />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.categories.tiles")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.fixings")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.sealing")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.ventilation")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.accessories")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders without final report if underlay is empty", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} underlays={[]} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.queryByText("MC: results.categories.tiles")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.fixings")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.sealing")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.ventilation")
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("MC: results.categories.accessories")
+    ).not.toBeInTheDocument();
+  });
+
+  it("renders with final report", () => {
+    render(
+      <MicroCopy.Provider values={en}>
+        <Results {...resultsProps} />
+      </MicroCopy.Provider>
+    );
+
+    expect(
+      screen.getByText("MC: results.categories.tiles")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.fixings")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.sealing")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.ventilation")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("MC: results.categories.accessories")
+    ).toBeInTheDocument();
   });
 });

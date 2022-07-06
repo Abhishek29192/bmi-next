@@ -1,4 +1,3 @@
-import { Link as GatsbyLink } from "gatsby";
 import {
   AnchorLink,
   Filter,
@@ -6,12 +5,14 @@ import {
   OverviewCard,
   OverviewCardProps
 } from "@bmi/components";
-import React from "react";
 import { Product } from "@bmi/pim-types";
-import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
+import { Link as GatsbyLink } from "gatsby";
+import React from "react";
 import { iconMap } from "../../../components/Icon";
-import { getPathWithCountryCode } from "../../../utils/path";
+import { getSearchParams } from "../../../utils/filters";
+import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../../../utils/path";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
@@ -42,10 +43,10 @@ export const renderProducts = (
     const brandLogo = iconMap[brandLogoCode];
     const mainImage = variant.mainImage;
     const product: Product = variant.baseProduct;
-    const productUrl = getPathWithCountryCode(
+    const productUrl = `${getPathWithCountryCode(
       countryCode,
       pageContext.variantCodeToPathMap[variant.code]
-    );
+    )}${getSearchParams()}`;
     const subTitle = variant.subTitle || "";
     const moreOptionsAvailable =
       variant.all_variants?.length > 1 &&

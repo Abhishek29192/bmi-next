@@ -37,6 +37,7 @@ export const microCopy = {
   TILE_OPTIONS_RIDGE_TITLE: "tileOptions.ridge.title",
   TILE_OPTIONS_RIDGE_HELP: "tileOptions.ridge.help",
   TILE_OPTIONS_VENTILATION_HOOD_TITLE: "tileOptions.ventilationHood.title",
+  TILE_OPTIONS_VENTILATION_HOOD_HELP: "tileOptions.ventilationHood.help",
   TILE_OPTIONS_VENTILATION_HOOD_NONE_LABEL:
     "tileOptions.ventilationHood.noneLabel",
   UNDERLAY_SELECTION_TITLE: "underlaySelection.title",

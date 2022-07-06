@@ -19,5 +19,6 @@
   "importCompleted": "Import completed",
   "submit": "Submit",
   "uploadFile": "Upload files",
-  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv"
+  "uploadFileText": "Please upload thiese files: {market}-accounts.csv, {market}-companies.csv, {market}-addresses.csv, {market}-members.csv, {market}-owners.csv",
+  "importFailed": "Error occurred"
 }

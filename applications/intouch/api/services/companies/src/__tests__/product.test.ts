@@ -1,71 +1,52 @@
 import {
   getDbPool,
   actAs,
-  curryContext,
-  insertOne as dbInsertOne,
   PERMISSION_DENIED,
-  RLS_ERROR
+  RLS_ERROR,
+  initDb
 } from "../test-utils/db";
 
 let pool;
-
-const initDb = async (
-  pool,
-  client,
-  accountRole = "INSTALLER",
-  adminRole = "SUPER_ADMIN"
-) => {
-  const context = {
-    pool,
-    client,
-    cleanupBucket: {}
-  };
-  const insertOne = curryContext(context, dbInsertOne);
-  const market = await insertOne("market", {
-    domain: "ee",
-    language: "da"
-  });
-
-  const otherMarket = await insertOne("market", {
-    domain: "ww",
-    language: "pt"
-  });
-
-  const account = await insertOne("account", {
-    role: accountRole,
-    email: "somemail@email.com",
-    market_id: market.id
-  });
-
-  const admin = await insertOne("account", {
-    role: adminRole,
-    email: "someothermail@email.com",
-    market_id: market.id
-  });
-
-  return { insertOne, account, admin, market, otherMarket, context };
-};
+let client;
 
 describe("Products", () => {
   beforeAll(async () => {
     pool = await getDbPool();
   });
 
+  beforeEach(async () => {
+    client = await pool.connect();
+    await client.query("BEGIN");
+  });
+
   afterAll(async () => {
     await pool.end();
   });
 
+  afterEach(async () => {
+    await client.query("ROLLBACK");
+    client.release();
+  });
+
   describe("Super Admin", () => {
     it("should be able to insert and read products", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { superAdmin, market, dbInsertOne } = await initDb(pool, client);
 
-      try {
-        const { admin, market, insertOne } = await initDb(pool, client);
+      await actAs(client, superAdmin);
 
-        await actAs(client, admin);
+      const product = await dbInsertOne("product", {
+        name: "Name",
+        market_id: market.id,
+        technology: "PITCHED",
+        bmi_ref: "test_bmi_ref",
+        maximum_validity_years: 1,
+        published: true,
+        brand: "test_brand",
+        family: "test_family"
+      });
 
-        const product = await insertOne("product", {
+      expect(product).toEqual(
+        expect.objectContaining({
           name: "Name",
           market_id: market.id,
           technology: "PITCHED",
@@ -74,64 +55,41 @@ describe("Products", () => {
           published: true,
           brand: "test_brand",
           family: "test_family"
-        });
-
-        expect(product).not.toBeNull();
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+        })
+      );
     });
   });
 
   describe("Market Admin", () => {
     it("should be able to insert and read products in his market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
+      const { marketAdmin, market, dbInsertOne } = await initDb(pool, client);
 
-      try {
-        const { admin, market, insertOne } = await initDb(
-          pool,
-          client,
-          "INSTALLER",
-          "MARKET_ADMIN"
-        );
+      await actAs(client, marketAdmin);
 
-        await actAs(client, admin);
+      const product = await dbInsertOne("product", {
+        name: "Name",
+        market_id: market.id,
+        technology: "PITCHED",
+        bmi_ref: "test_bmi_ref",
+        maximum_validity_years: 1,
+        published: true,
+        brand: "test_brand",
+        family: "test_family"
+      });
 
-        const product = await insertOne("product", {
-          name: "Name",
-          market_id: market.id,
-          technology: "PITCHED",
-          bmi_ref: "test_bmi_ref",
-          maximum_validity_years: 1,
-          published: true,
-          brand: "test_brand",
-          family: "test_family"
-        });
-
-        expect(product).not.toBeNull();
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
-      }
+      expect(product).not.toBeNull();
     });
 
     it("shouldn't be able to insert and read products in another market", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { admin, insertOne, otherMarket } = await initDb(
+        const { marketAdmin, dbInsertOne, otherMarket } = await initDb(
           pool,
-          client,
-          "INSTALLER",
-          "MARKET_ADMIN"
+          client
         );
 
-        await actAs(client, admin);
+        await actAs(client, marketAdmin);
 
-        await insertOne("product", {
+        await dbInsertOne("product", {
           name: "Name",
           market_id: otherMarket.id,
           technology: "PITCHED",
@@ -143,28 +101,21 @@ describe("Products", () => {
         });
       } catch (error) {
         expect(error.message).toEqual(RLS_ERROR("product"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
   });
 
   describe("Company Admin", () => {
     it("shouldn't be able to insert and read products", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { account, market, insertOne } = await initDb(
+        const { companyAdmin, market, dbInsertOne } = await initDb(
           pool,
-          client,
-          "COMPANY_ADMIN"
+          client
         );
 
-        await actAs(client, account);
+        await actAs(client, companyAdmin);
 
-        await insertOne("product", {
+        await dbInsertOne("product", {
           name: "Name",
           market_id: market.id,
           technology: "PITCHED",
@@ -176,24 +127,18 @@ describe("Products", () => {
         });
       } catch (error) {
         expect(error.message).toEqual(PERMISSION_DENIED("product"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
     });
   });
 
   describe("Installer", () => {
     it("shouldn't be able to insert and read products", async () => {
-      const client = await pool.connect();
-      await client.query("BEGIN");
-
       try {
-        const { account, market, insertOne } = await initDb(pool, client);
+        const { account, market, dbInsertOne } = await initDb(pool, client);
 
         await actAs(client, account);
 
-        await insertOne("product", {
+        await dbInsertOne("product", {
           name: "Name",
           market_id: market.id,
           technology: "PITCHED",
@@ -205,10 +150,65 @@ describe("Products", () => {
         });
       } catch (error) {
         expect(error.message).toEqual(PERMISSION_DENIED("product"));
-      } finally {
-        await client.query("ROLLBACK");
-        client.release();
       }
+    });
+  });
+
+  describe("Auditor", () => {
+    it("shouldn't be able to insert product", async () => {
+      try {
+        const { auditor, market, dbInsertOne } = await initDb(pool, client);
+
+        await actAs(client, auditor);
+
+        const product = await dbInsertOne("product", {
+          name: "Name",
+          market_id: market.id,
+          technology: "PITCHED",
+          bmi_ref: "test_bmi_ref",
+          maximum_validity_years: 1,
+          published: true,
+          brand: "test_brand",
+          family: "test_family"
+        });
+
+        expect(product).toBeNull();
+      } catch (error) {
+        expect(error.message).toEqual(PERMISSION_DENIED("product"));
+      }
+    });
+
+    it("should be able to read any products within the same market", async () => {
+      const { auditor } = await initDb(pool, client);
+      await actAs(client, auditor);
+      const { rows } = await client.query("SELECT * FROM product");
+
+      expect(rows.length).toBeGreaterThan(0);
+    });
+
+    it("shouldn't be able to read any products from another market", async () => {
+      const { auditor, superAdmin, dbInsertOne, otherMarket } = await initDb(
+        pool,
+        client
+      );
+      await actAs(client, superAdmin);
+      const product = await dbInsertOne("product", {
+        name: "Name",
+        market_id: otherMarket.id,
+        technology: "PITCHED",
+        bmi_ref: "test_bmi_ref_2",
+        maximum_validity_years: 1,
+        published: true,
+        brand: "test_brand",
+        family: "test_family"
+      });
+      await actAs(client, auditor);
+      const { rows } = await client.query(
+        `SELECT * FROM product WHERE id = $1`,
+        [product.id]
+      );
+
+      expect(rows.length).toBe(0);
     });
   });
 });

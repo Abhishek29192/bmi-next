@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { SVGImport } from "@bmi-digital/svg-import";
 import {
   Button,
   ButtonProps,
@@ -7,20 +7,20 @@ import {
   Section,
   Typography
 } from "@bmi/components";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { SVGImport } from "@bmi-digital/svg-import";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";
+import React, { useEffect, useState } from "react";
 import Link, { Data as LinkData } from "../../components/Link";
-import withGTM from "../../utils/google-tag-manager";
 import { useSiteContext } from "../../components/Site";
+import { microCopy } from "../../constants/microCopies";
 import {
   SYSTEM_CONFIG_QUERY_KEY_PREV_PAGE,
   SYSTEM_CONFIG_QUERY_KEY_REFERER,
   SYSTEM_CONFIG_QUERY_KEY_SELECTED_SYSTEM
 } from "../../constants/queryConstants";
-import { microCopy } from "../../constants/microCopies";
+import withGTM from "../../utils/google-tag-manager";
 
 import styles from "./styles/leadBlockSection.module.scss";
 
@@ -134,7 +134,7 @@ const LeadBlockSection = ({
             )}
           </LeadBlock.Content.Section>
         </LeadBlock.Content>
-        {uniqueSellingPropositions?.length && (
+        {uniqueSellingPropositions && uniqueSellingPropositions.length > 0 && (
           <LeadBlock.Card
             className={styles["card"]}
             theme="pearl"

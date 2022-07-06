@@ -1,40 +1,44 @@
+import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import QuantityTable from "../QuantityTable";
+import QuantityTable, {
+  BuildLargeViewRows,
+  BuildMediumViewRows,
+  BuildSmallViewRows
+} from "../QuantityTable";
 import tileBrown from "./images/tile-brown.jpg";
 
 const rowsTemplate = [
   {
     image: tileBrown,
-    description: "Lorem ipsum dolor sit amet memento mori",
+    description: "First item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
     quantity: 43
   },
   {
     image: tileBrown,
-    description: "Lorem ipsum dolor sit amet memento mori",
+    description: "Second item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
     quantity: 43
   },
   {
     image: tileBrown,
-    description: "Lorem ipsum dolor sit amet memento mori",
+    description: "Third item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
     quantity: 43
   },
   {
     image: tileBrown,
-    description: "Lorem ipsum dolor sit amet memento mori",
+    description: "Fourth item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
     quantity: 43
   },
   {
     image: tileBrown,
-    description: "Lorem ipsum dolor sit amet memento mori",
+    description: "Fifth item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
     quantity: 43
@@ -62,140 +66,124 @@ describe("QuantityTable component", () => {
 });
 
 describe("BuildSmallViewRows component", () => {
+  const onDelete = jest.fn();
+  const onChangeQuantity = jest.fn();
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("onDelete execute correctly", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-    const { container } = render(
-      <QuantityTable
+    render(
+      <BuildSmallViewRows
         onDelete={onDelete}
         onChangeQuantity={onChangeQuantity}
         rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
       />
     );
 
-    const element = container.querySelectorAll(".icon")[0];
-
-    fireEvent.click(element!);
-
-    expect(onDelete).toHaveBeenCalledTimes(1);
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
+    );
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
   });
 
   it("onChangeQuantity execute correctly", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-
-    const { getAllByLabelText } = render(
-      <QuantityTable
+    render(
+      <BuildSmallViewRows
         onDelete={onDelete}
         onChangeQuantity={onChangeQuantity}
         rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
       />
     );
 
-    const element = getAllByLabelText("Up")[0];
-    fireEvent.click(element);
-
+    fireEvent.click(screen.getAllByLabelText("Up")[0]);
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
+    expect(onChangeQuantity).toHaveBeenCalledWith(
+      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0].quantity + 1
+    );
+  });
+});
+
+describe("BuildLargeViewRows component", () => {
+  const onDelete = jest.fn();
+  const onChangeQuantity = jest.fn();
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it("onChangeQuantity execute with correct arguments", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-    const { getAllByLabelText } = render(
-      <QuantityTable
+  it("onDelete execute correctly", () => {
+    render(
+      <BuildLargeViewRows
         onDelete={onDelete}
         onChangeQuantity={onChangeQuantity}
         rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
       />
     );
 
-    const element = getAllByLabelText("Up")[0];
-    fireEvent.click(element);
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
+    );
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
+  });
 
-    expect(onChangeQuantity).toHaveBeenCalledWith("123456789", 44);
+  it("onChangeQuantity execute correctly", () => {
+    render(
+      <BuildLargeViewRows
+        onDelete={onDelete}
+        onChangeQuantity={onChangeQuantity}
+        rows={rowsTemplate}
+      />
+    );
+
+    fireEvent.click(screen.getAllByLabelText("Up")[0]);
+    expect(onChangeQuantity).toHaveBeenCalledTimes(1);
+    expect(onChangeQuantity).toHaveBeenCalledWith(
+      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0].quantity + 1
+    );
   });
 });
 
 describe("BuildMediumViewRows component", () => {
-  it("onDelete execute correctly", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-    const { container } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
-    );
+  const onDelete = jest.fn();
+  const onChangeQuantity = jest.fn();
 
-    const element = container.querySelectorAll(".icon")[5];
-
-    fireEvent.click(element!);
-
-    expect(onDelete).toHaveBeenCalledTimes(1);
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it("onChangeQuantity execute correctly", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-    const { getAllByLabelText } = render(
-      <QuantityTable
+  it("calls onDelete function", () => {
+    render(
+      <BuildMediumViewRows
         onDelete={onDelete}
         onChangeQuantity={onChangeQuantity}
         rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
       />
     );
 
-    const element = getAllByLabelText("Up")[5];
-    fireEvent.click(element);
+    fireEvent.click(
+      screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
+    );
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
+  });
 
+  it("calls onChangeQuantity function", () => {
+    render(
+      <BuildMediumViewRows
+        onDelete={onDelete}
+        onChangeQuantity={onChangeQuantity}
+        rows={rowsTemplate}
+      />
+    );
+
+    fireEvent.click(screen.getAllByLabelText("Up")[0]);
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
-  });
-
-  it("onChangeQuantity execute with correct arguments", () => {
-    const onDelete = jest.fn();
-    const onChangeQuantity = jest.fn();
-    const { getAllByLabelText } = render(
-      <QuantityTable
-        onDelete={onDelete}
-        onChangeQuantity={onChangeQuantity}
-        rows={rowsTemplate}
-        title="Product"
-        packSize="Pack size"
-        externalProductCode="Nobb no"
-        quantity="Quantity"
-        remove="Remove"
-      />
+    expect(onChangeQuantity).toHaveBeenCalledWith(
+      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0].quantity + 1
     );
-
-    const element = getAllByLabelText("Up")[5];
-    fireEvent.click(element);
-
-    expect(onChangeQuantity).toHaveBeenCalledWith("123456789", 44);
   });
 });

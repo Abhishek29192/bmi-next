@@ -15,7 +15,7 @@ import type { EventFunction } from "@google-cloud/functions-framework/build/src/
 import { transformProducts } from "./productTransformer";
 import { transformSystems } from "./systemTransformer";
 
-const { FIRESTORE_ROOT_COLLECTION } = process.env;
+const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
 const db = getFirestore();
 
 // TODO: I think these should start with "/", but was easier for them not to
@@ -197,6 +197,10 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     logger.error({ message: "CATEGORIES are not currently handled" });
     return;
   }
+
+  logger.info({
+    message: `process.env.ENABLE_SAMPLE_ORDERING: ${ENABLE_SAMPLE_ORDERING}`
+  });
 
   switch (type) {
     case "UPDATED": {

@@ -65,7 +65,8 @@
     "COMPANY_ADMIN": "Administrador de la empresa",
     "INSTALLER": "Miembro",
     "MARKET_ADMIN": "Administrador de BMI",
-    "SUPER_ADMIN": "Super Admin"
+    "SUPER_ADMIN": "Super Admin",
+    "AUDITOR": "Auditor"
   },
   "session": {
     "dialog": {

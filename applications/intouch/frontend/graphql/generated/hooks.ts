@@ -1717,8 +1717,13 @@ export const GetGuaranteesReportDocument = gql`
           company {
             name
           }
+          hidden
         }
         requestorAccountId
+        requestorAccount {
+          firstName
+          lastName
+        }
         coverage
         status
         languageCode
@@ -1730,6 +1735,7 @@ export const GetGuaranteesReportDocument = gql`
         startDate
         expiryDate
         signedFileStorageUrl
+        fileStorageId
         systemBySystemBmiRef {
           name
         }
@@ -1881,6 +1887,9 @@ export const GetProjectsReportDocument = gql`
             coverage
             languageCode
             guaranteeReferenceCode
+            guaranteeType {
+              name
+            }
             guaranteeTypes {
               items {
                 name
@@ -1890,6 +1899,7 @@ export const GetProjectsReportDocument = gql`
         }
         buildingOwnerFirstname
         buildingOwnerLastname
+        buildingOwnerCompany
         startDate
         endDate
         hidden
@@ -4624,6 +4634,10 @@ export const GetProjectsDocument = gql`
         technology
         startDate
         endDate
+        buildingOwnerFirstname
+        buildingOwnerLastname
+        buildingOwnerCompany
+        buildingOwnerMail
         siteAddress {
           town
           postcode

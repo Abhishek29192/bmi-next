@@ -133,13 +133,13 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                       href="/en/path/"
                       role="button"
                       tabindex="0"
                     >
                       <img
-                        alt="Shadow Black, Black, Gloss, 6x7x8symbol name"
+                        alt="Shadow Black, Gloss, 6x7x8symbol name"
                         class="header-picture Media Media--contain"
                         src="http://localhost:8000"
                       />
@@ -154,7 +154,7 @@ exports[`RelatedProducts component renders correctly with related products 1`] =
                         <h6
                           class="MuiTypography-root text Typography MuiTypography-h6"
                         >
-                          Shadow Black, Black, Gloss, 6x7x8symbol
+                          Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
                           class="children text"
@@ -334,13 +334,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                       href="/en/path/"
                       role="button"
                       tabindex="0"
                     >
                       <img
-                        alt="Shadow Black, Black, Gloss, 6x7x8symbol name"
+                        alt="Shadow Black, Gloss, 6x7x8symbol name"
                         class="header-picture Media Media--contain"
                         src="http://localhost:8000"
                       />
@@ -355,7 +355,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         <h6
                           class="MuiTypography-root text Typography MuiTypography-h6"
                         >
-                          Shadow Black, Black, Gloss, 6x7x8symbol
+                          Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
                           class="children text"
@@ -397,13 +397,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                       href="/en/path/"
                       role="button"
                       tabindex="0"
                     >
                       <img
-                        alt="Shadow Black, Black, Gloss, 6x7x8symbol name"
+                        alt="Shadow Black, Gloss, 6x7x8symbol name"
                         class="header-picture Media Media--contain"
                         src="http://localhost:8000"
                       />
@@ -418,7 +418,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         <h6
                           class="MuiTypography-root text Typography MuiTypography-h6"
                         >
-                          Shadow Black, Black, Gloss, 6x7x8symbol
+                          Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
                           class="children text"
@@ -453,13 +453,13 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                     <a
                       aria-disabled="false"
                       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
+                      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"name - Shadow Black, Gloss, 6x7x8symbol - MC: pdp.relatedProducts.viewDetails\\",\\"action\\":\\"/en/path/\\"}"
                       href="/en/path/"
                       role="button"
                       tabindex="0"
                     >
                       <img
-                        alt="Shadow Black, Black, Gloss, 6x7x8symbol name"
+                        alt="Shadow Black, Gloss, 6x7x8symbol name"
                         class="header-picture Media Media--contain"
                         src="http://localhost:8000"
                       />
@@ -474,7 +474,7 @@ exports[`RelatedProducts component renders correctly without Brand and External 
                         <h6
                           class="MuiTypography-root text Typography MuiTypography-h6"
                         >
-                          Shadow Black, Black, Gloss, 6x7x8symbol
+                          Shadow Black, Gloss, 6x7x8symbol
                         </h6>
                         <div
                           class="children text"

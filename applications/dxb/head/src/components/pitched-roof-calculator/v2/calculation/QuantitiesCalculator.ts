@@ -1,16 +1,16 @@
 import {
+  Accessory,
+  BaseVariant,
+  GutteringVariant,
   LengthBasedProduct,
   MainTileVariant,
+  ProductCategory,
+  ResultsObject,
   ResultsRow,
   Underlay,
-  VergeOption,
-  VergeTileOption,
-  ProductCategory,
-  BaseVariant,
   VergeMetalFlushOption,
-  Accessory,
-  ResultsObject,
-  GutteringVariant
+  VergeOption,
+  VergeTileOption
 } from "../../types";
 import {
   Face,
@@ -41,23 +41,20 @@ export const calculateBattensForFaces = (
     battens: battenCalc(face.vertices, [face.pitch], mainTileVariant)
   }));
 
-export const convertProductRowToResultsRow = (
-  {
-    name,
-    packSize = 1, // No packs by default
-    baseQuantity,
-    category,
-    externalProductCode,
-    image
-  }: ProductRow,
-  contingency = 0
-): ResultsRow => ({
+export const convertProductRowToResultsRow = ({
+  name,
+  packSize = 1, // No packs by default
+  baseQuantity,
+  category,
+  externalProductCode,
+  image
+}: ProductRow): ResultsRow => ({
   category,
   image,
   description: name,
   externalProductCode,
   packSize: packSize === 1 ? "-" : packSize.toString(),
-  quantity: Math.ceil(Math.ceil(baseQuantity / packSize) * (1 + contingency))
+  quantity: Math.ceil(baseQuantity / packSize)
 });
 
 const LONG_SCREW_PER_METER = 3.2;
@@ -148,7 +145,11 @@ class QuantitiesCalculator {
 
       this.addProduct("tiles", mainTileVariant, faceTiles.quantity);
 
-      if (mainTileVariant.halfTile) {
+      if (
+        mainTileVariant.halfTile &&
+        mainTileVariant.brokenBond &&
+        faceTiles.half.quantity > 0
+      ) {
         this.addProduct(
           "tiles",
           mainTileVariant.halfTile,
@@ -163,16 +164,24 @@ class QuantitiesCalculator {
           vergeOption.right,
           faceTiles.cloakedVerge.right
         );
-        this.addProduct(
-          "tiles",
-          vergeOption.halfLeft,
-          faceTiles.cloakedVerge.halfLeft
-        );
-        this.addProduct(
-          "tiles",
-          vergeOption.halfRight,
-          faceTiles.cloakedVerge.halfRight
-        );
+
+        if (mainTileVariant.brokenBond) {
+          if (faceTiles.cloakedVerge.halfLeft) {
+            this.addProduct(
+              "tiles",
+              vergeOption.halfLeft,
+              faceTiles.cloakedVerge.halfLeft
+            );
+          }
+
+          if (faceTiles.cloakedVerge.halfRight) {
+            this.addProduct(
+              "tiles",
+              vergeOption.halfRight,
+              faceTiles.cloakedVerge.halfRight
+            );
+          }
+        }
       }
     });
   }
@@ -350,16 +359,12 @@ class QuantitiesCalculator {
     const hipTiles = this.getProductQuantity(mainTileVariant.hip.code);
 
     if (mainTileVariant.clip) {
-      this.addProduct(
-        "accessories",
-        mainTileVariant.clip,
-        ridgeTiles + hipTiles
-      );
+      this.addProduct("fixings", mainTileVariant.clip, ridgeTiles + hipTiles);
     }
 
     if (mainTileVariant.ridgeAndHipScrew) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.ridgeAndHipScrew,
         ridgeTiles + hipTiles
       );
@@ -386,12 +391,12 @@ class QuantitiesCalculator {
           LONG_SCREW_PER_METER
       );
 
-      this.addProduct("accessories", mainTileVariant.longScrew, longScrews);
+      this.addProduct("fixings", mainTileVariant.longScrew, longScrews);
     }
 
     if (mainTileVariant.screw) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.screw,
         area
           ? Math.ceil(
@@ -407,14 +412,14 @@ class QuantitiesCalculator {
       ridge.externalProductCode === "25762568"
     ) {
       this.addProduct(
-        "accessories",
+        "fixings",
         mainTileVariant.stormBracket,
         ridgeTiles * STORM_BRACKET_PER_RIDGE_TILE
       );
     }
 
     if (mainTileVariant.finishingKit) {
-      this.addProduct("accessories", mainTileVariant.finishingKit, 1);
+      this.addProduct("fixings", mainTileVariant.finishingKit, 1);
     }
 
     this.addProduct(
@@ -430,7 +435,7 @@ class QuantitiesCalculator {
     lines.eave.forEach(({ length }) =>
       mainTileVariant.eaveAccessories.forEach((accessory) =>
         this.addProduct(
-          "accessories",
+          accessory.category,
           accessory,
           Math.ceil(length / 1000) // These are calculated as one per eave meter
         )
@@ -439,9 +444,14 @@ class QuantitiesCalculator {
   }
 
   addOtherAccessories(accessories: Accessory[]) {
-    accessories.forEach((accessory) =>
-      this.addProduct("accessories", accessory, 0)
-    );
+    accessories.forEach((accessory) => {
+      if (accessory.category === "sealing") {
+        this.addProduct("sealing", accessory, 0);
+        return;
+      }
+
+      this.addProduct("accessories", accessory, 0);
+    });
   }
 
   getProductQuantity(code: string) {
@@ -468,7 +478,10 @@ class QuantitiesCalculator {
       ...otherCurrentProductProps,
       ...product,
       category,
-      baseQuantity: oldBaseQuantity + baseQuantity
+      baseQuantity: Math.ceil(
+        (oldBaseQuantity + baseQuantity) *
+          (category === "tiles" ? 1 + CONTINGENCY : 1)
+      )
     };
 
     this.results.set(product.code, newMapProduct);
@@ -485,9 +498,7 @@ class QuantitiesCalculator {
     };
 
     this.results.forEach((product) =>
-      result[product.category].push(
-        convertProductRowToResultsRow(product, CONTINGENCY)
-      )
+      result[product.category].push(convertProductRowToResultsRow(product))
     );
 
     return result;

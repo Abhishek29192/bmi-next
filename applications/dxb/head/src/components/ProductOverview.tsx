@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Grid,
   MediaData,
@@ -8,19 +7,23 @@ import {
   Thumbnail,
   ThumbnailProps
 } from "@bmi/components";
-import withGTM from "../utils/google-tag-manager";
+import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
-import styles from "./styles/ProductOverview.module.scss";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { useSiteContext } from "./Site";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
+import { useSiteContext } from "./Site";
+import styles from "./styles/ProductOverview.module.scss";
+import { VisualiserContext } from "./Visualiser";
+import tilesSetData from "./visualiser/data/tiles.json";
 
 export type Data = {
   name: string;
   brandCode: string;
   nobb: string | null;
   images: readonly MediaData[];
-  attributes: ProductOverviewPaneProps["attributes"];
+  attributes: ProductOverviewPaneProps["attributes"] | null;
+  variantCode: string;
   isRecaptchaShown?: boolean;
   videos?: MediaData[];
 };
@@ -48,18 +51,52 @@ const ProductOverview = ({
     images,
     attributes,
     isRecaptchaShown,
-    videos = []
+    videos = [],
+    variantCode
   },
   children
 }: Props) => {
   const { getMicroCopy } = useSiteContext();
+  const { open: openVisualiser } = useContext(VisualiserContext);
+
+  const getVisualiserMedia = () => {
+    for (let index = 0; index < tilesSetData.tiles.length; index++) {
+      const tile = tilesSetData.tiles[Number(index)];
+      const tileColor = tile.colours.find(
+        (color) => color.variantCode === variantCode
+      );
+
+      if (tileColor) {
+        return {
+          visualiserParameters: {
+            colourId: tileColor.id,
+            sidingId: 1,
+            tileId: tile.id,
+            viewMode: "roof",
+            caption: getMicroCopy(microCopy.PDP_VISUALISER_SLIDE_CAPTION)
+          },
+          openVisualiser
+        };
+      }
+    }
+  };
+
+  const visualiserMedia = getVisualiserMedia();
+  const media = [...images, ...videos];
+
+  if (visualiserMedia) {
+    media.push({
+      ...visualiserMedia,
+      ...images[0]
+    });
+  }
 
   return (
     <div className={styles["ProductOverview"]}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={8}>
           <MediaGallery
-            media={[...images, ...videos]}
+            media={media}
             thumbnailComponent={(props: ThumbnailProps) => (
               <GTMMediaThumbnail gtm={{ id: "media-gallery1" }} {...props} />
             )}

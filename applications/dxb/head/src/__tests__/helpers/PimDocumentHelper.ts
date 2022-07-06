@@ -53,7 +53,8 @@ export const createPseudoZipDocument = (
       id: "id-3",
       assetType: createAssetType({ pimCode: "TECHNICAL_DRAWINGS" })
     })
-  ]
+  ],
+  ...document
 });
 
 export default createPimDocument;

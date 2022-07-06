@@ -302,7 +302,7 @@
       "REASSIGN_SOLUTION": "Tildel til meg",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
       "edit": "Redigere",
-      "copy": "Copy?"
+      "copy": "Kopiere?"
     },
     "description": "Prosjektbeskrivelse",
     "endDate": "Sluttdato",
@@ -315,7 +315,8 @@
     "loading": "Laster inn prosjektdetaljer",
     "roofArea": "Total tak måling",
     "startDate": "Startdato",
-    "status": "Prosjekt status"
+    "status": "Prosjekt status",
+    "archived": "Arkivert?"
   },
   "report": {
     "guarantee": "Last ned garantirapport",
@@ -388,8 +389,12 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "Vil du kopiere dette prosjektet (prosjektdetaljer og bygningseierdetaljer) for å opprette et nytt?",
+    "copyOf": "Kopi av {{name}}",
+    "title": "Kopier dette prosjektet"
+  },
+  "bool": {
+    "True": "Ekte",
+    "False": "Falsk"
   }
 }

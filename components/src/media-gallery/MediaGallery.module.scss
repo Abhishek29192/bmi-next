@@ -7,6 +7,19 @@
   .image-wrapper {
     position: relative;
   }
+  .visualiser-slide {
+    cursor: pointer;
+    &::after {
+      content: "";
+      background: rgba($color-black, 0.65);
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
 
   .main-image-wrapper {
     overflow: hidden;
@@ -82,14 +95,41 @@
       bottom: 0;
       left: 0;
       background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.75) 0%,
-          rgba(0, 0, 0, 0.75) 40%,
-          rgba(0, 0, 0, 0) 100%
+        0deg,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.75) 40%,
+        rgba(0, 0, 0, 0) 100%
       );
       height: 100px;
       z-index: 0;
     }
+  }
+  .caption-holder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    color: $color-white;
+
+    p {
+      margin-top: 24px;
+    }
+  }
+
+  .cube-holder {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    background: $color-theme-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .thumbnails {
@@ -118,18 +158,18 @@
       &::before {
         left: -1px;
         background: linear-gradient(
-            to right,
-            $color-white 10%,
-            rgba($color-white, 0) 100%
+          to right,
+          $color-white 10%,
+          rgba($color-white, 0) 100%
         );
       }
 
       &::after {
         right: -1px;
         background: linear-gradient(
-            to left,
-            $color-white 10%,
-            rgba($color-white, 0) 100%
+          to left,
+          $color-white 10%,
+          rgba($color-white, 0) 100%
         );
       }
     }

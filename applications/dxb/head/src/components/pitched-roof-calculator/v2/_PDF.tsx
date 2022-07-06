@@ -20,6 +20,10 @@ import { microCopy } from "./constants/microCopy";
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
 const MARGIN_RIGHT = 25;
+const MARGIN_TOP = 35;
+const MARGIN_BOTTOM = 35;
+const CELL_HEIGHT = 50;
+const CELL_TOP_MARGIN = 8;
 
 const Hr = ({
   width,
@@ -232,7 +236,8 @@ const ResultsTableTemplate = ({
 const ResultsTableCellText = styled(Text)({
   fontSize: 10,
   color: "#70706F",
-  bold: ({ header }: { header: any }) => Boolean(header)
+  bold: ({ header }: { header: any }) => Boolean(header),
+  height: CELL_HEIGHT
 });
 
 type ResultsTableTemplateCellProps = {
@@ -254,7 +259,7 @@ const ResultsTableTemplateCell = ({
     <>{children}</>
   ) : (
     <ResultsTableCellText
-      margin={[first ? 14 : 5, 8, last ? 14 : 5, 10]}
+      margin={[first ? 14 : 5, CELL_TOP_MARGIN, last ? 14 : 5, 10]}
       {...rest}
     >
       {children}
@@ -301,45 +306,37 @@ const ResultsTable = ({
   </ResultsTableTemplate>
 );
 
-const shouldAddPageBreak = (
+export const shouldAddPageBreak = (
   currentNode: any,
   followingNodesOnPage: any[],
   nodesOnNextPage: any[],
   previousNodesOnPage: any[]
 ): boolean => {
+  const documentHeight =
+    currentNode.startPosition.pageInnerHeight + MARGIN_TOP + MARGIN_BOTTOM;
+
   if (!previousNodesOnPage.length) {
     // Don't break if it's the first element on the page, otherwise, we'd get a blank page.
     return false;
   }
 
-  if (currentNode.headlineLevel === 0) {
-    // Start important parts on a new page (e.g. new chapter, etc...)
+  if (currentNode.svg) {
+    //Don't break header
+    return false;
+  }
+
+  const elementTopPosition =
+    currentNode.text && currentNode.height === CELL_HEIGHT
+      ? //Decrease margin(Only text node has margin)
+        currentNode.startPosition.top + CELL_HEIGHT - CELL_TOP_MARGIN
+      : currentNode.startPosition.top + CELL_HEIGHT;
+  if (documentHeight < elementTopPosition) {
     return true;
   }
 
   if (!nodesOnNextPage.length) {
     // Don't break if the rest of the content fits on this page (and it's not a headlineLevel 0).
     return false;
-  }
-
-  const fixedElement = 3; // header, footer, and background elements (including container ones).
-
-  if (
-    currentNode.headlineLevel === 1 &&
-    followingNodesOnPage.length <
-      fixedElement +
-        3 /* at least show one more element next to the headline 1 and its underline */
-  ) {
-    return true;
-  }
-
-  if (
-    currentNode.headlineLevel === 2 &&
-    followingNodesOnPage.length <
-      fixedElement +
-        2 /* at least show one more element next to the headline 2 */
-  ) {
-    return true;
   }
 
   return false;
@@ -381,9 +378,9 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
     pageOrientation={"portrait"} // or "landscape"
     pageMargins={[
       MARGIN_LEFT,
-      35 /* header */ + 35 /* header margin */,
+      35 /* header */ + MARGIN_TOP,
       MARGIN_RIGHT,
-      35 /* Bottom (should include footer space) */
+      MARGIN_BOTTOM /* Bottom (should include footer space) */
     ]}
     header={<Header />}
     images={{}}
@@ -404,12 +401,16 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
         contingency: CONTINGENCY_PERCENTAGE_TEXT
       })}
     </Typography>
-    <Typography variant="h5" margin={[0, 25, 0, 10]}>
-      {getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
-    </Typography>
-    <ResultsTable {...{ getMicroCopy }}>
-      {results.tiles.map(mapResultsRow)}
-    </ResultsTable>
+    {results.tiles.length ? (
+      <>
+        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_TITLES)}
+        </Typography>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.tiles.map(mapResultsRow)}
+        </ResultsTable>
+      </>
+    ) : null}
     {results.fixings.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
@@ -420,16 +421,6 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
         </ResultsTable>
       </>
     ) : null}
-    {results.sealing.length ? (
-      <>
-        <Typography variant="h5" margin={[0, 25, 0, 10]}>
-          {getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
-        </Typography>
-        <ResultsTable {...{ getMicroCopy }}>
-          {results.sealing.map(mapResultsRow)}
-        </ResultsTable>
-      </>
-    ) : null}
     {results.ventilation.length ? (
       <>
         <Typography variant="h5" margin={[0, 25, 0, 10]}>
@@ -437,6 +428,16 @@ const PdfDocument = ({ results, area, getMicroCopy }: PdfDocumentProps) => (
         </Typography>
         <ResultsTable {...{ getMicroCopy }}>
           {results.ventilation.map(mapResultsRow)}
+        </ResultsTable>
+      </>
+    ) : null}
+    {results.sealing.length ? (
+      <>
+        <Typography variant="h5" margin={[0, 25, 0, 10]}>
+          {getMicroCopy(microCopy.RESULTS_CATEGORIES_SEALING)}
+        </Typography>
+        <ResultsTable {...{ getMicroCopy }}>
+          {results.sealing.map(mapResultsRow)}
         </ResultsTable>
       </>
     ) : null}
@@ -481,6 +482,7 @@ export const getPDF = (props: PdfDocumentProps) =>
     }
   });
 
-const openPdf = (props: PdfDocumentProps) => getPDF(props).open();
+export const createPdf = (props: PdfDocumentProps) => getPDF(props);
+const openPdf = (props: PdfDocumentProps) => createPdf(props).open();
 
 export default openPdf;

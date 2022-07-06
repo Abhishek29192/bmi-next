@@ -1,11 +1,15 @@
-import { LatLngLiteral } from "@bmi/components";
-import { computeDistanceBetween, MarkerOptionsWithData } from "@bmi/components";
+import {
+  computeDistanceBetween,
+  LatLngLiteral,
+  MarkerOptionsWithData
+} from "@bmi/components";
 import uniqBy from "lodash-es/uniqBy";
 import { ServiceTypeFilter } from "../Service";
 import { Data as ServiceType } from "../ServiceType";
 import {
   DEFAULT_MAP_CENTRE,
   EVENT_CAT_ID_SELECTOR_CARDS,
+  EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN,
   FILTER_RADIUS
 } from "./constants";
 import { Service } from "./index";
@@ -34,7 +38,10 @@ export const getRooferTypes = (
   }, []);
 };
 
-export const createMarker = (selectedRoofer: Service | null) => {
+export const createMarker = (
+  selectedRoofer: Service | null,
+  matches?: boolean
+) => {
   return (service: Service): MarkerOptionsWithData<Service> => ({
     title: service.name,
     position: {
@@ -42,7 +49,8 @@ export const createMarker = (selectedRoofer: Service | null) => {
       lng: service.location.lon
     },
     isActive: selectedRoofer && selectedRoofer.id === service.id,
-    data: service
+    data: service,
+    "data-gtm": JSON.stringify(getResultDataGtm(service, matches, true))
   });
 };
 
@@ -132,7 +140,8 @@ export const filterServices = (
 
 export const getResultDataGtm = (
   service: Service,
-  matches: boolean
+  matches: boolean,
+  isMarker = false
 ): { id: string; label: string; action: string } => {
   const { name, address, certification, serviceTypes, entryType } = service;
   const label = `${name} - ${address}${
@@ -143,7 +152,9 @@ export const getResultDataGtm = (
       : ` - ${entryType}`
   } - selected`;
   return {
-    id: EVENT_CAT_ID_SELECTOR_CARDS,
+    id: isMarker
+      ? EVENT_CAT_ID_SELECTOR_CARDS_MAP_PIN
+      : EVENT_CAT_ID_SELECTOR_CARDS,
     label: label,
     action: "Expanded company details"
   };

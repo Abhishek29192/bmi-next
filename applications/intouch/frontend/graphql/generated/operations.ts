@@ -1500,12 +1500,19 @@ export type GetGuaranteesReportQuery = {
       startDate?: any | null;
       expiryDate?: any | null;
       signedFileStorageUrl?: string | null;
+      fileStorageId?: string | null;
       project?: {
         __typename?: "Project";
         name: string;
         technology: SchemaTypes.Technology;
         roofArea: number;
+        hidden?: boolean | null;
         company?: { __typename?: "Company"; name?: string | null } | null;
+      } | null;
+      requestorAccount?: {
+        __typename?: "Account";
+        firstName?: string | null;
+        lastName?: string | null;
       } | null;
       guaranteeType?: {
         __typename?: "ContentfulGuaranteeType";
@@ -1558,6 +1565,7 @@ export type GetProjectsReportQuery = {
       roofArea: number;
       buildingOwnerFirstname?: string | null;
       buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
       startDate: any;
       endDate: any;
       hidden?: boolean | null;
@@ -1587,6 +1595,10 @@ export type GetProjectsReportQuery = {
           coverage?: SchemaTypes.GuaranteeCoverage | null;
           languageCode?: SchemaTypes.Language | null;
           guaranteeReferenceCode: SchemaTypes.GuaranteeReferenceCode;
+          guaranteeType?: {
+            __typename?: "ContentfulGuaranteeType";
+            name?: string | null;
+          } | null;
           guaranteeTypes?: {
             __typename?: "ContentfulGuaranteeTypeCollection";
             items?: Array<{
@@ -3159,6 +3171,10 @@ export type GetProjectsQuery = {
       technology: SchemaTypes.Technology;
       startDate: any;
       endDate: any;
+      buildingOwnerFirstname?: string | null;
+      buildingOwnerLastname?: string | null;
+      buildingOwnerCompany?: string | null;
+      buildingOwnerMail?: string | null;
       siteAddress?: {
         __typename?: "Address";
         town?: string | null;

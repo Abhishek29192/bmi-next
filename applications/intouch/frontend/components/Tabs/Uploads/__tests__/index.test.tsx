@@ -31,14 +31,22 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 describe("Uploads Components", () => {
   it("render no uploads", () => {
     const project = generateProject();
-    renderWithI18NProvider(<UploadsTab project={project} />);
+    renderWithI18NProvider(
+      <AccountContextWrapper>
+        <UploadsTab project={project} />
+      </AccountContextWrapper>
+    );
     expect(screen.queryByTestId("uploads-item")).toBeFalsy();
     expect(screen.findByLabelText("upload_tab.noContent")).toBeTruthy();
   });
   describe("render correct categories", () => {
     it("MISCELLANEOUS category", () => {
       const project = generateProject();
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       expect(screen.getByTestId("uploads-category")).toHaveTextContent(
         "MISCELLANEOUS"
       );
@@ -71,7 +79,11 @@ describe("Uploads Components", () => {
         }
       });
 
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       const allCategories = screen
         .getAllByTestId("uploads-category")
         .map((category) => category.textContent);
@@ -114,13 +126,21 @@ describe("Uploads Components", () => {
         endDate: "12/12/2022"
       };
 
-      renderWithI18NProvider(<UploadsTab project={defaultProject} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={defaultProject} />
+        </AccountContextWrapper>
+      );
     });
   });
   describe("render correct number of upload", () => {
     it("none", () => {
       const project = generateProject();
-      renderWithI18NProvider(<UploadsTab project={project} />);
+      renderWithI18NProvider(
+        <AccountContextWrapper>
+          <UploadsTab project={project} />
+        </AccountContextWrapper>
+      );
       expect(screen.queryByTestId("uploads-item")).toBeNull();
     });
 
@@ -437,6 +457,18 @@ describe("Uploads Components", () => {
       expect(
         screen.getByText("upload_tab.add_evidence_modal.confirm_label")
       ).not.toBeVisible();
+    });
+    it("should hide upload button when role is auditor", () => {
+      const project = generateProject();
+      renderWithUserProvider(
+        <ApolloProvider>
+          <AccountContextWrapper account={generateAccount({ role: "AUDITOR" })}>
+            <UploadsTab project={project} />
+          </AccountContextWrapper>
+        </ApolloProvider>
+      );
+
+      expect(screen.queryByText("upload_tab.header")).toBeFalsy();
     });
   });
 });

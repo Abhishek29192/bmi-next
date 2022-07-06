@@ -142,7 +142,8 @@ const mapSystemLayers = (system: PimSystem): SystemLayer[] =>
       relatedOptionalProducts: (systemLayer.optionalProducts || []).map(
         (product) => product.code
       ),
-      type: systemLayer.type
+      type: systemLayer.type,
+      shortDescription: systemLayer.shortDescription
     }));
 
 const mapSystemReferences = (system: PimSystem): string[] =>

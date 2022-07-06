@@ -1,17 +1,16 @@
 import { Writable } from "stream";
 import logger from "@bmi-digital/functions-logger";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
-import fetch from "node-fetch";
 import { File, Storage } from "@google-cloud/storage";
 import archiver from "archiver";
+import fetch from "node-fetch";
 import { verifyOrigins } from "./verify";
 
 const {
   GCS_NAME,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- is being used in an optional chain, but eslint isn't detecting it
   DXB_VALID_HOSTS,
-  RECAPTCHA_SECRET_KEY,
+  RECAPTCHA_KEY,
   RECAPTCHA_MINIMUM_SCORE
 } = process.env;
 
@@ -28,9 +27,9 @@ type Document = {
 };
 
 export const download: HttpFunction = async (request, response) => {
-  if (!RECAPTCHA_SECRET_KEY) {
+  if (!RECAPTCHA_KEY) {
     logger.error({
-      message: "RECAPTCHA_SECRET_KEY was not provided"
+      message: "RECAPTCHA_KEY was not provided"
     });
     return response.sendStatus(500);
   }
@@ -91,9 +90,7 @@ export const download: HttpFunction = async (request, response) => {
 
     try {
       const recaptchaResponse = await fetch(
-        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${await getSecret(
-          RECAPTCHA_SECRET_KEY
-        )}&response=${recaptchaToken}`,
+        `https://recaptcha.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_KEY}&response=${recaptchaToken}`,
         { method: "POST" }
       );
       if (!recaptchaResponse.ok) {

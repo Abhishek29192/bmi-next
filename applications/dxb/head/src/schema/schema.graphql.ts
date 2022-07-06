@@ -540,7 +540,7 @@ type ContentfulTeamSection implements Node {
 type ContentfulAssetType implements Node {
   id: ID!
   name: String!
-  code: String
+  code: String!
   description: ContentfulRichText
   pimCode: String
 }
@@ -937,6 +937,7 @@ type ContentfulService implements Node {
   phone: String
   email: String
   website: String
+  websiteLinkAsLabel: Boolean
   fax: String
   serviceTypes: [ContentfulServiceType] @link(from: "serviceTypes___NODE")
   certification: String

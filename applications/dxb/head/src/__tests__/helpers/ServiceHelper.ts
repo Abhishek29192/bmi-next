@@ -19,6 +19,7 @@ const createRoofer = (service?: Partial<Service>): Service => ({
   certification: null,
   summary: "roofer summary",
   distance: 10,
+  websiteLinkAsLabel: false,
   ...service
 });
 

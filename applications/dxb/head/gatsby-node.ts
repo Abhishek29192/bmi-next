@@ -73,7 +73,8 @@ const createProductPages = async (
         context: {
           productCode: product.code,
           siteId: siteId,
-          countryCode
+          countryCode,
+          variantCodeToPathMap
         }
       });
     })

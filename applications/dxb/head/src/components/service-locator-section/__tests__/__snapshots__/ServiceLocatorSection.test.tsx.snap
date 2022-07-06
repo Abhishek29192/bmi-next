@@ -16227,24 +16227,6 @@ exports[`ServiceLocatorSection component with GoogleAutocomplete component shoul
                                   </dd>
                                 </div>
                                 <div
-                                  class="row"
-                                >
-                                  <dt
-                                    class="term"
-                                  >
-                                    <span
-                                      class="MuiTypography-root label Typography MuiTypography-body1"
-                                    >
-                                      MC: global.website
-                                    </span>
-                                  </dt>
-                                  <dd
-                                    class="description"
-                                  >
-                                    null
-                                  </dd>
-                                </div>
-                                <div
                                   class="row, row--cta"
                                 >
                                   <button

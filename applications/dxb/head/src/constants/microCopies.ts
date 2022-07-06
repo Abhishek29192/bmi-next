@@ -104,6 +104,7 @@ export const microCopy = {
   PDP_OVERVIEW_CAN_ADD_OTHER_MESSAGE: "pdp.overview.canAddOtherMessage",
   PDP_OVERVIEW_VARIANT_ATTRIBUTE: "pdp.overview.variantattribute",
   PDP_OVERVIEW_SIZE: "pdp.overview.size",
+  PDP_VISUALISER_SLIDE_CAPTION: "pdp.visualiserSlideCaption",
 
   SDP_SYSTEM_READ_MORE: "sdp.system.readMore",
   SDP_RECOMMENDED_SYSTEMS_TITLE: "sdp.recommendedSystemsTitle",

@@ -1,10 +1,9 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
-import path from "path";
 import fs from "fs";
-import mockConsole from "jest-mock-console";
-import fetchMockJest from "fetch-mock-jest";
-import { when } from "jest-when";
+import path from "path";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
+import fetchMockJest from "fetch-mock-jest";
+import mockConsole from "jest-mock-console";
 
 jest.mock("@bmi-digital/functions-logger");
 
@@ -14,11 +13,6 @@ jest.mock("node-fetch", () => fetchMock);
 const resourcesBasePath = `${path.resolve(__dirname)}/resources`;
 const apiSecret = "api_secret";
 const trigger_secret = "trigger_secret";
-
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
 
 const downloadFile = jest.fn();
 const fileExists = jest.fn();
@@ -91,24 +85,23 @@ describe("When GCP_STORAGE_NAME is not provided", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     process.env.GCP_STORAGE_NAME = gcpStorageName;
   });
 });
 
-describe("When TRIGGER_SECRET is not provided", () => {
+describe("When TRIGGER_CB_SECRET is not provided", () => {
   const validFile = "sources/gcp-download-zip.zip";
   it("throws an error", async () => {
-    const triggerApiSecret = process.env.TRIGGER_SECRET;
-    delete process.env.TRIGGER_SECRET;
+    const triggerApiSecret = process.env.TRIGGER_CB_SECRET;
+    delete process.env.TRIGGER_CB_SECRET;
 
     try {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
-        "TRIGGER_SECRET has not been set"
+        "TRIGGER_CB_SECRET has not been set"
       );
     }
 
@@ -116,24 +109,23 @@ describe("When TRIGGER_SECRET is not provided", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    process.env.TRIGGER_SECRET = triggerApiSecret;
+    process.env.TRIGGER_CB_SECRET = triggerApiSecret;
   });
 });
 
-describe("When TRIGGER_API_KEY_SECRET is not provided", () => {
+describe("When TRIGGER_API_KEY is not provided", () => {
   const validFile = "sources/gcp-download-zip.zip";
   it("throws an error", async () => {
-    const triggerApiKeySecret = process.env.TRIGGER_API_KEY_SECRET;
-    delete process.env.TRIGGER_API_KEY_SECRET;
+    const triggerApiKeySecret = process.env.TRIGGER_API_KEY;
+    delete process.env.TRIGGER_API_KEY;
 
     try {
       await deploy({ name: validFile });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
-        "TRIGGER_API_KEY_SECRET has not been set"
+        "TRIGGER_API_KEY has not been set"
       );
     }
 
@@ -141,9 +133,8 @@ describe("When TRIGGER_API_KEY_SECRET is not provided", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
-    process.env.TRIGGER_API_KEY_SECRET = triggerApiKeySecret;
+    process.env.TRIGGER_API_KEY = triggerApiKeySecret;
   });
 });
 
@@ -157,7 +148,6 @@ describe("When function is called for an invalid file", () => {
     expect(fileExists).toBeCalledTimes(0);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 });
@@ -173,7 +163,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(0);
     expect(filterFunctionMetadata).toBeCalledTimes(0);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -189,7 +178,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(getSecret).toBeCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -201,9 +189,6 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_SECRET)
-      .mockRejectedValue(Error("Expected error"));
 
     await deploy({ name: validFile });
 
@@ -211,7 +196,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -223,12 +207,6 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_SECRET)
-      .mockReturnValue(apiSecret);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
-      .mockRejectedValue(Error("Expected error"));
 
     await deploy({ name: validFile });
 
@@ -236,8 +214,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(0);
   });
 
@@ -249,12 +225,6 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_SECRET)
-      .mockReturnValue(trigger_secret);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
-      .mockReturnValue(apiSecret);
     const triggerName = "gcp-download-zip-trigger";
 
     mockResponses(fetchMock, {
@@ -271,8 +241,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(
       1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,
@@ -300,12 +268,6 @@ describe("When function is called with a valid file", () => {
       function2Metadata,
       function3Metadata
     ]);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_SECRET)
-      .mockReturnValue(trigger_secret);
-    when(getSecret)
-      .calledWith(process.env.TRIGGER_API_KEY_SECRET)
-      .mockReturnValue(apiSecret);
     const triggerName = "gcp-download-zip-trigger";
 
     mockResponses(fetchMock, {
@@ -321,8 +283,6 @@ describe("When function is called with a valid file", () => {
     expect(fileExists).toBeCalledTimes(1);
     expect(downloadFile).toBeCalledTimes(1);
     expect(filterFunctionMetadata).toBeCalledWith(fileContents, validFile);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_SECRET);
-    expect(getSecret).toBeCalledWith(process.env.TRIGGER_API_KEY_SECRET);
     expect(fetchMock).toHaveFetchedTimes(
       1,
       `https://cloudbuild.googleapis.com/v1/projects/${process.env.GCP_PROJECT_NAME}/triggers/${triggerName}:webhook?key=${apiSecret}&secret=${trigger_secret}`,

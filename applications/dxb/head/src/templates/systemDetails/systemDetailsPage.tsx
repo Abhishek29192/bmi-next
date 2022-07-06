@@ -113,7 +113,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
               )}
             />
           </Grid>
-          {system.systemLayers.length && (
+          {system && system.systemLayers && system.systemLayers.length > 0 && (
             <Grid item xs={12} md={12} lg={4}>
               <SystemLayersSection systemLayers={system.systemLayers} />
             </Grid>
@@ -124,6 +124,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         system={system}
         aboutLeadBlockGenericContent={resources?.sdpSidebarItems?.[0]}
         bimDescription={resources?.sdpBimDescription}
+        specificationNotes={resources?.sdpSpecificationNotesCta}
       />
       {system.relatedSystems.length && (
         <RelatedSystems

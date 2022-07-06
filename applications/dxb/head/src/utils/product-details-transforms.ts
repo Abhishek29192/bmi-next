@@ -17,22 +17,45 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
   ]
     .reduce((allValues, value) => {
       if (
-        !allValues.find((v) =>
-          propName === "measurements"
-            ? (value as Measurements).length?.value ===
-                (v as Measurements).length?.value &&
-              (value as Measurements).width?.value ===
-                (v as Measurements).width?.value &&
-              (value as Measurements).length?.value ===
-                (v as Measurements).length?.value &&
-              (value as Measurements).thickness?.value ===
-                (v as Measurements).thickness?.value &&
-              (value as Measurements).volume?.value ===
-                (v as Measurements).volume?.value
-            : v === value
-        )
+        !allValues.find((v) => {
+          if (propName === "measurements") {
+            const valueAsMeasurement = value as Measurements;
+            const vAsMeasurement = v as Measurements;
+            if (
+              vAsMeasurement &&
+              valueAsMeasurement &&
+              vAsMeasurement.label.length > 0 &&
+              valueAsMeasurement.label.length > 0
+            ) {
+              return (
+                valueAsMeasurement.length?.value ===
+                  vAsMeasurement.length?.value &&
+                valueAsMeasurement.width?.value ===
+                  vAsMeasurement.width?.value &&
+                valueAsMeasurement.length?.value ===
+                  vAsMeasurement.length?.value &&
+                valueAsMeasurement.thickness?.value ===
+                  vAsMeasurement.thickness?.value &&
+                valueAsMeasurement.volume?.value ===
+                  vAsMeasurement.volume?.value
+              );
+            } else {
+              return valueAsMeasurement.label.length > 0;
+            }
+          } else {
+            return v === value;
+          }
+        })
       ) {
-        allValues.push(value);
+        if (propName === "measurements") {
+          if ((value as Measurements)?.label?.length > 0) {
+            allValues.push(value);
+          }
+        } else {
+          if (value) {
+            allValues.push(value);
+          }
+        }
       }
       return allValues;
     }, [])
@@ -41,17 +64,20 @@ const getAllValues = (product: Product, propName: keyof RelatedVariant) => {
   return allValuesArray.sort((a, b) => {
     const isMeasurements = propName === "measurements";
     if (isMeasurements) {
-      // sort Measurements object on the same level by string number value
-      return Object.keys(a).reduce((prev, _, index) => {
-        // return the prev result if result has been decided.
-        if (prev !== 0) return prev;
-        // eslint-disable-next-line security/detect-object-injection
-        const valueA = a[Object.keys(a)[index]];
-        // eslint-disable-next-line security/detect-object-injection
-        const valueB = b[Object.keys(a)[index]];
-        if (!valueA || !valueB) return 0;
-        return valueA === valueB ? 0 : valueA < valueB ? -1 : 1;
-      }, 0);
+      const heightValueA = a["height"]?.value || 0;
+      const heightValueB = b["height"]?.value || 0;
+
+      const widthValueA = a["width"]?.value || 0;
+      const widthValueB = b["width"]?.value || 0;
+
+      const lengthValueA = a["length"]?.value || 0;
+      const lengthValueB = b["length"]?.value || 0;
+
+      return (
+        lengthValueA - lengthValueB ||
+        heightValueA - heightValueB ||
+        widthValueA - widthValueB
+      );
     }
     return a < b ? -1 : 1;
   });
@@ -104,7 +130,8 @@ export const getProductAttributes = (
   product: Product,
   countryCode: string,
   options: Options,
-  unavailableMicroCopies: UnavailableMicroCopies
+  unavailableMicroCopies: UnavailableMicroCopies,
+  queryParams = ""
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedTextureFamily = product.textureFamily;
   const allTextureFamilies = getAllValues(product, "textureFamily") as string[];
@@ -256,7 +283,12 @@ export const getProductAttributes = (
     if (!bestMatch) {
       return undefined;
     }
-    const variantPath = bestMatch.path;
+    let variantPath = bestMatch.path;
+    if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
+      variantPath = queryParams.startsWith("?")
+        ? `${variantPath}${queryParams}`
+        : `${variantPath}?${queryParams}`;
+    }
     return getPathWithCountryCode(countryCode, variantPath);
   };
 
@@ -274,13 +306,17 @@ export const getProductAttributes = (
         );
         const isSelected = selectedColour && colour === selectedColour;
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(colour, "colour");
+
         return {
           label: colour,
           isSelected,
-          thumbnail: variant?.thumbnail,
+          thumbnail: variant
+            ? variant.thumbnail
+            : product.masterImages && product.masterImages.length > 0
+            ? product.masterImages[0].thumbnail
+            : null,
           availability: checkColourAvailability(colour),
           ...(!isSelected &&
             allColours.length > 1 &&
@@ -307,10 +343,11 @@ export const getProductAttributes = (
         );
         const isSelected =
           selectedTextureFamily && textureFamily === selectedTextureFamily;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(textureFamily, "textureFamily");
+
         return {
           label: textureFamily,
           isSelected,
@@ -340,10 +377,11 @@ export const getProductAttributes = (
           "measurements"
         );
         const isSelected = key === selectedSize.label;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(key, "measurements");
+
         return {
           label: measurements.label,
           isSelected,
@@ -375,10 +413,11 @@ export const getProductAttributes = (
           (selectedVariantAttribute &&
             selectedVariantAttribute === variantAttribute) ||
           false;
+
         const path = variant
-          ? // eslint-disable-next-line security/detect-object-injection
-            getPathWithCountryCode(countryCode, variant.path)
+          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
           : getUnavailableCTA(variantAttribute, "variantattribute");
+
         return {
           label: variantAttribute,
           isSelected,
@@ -401,17 +440,9 @@ export const getProductAttributes = (
 // TODO: Is there not a function to get a render value of a classification?
 // TODO: Move this into 'product.subTitle' field, just like Elastic search ??
 export const mapClassificationValues = (
-  product: Pick<
-    Product,
-    "colour" | "colourFamily" | "measurements" | "textureFamily"
-  >
+  product: Pick<Product, "colour" | "measurements" | "textureFamily">
 ) => {
-  return [
-    product.colour,
-    product.colourFamily,
-    product.textureFamily,
-    product.measurements?.label
-  ]
+  return [product.colour, product.textureFamily, product.measurements?.label]
     .filter(isDefined)
     .filter((item) => item.trim().length > 0)
     .join(", ");
@@ -426,3 +457,17 @@ export const getYoutubeId = (urlOrCode: string) => {
 
 export const getDefaultPreviewImage = (videoUrl: string) =>
   `https://i.ytimg.com/vi/${getYoutubeId(videoUrl).trim()}/maxresdefault.jpg`;
+
+const generateVariantPathWithQuery = (
+  variant: RelatedVariant,
+  queryParams: string,
+  countryCode: string
+) => {
+  let variantPath = variant.path;
+  if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
+    variantPath = queryParams.startsWith("?")
+      ? `${variantPath}${queryParams}`
+      : `${variantPath}?${queryParams}`;
+  }
+  return getPathWithCountryCode(countryCode, variantPath);
+};

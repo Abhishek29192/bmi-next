@@ -302,7 +302,7 @@
       "REASSIGN_SOLUTION": "Tildel til meg",
       "UNASSIGN_SOLUTION": "Fjern tildeling",
       "edit": "Redigere",
-      "copy": "Copy?"
+      "copy": "Kopi?"
     },
     "description": "Projektbeskrivelse",
     "endDate": "Slutdato",
@@ -315,7 +315,8 @@
     "loading": "Indlæser projektoplysninger",
     "roofArea": "Samlet tagareal (m2)",
     "startDate": "Hvornår",
-    "status": "Projektstatus"
+    "status": "Projektstatus",
+    "archived": "Arkiveret?"
   },
   "report": {
     "guarantee": "Download garantirapport",
@@ -388,8 +389,12 @@
     }
   },
   "copyDialog": {
-    "title": "Copy this project",
-    "content": "Would you like to copy this project (project details and building owner details) to create a new one?",
-    "copyOf": "Copy of {{name}}"
+    "content": "Vil du kopiere dette projekt (projektdetaljer og bygningsejeroplysninger) for at oprette et nyt?",
+    "copyOf": "Kopi af {{name}}",
+    "title": "Kopier dette projekt"
+  },
+  "bool": {
+    "True": "Rigtigt",
+    "False": "Falsk"
   }
 }

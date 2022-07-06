@@ -1,5 +1,5 @@
-import { Service } from "../index";
 import { EntryTypeEnum } from "../../Service";
+import { Service } from "../index";
 
 export const markersMockData = [
   {
@@ -48,5 +48,6 @@ export const selectedRooferMock: Service = {
   fax: null,
   serviceTypes: [{ __typename: "ContentfulServiceType", name: "Pitched roof" }],
   certification: null,
-  summary: "test summary"
+  summary: "test summary",
+  websiteLinkAsLabel: false
 };
