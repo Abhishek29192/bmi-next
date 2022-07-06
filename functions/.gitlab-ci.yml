@@ -1,2 +1,0 @@
-include:
-  - local: "/functions/gcp-functions-deployer/.gitlab-ci.yml"

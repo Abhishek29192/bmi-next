@@ -1,5 +1,5 @@
 test_gcp-pim-message-handler:
-  extends: .test_yarn_workspace
+  extends: .test_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -19,7 +19,7 @@ test_gcp-pim-message-handler:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 build_gcp-pim-message-handler:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   rules:
     - !reference [.ingore_release_mrs, rules]
     - if: !reference [.run_for_changes_on_main, rules, if]
@@ -39,7 +39,7 @@ build_gcp-pim-message-handler:
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
 
 package_gcp-pim-message-handler:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
     - job: build_gcp-pim-message-handler
       artifacts: true
@@ -47,6 +47,7 @@ package_gcp-pim-message-handler:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD"
@@ -54,8 +55,6 @@ package_gcp-pim-message-handler:
     FUNCTION_NAME: "gcp-pim-message-handler"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-message-handler"
   script:
-    - apt-get update
-    - apt-get install -y zip unzip
     - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
@@ -63,7 +62,7 @@ package_gcp-pim-message-handler:
     - cd $CI_PROJECT_DIR
 
 deploy_gcp-pim-message-handler:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
     - job: package_gcp-pim-message-handler
       artifacts: true
@@ -71,9 +70,10 @@ deploy_gcp-pim-message-handler:
     - if: !reference [.run_for_changes_on_main, rules, if]
       changes:
         - $ROOT_DIR/**/*
+        - yarn.lock
         - applications/dxb/libraries/pim-api/**/*
       variables:
-        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI
+        GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_QA
     - if: "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD"
       variables:
         GCP_FUNCTIONS_CI: $GCP_FUNCTIONS_CI_PREPROD
