@@ -269,6 +269,7 @@ export const pageQuery = graphql`
       code
       colour
       colourMicrocopy
+      path
       colourFamily
       description
       productDocuments {

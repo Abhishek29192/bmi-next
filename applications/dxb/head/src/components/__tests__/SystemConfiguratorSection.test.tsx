@@ -839,6 +839,6 @@ describe("SystemConfiguratorSection component", () => {
 
     expect(container).toMatchSnapshot();
     expect(mockQueryES).toBeCalledTimes(1);
-    expect(redirection).toHaveBeenCalledWith("/404");
+    expect(redirection).toHaveBeenCalledWith("/no/422/");
   });
 });
