@@ -55,8 +55,6 @@ package_gcp-pim-full-fetch:
     FUNCTION_NAME: "gcp-pim-full-fetch"
     ROOT_DIR: "applications/dxb/functions/gcp-pim-full-fetch"
   script:
-    - apt-get update
-    - apt-get install -y zip unzip
     - mkdir -p dist/functions
     - cd $ROOT_DIR/dist
     - mv dist/function/package.json package.json
