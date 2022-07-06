@@ -277,8 +277,8 @@ lighthouseci_scan_head:
     - |
       apt-get update
       apt-get install -y jq
-      export MANAGEMENT_ACCESS_TOKEN=$($DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
-      export SPACE_ID=$($DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
+      export MANAGEMENT_ACCESS_TOKEN=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .MANAGEMENT_ACCESS_TOKEN')
+      export SPACE_ID=$(echo $DXB_MIGRATION_CREDENTIALS | jq -r --arg DXB_MARKET_ID "$DXB_MARKET_ID" '. [$DXB_MARKET_ID] | .SPACE_ID')
       yarn build-contentful true $SOURCE_BRANCH $CI_COMMIT_TAG
 
 .deploy_gatsby_cloud:
