@@ -1,11 +1,40 @@
 test_utils:
   extends: .test_yarn_workspace
+  rules:
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/utils"
     ROOT_DIR: "applications/dxb/libraries/utils"
 
 build_utils:
   extends: .build_yarn_workspace
+  rules:
+    - !reference [.run_for_changes_on_main, rules]
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/utils"
     ROOT_DIR: "applications/dxb/libraries/utils"
