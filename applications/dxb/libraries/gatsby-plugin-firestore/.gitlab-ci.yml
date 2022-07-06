@@ -11,6 +11,14 @@ test_gatsby-plugin-firestore:
         - applications/dxb/libraries/gatsby-plugin-firestore/**/*
         - jest/**/*
         - yarn.lock
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/gatsby-plugin-firestore"
     ROOT_DIR: "applications/dxb/libraries/gatsby-plugin-firestore"

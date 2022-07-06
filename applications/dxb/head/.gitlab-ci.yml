@@ -15,6 +15,14 @@ test_head:
         - libraries/**/*
         - jest/**/*
         - yarn.lock
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -28,6 +36,14 @@ test_mr_coverage_head:
     - if: !reference [.run_for_changes_on_mr, rules, if]
       changes:
         - applications/dxb/head/**/*
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -47,6 +63,14 @@ compile_head_mr:
         - components/**/*
         - libraries/**/*
         - yarn.lock
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'master' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'master'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'pre-production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'production'"
+      when: never
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
+      when: never
   variables:
     WORKSPACE: "@bmi/head"
     ROOT_DIR: "applications/dxb/head"
@@ -494,14 +518,8 @@ deploy_gatsby_cloud_belgium_nl:
 
 migrate_content_romania:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "RO"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as RO is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_romania:
   extends: .deploy_gatsby_cloud
@@ -509,32 +527,18 @@ deploy_gatsby_cloud_romania:
     - migrate_content_romania
   variables:
     DXB_MARKET_ID: "RO"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as RO is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_indonesia:
   extends: .migrate_content
-  needs:
-    - install_yarn
   variables:
     DXB_MARKET_ID: "ID"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ID is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 deploy_gatsby_cloud_indonesia:
   extends: .deploy_gatsby_cloud
   needs:
-    - migrate_content_indonesia
+    - migrate_content_romania
   variables:
     DXB_MARKET_ID: "ID"
-  rules:
-    - if: "$CI_COMMIT_TAG" # Only trigger for tags as ID is not on QA
-      changes:
-        - libraries/migrate/projects/dxb/**/*
 
 migrate_content_group:
   extends: .migrate_content
