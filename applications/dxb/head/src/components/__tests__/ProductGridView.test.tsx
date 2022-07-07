@@ -1,5 +1,5 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
 import ProductsGridView from "../ProductsGridView";
 
 const products: any[] = [
@@ -25,6 +25,7 @@ const products: any[] = [
       }
     ],
     images: [],
+    mainImage: "http://somewhere.com/imag1.png",
     variantOptions: [
       {
         code: "test1",

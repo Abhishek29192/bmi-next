@@ -44,7 +44,7 @@ const PureSampleBasketDialog = ({
     });
   };
 
-  return productsInBasket.length > 0 ? (
+  return data && productsInBasket.length > 0 ? (
     <div className={styles["cart-drawer"]}>
       <div
         className={classnames(styles["cart-drawer--pad"], styles["pad-b-24"])}

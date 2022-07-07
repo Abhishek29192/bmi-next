@@ -52,7 +52,7 @@ const ProductsGridView = ({
         const brandLogoCode = variant.brandCode;
         // eslint-disable-next-line security/detect-object-injection
         const brandLogo = iconMap[brandLogoCode];
-        const mainImage = variant.images;
+        const mainImage = variant.mainImage;
         const product = variant.baseProduct;
         const productUrl = `${getPathWithCountryCode(
           pageContext.countryCode,

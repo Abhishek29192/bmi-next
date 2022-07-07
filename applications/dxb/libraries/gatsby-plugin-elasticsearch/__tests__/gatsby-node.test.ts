@@ -1,12 +1,12 @@
-import report from "gatsby-cli/lib/reporter";
 import {
-  value as clientIndices,
+  bulk,
   callstack,
+  cat,
   config,
   reset,
-  bulk,
-  cat
+  value as clientIndices
 } from "@elastic/elasticsearch";
+import report from "gatsby-cli/lib/reporter";
 import { onPostBuild } from "../gatsby-node";
 
 let reporterStatuses: string[] = [];
@@ -164,8 +164,8 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "1 queries to index",
       "indices [alias-1_0,alias-1_1]  already exists",
       "index 'alias-1_2' created",
-      "query 0: executing query",
-      "query 0: splitting in 3 jobs",
+      "executing query",
+      "splitting in 3 jobs",
       "deleting index 'alias-1_2'",
       "moved alias 'alias-1' -> 'alias-1_2'",
       "done",
@@ -194,13 +194,15 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
         ...params,
         queries: queries.map((query) => ({ ...query, query: null }))
       })
-    ).rejects.toThrow("failed to index to ElasticSearch");
+    ).rejects.toThrow(
+      // eslint-disable-next-line prettier/prettier
+      'failed to index to Elasticsearch. You did not give "query" to this query'
+    );
 
     expect(reporterStatuses).toEqual([
       "activityTimer.start",
       "1 queries to index",
-      'report.panic failed to index to Elasticsearch. You did not give "query" to this query',
-      "report.panic failed to index to ElasticSearch"
+      'report.panic failed to index to Elasticsearch. You did not give "query" to this query'
     ]);
   });
 
@@ -210,13 +212,12 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
         ...params,
         queries: queries.map((query) => ({ ...query, indexName: null }))
       })
-    ).rejects.toThrow("failed to index to ElasticSearch");
+    ).rejects.toThrow('"null" is not a valid indexName.');
 
     expect(reporterStatuses).toEqual([
       "activityTimer.start",
       "1 queries to index",
-      'report.panic "null" is not a valid indexName.',
-      "report.panic failed to index to ElasticSearch"
+      'report.panic "null" is not a valid indexName.'
     ]);
   });
 
@@ -233,8 +234,7 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "1 queries to index",
       "indices [alias-1_0,alias-1_1]  already exists",
       "index 'alias-1_2' created",
-      "query 0: executing query",
-      "report.panic failed to index to ElasticSearch",
+      "executing query",
       "report.panic failed to index to ElasticSearch"
     ]);
   });
@@ -262,8 +262,8 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "1 queries to index",
       "indices [alias-1_0,alias-1_1]  already exists",
       "index 'alias-1_2' created",
-      "query 0: executing query",
-      "query 0: splitting in 3 jobs",
+      "executing query",
+      "splitting in 3 jobs",
       'report.error {"message":"error-bulk-message-1","code":"error-bulk-code-1"}',
       "deleting index 'alias-1_2'",
       "moved alias 'alias-1' -> 'alias-1_2'",
@@ -308,8 +308,8 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "1 queries to index",
       "indices [alias-1_0,alias-1_1]  already exists",
       "index 'alias-1_2' created",
-      "query 0: executing query",
-      "query 0: splitting in 1 jobs",
+      "executing query",
+      "splitting in 1 jobs",
       "deleting index 'alias-1_2'",
       "moved alias 'alias-1' -> 'alias-1_2'",
       "done",
@@ -342,8 +342,8 @@ describe("gatsby-plugin-elasicsearch gatsby-node", () => {
       "1 queries to index",
       "indices [alias-1_0,alias-1_1]  already exists",
       "index 'alias-1_2' created",
-      "query 0: executing query",
-      "query 0: splitting in 2 jobs",
+      "executing query",
+      "splitting in 2 jobs",
       "deleting index 'alias-1_2'",
       "moved alias 'alias-1' -> 'alias-1_2'",
       "done",

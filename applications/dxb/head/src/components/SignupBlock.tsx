@@ -2,8 +2,9 @@
 import { Button, ButtonProps, Dialog, SignupBlock } from "@bmi/components";
 import { SignupBlockTheme } from "@bmi/components/src/signup-block/SignupBlock";
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { microCopy } from "../constants/microCopies";
+import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
 import FormSection, { Data as FormData } from "./FormSection";
 import { useSiteContext } from "./Site";
@@ -33,8 +34,45 @@ const IntegratedSignupBlock = ({
   const { title, description, signupLabel, signupDialogContent } = data;
   const GTMButton = withGTM<ButtonProps>(Button);
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [hubSpotForm, setHubSpotForm] = useState<HTMLFormElement | null>(null);
+  const [email, setEmail] = useState("");
+  const [legalConsentProcessing, setLegalConsentProcessing] = useState(false);
+  const [legalConsentSubscription, setLegalConsentSubscription] =
+    useState(false);
 
-  const onSuccess = () => setFormSubmitted(true);
+  const onSuccess = () => {
+    setFormSubmitted(true);
+  };
+  useEffect(() => {
+    if (hubSpotForm) {
+      hubSpotForm.querySelector<HTMLInputElement>("input[type=email]").value =
+        email;
+      hubSpotForm.querySelector<HTMLInputElement>("input[type=email]").oninput =
+        (e) => {
+          setEmail((e.target as HTMLInputElement).value);
+        };
+      hubSpotForm.querySelector<HTMLInputElement>(
+        "input[id^='LEGAL_CONSENT.subscription']"
+      ).checked = legalConsentSubscription;
+      hubSpotForm.querySelector<HTMLInputElement>(
+        "input[id^='LEGAL_CONSENT.subscription']"
+      ).onchange = (e) => {
+        setLegalConsentSubscription((e.target as HTMLInputElement).checked);
+      };
+      hubSpotForm.querySelector<HTMLInputElement>(
+        "input[id^='LEGAL_CONSENT.processing']"
+      ).checked = legalConsentProcessing;
+      hubSpotForm.querySelector<HTMLInputElement>(
+        "input[id^='LEGAL_CONSENT.processing']"
+      ).onchange = (e) => {
+        setLegalConsentProcessing((e.target as HTMLInputElement).checked);
+      };
+    }
+  }, [hubSpotForm]);
+  const onFormReady = (_, hsForm: HTMLFormElement) => {
+    setHubSpotForm(hsForm);
+    setEmail(hsForm.querySelector<HTMLInputElement>("input[type=email]").value);
+  };
 
   return (
     <div className={styles["SignupBlock"]}>
@@ -65,6 +103,7 @@ const IntegratedSignupBlock = ({
             backgroundColor="white"
             isDialog
             onSuccess={onSuccess}
+            onFormReady={onFormReady}
           />
 
           <Dialog.Actions
@@ -78,15 +117,14 @@ const IntegratedSignupBlock = ({
               setFormSubmitted(false);
             }}
             confirmLabel={!formSubmitted && signupLabel}
-            onConfirmClick={
-              !formSubmitted &&
-              (() =>
-                document
-                  .querySelector<HTMLFormElement>(
-                    "div[id*='bmi-hubspot-form'] form"
-                  )
-                  .submit())
+            isConfirmButtonDisabled={
+              !(
+                isValidEmail(email) &&
+                legalConsentSubscription &&
+                legalConsentProcessing
+              )
             }
+            onConfirmClick={!formSubmitted && (() => hubSpotForm.submit())}
           />
         </Dialog>
       )}
