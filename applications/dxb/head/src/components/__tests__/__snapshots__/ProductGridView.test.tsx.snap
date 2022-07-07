@@ -26,7 +26,7 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
       <img
         alt=" imaproduct"
         class="header-picture Media Media--contain"
-        src=""
+        src="http://somewhere.com/imag1.png"
       />
       <div
         class="body"
@@ -83,7 +83,7 @@ exports[`ProductsGridView component renders correctly when not empty with filter
       <img
         alt=" imaproduct"
         class="header-picture Media Media--contain"
-        src=""
+        src="http://somewhere.com/imag1.png"
       />
       <div
         class="body"
