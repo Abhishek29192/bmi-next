@@ -11,12 +11,12 @@ import {
 } from "@bmi-digital/react-pdf-maker";
 import React from "react";
 import { isElement } from "react-is";
+import { microCopy, MicroCopyValues } from "../../../constants/microCopies";
 import EffraBold from "../fonts/Effra_Bd.ttf";
 import EffraNormal from "../fonts/Effra_Rg.ttf";
 import { ResultsObject } from "../types/v2";
 import { ResultsRow } from "./../types";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
-import { microCopy } from "./constants/microCopy";
 
 const PAGE_WIDTH = 595.28; /* A4 width in pt */
 const MARGIN_LEFT = 25;
@@ -272,7 +272,7 @@ ResultsTableTemplate.Cell = ResultsTableTemplateCell;
 ResultsTableTemplate.Row = Table.Row;
 
 type GetMicroCopy = (
-  path: string,
+  path: MicroCopyValues,
   placeholders?: Record<string, string>
 ) => string;
 

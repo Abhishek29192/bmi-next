@@ -4,11 +4,11 @@ import {
   FormContext
 } from "@bmi/components";
 import React, { useContext, useEffect } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
 import { Accessory, LengthBasedProduct, VergeOption } from "../types";
 import { MainTileVariant } from "../types/v2";
-import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
 type VergeOptionsProps = {
