@@ -745,4 +745,12 @@ describe("transformSystems", () => {
       }
     ]);
   });
+
+  it("handles no images", () => {
+    const system = createSystem({
+      images: undefined
+    });
+    const transformedSystems = transformSystems([system]);
+    expect(transformedSystems[0].images).toEqual([]);
+  });
 });
