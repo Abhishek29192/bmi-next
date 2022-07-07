@@ -201,7 +201,7 @@ const generateBrandFilterFromDocuments = async (
     return;
   }
   const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey).value ||
+    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
     microCopyKey;
 
   return {
@@ -255,7 +255,7 @@ const generateAssetTypeFilterFromDocuments = async (
   }
 
   const filterLabel =
-    filterMicroCopies.find((item) => item.key === microCopyKey).value ||
+    filterMicroCopies.find((item) => item.key === microCopyKey)?.value ||
     microCopyKey;
   return {
     filterCode: microCopyKey,

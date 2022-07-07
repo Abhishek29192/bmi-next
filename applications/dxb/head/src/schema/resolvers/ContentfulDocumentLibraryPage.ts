@@ -33,12 +33,7 @@ export default {
       }
 
       if (source.source === "PIM") {
-        let allowFilterBy = source.allowFilterBy as string[];
-
-        if (!allowFilterBy) {
-          allowFilterBy = [];
-        }
-
+        let allowFilterBy = (source.allowFilterBy || []) as string[];
         switch (source.resultsType) {
           case "Simple":
             allowFilterBy = [
@@ -70,7 +65,7 @@ export default {
       }
 
       if (source.source === "CMS") {
-        let allowFilterBy = source.allowFilterBy as string[];
+        let allowFilterBy: string[];
         switch (source.resultsType) {
           case "Card Collection":
             allowFilterBy = ["Brand"];

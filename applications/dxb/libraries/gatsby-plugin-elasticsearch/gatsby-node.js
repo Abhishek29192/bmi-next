@@ -33,10 +33,14 @@ exports.onPostBuild = async function (
 
   setStatus(activity, `${queries.length} queries to index`);
 
-  const jobs = queries.map(async function doQuery(
-    { indexName: alias, query, transformer = identity, indexConfig },
-    i
-  ) {
+  for (const graphqlQuery of queries) {
+    let {
+      indexName: alias,
+      query,
+      transformer = identity,
+      indexConfig
+    } = graphqlQuery;
+
     if (!query) {
       report.panic(
         `failed to index to Elasticsearch. You did not give "query" to this query`
@@ -63,7 +67,7 @@ exports.onPostBuild = async function (
       await setSettings(client, newIndex, indexConfig);
     }
 
-    setStatus(activity, `query ${i}: executing query`);
+    setStatus(activity, `executing query`);
     const result = await graphql(query);
     if (result.errors) {
       report.panic(`failed to index to ElasticSearch`, result.errors);
@@ -71,7 +75,7 @@ exports.onPostBuild = async function (
     const objects = await transformer(result);
     const chunks = chunk(objects, chunkSize);
 
-    setStatus(activity, `query ${i}: splitting in ${chunks.length} jobs`);
+    setStatus(activity, `splitting in ${chunks.length} jobs`);
     const errors = [];
     for (const chunk of chunks) {
       const body = chunk.flatMap((doc) => [
@@ -101,15 +105,10 @@ exports.onPostBuild = async function (
       report.error(error);
     }
 
-    return moveAlias(client, newIndex, alias);
-  });
-
-  try {
-    await Promise.all(jobs);
-    setStatus(activity, `done`);
-  } catch (err) {
-    report.panic(`failed to index to ElasticSearch`, err);
+    await moveAlias(client, newIndex, alias);
   }
+
+  setStatus(activity, `done`);
 
   activity.end();
 };
