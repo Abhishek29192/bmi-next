@@ -1,27 +1,28 @@
-import React, { useContext } from "react";
-import { graphql } from "gatsby";
-import { TwoPaneCarousel, TwoPaneCarouselSlide } from "@bmi/components";
 import {
+  Button,
+  Section,
+  transformHyphens,
+  TwoPaneCarousel,
+  TwoPaneCarouselSlide,
   VerticalRoller,
-  VerticalRollerSlide,
-  transformHyphens
+  VerticalRollerSlide
 } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { Button } from "@bmi/components";
 import ButtonBase, { ButtonBaseProps } from "@material-ui/core/ButtonBase";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { graphql } from "gatsby";
+import React, { useContext } from "react";
 import { Data as PromoData } from "../components/Promo";
-import withGTM from "../utils/google-tag-manager";
 import { microCopy } from "../constants/microCopies";
-import { Data as PageInfoData } from "./PageInfo";
+import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
-import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
-import { useSiteContext } from "./Site";
-import { VisualiserContext } from "./Visualiser";
-import { renderVideo } from "./Video";
 import { renderImage } from "./Image";
-import styles from "./styles/CarouselSection.module.scss";
+import { Data as LinkData, getClickableActionFromUrl, getCTA } from "./Link";
+import { Data as PageInfoData } from "./PageInfo";
 import { CalculatorContext } from "./PitchedRoofCalcualtor";
+import { useSiteContext } from "./Site";
+import styles from "./styles/CarouselSection.module.scss";
+import { renderVideo } from "./Video";
+import { VisualiserContext } from "./Visualiser";
 
 type Slide = PromoData | PageInfoData;
 

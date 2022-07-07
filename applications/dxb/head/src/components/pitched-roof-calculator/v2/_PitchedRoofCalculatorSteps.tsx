@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
+import { microCopy } from "../../../constants/microCopies";
 import { useSiteContext } from "../../Site";
 import { CalculatorSteps, Underlay } from "../types";
 import {
@@ -14,7 +15,6 @@ import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import protrusionTypes from "./calculation/protrusions";
 import { requiredRoofs } from "./calculation/roofs";
-import { microCopy } from "./constants/microCopy";
 import CalculatorStepper from "./subcomponents/calculator-stepper/CalculatorStepper";
 import Guttering, { GutteringSelections } from "./_Guttering";
 import styles from "./_PitchedRoofCalculatorSteps.module.scss";

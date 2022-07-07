@@ -54,8 +54,13 @@ type TypeProps = {
   helperText?: string;
 };
 
+export type FieldTypesPath = "lengthRange" | "pitchRange" | ErrorType;
+
 export const getFieldTypes = (
-  getMicroCopy: (path: string, placeholders?: Record<string, string>) => string
+  getMicroCopy: (
+    path: FieldTypesPath,
+    placeholders?: Record<string, string>
+  ) => string
 ): {
   [key in Type]: TypeProps;
 } => ({
