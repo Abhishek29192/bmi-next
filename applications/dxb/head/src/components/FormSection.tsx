@@ -369,6 +369,9 @@ const HubspotForm = ({
         const iframeElement = document.querySelector<HTMLIFrameElement>(
           `#${hubSpotFormID} iframe`
         );
+        const hubspotform = document.querySelector<HTMLFormElement>(
+          `#${hubSpotFormID} form`
+        );
 
         if (additionalValues && additionalValues["samples"]) {
           const sampleIdsInput = document.querySelector<HTMLInputElement>(
@@ -385,8 +388,11 @@ const HubspotForm = ({
             hiddenInput && (hiddenInput.value = additionalValues["samples"]);
           }
         }
-
-        onFormReady?.(event, iframeElement);
+        if (isDialog) {
+          onFormReady?.(event, hubspotform);
+        } else {
+          onFormReady?.(event, iframeElement);
+        }
       }
 
       if (event.data.eventName === "onFormSubmitted") {
@@ -439,7 +445,10 @@ type FormSectionProps = {
   isSubmitDisabled?: boolean;
   gtmOverride?: Partial<GTM>;
   onSuccess?: () => void;
-  onFormReady?: (event: MessageEvent, hsForm: HTMLIFrameElement) => void;
+  onFormReady?: (
+    event: MessageEvent,
+    hsForm: HTMLIFrameElement | HTMLFormElement
+  ) => void;
   className?: string;
   isDialog?: boolean;
 };
