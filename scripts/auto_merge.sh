@@ -1,6 +1,5 @@
 #!/bin/bash
 
-MINOR_VERSION=`echo "$CI_COMMIT_TAG" | awk -F'[v.-]' '{print $4}'`
 which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
 eval $(ssh-agent -s)
 ssh-add <(echo "$SSH_PRIV_KEY_ENCODED" | base64 -d)
@@ -42,13 +41,13 @@ git config user.name "Gitlab Runner"
 git checkout pre-production
 git checkout production
 
-if [ "$MINOR_VERSION" == "1" ];
+if [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PREPROD" ];
   then
   merge_preprod
-elif [ "$MINOR_VERSION" == "0" ];
+elif [ "$CI_COMMIT_TAG =~ $DXB_RELEASE_TAG_FORMAT_PROD" ];
   then
   merge_prod
 else
-  echo "Something went wrong: the minor version of the release is unknown"
+  echo "Something went wrong: the release type is unknown"
   exit 1
 fi
