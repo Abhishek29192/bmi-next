@@ -70,7 +70,7 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
           system.assets
         ),
         hashedCode: generateHashFromString(system.code),
-        images: mapImages(groupImages(system.images), "MASTER_IMAGE"),
+        images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
         keyFeatures: mapKeyFeatures(system),
         layerCodes: (system.systemLayers || []).map((layer) => layer.code),
         name: system.name,
