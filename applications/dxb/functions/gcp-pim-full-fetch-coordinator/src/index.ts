@@ -12,7 +12,7 @@ import {
 import { deleteFirestoreCollection } from "./firestore";
 import { FirestoreCollections } from "./firestoreCollections";
 
-const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT } = process.env;
+const { BUILD_TRIGGER_ENDPOINT, FULL_FETCH_ENDPOINT, LOCALE } = process.env;
 
 const triggerFullFetch = async (
   type: PimTypes,
@@ -42,7 +42,7 @@ const triggerFullFetch = async (
 const triggerFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
-  const response = await fetchData(type);
+  const response = await fetchData({ type, locale: LOCALE as string });
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
   const promises: Promise<Response>[] = [];

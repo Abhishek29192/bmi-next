@@ -59,10 +59,15 @@ const getAuthToken = async (): Promise<AuthResponse> => {
   return data;
 };
 
-export const fetchData = async (
-  type: PimTypes,
+export const fetchData = async ({
+  type,
+  locale,
   currentPage = 0
-): Promise<ProductsApiResponse | SystemsApiResponse> => {
+}: {
+  type: PimTypes;
+  locale: string;
+  currentPage?: number;
+}): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
 
   const redirect: RequestRedirect = "follow";
@@ -76,11 +81,19 @@ export const fetchData = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&status=approved`;
+  const url = new URL(
+    `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}`
+  );
+  url.searchParams.append("currentPage", String(currentPage));
+  url.searchParams.append("status", "approved");
+
+  if (locale) {
+    url.searchParams.append("lang", locale);
+  }
 
   // eslint-disable-next-line no-console
-  console.log(`FETCH: ${fullPath}`);
-  const response = await fetch(fullPath, options);
+  console.log(`FETCH: ${String(url)}`);
+  const response = await fetch(String(url), options);
 
   if (!response.ok) {
     if (response.status === 400) {

@@ -9,7 +9,7 @@ import { PubSub, Topic } from "@google-cloud/pubsub";
 import { Request, Response } from "express";
 import { FullFetchRequest } from "./types";
 
-const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;
+const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, LOCALE } = process.env;
 
 const pubSubClient = new PubSub({
   projectId: GCP_PROJECT_ID
@@ -104,7 +104,11 @@ const handleRequest = async (
 
   const promises = [];
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
-    const response = await fetchData(body.type, i);
+    const response = await fetchData({
+      type: body.type,
+      currentPage: i,
+      locale: LOCALE as string
+    });
     logger.info({
       message: `Fetched data for ${body.type} body type: ${response}`
     });
