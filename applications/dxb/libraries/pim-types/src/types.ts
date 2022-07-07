@@ -40,7 +40,7 @@ export type System = {
   categories: readonly Category[];
   classifications?: readonly Classification[];
   code: string;
-  images: readonly Image[];
+  images?: readonly Image[];
   longDescription: HTML;
   name: string;
   shortDescription: string;

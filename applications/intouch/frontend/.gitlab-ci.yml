@@ -1,11 +1,13 @@
 test_intouch_frontend:
   extends: .test_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
         - components/**/*
         - libraries/**/*
+        - jest/**/*
         - yarn.lock
   variables:
     WORKSPACE: "@bmi/intouch-frontend"
@@ -14,6 +16,7 @@ test_intouch_frontend:
 build_intouch_frontend_dev:
   extends: .build_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*
@@ -43,6 +46,7 @@ package_intouch_frontend_dev:
       alias: docker
   stage: package
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/frontend/**/*

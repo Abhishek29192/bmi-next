@@ -1,31 +1,29 @@
 test_gcp-update-webtools-bucket:
-  extends: .test_yarn_workspace
+  extends: .test_function
   variables:
     WORKSPACE: "@bmi/gcp-update-webtools-bucket"
     ROOT_DIR: "applications/functions/gcp-update-webtools-bucket"
 
 build_gcp-update-webtools-bucket:
-  extends: .build_function_yarn_workspace
+  extends: .build_function
   variables:
     WORKSPACE: "@bmi/gcp-update-webtools-bucket"
     ROOT_DIR: "applications/dxb/functions/gcp-update-webtools-bucket"
 
 package_gcp-update-webtools-bucket:
-  extends: .package_function_yarn_workspace
+  extends: .package_function
   needs:
-    - build_gcp-update-webtools-bucket
-  dependencies:
-    - build_gcp-update-webtools-bucket
+    - job: build_gcp-update-webtools-bucket
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-update-webtools-bucket"
     ROOT_DIR: "applications/dxb/functions/gcp-update-webtools-bucket"
 
 deploy_gcp-update-webtools-bucket:
-  extends: .deploy_function_yarn_workspace
+  extends: .deploy_function
   needs:
-    - package_gcp-update-webtools-bucket
-  dependencies:
-    - package_gcp-update-webtools-bucket
+    - job: package_gcp-update-webtools-bucket
+      artifacts: true
   variables:
     FUNCTION_NAME: "gcp-update-webtools-bucket"
     ROOT_DIR: "applications/dxb/functions/gcp-update-webtools-bucket"

@@ -1,3 +1,7 @@
+import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
+import { navigate, useLocation } from "@reach/router";
+import axios, { AxiosResponse } from "axios";
+import { graphql } from "gatsby";
 import React, {
   ChangeEvent,
   createContext,
@@ -7,26 +11,22 @@ import React, {
   useLayoutEffect,
   useState
 } from "react";
-import { graphql } from "gatsby";
-import axios, { AxiosResponse } from "axios";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { Grid, RadioPane, RadioPaneProps, Section } from "@bmi/components";
-import { navigate, useLocation } from "@reach/router";
 import { SYSTEM_CONFIG_QUERY_KEY_REFERER } from "../constants/queryConstants";
-import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
-import * as storage from "../utils/storage";
-import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
-import { queryElasticSearch } from "../utils/elasticSearch";
-import { generateSystemPath } from "../utils/systems";
-import { getPathWithCountryCode } from "../utils/path";
 import { useConfig } from "../contexts/ConfigProvider";
-import { devLog } from "../utils/devLog";
 import { RelatedSystem } from "../types/pim";
+import { devLog } from "../utils/devLog";
+import { queryElasticSearch } from "../utils/elasticSearch";
+import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
+import * as storage from "../utils/storage";
+import { generateSystemPath } from "../utils/systems";
+import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
-import { SystemCard } from "./RelatedSystems";
 import ProgressIndicator from "./ProgressIndicator";
-import Scrim from "./Scrim";
+import { SystemCard } from "./RelatedSystems";
 import RichText, { RichTextData } from "./RichText";
+import Scrim from "./Scrim";
 import { useSiteContext } from "./Site";
 import styles from "./styles/SystemConfiguratorSection.module.scss";
 import { Data as DefaultTitleWithContentData } from "./TitleWithContent";
@@ -351,11 +351,11 @@ const SystemConfiguratorResult = ({
               .slice(0, maxDisplay)
           );
         } else {
-          navigate("/404");
+          navigate(getPathWithCountryCode(countryCode, "422"));
         }
       } catch (error) {
         devLog(error);
-        navigate("/404");
+        navigate(getPathWithCountryCode(countryCode, "422"));
       }
     };
 

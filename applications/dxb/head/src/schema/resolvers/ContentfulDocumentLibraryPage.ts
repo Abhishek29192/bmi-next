@@ -91,7 +91,7 @@ export default {
       }
 
       if (source.source === "ALL") {
-        let allowFilterBy = source.allowFilterBy as string[];
+        let allowFilterBy = (source.allowFilterBy || []) as string[];
 
         switch (source.resultsType) {
           case "Simple":

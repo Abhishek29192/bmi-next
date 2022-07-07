@@ -1,11 +1,26 @@
 test_functions-es-client:
   extends: .test_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - $ROOT_DIR/**/*
+        - jest/**/*
+        - yarn.lock
   variables:
     WORKSPACE: "@bmi/functions-es-client"
     ROOT_DIR: "applications/dxb/libraries/functions-es-client"
 
 build_functions-es-client:
   extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     WORKSPACE: "@bmi/functions-es-client"
     ROOT_DIR: "applications/dxb/libraries/functions-es-client"
