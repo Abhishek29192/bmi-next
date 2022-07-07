@@ -2,7 +2,7 @@
 import { Button, ButtonProps, Dialog, SignupBlock } from "@bmi/components";
 import { SignupBlockTheme } from "@bmi/components/src/signup-block/SignupBlock";
 import { graphql } from "gatsby";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { microCopy } from "../constants/microCopies";
 import { isValidEmail } from "../utils/emailUtils";
 import withGTM from "../utils/google-tag-manager";
@@ -43,35 +43,34 @@ const IntegratedSignupBlock = ({
   const onSuccess = () => {
     setFormSubmitted(true);
   };
-  useEffect(() => {
-    if (hubSpotForm) {
-      hubSpotForm.querySelector<HTMLInputElement>("input[type=email]").value =
-        email;
-      hubSpotForm.querySelector<HTMLInputElement>("input[type=email]").oninput =
-        (e) => {
-          setEmail((e.target as HTMLInputElement).value);
-        };
-      hubSpotForm.querySelector<HTMLInputElement>(
-        "input[id^='LEGAL_CONSENT.subscription']"
-      ).checked = legalConsentSubscription;
-      hubSpotForm.querySelector<HTMLInputElement>(
-        "input[id^='LEGAL_CONSENT.subscription']"
-      ).onchange = (e) => {
-        setLegalConsentSubscription((e.target as HTMLInputElement).checked);
-      };
-      hubSpotForm.querySelector<HTMLInputElement>(
-        "input[id^='LEGAL_CONSENT.processing']"
-      ).checked = legalConsentProcessing;
-      hubSpotForm.querySelector<HTMLInputElement>(
-        "input[id^='LEGAL_CONSENT.processing']"
-      ).onchange = (e) => {
-        setLegalConsentProcessing((e.target as HTMLInputElement).checked);
-      };
-    }
-  }, [hubSpotForm]);
   const onFormReady = (_, hsForm: HTMLFormElement) => {
-    setHubSpotForm(hsForm);
     setEmail(hsForm.querySelector<HTMLInputElement>("input[type=email]").value);
+    hsForm.querySelector<HTMLInputElement>("input[type=email]").oninput = (
+      e
+    ) => {
+      setEmail((e.target as HTMLInputElement).value);
+    };
+
+    hsForm.querySelector<HTMLInputElement>(
+      "input[id^='LEGAL_CONSENT.subscription']"
+    ).onchange = (e) => {
+      setLegalConsentSubscription((e.target as HTMLInputElement).checked);
+    };
+
+    hsForm.querySelector<HTMLInputElement>(
+      "input[id^='LEGAL_CONSENT.processing']"
+    ).onchange = (e) => {
+      setLegalConsentProcessing((e.target as HTMLInputElement).checked);
+    };
+
+    setHubSpotForm(hsForm);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+    setLegalConsentSubscription(false);
+    setLegalConsentProcessing(false);
+    setFormSubmitted(false);
   };
 
   return (
@@ -96,7 +95,7 @@ const IntegratedSignupBlock = ({
         }}
       />
       {dialogOpen && (
-        <Dialog open={dialogOpen} onCloseClick={() => setDialogOpen(false)}>
+        <Dialog open={dialogOpen} onCloseClick={handleDialogClose}>
           <Dialog.Title hasUnderline> {title} </Dialog.Title>
           <FormSection
             data={signupDialogContent}
@@ -112,10 +111,7 @@ const IntegratedSignupBlock = ({
                 ? getMicroCopy(microCopy.DIALOG_CANCEL)
                 : getMicroCopy(microCopy.DIALOG_CLOSE)
             }
-            onCancelClick={() => {
-              setDialogOpen(false);
-              setFormSubmitted(false);
-            }}
+            onCancelClick={handleDialogClose}
             confirmLabel={!formSubmitted && signupLabel}
             isConfirmButtonDisabled={
               !(
