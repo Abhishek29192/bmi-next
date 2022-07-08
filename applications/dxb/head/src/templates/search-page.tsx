@@ -37,7 +37,6 @@ export type Props = {
     siteId: string;
     countryCode: string;
     categoryCode: string; // this is optional?
-    pimClassificationCatalogueNamespace: string;
     variantCodeToPathMap: Record<string, string>;
   };
   data: {

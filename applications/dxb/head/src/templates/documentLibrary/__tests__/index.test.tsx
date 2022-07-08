@@ -88,7 +88,6 @@ describe("Document Library page", () => {
     pageId: null,
     siteId: null,
     categoryCode: null,
-    pimClassificationCatalogueNamespace: null,
     variantCodeToPathMap: null
   };
   const pimDocument = createPimDocument({

@@ -93,8 +93,10 @@ export default {
         { connectionType: `ContentfulResources` }
       );
       const documents: FirestoreProductDocument[] = source.documents
-        .filter((document) =>
-          assetTypes.some((assetType) => assetType === document.assetType)
+        .filter(
+          (document) =>
+            document.assetType &&
+            assetTypes.some((assetType) => assetType === document.assetType)
         )
         .map((doc) => ({
           ...doc,
@@ -183,8 +185,10 @@ export default {
       }
 
       const groupedDocuments = groupBy(
-        source.documents.filter((document) =>
-          keyAssetTypes.some((assetType) => assetType === document.assetType)
+        source.documents.filter(
+          (document) =>
+            document.assetType &&
+            keyAssetTypes.some((assetType) => assetType === document.assetType)
         ),
         "assetType"
       );

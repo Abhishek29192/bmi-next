@@ -80,7 +80,7 @@ export type Mime =
 
 export type Asset = {
   allowedToDownload: boolean;
-  assetType: AssetAssetType;
+  assetType?: AssetAssetType;
   fileSize: number;
   mime?: Mime;
   name: string;

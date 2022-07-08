@@ -1,8 +1,7 @@
-import { PageContextType } from "../../productListerPage/components/product-lister-page";
 import { DataTypeEnum } from "../../../components/Link";
-
 import { ImageWithThumbnail } from "../../../components/PageInfo";
 import { Data as SignUpBlockData } from "../../../components/SignupBlock";
+import { PageContextType } from "../../productListerPage/components/product-lister-page";
 
 export const pageContext: PageContextType = {
   allowFilterBy: [],
@@ -10,7 +9,6 @@ export const pageContext: PageContextType = {
   siteId: "siteId",
   countryCode: "no",
   categoryCodes: ["category-code-1"],
-  pimClassificationCatalogueNamespace: "",
   variantCodeToPathMap: {
     variant1: "variant1"
   }
