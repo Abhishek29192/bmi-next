@@ -14,9 +14,6 @@ dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
 });
 
-const pimClassificationCatalogueNamespace =
-  process.env.PIM_CLASSIFICATION_CATALOGUE_NAMESPACE;
-
 const createProductPages = async (
   siteId,
   countryCode,
@@ -182,7 +179,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
             siteId: site.id,
             categoryCodes: page.categoryCodes,
             allowFilterBy: page.allowFilterBy,
-            pimClassificationCatalogueNamespace,
             variantCodeToPathMap
           }
         });
@@ -195,7 +191,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: {
         siteId: site.id,
         countryCode: site.countryCode,
-        pimClassificationCatalogueNamespace,
         variantCodeToPathMap
       }
     });

@@ -1,13 +1,13 @@
-import React from "react";
 import { fireEvent, waitFor } from "@testing-library/react";
-import { renderWithRouter } from "../../test/renderWithRouter";
-import SearchPage, { Props as SearchPageData } from "../search-page";
-import { createMockSiteData } from "../../test/mockSiteData";
-import * as SearchTabProducts from "../../components/SearchTabProducts";
+import React from "react";
 import * as SearchTabDocuments from "../../components/SearchTabDocuments";
 import * as SearchTabPages from "../../components/SearchTabPages";
-import * as elasticSearch from "../../utils/elasticSearch";
+import * as SearchTabProducts from "../../components/SearchTabProducts";
 import { ConfigProvider } from "../../contexts/ConfigProvider";
+import { createMockSiteData } from "../../test/mockSiteData";
+import { renderWithRouter } from "../../test/renderWithRouter";
+import * as elasticSearch from "../../utils/elasticSearch";
+import SearchPage, { Props as SearchPageData } from "../search-page";
 
 describe("Search Page Template", () => {
   const contentfulAsset = {
@@ -85,8 +85,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -142,8 +141,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -203,8 +201,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -259,8 +256,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -303,8 +299,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -345,8 +340,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -378,8 +372,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -408,8 +401,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -442,8 +434,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -495,8 +486,7 @@ describe("Search Page Template", () => {
             variantCodeToPathMap: null,
             siteId: "siteId",
             countryCode: "en",
-            categoryCode: "categoryCode",
-            pimClassificationCatalogueNamespace: "nameSpace"
+            categoryCode: "categoryCode"
           }}
         />
       </ConfigProvider>
@@ -531,8 +521,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -564,8 +553,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -596,8 +584,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -638,8 +625,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -670,8 +656,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          pimClassificationCatalogueNamespace: "nameSpace"
+          categoryCode: "categoryCode"
         }}
       />
     );

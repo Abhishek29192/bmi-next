@@ -57,7 +57,6 @@ type Props = {
     pageId: string;
     siteId: string;
     categoryCode: string;
-    pimClassificationCatalogueNamespace: string;
     variantCodeToPathMap: Record<string, string>;
   };
   data: {

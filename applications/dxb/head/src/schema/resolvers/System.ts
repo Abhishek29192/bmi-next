@@ -68,8 +68,10 @@ export default {
         )
         .map((assetType) => assetType.pimCode);
 
-      return source.documents.filter((document) =>
-        assetTypes.some((assetType) => assetType === document.assetType)
+      return source.documents.filter(
+        (document) =>
+          document.assetType &&
+          assetTypes.some((assetType) => assetType === document.assetType)
       );
     }
   },
