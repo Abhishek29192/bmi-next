@@ -161,7 +161,7 @@ export type FeatureCode =
   | string;
 
 export type Document = {
-  assetType: AssetAssetType;
+  assetType?: AssetAssetType;
   extension?: string;
   fileSize?: number;
   format?: Mime;
