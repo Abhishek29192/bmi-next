@@ -548,11 +548,10 @@ type ContentfulAssetType implements Node {
 type ContentfulDocument implements Node {
   id: ID!
   title: String!
-  asset: ContentfulAsset @link(by: "id", from: "asset___NODE")
+  asset: ContentfulAsset! @link(by: "id", from: "asset___NODE")
   description: ContentfulRichText
-  assetType: ContentfulAssetType @link(from: "assetType___NODE")
+  assetType: ContentfulAssetType! @link(from: "assetType___NODE")
   brand: String
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
   featuredMedia: ContentfulImage @link(by: "id", from: "featuredMedia___NODE")
   noIndex: Boolean
 }
@@ -578,7 +577,7 @@ type ContentfulDocumentLibraryPage implements ContentfulPage & Node {
   resultsType: String
   signupBlock: ContentfulSignupBlock @link(from: "signupBlock___NODE")
   tags: [ContentfulTag] @link(from: "tags___NODE")
-  documents: [Document]! @link(from: "documents___NODE")
+  documentsWithFilters: DocumentsWithFiltersResponse!
   pimCodes: [String]
   allowFilterBy: [String!]
   parentPage: LinkedPage @link(from: "parentPage___NODE")
@@ -624,7 +623,7 @@ type PIMSystemDocument {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
   realFileName: String
   fileSize: Int
   format: String
@@ -694,7 +693,7 @@ type CategoryGroup {
 }
 
 type PIMDocumentWithPseudoZip {
-  assetType: ContentfulAssetType @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
   documentList: [PIMDocument]!
   fileSize: Int
   format: String
@@ -753,7 +752,7 @@ type Product implements Node @dontInfer {
 }
 
 type ProductDocument {
-  assetType: ContentfulAssetType @link(by: "pimCode", from: "assetType")
+  assetType: String
   extension: String
   fileSize: Int
   format: String
@@ -806,15 +805,15 @@ type Feature {
 }
 
 type DocumentsWithFiltersResponse {
-  filters: [PLPFilter]
-  documents: [Document]
+  filters: [PLPFilter]!
+  documents: [Document]!
 }
 
 type PIMDocument {
   title: String!
   url: String!
   isLinkDocument: Boolean!
-  assetType: ContentfulAssetType @link(by: "pimCode", from: "assetType")
+  assetType: ContentfulAssetType! @link(by: "pimCode", from: "assetType")
   realFileName: String
   fileSize: Int
   format: String

@@ -90,7 +90,6 @@ export type PageContextType = {
   countryCode: string;
   categoryCodes: string[];
   allowFilterBy: string[];
-  pimClassificationCatalogueNamespace: string;
   variantCodeToPathMap: Record<string, string>;
 };
 

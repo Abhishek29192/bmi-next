@@ -1,26 +1,26 @@
-import React from "react";
+import * as all from "@bmi-digital/use-dimensions";
+import { Filter } from "@bmi/components";
+import {
+  createHistory,
+  createMemorySource,
+  LocationProvider
+} from "@reach/router";
 import {
   fireEvent,
   render,
   RenderResult,
   waitFor
 } from "@testing-library/react";
-import {
-  createHistory,
-  createMemorySource,
-  LocationProvider
-} from "@reach/router";
-import * as all from "@bmi-digital/use-dimensions";
-import { Filter } from "@bmi/components";
-import ProductListerPage, {
-  PageContextType,
-  Data as PdpPageInfoData
-} from "../components/product-lister-page";
+import React from "react";
 import { DataTypeEnum, NavigationData } from "../../../components/Link";
 import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import * as elasticSearch from "../../../utils/elasticSearch";
 import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
+import * as elasticSearch from "../../../utils/elasticSearch";
+import ProductListerPage, {
+  Data as PdpPageInfoData,
+  PageContextType
+} from "../components/product-lister-page";
 
 window.alert = jest.fn();
 
@@ -154,7 +154,6 @@ const pageContext: PageContextType = {
   siteId: "siteId",
   countryCode: "no",
   categoryCodes: ["category-code-1"],
-  pimClassificationCatalogueNamespace: "",
   variantCodeToPathMap: {
     variant1: "variant1"
   }
@@ -360,7 +359,6 @@ describe("ProductListerPage template", () => {
             siteId: "siteId",
             countryCode: "no",
             categoryCodes: ["category-code-2", "category-code-1"],
-            pimClassificationCatalogueNamespace: "",
             variantCodeToPathMap: {
               variant1: "variant1"
             }
@@ -402,7 +400,6 @@ describe("ProductListerPage template", () => {
             siteId: "siteId",
             countryCode: "no",
             categoryCodes: ["category-code-2", "category-code-1"],
-            pimClassificationCatalogueNamespace: "",
             variantCodeToPathMap: {
               variant1: "variant1"
             }

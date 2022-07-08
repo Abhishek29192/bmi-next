@@ -28,7 +28,7 @@ export const resolveDocumentsFromProducts = async (
   const filter = assetTypes.length
     ? {
         documents: {
-          elemMatch: { assetType: { pimCode: { in: pimAssetTypes } } }
+          elemMatch: { assetType: { in: pimAssetTypes } }
         },
         ...(source.pimCodes && source.pimCodes.length
           ? { code: { in: source.pimCodes } }
@@ -74,7 +74,10 @@ export const resolveDocumentsFromProducts = async (
 
   const result = products.flatMap((product) =>
     (product.documents || [])
-      .filter((document) => pimAssetTypes.includes(document.assetType))
+      .filter(
+        (document) =>
+          document.assetType && pimAssetTypes.includes(document.assetType)
+      )
       .map((document) => {
         const assetType = assetTypes.find(
           (assetType) => assetType.pimCode === document.assetType
