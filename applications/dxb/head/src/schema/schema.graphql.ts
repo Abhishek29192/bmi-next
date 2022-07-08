@@ -300,13 +300,13 @@ type ContentfulMediaGallerySection implements Node {
   id: ID!
   title: String
   longDescription: ContentfulRichText
-  medias: [ContentfulMediasTypes] @link(from: "medias___NODE")
+  medias: [ContentfulMediasTypes!]! @link(from: "medias___NODE")
 }
 
 type ContentfulDocumentDownloadSection implements Node {
   title: String
   description: ContentfulRichText
-  documents: [ContentfulDocument] @link(from: "documents___NODE")
+  documents: [ContentfulDocument!]! @link(from: "documents___NODE")
 }
 
 type ContentfulServiceLocatorSection implements Node {

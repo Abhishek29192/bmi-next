@@ -48,7 +48,7 @@ const SystemLayersSection = ({ systemLayers }: Props) => {
 
             const optionalRelatedProducts = (
               layer.relatedOptionalProducts || []
-            ).filter((optProduct) => optProduct.name !== relatedProduct.name);
+            ).filter((optProduct) => optProduct.name !== relatedProduct?.name);
 
             return (
               <Accordion.Item key={`sdp-system-layer-accordion-item-${index}`}>

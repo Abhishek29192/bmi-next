@@ -195,7 +195,7 @@ const elasticSearchPlugin =
               password: process.env.ES_ADMIN_PASSWORD
             },
             queries,
-            chunkSize: 100
+            chunkSize: process.env.ES_INDEXING_CHUNK_SIZE || 100
           }
         }
       ];
