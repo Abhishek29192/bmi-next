@@ -1,4 +1,4 @@
-import { fireEvent, render, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import mockConsole from "jest-mock-console";
 import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
@@ -38,6 +38,9 @@ beforeAll(() => {
   mockConsole();
 });
 
+beforeEach(() => {
+  jest.clearAllMocks();
+});
 jest.mock("../FormSection", () => {
   const formSection = jest.requireActual("../FormSection");
 
@@ -72,9 +75,6 @@ jest.mock("../FormSection", () => {
     default: HubSpotFormMock
   };
 });
-beforeEach(() => {
-  jest.clearAllMocks();
-});
 
 describe("SignupBlock component", () => {
   it("renders correctly", () => {
@@ -88,66 +88,34 @@ describe("SignupBlock component", () => {
     expect(container.children.length).toBe(0);
   });
 
-  it("renders dialog correctly when click on signup button", async () => {
-    const { getByRole, queryByRole } = render(<SignupBlock data={data} />);
-    const signupButton = getByRole("button", { name: "sign up" });
+  it("renders dialog correctly when clicked on sign up button", () => {
+    render(<SignupBlock data={data} />);
+    const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
-    await waitFor(() => {
-      expect(queryByRole("button", { name: /sign up/ })).toBeTruthy();
-      expect(queryByRole("button", { name: "MC: dialog.cancel" })).toBeTruthy();
-    });
-  });
 
+    expect(document.querySelectorAll(".Dialog").length).toBe(1);
+  });
   it("closes dialog correctly when clicked on close button", () => {
-    const { getByRole, container } = render(<SignupBlock data={data} />);
-    const signupButton = getByRole("button", { name: "sign up" });
+    render(<SignupBlock data={data} />);
+    const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
-    const closeButton = getByRole("button", { name: "Close" });
+    const closeButton = screen.getByRole("button", { name: "Close" });
     fireEvent.click(closeButton);
-    expect(container.querySelector(".Dialog")).toBeFalsy();
+    expect(document.querySelector(".Dialog")).toBeFalsy();
   });
 
   it("renders correctly when clicked on cancel button", () => {
-    const { getByRole, queryByRole } = render(<SignupBlock data={data} />);
-    const signupButton = getByRole("button", { name: "sign up" });
+    render(<SignupBlock data={data} />);
+    const signupButton = screen.getByRole("button", { name: "sign up" });
     fireEvent.click(signupButton);
-    const cancelButton = getByRole("button", {
+    const cancelButton = screen.getByRole("button", {
       name: `MC: ${microCopy.DIALOG_CANCEL}`
     });
     fireEvent.click(cancelButton);
     expect(
-      queryByRole("button", { name: `MC: ${microCopy.DIALOG_CANCEL}` })
+      screen.queryByRole("button", { name: `MC: ${microCopy.DIALOG_CANCEL}` })
     ).toBeFalsy();
   });
-  //TODO fix test - once the form is submitted cancel button becomes close and submit button disappears from dialog
-  // it("renders correctly when clicked on close button once the form is submitted", async () => {
-  //   jest.clearAllMocks();
-  //   const onFormSubmittedEvent = new MessageEvent("message", {
-  //     data: {
-  //       eventName: "onFormSubmitted"
-  //     }
-  //   });
-  //   const { container, getByRole, queryByRole } = render(
-  //     <SignupBlock data={data} />
-  //   );
-  //   const signupButton = getByRole("button", { name: "sign up" });
-  //   fireEvent.click(signupButton);
-
-  //   window.dispatchEvent(onFormSubmittedEvent);
-
-  //   await waitFor(() => {
-  //     expect(
-  //       container.querySelectorAll(".Dialog-module__actions button").length
-  //     ).toBe(1);
-  //     const cancelButton = getByRole("button", {
-  //       name: `MC: ${microCopy.DIALOG_CLOSE}`
-  //     });
-  //     fireEvent.click(cancelButton);
-  //     expect(
-  //       queryByRole("button", { name: `MC: ${microCopy.DIALOG_CLOSE}` })
-  //     ).toBeFalsy();
-  //   });
-  // });
   it("disables sign up button on load", () => {
     const { getByRole } = render(<SignupBlock data={data} />);
 
@@ -156,6 +124,98 @@ describe("SignupBlock component", () => {
     const dialogSignupBtn = getByRole("button", { name: /sign up/ });
     expect(dialogSignupBtn).toBeDisabled();
   });
-  //TODO tests
-  //1.enables sign up button when all three condtions i.e. checked both legal check boxes and is valid email
+
+  it("enables sign up button on valid email and both legal check boxes checked ", () => {
+    render(<SignupBlock data={data} />);
+
+    const signupButton = screen.getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+
+    const hsForm = document.querySelector<HTMLFormElement>("form");
+    const emailInput = hsForm.querySelector("input[name=email]");
+    const legalConsentSubscription = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[0];
+
+    const legalConsentProcessing = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[1];
+
+    fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
+    fireEvent.click(legalConsentSubscription);
+    fireEvent.click(legalConsentProcessing);
+
+    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    expect(dialogSignupBtn).toBeEnabled();
+  });
+  it("disables sign up button on invalid email but both legal check boxes checked ", () => {
+    render(<SignupBlock data={data} />);
+
+    const signupButton = screen.getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+
+    const hsForm = document.querySelector<HTMLFormElement>("form");
+    const emailInput = hsForm.querySelector("input[name=email]");
+    const legalConsentSubscription = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[0];
+
+    const legalConsentProcessing = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[1];
+
+    fireEvent.input(emailInput, { target: { value: "test123.com" } });
+    fireEvent.click(legalConsentSubscription);
+    fireEvent.click(legalConsentProcessing);
+
+    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    expect(dialogSignupBtn).toBeDisabled();
+  });
+
+  it("disables sign up button on valid email but legal check boxes not checked ", () => {
+    render(<SignupBlock data={data} />);
+
+    const signupButton = screen.getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+
+    const hsForm = document.querySelector<HTMLFormElement>("form");
+    const emailInput = hsForm.querySelector("input[name=email]");
+
+    fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
+
+    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+    expect(dialogSignupBtn).toBeDisabled();
+  });
+
+  it("renders correctly when clicked on close button once the form is submitted", () => {
+    render(<SignupBlock data={data} />);
+
+    const signupButton = screen.getByRole("button", { name: "sign up" });
+    fireEvent.click(signupButton);
+
+    const hsForm = document.querySelector<HTMLFormElement>("form");
+    const emailInput = hsForm.querySelector("input[name=email]");
+    const legalConsentSubscription = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[0];
+
+    const legalConsentProcessing = hsForm.querySelectorAll(
+      "input[type=checkbox]"
+    )[1];
+
+    fireEvent.input(emailInput, { target: { value: "test123@gmail.com" } });
+    fireEvent.click(legalConsentSubscription);
+    fireEvent.click(legalConsentProcessing);
+
+    const dialogSignupBtn = document.querySelectorAll(".actions button")[1];
+
+    fireEvent.click(dialogSignupBtn);
+
+    expect(document.querySelectorAll(".actions button").length).toBe(1);
+    const cancelButton = screen.getByRole("button", {
+      name: `MC: ${microCopy.DIALOG_CLOSE}`
+    });
+    fireEvent.click(cancelButton);
+    expect(document.querySelector(".Dialog")).toBeFalsy();
+  });
 });
