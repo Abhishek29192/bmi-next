@@ -1,4 +1,3 @@
-import { Product, VariantOption } from "./types";
 import createAsset from "./AssetHelper";
 import createCategory from "./CategoryHelper";
 import createClassification, {
@@ -10,6 +9,7 @@ import createClassification, {
   createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
+import { Product, VariantOption } from "./types";
 import createVariantOption, {
   createFullyPopulatedVariantOption
 } from "./VariantOptionHelper";
@@ -215,7 +215,7 @@ export const createFullyPopulatedProduct = (
 
 const createProduct = (product?: Partial<Product>): Product => ({
   approvalStatus: "approved",
-  code: "code",
+  code: "base-code",
   externalProductCode: "external-product-code",
   description: "<p>Some description</p>",
   assets: [createAsset()],

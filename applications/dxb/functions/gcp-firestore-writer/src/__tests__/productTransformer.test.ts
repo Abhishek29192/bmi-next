@@ -99,6 +99,7 @@ describe("transformProducts", () => {
           label: ""
         },
         name: products[0].name,
+        path: `/p/${products[0].name}-3464354221`,
         productBenefits: undefined,
         relatedVariants: [],
         specificationIframeUrl: undefined,
@@ -218,7 +219,7 @@ describe("transformProducts", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "baseCode": "code",
+          "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
           "brand": Object {
@@ -340,7 +341,7 @@ describe("transformProducts", () => {
               "name": "name",
             },
           ],
-          "code": "code",
+          "code": "variant-code",
           "colour": "Shadow Black",
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
@@ -353,7 +354,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -380,7 +381,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -407,7 +408,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -431,7 +432,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -457,7 +458,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -481,7 +482,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -504,7 +505,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -530,7 +531,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -557,7 +558,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -584,7 +585,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -611,7 +612,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -638,7 +639,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "84587715",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -665,7 +666,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -892,7 +893,7 @@ describe("transformProducts", () => {
           ],
           "guaranteesAndWarrantiesImages": Array [],
           "guaranteesAndWarrantiesLinks": Array [],
-          "hashedCode": "1853176582",
+          "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "masterImages": Array [
             Object {
@@ -926,6 +927,7 @@ describe("transformProducts", () => {
             },
           },
           "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3464354221",
           "productBenefits": Array [
             "product-benefits",
           ],
@@ -1165,7 +1167,7 @@ describe("transformProducts", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "baseCode": "code",
+          "baseCode": "base-code",
           "baseScoringWeight": 0,
           "bimIframeUrl": "http://localhost:8000",
           "brand": Object {
@@ -1299,7 +1301,7 @@ describe("transformProducts", () => {
               "name": "name",
             },
           ],
-          "code": "code",
+          "code": "variant-code",
           "colour": "Shadow Black",
           "colourFamily": "Black",
           "colourMicrocopy": "Colour",
@@ -1312,7 +1314,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1339,7 +1341,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1366,7 +1368,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1390,7 +1392,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1416,7 +1418,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1440,7 +1442,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1463,7 +1465,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1489,7 +1491,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1516,7 +1518,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1543,7 +1545,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1570,7 +1572,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1597,7 +1599,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "84587715",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1624,7 +1626,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -1881,7 +1883,7 @@ describe("transformProducts", () => {
           ],
           "guaranteesAndWarrantiesImages": Array [],
           "guaranteesAndWarrantiesLinks": Array [],
-          "hashedCode": "1853176582",
+          "hashedCode": "3464354221",
           "isSampleOrderAllowed": true,
           "masterImages": Array [
             Object {
@@ -1915,6 +1917,7 @@ describe("transformProducts", () => {
             },
           },
           "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3464354221",
           "productBenefits": Array [
             "product-benefits",
           ],
@@ -2072,7 +2075,7 @@ describe("transformProducts", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "baseCode": "code",
+          "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
           "brand": Object {
@@ -2224,7 +2227,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2251,7 +2254,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2278,7 +2281,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2302,7 +2305,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2328,7 +2331,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2352,7 +2355,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2375,7 +2378,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2401,7 +2404,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2428,7 +2431,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2455,7 +2458,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2482,7 +2485,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2509,7 +2512,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "84587715",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2536,7 +2539,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -2797,6 +2800,7 @@ describe("transformProducts", () => {
             },
           },
           "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3903870044",
           "productBenefits": Array [
             "product-benefits",
           ],
@@ -2975,7 +2979,7 @@ describe("transformProducts", () => {
               "url": "http://localhost:8000",
             },
           ],
-          "baseCode": "code",
+          "baseCode": "base-code",
           "baseScoringWeight": 100,
           "bimIframeUrl": "http://localhost:8000",
           "brand": Object {
@@ -3127,7 +3131,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3154,7 +3158,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3181,7 +3185,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3205,7 +3209,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3231,7 +3235,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3255,7 +3259,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3278,7 +3282,7 @@ describe("transformProducts", () => {
               "assetType": "CERTIFICATES",
               "id": "2583923841",
               "isLinkDocument": true,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3304,7 +3308,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3331,7 +3335,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3358,7 +3362,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3385,7 +3389,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3412,7 +3416,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "84587715",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3439,7 +3443,7 @@ describe("transformProducts", () => {
               "format": "application/pdf",
               "id": "2583923841",
               "isLinkDocument": false,
-              "productBaseCode": "code",
+              "productBaseCode": "base-code",
               "productCategories": Array [
                 Object {
                   "code": "code",
@@ -3700,6 +3704,7 @@ describe("transformProducts", () => {
             },
           },
           "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-2671178359",
           "productBenefits": Array [
             "product-benefits",
           ],
@@ -3834,7 +3839,7 @@ describe("transformProducts", () => {
       format: "application/pdf",
       id: "2583923841",
       isLinkDocument: false,
-      productBaseCode: "code",
+      productBaseCode: "base-code",
       productCategories: [],
       productName: "name",
       realFileName: "real-file-name.pdf",
@@ -5659,5 +5664,293 @@ describe("transformProducts", () => {
     expect(
       transformedProducts[0].relatedVariants[0].measurements.volume!.unit
     ).toEqual("");
+  });
+
+  it("creates path from variant attribute if variant attrubite present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [{ value: "Black" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
+                featureValues: [{ value: "Gloss" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+                featureValues: [{ value: "Diameter 40mm" }]
+              })
+            ]
+          }),
+          createClassification({
+            code: "generalInformation",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+                featureValues: [{ value: "Clay" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-diameter-40mm-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if variant attrubite not present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [{ value: "Black" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+                featureValues: [{ value: "Gloss" }]
+              })
+            ]
+          }),
+          createClassification({
+            code: "generalInformation",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+                featureValues: [{ value: "Clay" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is false", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "false";
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [{ value: "Black" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+                featureValues: [{ value: "Gloss" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+                featureValues: [{ value: "Diameter 40mm" }]
+              })
+            ]
+          }),
+          createClassification({
+            code: "generalInformation",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+                featureValues: [{ value: "Clay" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [{ value: "Black" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+                featureValues: [{ value: "Gloss" }]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+                featureValues: [{ value: "Diameter 40mm" }]
+              })
+            ]
+          }),
+          createClassification({
+            code: "generalInformation",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+                featureValues: [{ value: "Clay" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just colour if texture family and materials not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+                featureValues: [{ value: "Black" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just texture family if colour and materials not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "appearanceAttributes",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+                featureValues: [{ value: "Gloss" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-gloss-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just materials if colour and texture family not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const products = [
+      createProduct({
+        classifications: [
+          createClassification({
+            code: "generalInformation",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+                featureValues: [{ value: "Clay" }]
+              })
+            ]
+          })
+        ],
+        code: "code",
+        name: "Product Name",
+        variantOptions: [createVariantOption({ code: "variant-code" })]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
   });
 });

@@ -24,6 +24,7 @@ import {
   mapDocuments,
   mapImages
 } from "./transformerUtils";
+import { generateUrl } from "./urlUtils";
 
 export const transformSystems = (systems: PimSystem[]): System[] =>
   systems
@@ -45,6 +46,9 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
           }
         });
       });
+      const code = system.code;
+      const hashedCode = generateHashFromString(system.code);
+      const name = system.name;
       return {
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
@@ -58,7 +62,7 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
         brand: getBrand(system.categories),
         categories: system.categories,
         classifications: mapClassifications(system),
-        code: system.code,
+        code,
         description: system.longDescription,
         documents: mapSystemDocuments(system),
         guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
@@ -69,11 +73,12 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
           GuaranteesAndWarrantiesAssetType.Links,
           system.assets
         ),
-        hashedCode: generateHashFromString(system.code),
+        hashedCode,
         images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
         keyFeatures: mapKeyFeatures(system),
         layerCodes: (system.systemLayers || []).map((layer) => layer.code),
-        name: system.name,
+        name,
+        path: `/s/${generateUrl([code, name, hashedCode])}`,
         promotionalContent,
         scoringWeight: getScoringWeight(system.classifications),
         shortDescription: system.shortDescription,

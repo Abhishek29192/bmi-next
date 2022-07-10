@@ -32,6 +32,7 @@ import {
   mapDocuments,
   mapImages
 } from "./transformerUtils";
+import { generateUrl } from "./urlUtils";
 
 export const transformProducts = (products: PimProduct[]): Product[] =>
   products
@@ -148,6 +149,8 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             }
           });
         });
+        const hashedCode = generateHashFromString(variant.code, false);
+        const name = product.name;
 
         const transformedProduct: Product = {
           awardsAndCertificateDocuments: getAwardAndCertificateAsset(
@@ -189,7 +192,7 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             GuaranteesAndWarrantiesAssetType.Links,
             product.assets
           ),
-          hashedCode: generateHashFromString(variant.code, false),
+          hashedCode,
           isSampleOrderAllowed:
             process.env.ENABLE_SAMPLE_ORDERING == "true" &&
             (variant.isSampleOrderAllowed ??
@@ -205,7 +208,15 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             volume,
             label: getSizeLabel(length, width, height)
           },
-          name: product.name,
+          name,
+          path: `/p/${generateProductUrl(
+            name,
+            hashedCode,
+            colour,
+            materials,
+            textureFamily,
+            variantAttribute
+          )}`,
           productBenefits: variant.productBenefits ?? product.productBenefits,
           relatedVariants: mapRelatedVariants(product, variant.code),
           specificationIframeUrl: product.assets?.find(
@@ -385,6 +396,27 @@ const getGroups = (categories: readonly Category[]): CategoryGroup[] => {
       return path;
     })
     .map((tree) => tree[tree.length - 2]);
+};
+
+const generateProductUrl = (
+  name: string,
+  hashedCode: string,
+  colour?: string,
+  materials?: string,
+  textureFamily?: string,
+  variantAttribute?: string
+): string => {
+  // this is currently feature flagged so that countries can opt-in for 'variant attributes'
+  if (
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL === "true" &&
+    variantAttribute
+  ) {
+    return generateUrl([name, variantAttribute, hashedCode]);
+  }
+
+  return generateUrl(
+    [name, colour, textureFamily, materials, hashedCode].filter(isDefined)
+  );
 };
 
 const mapRelatedVariants = (
