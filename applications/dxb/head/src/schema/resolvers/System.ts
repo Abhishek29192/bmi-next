@@ -1,6 +1,5 @@
 import { Product, System } from "@bmi/firestore-types";
 import { AssetType } from "../../types/pim";
-import { generateSystemPath } from "../../utils/systems";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 
 const createResolver = (field: keyof Node) => ({
@@ -73,11 +72,6 @@ export default {
           document.assetType &&
           assetTypes.some((assetType) => assetType === document.assetType)
       );
-    }
-  },
-  path: {
-    async resolve(source: Partial<Node>) {
-      return generateSystemPath(source as any);
     }
   },
   relatedOptionalProducts: createResolver("relatedOptionalProducts"),
