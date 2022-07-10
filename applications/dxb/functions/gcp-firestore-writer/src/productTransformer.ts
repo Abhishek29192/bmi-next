@@ -18,7 +18,12 @@ import type {
   Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
-import { generateHashFromString, getYoutubeId, isDefined } from "@bmi/utils";
+import {
+  generateHashFromString,
+  generateUrl,
+  getYoutubeId,
+  isDefined
+} from "@bmi/utils";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -32,7 +37,6 @@ import {
   mapDocuments,
   mapImages
 } from "./transformerUtils";
-import { generateUrl } from "./urlUtils";
 
 export const transformProducts = (products: PimProduct[]): Product[] =>
   products

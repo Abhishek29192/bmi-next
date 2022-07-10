@@ -10,7 +10,7 @@ import {
   Video
 } from "@bmi/firestore-types";
 import { System as PimSystem } from "@bmi/pim-types";
-import { generateHashFromString, getYoutubeId } from "@bmi/utils";
+import { generateHashFromString, generateUrl, getYoutubeId } from "@bmi/utils";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -24,7 +24,6 @@ import {
   mapDocuments,
   mapImages
 } from "./transformerUtils";
-import { generateUrl } from "./urlUtils";
 
 export const transformSystems = (systems: PimSystem[]): System[] =>
   systems

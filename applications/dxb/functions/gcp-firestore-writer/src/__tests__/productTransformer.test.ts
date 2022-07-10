@@ -5679,15 +5679,18 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }]
+                featureValues: [{ value: "Black" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
-                featureValues: [{ value: "Gloss" }]
+                featureValues: [{ value: "Gloss" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }]
+                featureValues: [{ value: "Diameter 40mm" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           }),
@@ -5696,7 +5699,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }]
+                featureValues: [{ value: "Clay" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5728,11 +5732,13 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }]
+                featureValues: [{ value: "Black" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }]
+                featureValues: [{ value: "Gloss" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           }),
@@ -5741,7 +5747,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }]
+                featureValues: [{ value: "Clay" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5773,15 +5780,18 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }]
+                featureValues: [{ value: "Black" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }]
+                featureValues: [{ value: "Gloss" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }]
+                featureValues: [{ value: "Diameter 40mm" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           }),
@@ -5790,7 +5800,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }]
+                featureValues: [{ value: "Clay" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5822,15 +5833,18 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }]
+                featureValues: [{ value: "Black" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }]
+                featureValues: [{ value: "Gloss" }],
+                featureUnit: createFeatureUnit()
               }),
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }]
+                featureValues: [{ value: "Diameter 40mm" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           }),
@@ -5839,7 +5853,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }]
+                featureValues: [{ value: "Clay" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5871,7 +5886,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }]
+                featureValues: [{ value: "Black" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5903,7 +5919,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }]
+                featureValues: [{ value: "Gloss" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })
@@ -5935,7 +5952,8 @@ describe("transformProducts", () => {
             features: [
               createFeature({
                 code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }]
+                featureValues: [{ value: "Clay" }],
+                featureUnit: createFeatureUnit()
               })
             ]
           })

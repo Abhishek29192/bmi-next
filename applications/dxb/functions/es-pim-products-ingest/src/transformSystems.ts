@@ -1,6 +1,6 @@
 import logger from "@bmi-digital/functions-logger";
 import type { System } from "@bmi/pim-types";
-import { generateHashFromString } from "@bmi/utils";
+import { generateHashFromString, generateUrl } from "@bmi/utils";
 
 export type EsSystem = {
   approvalStatus: System["approvalStatus"];
@@ -11,6 +11,7 @@ export type EsSystem = {
   name: System["name"];
   shortDescription: System["shortDescription"];
   hashedCode: string;
+  path: string;
 };
 
 const getBrandCode = (categories: System["categories"]): string | undefined => {
@@ -23,6 +24,7 @@ export const transformSystem = (system: System): EsSystem => {
   const { approvalStatus, type, images, code, name, shortDescription } = system;
   const brand = getBrandCode(system.categories);
   const hashedCode = generateHashFromString(code);
+  const path = `/s/${generateUrl([code, name, hashedCode])}`;
   logger.info({
     message: `System brand: ${brand}`
   });
@@ -34,6 +36,7 @@ export const transformSystem = (system: System): EsSystem => {
     name,
     shortDescription,
     type,
-    hashedCode
+    hashedCode,
+    path
   };
 };

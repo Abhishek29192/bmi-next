@@ -9,6 +9,7 @@ import {
   Product as PIMProduct,
   VariantOption as PIMVariant
 } from "@bmi/pim-types";
+import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   ESIndexObject,
   findMainImage,
@@ -264,11 +265,49 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         Number.isFinite(Number.parseInt(variantScoringWeight))
           ? Number.parseInt(variantScoringWeight)
           : 0,
-      totalVariantCount: product.variantOptions?.length || 0,
+      totalVariantCount: product.variantOptions!.length,
       mainImage: findMainImage([
         ...(variant.images || []),
         ...(product.images || [])
       ]),
+      path: `/p/${generateProductUrl(
+        baseAttributes.name,
+        generateHashFromString(variant.code, false),
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() === "appearanceAttributes.colour"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "generalInformation"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() === "generalInformation.materials"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() ===
+              "appearanceAttributes.texturefamily"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() ===
+              "appearanceAttributes.variantattribute"
+          )?.featureValues[0].value
+      )}`,
       subTitle
     };
     logger.info({
@@ -276,4 +315,25 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     });
     return productVariant;
   });
+};
+
+const generateProductUrl = (
+  name: string,
+  hashedCode: string,
+  colour?: string,
+  materials?: string,
+  textureFamily?: string,
+  variantAttribute?: string
+): string => {
+  // this is currently feature flagged so that countries can opt-in for 'variant attributes'
+  if (
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL === "true" &&
+    variantAttribute
+  ) {
+    return generateUrl([name, variantAttribute, hashedCode]);
+  }
+
+  return generateUrl(
+    [name, colour, textureFamily, materials, hashedCode].filter(isDefined)
+  );
 };

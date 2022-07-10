@@ -34,6 +34,7 @@ export type ProductVariant = {
   variantScoringWeightInt: number;
   totalVariantCount: number;
   mainImage: string;
+  path: string;
   subTitle: string;
 } & {
   [extractedFilter: string]: any;

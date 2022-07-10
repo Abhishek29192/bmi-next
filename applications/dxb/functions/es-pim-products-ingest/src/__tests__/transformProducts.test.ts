@@ -1,7 +1,9 @@
 import {
   createAppearanceAttributesClassification,
   createCategory,
+  createClassification,
   createFeature,
+  createFeatureUnit,
   createFeatureValue,
   createGeneralInformationClassification,
   createIgnorableClassifications,
@@ -896,5 +898,321 @@ describe("transformProduct", () => {
       });
       expect(await transformProduct(product)).toStrictEqual([]);
     });
+
+    it("should default external product code to an empty string", async () => {
+      const product = createPimProduct({
+        externalProductCode: undefined,
+        variantOptions: [
+          createVariantOption({ externalProductCode: undefined })
+        ]
+      });
+      expect(
+        (await transformProduct(product))[0].externalProductCode
+      ).toStrictEqual("");
+    });
+
+    it("should default is sample order allowed to false", async () => {
+      const product = createPimProduct({
+        isSampleOrderAllowed: undefined,
+        variantOptions: [
+          createVariantOption({ isSampleOrderAllowed: undefined })
+        ]
+      });
+      expect(
+        (await transformProduct(product))[0].isSampleOrderAllowed
+      ).toStrictEqual(false);
+    });
+  });
+
+  it("creates path from variant attribute if variant attrubite present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedproducts = await transformProduct(product);
+    expect(transformedproducts[0].path).toEqual(
+      `/p/product-name-diameter-40mm-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if variant attrubite not present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedproducts = await transformProduct(product);
+    expect(transformedproducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is false", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "false";
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from colour, texture family and materials if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just colour if texture family and materials not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-black-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just texture family if colour and materials not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-gloss-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
+  });
+
+  it("creates path from just materials if colour and texture family not provided if ENABLE_PDP_VARIANT_ATTRIBUTE_URL is not set", async () => {
+    const originalEnablePdpVariantAttributeUrl =
+      process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+    delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
+
+    const product = createPimProduct({
+      classifications: [
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [createVariantOption({ code: "variant-code" })]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].path).toEqual(
+      `/p/product-name-clay-3464354221`
+    );
+
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
+      originalEnablePdpVariantAttributeUrl;
   });
 });
