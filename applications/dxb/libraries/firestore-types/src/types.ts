@@ -23,6 +23,7 @@ export type System = {
   images: readonly Image[];
   layerCodes: string[];
   name: string;
+  path: string;
   promotionalContent?: string;
   scoringWeight: number;
   shortDescription: string;
@@ -97,6 +98,7 @@ export type Product = {
   materials?: string;
   measurements: Measurements;
   name: string;
+  path: string;
   productBenefits?: readonly string[];
   relatedVariants: readonly RelatedVariant[];
   specificationIframeUrl?: string;

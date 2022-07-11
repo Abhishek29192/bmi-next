@@ -1,14 +1,15 @@
 /* eslint-disable security/detect-object-injection */
 import logger from "@bmi-digital/functions-logger";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import {
   BaseProduct,
   Category,
   Classification,
   Feature,
-  filterTwoOneAttributes,
   Product as PIMProduct,
   VariantOption as PIMVariant
 } from "@bmi/pim-types";
+import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import {
   ESIndexObject,
   findMainImage,
@@ -21,7 +22,6 @@ import {
   mapProductClassifications,
   TransformedMeasurementValue
 } from "./CLONE";
-import type { ProductVariant as ESProduct } from "./es-model";
 
 // Can't use lodash pick as it's not type-safe
 const pick = <T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K> => {
@@ -235,7 +235,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
       name: product.name
     };
 
-    const productVariant: ESProduct = {
+    const esProduct: ESProduct = {
       ...indexedFeatures,
       ...allCategoriesAsProps,
       ...baseAttributes,
@@ -264,16 +264,187 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
         Number.isFinite(Number.parseInt(variantScoringWeight))
           ? Number.parseInt(variantScoringWeight)
           : 0,
-      totalVariantCount: product.variantOptions?.length || 0,
+      totalVariantCount: product.variantOptions!.length,
       mainImage: findMainImage([
         ...(variant.images || []),
         ...(product.images || [])
       ]),
+      path: `/p/${generateProductUrl(
+        baseAttributes.name,
+        generateHashFromString(variant.code, false),
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() === "appearanceAttributes.colour"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "generalInformation"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() === "generalInformation.materials"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() ===
+              "appearanceAttributes.texturefamily"
+          )?.featureValues[0].value,
+        combinedClassifications
+          .find(
+            (classification) => classification.code === "appearanceAttributes"
+          )
+          ?.features?.find(
+            (feature) =>
+              feature.code.split("/").pop() ===
+              "appearanceAttributes.variantattribute"
+          )?.featureValues[0].value
+      )}`,
       subTitle
     };
     logger.info({
-      message: `productVariant: ${productVariant}`
+      message: `esProduct: ${esProduct}`
     });
-    return productVariant;
+    return esProduct;
+  });
+};
+
+const generateProductUrl = (
+  name: string,
+  hashedCode: string,
+  colour?: string,
+  materials?: string,
+  textureFamily?: string,
+  variantAttribute?: string
+): string => {
+  // this is currently feature flagged so that countries can opt-in for 'variant attributes'
+  if (
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL === "true" &&
+    variantAttribute
+  ) {
+    return generateUrl([name, variantAttribute, hashedCode]);
+  }
+
+  return generateUrl(
+    [name, colour, textureFamily, materials, hashedCode].filter(isDefined)
+  );
+};
+
+export enum TwoOneClassToIgnore {
+  bagUomAttributes = "bagUomAttributes",
+  canisterUomAttributes = "canisterUomAttributes",
+  cartonUomAttributes = "cartonUomAttributes",
+  crateUomAttributes = "crateUomAttributes",
+  cubicMeterUomAttributes = "cubicMeterUomAttributes",
+  drumUomAttributes = "drumUomAttributes",
+  eachUomAttributes = "eachUomAttributes",
+  kilogramUomAttributes = "kilogramUomAttributes",
+  kilometerUomAttributes = "kilometerUomAttributes",
+  kilowattUomAttributes = "kilowattUomAttributes",
+  literUomAttributes = "literUomAttributes",
+  meterUomAttributes = "meterUomAttributes",
+  packUomAttributes = "packUomAttributes",
+  palletUomAttributes = "palletUomAttributes",
+  pieceUomAttributes = "pieceUomAttributes",
+  rollsUomAttributes = "rollsUomAttributes",
+  squareMeterUomAttributes = "squareMeterUomAttributes"
+}
+
+export enum TwoOneAttribToIgnore {
+  categoryOfEan11 = "categoryOfEan11",
+  denominatorForConversion = "denominatorForConversion",
+  ean11 = "ean11",
+  grossWeight = "grossWeight",
+  height = "height",
+  length = "length",
+  numeratorForConversion = "numeratorForConversion",
+  volume = "volume",
+  width = "width",
+  unit = "unit",
+  uomType = "uomType"
+}
+
+export const commonIgnoreList = [
+  TwoOneAttribToIgnore.categoryOfEan11,
+  TwoOneAttribToIgnore.denominatorForConversion,
+  TwoOneAttribToIgnore.ean11,
+  TwoOneAttribToIgnore.grossWeight,
+  TwoOneAttribToIgnore.height,
+  TwoOneAttribToIgnore.length,
+  TwoOneAttribToIgnore.numeratorForConversion,
+  TwoOneAttribToIgnore.unit,
+  TwoOneAttribToIgnore.uomType,
+  TwoOneAttribToIgnore.volume,
+  TwoOneAttribToIgnore.width
+];
+
+type TwoOneClassificationAttributeDictionary = {
+  [classKey: string]: TwoOneAttribToIgnore[];
+};
+
+export const TwoOneIgnoreDictionary: TwoOneClassificationAttributeDictionary = {
+  [TwoOneClassToIgnore.bagUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.canisterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.crateUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.cubicMeterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.eachUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilogramUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilometerUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.kilowattUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.literUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.meterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.packUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.palletUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.pieceUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.rollsUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.squareMeterUomAttributes]: commonIgnoreList,
+  [TwoOneClassToIgnore.drumUomAttributes]: [
+    TwoOneAttribToIgnore.unit,
+    TwoOneAttribToIgnore.uomType
+  ],
+  [TwoOneClassToIgnore.cartonUomAttributes]: [
+    TwoOneAttribToIgnore.unit,
+    TwoOneAttribToIgnore.uomType
+  ]
+};
+
+const extractFeatureCode = (
+  pimClassificationNameSpace: string,
+  code: string
+) => {
+  return code.replace(`${pimClassificationNameSpace}/`, "");
+};
+
+const filterTwoOneAttributes = (
+  pimClassificationCatalogueNamespace: string,
+  classificationCode: string,
+  origFeatures: Feature[]
+) => {
+  // eslint-disable-next-line security/detect-object-injection
+  const excludeAttributes = TwoOneIgnoreDictionary[classificationCode];
+  return origFeatures.filter((feature) => {
+    const featureCode = extractFeatureCode(
+      pimClassificationCatalogueNamespace,
+      feature.code
+    );
+    const attributeName = featureCode
+      .replace(`${classificationCode}.`, "")
+      .toLowerCase();
+    if (
+      excludeAttributes &&
+      excludeAttributes.some(
+        (attribute) => attribute.toLowerCase() === attributeName
+      )
+    ) {
+      return false;
+    }
+    return true;
   });
 };

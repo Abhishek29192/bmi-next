@@ -102,7 +102,6 @@ export enum UnavailableMicroCopiesEnum {
   TEXTURE_FAMILY = "texturefamily"
 }
 
-export type VariantCodeToPathMap = { [code: string]: string };
 export type Options = { size: string; variantAttribute: string };
 export type UnavailableMicroCopies = Record<UnavailableMicroCopiesEnum, string>;
 

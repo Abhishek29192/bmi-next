@@ -103,6 +103,7 @@
   },
   "devDependencies": {
     "@bmi/contentful-graph": "0.0.0",
+    "@bmi/elasticsearch-types": "0.0.0",
     "@bmi/firestore-types": "0.0.0",
     "@types/helmet": "^0.0.48",
     "@types/lodash-es": "^4.14.172",

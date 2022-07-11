@@ -1,5 +1,5 @@
-import { Product as PIMProduct, System } from "@bmi/pim-types";
 import { DeleteItemType, MessageType } from "@bmi/gcp-pim-message-handler";
+import { Product as PIMProduct, System as PIMSystem } from "@bmi/pim-types";
 
 type Message = {
   type: MessageType;
@@ -17,7 +17,7 @@ export type ProductMessage = {
 
 export type SystemMessage = {
   itemType: "SYSTEMS";
-  items: ReadonlyArray<System>;
+  items: ReadonlyArray<PIMSystem>;
 } & Message;
 
 // This type is speculative at best

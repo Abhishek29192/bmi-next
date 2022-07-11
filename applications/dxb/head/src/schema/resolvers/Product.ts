@@ -9,7 +9,6 @@ import {
 import { Data } from "../../components/Resources";
 import { AssetType } from "../../types/pim";
 import groupBy from "../../utils/groupBy";
-import { generateSimpleProductUrl } from "../../utils/product-url-path";
 import { Resource } from "./types/Contentful";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import { getUrlFromPath, Path, resolvePath } from "./utils/path";
@@ -223,10 +222,7 @@ export default {
   path: {
     async resolve(source: Node, args: ResolveArgs, context: Context) {
       if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "true") {
-        return `p/${generateSimpleProductUrl(
-          source as unknown as Product,
-          process.env.GATSBY_ENABLE_PDP_VARIANT_ATTRIBUTE_URL === "true" // this is currently feature flagged so that countries can opt-in for 'variant attributes'
-        )}`;
+        return source.path;
       } else {
         const fullPath = await resolvePathFromFamily(source, args, context);
         const breadcrumbs = fullPath.concat({

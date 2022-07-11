@@ -1,9 +1,9 @@
-import { VariantOption } from "./types";
 import createClassification, {
   createFeature,
   createFeatureValue
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
+import { VariantOption } from "./types";
 
 export const createFullyPopulatedVariantOption = (
   variantOption?: Partial<VariantOption>
@@ -166,7 +166,7 @@ const createVariantOption = (
 ): VariantOption => ({
   approvalStatus: "approved",
   classifications: [createClassification({ code: "variant-code" })],
-  code: "code",
+  code: "variant-code",
   externalProductCode: "external-product-code",
   images: [createImage()],
   isSampleOrderAllowed: true,

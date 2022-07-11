@@ -1,15 +1,15 @@
-import React from "react";
 import { graphql } from "gatsby";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
+import React from "react";
 import ErrorFallback from "../components/ErrorFallback";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
 
 type Props = {
   data: {
     contentfulSite: SiteData;
   };
   pageContext?: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

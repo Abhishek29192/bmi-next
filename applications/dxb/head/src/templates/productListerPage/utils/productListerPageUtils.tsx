@@ -5,14 +5,16 @@ import {
   OverviewCard,
   OverviewCardProps
 } from "@bmi/components";
-import { Product } from "@bmi/pim-types";
+import type { Product as EsProduct } from "@bmi/elasticsearch-types";
 import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import { iconMap } from "../../../components/Icon";
+import type { Context as SiteContext } from "../../../components/Site";
 import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../../../utils/path";
+import type { PageContextType } from "../components/product-lister-page";
 
 //TODO: remove filter.name === "colour" condition when feature flag 'GATSBY_USE_LEGACY_FILTERS' is removed
 // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
@@ -30,11 +32,11 @@ export const resolveFilters = (filters: readonly Filter[]) => {
 };
 
 export const renderProducts = (
-  products,
-  pageContext,
-  countryCode,
-  getMicroCopy,
-  filters
+  products: EsProduct[],
+  pageContext: PageContextType,
+  countryCode: string,
+  getMicroCopy: SiteContext["getMicroCopy"],
+  filters: Filter[]
 ) => {
   const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
   return products.flatMap((variant) => {
@@ -42,10 +44,10 @@ export const renderProducts = (
     // eslint-disable-next-line security/detect-object-injection
     const brandLogo = iconMap[brandLogoCode];
     const mainImage = variant.mainImage;
-    const product: Product = variant.baseProduct;
+    const product = variant.baseProduct;
     const productUrl = `${getPathWithCountryCode(
       countryCode,
-      pageContext.variantCodeToPathMap[variant.code]
+      pageContext.variantCodeToPathMap?.[variant.code] || variant.path
     )}${getSearchParams()}`;
     const subTitle = variant.subTitle || "";
     const moreOptionsAvailable =

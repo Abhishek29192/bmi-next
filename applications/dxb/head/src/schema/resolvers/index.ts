@@ -49,7 +49,6 @@ export default {
   Query,
   System: {
     documents: System.documents,
-    path: System.path,
     relatedSystems: System.relatedSystems
   },
   SystemLayer: {

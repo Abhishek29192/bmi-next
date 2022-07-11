@@ -10,7 +10,7 @@ import {
   Video
 } from "@bmi/firestore-types";
 import { System as PimSystem } from "@bmi/pim-types";
-import { generateHashFromString, getYoutubeId } from "@bmi/utils";
+import { generateHashFromString, generateUrl, getYoutubeId } from "@bmi/utils";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -33,11 +33,16 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
       let uniqueSellingPropositions: string[] = [];
       system.classifications?.forEach((classification) => {
         classification.features?.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop();
-          if (featureCode === "systemAttributes.promotionalcontent") {
+          const featureCode = feature.code.split("/").pop()!;
+          // TODO: Remove upercase checks - DXB-3449
+          if (
+            featureCode.toUpperCase() ===
+            "systemAttributes.promotionalcontent".toUpperCase()
+          ) {
             promotionalContent = feature.featureValues[0].value;
           } else if (
-            featureCode === "systemAttributes.uniquesellingpropositions"
+            featureCode.toUpperCase() ===
+            "systemAttributes.uniquesellingpropositions".toUpperCase()
           ) {
             uniqueSellingPropositions = feature.featureValues.map(
               (value) => value.value
@@ -45,6 +50,9 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
           }
         });
       });
+      const code = system.code;
+      const hashedCode = generateHashFromString(system.code);
+      const name = system.name;
       return {
         awardsAndCertificateDocuments: getAwardAndCertificateAsset(
           AwardAndCertificateAssetType.Documents,
@@ -58,7 +66,7 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
         brand: getBrand(system.categories),
         categories: system.categories,
         classifications: mapClassifications(system),
-        code: system.code,
+        code,
         description: system.longDescription,
         documents: mapSystemDocuments(system),
         guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
@@ -69,11 +77,12 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
           GuaranteesAndWarrantiesAssetType.Links,
           system.assets
         ),
-        hashedCode: generateHashFromString(system.code),
+        hashedCode,
         images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
         keyFeatures: mapKeyFeatures(system),
         layerCodes: (system.systemLayers || []).map((layer) => layer.code),
-        name: system.name,
+        name,
+        path: `/s/${generateUrl([code, name, hashedCode])}`,
         promotionalContent,
         scoringWeight: getScoringWeight(system.classifications),
         shortDescription: system.shortDescription,
@@ -110,7 +119,9 @@ const mapSystemDocuments = (system: PimSystem): SystemDocument[] =>
 
 const mapKeyFeatures = (system: PimSystem): KeyFeatures | undefined => {
   const classification = system.classifications?.find(
-    (classification) => classification.code === "systemAttributes"
+    // TODO: Remove upercase checks - DXB-3449
+    (classification) =>
+      classification.code.toUpperCase() === "systemAttributes".toUpperCase()
   );
   if (!classification) {
     return;
@@ -121,7 +132,9 @@ const mapKeyFeatures = (system: PimSystem): KeyFeatures | undefined => {
       classification.features
         ?.find(
           (feature) =>
-            feature.code.split("/").pop() === "systemAttributes.keyfeatures"
+            // TODO: Remove upercase checks - DXB-3449
+            feature.code.split("/").pop()!.toUpperCase() ===
+            "systemAttributes.keyfeatures".toUpperCase()
         )
         ?.featureValues.map((featureValue) => featureValue.value) || []
   };

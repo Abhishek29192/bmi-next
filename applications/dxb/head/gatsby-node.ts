@@ -48,7 +48,9 @@ const createProductPages = async (
   const component = path.resolve("./src/templates/product-details-page.tsx");
   await Promise.all(
     products.map(async (product) => {
-      variantCodeToPathMap[product.code] = product.path;
+      if (process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false") {
+        variantCodeToPathMap[product.code] = product.path;
+      }
       const path = getPathWithCountryCode(countryCode, product.path);
 
       // market has enabled PDP URL Redirects and
@@ -143,7 +145,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   for (const site of sites) {
     // TODO: This is temporary until we'll have the path inside ES.
-    const variantCodeToPathMap = {};
+    const variantCodeToPathMap =
+      process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false"
+        ? {}
+        : undefined;
 
     if (!process.env.GATSBY_PREVIEW) {
       await createProductPages(

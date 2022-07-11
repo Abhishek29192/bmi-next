@@ -7,7 +7,6 @@ import {
   createImage,
   createMeasurementsClassification,
   createProduct as createPimProduct,
-  createTwoOneClassifications,
   createVariantOption,
   Image
 } from "@bmi/pim-types";
@@ -22,6 +21,7 @@ import {
   indexFeatures,
   mapProductClassifications
 } from "../CLONE";
+import { createTwoOneClassifications } from "./helpers/TwoOneHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
@@ -107,6 +107,7 @@ describe("CLONE tests", () => {
 
     it("should return empty object if product.variantOptions.classifications.features === undefined", () => {
       const product = createPimProduct({
+        classifications: [],
         variantOptions: [
           createVariantOption({
             classifications: [
@@ -127,6 +128,7 @@ describe("CLONE tests", () => {
 
     it("should return correct object if product.variantOptions.classifications.features.featureValues === undefined", () => {
       const product = createPimProduct({
+        classifications: [],
         variantOptions: [
           createVariantOption({
             classifications: [
@@ -150,7 +152,7 @@ describe("CLONE tests", () => {
       );
 
       const expectedObj = {
-        code: {
+        "variant-code": {
           measurements: {
             length: {
               name: "feature",
@@ -168,6 +170,7 @@ describe("CLONE tests", () => {
 
     it("should return correct object if product.variantOptions.classifications.features.featureUnit === undefined", () => {
       const product = createPimProduct({
+        classifications: [],
         variantOptions: [
           createVariantOption({
             classifications: [
@@ -191,7 +194,7 @@ describe("CLONE tests", () => {
       );
 
       const expectedObj = {
-        code: {
+        "variant-code": {
           measurements: {
             length: {
               name: "feature",

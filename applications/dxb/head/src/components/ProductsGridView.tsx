@@ -5,6 +5,7 @@ import {
   OverviewCardProps,
   Typography
 } from "@bmi/components";
+import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
@@ -14,12 +15,12 @@ import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
-// TODO: This is the transformed indexed data
-type ESProductResult = any;
-
 type Props = {
-  products: ReadonlyArray<ESProductResult>;
-  pageContext: any; // TODO:
+  products: ReadonlyArray<ESProduct>;
+  pageContext: {
+    countryCode: string;
+    variantCodeToPathMap?: Record<string, string>;
+  }; // TODO: properly type
   isLoading?: boolean;
 };
 
@@ -56,10 +57,10 @@ const ProductsGridView = ({
         const product = variant.baseProduct;
         const productUrl = `${getPathWithCountryCode(
           pageContext.countryCode,
-          variantCodeToPathMap[variant.code]
+          variantCodeToPathMap?.[variant.code] || variant.path
         )}${searchParams}`;
 
-        const uniqueClassifications = product.subTitle || "";
+        const uniqueClassifications = variant.subTitle || "";
 
         return (
           <Grid

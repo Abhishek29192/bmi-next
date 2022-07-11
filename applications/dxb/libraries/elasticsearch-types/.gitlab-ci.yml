@@ -1,4 +1,4 @@
-build_pim-types:
+build_elasticsearch-types:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]

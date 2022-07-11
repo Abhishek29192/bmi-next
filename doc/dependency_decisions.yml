@@ -294,3 +294,15 @@
     :why: Our own project
     :versions: []
     :when: 2022-06-06 17:21:19.509965000 Z
+- - :approve
+  - "@bmi/elasticsearch-types"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-07-11 12:02:15.629761000 Z
+- - :approve
+  - "@bmi/pim-types"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-07-11 12:02:21.633855000 Z

@@ -1,18 +1,21 @@
-import { getEsClient } from "@bmi/functions-es-client";
 import logger from "@bmi-digital/functions-logger";
-import { Product as PIMProduct, System } from "@bmi/pim-types";
+import {
+  Product as EsProduct,
+  System as EsSystem
+} from "@bmi/elasticsearch-types";
+import { getEsClient } from "@bmi/functions-es-client";
 import { DeleteItemType } from "@bmi/gcp-pim-message-handler";
+import { Product as PIMProduct, System } from "@bmi/pim-types";
+import { deleteESItemByCode } from "./deleteESItemByCode";
 import { updateElasticSearch } from "./elasticsearch";
-import { ProductVariant } from "./es-model";
 import { transformProduct } from "./transformProducts";
-import { EsSystem, transformSystem } from "./transformSystems";
+import { transformSystem } from "./transformSystems";
 import {
   DeleteMessage,
   MessageFunction,
   ProductMessage,
   SystemMessage
 } from "./types";
-import { deleteESItemByCode } from "./deleteESItemByCode";
 
 const pingEsCluster = async () => {
   // get ES client
@@ -28,10 +31,10 @@ const pingEsCluster = async () => {
 
 export const buildEsProducts = (
   products: readonly PIMProduct[]
-): ProductVariant[] => {
+): EsProduct[] => {
   return products.reduce(
     (allProducts, product) => [...allProducts, ...transformProduct(product)],
-    [] as ProductVariant[]
+    [] as EsProduct[]
   );
 };
 
@@ -67,7 +70,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
   }`
   });
 
-  const getEsDocuments = (): (ProductVariant | EsSystem)[] => {
+  const getEsDocuments = (): (EsProduct | EsSystem)[] => {
     if (type === "UPDATED") {
       return itemType === "PRODUCTS"
         ? buildEsProducts(items as PIMProduct[])

@@ -39,7 +39,7 @@ type Props = {
     siteId: string;
     countryCode: string;
     relatedProductCodes: readonly string[];
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
   data: {
     product: Product;

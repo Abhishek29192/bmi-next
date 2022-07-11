@@ -12,7 +12,7 @@ module.exports = {
   coverageThreshold: {
     global: {
       ...sharedConfig.coverageThreshold.global,
-      branches: "96"
+      branches: "98"
     }
   }
 };

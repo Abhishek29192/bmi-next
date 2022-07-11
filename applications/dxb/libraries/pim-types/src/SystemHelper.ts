@@ -1,4 +1,3 @@
-import { System, SystemLayer } from "./types";
 import createAsset from "./AssetHelper";
 import createCategory from "./CategoryHelper";
 import createClassification, {
@@ -12,10 +11,9 @@ import createClassification, {
 import createImage from "./ImageHelper";
 import { createSystemLayer } from "./SystemLayersHelper";
 import createSystemReference from "./SystemReferencesHelper";
+import { System } from "./types";
 
-export const createFullyPopulatedSystem = (
-  systemLayers: SystemLayer[] = [createSystemLayer()]
-): System =>
+export const createFullyPopulatedSystem = (system?: Partial<System>): System =>
   createSystem({
     assets: [
       createAsset(),
@@ -129,7 +127,8 @@ export const createFullyPopulatedSystem = (
       createSystemReference({ referenceType: "CROSSELLING" as const }),
       createSystemReference({ referenceType: "UPSELLING" as const })
     ],
-    systemLayers
+    systemLayers: [createSystemLayer()],
+    ...system
   });
 
 const createSystem = (system?: Partial<System>): System => ({

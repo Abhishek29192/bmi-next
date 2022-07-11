@@ -356,6 +356,7 @@ const createProduct = (product?: Partial<Product>): Product => ({
   materials: "Concrete",
   measurements: createMeasurements(),
   name: "name",
+  path: "/p/name-shadow-black-concrete-gloss-1853176582",
   productBenefits: ["product-benefits"],
   relatedVariants: [createRelatedVariant()],
   specificationIframeUrl: "http://localhost:8000",

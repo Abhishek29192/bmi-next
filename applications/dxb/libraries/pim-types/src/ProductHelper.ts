@@ -1,4 +1,3 @@
-import { Product, VariantOption } from "./types";
 import createAsset from "./AssetHelper";
 import createCategory from "./CategoryHelper";
 import createClassification, {
@@ -10,13 +9,12 @@ import createClassification, {
   createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
+import { Product } from "./types";
 import createVariantOption, {
   createFullyPopulatedVariantOption
 } from "./VariantOptionHelper";
 
-export const createFullyPopulatedProduct = (
-  variantOptions: VariantOption[] = [createFullyPopulatedVariantOption()]
-) =>
+export const createFullyPopulatedProduct = (product?: Partial<Product>) =>
   createProduct({
     assets: [
       createAsset(),
@@ -210,12 +208,13 @@ export const createFullyPopulatedProduct = (
       createImage({ format: "Web" }),
       createImage({ assetType: "TECHNICAL_DRAWINGS" })
     ],
-    variantOptions
+    variantOptions: [createFullyPopulatedVariantOption()],
+    ...product
   });
 
 const createProduct = (product?: Partial<Product>): Product => ({
   approvalStatus: "approved",
-  code: "code",
+  code: "base-code",
   externalProductCode: "external-product-code",
   description: "<p>Some description</p>",
   assets: [createAsset()],
