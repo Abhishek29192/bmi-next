@@ -16,7 +16,7 @@ import {
 } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-import { maxDistance, minDistance } from "./constants/visualiser";
+import { maxDistanceHouse, minDistanceHouse } from "./constants/visualiser";
 import house from "./data/house.json";
 import getRef from "./GetRef";
 import modelCache from "./ModelCache";
@@ -550,9 +550,10 @@ export default class HouseViewer extends Viewer<Props, State> {
       const controls = new OrbitControls(this.camera, this.renderer.domElement);
       controls.addEventListener("change", () => this.renderFrame());
       this.controls = controls;
-      controls.minDistance = minDistance;
-      controls.maxDistance = maxDistance;
+      controls.minDistance = minDistanceHouse;
+      controls.maxDistance = maxDistanceHouse;
       controls.maxPolarAngle = 1.35;
+      controls.minPolarAngle = 0.01;
 
       controls.target.set(0, 1, 0);
       controls.update();
