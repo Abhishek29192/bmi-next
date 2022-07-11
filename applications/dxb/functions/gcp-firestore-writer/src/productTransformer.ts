@@ -18,7 +18,12 @@ import type {
   Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
-import { generateHashFromString, getYoutubeId, isDefined } from "@bmi/utils";
+import {
+  generateHashFromString,
+  generateUrl,
+  getYoutubeId,
+  isDefined
+} from "@bmi/utils";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -82,65 +87,105 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
         let weightPerSqm: UnitValue | undefined;
         mergedClassifications.forEach((classification) => {
           classification.features?.forEach((feature) => {
-            const featureCode = feature.code.split("/").pop();
-            if (featureCode === "appearanceAttributes.colour") {
+            const featureCode = feature.code.split("/").pop()!;
+            // TODO: Remove upercase checks - DXB-3449
+            if (
+              featureCode.toUpperCase() ===
+              "appearanceAttributes.colour".toUpperCase()
+            ) {
               colour = feature.featureValues[0].value;
-            } else if (featureCode === "appearanceAttributes.colourfamily") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "appearanceAttributes.colourfamily".toUpperCase()
+            ) {
               colourFamily = feature.featureValues[0].value;
-            } else if (featureCode === "appearanceAttributes.texturefamily") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "appearanceAttributes.texturefamily".toUpperCase()
+            ) {
               textureFamily = feature.featureValues[0].value;
             } else if (
-              featureCode === "appearanceAttributes.variantattribute"
+              featureCode.toUpperCase() ===
+              "appearanceAttributes.variantattribute".toUpperCase()
             ) {
               variantAttribute = feature.featureValues[0].value;
-            } else if (featureCode === "generalInformation.materials") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "generalInformation.materials".toUpperCase()
+            ) {
               materials = feature.featureValues[0].value;
-            } else if (featureCode === "measurements.length") {
+            } else if (
+              featureCode.toUpperCase() === "measurements.length".toUpperCase()
+            ) {
               length = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "measurements.width") {
+            } else if (
+              featureCode.toUpperCase() === "measurements.width".toUpperCase()
+            ) {
               width = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "measurements.height") {
+            } else if (
+              featureCode.toUpperCase() === "measurements.height".toUpperCase()
+            ) {
               height = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "measurements.thickness") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "measurements.thickness".toUpperCase()
+            ) {
               thickness = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "measurements.volume") {
+            } else if (
+              featureCode.toUpperCase() === "measurements.volume".toUpperCase()
+            ) {
               volume = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "weightAttributes.grossweight") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "weightAttributes.grossweight".toUpperCase()
+            ) {
               grossWeight = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "weightAttributes.netweight") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "weightAttributes.netweight".toUpperCase()
+            ) {
               netWeight = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "weightAttributes.weightperpallet") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "weightAttributes.weightperpallet".toUpperCase()
+            ) {
               weightPerPallet = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "weightAttributes.weightperpiece") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "weightAttributes.weightperpiece".toUpperCase()
+            ) {
               weightPerPiece = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
               };
-            } else if (featureCode === "weightAttributes.weightpersqm") {
+            } else if (
+              featureCode.toUpperCase() ===
+              "weightAttributes.weightpersqm".toUpperCase()
+            ) {
               weightPerSqm = {
                 value: feature.featureValues[0].value,
                 unit: feature.featureUnit?.symbol || ""
@@ -148,6 +193,8 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             }
           });
         });
+        const hashedCode = generateHashFromString(variant.code, false);
+        const name = product.name;
 
         const transformedProduct: Product = {
           awardsAndCertificateDocuments: getAwardAndCertificateAsset(
@@ -189,7 +236,7 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             GuaranteesAndWarrantiesAssetType.Links,
             product.assets
           ),
-          hashedCode: generateHashFromString(variant.code, false),
+          hashedCode,
           isSampleOrderAllowed:
             process.env.ENABLE_SAMPLE_ORDERING == "true" &&
             (variant.isSampleOrderAllowed ??
@@ -205,7 +252,15 @@ export const transformProducts = (products: PimProduct[]): Product[] =>
             volume,
             label: getSizeLabel(length, width, height)
           },
-          name: product.name,
+          name,
+          path: `/p/${generateProductUrl(
+            name,
+            hashedCode,
+            colour,
+            materials,
+            textureFamily,
+            variantAttribute
+          )}`,
           productBenefits: variant.productBenefits ?? product.productBenefits,
           relatedVariants: mapRelatedVariants(product, variant.code),
           specificationIframeUrl: product.assets?.find(
@@ -316,7 +371,10 @@ const getFilters = (
 ): Filter[] => {
   const classificationFilters: Filter[] = classifications
     .filter(
-      (classification) => classification.code !== "scoringWeightAttributes"
+      (classification) =>
+        // TODO: Remove upercase checks - DXB-3449
+        classification.code.toUpperCase() !==
+        "scoringWeightAttributes".toUpperCase()
     )
     .flatMap((classification) =>
       (classification.features || []).map((feature) => ({
@@ -387,6 +445,27 @@ const getGroups = (categories: readonly Category[]): CategoryGroup[] => {
     .map((tree) => tree[tree.length - 2]);
 };
 
+const generateProductUrl = (
+  name: string,
+  hashedCode: string,
+  colour?: string,
+  materials?: string,
+  textureFamily?: string,
+  variantAttribute?: string
+): string => {
+  // this is currently feature flagged so that countries can opt-in for 'variant attributes'
+  if (
+    process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL === "true" &&
+    variantAttribute
+  ) {
+    return generateUrl([name, variantAttribute, hashedCode]);
+  }
+
+  return generateUrl(
+    [name, colour, textureFamily, materials, hashedCode].filter(isDefined)
+  );
+};
+
 const mapRelatedVariants = (
   product: PimProduct,
   variantCode: string
@@ -413,38 +492,64 @@ const mapRelatedVariants = (
       let volume: UnitValue | undefined;
       classifications.forEach((classification) => {
         classification.features!.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop();
-          if (featureCode === "appearanceAttributes.colour") {
+          const featureCode = feature.code.split("/").pop()!;
+          // TODO: Remove upercase checks - DXB-3449
+          if (
+            featureCode.toUpperCase() ===
+            "appearanceAttributes.colour".toUpperCase()
+          ) {
             colour = feature.featureValues[0].value;
-          } else if (featureCode === "appearanceAttributes.colourfamily") {
+          } else if (
+            featureCode.toUpperCase() ===
+            "appearanceAttributes.colourfamily".toUpperCase()
+          ) {
             colourFamily = feature.featureValues[0].value;
-          } else if (featureCode === "appearanceAttributes.texturefamily") {
+          } else if (
+            featureCode.toUpperCase() ===
+            "appearanceAttributes.texturefamily".toUpperCase()
+          ) {
             textureFamily = feature.featureValues[0].value;
-          } else if (featureCode === "appearanceAttributes.variantattribute") {
+          } else if (
+            featureCode.toUpperCase() ===
+            "appearanceAttributes.variantattribute".toUpperCase()
+          ) {
             variantAttribute = feature.featureValues[0].value;
-          } else if (featureCode === "generalInformation.materials") {
+          } else if (
+            featureCode.toUpperCase() ===
+            "generalInformation.materials".toUpperCase()
+          ) {
             materials = feature.featureValues[0].value;
-          } else if (featureCode === "measurements.length") {
+          } else if (
+            featureCode.toUpperCase() === "measurements.length".toUpperCase()
+          ) {
             length = {
               value: feature.featureValues[0].value,
               unit: feature.featureUnit?.symbol || ""
             };
-          } else if (featureCode === "measurements.width") {
+          } else if (
+            featureCode.toUpperCase() === "measurements.width".toUpperCase()
+          ) {
             width = {
               value: feature.featureValues[0].value,
               unit: feature.featureUnit?.symbol || ""
             };
-          } else if (featureCode === "measurements.height") {
+          } else if (
+            featureCode.toUpperCase() === "measurements.height".toUpperCase()
+          ) {
             height = {
               value: feature.featureValues[0].value,
               unit: feature.featureUnit?.symbol || ""
             };
-          } else if (featureCode === "measurements.thickness") {
+          } else if (
+            featureCode.toUpperCase() === "measurements.thickness".toUpperCase()
+          ) {
             thickness = {
               value: feature.featureValues[0].value,
               unit: feature.featureUnit?.symbol || ""
             };
-          } else if (featureCode === "measurements.volume") {
+          } else if (
+            featureCode.toUpperCase() === "measurements.volume".toUpperCase()
+          ) {
             volume = {
               value: feature.featureValues[0].value,
               unit: feature.featureUnit?.symbol || ""
@@ -485,7 +590,10 @@ const getMicroCopy = (
     .map(
       (classification) =>
         (classification.features || []).find(
-          (feature) => feature.code.split("/").pop() === featureCode
+          (feature) =>
+            // TODO: Remove upercase checks - DXB-3449
+            feature.code.split("/").pop()!.toUpperCase() ===
+            featureCode.toUpperCase()
         )?.name
     )
     .filter(isDefined)[0];

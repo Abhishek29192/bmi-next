@@ -1,22 +1,24 @@
-import { RequestParams } from "@elastic/elasticsearch";
-import mockConsole from "jest-mock-console";
+import {
+  createProduct as createEsProduct,
+  createSystem as createEsSystem,
+  Product as EsProduct,
+  System as EsSystem
+} from "@bmi/elasticsearch-types";
+import {
+  DeleteItemType,
+  ItemType,
+  ObjType
+} from "@bmi/gcp-pim-message-handler";
 import {
   createProduct as createPimProduct,
   createSystem as createPimSystem,
   Product,
   System
 } from "@bmi/pim-types";
-import {
-  DeleteItemType,
-  ItemType,
-  ObjType
-} from "@bmi/gcp-pim-message-handler";
-import { ProductVariant } from "../es-model";
-import { DeleteMessage, ProductMessage, SystemMessage } from "../types";
-import { EsSystem } from "../transformSystems";
+import { RequestParams } from "@elastic/elasticsearch";
+import mockConsole from "jest-mock-console";
 import { buildEsProducts, buildEsSystems } from "../index";
-import createProductVariant from "./helpers/ProductVariantHelper";
-import { createEsSystem } from "./helpers/EsSystemHelper";
+import { DeleteMessage, ProductMessage, SystemMessage } from "../types";
 
 const createEvent = (
   message?: ProductMessage | SystemMessage | DeleteMessage
@@ -44,8 +46,7 @@ jest.mock("@bmi/functions-es-client", () => {
 
 const transformProduct = jest.fn();
 jest.mock("../transformProducts", () => ({
-  transformProduct: (product: Product): ProductVariant[] =>
-    transformProduct(product)
+  transformProduct: (product: Product): EsProduct[] => transformProduct(product)
 }));
 
 const transformSystem = jest.fn();
@@ -62,7 +63,7 @@ const updateElasticSearch = jest.fn();
 jest.mock("../elasticsearch", () => ({
   updateElasticSearch: (
     itemType: ItemType,
-    esProducts: readonly (ProductVariant | EsSystem)[]
+    esProducts: readonly (EsProduct | EsSystem)[]
   ) => updateElasticSearch(itemType, esProducts)
 }));
 
@@ -164,7 +165,7 @@ describe("handleMessage", () => {
     ping.mockImplementation((args) => {
       args();
     });
-    transformProduct.mockReturnValue([createProductVariant()]);
+    transformProduct.mockReturnValue([createEsProduct()]);
 
     const message: ProductMessage = {
       type: "UPDATED",

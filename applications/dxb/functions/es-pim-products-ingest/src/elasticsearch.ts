@@ -1,14 +1,11 @@
-import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
 import logger from "@bmi-digital/functions-logger";
-import { Operation, ProductVariant } from "./es-model";
-import { EsSystem } from "./transformSystems";
+import { Operation, Product, System } from "@bmi/elasticsearch-types";
+import { BulkApiResponse, getEsClient } from "@bmi/functions-es-client";
 import { DeleteOperation, IndexOperation } from "./types";
 
 const { ES_INDEX_PREFIX, BATCH_SIZE = "300" } = process.env;
 
-const getChunks = <T extends ProductVariant | EsSystem>(
-  items: readonly T[]
-): T[][] => {
+const getChunks = <T extends Product | System>(items: readonly T[]): T[][] => {
   const chunkSize = parseInt(BATCH_SIZE);
   logger.info({ message: `Chunk size: ${chunkSize}` });
 
@@ -22,7 +19,7 @@ const getChunks = <T extends ProductVariant | EsSystem>(
   return chunksArray;
 };
 
-const getIndexOperation = <T extends ProductVariant | EsSystem>(
+const getIndexOperation = <T extends Product | System>(
   indexName: string,
   document: T
 ): [IndexOperation, T] => {
@@ -34,7 +31,7 @@ const getIndexOperation = <T extends ProductVariant | EsSystem>(
   ];
 };
 
-const getDeleteOperation = <T extends ProductVariant | EsSystem>(
+const getDeleteOperation = <T extends Product | System>(
   indexName: string,
   document: T
 ): [DeleteOperation] => {
@@ -45,7 +42,7 @@ const getDeleteOperation = <T extends ProductVariant | EsSystem>(
   ];
 };
 
-const getBulkOperations = <T extends ProductVariant | EsSystem>(
+const getBulkOperations = <T extends Product | System>(
   indexName: string,
   documents: readonly T[],
   action?: Operation
@@ -72,7 +69,7 @@ const getBulkOperations = <T extends ProductVariant | EsSystem>(
 
 export const updateElasticSearch = async (
   itemType: string,
-  esProducts: readonly (ProductVariant | EsSystem)[],
+  esProducts: readonly (Product | System)[],
   action?: Operation
 ) => {
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();

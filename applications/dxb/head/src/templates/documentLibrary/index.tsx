@@ -57,7 +57,7 @@ type Props = {
     pageId: string;
     siteId: string;
     categoryCode: string;
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
   data: {
     contentfulDocumentLibraryPage: Data;

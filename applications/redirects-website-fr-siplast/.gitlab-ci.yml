@@ -3,4 +3,4 @@ build_redirects_website_fr_siplast:
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
     ROOT_DIR: applications/redirects-webiste-fr-siplast
-    WORKSPACE: "@bmi/redirects-webiste-fr-siplast"
+    WORKSPACE: "@bmi/redirects-website-fr-siplast"

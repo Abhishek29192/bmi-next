@@ -1,27 +1,25 @@
-import React from "react";
+import { Button, Hero, HeroItem, Section } from "@bmi/components";
 import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { Hero, HeroItem } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { microCopy } from "../constants/microCopies";
-import { Data as SiteData } from "../components/Site";
-import Page, { Data as PageData } from "../components/Page";
-import { Data as SlideData } from "../components/Promo";
-import Sections, { Data as SectionsData } from "../components/Sections";
-import OverlapCards, {
-  Data as OverlapCardData
-} from "../components/OverlapCards";
-import Link from "../components/Link";
-import { Data as PageInfoData } from "../components/PageInfo";
+import React from "react";
+import BackToResults from "../components/BackToResults";
+import BrandLogo from "../components/BrandLogo";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../components/Breadcrumbs";
-import BrandLogo from "../components/BrandLogo";
-import { renderVideo } from "../components/Video";
 import { renderImage } from "../components/Image";
-import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import Link from "../components/Link";
+import OverlapCards, {
+  Data as OverlapCardData
+} from "../components/OverlapCards";
+import Page, { Data as PageData } from "../components/Page";
+import { Data as PageInfoData } from "../components/PageInfo";
+import { Data as SlideData } from "../components/Promo";
+import Sections, { Data as SectionsData } from "../components/Sections";
+import { Data as SiteData } from "../components/Site";
+import { renderVideo } from "../components/Video";
+import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import BackToResults from "../components/BackToResults";
+import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
 
 type BrandLandingPageData = PageInfoData &
   PageData & {
@@ -39,7 +37,7 @@ export type Props = {
     contentfulSite: SiteData;
   };
   pageContext: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

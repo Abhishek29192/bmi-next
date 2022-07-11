@@ -90,7 +90,7 @@ export type PageContextType = {
   countryCode: string;
   categoryCodes: string[];
   allowFilterBy: string[];
-  variantCodeToPathMap: Record<string, string>;
+  variantCodeToPathMap?: Record<string, string>;
 };
 
 type Props = {

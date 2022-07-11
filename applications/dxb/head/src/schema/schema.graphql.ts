@@ -601,6 +601,7 @@ type System implements Node {
   layerCodes: [String]!
   longDescription: String!
   name: String!
+  path: String!
   promotionalContent: String
   shortDescription: String!
   specification: PIMAsset
@@ -609,7 +610,6 @@ type System implements Node {
   systemReferences: [String]!
   uniqueSellingPropositions: [String]!
   videos: [PimVideo]!
-  path: String!
   relatedSystems: [System]!
   scoringWeight: Int!
 }
@@ -736,6 +736,7 @@ type Product implements Node @dontInfer {
   materials: String
   measurements: Measurements
   name: String
+  path: String!
   productBenefits: [String]
   relatedVariants: [RelatedVariant]!
   specificationIframeUrl: String
@@ -747,7 +748,6 @@ type Product implements Node @dontInfer {
   weight: Weight
   breadcrumbs: [Path]!
   oldPath: String!
-  path: String!
   relatedProducts: [Product]!
 }
 

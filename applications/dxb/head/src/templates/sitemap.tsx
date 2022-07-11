@@ -1,17 +1,17 @@
-import React from "react";
 import { graphql } from "gatsby";
-import { microCopy } from "../constants/microCopies";
-import { Data as SiteData } from "../components/Site";
-import Page from "../components/Page";
-import SitemapSection from "../components/SitemapSection";
+import React from "react";
 import { generateGetMicroCopy } from "../components/MicroCopy";
+import Page from "../components/Page";
+import { Data as SiteData } from "../components/Site";
+import SitemapSection from "../components/SitemapSection";
+import { microCopy } from "../constants/microCopies";
 
 type Props = {
   data: {
     contentfulSite: SiteData;
   };
   pageContext: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

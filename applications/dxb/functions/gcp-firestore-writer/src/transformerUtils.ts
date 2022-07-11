@@ -31,7 +31,9 @@ export const filterClassifications = (
         (feature) =>
           !ignorableClassifications.some(
             (ignorableFeature) =>
-              ignorableFeature === feature.code.split("/").pop()
+              // TODO: Remove upercase checks - DXB-3449
+              ignorableFeature.toUpperCase() ===
+              feature.code.split("/").pop()!.toUpperCase()
           )
       )
     }))
@@ -143,14 +145,16 @@ export const getScoringWeight = (
       ?.find((classification) =>
         classification.features?.some(
           (feature) =>
-            feature.code.split("/").pop() ===
-            "scoringWeightAttributes.scoringweight"
+            // TODO: Remove upercase checks - DXB-3449
+            feature.code.split("/").pop()!.toUpperCase() ===
+            "scoringWeightAttributes.scoringweight".toUpperCase()
         )
       )
       ?.features?.find(
         (feature) =>
-          feature.code.split("/").pop() ===
-          "scoringWeightAttributes.scoringweight"
+          // TODO: Remove upercase checks - DXB-3449
+          feature.code.split("/").pop()!.toUpperCase() ===
+          "scoringWeightAttributes.scoringweight".toUpperCase()
       )?.featureValues[0].value || "0"
   );
 

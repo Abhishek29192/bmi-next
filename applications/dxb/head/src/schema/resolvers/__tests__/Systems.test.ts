@@ -1,5 +1,4 @@
 import { System } from "@bmi/firestore-types";
-import * as SystemsUtils from "../../../utils/systems";
 import Systems from "../System";
 import { Context, Node } from "../types/Gatsby";
 
@@ -26,16 +25,6 @@ describe("ContentfulServiceLocatorSection resolver", () => {
   it("should contain specific type", () => {
     expect(Systems.relatedProducts.type).toEqual(["Product"]);
     expect(Systems.relatedOptionalProducts.type).toEqual(["Product"]);
-  });
-
-  describe("path", () => {
-    it("should resolve path", async () => {
-      const path = "some-path";
-      jest.spyOn(SystemsUtils, "generateSystemPath").mockReturnValue(path);
-
-      expect(await Systems.path.resolve(source)).toEqual(path);
-      expect(SystemsUtils.generateSystemPath).toHaveBeenCalledWith(source);
-    });
   });
 
   describe("createResolver", () => {
@@ -92,6 +81,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: [],
@@ -117,6 +107,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: [],
@@ -150,6 +141,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: [],
@@ -186,6 +178,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: [],
@@ -223,6 +216,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: null,
@@ -248,6 +242,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: [],
@@ -274,6 +269,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: ["test-reference"],
@@ -302,6 +298,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
         images: [],
         layerCodes: [],
         name: "system-1-name",
+        path: "/s/system-1-system-1-name-1234567",
         scoringWeight: 0.5,
         shortDescription: "system-1-short-description",
         systemReferences: ["test-reference"],
@@ -349,6 +346,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
           images: [],
           layerCodes: [],
           name: "system-1-name",
+          path: "/s/system-1-system-1-name-1234567",
           scoringWeight: 0.5,
           shortDescription: "system-1-short-description",
           systemReferences: ["test-reference"],
@@ -410,6 +408,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
           images: [],
           layerCodes: [],
           name: "system-1-name",
+          path: "/s/system-1-system-1-name-1234567",
           scoringWeight: 0.5,
           shortDescription: "system-1-short-description",
           systemReferences: ["test-reference"],

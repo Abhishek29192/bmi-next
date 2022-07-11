@@ -129,7 +129,7 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": "BMI-brand-code",
@@ -285,7 +285,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -317,6 +317,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-glossy-concrete-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -403,7 +404,7 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
@@ -414,7 +415,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -446,6 +447,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -532,7 +534,7 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
@@ -543,7 +545,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -575,6 +577,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -636,7 +639,7 @@ Array [
     "allCategories": Array [],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
@@ -792,7 +795,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -824,6 +827,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-glossy-concrete-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -910,12 +914,12 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
     "classifications": Array [],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -947,6 +951,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -1075,7 +1080,7 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
@@ -1231,7 +1236,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [],
@@ -1240,6 +1245,7 @@ Array [
     "mainImage": "",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-glossy-concrete-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
@@ -1370,7 +1376,7 @@ Array [
     ],
     "approvalStatus": "approved",
     "baseProduct": Object {
-      "code": "code",
+      "code": "base-code",
       "name": "name",
     },
     "brandCode": undefined,
@@ -1526,7 +1532,7 @@ Array [
         "name": "name",
       },
     ],
-    "code": "code",
+    "code": "variant-code",
     "description": "<p>Some description</p>",
     "externalProductCode": "external-product-code",
     "images": Array [
@@ -1558,6 +1564,7 @@ Array [
     "mainImage": "http://localhost:8000",
     "measurementValue": "",
     "name": "name",
+    "path": "/p/name-glossy-concrete-3464354221",
     "productBenefits": Array [
       "product-benefits",
     ],
