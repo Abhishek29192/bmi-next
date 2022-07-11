@@ -42,7 +42,7 @@ const triggerFullFetch = async (
 const triggerFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
-  const response = await fetchData({ type, locale: LOCALE });
+  const response = await fetchData(type);
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
   const promises: Promise<Response>[] = [];
@@ -71,6 +71,11 @@ const handleRequest: HttpFunction = async (req, res) => {
 
   if (!FULL_FETCH_ENDPOINT) {
     logger.error({ message: "FULL_FETCH_ENDPOINT has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!LOCALE) {
+    logger.error({ message: "LOCALE has not been set." });
     return res.sendStatus(500);
   }
 
