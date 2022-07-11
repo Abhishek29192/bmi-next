@@ -207,10 +207,11 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(fetchData).toHaveBeenCalledWith(
-      fullFetchRequest.type,
-      fullFetchRequest.startPage
-    );
+    expect(fetchData).toHaveBeenCalledWith({
+      type: fullFetchRequest.type,
+      currentPage: fullFetchRequest.startPage,
+      locale: process.env.LOCALE
+    });
   });
 
   it("should error when publishing data to pub/sub throws error", async () => {

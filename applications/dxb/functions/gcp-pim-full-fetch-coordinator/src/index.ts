@@ -59,7 +59,7 @@ const triggerFullFetch = async (
 const triggerFullFetchBatch = async (type: PimTypes) => {
   logger.info({ message: `Batching ${type}.` });
 
-  const response = await fetchData({ type, locale: LOCALE as string });
+  const response = await fetchData({ type, locale: LOCALE });
   const numberOfRequests = response.totalPageCount / 10;
   let lastStartPage = 0;
   const promises: Promise<Response>[] = [];

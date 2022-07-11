@@ -65,7 +65,7 @@ export const fetchData = async ({
   currentPage = 0
 }: {
   type: PimTypes;
-  locale: string;
+  locale?: string;
   currentPage?: number;
 }): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
