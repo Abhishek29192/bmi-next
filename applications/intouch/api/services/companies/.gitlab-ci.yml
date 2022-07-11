@@ -4,6 +4,7 @@ services:
 test_intouch_companies:
   stage: test
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
@@ -31,6 +32,7 @@ test_intouch_companies:
 build_intouch_api_companies:
   extends: .build_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*
@@ -57,6 +59,7 @@ package_intouch_api_companies:
       alias: docker
   cache: {}
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/services/companies/**/*

@@ -18,7 +18,7 @@ Authorization: Bearer {{contentfulToken}}
 
 POST https://graphql.contentful.com/content/v1/spaces/{{spaceId}}/environments/{{contentfulEnvironment}}
 Content-Type: application/json
-Authorization: Bearer {{contentfulToken}}
+Authorization: Bearer {{contentfulDeliveryToken}}
 
 query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
   systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
@@ -104,7 +104,7 @@ query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
 }
 
 {
-  "answerId": "5iEvYGhf2rA9JsN3GwOSZD",
+  "answerId": "6WmMQzsO3A3yHy7rmihXC0",
   "locale": "en-US",
-  "preview": false
+  "preview": true
 }
