@@ -7,6 +7,7 @@ const createRelatedVariant = (
   name: "name",
   measurements: { label: "label" },
   hashedCode: "hashed-related-code",
+  path: "/p/name-hashed-related-code",
   ...relatedProduct
 });
 

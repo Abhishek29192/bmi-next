@@ -449,7 +449,10 @@ describe("product-details-transforms tests", () => {
                       label: "blue",
                       isSelected: false,
                       availability: false,
-                      action: { model: "routerLink", to: "/no/" }
+                      action: {
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
                     },
                     { label: "colour", isSelected: true, availability: false }
                   ]
@@ -668,7 +671,7 @@ describe("product-details-transforms tests", () => {
                       action: {
                         linkComponent: Link,
                         model: "routerLink",
-                        to: "/no/"
+                        to: "/no/p/name-hashed-related-code/"
                       }
                     },
                     {
@@ -678,7 +681,7 @@ describe("product-details-transforms tests", () => {
                       action: {
                         linkComponent: Link,
                         model: "routerLink",
-                        to: "/no/"
+                        to: "/no/p/name-hashed-related-code/"
                       }
                     },
                     {
@@ -693,7 +696,7 @@ describe("product-details-transforms tests", () => {
                       action: {
                         linkComponent: Link,
                         model: "routerLink",
-                        to: "/no/"
+                        to: "/no/p/name-hashed-related-code/"
                       }
                     },
                     {
@@ -703,7 +706,7 @@ describe("product-details-transforms tests", () => {
                       action: {
                         linkComponent: Link,
                         model: "routerLink",
-                        to: "/no/"
+                        to: "/no/p/name-hashed-related-code/"
                       }
                     }
                   ]
