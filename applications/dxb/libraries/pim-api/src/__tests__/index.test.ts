@@ -8,21 +8,14 @@ import {
 } from "./helpers/pimHelper";
 
 const pimAuthTokenUrl = `${process.env.PIM_HOST}/authorizationserver/oauth/token`;
-const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved`;
-const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved`;
+const pimProductsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
+const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?currentPage=0&status=approved&lang=${process.env.LOCALE}`;
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const fetchData = async ({
-  type,
-  currentPage,
-  locale
-}: {
-  type: PimTypes;
-  currentPage?: number;
-  locale?: string;
-}) => (await import("../index")).fetchData({ type, currentPage, locale });
+const fetchData = async (type: PimTypes, currentPage?: number) =>
+  (await import("../index")).fetchData(type, currentPage);
 
 const getProductsByMessageId = async (
   messageId: string,
@@ -62,7 +55,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -80,7 +73,7 @@ describe("fetchData", () => {
     delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -101,7 +94,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -133,7 +126,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -167,7 +160,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -215,7 +208,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -273,7 +266,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -333,7 +326,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData({ type: PimTypes.Products });
+      await fetchData(PimTypes.Products);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -387,7 +380,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData({ type: PimTypes.Products });
+    const response = await fetchData(PimTypes.Products);
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -436,7 +429,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData({ type: PimTypes.Systems });
+    const response = await fetchData(PimTypes.Systems);
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -475,7 +468,7 @@ describe("fetchData", () => {
         })
       },
       {
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved&lang=${process.env.LOCALE}`,
         method: "GET",
         headers: {
           Authorization: `Bearer access_token`,
@@ -485,10 +478,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData({
-      type: PimTypes.Products,
-      currentPage: 18
-    });
+    const response = await fetchData(PimTypes.Products, 18);
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -506,7 +496,7 @@ describe("fetchData", () => {
       }
     });
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?currentPage=18&status=approved&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -604,7 +594,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 500,
         body: {
           errors: [
@@ -646,7 +636,7 @@ describe("getProductsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -674,7 +664,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 400,
         body: {
           errors: [
@@ -716,7 +706,7 @@ describe("getProductsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -745,7 +735,7 @@ describe("getProductsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         body: expectedProducts
       }
     );
@@ -775,7 +765,7 @@ describe("getProductsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/products?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -822,7 +812,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 500,
         body: {
           errors: [
@@ -864,7 +854,7 @@ describe("getSystemsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -892,7 +882,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         status: 400,
         body: {
           errors: [
@@ -934,7 +924,7 @@ describe("getSystemsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
@@ -963,7 +953,7 @@ describe("getSystemsByMessageId", () => {
       },
       {
         method: "GET",
-        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+        url: `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
         body: expectedProducts
       }
     );
@@ -993,7 +983,7 @@ describe("getSystemsByMessageId", () => {
     expectedBody.append("grant_type", "client_credentials");
     expect(body).toStrictEqual(expectedBody);
     expect(fetchMock).toHaveFetched(
-      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}`,
+      `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.PIM_CATALOG_NAME}/export/systems?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${process.env.LOCALE}`,
       {
         method: "GET",
         headers: {
