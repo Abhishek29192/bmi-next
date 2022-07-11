@@ -20,7 +20,7 @@ import {
 } from "./SystemLayersHelper";
 import createSystemReference from "./SystemReferencesHelper";
 import createSystemsApiResponse from "./SystemsApiResponseHelper";
-import type {
+import {
   ApprovalStatus,
   Asset,
   AssetAssetType,
@@ -80,7 +80,7 @@ export {
   createVariantOption,
   createFullyPopulatedVariantOption
 };
-export type {
+export {
   ApprovalStatus,
   Asset,
   AssetAssetType,
