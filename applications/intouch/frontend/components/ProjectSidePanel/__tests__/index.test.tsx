@@ -236,25 +236,6 @@ describe("ProjectSidePanel component", () => {
     fireEvent.click(filterListButtons[5]);
     expect(screen.queryByText("fallback.noResults")).toBeFalsy();
   });
-  it("should show project side panel footer if user company admin", () => {
-    renderWithUserProvider(
-      <ApolloProvider>
-        <MarketProvider market={generateMarketContext({ id: 1 })}>
-          <AccountContextWrapper
-            account={generateAccount({
-              role: "COMPANY_ADMIN",
-              hasCompany: true
-            })}
-          >
-            <RouterContext.Provider value={createMockRouter({})}>
-              <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
-            </RouterContext.Provider>
-          </AccountContextWrapper>
-        </MarketProvider>
-      </ApolloProvider>
-    );
-    expect(screen.getByTestId("project-side-panel-footer-button")).toBeTruthy();
-  });
   it("should show project side panel if user MARKET_ADMIN", () => {
     const { container } = renderWithUserProvider(
       <ApolloProvider>
@@ -343,22 +324,6 @@ describe("ProjectSidePanel component", () => {
       "project-side-panel-footer-button"
     );
     expect(createProject).toBeFalsy();
-  });
-  it("should not show project side panel footer if the user installer", () => {
-    renderWithUserProvider(
-      <ApolloProvider>
-        <AccountContextWrapper
-          account={generateAccount({ role: "INSTALLER", hasCompany: true })}
-        >
-          <RouterContext.Provider value={createMockRouter({})}>
-            <ProjectSidePanel onProjectSelected={() => ({})} projects={[]} />
-          </RouterContext.Provider>
-        </AccountContextWrapper>
-      </ApolloProvider>
-    );
-    expect(
-      screen.queryByTestId("project-side-panel-footer-button")
-    ).toBeFalsy();
   });
 
   describe("should route to first available project", () => {

@@ -19,8 +19,9 @@ jest.mock("@bmi-digital/use-dimensions", () => ({
   default: () => [useRef(), jest.fn()]
 }));
 
+const addEvidencesSpy = jest.fn();
 jest.mock("../../../../graphql/generated/hooks", () => ({
-  useAddEvidencesMutation: () => [jest.fn(), { loading: false }],
+  useAddEvidencesMutation: () => [addEvidencesSpy, { loading: false }],
   useContentfulEvidenceCategoriesLazyQuery: () => [
     jest.fn(),
     { loading: false }
@@ -29,6 +30,11 @@ jest.mock("../../../../graphql/generated/hooks", () => ({
 }));
 
 describe("Uploads Components", () => {
+  afterAll(() => {
+    jest.clearAllMocks();
+    jest.resetAllMocks();
+  });
+
   it("render no uploads", () => {
     const project = generateProject();
     renderWithI18NProvider(
@@ -402,6 +408,24 @@ describe("Uploads Components", () => {
       );
       confirmButton.click();
       expect(addEvidence).toBeTruthy();
+      expect(addEvidencesSpy).toHaveBeenCalledWith({
+        variables: {
+          input: {
+            evidences: [
+              {
+                attachment: "",
+                attachmentUpload: expect.any(File),
+                customEvidenceCategoryKey: null,
+                evidenceCategoryType,
+                guaranteeId: 1,
+                projectId: 1,
+                name: "name1",
+                uploaderAccountId: 1
+              }
+            ]
+          }
+        }
+      });
     });
     it("should open evidence modal with missing current guaranty", () => {
       const project = generateProject({

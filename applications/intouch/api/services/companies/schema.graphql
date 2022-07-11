@@ -721,6 +721,34 @@ type Query implements Node {
   currentCompany: Int
   currentMarket: Int
 
+  """Reads and enables pagination through a set of `EvidenceItem`."""
+  evidenceItemsByMarket(
+    market: Int!
+
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
+  ): EvidenceItemsConnection
+
   """Reads and enables pagination through a set of `Guarantee`."""
   guaranteesByMarket(
     market: Int!
@@ -1173,6 +1201,40 @@ type Account implements Node {
     """
     filter: CompanyMemberFilter
   ): CompanyMembersConnection!
+
+  """Reads and enables pagination through a set of `EvidenceItem`."""
+  evidenceItemsByUploaderAccountId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `EvidenceItem`."""
+    orderBy: [EvidenceItemsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: EvidenceItemCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: EvidenceItemFilter
+  ): EvidenceItemsConnection!
 
   """Reads and enables pagination through a set of `Guarantee`."""
   guaranteesByRequestorAccountId(
@@ -2768,12 +2830,16 @@ type EvidenceItem implements Node {
   attachment: String!
   createdAt: Datetime!
   updatedAt: Datetime!
+  uploaderAccountId: Int
 
   """Reads a single `Project` that is related to this `EvidenceItem`."""
   project: Project
 
   """Reads a single `Guarantee` that is related to this `EvidenceItem`."""
   guarantee: Guarantee
+
+  """Reads a single `Account` that is related to this `EvidenceItem`."""
+  uploaderAccount: Account
   customEvidenceCategory: ContentfulEvidenceCategory
   signedUrl: String
 }
@@ -3419,6 +3485,8 @@ enum EvidenceItemsOrderBy {
   PROJECT_ID_DESC
   GUARANTEE_ID_ASC
   GUARANTEE_ID_DESC
+  UPLOADER_ACCOUNT_ID_ASC
+  UPLOADER_ACCOUNT_ID_DESC
   PRIMARY_KEY_ASC
   PRIMARY_KEY_DESC
 }
@@ -3436,6 +3504,9 @@ input EvidenceItemCondition {
 
   """Checks for equality with the object’s `guaranteeId` field."""
   guaranteeId: Int
+
+  """Checks for equality with the object’s `uploaderAccountId` field."""
+  uploaderAccountId: Int
 }
 
 """
@@ -3450,6 +3521,9 @@ input EvidenceItemFilter {
 
   """Filter by the object’s `guaranteeId` field."""
   guaranteeId: IntFilter
+
+  """Filter by the object’s `uploaderAccountId` field."""
+  uploaderAccountId: IntFilter
 
   """Checks for all expressions in this list."""
   and: [EvidenceItemFilter!]
@@ -6835,6 +6909,7 @@ input updateAccountOnAccountForAccountMarketIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -8545,6 +8620,7 @@ input updateAccountOnCompanyMemberForCompanyMemberAccountIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -8771,6 +8847,7 @@ input updateAccountOnCertificationForCertificationDoceboUserIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -9503,6 +9580,7 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -9515,442 +9593,124 @@ input updateAccountOnInvitationForInvitationSenderAccountIdFkeyPatch {
 }
 
 """
-Input for the nested mutation of `guarantee` in the `AccountInput` mutation.
+Input for the nested mutation of `evidenceItem` in the `AccountInput` mutation.
 """
-input GuaranteeRequestorAccountIdFkeyInverseInput {
+input EvidenceItemUploaderAccountIdFkeyInverseInput {
   """
-  Flag indicating whether all other `guarantee` records that match this relationship should be removed.
+  Flag indicating whether all other `evidenceItem` records that match this relationship should be removed.
   """
   deleteOthers: Boolean
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
   """
-  connectById: [GuaranteeGuaranteePkeyConnect!]
+  connectById: [EvidenceItemEvidenceItemPkeyConnect!]
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
   """
-  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+  connectByNodeId: [EvidenceItemNodeIdConnect!]
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
   """
-  connectByNodeId: [GuaranteeNodeIdConnect!]
+  deleteById: [EvidenceItemEvidenceItemPkeyDelete!]
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
   """
-  deleteById: [GuaranteeGuaranteePkeyDelete!]
+  deleteByNodeId: [EvidenceItemNodeIdDelete!]
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
   """
-  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+  updateById: [EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate!]
 
   """
-  The primary key(s) for `guarantee` for the far side of the relationship.
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
   """
-  deleteByNodeId: [GuaranteeNodeIdDelete!]
+  updateByNodeId: [AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate!]
 
   """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  A `EvidenceItemInput` object that will be created and connected to this object.
   """
-  updateById: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate!]
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByNodeId: [AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate!]
-
-  """
-  A `GuaranteeInput` object that will be created and connected to this object.
-  """
-  create: [GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput!]
+  create: [EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput!]
 }
 
-"""The fields on `guarantee` to look up the row to connect."""
-input GuaranteeGuaranteePkeyConnect {
-  """Primary key - starts at 6100"""
+"""The fields on `evidenceItem` to look up the row to connect."""
+input EvidenceItemEvidenceItemPkeyConnect {
+  """Primary key"""
   id: Int!
-}
-
-"""The fields on `guarantee` to look up the row to connect."""
-input GuaranteeGuaranteeBmiReferenceIdKeyConnect {
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String!
 }
 
 """The globally unique `ID` look up for the row to connect."""
-input GuaranteeNodeIdConnect {
+input EvidenceItemNodeIdConnect {
   """
-  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
   """
   nodeId: ID!
 }
 
-"""The fields on `guarantee` to look up the row to delete."""
-input GuaranteeGuaranteePkeyDelete {
-  """Primary key - starts at 6100"""
+"""The fields on `evidenceItem` to look up the row to delete."""
+input EvidenceItemEvidenceItemPkeyDelete {
+  """Primary key"""
   id: Int!
-}
-
-"""The fields on `guarantee` to look up the row to delete."""
-input GuaranteeGuaranteeBmiReferenceIdKeyDelete {
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String!
 }
 
 """The globally unique `ID` look up for the row to delete."""
-input GuaranteeNodeIdDelete {
+input EvidenceItemNodeIdDelete {
   """
-  The globally unique `ID` which identifies a single `guarantee` to be deleted.
+  The globally unique `ID` which identifies a single `evidenceItem` to be deleted.
   """
   nodeId: ID!
 }
 
-"""The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate {
+"""The fields on `evidenceItem` to look up the row to update."""
+input EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingEvidenceItemPkeyUpdate {
   """
-  An object where the defined keys will be set on the `guarantee` being updated.
+  An object where the defined keys will be set on the `evidenceItem` being updated.
   """
-  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
-
-  """Primary key - starts at 6100"""
-  id: Int!
-}
-
-"""
-An object where the defined keys will be set on the `guarantee` being updated.
-"""
-input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
-  """Primary key - starts at 6100"""
-  id: Int
-
-  """
-  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
-  """
-  fileStorageId: String
-
-  """fk"""
-  projectId: Int
-
-  """ek"""
-  guaranteeReferenceCode: GuaranteeReferenceCode
-
-  """fk"""
-  systemBmiRef: String
-
-  """fk"""
-  productBmiRef: String
-
-  """fk"""
-  reviewerAccountId: Int
-
-  """ek"""
-  coverage: GuaranteeCoverage
-
-  """ek"""
-  languageCode: Language
-
-  """ek"""
-  status: RequestStatus
-
-  """
-  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
-  """
-  startDate: Datetime
-
-  """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
-  The date is stored in UTC.
-  """
-  expiryDate: Datetime
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String
-  createdAt: Datetime
-  updatedAt: Datetime
-  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
-  projectToProjectId: GuaranteeProjectIdFkeyInput
-  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
-  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
-  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
-  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-}
-
-"""
-Input for the nested mutation of `account` in the `GuaranteeInput` mutation.
-"""
-input GuaranteeRequestorAccountIdFkeyInput {
-  """The primary key(s) for `account` for the far side of the relationship."""
-  connectById: AccountAccountPkeyConnect
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  connectByEmail: AccountAccountEmailKeyConnect
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  connectByNodeId: AccountNodeIdConnect
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  deleteById: AccountAccountPkeyDelete
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  deleteByEmail: AccountAccountEmailKeyDelete
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
-
-  """The primary key(s) for `account` for the far side of the relationship."""
-  deleteByNodeId: AccountNodeIdDelete
-
-  """
-  The primary key(s) and patch data for `account` for the far side of the relationship.
-  """
-  updateById: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate
-
-  """
-  The primary key(s) and patch data for `account` for the far side of the relationship.
-  """
-  updateByEmail: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate
-
-  """
-  The primary key(s) and patch data for `account` for the far side of the relationship.
-  """
-  updateByDoceboUserId: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
-
-  """
-  The primary key(s) and patch data for `account` for the far side of the relationship.
-  """
-  updateByNodeId: GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate
-}
-
-"""The fields on `account` to look up the row to update."""
-input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate {
-  """
-  An object where the defined keys will be set on the `account` being updated.
-  """
-  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+  patch: updateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
 
   """Primary key"""
   id: Int!
 }
 
 """
-An object where the defined keys will be set on the `account` being updated.
+An object where the defined keys will be set on the `evidenceItem` being updated.
 """
-input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
+input updateEvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch {
   """Primary key"""
   id: Int
 
   """ek"""
-  status: AccountStatus
-
-  """fk"""
-  marketId: Int
-
-  """ek"""
-  role: Role
-
-  """The email address associated with the account"""
-  email: String
-
-  """
-  A phone number that can optionally be provided, and is useful for Company Admin people to provide
-  """
-  phone: String
-
-  """First name"""
-  firstName: String
-
-  """Last name"""
-  lastName: String
-
-  """When the account was created"""
-  created: Datetime
-
-  """User account in Docebo"""
-  doceboUserId: Int
-
-  """Username in Docebo.  Needed to generate the SSO link"""
-  doceboUsername: String
-
-  """File reference. A profile picture of the user"""
-  photo: String
-
-  """Used for reference when importing data from the legacy system"""
-  migrationId: String
-
-  """
-  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
-  """
-  migratedToAuth0: Boolean
-  createdAt: Datetime
-  updatedAt: Datetime
-  marketToMarketId: AccountMarketIdFkeyInput
-  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
-  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
-  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
-  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
-  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
-  notesUsingId: NoteAuthorIdFkeyInverseInput
-  notificationsUsingId: NotificationAccountIdFkeyInverseInput
-  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
-  photoUpload: Upload
-  shouldRemovePhoto: Boolean
-  termsCondition: Boolean
-}
-
-"""
-Input for the nested mutation of `guarantee` in the `AccountInput` mutation.
-"""
-input GuaranteeReviewerAccountIdFkeyInverseInput {
-  """
-  Flag indicating whether all other `guarantee` records that match this relationship should be removed.
-  """
-  deleteOthers: Boolean
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectById: [GuaranteeGuaranteePkeyConnect!]
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectByNodeId: [GuaranteeNodeIdConnect!]
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteById: [GuaranteeGuaranteePkeyDelete!]
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteByNodeId: [GuaranteeNodeIdDelete!]
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateById: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate!]
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByNodeId: [AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate!]
-
-  """
-  A `GuaranteeInput` object that will be created and connected to this object.
-  """
-  create: [GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput!]
-}
-
-"""The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate {
-  """
-  An object where the defined keys will be set on the `guarantee` being updated.
-  """
-  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
-
-  """Primary key - starts at 6100"""
-  id: Int!
-}
-
-"""
-An object where the defined keys will be set on the `guarantee` being updated.
-"""
-input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
-  """Primary key - starts at 6100"""
-  id: Int
-
-  """
-  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
-  """
-  fileStorageId: String
-
-  """fk"""
-  requestorAccountId: Int
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """fk"""
   projectId: Int
 
-  """ek"""
-  guaranteeReferenceCode: GuaranteeReferenceCode
-
   """fk"""
-  systemBmiRef: String
-
-  """fk"""
-  productBmiRef: String
+  guaranteeId: Int
 
   """ek"""
-  coverage: GuaranteeCoverage
+  evidenceCategoryType: EvidenceCategoryType
 
-  """ek"""
-  languageCode: Language
+  """Short name for the item of evidence"""
+  name: String
 
-  """ek"""
-  status: RequestStatus
-
-  """
-  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
-  """
-  startDate: Datetime
-
-  """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
-  The date is stored in UTC.
-  """
-  expiryDate: Datetime
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String
+  """File reference or the file itself. Photo of the evidence"""
+  attachment: String
   createdAt: Datetime
   updatedAt: Datetime
-  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
-  projectToProjectId: GuaranteeProjectIdFkeyInput
-  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
-  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
-  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
-  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
 }
 
 """
-Input for the nested mutation of `project` in the `GuaranteeInput` mutation.
+Input for the nested mutation of `project` in the `EvidenceItemInput` mutation.
 """
-input GuaranteeProjectIdFkeyInput {
+input EvidenceItemProjectIdFkeyInput {
   """The primary key(s) for `project` for the far side of the relationship."""
   connectById: ProjectProjectPkeyConnect
 
@@ -9966,25 +9726,25 @@ input GuaranteeProjectIdFkeyInput {
   """
   The primary key(s) and patch data for `project` for the far side of the relationship.
   """
-  updateById: ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate
+  updateById: ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate
 
   """
   The primary key(s) and patch data for `project` for the far side of the relationship.
   """
-  updateByNodeId: GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate
+  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate
 
   """
   A `ProjectInput` object that will be created and connected to this object.
   """
-  create: GuaranteeProjectIdFkeyProjectCreateInput
+  create: EvidenceItemProjectIdFkeyProjectCreateInput
 }
 
 """The fields on `project` to look up the row to update."""
-input ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate {
+input ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate {
   """
   An object where the defined keys will be set on the `project` being updated.
   """
-  patch: updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch!
+  patch: updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch!
 
   """Primary key"""
   id: Int!
@@ -9993,7 +9753,7 @@ input ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate {
 """
 An object where the defined keys will be set on the `project` being updated.
 """
-input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
+input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   """Primary key"""
   id: Int
 
@@ -10469,34 +10229,6 @@ input EvidenceItemProjectIdFkeyInverseInput {
   create: [EvidenceItemProjectIdFkeyEvidenceItemCreateInput!]
 }
 
-"""The fields on `evidenceItem` to look up the row to connect."""
-input EvidenceItemEvidenceItemPkeyConnect {
-  """Primary key"""
-  id: Int!
-}
-
-"""The globally unique `ID` look up for the row to connect."""
-input EvidenceItemNodeIdConnect {
-  """
-  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
-  """
-  nodeId: ID!
-}
-
-"""The fields on `evidenceItem` to look up the row to delete."""
-input EvidenceItemEvidenceItemPkeyDelete {
-  """Primary key"""
-  id: Int!
-}
-
-"""The globally unique `ID` look up for the row to delete."""
-input EvidenceItemNodeIdDelete {
-  """
-  The globally unique `ID` which identifies a single `evidenceItem` to be deleted.
-  """
-  nodeId: ID!
-}
-
 """The fields on `evidenceItem` to look up the row to update."""
 input EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyUsingEvidenceItemPkeyUpdate {
   """
@@ -10531,14 +10263,448 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   attachment: String
   createdAt: Datetime
   updatedAt: Datetime
+  uploaderAccountId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
 }
 
 """
-Input for the nested mutation of `project` in the `EvidenceItemInput` mutation.
+Input for the nested mutation of `guarantee` in the `EvidenceItemInput` mutation.
 """
-input EvidenceItemProjectIdFkeyInput {
+input EvidenceItemGuaranteeIdFkeyInput {
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectById: GuaranteeGuaranteePkeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByNodeId: GuaranteeNodeIdConnect
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteById: GuaranteeGuaranteePkeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyDelete
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByNodeId: GuaranteeNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateById: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate
+
+  """
+  A `GuaranteeInput` object that will be created and connected to this object.
+  """
+  create: EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput
+}
+
+"""The fields on `guarantee` to look up the row to connect."""
+input GuaranteeGuaranteePkeyConnect {
+  """Primary key - starts at 6100"""
+  id: Int!
+}
+
+"""The fields on `guarantee` to look up the row to connect."""
+input GuaranteeGuaranteeBmiReferenceIdKeyConnect {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""The globally unique `ID` look up for the row to connect."""
+input GuaranteeNodeIdConnect {
+  """
+  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  """
+  nodeId: ID!
+}
+
+"""The fields on `guarantee` to look up the row to delete."""
+input GuaranteeGuaranteePkeyDelete {
+  """Primary key - starts at 6100"""
+  id: Int!
+}
+
+"""The fields on `guarantee` to look up the row to delete."""
+input GuaranteeGuaranteeBmiReferenceIdKeyDelete {
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""The globally unique `ID` look up for the row to delete."""
+input GuaranteeNodeIdDelete {
+  """
+  The globally unique `ID` which identifies a single `guarantee` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""The fields on `guarantee` to look up the row to update."""
+input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+
+  """Primary key - starts at 6100"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `guarantee` being updated.
+"""
+input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
+  """Primary key - starts at 6100"""
+  id: Int
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """fk"""
+  requestorAccountId: Int
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  guaranteeReferenceCode: GuaranteeReferenceCode
+
+  """fk"""
+  systemBmiRef: String
+
+  """fk"""
+  productBmiRef: String
+
+  """fk"""
+  reviewerAccountId: Int
+
+  """ek"""
+  coverage: GuaranteeCoverage
+
+  """ek"""
+  languageCode: Language
+
+  """ek"""
+  status: RequestStatus
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""
+Input for the nested mutation of `account` in the `GuaranteeInput` mutation.
+"""
+input GuaranteeRequestorAccountIdFkeyInput {
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectById: AccountAccountPkeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByEmail: AccountAccountEmailKeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByNodeId: AccountNodeIdConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteById: AccountAccountPkeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByEmail: AccountAccountEmailKeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByNodeId: AccountNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateById: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByEmail: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByDoceboUserId: AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByNodeId: GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate
+}
+
+"""The fields on `account` to look up the row to update."""
+input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """Primary key"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `account` being updated.
+"""
+input updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
+  """Primary key"""
+  id: Int
+
+  """ek"""
+  status: AccountStatus
+
+  """fk"""
+  marketId: Int
+
+  """ek"""
+  role: Role
+
+  """The email address associated with the account"""
+  email: String
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """First name"""
+  firstName: String
+
+  """Last name"""
+  lastName: String
+
+  """When the account was created"""
+  created: Datetime
+
+  """User account in Docebo"""
+  doceboUserId: Int
+
+  """Username in Docebo.  Needed to generate the SSO link"""
+  doceboUsername: String
+
+  """File reference. A profile picture of the user"""
+  photo: String
+
+  """Used for reference when importing data from the legacy system"""
+  migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
+  createdAt: Datetime
+  updatedAt: Datetime
+  marketToMarketId: AccountMarketIdFkeyInput
+  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
+  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
+  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
+  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
+  notesUsingId: NoteAuthorIdFkeyInverseInput
+  notificationsUsingId: NotificationAccountIdFkeyInverseInput
+  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  photoUpload: Upload
+  shouldRemovePhoto: Boolean
+  termsCondition: Boolean
+}
+
+"""
+Input for the nested mutation of `guarantee` in the `AccountInput` mutation.
+"""
+input GuaranteeRequestorAccountIdFkeyInverseInput {
+  """
+  Flag indicating whether all other `guarantee` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectById: [GuaranteeGuaranteePkeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByNodeId: [GuaranteeNodeIdConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteById: [GuaranteeGuaranteePkeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByNodeId: [GuaranteeNodeIdDelete!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateById: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByNodeId: [AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate!]
+
+  """
+  A `GuaranteeInput` object that will be created and connected to this object.
+  """
+  create: [GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput!]
+}
+
+"""The fields on `guarantee` to look up the row to update."""
+input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteePkeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """Primary key - starts at 6100"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `guarantee` being updated.
+"""
+input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
+  """Primary key - starts at 6100"""
+  id: Int
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  guaranteeReferenceCode: GuaranteeReferenceCode
+
+  """fk"""
+  systemBmiRef: String
+
+  """fk"""
+  productBmiRef: String
+
+  """fk"""
+  reviewerAccountId: Int
+
+  """ek"""
+  coverage: GuaranteeCoverage
+
+  """ek"""
+  languageCode: Language
+
+  """ek"""
+  status: RequestStatus
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""
+Input for the nested mutation of `project` in the `GuaranteeInput` mutation.
+"""
+input GuaranteeProjectIdFkeyInput {
   """The primary key(s) for `project` for the far side of the relationship."""
   connectById: ProjectProjectPkeyConnect
 
@@ -10554,25 +10720,25 @@ input EvidenceItemProjectIdFkeyInput {
   """
   The primary key(s) and patch data for `project` for the far side of the relationship.
   """
-  updateById: ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate
+  updateById: ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate
 
   """
   The primary key(s) and patch data for `project` for the far side of the relationship.
   """
-  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate
+  updateByNodeId: GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate
 
   """
   A `ProjectInput` object that will be created and connected to this object.
   """
-  create: EvidenceItemProjectIdFkeyProjectCreateInput
+  create: GuaranteeProjectIdFkeyProjectCreateInput
 }
 
 """The fields on `project` to look up the row to update."""
-input ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate {
+input ProjectOnGuaranteeForGuaranteeProjectIdFkeyUsingProjectPkeyUpdate {
   """
   An object where the defined keys will be set on the `project` being updated.
   """
-  patch: updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch!
+  patch: updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch!
 
   """Primary key"""
   id: Int!
@@ -10581,7 +10747,7 @@ input ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyUsingProjectPkeyUpdate {
 """
 An object where the defined keys will be set on the `project` being updated.
 """
-input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
+input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   """Primary key"""
   id: Int
 
@@ -11900,6 +12066,350 @@ input updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
+  guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
+  guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
+  invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
+  notesUsingId: NoteAuthorIdFkeyInverseInput
+  notificationsUsingId: NotificationAccountIdFkeyInverseInput
+  projectMembersUsingId: ProjectMemberAccountIdFkeyInverseInput
+  photoUpload: Upload
+  shouldRemovePhoto: Boolean
+  termsCondition: Boolean
+}
+
+"""
+Input for the nested mutation of `guarantee` in the `AccountInput` mutation.
+"""
+input GuaranteeReviewerAccountIdFkeyInverseInput {
+  """
+  Flag indicating whether all other `guarantee` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectById: [GuaranteeGuaranteePkeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  connectByNodeId: [GuaranteeNodeIdConnect!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteById: [GuaranteeGuaranteePkeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByBmiReferenceId: [GuaranteeGuaranteeBmiReferenceIdKeyDelete!]
+
+  """
+  The primary key(s) for `guarantee` for the far side of the relationship.
+  """
+  deleteByNodeId: [GuaranteeNodeIdDelete!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateById: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByBmiReferenceId: [GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
+  """
+  updateByNodeId: [AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate!]
+
+  """
+  A `GuaranteeInput` object that will be created and connected to this object.
+  """
+  create: [GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput!]
+}
+
+"""The fields on `guarantee` to look up the row to update."""
+input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteePkeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+
+  """Primary key - starts at 6100"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `guarantee` being updated.
+"""
+input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
+  """Primary key - starts at 6100"""
+  id: Int
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """fk"""
+  requestorAccountId: Int
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  guaranteeReferenceCode: GuaranteeReferenceCode
+
+  """fk"""
+  systemBmiRef: String
+
+  """fk"""
+  productBmiRef: String
+
+  """ek"""
+  coverage: GuaranteeCoverage
+
+  """ek"""
+  languageCode: Language
+
+  """ek"""
+  status: RequestStatus
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""
+Input for the nested mutation of `evidenceItem` in the `GuaranteeInput` mutation.
+"""
+input EvidenceItemGuaranteeIdFkeyInverseInput {
+  """
+  Flag indicating whether all other `evidenceItem` records that match this relationship should be removed.
+  """
+  deleteOthers: Boolean
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  connectById: [EvidenceItemEvidenceItemPkeyConnect!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  connectByNodeId: [EvidenceItemNodeIdConnect!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  deleteById: [EvidenceItemEvidenceItemPkeyDelete!]
+
+  """
+  The primary key(s) for `evidenceItem` for the far side of the relationship.
+  """
+  deleteByNodeId: [EvidenceItemNodeIdDelete!]
+
+  """
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
+  """
+  updateById: [EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate!]
+
+  """
+  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
+  """
+  updateByNodeId: [GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate!]
+
+  """
+  A `EvidenceItemInput` object that will be created and connected to this object.
+  """
+  create: [EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput!]
+}
+
+"""The fields on `evidenceItem` to look up the row to update."""
+input EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `evidenceItem` being updated.
+  """
+  patch: updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+
+  """Primary key"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `evidenceItem` being updated.
+"""
+input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
+  """Primary key"""
+  id: Int
+
+  """ek"""
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  evidenceCategoryType: EvidenceCategoryType
+
+  """Short name for the item of evidence"""
+  name: String
+
+  """File reference or the file itself. Photo of the evidence"""
+  attachment: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  uploaderAccountId: Int
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+}
+
+"""
+Input for the nested mutation of `account` in the `EvidenceItemInput` mutation.
+"""
+input EvidenceItemUploaderAccountIdFkeyInput {
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectById: AccountAccountPkeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByEmail: AccountAccountEmailKeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByDoceboUserId: AccountAccountDoceboUserIdKeyConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  connectByNodeId: AccountNodeIdConnect
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteById: AccountAccountPkeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByEmail: AccountAccountEmailKeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByDoceboUserId: AccountAccountDoceboUserIdKeyDelete
+
+  """The primary key(s) for `account` for the far side of the relationship."""
+  deleteByNodeId: AccountNodeIdDelete
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateById: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByEmail: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByDoceboUserId: AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate
+
+  """
+  The primary key(s) and patch data for `account` for the far side of the relationship.
+  """
+  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate
+}
+
+"""The fields on `account` to look up the row to update."""
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountPkeyUpdate {
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
+
+  """Primary key"""
+  id: Int!
+}
+
+"""
+An object where the defined keys will be set on the `account` being updated.
+"""
+input updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch {
+  """Primary key"""
+  id: Int
+
+  """ek"""
+  status: AccountStatus
+
+  """fk"""
+  marketId: Int
+
+  """ek"""
+  role: Role
+
+  """The email address associated with the account"""
+  email: String
+
+  """
+  A phone number that can optionally be provided, and is useful for Company Admin people to provide
+  """
+  phone: String
+
+  """First name"""
+  firstName: String
+
+  """Last name"""
+  lastName: String
+
+  """When the account was created"""
+  created: Datetime
+
+  """User account in Docebo"""
+  doceboUserId: Int
+
+  """Username in Docebo.  Needed to generate the SSO link"""
+  doceboUsername: String
+
+  """File reference. A profile picture of the user"""
+  photo: String
+
+  """Used for reference when importing data from the legacy system"""
+  migrationId: String
+
+  """
+  Use to know if the user it is been migrated in Auth0 (the reset password mail it is been sent)
+  """
+  migratedToAuth0: Boolean
+  createdAt: Datetime
+  updatedAt: Datetime
+  marketToMarketId: AccountMarketIdFkeyInput
+  certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
+  companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -12467,6 +12977,7 @@ input updateAccountOnNoteForNoteAuthorIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -13137,6 +13648,7 @@ input updateAccountOnProjectMemberForProjectMemberAccountIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -13366,6 +13878,7 @@ input updateAccountOnNotificationForNotificationAccountIdFkeyPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -13593,6 +14106,7 @@ input AccountPatch {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput
@@ -14172,29 +14686,29 @@ input InvitationPatch {
 }
 
 """The fields on `account` to look up the row to update."""
-input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate {
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountEmailKeyUpdate {
   """
   An object where the defined keys will be set on the `account` being updated.
   """
-  patch: updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
 
   """The email address associated with the account"""
   email: String!
 }
 
 """The fields on `account` to look up the row to update."""
-input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
   """
   An object where the defined keys will be set on the `account` being updated.
   """
-  patch: updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+  patch: updateAccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyPatch!
 
   """User account in Docebo"""
   doceboUserId: Int!
 }
 
 """The globally unique `ID` look up for the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
+input EvidenceItemOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `account` to be connected.
   """
@@ -14206,66 +14720,53 @@ input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
   patch: AccountPatch!
 }
 
-"""
-Input for the nested mutation of `evidenceItem` in the `GuaranteeInput` mutation.
-"""
-input EvidenceItemGuaranteeIdFkeyInverseInput {
+"""The globally unique `ID` look up for the row to update."""
+input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate {
   """
-  Flag indicating whether all other `evidenceItem` records that match this relationship should be removed.
+  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
   """
-  deleteOthers: Boolean
+  nodeId: ID!
 
-  """
-  The primary key(s) for `evidenceItem` for the far side of the relationship.
-  """
-  connectById: [EvidenceItemEvidenceItemPkeyConnect!]
-
-  """
-  The primary key(s) for `evidenceItem` for the far side of the relationship.
-  """
-  connectByNodeId: [EvidenceItemNodeIdConnect!]
-
-  """
-  The primary key(s) for `evidenceItem` for the far side of the relationship.
-  """
-  deleteById: [EvidenceItemEvidenceItemPkeyDelete!]
-
-  """
-  The primary key(s) for `evidenceItem` for the far side of the relationship.
-  """
-  deleteByNodeId: [EvidenceItemNodeIdDelete!]
-
-  """
-  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
-  """
-  updateById: [EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate!]
-
-  """
-  The primary key(s) and patch data for `evidenceItem` for the far side of the relationship.
-  """
-  updateByNodeId: [GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate!]
-
-  """
-  A `EvidenceItemInput` object that will be created and connected to this object.
-  """
-  create: [EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput!]
-}
-
-"""The fields on `evidenceItem` to look up the row to update."""
-input EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingEvidenceItemPkeyUpdate {
   """
   An object where the defined keys will be set on the `evidenceItem` being updated.
   """
-  patch: updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
-
-  """Primary key"""
-  id: Int!
+  patch: EvidenceItemPatch!
 }
 
 """
-An object where the defined keys will be set on the `evidenceItem` being updated.
+Represents an update to a `EvidenceItem`. Fields that are set will be updated.
 """
-input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
+input EvidenceItemPatch {
+  """Primary key"""
+  id: Int
+
+  """ek"""
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
+
+  """fk"""
+  projectId: Int
+
+  """fk"""
+  guaranteeId: Int
+
+  """ek"""
+  evidenceCategoryType: EvidenceCategoryType
+
+  """Short name for the item of evidence"""
+  name: String
+
+  """File reference or the file itself. Photo of the evidence"""
+  attachment: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  uploaderAccountId: Int
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+}
+
+"""The `evidenceItem` to be created by this mutation."""
+input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
   """Primary key"""
   id: Int
 
@@ -14279,152 +14780,25 @@ input updateEvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   evidenceCategoryType: EvidenceCategoryType
 
   """Short name for the item of evidence"""
-  name: String
+  name: String!
 
   """File reference or the file itself. Photo of the evidence"""
-  attachment: String
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
+  uploaderAccountId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
-}
-
-"""
-Input for the nested mutation of `guarantee` in the `EvidenceItemInput` mutation.
-"""
-input EvidenceItemGuaranteeIdFkeyInput {
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectById: GuaranteeGuaranteePkeyConnect
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyConnect
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  connectByNodeId: GuaranteeNodeIdConnect
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteById: GuaranteeGuaranteePkeyDelete
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteByBmiReferenceId: GuaranteeGuaranteeBmiReferenceIdKeyDelete
-
-  """
-  The primary key(s) for `guarantee` for the far side of the relationship.
-  """
-  deleteByNodeId: GuaranteeNodeIdDelete
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateById: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByBmiReferenceId: GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate
-
-  """
-  The primary key(s) and patch data for `guarantee` for the far side of the relationship.
-  """
-  updateByNodeId: EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate
-
-  """
-  A `GuaranteeInput` object that will be created and connected to this object.
-  """
-  create: EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteePkeyUpdate {
+input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
   """
   An object where the defined keys will be set on the `guarantee` being updated.
   """
-  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
-
-  """Primary key - starts at 6100"""
-  id: Int!
-}
-
-"""
-An object where the defined keys will be set on the `guarantee` being updated.
-"""
-input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
-  """Primary key - starts at 6100"""
-  id: Int
-
-  """
-  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
-  """
-  fileStorageId: String
-
-  """fk"""
-  requestorAccountId: Int
-
-  """fk"""
-  projectId: Int
-
-  """ek"""
-  guaranteeReferenceCode: GuaranteeReferenceCode
-
-  """fk"""
-  systemBmiRef: String
-
-  """fk"""
-  productBmiRef: String
-
-  """fk"""
-  reviewerAccountId: Int
-
-  """ek"""
-  coverage: GuaranteeCoverage
-
-  """ek"""
-  languageCode: Language
-
-  """ek"""
-  status: RequestStatus
-
-  """
-  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
-  """
-  startDate: Datetime
-
-  """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
-  The date is stored in UTC.
-  """
-  expiryDate: Datetime
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String
-  createdAt: Datetime
-  updatedAt: Datetime
-  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
-  projectToProjectId: GuaranteeProjectIdFkeyInput
-  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
-  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
-  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
-  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-}
-
-"""The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
-  """
-  An object where the defined keys will be set on the `guarantee` being updated.
-  """
-  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14433,7 +14807,7 @@ input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiRefe
 }
 
 """The globally unique `ID` look up for the row to update."""
-input EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate {
+input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `guarantee` to be connected.
   """
@@ -14510,7 +14884,7 @@ input GuaranteePatch {
 }
 
 """The `guarantee` to be created by this mutation."""
-input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
+input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   """Primary key - starts at 6100"""
   id: Int
 
@@ -14533,9 +14907,6 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
 
   """fk"""
   productBmiRef: String
-
-  """fk"""
-  reviewerAccountId: Int
 
   """ek"""
   coverage: GuaranteeCoverage
@@ -14571,73 +14942,39 @@ input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
 }
 
-"""The globally unique `ID` look up for the row to update."""
-input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate {
+"""The fields on `account` to look up the row to update."""
+input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountEmailKeyUpdate {
   """
-  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+
+  """The email address associated with the account"""
+  email: String!
+}
+
+"""The fields on `account` to look up the row to update."""
+input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
+
+  """User account in Docebo"""
+  doceboUserId: Int!
+}
+
+"""The globally unique `ID` look up for the row to update."""
+input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `account` to be connected.
   """
   nodeId: ID!
 
   """
-  An object where the defined keys will be set on the `evidenceItem` being updated.
+  An object where the defined keys will be set on the `account` being updated.
   """
-  patch: EvidenceItemPatch!
-}
-
-"""
-Represents an update to a `EvidenceItem`. Fields that are set will be updated.
-"""
-input EvidenceItemPatch {
-  """Primary key"""
-  id: Int
-
-  """ek"""
-  customEvidenceCategoryKey: CustomEvidenceCategoryKey
-
-  """fk"""
-  projectId: Int
-
-  """fk"""
-  guaranteeId: Int
-
-  """ek"""
-  evidenceCategoryType: EvidenceCategoryType
-
-  """Short name for the item of evidence"""
-  name: String
-
-  """File reference or the file itself. Photo of the evidence"""
-  attachment: String
-  createdAt: Datetime
-  updatedAt: Datetime
-  projectToProjectId: EvidenceItemProjectIdFkeyInput
-  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
-}
-
-"""The `evidenceItem` to be created by this mutation."""
-input EvidenceItemGuaranteeIdFkeyEvidenceItemCreateInput {
-  """Primary key"""
-  id: Int
-
-  """ek"""
-  customEvidenceCategoryKey: CustomEvidenceCategoryKey
-
-  """fk"""
-  projectId: Int
-
-  """ek"""
-  evidenceCategoryType: EvidenceCategoryType
-
-  """Short name for the item of evidence"""
-  name: String!
-
-  """File reference or the file itself. Photo of the evidence"""
-  attachment: String!
-  createdAt: Datetime
-  updatedAt: Datetime
-  projectToProjectId: EvidenceItemProjectIdFkeyInput
-  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
-  attachmentUpload: Upload
+  patch: AccountPatch!
 }
 
 """The fields on `guarantee` to look up the row to update."""
@@ -16565,7 +16902,7 @@ input GuaranteeProjectIdFkeyGuaranteeCreateInput {
 }
 
 """The globally unique `ID` look up for the row to update."""
-input EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate {
+input GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `project` to be connected.
   """
@@ -16578,7 +16915,7 @@ input EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate {
 }
 
 """The `project` to be created by this mutation."""
-input EvidenceItemProjectIdFkeyProjectCreateInput {
+input GuaranteeProjectIdFkeyProjectCreateInput {
   """Primary key"""
   id: Int
 
@@ -16645,6 +16982,214 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   projectMembersUsingId: ProjectMemberProjectIdFkeyInverseInput
 }
 
+"""The fields on `guarantee` to look up the row to update."""
+input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""The globally unique `ID` look up for the row to update."""
+input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: GuaranteePatch!
+}
+
+"""The `guarantee` to be created by this mutation."""
+input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
+  """Primary key - starts at 6100"""
+  id: Int
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  guaranteeReferenceCode: GuaranteeReferenceCode!
+
+  """fk"""
+  systemBmiRef: String
+
+  """fk"""
+  productBmiRef: String
+
+  """fk"""
+  reviewerAccountId: Int
+
+  """ek"""
+  coverage: GuaranteeCoverage
+
+  """ek"""
+  languageCode: Language
+
+  """ek"""
+  status: RequestStatus
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
+"""The fields on `account` to look up the row to update."""
+input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate {
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """The email address associated with the account"""
+  email: String!
+}
+
+"""The fields on `account` to look up the row to update."""
+input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
+
+  """User account in Docebo"""
+  doceboUserId: Int!
+}
+
+"""The globally unique `ID` look up for the row to update."""
+input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `account` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `account` being updated.
+  """
+  patch: AccountPatch!
+}
+
+"""The fields on `guarantee` to look up the row to update."""
+input GuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch!
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String!
+}
+
+"""The globally unique `ID` look up for the row to update."""
+input EvidenceItemOnEvidenceItemForEvidenceItemGuaranteeIdFkeyNodeIdUpdate {
+  """
+  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `guarantee` being updated.
+  """
+  patch: GuaranteePatch!
+}
+
+"""The `guarantee` to be created by this mutation."""
+input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
+  """Primary key - starts at 6100"""
+  id: Int
+
+  """
+  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
+  """
+  fileStorageId: String
+
+  """fk"""
+  requestorAccountId: Int
+
+  """fk"""
+  projectId: Int
+
+  """ek"""
+  guaranteeReferenceCode: GuaranteeReferenceCode!
+
+  """fk"""
+  systemBmiRef: String
+
+  """fk"""
+  productBmiRef: String
+
+  """fk"""
+  reviewerAccountId: Int
+
+  """ek"""
+  coverage: GuaranteeCoverage
+
+  """ek"""
+  languageCode: Language
+
+  """ek"""
+  status: RequestStatus
+
+  """
+  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
+  """
+  startDate: Datetime
+
+  """
+  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
+  The date is stored in UTC.
+  """
+  expiryDate: Datetime
+
+  """
+  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
+  """
+  bmiReferenceId: String
+  createdAt: Datetime
+  updatedAt: Datetime
+  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
+  projectToProjectId: GuaranteeProjectIdFkeyInput
+  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
+  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
+  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+}
+
 """The globally unique `ID` look up for the row to update."""
 input ProjectOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate {
   """
@@ -16679,8 +17224,10 @@ input EvidenceItemProjectIdFkeyEvidenceItemCreateInput {
   attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
+  uploaderAccountId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
   attachmentUpload: Upload
 }
 
@@ -16812,7 +17359,7 @@ input ProjectSiteAddressIdFkeyAddressCreateInput {
 }
 
 """The globally unique `ID` look up for the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate {
+input EvidenceItemOnEvidenceItemForEvidenceItemProjectIdFkeyNodeIdUpdate {
   """
   The globally unique `ID` which identifies a single `project` to be connected.
   """
@@ -16825,7 +17372,7 @@ input GuaranteeOnGuaranteeForGuaranteeProjectIdFkeyNodeIdUpdate {
 }
 
 """The `project` to be created by this mutation."""
-input GuaranteeProjectIdFkeyProjectCreateInput {
+input EvidenceItemProjectIdFkeyProjectCreateInput {
   """Primary key"""
   id: Int
 
@@ -16892,209 +17439,47 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   projectMembersUsingId: ProjectMemberProjectIdFkeyInverseInput
 }
 
-"""The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
-  """
-  An object where the defined keys will be set on the `guarantee` being updated.
-  """
-  patch: updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch!
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String!
-}
-
 """The globally unique `ID` look up for the row to update."""
-input AccountOnGuaranteeForGuaranteeReviewerAccountIdFkeyNodeIdUpdate {
+input AccountOnEvidenceItemForEvidenceItemUploaderAccountIdFkeyNodeIdUpdate {
   """
-  The globally unique `ID` which identifies a single `guarantee` to be connected.
+  The globally unique `ID` which identifies a single `evidenceItem` to be connected.
   """
   nodeId: ID!
 
   """
-  An object where the defined keys will be set on the `guarantee` being updated.
+  An object where the defined keys will be set on the `evidenceItem` being updated.
   """
-  patch: GuaranteePatch!
+  patch: EvidenceItemPatch!
 }
 
-"""The `guarantee` to be created by this mutation."""
-input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
-  """Primary key - starts at 6100"""
+"""The `evidenceItem` to be created by this mutation."""
+input EvidenceItemUploaderAccountIdFkeyEvidenceItemCreateInput {
+  """Primary key"""
   id: Int
 
-  """
-  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
-  """
-  fileStorageId: String
-
-  """fk"""
-  requestorAccountId: Int
+  """ek"""
+  customEvidenceCategoryKey: CustomEvidenceCategoryKey
 
   """fk"""
   projectId: Int
 
-  """ek"""
-  guaranteeReferenceCode: GuaranteeReferenceCode!
-
   """fk"""
-  systemBmiRef: String
-
-  """fk"""
-  productBmiRef: String
+  guaranteeId: Int
 
   """ek"""
-  coverage: GuaranteeCoverage
+  evidenceCategoryType: EvidenceCategoryType
 
-  """ek"""
-  languageCode: Language
+  """Short name for the item of evidence"""
+  name: String!
 
-  """ek"""
-  status: RequestStatus
-
-  """
-  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
-  """
-  startDate: Datetime
-
-  """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
-  The date is stored in UTC.
-  """
-  expiryDate: Datetime
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String
+  """File reference or the file itself. Photo of the evidence"""
+  attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
-  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
-  projectToProjectId: GuaranteeProjectIdFkeyInput
-  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
-  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
-  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
-  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
-}
-
-"""The fields on `account` to look up the row to update."""
-input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountEmailKeyUpdate {
-  """
-  An object where the defined keys will be set on the `account` being updated.
-  """
-  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
-
-  """The email address associated with the account"""
-  email: String!
-}
-
-"""The fields on `account` to look up the row to update."""
-input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingAccountDoceboUserIdKeyUpdate {
-  """
-  An object where the defined keys will be set on the `account` being updated.
-  """
-  patch: updateAccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
-
-  """User account in Docebo"""
-  doceboUserId: Int!
-}
-
-"""The globally unique `ID` look up for the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
-  """
-  The globally unique `ID` which identifies a single `account` to be connected.
-  """
-  nodeId: ID!
-
-  """
-  An object where the defined keys will be set on the `account` being updated.
-  """
-  patch: AccountPatch!
-}
-
-"""The fields on `guarantee` to look up the row to update."""
-input GuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyUsingGuaranteeBmiReferenceIdKeyUpdate {
-  """
-  An object where the defined keys will be set on the `guarantee` being updated.
-  """
-  patch: updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch!
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String!
-}
-
-"""The globally unique `ID` look up for the row to update."""
-input AccountOnGuaranteeForGuaranteeRequestorAccountIdFkeyNodeIdUpdate {
-  """
-  The globally unique `ID` which identifies a single `guarantee` to be connected.
-  """
-  nodeId: ID!
-
-  """
-  An object where the defined keys will be set on the `guarantee` being updated.
-  """
-  patch: GuaranteePatch!
-}
-
-"""The `guarantee` to be created by this mutation."""
-input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
-  """Primary key - starts at 6100"""
-  id: Int
-
-  """
-  The pdf file that is emailed out, or a reference to it, or reference to the service that will generate it on demand
-  """
-  fileStorageId: String
-
-  """fk"""
-  projectId: Int
-
-  """ek"""
-  guaranteeReferenceCode: GuaranteeReferenceCode!
-
-  """fk"""
-  systemBmiRef: String
-
-  """fk"""
-  productBmiRef: String
-
-  """fk"""
-  reviewerAccountId: Int
-
-  """ek"""
-  coverage: GuaranteeCoverage
-
-  """ek"""
-  languageCode: Language
-
-  """ek"""
-  status: RequestStatus
-
-  """
-  The date that the Guarantee is approved either automatically or manually. The date is stored in UTC.
-  """
-  startDate: Datetime
-
-  """
-  When the guarantee will expire.  This should be calculated when the request_status becomes APPROVED. dependent on the StartDate, the Validity of the Product or System and the ValidityOffset in this Tier.
-  The date is stored in UTC.
-  """
-  expiryDate: Datetime
-
-  """
-  This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
-  """
-  bmiReferenceId: String
-  createdAt: Datetime
-  updatedAt: Datetime
-  accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
-  projectToProjectId: GuaranteeProjectIdFkeyInput
-  systemToSystemBmiRef: GuaranteeSystemBmiRefFkeyInput
-  productToProductBmiRef: GuaranteeProductBmiRefFkeyInput
-  accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
-  evidenceItemsUsingId: EvidenceItemGuaranteeIdFkeyInverseInput
+  projectToProjectId: EvidenceItemProjectIdFkeyInput
+  guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
+  attachmentUpload: Upload
 }
 
 """The fields on `account` to look up the row to update."""
@@ -18599,6 +18984,9 @@ type CreateEvidenceItemPayload {
   """Reads a single `Guarantee` that is related to this `EvidenceItem`."""
   guarantee: Guarantee
 
+  """Reads a single `Account` that is related to this `EvidenceItem`."""
+  uploaderAccount: Account
+
   """An edge for our `EvidenceItem`. May be used by Relay 1."""
   evidenceItemEdge(
     """The method to use when ordering `EvidenceItem`."""
@@ -18642,8 +19030,10 @@ input EvidenceItemInput {
   attachment: String!
   createdAt: Datetime
   updatedAt: Datetime
+  uploaderAccountId: Int
   projectToProjectId: EvidenceItemProjectIdFkeyInput
   guaranteeToGuaranteeId: EvidenceItemGuaranteeIdFkeyInput
+  accountToUploaderAccountId: EvidenceItemUploaderAccountIdFkeyInput
   attachmentUpload: Upload
 }
 
@@ -19938,6 +20328,9 @@ type UpdateEvidenceItemPayload {
   """Reads a single `Guarantee` that is related to this `EvidenceItem`."""
   guarantee: Guarantee
 
+  """Reads a single `Account` that is related to this `EvidenceItem`."""
+  uploaderAccount: Account
+
   """An edge for our `EvidenceItem`. May be used by Relay 1."""
   evidenceItemEdge(
     """The method to use when ordering `EvidenceItem`."""
@@ -21231,6 +21624,9 @@ type DeleteEvidenceItemPayload {
   """Reads a single `Guarantee` that is related to this `EvidenceItem`."""
   guarantee: Guarantee
 
+  """Reads a single `Account` that is related to this `EvidenceItem`."""
+  uploaderAccount: Account
+
   """An edge for our `EvidenceItem`. May be used by Relay 1."""
   evidenceItemEdge(
     """The method to use when ordering `EvidenceItem`."""
@@ -21995,6 +22391,7 @@ input AccountInput {
   marketToMarketId: AccountMarketIdFkeyInput
   certificationsUsingDoceboUserId: CertificationDoceboUserIdFkeyInverseInput
   companyMembersUsingId: CompanyMemberAccountIdFkeyInverseInput
+  evidenceItemsUsingId: EvidenceItemUploaderAccountIdFkeyInverseInput
   guaranteesToRequestorAccountIdUsingId: GuaranteeRequestorAccountIdFkeyInverseInput
   guaranteesToReviewerAccountIdUsingId: GuaranteeReviewerAccountIdFkeyInverseInput
   invitationsUsingId: InvitationSenderAccountIdFkeyInverseInput

@@ -81,7 +81,7 @@ describe("GuaranteeReport Component", () => {
       mockOnCompleted({ guaranteesByMarket: { nodes: guarantees } })
     );
 
-    const exportButton = screen.getByTestId("export-button");
+    const exportButton = screen.getByTestId("export-guarantee-report-button");
     exportButton.click();
 
     expect(mockGetGuaranteesReport).toHaveBeenCalled();
