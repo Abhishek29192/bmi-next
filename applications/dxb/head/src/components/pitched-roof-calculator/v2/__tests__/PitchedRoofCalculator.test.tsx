@@ -4,7 +4,7 @@ import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
 import no from "../../samples/copy/no.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import PitchedRoofCalculator from "../PitchedRoofCalculator";
 
 const LOADED_TEXT = "loaded";

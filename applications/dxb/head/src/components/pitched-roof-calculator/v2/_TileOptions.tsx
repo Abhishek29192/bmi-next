@@ -1,13 +1,13 @@
-import { CardCheckboxGroup, CardRadioGroup } from "@bmi/components";
-import React, { useContext } from "react";
+import {
+  CardCheckboxGroup,
+  CardRadioGroup,
+  FormContext
+} from "@bmi/components";
+import React, { useContext, useEffect } from "react";
 import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
-import {
-  Accessory,
-  LengthBasedProduct,
-  MainTileVariant,
-  VergeOption
-} from "../types";
+import { Accessory, LengthBasedProduct, VergeOption } from "../types";
+import { MainTileVariant } from "../types/v2";
 import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 
@@ -78,6 +78,13 @@ type RidgeOptionsProps = {
 const RidgeOptions = ({ selected, options }: RidgeOptionsProps) => {
   const { getMicroCopy } = useSiteContext();
   const pushEvent = useContext(AnalyticsContext);
+  const { updateFormState } = useContext(FormContext);
+
+  useEffect(() => {
+    if (options.length === 1) {
+      updateFormState({ ridge: options[0].externalProductCode });
+    }
+  }, [options]);
 
   if (options.length < 2) {
     return null;

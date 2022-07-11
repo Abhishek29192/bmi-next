@@ -3,7 +3,8 @@ import { LinearProgress } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { Suspense, useCallback, useState } from "react";
 import { AnalyticsContext, OnAnalyticsEvent } from "../helpers/analytics";
-import { CalculatorSteps, Data } from "../types";
+import { CalculatorSteps } from "../types";
+import { Data } from "../types/v2";
 import styles from "./PitchedRoofCalculator.module.scss";
 
 const PitchedRoofCalculatorSteps = React.lazy(

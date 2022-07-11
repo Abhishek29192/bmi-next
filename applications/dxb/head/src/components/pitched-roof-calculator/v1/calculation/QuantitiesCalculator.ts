@@ -1,16 +1,16 @@
 import {
+  Accessory,
+  BaseVariant,
+  GutteringVariant,
   LengthBasedProduct,
   MainTileVariant,
+  ProductCategory,
+  ResultsObject,
   ResultsRow,
   Underlay,
-  VergeOption,
-  VergeTileOption,
-  ProductCategory,
-  BaseVariant,
   VergeMetalFlushOption,
-  Accessory,
-  ResultsObject,
-  GutteringVariant
+  VergeOption,
+  VergeTileOption
 } from "../../types";
 import {
   Face,
@@ -146,30 +146,38 @@ class QuantitiesCalculator {
     this.facesBattens.forEach((faceWithBattens) => {
       const faceTiles = surface(faceWithBattens, mainTileVariant, vergeOption);
 
-      this.addProduct("tiles", mainTileVariant, faceTiles.quantity);
+      this.addProduct(
+        ProductCategory.Tiles,
+        mainTileVariant,
+        faceTiles.quantity
+      );
 
       if (mainTileVariant.halfTile) {
         this.addProduct(
-          "tiles",
+          ProductCategory.Tiles,
           mainTileVariant.halfTile,
           faceTiles.half.quantity
         );
       }
 
       if (vergeOption) {
-        this.addProduct("tiles", vergeOption.left, faceTiles.cloakedVerge.left);
         this.addProduct(
-          "tiles",
+          ProductCategory.Tiles,
+          vergeOption.left,
+          faceTiles.cloakedVerge.left
+        );
+        this.addProduct(
+          ProductCategory.Tiles,
           vergeOption.right,
           faceTiles.cloakedVerge.right
         );
         this.addProduct(
-          "tiles",
+          ProductCategory.Tiles,
           vergeOption.halfLeft,
           faceTiles.cloakedVerge.halfLeft
         );
         this.addProduct(
-          "tiles",
+          ProductCategory.Tiles,
           vergeOption.halfRight,
           faceTiles.cloakedVerge.halfRight
         );
@@ -222,11 +230,11 @@ class QuantitiesCalculator {
   ) {
     if (metalFlushStart) {
       length -= metalFlushStart.length;
-      this.addProduct("accessories", metalFlushStart, 1);
+      this.addProduct(ProductCategory.Accessories, metalFlushStart, 1);
     }
 
     this.addProduct(
-      "accessories",
+      ProductCategory.Accessories,
       metalFlush,
       Math.ceil(length / metalFlush.length)
     );
@@ -261,7 +269,7 @@ class QuantitiesCalculator {
 
       if (mainTileVariant.valleyMetalFlush) {
         this.addProduct(
-          "accessories",
+          ProductCategory.Accessories,
           mainTileVariant.valleyMetalFlush,
           Math.ceil(length / mainTileVariant.valleyMetalFlush.length)
         );
@@ -276,7 +284,7 @@ class QuantitiesCalculator {
       }
 
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
         mainTileVariant.valleyMetalFlushTop,
         valleyTopMetalFlushQuantity / 2
       );
@@ -285,13 +293,13 @@ class QuantitiesCalculator {
 
   // Returns how much to subtrat from length
   addSingleAccessoryWithSubtraction(accessory: LengthBasedProduct) {
-    this.addProduct("accessories", accessory, 1);
+    this.addProduct(ProductCategory.Accessories, accessory, 1);
     return accessory.length;
   }
 
   addLineTilesForLine(line: Line[], tileProduct: LengthBasedProduct) {
     line.forEach(({ length }) =>
-      this.addLengthBasedProduct("tiles", tileProduct, length)
+      this.addLengthBasedProduct(ProductCategory.Tiles, tileProduct, length)
     );
   }
 
@@ -322,18 +330,30 @@ class QuantitiesCalculator {
   ) {
     eave.forEach(({ length }) => {
       if (gutteringVariant) {
-        this.addLengthBasedProduct("accessories", gutteringVariant, length);
+        this.addLengthBasedProduct(
+          ProductCategory.Accessories,
+          gutteringVariant,
+          length
+        );
       }
 
       if (gutteringHook) {
-        this.addLengthBasedProduct("accessories", gutteringHook, length);
+        this.addLengthBasedProduct(
+          ProductCategory.Accessories,
+          gutteringHook,
+          length
+        );
       }
     });
 
     if (gutteringVariant) {
-      this.addProduct("accessories", gutteringVariant.downpipe, downPipes);
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
+        gutteringVariant.downpipe,
+        downPipes
+      );
+      this.addProduct(
+        ProductCategory.Accessories,
         gutteringVariant.downpipeConnector,
         downPipeConnectors
       );
@@ -351,7 +371,7 @@ class QuantitiesCalculator {
 
     if (mainTileVariant.clip) {
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
         mainTileVariant.clip,
         ridgeTiles + hipTiles
       );
@@ -359,7 +379,7 @@ class QuantitiesCalculator {
 
     if (mainTileVariant.ridgeAndHipScrew) {
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
         mainTileVariant.ridgeAndHipScrew,
         ridgeTiles + hipTiles
       );
@@ -386,12 +406,16 @@ class QuantitiesCalculator {
           LONG_SCREW_PER_METER
       );
 
-      this.addProduct("accessories", mainTileVariant.longScrew, longScrews);
+      this.addProduct(
+        ProductCategory.Accessories,
+        mainTileVariant.longScrew,
+        longScrews
+      );
     }
 
     if (mainTileVariant.screw) {
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
         mainTileVariant.screw,
         area
           ? Math.ceil(
@@ -407,18 +431,22 @@ class QuantitiesCalculator {
       ridge.externalProductCode === "25762568"
     ) {
       this.addProduct(
-        "accessories",
+        ProductCategory.Accessories,
         mainTileVariant.stormBracket,
         ridgeTiles * STORM_BRACKET_PER_RIDGE_TILE
       );
     }
 
     if (mainTileVariant.finishingKit) {
-      this.addProduct("accessories", mainTileVariant.finishingKit, 1);
+      this.addProduct(
+        ProductCategory.Accessories,
+        mainTileVariant.finishingKit,
+        1
+      );
     }
 
     this.addProduct(
-      "accessories",
+      ProductCategory.Accessories,
       underlay,
       area
         ? Math.ceil(
@@ -430,7 +458,7 @@ class QuantitiesCalculator {
     lines.eave.forEach(({ length }) =>
       mainTileVariant.eaveAccessories.forEach((accessory) =>
         this.addProduct(
-          "accessories",
+          ProductCategory.Accessories,
           accessory,
           Math.ceil(length / 1000) // These are calculated as one per eave meter
         )
@@ -440,7 +468,7 @@ class QuantitiesCalculator {
 
   addOtherAccessories(accessories: Accessory[]) {
     accessories.forEach((accessory) =>
-      this.addProduct("accessories", accessory, 0)
+      this.addProduct(ProductCategory.Accessories, accessory, 0)
     );
   }
 

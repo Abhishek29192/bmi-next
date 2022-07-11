@@ -1,12 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useSiteContext } from "../../Site";
-import {
-  CalculatorSteps,
-  Data,
-  MainTile,
-  MainTileVariant,
-  Underlay
-} from "../types";
+import { CalculatorSteps, Underlay } from "../types";
 import {
   DimensionsValues,
   LinesMap,
@@ -14,6 +8,7 @@ import {
   Protrusion,
   RoofV2 as Roof
 } from "../types/roof";
+import { Data, MainTile, MainTileVariant } from "../types/v2";
 import { AnalyticsContext } from "./../helpers/analytics";
 import { calculateArea } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
