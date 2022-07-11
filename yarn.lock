@@ -1430,13 +1430,6 @@
   resolved "https://registry.yarnpkg.com/@bmi-digital/functions-logger/-/functions-logger-1.2.0.tgz#5299a7274fe8eca5d6b2ea363b0c2627fd8b9b41"
   integrity sha512-18oMSkDNRYd5SYf5r+r6C/UWXfnZnu9XQcrLyhVZUdzO7goS4PXoXY+jBaKiMsd8LGZqTruiCUxS3s034QbSAA==
 
-"@bmi-digital/functions-secret-client@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@bmi-digital/functions-secret-client/-/functions-secret-client-1.1.1.tgz#51cd5916abeb0759a3d9dee8d00706d5ec95057c"
-  integrity sha512-69zlxo6rMkxUgiFMstXUINikcag7c3153oQDHIFCq/EREtgmNEJkEti6lWK/qwQZnBdBXfjuNqkhkFK56HPW7g==
-  dependencies:
-    "@google-cloud/secret-manager" "^3.7.1"
-
 "@bmi-digital/logger@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@bmi-digital/logger/-/logger-0.0.11.tgz#7dec7c18475ec6ec183f569f5498a6cfa715c541"
@@ -2287,13 +2280,6 @@
     is-stream-ended "^0.1.4"
     lodash.snakecase "^4.1.1"
     p-defer "^3.0.0"
-
-"@google-cloud/secret-manager@^3.7.1", "@google-cloud/secret-manager@^3.8.1":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@google-cloud/secret-manager/-/secret-manager-3.11.0.tgz#99bddd9ccef6d12b5d14e27e21977fcbaa8f3916"
-  integrity sha512-xoovdR7WSTmwlmjbkJSYTrOd2FiW0JlG3ON2p20uknBCzeSZDdCgsrFgysIbQqbZpRuGvEj71d4d1WEDk6wcdw==
-  dependencies:
-    google-gax "^2.24.1"
 
 "@google-cloud/storage@^5.3.0", "@google-cloud/storage@^5.7.0":
   version "5.18.3"

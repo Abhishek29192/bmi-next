@@ -102,6 +102,12 @@ const uploadChunk = async (chunk, locales, i) => {
   const results = await Promise.allSettled(chunkPromises);
   const fulfilled = results.filter(({ status }) => status === "fulfilled");
 
+  results
+    .filter(({ status }) => status === "rejected")
+    .map((entries) => {
+      console.log(`Failed to upload: ${entries.reason}`);
+    });
+
   console.log(`${fulfilled.length} successfully uploaded`);
 
   return fulfilled.map(({ value }) => ({
