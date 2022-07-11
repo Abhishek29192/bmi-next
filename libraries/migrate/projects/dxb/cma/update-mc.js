@@ -29,6 +29,8 @@ const TIMEOUT = 1500;
 */
 const BULK_SIZE = 200;
 
+const KEYS_REQUEST_PAGE_SIZE = 100;
+
 const TO_BE_PUBLISHED = process.argv.includes("--publish");
 
 let environmentCache;
@@ -50,25 +52,26 @@ const getEnvironment = async () => {
   return environmentCache;
 };
 
-const getContentfulKeys = async () => {
-  const environment = await getEnvironment();
+const getContentfulKeys = async (fetched = [], total) => {
+  if (fetched.length === total) {
+    return fetched;
+  }
 
-  const { total } = await environment.getEntries({
-    content_type: "resource"
-  });
+  const environment = await getEnvironment();
 
   const resources = await environment.getEntries({
     content_type: "resource",
-    limit: total
+    skip: fetched.length,
+    limit: KEYS_REQUEST_PAGE_SIZE
   });
 
   const keys = resources.items.map(
     (resource) => Object.values(resource.fields.key)[0]
   );
 
-  return keys.filter((value, index, self) => {
-    return self.indexOf(value) === index;
-  });
+  const result = [...fetched, ...keys];
+
+  return getContentfulKeys(result, resources.total);
 };
 
 const waitFor = (ms) =>

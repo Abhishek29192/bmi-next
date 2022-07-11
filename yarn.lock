@@ -11804,17 +11804,6 @@ contentful-management@^10.0.0:
     fast-copy "^2.1.1"
     lodash.isplainobject "^4.0.6"
 
-contentful-management@^10.6.3:
-  version "10.6.3"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-10.6.3.tgz#f6224bd9a046c40d1de7b320673207533aa758b4"
-  integrity sha512-1tzQM1VeJi1KGiaE7vWhIla79XwlwIrmPd6+BUw2LG/0ar6azeU1uvO6oQxH4azVN3D5k2XmshRE2OvRIJJ6Xw==
-  dependencies:
-    "@types/json-patch" "0.0.30"
-    axios "^0.27.1"
-    contentful-sdk-core "^7.0.1"
-    fast-copy "^2.1.1"
-    lodash.isplainobject "^4.0.6"
-
 contentful-management@^7.11.0, contentful-management@^7.5.1, contentful-management@^7.51.5:
   version "7.54.2"
   resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.54.2.tgz#7778b3094ea409732a7809839c118f0b8eb3e156"
