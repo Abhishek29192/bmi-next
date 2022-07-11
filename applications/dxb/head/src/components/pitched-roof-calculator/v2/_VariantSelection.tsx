@@ -4,8 +4,9 @@ import { useSiteContext } from "../../Site";
 import { AnalyticsContext } from "../helpers/analytics";
 import getPitchValues from "../helpers/getPitchValues";
 import validateRangesAgainstPitchValues from "../helpers/validateRangesAgainstPitchValues";
-import { MainTile, MainTileVariant, RangeValue } from "../types";
+import { RangeValue } from "../types";
 import { DimensionsValues } from "../types/roof";
+import { MainTile, MainTileVariant } from "../types/v2";
 import { microCopy } from "./constants/microCopy";
 import FieldContainer from "./subcomponents/_FieldContainer";
 

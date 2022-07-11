@@ -1,17 +1,14 @@
-import React, { useContext, useEffect } from "react";
 import { fireEvent, render } from "@testing-library/react";
+import React, { useContext, useEffect } from "react";
 import Form, { FormContext } from "../Form";
 import withFormControl from "../withFormControl";
 
 const Component = () => {
   const { values, updateFormState } = useContext(FormContext);
   useEffect(() => {
-    updateFormState(
-      {
-        test: "test"
-      },
-      {}
-    );
+    updateFormState({
+      test: "test"
+    });
   }, []);
 
   return <input data-testid="id" value={values["test"] as string} />;
