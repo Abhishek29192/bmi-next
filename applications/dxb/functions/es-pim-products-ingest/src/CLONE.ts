@@ -1,11 +1,6 @@
 /* eslint-disable security/detect-object-injection */
-import {
-  Category,
-  Classification,
-  Image,
-  Product,
-  TwoOneIgnoreDictionary
-} from "@bmi/pim-types";
+import { Category, Classification, Image, Product } from "@bmi/pim-types";
+import { TwoOneIgnoreDictionary } from "./transformProducts";
 
 export type ProductCategoryTree = {
   [category: string]: {

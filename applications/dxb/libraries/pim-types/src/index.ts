@@ -7,8 +7,7 @@ import createClassification, {
   createFeatureValue,
   createGeneralInformationClassification,
   createMeasurementsClassification,
-  createScoringWeightAttributesClassification,
-  createTwoOneClassifications
+  createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createIgnorableClassifications from "./createIgnorableClassifications";
 import createImage from "./ImageHelper";
@@ -21,10 +20,7 @@ import {
 } from "./SystemLayersHelper";
 import createSystemReference from "./SystemReferencesHelper";
 import createSystemsApiResponse from "./SystemsApiResponseHelper";
-import createVariantOption, {
-  createFullyPopulatedVariantOption
-} from "./VariantOptionHelper";
-import {
+import type {
   ApprovalStatus,
   Asset,
   AssetAssetType,
@@ -53,11 +49,11 @@ import {
   SystemReference,
   SystemReferenceTarget,
   SystemsApiResponse,
-  VariantOption,
-  TwoOneIgnoreDictionary,
-  TwoOneAttribToIgnore,
-  filterTwoOneAttributes
+  VariantOption
 } from "./types";
+import createVariantOption, {
+  createFullyPopulatedVariantOption
+} from "./VariantOptionHelper";
 
 export {
   createAsset,
@@ -82,11 +78,9 @@ export {
   createSystemReference,
   createSystemsApiResponse,
   createVariantOption,
-  createFullyPopulatedVariantOption,
-  createTwoOneClassifications
+  createFullyPopulatedVariantOption
 };
-
-export {
+export type {
   ApprovalStatus,
   Asset,
   AssetAssetType,
@@ -115,8 +109,5 @@ export {
   SystemReferenceTarget,
   SystemsApiResponse,
   VariantOption,
-  BaseProduct,
-  TwoOneIgnoreDictionary,
-  TwoOneAttribToIgnore,
-  filterTwoOneAttributes
+  BaseProduct
 };

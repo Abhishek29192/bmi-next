@@ -1,12 +1,12 @@
 import {
-  createCategory,
   createClassification,
   createImage,
   createProduct as createPimProduct
 } from "@bmi/pim-types";
-import { ProductVariant } from "../../es-model";
+import createCategory from "./CategoryHelper";
+import { Product } from "./types";
 
-const createProductVariant = (productVariant?: Partial<ProductVariant>) => ({
+const createProduct = (product?: Partial<Product>): Product => ({
   description: "description",
   externalProductCode: "external-product-code",
   isSampleOrderAllowed: true,
@@ -19,12 +19,16 @@ const createProductVariant = (productVariant?: Partial<ProductVariant>) => ({
   baseProduct: createPimProduct(),
   brandCode: "brand-code",
   images: [createImage()],
-  categories: [createCategory()],
   allCategories: [createCategory()],
   classifications: [createClassification()],
-  measurementValue: "measurement-value",
   approvalStatus: "approved",
-  ...productVariant
+  productScoringWeightInt: 0,
+  variantScoringWeightInt: 0,
+  totalVariantCount: 1,
+  mainImage: createImage().url,
+  path: "",
+  subTitle: "",
+  ...product
 });
 
-export default createProductVariant;
+export default createProduct;

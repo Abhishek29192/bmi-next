@@ -37,7 +37,7 @@ export type Props = {
     siteId: string;
     countryCode: string;
     categoryCode: string; // this is optional?
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
   data: {
     contentfulSite: SiteData;

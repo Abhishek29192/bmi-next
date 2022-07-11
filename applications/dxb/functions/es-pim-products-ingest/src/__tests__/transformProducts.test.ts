@@ -1,3 +1,4 @@
+import { Product as EsProduct } from "@bmi/elasticsearch-types";
 import {
   createAppearanceAttributesClassification,
   createCategory,
@@ -14,13 +15,12 @@ import {
   Product
 } from "@bmi/pim-types";
 import mockConsole from "jest-mock-console";
-import { ProductVariant } from "../es-model";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 
 const transformProduct = async (
   product: Partial<Product>
-): Promise<ProductVariant[]> =>
+): Promise<EsProduct[]> =>
   (await import("../transformProducts")).transformProduct(product as Product);
 
 beforeAll(() => {

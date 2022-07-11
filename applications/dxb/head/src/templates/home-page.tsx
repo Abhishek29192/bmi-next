@@ -1,9 +1,8 @@
-import { Button, ButtonProps } from "@bmi/components";
-import { Hero, HeroItem } from "@bmi/components";
-import { Search } from "@bmi/components";
+import { Button, ButtonProps, Hero, HeroItem, Search } from "@bmi/components";
 import { graphql } from "gatsby";
 import React from "react";
 import Brands, { Data as BrandData } from "../components/Brands";
+import { renderImage } from "../components/Image";
 import Link from "../components/Link";
 import OverlapCards, {
   Data as OverlapCardData
@@ -13,12 +12,11 @@ import { Data as PageInfoData } from "../components/PageInfo";
 import { Data as SlideData } from "../components/Promo";
 import Sections, { Data as SectionsData } from "../components/Sections";
 import { Data as SiteData } from "../components/Site";
-import WelcomeDialog from "../components/WelcomeDialog";
-import withGTM from "../utils/google-tag-manager";
 import { renderVideo } from "../components/Video";
-import { renderImage } from "../components/Image";
-import { getPathWithCountryCode } from "../utils/path";
+import WelcomeDialog from "../components/WelcomeDialog";
 import { microCopy } from "../constants/microCopies";
+import withGTM from "../utils/google-tag-manager";
+import { getPathWithCountryCode } from "../utils/path";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -35,7 +33,7 @@ type Props = {
     contentfulSite: SiteData;
   };
   pageContext: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

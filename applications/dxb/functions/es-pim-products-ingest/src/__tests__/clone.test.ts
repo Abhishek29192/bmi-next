@@ -7,7 +7,6 @@ import {
   createImage,
   createMeasurementsClassification,
   createProduct as createPimProduct,
-  createTwoOneClassifications,
   createVariantOption,
   Image
 } from "@bmi/pim-types";
@@ -22,6 +21,7 @@ import {
   indexFeatures,
   mapProductClassifications
 } from "../CLONE";
+import { createTwoOneClassifications } from "./helpers/TwoOneHelper";
 
 const { PIM_CLASSIFICATION_CATALOGUE_NAMESPACE } = process.env;
 

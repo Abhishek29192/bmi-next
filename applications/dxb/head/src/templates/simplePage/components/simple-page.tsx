@@ -1,31 +1,30 @@
-import React from "react";
+import { HeroItem, Section, TableOfContent } from "@bmi/components";
 import { graphql } from "gatsby";
-import { HeroItem } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { TableOfContent } from "@bmi/components";
+import React from "react";
+import BackToResults from "../../../components/BackToResults";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../../components/Breadcrumbs";
-import Page, { Data as PageData } from "../../../components/Page";
-import { Data as SiteData } from "../../../components/Site";
-import Sections, { Data as SectionsData } from "../../../components/Sections";
-import { Data as PageInfoData } from "../../../components/PageInfo";
-import NextBestActions, {
-  Data as NextBestActionsData
-} from "../../../components/NextBestActions";
 import ExploreBar, {
   Data as ExploreBarData
 } from "../../../components/ExploreBar";
 import LeadBlockSection, {
   Data as LeadBlockSectionData
 } from "../../../components/LeadBlockSection";
+import { Data as LinkData } from "../../../components/Link";
 import LinkColumnsSection, {
   Data as LinkColumnsSectionData
 } from "../../../components/LinkColumnsSection";
+import NextBestActions, {
+  Data as NextBestActionsData
+} from "../../../components/NextBestActions";
+import Page, { Data as PageData } from "../../../components/Page";
+import { Data as PageInfoData } from "../../../components/PageInfo";
+import Sections, { Data as SectionsData } from "../../../components/Sections";
 import ShareWidgetSection, {
   Data as ShareWidgetSectionData
 } from "../../../components/ShareWidgetSection";
-import { Data as LinkData } from "../../../components/Link";
+import { Data as SiteData } from "../../../components/Site";
 import { useConfig } from "../../../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import {
@@ -33,7 +32,6 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
-import BackToResults from "../../../components/BackToResults";
 
 export type Data = PageInfoData &
   PageData & {
@@ -63,7 +61,7 @@ export type Props = {
     contentfulSite: SiteData;
   };
   pageContext: {
-    variantCodeToPathMap: Record<string, string>;
+    variantCodeToPathMap?: Record<string, string>;
   };
 };
 

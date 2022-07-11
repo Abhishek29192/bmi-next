@@ -2,19 +2,20 @@ import type {
   ApprovalStatus,
   BaseProduct,
   Classification,
-  Image
+  Image,
+  System as PimSystem
 } from "@bmi/pim-types";
 
 export type Operation = "index" | "delete" | "create" | "update";
 
 export type BulkOperationInstruction = any; // TODO
 
-type Category = {
+export type Category = {
   code: string;
   parentCategoryCode: string;
 };
 
-export type ProductVariant = {
+export type Product = {
   description: string;
   externalProductCode: string;
   isSampleOrderAllowed: boolean;
@@ -38,4 +39,16 @@ export type ProductVariant = {
   subTitle: string;
 } & {
   [extractedFilter: string]: any;
+};
+
+export type System = {
+  approvalStatus: PimSystem["approvalStatus"];
+  brand?: string;
+  type: PimSystem["type"];
+  images: PimSystem["images"];
+  code: PimSystem["code"];
+  name: PimSystem["name"];
+  shortDescription: PimSystem["shortDescription"];
+  hashedCode: string;
+  path: string;
 };
