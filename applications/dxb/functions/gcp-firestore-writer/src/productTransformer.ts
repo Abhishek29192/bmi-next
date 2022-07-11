@@ -557,9 +557,11 @@ const mapRelatedVariants = (
           }
         });
       });
+      const hashedCode = generateHashFromString(variant.code);
+      const name = product.name;
       return {
         code: variant.code,
-        name: product.name,
+        name,
         thumbnail: variant.images?.find(
           (image) =>
             image.assetType === "MASTER_IMAGE" &&
@@ -567,7 +569,7 @@ const mapRelatedVariants = (
         )?.url,
         colour,
         colourFamily,
-        hashedCode: generateHashFromString(variant.code),
+        hashedCode,
         textureFamily,
         materials,
         measurements: {
@@ -578,6 +580,14 @@ const mapRelatedVariants = (
           volume,
           label: getSizeLabel(length, width, height)
         },
+        path: `/p/${generateProductUrl(
+          name,
+          hashedCode,
+          colour,
+          materials,
+          textureFamily,
+          variantAttribute
+        )}`,
         variantAttribute
       };
     });

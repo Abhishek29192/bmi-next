@@ -2837,6 +2837,7 @@ describe("transformProducts", () => {
                 },
               },
               "name": "name",
+              "path": "/p/name-shadow-black-gloss-concrete-2671178359",
               "textureFamily": "Gloss",
               "thumbnail": "http://localhost:8000",
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
@@ -3741,6 +3742,7 @@ describe("transformProducts", () => {
                 },
               },
               "name": "name",
+              "path": "/p/name-shadow-black-gloss-concrete-3903870044",
               "textureFamily": "Gloss",
               "thumbnail": "http://localhost:8000",
               "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
@@ -5711,12 +5713,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-diameter-40mm-3464354221`
+      `/p/product-name-diameter-40mm-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-diameter-40mm-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-diameter-40mm-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-diameter-40mm-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5759,12 +5773,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/product-name-black-gloss-clay-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5812,12 +5838,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/product-name-black-gloss-clay-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5865,12 +5903,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-gloss-clay-3464354221`
+      `/p/product-name-black-gloss-clay-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-black-gloss-clay-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-gloss-clay-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5898,12 +5948,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-black-3464354221`
+      `/p/product-name-black-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-black-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-black-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5931,12 +5993,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-gloss-3464354221`
+      `/p/product-name-gloss-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-gloss-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-gloss-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-gloss-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
@@ -5964,12 +6038,24 @@ describe("transformProducts", () => {
         ],
         code: "code",
         name: "Product Name",
-        variantOptions: [createVariantOption({ code: "variant-code" })]
+        variantOptions: [
+          createVariantOption({ code: "variant-code-1" }),
+          createVariantOption({ code: "variant-code-2" })
+        ]
       })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts[0].path).toEqual(
-      `/p/product-name-clay-3464354221`
+      `/p/product-name-clay-2526773877`
+    );
+    expect(transformedProducts[0].relatedVariants[0].path).toEqual(
+      `/p/product-name-clay-2669911658`
+    );
+    expect(transformedProducts[1].path).toEqual(
+      `/p/product-name-clay-2669911658`
+    );
+    expect(transformedProducts[1].relatedVariants[0].path).toEqual(
+      `/p/product-name-clay-2526773877`
     );
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =

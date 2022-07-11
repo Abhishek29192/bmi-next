@@ -217,6 +217,7 @@ export type RelatedVariant = {
   textureFamily?: string;
   materials?: string;
   measurements: Measurements;
+  path: string;
   variantAttribute?: string;
 };
 
