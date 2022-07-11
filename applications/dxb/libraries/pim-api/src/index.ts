@@ -8,8 +8,13 @@ import {
 } from "@bmi/pim-types";
 import fetch, { RequestRedirect } from "node-fetch";
 
-const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
-  process.env;
+const {
+  PIM_CLIENT_ID,
+  PIM_OAUTH_CLIENT_SECRET,
+  PIM_HOST,
+  PIM_CATALOG_NAME,
+  LOCALE
+} = process.env;
 
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -59,15 +64,10 @@ const getAuthToken = async (): Promise<AuthResponse> => {
   return data;
 };
 
-export const fetchData = async ({
-  type,
-  locale,
+export const fetchData = async (
+  type: PimTypes,
   currentPage = 0
-}: {
-  type: PimTypes;
-  locale?: string;
-  currentPage?: number;
-}): Promise<ProductsApiResponse | SystemsApiResponse> => {
+): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
 
   const redirect: RequestRedirect = "follow";
@@ -81,19 +81,11 @@ export const fetchData = async ({
     redirect
   };
 
-  const url = new URL(
-    `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}`
-  );
-  url.searchParams.append("currentPage", String(currentPage));
-  url.searchParams.append("status", "approved");
-
-  if (locale) {
-    url.searchParams.append("lang", locale);
-  }
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&status=approved&lang=${LOCALE}`;
 
   // eslint-disable-next-line no-console
-  console.log(`FETCH: ${String(url)}`);
-  const response = await fetch(String(url), options);
+  console.log(`FETCH: ${fullPath}`);
+  const response = await fetch(fullPath, options);
 
   if (!response.ok) {
     if (response.status === 400) {
@@ -141,7 +133,7 @@ const fetchDataByMessageId = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${LOCALE}`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);

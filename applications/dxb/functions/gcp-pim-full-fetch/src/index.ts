@@ -69,6 +69,11 @@ const handleRequest = async (
     return res.sendStatus(500);
   }
 
+  if (!LOCALE) {
+    logger.error({ message: "LOCALE has not been set." });
+    return res.sendStatus(500);
+  }
+
   const body = req.body;
 
   if (!body) {
@@ -104,11 +109,7 @@ const handleRequest = async (
 
   const promises = [];
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
-    const response = await fetchData({
-      type: body.type,
-      currentPage: i,
-      locale: LOCALE
-    });
+    const response = await fetchData(body.type, i);
     logger.info({
       message: `Fetched data for ${body.type} body type: ${response}`
     });
