@@ -109,7 +109,7 @@ export const ProjectsHeader = ({
           {guaranteeType}
         </InfoPair>
         <InfoPair title={t("projectDetails.guaranteeStatus")}>
-          <div style={{ display: "flex" }}>
+          <div data-testid="guarantee-status" style={{ display: "flex" }}>
             {StatusIconElement}
             {t(`guarantee.status.${guaranteeStatus}`)}
           </div>

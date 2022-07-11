@@ -188,6 +188,7 @@ exports[`ProjectsHeader component render correctly 1`] = `
             class="MuiTypography-root Typography MuiTypography-body1"
           >
             <div
+              data-testid="guarantee-status"
               style="display: flex;"
             >
               guarantee.status.NOT_APPLICABLE
