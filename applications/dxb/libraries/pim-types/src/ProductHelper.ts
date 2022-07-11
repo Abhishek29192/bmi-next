@@ -9,14 +9,12 @@ import createClassification, {
   createScoringWeightAttributesClassification
 } from "./ClassificationHelper";
 import createImage from "./ImageHelper";
-import { Product, VariantOption } from "./types";
+import { Product } from "./types";
 import createVariantOption, {
   createFullyPopulatedVariantOption
 } from "./VariantOptionHelper";
 
-export const createFullyPopulatedProduct = (
-  variantOptions: VariantOption[] = [createFullyPopulatedVariantOption()]
-) =>
+export const createFullyPopulatedProduct = (product?: Partial<Product>) =>
   createProduct({
     assets: [
       createAsset(),
@@ -210,7 +208,8 @@ export const createFullyPopulatedProduct = (
       createImage({ format: "Web" }),
       createImage({ assetType: "TECHNICAL_DRAWINGS" })
     ],
-    variantOptions
+    variantOptions: [createFullyPopulatedVariantOption()],
+    ...product
   });
 
 const createProduct = (product?: Partial<Product>): Product => ({

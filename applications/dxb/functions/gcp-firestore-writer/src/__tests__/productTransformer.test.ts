@@ -1972,10 +1972,12 @@ describe("transformProducts", () => {
 
   it("transforms a product with multiple variant options into multiple products", async () => {
     const products = [
-      createFullyPopulatedProduct([
-        createFullyPopulatedVariantOption({ code: "variant1" }),
-        createFullyPopulatedVariantOption({ code: "variant2" })
-      ])
+      createFullyPopulatedProduct({
+        variantOptions: [
+          createFullyPopulatedVariantOption({ code: "variant1" }),
+          createFullyPopulatedVariantOption({ code: "variant2" })
+        ]
+      })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts).toMatchInlineSnapshot(`
@@ -3810,17 +3812,19 @@ describe("transformProducts", () => {
 
   it("ignores non-approved variant options", async () => {
     const products = [
-      createFullyPopulatedProduct([
-        createFullyPopulatedVariantOption({ code: "variant1" }),
-        createFullyPopulatedVariantOption({
-          code: "variant2",
-          approvalStatus: "check"
-        }),
-        createFullyPopulatedVariantOption({
-          code: "variant3",
-          approvalStatus: "unapproved"
-        })
-      ])
+      createFullyPopulatedProduct({
+        variantOptions: [
+          createFullyPopulatedVariantOption({ code: "variant1" }),
+          createFullyPopulatedVariantOption({
+            code: "variant2",
+            approvalStatus: "check"
+          }),
+          createFullyPopulatedVariantOption({
+            code: "variant3",
+            approvalStatus: "unapproved"
+          })
+        ]
+      })
     ];
     const transformedProducts = await transformProducts(products);
     expect(transformedProducts).toHaveLength(1);
@@ -5970,5 +5974,1988 @@ describe("transformProducts", () => {
 
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL =
       originalEnablePdpVariantAttributeUrl;
+  });
+
+  // TODO: Remove test case - DXB-3449
+  it("is case-insensitive for base product classification codes", async () => {
+    const products = [
+      createFullyPopulatedProduct({
+        classifications: [
+          createClassification({
+            code: "ScoringWeightAttributes",
+            name: "Scoring",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
+                name: "Scoring Weight",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "100" })
+                ]
+              })
+            ]
+          }),
+          createClassification({
+            code: "AppearanceAttributes",
+            name: "Appearance",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
+                name: "Colour",
+                featureValues: [createFeatureValue({ value: "Rustic Red" })],
+                featureUnit: undefined
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
+                name: "Colour Family",
+                featureValues: [createFeatureValue({ value: "Red" })],
+                featureUnit: undefined
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
+                name: "Texture Family",
+                featureValues: [createFeatureValue({ value: "Matt" })],
+                featureUnit: undefined
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
+                name: "Variant Attribute",
+                featureValues: [
+                  createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+                ],
+                featureUnit: undefined
+              })
+            ]
+          }),
+          createClassification({
+            code: "GeneralInformation",
+            name: "General",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
+                name: "Material",
+                featureValues: [createFeatureValue({ value: "Clay" })],
+                featureUnit: undefined
+              })
+            ]
+          }),
+          createClassification({
+            code: "Measurements",
+            name: "Measurements",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/Measurements.Length",
+                name: "Length",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "1" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/Measurements.Width",
+                name: "width",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "2" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/Measurements.Height",
+                name: "Height",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "3" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
+                name: "Thickness",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "4" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/Measurements.Volume",
+                name: "Volume",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "5" })
+                ]
+              })
+            ]
+          }),
+          createClassification({
+            code: "WeightAttributes",
+            name: "Weight",
+            features: [
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "1" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/WeightAttributes.NetWeight",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "2" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "3" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "4" })
+                ]
+              }),
+              createFeature({
+                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
+                featureValues: [
+                  createFeatureValue({ code: undefined, value: "5" })
+                ]
+              })
+            ]
+          })
+        ],
+        variantOptions: [
+          createFullyPopulatedVariantOption({
+            classifications: []
+          })
+        ]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "awardsAndCertificateDocuments": Array [
+            Object {
+              "allowedToDownload": true,
+              "assetType": "AWARDS",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": false,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": undefined,
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 1.7976931348623157e+308,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": undefined,
+            },
+          ],
+          "awardsAndCertificateImages": Array [
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+          ],
+          "baseCode": "base-code",
+          "baseScoringWeight": 100,
+          "bimIframeUrl": "http://localhost:8000",
+          "brand": Object {
+            "code": "code",
+            "logo": "http://localhost:8000",
+            "name": "name",
+          },
+          "categories": Array [
+            Object {
+              "categoryType": "Brand",
+              "code": "code",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "name",
+              "parentCategoryCode": "parent-category-code",
+            },
+            Object {
+              "categoryType": "Category",
+              "code": "parent-category",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Parent Category",
+              "parentCategoryCode": "",
+            },
+            Object {
+              "categoryType": "Category",
+              "code": "child-category",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Child Category",
+              "parentCategoryCode": "parent-category",
+            },
+          ],
+          "classifications": Array [
+            Object {
+              "features": Array [
+                Object {
+                  "name": "Material",
+                  "value": "Clay",
+                },
+              ],
+              "name": "General",
+            },
+            Object {
+              "features": Array [
+                Object {
+                  "name": "Length",
+                  "value": "1 symbol",
+                },
+                Object {
+                  "name": "width",
+                  "value": "2 symbol",
+                },
+                Object {
+                  "name": "Height",
+                  "value": "3 symbol",
+                },
+                Object {
+                  "name": "Thickness",
+                  "value": "4 symbol",
+                },
+                Object {
+                  "name": "Volume",
+                  "value": "5 symbol",
+                },
+              ],
+              "name": "Measurements",
+            },
+            Object {
+              "features": Array [
+                Object {
+                  "name": "name",
+                  "value": "1 symbol",
+                },
+                Object {
+                  "name": "name",
+                  "value": "2 symbol",
+                },
+                Object {
+                  "name": "name",
+                  "value": "3 symbol",
+                },
+                Object {
+                  "name": "name",
+                  "value": "4 symbol",
+                },
+                Object {
+                  "name": "name",
+                  "value": "5 symbol",
+                },
+              ],
+              "name": "Weight",
+            },
+          ],
+          "code": "variant-code",
+          "colour": "Rustic Red",
+          "colourFamily": "Red",
+          "colourMicrocopy": "Colour",
+          "description": "<p>Long description</p>",
+          "documents": Array [
+            Object {
+              "assetType": "ASSEMBLY_INSTRUCTIONS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "AWARDS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "BIM",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "FIXING_TOOL",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "GUARANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "SPECIFICATION",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "VIDEO",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "84587715",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+            Object {
+              "assetType": "WARRANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+          ],
+          "externalProductCode": "external-product-code",
+          "filters": Array [
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.Colour",
+              "groupLabel": "Colour",
+              "isCategory": false,
+              "name": "Colour",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Rustic Red",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.ColourFamily",
+              "groupLabel": "Colour Family",
+              "isCategory": false,
+              "name": "Colour Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Red",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.TextureFamily",
+              "groupLabel": "Texture Family",
+              "isCategory": false,
+              "name": "Texture Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Matt",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.VariantAttribute",
+              "groupLabel": "Variant Attribute",
+              "isCategory": false,
+              "name": "Variant Attribute",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Rustic Red Matt 1x2x3x4x5",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "GeneralInformation.Materials",
+              "groupLabel": "Material",
+              "isCategory": false,
+              "name": "Material",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Clay",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Length",
+              "groupLabel": "Length",
+              "isCategory": false,
+              "name": "Length",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "1",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Width",
+              "groupLabel": "width",
+              "isCategory": false,
+              "name": "width",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "2",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Height",
+              "groupLabel": "Height",
+              "isCategory": false,
+              "name": "Height",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "3",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Thickness",
+              "groupLabel": "Thickness",
+              "isCategory": false,
+              "name": "Thickness",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "4",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Volume",
+              "groupLabel": "Volume",
+              "isCategory": false,
+              "name": "Volume",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "5",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.GrossWeight",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "1",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.NetWeight",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "2",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerPallet",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "3",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerPiece",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "4",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerSqm",
+              "groupLabel": "name",
+              "isCategory": false,
+              "name": "name",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "5",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "Brand",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "name",
+              "parentFilterCode": "parent-category-code",
+              "value": "code",
+            },
+            Object {
+              "code": "parent-category",
+              "filterCode": "Category",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "Parent Category",
+              "parentFilterCode": "",
+              "value": "parent-category",
+            },
+            Object {
+              "code": "child-category",
+              "filterCode": "Category",
+              "groupLabel": "Parent Category",
+              "isCategory": true,
+              "name": "Child Category",
+              "parentFilterCode": "parent-category",
+              "value": "child-category",
+            },
+          ],
+          "fixingToolIframeUrl": "http://localhost:8000",
+          "galleryImages": Array [
+            Object {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "groups": Array [
+            Object {
+              "code": "parent-category",
+              "label": "Parent Category",
+            },
+          ],
+          "guaranteesAndWarrantiesImages": Array [],
+          "guaranteesAndWarrantiesLinks": Array [],
+          "hashedCode": "3464354221",
+          "isSampleOrderAllowed": true,
+          "masterImages": Array [
+            Object {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "materials": "Clay",
+          "measurements": Object {
+            "height": Object {
+              "unit": "symbol",
+              "value": "3",
+            },
+            "label": "1x2x3symbol",
+            "length": Object {
+              "unit": "symbol",
+              "value": "1",
+            },
+            "thickness": Object {
+              "unit": "symbol",
+              "value": "4",
+            },
+            "volume": Object {
+              "unit": "symbol",
+              "value": "5",
+            },
+            "width": Object {
+              "unit": "symbol",
+              "value": "2",
+            },
+          },
+          "name": "name",
+          "path": "/p/name-rustic-red-matt-clay-3464354221",
+          "productBenefits": Array [
+            "product-benefits",
+          ],
+          "relatedVariants": Array [],
+          "specificationIframeUrl": "http://localhost:8000",
+          "techDrawings": Array [
+            Object {
+              "altText": undefined,
+              "mainSource": "http://localhost:8000",
+              "thumbnail": undefined,
+            },
+          ],
+          "textureFamily": "Matt",
+          "textureFamilyMicrocopy": "Texture Family",
+          "variantAttribute": "Rustic Red Matt 1x2x3x4x5",
+          "videos": Array [
+            Object {
+              "label": "name",
+              "previewMedia": null,
+              "subtitle": null,
+              "title": "",
+              "videoRatio": null,
+              "youtubeId": "3901c0ds7oo",
+            },
+          ],
+          "weight": Object {
+            "grossWeight": Object {
+              "unit": "symbol",
+              "value": "1",
+            },
+            "netWeight": Object {
+              "unit": "symbol",
+              "value": "2",
+            },
+            "weightPerPallet": Object {
+              "unit": "symbol",
+              "value": "3",
+            },
+            "weightPerPiece": Object {
+              "unit": "symbol",
+              "value": "4",
+            },
+            "weightPerSqm": Object {
+              "unit": "symbol",
+              "value": "5",
+            },
+          },
+        },
+      ]
+    `);
+  });
+
+  // TODO: Remove test case - DXB-3449
+  it("is case-insensitive for varaint option classification codes", async () => {
+    const products = [
+      createFullyPopulatedProduct({
+        classifications: [],
+        variantOptions: [
+          createFullyPopulatedVariantOption({
+            classifications: [
+              createClassification({
+                code: "ScoringWeightAttributes",
+                name: "Scoring",
+                features: [
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
+                    name: "Scoring Weight",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "10" })
+                    ]
+                  })
+                ]
+              }),
+              createClassification({
+                code: "AppearanceAttributes",
+                name: "Appearance",
+                features: [
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
+                    name: "Colour",
+                    featureValues: [
+                      createFeatureValue({ value: "Shadow Black" })
+                    ],
+                    featureUnit: undefined
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
+                    name: "Colour Family",
+                    featureValues: [createFeatureValue({ value: "Black" })],
+                    featureUnit: undefined
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
+                    name: "Texture Family",
+                    featureValues: [createFeatureValue({ value: "Gloss" })],
+                    featureUnit: undefined
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
+                    name: "Variant Attribute",
+                    featureValues: [
+                      createFeatureValue({
+                        value: "Shadow Black Gloss 6x7x8x9x10"
+                      })
+                    ],
+                    featureUnit: undefined
+                  })
+                ]
+              }),
+              createClassification({
+                code: "GeneralInformation",
+                name: "General",
+                features: [
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
+                    name: "Material",
+                    featureValues: [createFeatureValue({ value: "Concrete" })],
+                    featureUnit: undefined
+                  })
+                ]
+              }),
+              createClassification({
+                code: "Measurements",
+                name: "Measurements",
+                features: [
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/Measurements.Length",
+                    name: "Length",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "6" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/Measurements.Width",
+                    name: "Width",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "7" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/Measurements.Height",
+                    name: "Height",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "8" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
+                    name: "Thickness",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "9" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/Measurements.Volume",
+                    name: "Volume",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "10" })
+                    ]
+                  })
+                ]
+              }),
+              createClassification({
+                code: "WeightAttributes",
+                name: "Weight",
+                features: [
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
+                    name: "Gross Weight",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "6" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                    name: "Net Weight",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "7" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
+                    name: "Weight per Pallet",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "8" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
+                    name: "Weight per Piece",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "9" })
+                    ]
+                  }),
+                  createFeature({
+                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
+                    name: "Weight per sq m",
+                    featureValues: [
+                      createFeatureValue({ code: undefined, value: "10" })
+                    ]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      })
+    ];
+    const transformedProducts = await transformProducts(products);
+    expect(transformedProducts).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "awardsAndCertificateDocuments": Array [
+            Object {
+              "allowedToDownload": true,
+              "assetType": "AWARDS",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": false,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": undefined,
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 1.7976931348623157e+308,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": "real-file-name.pdf",
+              "url": undefined,
+            },
+          ],
+          "awardsAndCertificateImages": Array [
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": 10,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "allowedToDownload": true,
+              "assetType": "CERTIFICATES",
+              "fileSize": undefined,
+              "format": "pdf",
+              "mime": "application/pdf",
+              "name": "name",
+              "realFileName": undefined,
+              "url": "http://localhost:8000",
+            },
+          ],
+          "baseCode": "base-code",
+          "baseScoringWeight": 0,
+          "bimIframeUrl": "http://localhost:8000",
+          "brand": Object {
+            "code": "code",
+            "logo": "http://localhost:8000",
+            "name": "name",
+          },
+          "categories": Array [
+            Object {
+              "categoryType": "Brand",
+              "code": "code",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "name",
+              "parentCategoryCode": "parent-category-code",
+            },
+            Object {
+              "categoryType": "Category",
+              "code": "parent-category",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Parent Category",
+              "parentCategoryCode": "",
+            },
+            Object {
+              "categoryType": "Category",
+              "code": "child-category",
+              "image": Object {
+                "allowedToDownload": true,
+                "fileSize": 10,
+                "mime": "image/png",
+                "name": "name",
+                "realFileName": "real-file-name.png",
+                "url": "http://localhost:8000",
+              },
+              "name": "Child Category",
+              "parentCategoryCode": "parent-category",
+            },
+          ],
+          "classifications": Array [
+            Object {
+              "features": Array [
+                Object {
+                  "name": "Material",
+                  "value": "Concrete",
+                },
+              ],
+              "name": "General",
+            },
+            Object {
+              "features": Array [
+                Object {
+                  "name": "Length",
+                  "value": "6 symbol",
+                },
+                Object {
+                  "name": "Width",
+                  "value": "7 symbol",
+                },
+                Object {
+                  "name": "Height",
+                  "value": "8 symbol",
+                },
+                Object {
+                  "name": "Thickness",
+                  "value": "9 symbol",
+                },
+                Object {
+                  "name": "Volume",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Measurements",
+            },
+            Object {
+              "features": Array [
+                Object {
+                  "name": "Gross Weight",
+                  "value": "6 symbol",
+                },
+                Object {
+                  "name": "Net Weight",
+                  "value": "7 symbol",
+                },
+                Object {
+                  "name": "Weight per Pallet",
+                  "value": "8 symbol",
+                },
+                Object {
+                  "name": "Weight per Piece",
+                  "value": "9 symbol",
+                },
+                Object {
+                  "name": "Weight per sq m",
+                  "value": "10 symbol",
+                },
+              ],
+              "name": "Weight",
+            },
+          ],
+          "code": "variant-code",
+          "colour": "Shadow Black",
+          "colourFamily": "Black",
+          "colourMicrocopy": "Colour",
+          "description": "<p>Long description</p>",
+          "documents": Array [
+            Object {
+              "assetType": "ASSEMBLY_INSTRUCTIONS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "AWARDS",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "CERTIFICATES",
+              "id": "2583923841",
+              "isLinkDocument": true,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "BIM",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "FIXING_TOOL",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "GUARANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "SPECIFICATION",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+            Object {
+              "assetType": "VIDEO",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "84587715",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "https://www.youtube.com/watch?v=3901c0ds7oo",
+            },
+            Object {
+              "assetType": "WARRANTIES",
+              "extension": "pdf",
+              "fileSize": 10,
+              "format": "application/pdf",
+              "id": "2583923841",
+              "isLinkDocument": false,
+              "productBaseCode": "base-code",
+              "productCategories": Array [
+                Object {
+                  "code": "code",
+                  "parentCategoryCode": "parent-category-code",
+                },
+                Object {
+                  "code": "parent-category",
+                  "parentCategoryCode": "",
+                },
+                Object {
+                  "code": "child-category",
+                  "parentCategoryCode": "parent-category",
+                },
+              ],
+              "productName": "name",
+              "realFileName": "real-file-name.pdf",
+              "title": "name",
+              "url": "http://localhost:8000",
+            },
+          ],
+          "externalProductCode": "external-product-code",
+          "filters": Array [
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.Colour",
+              "groupLabel": "Colour",
+              "isCategory": false,
+              "name": "Colour",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Shadow Black",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.ColourFamily",
+              "groupLabel": "Colour Family",
+              "isCategory": false,
+              "name": "Colour Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Black",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.TextureFamily",
+              "groupLabel": "Texture Family",
+              "isCategory": false,
+              "name": "Texture Family",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Gloss",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "AppearanceAttributes.VariantAttribute",
+              "groupLabel": "Variant Attribute",
+              "isCategory": false,
+              "name": "Variant Attribute",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Shadow Black Gloss 6x7x8x9x10",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "GeneralInformation.Materials",
+              "groupLabel": "Material",
+              "isCategory": false,
+              "name": "Material",
+              "parentFilterCode": "",
+              "unit": undefined,
+              "value": "Concrete",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Length",
+              "groupLabel": "Length",
+              "isCategory": false,
+              "name": "Length",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Width",
+              "groupLabel": "Width",
+              "isCategory": false,
+              "name": "Width",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Height",
+              "groupLabel": "Height",
+              "isCategory": false,
+              "name": "Height",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Thickness",
+              "groupLabel": "Thickness",
+              "isCategory": false,
+              "name": "Thickness",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            Object {
+              "code": "",
+              "filterCode": "Measurements.Volume",
+              "groupLabel": "Volume",
+              "isCategory": false,
+              "name": "Volume",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.GrossWeight",
+              "groupLabel": "Gross Weight",
+              "isCategory": false,
+              "name": "Gross Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "6",
+            },
+            Object {
+              "code": "",
+              "filterCode": "weightAttributes.netweight",
+              "groupLabel": "Net Weight",
+              "isCategory": false,
+              "name": "Net Weight",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "7",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerPallet",
+              "groupLabel": "Weight per Pallet",
+              "isCategory": false,
+              "name": "Weight per Pallet",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "8",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerPiece",
+              "groupLabel": "Weight per Piece",
+              "isCategory": false,
+              "name": "Weight per Piece",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "9",
+            },
+            Object {
+              "code": "",
+              "filterCode": "WeightAttributes.WeightPerSqm",
+              "groupLabel": "Weight per sq m",
+              "isCategory": false,
+              "name": "Weight per sq m",
+              "parentFilterCode": "",
+              "unit": "symbol",
+              "value": "10",
+            },
+            Object {
+              "code": "code",
+              "filterCode": "Brand",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "name",
+              "parentFilterCode": "parent-category-code",
+              "value": "code",
+            },
+            Object {
+              "code": "parent-category",
+              "filterCode": "Category",
+              "groupLabel": undefined,
+              "isCategory": true,
+              "name": "Parent Category",
+              "parentFilterCode": "",
+              "value": "parent-category",
+            },
+            Object {
+              "code": "child-category",
+              "filterCode": "Category",
+              "groupLabel": "Parent Category",
+              "isCategory": true,
+              "name": "Child Category",
+              "parentFilterCode": "parent-category",
+              "value": "child-category",
+            },
+          ],
+          "fixingToolIframeUrl": "http://localhost:8000",
+          "galleryImages": Array [
+            Object {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "groups": Array [
+            Object {
+              "code": "parent-category",
+              "label": "Parent Category",
+            },
+          ],
+          "guaranteesAndWarrantiesImages": Array [],
+          "guaranteesAndWarrantiesLinks": Array [],
+          "hashedCode": "3464354221",
+          "isSampleOrderAllowed": true,
+          "masterImages": Array [
+            Object {
+              "altText": "name",
+              "mainSource": "http://localhost:8000",
+              "thumbnail": "http://localhost:8000",
+            },
+          ],
+          "materials": "Concrete",
+          "measurements": Object {
+            "height": Object {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "label": "6x7x8symbol",
+            "length": Object {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "thickness": Object {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "volume": Object {
+              "unit": "symbol",
+              "value": "10",
+            },
+            "width": Object {
+              "unit": "symbol",
+              "value": "7",
+            },
+          },
+          "name": "name",
+          "path": "/p/name-shadow-black-gloss-concrete-3464354221",
+          "productBenefits": Array [
+            "product-benefits",
+          ],
+          "relatedVariants": Array [],
+          "specificationIframeUrl": "http://localhost:8000",
+          "techDrawings": Array [
+            Object {
+              "altText": undefined,
+              "mainSource": "http://localhost:8000",
+              "thumbnail": undefined,
+            },
+          ],
+          "textureFamily": "Gloss",
+          "textureFamilyMicrocopy": "Texture Family",
+          "variantAttribute": "Shadow Black Gloss 6x7x8x9x10",
+          "videos": Array [
+            Object {
+              "label": "name",
+              "previewMedia": null,
+              "subtitle": null,
+              "title": "",
+              "videoRatio": null,
+              "youtubeId": "3901c0ds7oo",
+            },
+          ],
+          "weight": Object {
+            "grossWeight": Object {
+              "unit": "symbol",
+              "value": "6",
+            },
+            "netWeight": Object {
+              "unit": "symbol",
+              "value": "7",
+            },
+            "weightPerPallet": Object {
+              "unit": "symbol",
+              "value": "8",
+            },
+            "weightPerPiece": Object {
+              "unit": "symbol",
+              "value": "9",
+            },
+            "weightPerSqm": Object {
+              "unit": "symbol",
+              "value": "10",
+            },
+          },
+        },
+      ]
+    `);
   });
 });

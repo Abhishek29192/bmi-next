@@ -33,11 +33,16 @@ export const transformSystems = (systems: PimSystem[]): System[] =>
       let uniqueSellingPropositions: string[] = [];
       system.classifications?.forEach((classification) => {
         classification.features?.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop();
-          if (featureCode === "systemAttributes.promotionalcontent") {
+          const featureCode = feature.code.split("/").pop()!;
+          // TODO: Remove upercase checks - DXB-3449
+          if (
+            featureCode.toUpperCase() ===
+            "systemAttributes.promotionalcontent".toUpperCase()
+          ) {
             promotionalContent = feature.featureValues[0].value;
           } else if (
-            featureCode === "systemAttributes.uniquesellingpropositions"
+            featureCode.toUpperCase() ===
+            "systemAttributes.uniquesellingpropositions".toUpperCase()
           ) {
             uniqueSellingPropositions = feature.featureValues.map(
               (value) => value.value
@@ -114,7 +119,9 @@ const mapSystemDocuments = (system: PimSystem): SystemDocument[] =>
 
 const mapKeyFeatures = (system: PimSystem): KeyFeatures | undefined => {
   const classification = system.classifications?.find(
-    (classification) => classification.code === "systemAttributes"
+    // TODO: Remove upercase checks - DXB-3449
+    (classification) =>
+      classification.code.toUpperCase() === "systemAttributes".toUpperCase()
   );
   if (!classification) {
     return;
@@ -125,7 +132,9 @@ const mapKeyFeatures = (system: PimSystem): KeyFeatures | undefined => {
       classification.features
         ?.find(
           (feature) =>
-            feature.code.split("/").pop() === "systemAttributes.keyfeatures"
+            // TODO: Remove upercase checks - DXB-3449
+            feature.code.split("/").pop()!.toUpperCase() ===
+            "systemAttributes.keyfeatures".toUpperCase()
         )
         ?.featureValues.map((featureValue) => featureValue.value) || []
   };
