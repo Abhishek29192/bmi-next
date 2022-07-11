@@ -9,10 +9,11 @@ import {
   sRGBEncoding,
   WebGLRenderer
 } from "three";
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import modelCache from "./ModelCache";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { maxDistanceTile, minDistanceTile } from "./constants/visualiser";
 import getRef from "./GetRef";
+import modelCache from "./ModelCache";
 import textureCache from "./TextureCache";
 import Viewer, { Props, State } from "./Viewer";
 
@@ -205,9 +206,10 @@ export default class TileViewer extends Viewer<Props, State> {
         this.renderer.domElement
       );
       controls.addEventListener("change", () => this.renderFrame()); // use if there is no animation loop
-      controls.minDistance = 0.5;
-      controls.maxDistance = 3;
+      controls.minDistance = minDistanceTile;
+      controls.maxDistance = maxDistanceTile;
       this.controls = controls;
+      controls.minPolarAngle = 0.01;
 
       controls.target.set(0, 0, 0);
       controls.update();
