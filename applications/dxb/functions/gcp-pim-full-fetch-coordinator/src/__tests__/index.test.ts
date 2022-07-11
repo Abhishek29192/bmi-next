@@ -112,6 +112,25 @@ describe("handleRequest", () => {
     process.env.FULL_FETCH_ENDPOINT = originalFullFetchEndpoint;
   });
 
+  it("should return 500 if LOCALE is not set", async () => {
+    const originalLocale = process.env.LOCALE;
+    delete process.env.LOCALE;
+
+    const request = mockRequest("GET");
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(deleteElasticSearchIndex).not.toHaveBeenCalled();
+    expect(createElasticSearchIndex).not.toHaveBeenCalled();
+    expect(deleteFirestoreCollection).not.toHaveBeenCalled();
+    expect(fetchData).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveFetched();
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.LOCALE = originalLocale;
+  });
+
   it("should error if deleting products Elasticsearch index throws error", async () => {
     deleteElasticSearchIndex.mockRejectedValue(Error("Expected error"));
     const request = mockRequest("GET");
@@ -335,14 +354,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).not.toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).not.toHaveFetched();
     expect(response.status).not.toHaveBeenCalled();
   });
@@ -386,14 +399,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).not.toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -461,14 +468,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).not.toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetchedTimes(5, process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -536,14 +537,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).not.toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).not.toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -612,14 +607,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -697,14 +686,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -784,14 +767,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -871,14 +848,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -955,14 +926,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -1042,14 +1007,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -1129,14 +1088,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {
@@ -1237,14 +1190,8 @@ describe("handleRequest", () => {
     expect(deleteFirestoreCollection).toHaveBeenCalledWith(
       FirestoreCollections.Systems
     );
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "products",
-      locale: process.env.LOCALE
-    });
-    expect(fetchData).toHaveBeenCalledWith({
-      type: "systems",
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith("products");
+    expect(fetchData).toHaveBeenCalledWith("systems");
     expect(fetchMock).toHaveFetched(process.env.FULL_FETCH_ENDPOINT, {
       method: "POST",
       headers: {

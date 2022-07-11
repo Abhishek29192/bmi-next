@@ -84,6 +84,23 @@ describe("handleRequest", () => {
     process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
   });
 
+  it("should return 500 if LOCALE is not set", async () => {
+    const originalLocale = process.env.LOCALE;
+    delete process.env.LOCALE;
+
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledTimes(0);
+    expect(publish).toHaveBeenCalledTimes(0);
+    expect(response.sendStatus).toHaveBeenCalledWith(500);
+
+    process.env.LOCALE = originalLocale;
+  });
+
   it("should return 400 if body is not provided", async () => {
     const request = mockRequest("POST");
     const response = mockResponse();
@@ -207,11 +224,10 @@ describe("handleRequest", () => {
       expect((error as Error).message).toEqual("Expected error");
     }
 
-    expect(fetchData).toHaveBeenCalledWith({
-      type: fullFetchRequest.type,
-      currentPage: fullFetchRequest.startPage,
-      locale: process.env.LOCALE
-    });
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
+    );
   });
 
   it("should error when publishing data to pub/sub throws error", async () => {
