@@ -107,7 +107,7 @@ const handleRequest = async (
     const response = await fetchData({
       type: body.type,
       currentPage: i,
-      locale: LOCALE as string
+      locale: LOCALE
     });
     logger.info({
       message: `Fetched data for ${body.type} body type: ${response}`

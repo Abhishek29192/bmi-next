@@ -14,8 +14,15 @@ const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.P
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const fetchData = async (type: PimTypes, currentPage?: number) =>
-  (await import("../index")).fetchData(type, currentPage);
+const fetchData = async ({
+  type,
+  currentPage,
+  locale
+}: {
+  type: PimTypes;
+  currentPage?: number;
+  locale?: string;
+}) => (await import("../index")).fetchData({ type, currentPage, locale });
 
 const getProductsByMessageId = async (
   messageId: string,
@@ -55,7 +62,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -73,7 +80,7 @@ describe("fetchData", () => {
     delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -94,7 +101,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -126,7 +133,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -160,7 +167,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -208,7 +215,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -266,7 +273,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -326,7 +333,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData({ type: PimTypes.Products });
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -380,7 +387,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products);
+    const response = await fetchData({ type: PimTypes.Products });
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -429,7 +436,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Systems);
+    const response = await fetchData({ type: PimTypes.Systems });
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -478,7 +485,10 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products, 18);
+    const response = await fetchData({
+      type: PimTypes.Products,
+      currentPage: 18
+    });
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
