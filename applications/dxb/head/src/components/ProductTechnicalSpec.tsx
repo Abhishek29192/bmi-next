@@ -1,10 +1,10 @@
-import React from "react";
 import { Accordion, Table, Typography } from "@bmi/components";
-import { Product } from "../types/pim";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
+import { Product } from "../types/pim";
 import ProductFeaturesTable from "./ProductFeaturesTable";
-import styles from "./styles/ProductTechnicalSpec.module.scss";
 import { useSiteContext } from "./Site";
+import styles from "./styles/ProductTechnicalSpec.module.scss";
 
 type ProductTechnicalSpecProps = {
   product: Product;
@@ -48,25 +48,27 @@ const ProductTechnicalSpec = ({ product }: ProductTechnicalSpecProps) => {
     return (
       <div className={styles["ProductTechnicalSpec"]}>
         <Accordion noInnerPadding>
-          {classifications.map((classification) => {
-            return (
-              <Accordion.Item
-                key={`tech-spec-${classification.name}`}
-                defaultExpanded={true}
-              >
-                <Accordion.Summary>
-                  <Typography variant="h6">{classification.name}</Typography>
-                </Accordion.Summary>
-                <Accordion.Details className={styles["accordion-details"]}>
-                  <ProductFeaturesTable
-                    features={classification.features}
-                    rowBgColorPattern="even"
-                    hasNoBorder={true}
-                  />
-                </Accordion.Details>
-              </Accordion.Item>
-            );
-          })}
+          {[...classifications]
+            .sort((a, b) => (a.name > b.name ? 1 : -1))
+            .map((classification) => {
+              return (
+                <Accordion.Item
+                  key={`tech-spec-${classification.name}`}
+                  defaultExpanded={true}
+                >
+                  <Accordion.Summary>
+                    <Typography variant="h6">{classification.name}</Typography>
+                  </Accordion.Summary>
+                  <Accordion.Details className={styles["accordion-details"]}>
+                    <ProductFeaturesTable
+                      features={classification.features}
+                      rowBgColorPattern="even"
+                      hasNoBorder={true}
+                    />
+                  </Accordion.Details>
+                </Accordion.Item>
+              );
+            })}
         </Accordion>
       </div>
     );

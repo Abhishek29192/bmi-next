@@ -55,28 +55,33 @@ const TechnicalSpecificationLeadBlock = ({
       return (
         <div className={styles["SystemDetailsTechnicalSpec"]}>
           <Accordion noInnerPadding>
-            {technicalSpecClassifications.map(({ name, features }, id) => {
-              return (
-                <Accordion.Item key={`tech-spec-${id}`} defaultExpanded={true}>
-                  <GTMAccordionSummary
-                    gtm={{
-                      id: "selector-accordion1",
-                      label: name,
-                      action: "Selector – Accordion"
-                    }}
+            {[...technicalSpecClassifications]
+              .sort((a, b) => (a.name > b.name ? 1 : -1))
+              .map(({ name, features }, id) => {
+                return (
+                  <Accordion.Item
+                    key={`tech-spec-${id}`}
+                    defaultExpanded={true}
                   >
-                    <Typography variant="h6">{name}</Typography>
-                  </GTMAccordionSummary>
-                  <Accordion.Details className={styles["accordion-details"]}>
-                    <ProductFeaturesTable
-                      features={features}
-                      rowBgColorPattern="even"
-                      hasNoBorder={true}
-                    />
-                  </Accordion.Details>
-                </Accordion.Item>
-              );
-            })}
+                    <GTMAccordionSummary
+                      gtm={{
+                        id: "selector-accordion1",
+                        label: name,
+                        action: "Selector – Accordion"
+                      }}
+                    >
+                      <Typography variant="h6">{name}</Typography>
+                    </GTMAccordionSummary>
+                    <Accordion.Details className={styles["accordion-details"]}>
+                      <ProductFeaturesTable
+                        features={features}
+                        rowBgColorPattern="even"
+                        hasNoBorder={true}
+                      />
+                    </Accordion.Details>
+                  </Accordion.Item>
+                );
+              })}
           </Accordion>
         </div>
       );
