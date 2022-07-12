@@ -125,12 +125,16 @@ type Filters = {
 
 type FilterKeys = keyof Filters;
 
+// variantCodeToPathMap will be populated when
+// GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE="false"
+// for Norway, Finland, Italy and Group sites!
 export const getProductAttributes = (
   product: Product,
   countryCode: string,
   options: Options,
   unavailableMicroCopies: UnavailableMicroCopies,
-  queryParams = ""
+  queryParams = "",
+  variantCodeToPathMap = undefined // when this is provided then ``
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedTextureFamily = product.textureFamily;
   const allTextureFamilies = getAllValues(product, "textureFamily") as string[];
@@ -304,9 +308,15 @@ export const getProductAttributes = (
           "colour"
         );
         const isSelected = selectedColour && colour === selectedColour;
-        const path = variant
-          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-          : getUnavailableCTA(colour, "colour");
+        const path =
+          variantCodeToPathMap && variant
+            ? getPathWithCountryCode(
+                countryCode,
+                variantCodeToPathMap[variant.code]
+              )
+            : variant
+            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
+            : getUnavailableCTA(colour, "colour");
 
         return {
           label: colour,
@@ -343,9 +353,15 @@ export const getProductAttributes = (
         const isSelected =
           selectedTextureFamily && textureFamily === selectedTextureFamily;
 
-        const path = variant
-          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-          : getUnavailableCTA(textureFamily, "textureFamily");
+        const path =
+          variantCodeToPathMap && variant
+            ? getPathWithCountryCode(
+                countryCode,
+                variantCodeToPathMap[variant.code]
+              )
+            : variant
+            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
+            : getUnavailableCTA(textureFamily, "textureFamily");
 
         return {
           label: textureFamily,
@@ -377,9 +393,15 @@ export const getProductAttributes = (
         );
         const isSelected = key === selectedSize.label;
 
-        const path = variant
-          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-          : getUnavailableCTA(key, "measurements");
+        const path =
+          variantCodeToPathMap && variant
+            ? getPathWithCountryCode(
+                countryCode,
+                variantCodeToPathMap[variant.code]
+              )
+            : variant
+            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
+            : getUnavailableCTA(key, "measurements");
 
         return {
           label: measurements.label,
@@ -413,9 +435,15 @@ export const getProductAttributes = (
             selectedVariantAttribute === variantAttribute) ||
           false;
 
-        const path = variant
-          ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-          : getUnavailableCTA(variantAttribute, "variantattribute");
+        const path =
+          variantCodeToPathMap && variant
+            ? getPathWithCountryCode(
+                countryCode,
+                variantCodeToPathMap[variant.code]
+              )
+            : variant
+            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
+            : getUnavailableCTA(variantAttribute, "variantattribute");
 
         return {
           label: variantAttribute,
