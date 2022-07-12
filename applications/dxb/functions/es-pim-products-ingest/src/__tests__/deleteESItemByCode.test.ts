@@ -1,5 +1,5 @@
+import { ObjType } from "@bmi/pub-sub-types";
 import mockConsole from "jest-mock-console";
-import { ObjType } from "@bmi/gcp-pim-message-handler";
 import { deleteESItemByCode } from "../deleteESItemByCode";
 
 const getEsClient = jest.fn();
@@ -39,7 +39,7 @@ describe("deleteESItemByCode", () => {
       objType: ObjType.Base_product
     };
 
-    await deleteESItemByCode([deleteItem], "PRODUCTS");
+    await deleteESItemByCode(deleteItem, "PRODUCTS");
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
@@ -60,7 +60,7 @@ describe("deleteESItemByCode", () => {
       objType: ObjType.Variant
     };
 
-    await deleteESItemByCode([deleteItem], "PRODUCTS");
+    await deleteESItemByCode(deleteItem, "PRODUCTS");
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
@@ -81,7 +81,7 @@ describe("deleteESItemByCode", () => {
       objType: ObjType.System
     };
 
-    await deleteESItemByCode([deleteItem], "SYSTEMS");
+    await deleteESItemByCode(deleteItem, "SYSTEMS");
 
     expect(getEsClient).toBeCalled();
     expect(deleteByQuery).toBeCalledWith({
@@ -103,7 +103,7 @@ describe("deleteESItemByCode", () => {
       objType: ObjType.Layer
     };
 
-    await deleteESItemByCode([deleteItem], "SYSTEMS");
+    await deleteESItemByCode(deleteItem, "SYSTEMS");
 
     const logData = consoleSpy.mock.calls;
 

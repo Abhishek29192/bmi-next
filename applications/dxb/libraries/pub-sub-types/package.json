@@ -1,5 +1,5 @@
 {
-  "name": "@bmi/firestore-types",
+  "name": "@bmi/pub-sub-types",
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
@@ -9,7 +9,9 @@
   "scripts": {
     "build": "tsc",
     "compile": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "test": "jest --coverage --reporters=default --reporters=jest-junit"
+    "lint": "eslint \"**/*.{js,ts,tsx}\""
+  },
+  "devDependencies": {
+    "@bmi/pim-types": "0.0.0"
   }
 }

@@ -1,19 +1,11 @@
 import logger from "@bmi-digital/functions-logger";
 import { Product, System } from "@bmi/firestore-types";
 import { getFirestore } from "@bmi/functions-firestore";
-import {
-  DeleteItemType,
-  ItemType,
-  ObjType
-} from "@bmi/gcp-pim-message-handler";
-import {
-  Product as PimProduct,
-  System as PimSystem,
-  SystemLayer
-} from "@bmi/pim-types";
+import { SystemLayer } from "@bmi/pim-types";
+import { DeleteItem, Message, ObjType } from "@bmi/pub-sub-types";
 import type { EventFunction } from "@google-cloud/functions-framework/build/src/functions";
-import { transformProducts } from "./productTransformer";
-import { transformSystems } from "./systemTransformer";
+import { transformProduct } from "./productTransformer";
+import { transformSystem } from "./systemTransformer";
 
 const { FIRESTORE_ROOT_COLLECTION, ENABLE_SAMPLE_ORDERING } = process.env;
 const db = getFirestore();
@@ -128,49 +120,23 @@ const setItemsInFirestore = async (
 
 const deleteItemsFromFirestore = async (
   collectionPath: string,
-  items: DeleteItemType[]
+  item: DeleteItem
 ) => {
   const batch = db.batch();
 
-  await Promise.all(
-    items.map(async (item: DeleteItemType) => {
-      if (item.objType === ObjType.Variant || item.objType === ObjType.System) {
-        deleteDocument(
-          batch,
-          `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`
-        );
-      } else if (item.objType === ObjType.Base_product) {
-        await deleteByBaseCode(item.code, batch);
-      } else {
-        await deleteSystemLayer(item.code, batch);
-      }
-    })
-  );
+  if (item.objType === ObjType.Variant || item.objType === ObjType.System) {
+    deleteDocument(
+      batch,
+      `${FIRESTORE_ROOT_COLLECTION}/${collectionPath}/${item.code}`
+    );
+  } else if (item.objType === ObjType.Base_product) {
+    await deleteByBaseCode(item.code, batch);
+  } else {
+    await deleteSystemLayer(item.code, batch);
+  }
 
   await batch.commit();
 };
-
-export type Message =
-  | {
-      type: "UPDATED";
-      itemType: "PRODUCTS";
-      items: PimProduct[];
-    }
-  | {
-      type: "UPDATED";
-      itemType: "SYSTEMS";
-      items: PimSystem[];
-    }
-  | {
-      type: "UPDATED";
-      itemType: "CATEGORIES";
-      items: unknown[];
-    }
-  | {
-      type: "DELETED";
-      itemType: ItemType;
-      items: DeleteItemType[];
-    };
 
 export const handleMessage: EventFunction = async ({ data }: any) => {
   const message: Message = data
@@ -178,12 +144,12 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     : {};
 
   logger.info({
-    message: `WRITE: Received message [${message.type}][${message.itemType}]: ${
-      (message.items || []).length
-    }`
+    message: `WRITE: Received message [${message.type}][${
+      message.itemType
+    }]: ${JSON.stringify(message.item)}`
   });
 
-  const { type, itemType, items } = message;
+  const { type, itemType, item } = message;
 
   const collectionPath =
     itemType in COLLECTIONS &&
@@ -206,15 +172,15 @@ export const handleMessage: EventFunction = async ({ data }: any) => {
     case "UPDATED": {
       let transformedItems;
       if (itemType === "PRODUCTS") {
-        transformedItems = transformProducts(items);
+        transformedItems = transformProduct(item);
       } else {
-        transformedItems = transformSystems(items);
+        transformedItems = transformSystem(item);
       }
       await setItemsInFirestore(collectionPath, transformedItems);
       break;
     }
     case "DELETED":
-      await deleteItemsFromFirestore(collectionPath, items);
+      await deleteItemsFromFirestore(collectionPath, item);
       break;
     default:
       throw new Error(`Unrecognised message type [${type}]`);

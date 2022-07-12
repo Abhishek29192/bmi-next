@@ -1,0 +1,8 @@
+build_pub-sub-types:
+  extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_main, rules]
+  variables:
+    WORKSPACE: "@bmi/pub-sub-types"
+    ROOT_DIR: "applications/dxb/libraries/pub-sub-types"

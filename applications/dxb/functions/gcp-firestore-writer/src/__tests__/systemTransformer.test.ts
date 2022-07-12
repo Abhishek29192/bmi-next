@@ -10,11 +10,11 @@ import {
   createSystemReference,
   System
 } from "@bmi/pim-types";
-import { transformSystems } from "../systemTransformer";
+import { transformSystem } from "../systemTransformer";
 
 jest.mock("@bmi-digital/functions-logger");
 
-describe("transformSystems", () => {
+describe("transformSystem", () => {
   it("transforms a system with minimal data", () => {
     const system: System = {
       type: undefined,
@@ -31,7 +31,7 @@ describe("transformSystems", () => {
       systemLayers: undefined,
       systemReferences: undefined
     };
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems).toEqual([
       {
         awardsAndCertificateDocuments: [],
@@ -66,7 +66,7 @@ describe("transformSystems", () => {
 
   it("transforms a fully populated system", () => {
     const system = createFullyPopulatedSystem();
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -316,7 +316,7 @@ describe("transformSystems", () => {
         createSystemLayer({ code: "layer 2" })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -572,26 +572,16 @@ describe("transformSystems", () => {
     `);
   });
 
-  it("transforms multiple fully populated system", () => {
-    const system1 = createSystem({ code: "system 1" });
-    const system2 = createSystem({ code: "system 2" });
-    const transformedSystems = transformSystems([system1, system2]);
-    expect(transformedSystems).toHaveLength(2);
+  it("ignores systems that have approval status check", () => {
+    const system = createSystem({ approvalStatus: "check" });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems).toStrictEqual([]);
   });
 
-  it("ignores systems that are not approved", () => {
-    const system1 = createSystem({ code: "system 1", approvalStatus: "check" });
-    const system2 = createSystem({
-      code: "system 2",
-      approvalStatus: "unapproved"
-    });
-    const system3 = createSystem({
-      code: "system 3",
-      approvalStatus: "approved"
-    });
-    const transformedSystems = transformSystems([system1, system2, system3]);
-    expect(transformedSystems).toHaveLength(1);
-    expect(transformedSystems[0].code).toEqual("system 3");
+  it("ignores systems that have approval status unapproved", () => {
+    const system = createSystem({ approvalStatus: "unapproved" });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems).toStrictEqual([]);
   });
 
   it("ignores system layers that are not approved", () => {
@@ -620,7 +610,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].systemLayers).toHaveLength(2);
     expect(transformedSystems[0].systemLayers![0].name).toEqual("layer 3");
     expect(transformedSystems[0].systemLayers![0].shortDescription).toEqual(
@@ -646,7 +636,7 @@ describe("transformSystems", () => {
         createImage({ assetType: "GALLERY", format: undefined })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].images).toEqual([]);
   });
 
@@ -659,7 +649,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].keyFeatures).toEqual({
       name: "name",
       values: []
@@ -675,7 +665,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].keyFeatures).toEqual({
       name: "name",
       values: []
@@ -691,7 +681,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].keyFeatures).toEqual({
       name: "name",
       values: []
@@ -706,7 +696,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].systemLayers![0].relatedProducts).toEqual([]);
   });
 
@@ -718,7 +708,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(
       transformedSystems[0].systemLayers![0].relatedOptionalProducts
     ).toEqual([]);
@@ -730,18 +720,16 @@ describe("transformSystems", () => {
         createSystemReference({ referenceType: "UPSELLING" as const })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].systemReferences).toEqual([]);
   });
 
   it("handles video asset without URL", () => {
     const asset = createAsset({ assetType: "VIDEO", url: undefined });
-    const systems = [
-      createSystem({
-        assets: [asset]
-      })
-    ];
-    const transformedSystem = transformSystems(systems);
+    const system = createSystem({
+      assets: [asset]
+    });
+    const transformedSystem = transformSystem(system);
     expect(transformedSystem[0].videos).toEqual([
       {
         label: asset.name,
@@ -758,7 +746,7 @@ describe("transformSystems", () => {
     const system = createSystem({
       images: undefined
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].images).toEqual([]);
   });
 
@@ -813,7 +801,7 @@ describe("transformSystems", () => {
         })
       ]
     });
-    const transformedSystems = transformSystems([system]);
+    const transformedSystems = transformSystem(system);
     expect(transformedSystems).toMatchInlineSnapshot(`
       Array [
         Object {
