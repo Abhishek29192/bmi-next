@@ -88,7 +88,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "plpFilter.Category",
+              label: "filterLabels.Category",
               value: [],
               options: [
                 {
@@ -130,7 +130,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "plpFilter.Category",
+              label: "filterLabels.Category",
               value: [],
               options: [
                 {
@@ -175,7 +175,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "plpFilter.Category",
+              label: "filterLabels.Category",
               value: [],
               options: [
                 {
@@ -217,7 +217,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "plpFilter.PITCHROOF_NO",
+              label: "filterLabels.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -265,7 +265,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "Category",
               name: "Category",
-              label: "plpFilter.Category",
+              label: "filterLabels.Category",
               value: [],
               options: [
                 {
@@ -285,7 +285,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "plpFilter.PITCHROOF_NO",
+              label: "filterLabels.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -331,7 +331,7 @@ describe("product-filters geterateFilters tests", () => {
               {
                 filterCode: "Category",
                 name: "Category",
-                label: "plpFilter.Category",
+                label: "filterLabels.Category",
                 value: [],
                 options: [
                   {
@@ -350,7 +350,7 @@ describe("product-filters geterateFilters tests", () => {
               {
                 filterCode: "PITCHROOF_NO",
                 name: "PITCHROOF_NO",
-                label: "plpFilter.PITCHROOF_NO",
+                label: "filterLabels.PITCHROOF_NO",
                 value: [],
                 options: [
                   {

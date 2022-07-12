@@ -152,7 +152,7 @@ export default {
         allowedFilters: allowFilterByLocal
       });
 
-      const plpMicrocopyPrefix = "plpFilter";
+      const plpMicrocopyPrefix = "filterLabels";
       //are there any empty labels in the group labels?
       //if so, try too find their microcopies using their filtercode
       const missingLabelKeys = productFilters
@@ -192,7 +192,7 @@ export default {
             if (microCopyObj) {
               productFilter.label = microCopyObj.value;
             } else {
-              // microcopy is in contentful missing.. should we create 'MC:plpFilter.{filtercode}'?
+              // microcopy is in contentful missing.. should we create 'MC:filterLabels.{filtercode}'?
               productFilter.label = `MC:${plpMicrocopyPrefix}.${productFilter.filterCode}`;
             }
           }

@@ -1,4 +1,4 @@
-import { Product, createProduct, createFilter } from "@bmi/firestore-types";
+import { createFilter, createProduct, Product } from "@bmi/firestore-types";
 import { getPlpFilters } from "../filters";
 
 describe("filters tests", () => {
@@ -1110,7 +1110,7 @@ describe("filters tests", () => {
     //             value: []
     //           },
     //           {
-    //             name: "plpFilter.Category",
+    //             name: "filterLabels.Category",
     //             label: "",
     //             options: [
     //               { label: "Produkter", value: "PRODUCTS_NO" },
@@ -1152,7 +1152,7 @@ describe("filters tests", () => {
     //             value: []
     //           },
     //           {
-    //             name: "plpFilter.Category",
+    //             name: "filterLabels.Category",
     //             label: "",
     //             options: [
     //               { label: "Produkter", value: "PRODUCTS_NO" },
