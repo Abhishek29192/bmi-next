@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Typography } from "@bmi/components";
 import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
 import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
+import { useRouter } from "next/router";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
 import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
@@ -15,8 +16,6 @@ import AccessControl from "../../lib/permissions/AccessControl";
 import { GuaranteeReport, ProjectReport } from "../Reports";
 import styles from "./styles.module.scss";
 
-// filter `attr` value
-const INITIAL_FILTER_SELECTION = "ALL";
 const getProjectFilters = (t, isPowerfulUser: boolean) => {
   const technologyFilters = [
     { label: t("filters.labels.FLAT"), attr: "FLAT" },
@@ -127,18 +126,20 @@ type ProjectSidePanelProps = {
   onProjectSelected?: (projectId: number) => void;
   selectedProjectId?: number;
 };
+
 export const ProjectSidePanel = ({
   projects,
   onProjectSelected,
   selectedProjectId
 }: ProjectSidePanelProps) => {
+  const router = useRouter();
   const { t } = useTranslation("project-page");
   const { account } = useAccountContext();
 
   const isPowerfulUser = isSuperOrMarketAdmin(account);
-
+  const defaultFilterSelection = isPowerfulUser ? "UNASSIGNED" : "ALL";
   const [filterSelection, setFilterSelection] = useState<string>(
-    isPowerfulUser ? "UNASSIGNED" : INITIAL_FILTER_SELECTION
+    defaultFilterSelection
   );
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -251,6 +252,24 @@ export const ProjectSidePanel = ({
       0
     );
   }, [projects]);
+
+  useEffect(() => {
+    if (!router.query.project) {
+      if (filterSelection !== defaultFilterSelection) {
+        setFilterSelection(defaultFilterSelection);
+      }
+    }
+  }, [router.query]);
+
+  useEffect(() => {
+    if (
+      !router.query.project &&
+      filteredProjects.length &&
+      filterSelection === defaultFilterSelection
+    ) {
+      onProjectSelected(filteredProjects[0].id);
+    }
+  }, [router.query, filterSelection]);
 
   return (
     <SidePanel

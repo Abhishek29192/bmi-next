@@ -125,14 +125,14 @@ const ProjectDetail = ({
   }
 
   const startPollingPdf = (interval = 5000) => {
-    if (!isPolling) {
+    if (!isPolling && startPolling) {
       startPolling(interval);
       setIsPolling(true);
     }
   };
 
   const stopPollingPdf = () => {
-    if (isPolling) {
+    if (isPolling && stopPolling) {
       stopPolling();
       setIsPolling(false);
     }
