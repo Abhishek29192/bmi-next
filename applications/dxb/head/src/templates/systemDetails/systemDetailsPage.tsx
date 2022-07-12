@@ -126,7 +126,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
         bimDescription={resources?.sdpBimDescription}
         specificationNotes={resources?.sdpSpecificationNotesCta}
       />
-      {system.relatedSystems.length && (
+      {system.relatedSystems.length > 0 && (
         <RelatedSystems
           systems={system.relatedSystems}
           countryCode={countryCode}
