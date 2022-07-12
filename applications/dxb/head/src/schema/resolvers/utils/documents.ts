@@ -177,7 +177,7 @@ const generateBrandFilterFromDocuments = async (
   documents: ContentfulDocument[],
   context: Context
 ): Promise<ProductFilter> => {
-  const microCopyKey = "plpFilter.Brand";
+  const microCopyKey = "filterLabels.Brand";
 
   const { entries: resourceEntries } =
     await context.nodeModel.findAll<MicroCopy>(
@@ -224,7 +224,7 @@ const generateAssetTypeFilterFromDocuments = async (
   documents: ContentfulDocument[],
   context: Context
 ): Promise<ProductFilter> => {
-  const microCopyKey = "filterLabels.assetType";
+  const microCopyKey = "filterLabels.AssetType";
   const { entries: resourceEntries } =
     await context.nodeModel.findAll<MicroCopy>(
       {

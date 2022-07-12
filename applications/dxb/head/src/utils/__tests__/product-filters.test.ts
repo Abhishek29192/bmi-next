@@ -1,8 +1,8 @@
 import {
-  groupDistinctBy,
-  removePLPFilterPrefix,
   groupBy,
-  IndexedItemGroup
+  groupDistinctBy,
+  IndexedItemGroup,
+  removePLPFilterPrefix
 } from "../product-filters";
 
 type ImageItem = {
@@ -68,12 +68,12 @@ describe("product-filters tests", () => {
       const result = removePLPFilterPrefix(undefined);
       expect(result).toEqual("");
     });
-    it("When string without any 'plpFilter.' prefix is passed ", () => {
+    it("When string without any 'filterLabels.' prefix is passed ", () => {
       const result = removePLPFilterPrefix("test");
       expect(result).toEqual("test");
     });
-    it("When string with 'plpFilter.' prefix is passed ", () => {
-      const result = removePLPFilterPrefix("plpFilter.TEST_VALUE");
+    it("When string with 'filterLabels.' prefix is passed ", () => {
+      const result = removePLPFilterPrefix("filterLabels.TEST_VALUE");
       expect(result).toEqual("TEST_VALUE");
     });
   });

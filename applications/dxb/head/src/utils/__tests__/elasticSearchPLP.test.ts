@@ -51,12 +51,12 @@ describe("disableFiltersFromAggregationsPLP function", () => {
 
     expect(updatedFilters).toEqual(result);
   });
-  describe("when filter name has 'plpFilter.' prefixed", () => {
+  describe("when filter name has 'filterLabels.' prefixed", () => {
     it("should remove prefix and disable based on aggregations", () => {
       const filters: Filter[] = [
         {
-          filterCode: "plpFilter.colour",
-          name: "plpFilter.colour",
+          filterCode: "filterLabels.colour",
+          name: "filterLabels.colour",
           label: "Colour",
           options: [
             { label: "1", value: "colour1" },
@@ -79,8 +79,8 @@ describe("disableFiltersFromAggregationsPLP function", () => {
       );
       const result = [
         {
-          filterCode: "plpFilter.colour",
-          name: "plpFilter.colour",
+          filterCode: "filterLabels.colour",
+          name: "filterLabels.colour",
           label: "Colour",
           options: [
             { label: "1", value: "colour1", isDisabled: true },
