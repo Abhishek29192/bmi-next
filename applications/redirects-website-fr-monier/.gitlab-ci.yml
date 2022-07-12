@@ -1,5 +1,9 @@
 build_redirects_website_fr_monier:
   extends: .build_yarn_workspace
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
   variables:
     GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: "true"
     ROOT_DIR: applications/redirects-webiste-fr-monier

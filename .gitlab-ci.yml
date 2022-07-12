@@ -37,6 +37,22 @@ variables:
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == 'production' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == 'pre-production'"
       when: never
 
+install_yarn:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - if: !reference [.run_for_changes_on_main, rules, if]
+      changes:
+        - modules-sha
+    - if: !reference [.run_for_changes_on_mr, rules, if]
+      changes:
+        - modules-sha
+
+license_finder_yarn:
+  rules:
+    - !reference [.ingore_release_mrs, rules]
+    - !reference [.run_for_changes_on_mr, rules]
+    - !reference [.run_for_changes_on_main, rules]
+
 release:
   stage: release
   rules:
