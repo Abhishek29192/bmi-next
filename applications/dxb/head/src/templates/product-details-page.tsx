@@ -137,7 +137,8 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                       )
                     },
                     attributeUnavailableMicroCopy,
-                    queryParams
+                    queryParams,
+                    pageContext?.variantCodeToPathMap
                   ),
                   variantCode: pageContext.productCode,
                   isRecaptchaShown:
