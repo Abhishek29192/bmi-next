@@ -14,29 +14,36 @@ const pimSystemsUrl = `${process.env.PIM_HOST}/bmiwebservices/v2/${process.env.P
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
 
-const fetchData = async (type: PimTypes, currentPage?: number) =>
-  (await import("../index")).fetchData(type, currentPage);
+const fetchData = async (
+  type: PimTypes,
+  locale: string,
+  currentPage?: number
+) => (await import("../index")).fetchData(type, locale, currentPage);
 
 const getProductsByMessageId = async (
   messageId: string,
   token: string,
-  currentPage: number
+  currentPage: number,
+  locale: string
 ) =>
   (await import("../index")).getProductsByMessageId(
     messageId,
     token,
-    currentPage
+    currentPage,
+    locale
   );
 
 const getSystemsByMessageId = async (
   messageId: string,
   token: string,
-  currentPage: number
+  currentPage: number,
+  locale: string
 ) =>
   (await import("../index")).getSystemsByMessageId(
     messageId,
     token,
-    currentPage
+    currentPage,
+    locale
   );
 
 beforeAll(() => {
@@ -55,7 +62,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -73,7 +80,7 @@ describe("fetchData", () => {
     delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -94,7 +101,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -126,7 +133,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -160,7 +167,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -208,7 +215,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -266,7 +273,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -326,7 +333,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products);
+      await fetchData(PimTypes.Products, process.env.LOCALE as string);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -380,7 +387,10 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products);
+    const response = await fetchData(
+      PimTypes.Products,
+      process.env.LOCALE as string
+    );
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -429,7 +439,10 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Systems);
+    const response = await fetchData(
+      PimTypes.Systems,
+      process.env.LOCALE as string
+    );
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -478,7 +491,11 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(PimTypes.Products, 18);
+    const response = await fetchData(
+      PimTypes.Products,
+      process.env.LOCALE as string,
+      18
+    );
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -515,7 +532,12 @@ describe("getProductsByMessageId", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await getProductsByMessageId("message-id", "token", 1);
+      await getProductsByMessageId(
+        "message-id",
+        "token",
+        1,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -531,7 +553,12 @@ describe("getProductsByMessageId", () => {
     delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
-      await getProductsByMessageId("message-id", "token", 1);
+      await getProductsByMessageId(
+        "message-id",
+        "token",
+        1,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -550,7 +577,12 @@ describe("getProductsByMessageId", () => {
     });
 
     try {
-      await getProductsByMessageId("message-id", "token", 1);
+      await getProductsByMessageId(
+        "message-id",
+        "token",
+        1,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -606,7 +638,12 @@ describe("getProductsByMessageId", () => {
     );
 
     try {
-      await getProductsByMessageId(messageId, token, currentPage);
+      await getProductsByMessageId(
+        messageId,
+        token,
+        currentPage,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -676,7 +713,12 @@ describe("getProductsByMessageId", () => {
     );
 
     try {
-      await getProductsByMessageId(messageId, token, currentPage);
+      await getProductsByMessageId(
+        messageId,
+        token,
+        currentPage,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -743,7 +785,8 @@ describe("getProductsByMessageId", () => {
     const actualProducts = await getProductsByMessageId(
       messageId,
       token,
-      currentPage
+      currentPage,
+      process.env.LOCALE as string
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
@@ -786,7 +829,12 @@ describe("getSystemsByMessageId", () => {
     });
 
     try {
-      await getSystemsByMessageId("message-id", "token", 1);
+      await getSystemsByMessageId(
+        "message-id",
+        "token",
+        1,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -824,7 +872,12 @@ describe("getSystemsByMessageId", () => {
     );
 
     try {
-      await getSystemsByMessageId(messageId, token, currentPage);
+      await getSystemsByMessageId(
+        messageId,
+        token,
+        currentPage,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -894,7 +947,12 @@ describe("getSystemsByMessageId", () => {
     );
 
     try {
-      await getSystemsByMessageId(messageId, token, currentPage);
+      await getSystemsByMessageId(
+        messageId,
+        token,
+        currentPage,
+        process.env.LOCALE as string
+      );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -961,7 +1019,8 @@ describe("getSystemsByMessageId", () => {
     const actualProducts = await getSystemsByMessageId(
       messageId,
       token,
-      currentPage
+      currentPage,
+      process.env.LOCALE as string
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);

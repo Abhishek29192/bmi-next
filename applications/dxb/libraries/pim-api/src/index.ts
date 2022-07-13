@@ -8,13 +8,8 @@ import {
 } from "@bmi/pim-types";
 import fetch, { RequestRedirect } from "node-fetch";
 
-const {
-  PIM_CLIENT_ID,
-  PIM_OAUTH_CLIENT_SECRET,
-  PIM_HOST,
-  PIM_CATALOG_NAME,
-  LOCALE
-} = process.env;
+const { PIM_CLIENT_ID, PIM_OAUTH_CLIENT_SECRET, PIM_HOST, PIM_CATALOG_NAME } =
+  process.env;
 
 // TODO: NOPE HACK!
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -66,6 +61,7 @@ const getAuthToken = async (): Promise<AuthResponse> => {
 
 export const fetchData = async (
   type: PimTypes,
+  locale: string,
   currentPage = 0
 ): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
@@ -81,7 +77,7 @@ export const fetchData = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&status=approved&lang=${LOCALE}`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?currentPage=${currentPage}&status=approved&lang=${locale}`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
@@ -118,7 +114,8 @@ const fetchDataByMessageId = async (
   type: PimTypes,
   messageId: string,
   token: string,
-  currentPage: number
+  currentPage: number,
+  locale: string
 ): Promise<ProductsApiResponse | SystemsApiResponse> => {
   const { access_token } = await getAuthToken();
 
@@ -133,7 +130,7 @@ const fetchDataByMessageId = async (
     redirect
   };
 
-  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${LOCALE}`;
+  const fullPath = `${PIM_HOST}/bmiwebservices/v2/${PIM_CATALOG_NAME}/export/${type}?messageId=${messageId}&token=${token}&currentPage=${currentPage}&lang=${locale}`;
 
   // eslint-disable-next-line no-console
   console.log(`FETCH: ${fullPath}`);
@@ -169,23 +166,27 @@ const fetchDataByMessageId = async (
 export const getProductsByMessageId = async (
   messageId: string,
   token: string,
-  currentPage: number
+  currentPage: number,
+  locale: string
 ): Promise<ProductsApiResponse> =>
   fetchDataByMessageId(
     PimTypes.Products,
     messageId,
     token,
-    currentPage
+    currentPage,
+    locale
   ) as Promise<ProductsApiResponse>;
 
 export const getSystemsByMessageId = async (
   messageId: string,
   token: string,
-  currentPage: number
+  currentPage: number,
+  locale: string
 ): Promise<SystemsApiResponse> =>
   fetchDataByMessageId(
     PimTypes.Systems,
     messageId,
     token,
-    currentPage
+    currentPage,
+    locale
   ) as Promise<SystemsApiResponse>;
