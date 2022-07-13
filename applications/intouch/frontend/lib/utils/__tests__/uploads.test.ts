@@ -1,23 +1,26 @@
 import { getMappedEvidenceCategory } from "../uploads";
-import { generateGuarantee } from "../../tests/factories/guarantee";
+import { guaranteeFactory } from "../../tests/factories/guarantee";
 
 describe("uploads utility", () => {
   it("find proper category", () => {
-    const guarantee = generateGuarantee({
+    const guarantee = guaranteeFactory({
       status: "NEW",
       guaranteeType: {
+        sys: { id: "1" },
         evidenceCategoriesCollection: {
           items: [
             {
               name: "Waterproofing",
               minimumUploads: 1,
-              description: null
+              description: null,
+              sys: { id: "1" }
             },
             {
               name: "Drainage",
               description: {
                 json: {}
-              }
+              },
+              sys: { id: "1" }
             }
           ]
         }
@@ -30,7 +33,7 @@ describe("uploads utility", () => {
     );
   });
   it("missing guaranteeType", () => {
-    const guarantee = generateGuarantee({
+    const guarantee = guaranteeFactory({
       status: "NEW",
       guaranteeType: null
     });
@@ -38,7 +41,7 @@ describe("uploads utility", () => {
     expect(res).toEqual(undefined);
   });
   it("customEvidenceAvailable is false", () => {
-    const guarantee = generateGuarantee();
+    const guarantee = guaranteeFactory();
     const res = getMappedEvidenceCategory(guarantee, false, "Drainage");
     expect(res).toEqual(null);
   });

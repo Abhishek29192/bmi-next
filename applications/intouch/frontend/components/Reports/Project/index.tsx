@@ -11,7 +11,6 @@ import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
 import { isSuperOrMarketAdmin } from "../../../lib/account";
 import { useAccountContext } from "../../../context/AccountContext";
-import styles from "./styles.module.scss";
 
 const projectStatusMap = {
   "filters.labels.NOT_STARTED": "NOT_STARTED",
@@ -163,18 +162,16 @@ const ProjectReport = ({ disabled }: ReportProps) => {
   );
 
   return (
-    <div>
-      <Button
-        color="primary"
-        data-testid="export-button"
-        disabled={disabled}
-        endIcon={<GetApp />}
-        onClick={downloadReport}
-        className={styles.sidePanelFooterButton}
-      >
-        {t("report.project")}
-      </Button>
-    </div>
+    <Button
+      color="primary"
+      data-testid="export-project-report-button"
+      disabled={disabled}
+      endIcon={<GetApp />}
+      onClick={downloadReport}
+      fullWidth
+    >
+      {t("report.project")}
+    </Button>
   );
 };
 

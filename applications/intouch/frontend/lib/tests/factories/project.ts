@@ -23,7 +23,6 @@ const emptyNodes = {
   nodes: []
 };
 
-const defaultGuarantee = generateGuarantee();
 const defaultProject: GetProjectQuery["project"] = {
   __typename: "Project",
   id: 1,
@@ -34,11 +33,12 @@ const defaultProject: GetProjectQuery["project"] = {
   roofArea: 0,
   technology: "PITCHED",
   guarantees: {
-    nodes: [defaultGuarantee]
+    nodes: [generateGuarantee()]
   },
   company: {
     id: 1,
-    tier: "T1"
+    tier: "T1",
+    name: "company 1"
   },
   siteAddress: {
     id: 1,

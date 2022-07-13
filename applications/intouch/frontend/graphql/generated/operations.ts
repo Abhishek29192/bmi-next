@@ -1686,6 +1686,44 @@ export type GetTeamsReportQuery = {
   } | null;
 };
 
+export type GetEvidenceItemsReportQueryVariables = SchemaTypes.Exact<{
+  market: SchemaTypes.Scalars["Int"];
+}>;
+
+export type GetEvidenceItemsReportQuery = {
+  __typename?: "Query";
+  evidenceItemsByMarket?: {
+    __typename?: "EvidenceItemsConnection";
+    nodes: Array<{
+      __typename?: "EvidenceItem";
+      evidenceCategoryType?: SchemaTypes.EvidenceCategoryType | null;
+      name: string;
+      uploaderAccountId?: number | null;
+      createdAt: any;
+      project?: {
+        __typename?: "Project";
+        name: string;
+        roofArea: number;
+        company?: {
+          __typename?: "Company";
+          name?: string | null;
+          tier?: SchemaTypes.Tier | null;
+        } | null;
+      } | null;
+      guarantee?: {
+        __typename?: "Guarantee";
+        coverage?: SchemaTypes.GuaranteeCoverage | null;
+      } | null;
+      uploaderAccount?: {
+        __typename?: "Account";
+        lastName?: string | null;
+        firstName?: string | null;
+        email: string;
+      } | null;
+    }>;
+  } | null;
+};
+
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;
 }>;

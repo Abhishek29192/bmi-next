@@ -352,6 +352,50 @@ export const ssrGetTeamsReport = {
 
   usePage: useGetTeamsReport
 };
+export async function getServerPageGetEvidenceItemsReport(
+  options: Omit<
+    Apollo.QueryOptions<OperationTypes.GetEvidenceItemsReportQueryVariables>,
+    "query"
+  >,
+  apolloClient: Apollo.ApolloClient<NormalizedCacheObject>
+) {
+  const data =
+    await apolloClient.query<OperationTypes.GetEvidenceItemsReportQuery>({
+      ...options,
+      query: Operations.GetEvidenceItemsReportDocument
+    });
+
+  const apolloState = apolloClient.cache.extract();
+
+  return {
+    props: {
+      apolloState: apolloState,
+      data: data?.data,
+      error: data?.error ?? data?.errors ?? null
+    }
+  };
+}
+export const useGetEvidenceItemsReport = (
+  optionsFunc?: (
+    router: NextRouter
+  ) => QueryHookOptions<
+    OperationTypes.GetEvidenceItemsReportQuery,
+    OperationTypes.GetEvidenceItemsReportQueryVariables
+  >
+) => {
+  const router = useRouter();
+  const options = optionsFunc ? optionsFunc(router) : {};
+  return useQuery(Operations.GetEvidenceItemsReportDocument, options);
+};
+export type PageGetEvidenceItemsReportComp = React.FC<{
+  data?: OperationTypes.GetEvidenceItemsReportQuery;
+  error?: Apollo.ApolloError;
+}>;
+export const ssrGetEvidenceItemsReport = {
+  getServerPage: getServerPageGetEvidenceItemsReport,
+
+  usePage: useGetEvidenceItemsReport
+};
 
 export async function getServerPageGetProjectCompanyMembers(
   options: Omit<

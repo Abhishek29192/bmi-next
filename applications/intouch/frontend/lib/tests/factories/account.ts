@@ -8,7 +8,7 @@ import {
 } from "@bmi/intouch-api-types";
 import { ROLES } from "../../constants";
 
-type AccountConfig = {
+export type AccountConfig = {
   role: Role;
   hasCompany: boolean;
   companyTier: Tier;

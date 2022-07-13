@@ -8,7 +8,6 @@ import { useGetGuaranteesReportLazyQuery } from "../../../graphql/generated/hook
 import { GetGuaranteesReportQuery } from "../../../graphql/generated/operations";
 import { useMarketContext } from "../../../context/MarketContext";
 import { ReportProps } from "../types";
-import styles from "./styles.module.scss";
 
 const getReportData = (
   guarantees: GetGuaranteesReportQuery["guaranteesByMarket"]
@@ -92,18 +91,16 @@ const GuaranteeReport = ({ disabled }: ReportProps) => {
   );
 
   return (
-    <div>
-      <Button
-        variant="outlined"
-        data-testid="export-button"
-        disabled={disabled}
-        endIcon={<GetApp />}
-        onClick={downloadReport}
-        className={styles.sidePanelFooterButton}
-      >
-        {t("report.guarantee")}
-      </Button>
-    </div>
+    <Button
+      variant="outlined"
+      data-testid="export-guarantee-report-button"
+      disabled={disabled}
+      endIcon={<GetApp />}
+      onClick={downloadReport}
+      fullWidth
+    >
+      {t("report.guarantee")}
+    </Button>
   );
 };
 

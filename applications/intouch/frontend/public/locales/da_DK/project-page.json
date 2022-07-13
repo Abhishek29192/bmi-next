@@ -319,8 +319,9 @@
     "archived": "Arkiveret?"
   },
   "report": {
-    "guarantee": "Download garantirapport",
-    "project": "Download projektrapport"
+    "guarantee": "Garantirapport",
+    "project": "Projektrapport",
+    "projectUpload": "Uploads rapport"
   },
   "responsible_installer": {
     "address": "Ansvarlig medlems adresse",

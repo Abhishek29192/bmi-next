@@ -518,7 +518,9 @@ exports[`Projects Page check sorting of project name is missing 1`] = `
                 <div
                   class="footerBtn"
                 >
-                  <div />
+                  <div
+                    class="sidePanelFooter"
+                  />
                 </div>
               </div>
             </div>
@@ -1098,7 +1100,9 @@ exports[`Projects Page render correctly 1`] = `
                 <div
                   class="footerBtn"
                 >
-                  <div />
+                  <div
+                    class="sidePanelFooter"
+                  />
                 </div>
               </div>
             </div>
@@ -1678,7 +1682,9 @@ exports[`Projects Page sort project with non super admin 1`] = `
                 <div
                   class="footerBtn"
                 >
-                  <div />
+                  <div
+                    class="sidePanelFooter"
+                  />
                 </div>
               </div>
             </div>

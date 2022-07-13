@@ -98,7 +98,7 @@ describe("ProjectReport Component", () => {
       mockOnCompleted({ projectsByMarket: { nodes: projects } })
     );
 
-    const exportButton = screen.getByTestId("export-button");
+    const exportButton = screen.getByTestId("export-project-report-button");
     exportButton.click();
 
     expect(mockProjectReport).toHaveBeenCalled();
@@ -112,7 +112,7 @@ describe("ProjectReport Component", () => {
       mockOnCompleted({ projectsByMarket: { nodes: projects } })
     );
 
-    const exportButton = screen.getByTestId("export-button");
+    const exportButton = screen.getByTestId("export-project-report-button");
     exportButton.click();
 
     expect(mockProjectReport).toHaveBeenCalled();
