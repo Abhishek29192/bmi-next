@@ -1,5 +1,6 @@
 import {
   Asset as FirestoreAsset,
+  AssetAssetType as FirestoreAssetType,
   BIM as FirestoreBIM,
   Brand as FirestoreBrand,
   Category as FirestoreCategory,
@@ -30,7 +31,7 @@ export type BreadcrumbItem = {
 export type System = Omit<
   FirestoreSystem,
   | "bim"
-  | "brandName"
+  | "brand"
   | "categories"
   | "classifications"
   | "documents"
@@ -138,9 +139,10 @@ export type KeyAssetDocument = {
   documents: ProductDocument[];
 };
 
-export type Asset = Omit<FirestoreAsset, "mime" | "format"> & {
-  mime: Mime | null;
+export type Asset = Omit<FirestoreAsset, "assetType" | "mime" | "format"> & {
+  assetType: FirestoreAssetType | null;
   format: string | null;
+  mime: Mime | null;
 };
 
 export type Brand = Omit<FirestoreBrand, "logo"> & {

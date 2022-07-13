@@ -60,7 +60,7 @@ const Filters = ({
           );
 
           let summaryLabel = filter.label;
-          if (summaryLabel.startsWith("plpFilter.")) {
+          if (summaryLabel.startsWith("filterLabels.")) {
             summaryLabel = getMicroCopy(copy, filter.label);
           }
           return (

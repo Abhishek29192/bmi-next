@@ -1,20 +1,17 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Typography } from "@bmi/components";
-import { Button } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { Technology } from "@bmi/intouch-api-types";
 import { Icon, FlatRoof, PitchedRoof } from "@bmi/components";
 import { useRouter } from "next/router";
 import { FilterResult } from "../FilterResult";
 import { SidePanel } from "../SidePanel";
-import { NewProjectDialog } from "../Pages/Project/CreateProject/Dialog";
 import { useAccountContext } from "../../context/AccountContext";
-import { findAccountCompany, isSuperOrMarketAdmin } from "../../lib/account";
+import { isSuperOrMarketAdmin } from "../../lib/account";
 import { GetProjectsQuery } from "../../graphql/generated/operations";
 import { getProjectStatus, ProjectStatus } from "../../lib/utils/project";
-import AccessControl from "../../lib/permissions/AccessControl";
-import { GuaranteeReport, ProjectReport } from "../Reports";
 import styles from "./styles.module.scss";
+import SidePanelFooter from "./SidePanelFooter";
 
 const getProjectFilters = (t, isPowerfulUser: boolean) => {
   const technologyFilters = [
@@ -59,66 +56,6 @@ const technologyIcon: {
 } = {
   FLAT: FlatRoof,
   PITCHED: PitchedRoof
-};
-
-const ProjectSidePanelFooter = () => {
-  const { t } = useTranslation("project-page");
-  const [isNewProjectDialogOpen, setIsNewProjectDialogOpen] = useState(false);
-  const { account } = useAccountContext();
-  const currentCompany = useMemo(() => findAccountCompany(account), [account]);
-
-  const handleOnNewProject = () => {
-    setIsNewProjectDialogOpen(true);
-  };
-
-  const handleOnDialogClose = () => {
-    setIsNewProjectDialogOpen(false);
-  };
-
-  if (!currentCompany) {
-    return null;
-  }
-
-  return (
-    <>
-      <Button
-        variant="outlined"
-        onClick={handleOnNewProject}
-        className={styles.footerActionButton}
-        data-testid="project-side-panel-footer-button"
-      >
-        {t("addProject.cta")}
-      </Button>
-      <NewProjectDialog
-        companyId={currentCompany.id}
-        isOpen={isNewProjectDialogOpen}
-        onCloseClick={handleOnDialogClose}
-        onCompleted={handleOnDialogClose}
-      />
-    </>
-  );
-};
-
-const SidePanelFooter = ({
-  projectLength,
-  guaranteeLength
-}: {
-  projectLength: number;
-  guaranteeLength: number;
-}) => {
-  return (
-    <div>
-      <AccessControl dataModel="project" action="addProject">
-        <ProjectSidePanelFooter />
-      </AccessControl>
-      <AccessControl dataModel="project" action="downloadReport">
-        <ProjectReport disabled={projectLength === 0} />
-      </AccessControl>
-      <AccessControl dataModel="project" action="downloadGuaranteeReport">
-        <GuaranteeReport disabled={guaranteeLength === 0} />
-      </AccessControl>
-    </div>
-  );
 };
 
 type ProjectSidePanelProps = {

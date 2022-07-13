@@ -11,7 +11,7 @@ export interface IndexedItemGroup<T> {
 }
 
 export const removePLPFilterPrefix = (filterName: string) => {
-  return (filterName || "").replace("plpFilter.", "");
+  return (filterName || "").replace("filterLabels.", "");
 };
 
 export const groupBy = <T extends IndexedItem>(
@@ -129,7 +129,7 @@ export const generateFilters = (
           ? firestoreFilters[0].groupLabel
           : anyFilterWithGroupLabel?.groupLabel
           ? anyFilterWithGroupLabel.groupLabel
-          : `plpFilter.${filterNameKey}`;
+          : `filterLabels.${filterNameKey}`;
 
       const tryConvertToNumber = (value: string) =>
         parseInt(value.replace(/\D+/gi, ""));

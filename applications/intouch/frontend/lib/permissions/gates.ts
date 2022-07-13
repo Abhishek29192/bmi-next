@@ -227,6 +227,13 @@ export const gates = {
       COMPANY_ADMIN: false,
       AUDITOR: true
     },
+    downloadProjectUploadReport: {
+      SUPER_ADMIN: true,
+      MARKET_ADMIN: true,
+      INSTALLER: false,
+      COMPANY_ADMIN: false,
+      AUDITOR: true
+    },
     addTeamMember: {
       SUPER_ADMIN: true,
       MARKET_ADMIN: true,

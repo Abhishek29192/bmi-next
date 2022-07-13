@@ -319,8 +319,9 @@
     "archived": "Archiviato?"
   },
   "report": {
-    "guarantee": "Scarica il report di garanzia",
-    "project": "Scarica il report di progetti"
+    "guarantee": "Rapporto sulle garanzie",
+    "project": "Rapporto sui progetti",
+    "projectUpload": "Rapporto sui caricamenti"
   },
   "responsible_installer": {
     "address": "Indirizzo dell'installatore responsabile",

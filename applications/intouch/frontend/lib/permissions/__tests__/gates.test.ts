@@ -756,6 +756,38 @@ describe("permissions/gates", () => {
       });
     });
 
+    describe("downloadProjectUploadReport", () => {
+      it("role is SUPER_ADMIN", () => {
+        expect(
+          gates.project.downloadProjectUploadReport[ROLES.SUPER_ADMIN]
+        ).toBe(true);
+      });
+
+      it("role is MARKET_ADMIN ", () => {
+        expect(
+          gates.project.downloadProjectUploadReport[ROLES.MARKET_ADMIN]
+        ).toBe(true);
+      });
+
+      it("role is INSTALLER ", () => {
+        expect(gates.project.downloadProjectUploadReport[ROLES.INSTALLER]).toBe(
+          false
+        );
+      });
+
+      it("role is COMPANY_ADMIN ", () => {
+        expect(
+          gates.project.downloadProjectUploadReport[ROLES.COMPANY_ADMIN]
+        ).toBe(false);
+      });
+
+      it("role is AUDITOR ", () => {
+        expect(gates.project.downloadProjectUploadReport[ROLES.AUDITOR]).toBe(
+          true
+        );
+      });
+    });
+
     describe("addTeamMember", () => {
       it("role is SUPER_ADMIN", () => {
         expect(gates.project.addTeamMember[ROLES.SUPER_ADMIN]).toBe(true);

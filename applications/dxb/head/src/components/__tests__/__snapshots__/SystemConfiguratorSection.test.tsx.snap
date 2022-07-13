@@ -4031,9 +4031,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-undefined/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
-                href="/no/s/ijkl-name-undefined/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -4085,9 +4085,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-undefined/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
-                href="/no/s/efgh-name-undefined/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -4139,9 +4139,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/s/abcd-name-undefined/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"abcd name\\",\\"action\\":\\"/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="abcd"
-                href="/no/s/abcd-name-undefined/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=abcd&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -4193,9 +4193,9 @@ exports[`SystemConfiguratorSection component renders only max of 4 recommendedSy
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/s/mnop-name-undefined/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"mnop name\\",\\"action\\":\\"/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="mnop"
-                href="/no/s/mnop-name-undefined/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=mnop&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -4538,9 +4538,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--highlighted OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/s/ijkl-name-undefined/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"ijkl name\\",\\"action\\":\\"/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="ijkl"
-                href="/no/s/ijkl-name-undefined/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=ijkl&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >
@@ -4592,9 +4592,9 @@ exports[`SystemConfiguratorSection component renders only the recommendedSystems
               <a
                 aria-disabled="false"
                 class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/s/efgh-name-undefined/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
+                data-gtm="{\\"id\\":\\"system-configurator01-results\\",\\"label\\":\\"efgh name\\",\\"action\\":\\"/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details\\"}"
                 data-testid="efgh"
-                href="/no/s/efgh-name-undefined/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
+                href="/no/related-system-path/?selected_system=efgh&prev_page=/test-path&referer=sys_details"
                 role="button"
                 tabindex="0"
               >

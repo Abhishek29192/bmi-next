@@ -1,5 +1,3 @@
-import { PubSub, Topic } from "@google-cloud/pubsub";
-import { Request, Response } from "express";
 import logger from "@bmi-digital/functions-logger";
 import { fetchData } from "@bmi/pim-api";
 import {
@@ -7,6 +5,8 @@ import {
   ProductsApiResponse,
   SystemsApiResponse
 } from "@bmi/pim-types";
+import { PubSub, Topic } from "@google-cloud/pubsub";
+import { Request, Response } from "express";
 import { FullFetchRequest } from "./types";
 
 const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID } = process.env;
@@ -38,17 +38,15 @@ async function publishMessage(
   logger.info({
     message: `Publishing UPDATED ${items.length} ${itemType.toUpperCase()}`
   });
-  const messageBuffer = Buffer.from(
-    JSON.stringify({
-      type: "UPDATED",
-      itemType: itemType.toUpperCase(),
-      // eslint-disable-next-line security/detect-object-injection
-      items
+
+  await Promise.all(
+    items.map(async (item) => {
+      const messageId = await getTopicPublisher().publishMessage({
+        json: { type: "UPDATED", itemType: itemType.toUpperCase(), item }
+      });
+      logger.info({ message: `Published: ${messageId}` });
     })
   );
-
-  const messageId = await getTopicPublisher().publish(messageBuffer);
-  logger.info({ message: `Published: ${messageId}` });
 }
 
 /**

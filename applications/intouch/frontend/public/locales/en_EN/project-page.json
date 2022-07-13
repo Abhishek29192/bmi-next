@@ -319,8 +319,9 @@
     "archived": "Archived?"
   },
   "report": {
-    "guarantee": "Download guarantee report",
-    "project": "Download projects report"
+    "guarantee": "Guarantee report",
+    "project": "Projects report",
+    "projectUpload": "Uploads Report"
   },
   "responsible_installer": {
     "address": "Responsible Installer address",

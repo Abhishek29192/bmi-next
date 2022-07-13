@@ -2123,6 +2123,85 @@ export type GetTeamsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetTeamsReportQuery,
   OperationTypes.GetTeamsReportQueryVariables
 >;
+export const GetEvidenceItemsReportDocument = gql`
+  query GetEvidenceItemsReport($market: Int!) {
+    evidenceItemsByMarket(market: $market) {
+      nodes {
+        evidenceCategoryType
+        name
+        uploaderAccountId
+        createdAt
+        project {
+          name
+          company {
+            name
+            tier
+          }
+          roofArea
+        }
+        guarantee {
+          coverage
+        }
+        uploaderAccount {
+          lastName
+          firstName
+          email
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetEvidenceItemsReportQuery__
+ *
+ * To run a query within a React component, call `useGetEvidenceItemsReportQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetEvidenceItemsReportQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetEvidenceItemsReportQuery({
+ *   variables: {
+ *      market: // value for 'market'
+ *   },
+ * });
+ */
+export function useGetEvidenceItemsReportQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    OperationTypes.GetEvidenceItemsReportQuery,
+    OperationTypes.GetEvidenceItemsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetEvidenceItemsReportQuery,
+    OperationTypes.GetEvidenceItemsReportQueryVariables
+  >(GetEvidenceItemsReportDocument, options);
+}
+export function useGetEvidenceItemsReportLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetEvidenceItemsReportQuery,
+    OperationTypes.GetEvidenceItemsReportQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetEvidenceItemsReportQuery,
+    OperationTypes.GetEvidenceItemsReportQueryVariables
+  >(GetEvidenceItemsReportDocument, options);
+}
+export type GetEvidenceItemsReportQueryHookResult = ReturnType<
+  typeof useGetEvidenceItemsReportQuery
+>;
+export type GetEvidenceItemsReportLazyQueryHookResult = ReturnType<
+  typeof useGetEvidenceItemsReportLazyQuery
+>;
+export type GetEvidenceItemsReportQueryResult = Apollo.QueryResult<
+  OperationTypes.GetEvidenceItemsReportQuery,
+  OperationTypes.GetEvidenceItemsReportQueryVariables
+>;
 export const CreateGuaranteeDocument = gql`
   mutation createGuarantee($input: CreateGuaranteeInput!) {
     createGuarantee(input: $input) {

@@ -4,18 +4,13 @@ import {
   System as EsSystem
 } from "@bmi/elasticsearch-types";
 import { getEsClient } from "@bmi/functions-es-client";
-import { DeleteItemType } from "@bmi/gcp-pim-message-handler";
 import { Product as PIMProduct, System } from "@bmi/pim-types";
+import { Message } from "@bmi/pub-sub-types";
 import { deleteESItemByCode } from "./deleteESItemByCode";
 import { updateElasticSearch } from "./elasticsearch";
 import { transformProduct } from "./transformProducts";
 import { transformSystem } from "./transformSystems";
-import {
-  DeleteMessage,
-  MessageFunction,
-  ProductMessage,
-  SystemMessage
-} from "./types";
+import { MessageFunction } from "./types";
 
 const pingEsCluster = async () => {
   // get ES client
@@ -29,20 +24,12 @@ const pingEsCluster = async () => {
   });
 };
 
-export const buildEsProducts = (
-  products: readonly PIMProduct[]
-): EsProduct[] => {
-  return products.reduce(
-    (allProducts, product) => [...allProducts, ...transformProduct(product)],
-    [] as EsProduct[]
-  );
+export const buildEsProducts = (product: PIMProduct): EsProduct[] => {
+  return transformProduct(product);
 };
 
-export const buildEsSystems = (systems: readonly System[]): EsSystem[] => {
-  return systems.reduce(
-    (allSystems, system) => allSystems.concat(transformSystem(system)),
-    [] as EsSystem[]
-  );
+export const buildEsSystems = (system: System): EsSystem[] => {
+  return [transformSystem(system)];
 };
 
 export const handleMessage: MessageFunction = async (data, context) => {
@@ -51,14 +38,14 @@ export const handleMessage: MessageFunction = async (data, context) => {
 
   await pingEsCluster();
 
-  const message: ProductMessage | SystemMessage | DeleteMessage = data.data
+  const message: Message = data.data
     ? JSON.parse(Buffer.from(data.data as string, "base64").toString())
     : {};
 
-  const { type, itemType, items } = message;
+  const { type, itemType, item } = message;
 
-  if (!items) {
-    logger.warning({ message: "No items received" });
+  if (!item) {
+    logger.warning({ message: "No item received" });
     return;
   }
 
@@ -66,15 +53,15 @@ export const handleMessage: MessageFunction = async (data, context) => {
     message: `Received message: {
     type: ${type},
     itemType: ${itemType},
-    itemsCount: ${items.length}
+    item: ${JSON.stringify(item)}
   }`
   });
 
   const getEsDocuments = (): (EsProduct | EsSystem)[] => {
     if (type === "UPDATED") {
       return itemType === "PRODUCTS"
-        ? buildEsProducts(items as PIMProduct[])
-        : buildEsSystems(items as System[]);
+        ? buildEsProducts(item as PIMProduct)
+        : buildEsSystems(item as System);
     }
     return [];
   };
@@ -93,7 +80,7 @@ export const handleMessage: MessageFunction = async (data, context) => {
       await updateElasticSearch(itemType, esDocuments);
       break;
     case "DELETED":
-      await deleteESItemByCode(items as DeleteItemType[], itemType);
+      await deleteESItemByCode(item, itemType);
       break;
   }
 };

@@ -175,6 +175,7 @@ const pimSystem = {
     name: "efgh name",
     hashedCode: "efgh",
     shortDescription: "efgh description",
+    path: "/s/efgh-name-efgh",
     images: [
       {
         assetType: "MASTER_IMAGE",

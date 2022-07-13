@@ -1,6 +1,7 @@
 build_intouch_api_gateway:
   extends: .build_yarn_workspace
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/**/*
@@ -27,6 +28,7 @@ package_intouch_api_gateway:
       alias: docker
   cache: {}
   rules:
+    - !reference [.ingore_release_mrs, rules]
     - if: "$CI_PIPELINE_SOURCE == 'merge_request_event' || ($CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master')"
       changes:
         - applications/intouch/api/**/*

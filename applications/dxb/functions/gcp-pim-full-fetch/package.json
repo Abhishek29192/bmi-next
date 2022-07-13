@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@bmi/pim-types": "0.0.0",
+    "@bmi/pub-sub-types": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",
     "env-cmd": "^10.1.0",
     "inspectpack": "^4.7.1",

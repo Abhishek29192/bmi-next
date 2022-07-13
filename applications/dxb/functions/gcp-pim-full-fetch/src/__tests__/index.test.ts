@@ -1,12 +1,13 @@
-import mockConsole from "jest-mock-console";
-import { Request, Response } from "express";
 import { mockRequest, mockResponse } from "@bmi-digital/fetch-mocks";
 import {
   createProduct,
   createProductsApiResponse,
+  createSystem,
   createSystemsApiResponse,
   PimTypes
 } from "@bmi/pim-types";
+import { Request, Response } from "express";
+import mockConsole from "jest-mock-console";
 import { createFullFetchRequest } from "./helpers/fullFetchHelper";
 
 const fetchData = jest.fn();
@@ -18,11 +19,11 @@ jest.mock("@bmi/pim-api", () => {
   };
 });
 
-const publish = jest.fn();
+const publishMessage = jest.fn();
 jest.mock("@google-cloud/pubsub", () => {
   const mPubSub = jest.fn(() => ({
     topic: (...args: any) => ({
-      publish: (...args: any) => publish(...args)
+      publishMessage: (...args: any) => publishMessage(...args)
     })
   }));
   return { PubSub: mPubSub };
@@ -60,7 +61,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publish).toHaveBeenCalledTimes(0);
+    expect(publishMessage).toHaveBeenCalledTimes(0);
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.GCP_PROJECT_ID = originalGcpProjectId;
@@ -77,7 +78,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publish).toHaveBeenCalledTimes(0);
+    expect(publishMessage).toHaveBeenCalledTimes(0);
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.TRANSITIONAL_TOPIC_NAME = originalTransitionalTopicName;
@@ -215,7 +216,7 @@ describe("handleRequest", () => {
   it("should error when publishing data to pub/sub throws error", async () => {
     const productsApiResponse = createProductsApiResponse();
     fetchData.mockReturnValue(productsApiResponse);
-    publish.mockRejectedValue(Error("Expected error"));
+    publishMessage.mockRejectedValue(Error("Expected error"));
     const fullFetchRequest = createFullFetchRequest();
     const request = mockRequest("POST", {}, "", fullFetchRequest);
     const response = mockResponse();
@@ -231,15 +232,13 @@ describe("handleRequest", () => {
       fullFetchRequest.type,
       fullFetchRequest.startPage
     );
-    expect(publish).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: fullFetchRequest.type.toUpperCase(),
-          items: productsApiResponse.products
-        })
-      )
-    );
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse.products[0]
+      }
+    });
   });
 
   it("should publish products data to pub/sub", async () => {
@@ -255,15 +254,45 @@ describe("handleRequest", () => {
       fullFetchRequest.type,
       fullFetchRequest.startPage
     );
-    expect(publish).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: fullFetchRequest.type.toUpperCase(),
-          items: productsApiResponse.products
-        })
-      )
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse.products[0]
+      }
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+  });
+
+  it("should publish multiple messages from single page with multiple products to pub/sub", async () => {
+    const productsApiResponse = createProductsApiResponse({
+      products: [createProduct({ code: "1" }), createProduct({ code: "2" })]
+    });
+    fetchData.mockReturnValueOnce(productsApiResponse);
+    const fullFetchRequest = createFullFetchRequest();
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
     );
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse.products[0]
+      }
+    });
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse.products[1]
+      }
+    });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
   });
 
@@ -280,15 +309,45 @@ describe("handleRequest", () => {
       fullFetchRequest.type,
       fullFetchRequest.startPage
     );
-    expect(publish).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: fullFetchRequest.type.toUpperCase(),
-          items: systemsApiResponse.systems
-        })
-      )
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: systemsApiResponse.systems[0]
+      }
+    });
+    expect(response.sendStatus).toHaveBeenCalledWith(200);
+  });
+
+  it("should publish multiple messages from single page with multiple systems to pub/sub", async () => {
+    const systemsApiResponse = createSystemsApiResponse({
+      systems: [createSystem({ code: "1" }), createSystem({ code: "2" })]
+    });
+    fetchData.mockReturnValueOnce(systemsApiResponse);
+    const fullFetchRequest = createFullFetchRequest({ type: PimTypes.Systems });
+    const request = mockRequest("POST", {}, "", fullFetchRequest);
+    const response = mockResponse();
+
+    await handleRequest(request, response);
+
+    expect(fetchData).toHaveBeenCalledWith(
+      fullFetchRequest.type,
+      fullFetchRequest.startPage
     );
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: systemsApiResponse.systems[0]
+      }
+    });
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: systemsApiResponse.systems[1]
+      }
+    });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
   });
 
@@ -316,24 +375,20 @@ describe("handleRequest", () => {
       fullFetchRequest.type,
       fullFetchRequest.startPage + 1
     );
-    expect(publish).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: fullFetchRequest.type.toUpperCase(),
-          items: productsApiResponse1.products
-        })
-      )
-    );
-    expect(publish).toHaveBeenCalledWith(
-      Buffer.from(
-        JSON.stringify({
-          type: "UPDATED",
-          itemType: fullFetchRequest.type.toUpperCase(),
-          items: productsApiResponse2.products
-        })
-      )
-    );
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse1.products[0]
+      }
+    });
+    expect(publishMessage).toHaveBeenCalledWith({
+      json: {
+        type: "UPDATED",
+        itemType: fullFetchRequest.type.toUpperCase(),
+        item: productsApiResponse2.products[0]
+      }
+    });
     expect(response.sendStatus).toHaveBeenCalledWith(200);
   });
 });
