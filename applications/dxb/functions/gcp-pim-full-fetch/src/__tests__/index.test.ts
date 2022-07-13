@@ -95,7 +95,7 @@ describe("handleRequest", () => {
     await handleRequest(request, response);
 
     expect(fetchData).toHaveBeenCalledTimes(0);
-    expect(publish).toHaveBeenCalledTimes(0);
+    expect(publishMessage).toHaveBeenCalledTimes(0);
     expect(response.sendStatus).toHaveBeenCalledWith(500);
 
     process.env.LOCALE = originalLocale;
@@ -226,6 +226,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
   });
@@ -247,6 +248,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -269,6 +271,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -294,6 +297,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -324,6 +328,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -349,6 +354,7 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(publishMessage).toHaveBeenCalledWith({
@@ -386,10 +392,12 @@ describe("handleRequest", () => {
 
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage
     );
     expect(fetchData).toHaveBeenCalledWith(
       fullFetchRequest.type,
+      process.env.LOCALE,
       fullFetchRequest.startPage + 1
     );
     expect(publishMessage).toHaveBeenCalledWith({

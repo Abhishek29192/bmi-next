@@ -109,7 +109,7 @@ const handleRequest = async (
 
   const promises = [];
   for (let i = body.startPage; i < body.startPage + body.numberOfPages; i++) {
-    const response = await fetchData(body.type, i);
+    const response = await fetchData(body.type, LOCALE, i);
     logger.info({
       message: `Fetched data for ${body.type} body type: ${response}`
     });
