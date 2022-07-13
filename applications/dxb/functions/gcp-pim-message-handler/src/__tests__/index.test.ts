@@ -3,10 +3,10 @@ import {
   mockResponse,
   mockResponses
 } from "@bmi-digital/fetch-mocks";
+import { ObjType } from "@bmi/pub-sub-types";
 import { Request, Response } from "express";
 import fetchMockJest from "fetch-mock-jest";
 import mockConsole from "jest-mock-console";
-import { ObjType } from "../types";
 
 const fetchMock = fetchMockJest.sandbox();
 jest.mock("node-fetch", () => fetchMock);
@@ -183,19 +183,19 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 1" }]
+        item: { name: "Test Product 1" }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 2" }]
+        item: { name: "Test Product 2" }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);
@@ -270,15 +270,19 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "DELETED",
         itemType: "PRODUCTS",
-        items: [
-          { code: "BP1", objType: ObjType.Base_product },
-          { code: "BPÉ2", objType: ObjType.Base_product }
-        ]
+        item: { code: "BP1", objType: ObjType.Base_product }
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "PRODUCTS",
+        item: { code: "BPÉ2", objType: ObjType.Base_product }
       }
     });
 
@@ -286,10 +290,14 @@ describe("handleMessage", () => {
       json: {
         type: "DELETED",
         itemType: "PRODUCTS",
-        items: [
-          { code: "VP1", objType: ObjType.Variant },
-          { code: "VP2", objType: ObjType.Variant }
-        ]
+        item: { code: "VP1", objType: ObjType.Variant }
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "PRODUCTS",
+        item: { code: "VP2", objType: ObjType.Variant }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);
@@ -376,14 +384,14 @@ describe("handleMessage", () => {
       json: {
         type: "UPDATED",
         itemType: "SYSTEMS",
-        items: [{ name: "Test System 1" }]
+        item: { name: "Test System 1" }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "SYSTEMS",
-        items: [{ name: "Test System 2" }]
+        item: { name: "Test System 2" }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);
@@ -467,25 +475,33 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "DELETED",
         itemType: "SYSTEMS",
-        items: [
-          { code: "System1", objType: ObjType.System },
-          { code: "System2", objType: ObjType.System }
-        ]
+        item: { code: "System1", objType: ObjType.System }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "DELETED",
         itemType: "SYSTEMS",
-        items: [
-          { code: "Layer1", objType: ObjType.Layer },
-          { code: "Layer2", objType: ObjType.Layer }
-        ]
+        item: { code: "System2", objType: ObjType.System }
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "SYSTEMS",
+        item: { code: "Layer1", objType: ObjType.Layer }
+      }
+    });
+    expect(pubsubTopicPublisher).toHaveBeenCalledWith({
+      json: {
+        type: "DELETED",
+        itemType: "SYSTEMS",
+        item: { code: "Layer2", objType: ObjType.Layer }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);
@@ -528,7 +544,84 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.send).toHaveBeenCalledWith("ok");
+  });
+
+  it("should not publish UPDATED CATEGORIES message to the GCP PubSub", async () => {
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "CATEGORIES",
+        type: "UPDATED"
+      })
+    });
+    const res = mockResponse();
+    getProductsByMessageId
+      .mockResolvedValueOnce({
+        totalPageCount: 2,
+        products: [{ name: "Test Category 1" }]
+      })
+      .mockResolvedValueOnce({
+        totalPageCount: 2,
+        products: [{ name: "Test Category 2" }]
+      });
+    const token = "authentication-token";
+    mockResponses(
+      fetchMock,
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
+      },
+      {
+        method: "POST",
+        url: process.env.BUILD_TRIGGER_ENDPOINT
+      }
+    );
+
+    await handleRequest(req, res);
+
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
+    expect(fetchMock).toHaveFetchedTimes(0);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.send).toHaveBeenCalledWith("ok");
+  });
+
+  it("should not publish DELETED CATEGORIES message to the GCP PubSub", async () => {
+    const req = mockRequest("GET", {}, "/", {
+      message: createEvent({
+        itemType: "CATEGORIES",
+        type: "DELETED",
+        base: ["BP1", "BPÉ2"],
+        variant: ["VP1", "VP2"],
+        system: ["System1", "System2"],
+        layer: ["Layer1", "Layer2"]
+      })
+    });
+    const res = mockResponse();
+    const token = "authentication-token";
+    mockResponses(
+      fetchMock,
+      {
+        method: "GET",
+        url: `http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience=${process.env.BUILD_TRIGGER_ENDPOINT}`,
+        body: token
+      },
+      {
+        method: "POST",
+        url: process.env.BUILD_TRIGGER_ENDPOINT
+      }
+    );
+
+    await handleRequest(req, res);
+
+    expect(getProductsByMessageId).toHaveBeenCalledTimes(0);
+    expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(0);
     expect(fetchMock).toHaveFetchedTimes(0);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith("ok");
@@ -570,19 +663,19 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 1" }]
+        item: { name: "Test Product 1" }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 2" }]
+        item: { name: "Test Product 2" }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);
@@ -635,19 +728,19 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 1" }]
+        item: { name: "Test Product 1" }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 2" }]
+        item: { name: "Test Product 2" }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(1);
@@ -701,19 +794,19 @@ describe("handleMessage", () => {
 
     expect(getProductsByMessageId).toHaveBeenCalledTimes(2);
     expect(getSystemsByMessageId).toHaveBeenCalledTimes(0);
-    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(2);
+    expect(pubsubTopicPublisher).toHaveBeenCalledTimes(4);
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 1" }]
+        item: { name: "Test Product 1" }
       }
     });
     expect(pubsubTopicPublisher).toHaveBeenCalledWith({
       json: {
         type: "UPDATED",
         itemType: "PRODUCTS",
-        items: [{ name: "Test Product 2" }]
+        item: { name: "Test Product 2" }
       }
     });
     expect(fetchMock).toHaveFetchedTimes(2);

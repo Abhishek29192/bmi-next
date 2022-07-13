@@ -1,4 +1,4 @@
-import { System } from "@bmi/firestore-types";
+import { createSystem, createSystemDocument } from "@bmi/firestore-types";
 import Systems from "../System";
 import { Context, Node } from "../types/Gatsby";
 
@@ -69,86 +69,23 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
   describe("resolve documents tests", () => {
     it("should not resolve documents if system documents are null", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: null,
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: [],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ documents: null });
 
       expect(await Systems.documents.resolve(source, null, context)).toEqual(
         []
       );
     });
     it("should not resolve documents if system documents list is empty array", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: [],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ documents: [] });
 
       expect(await Systems.documents.resolve(source, null, context)).toEqual(
         []
       );
     });
     it("should not resolve documents if matching asset type is not found", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [
-          {
-            id: "doc-1",
-            assetType: "AWARDS",
-            isLinkDocument: false,
-            title: "docu-1-title",
-            url: "http://some-url"
-          }
-        ],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: [],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({
+        documents: [createSystemDocument({ assetType: "AWARDS" })]
+      });
       context.nodeModel.findAll = jest
         .fn()
         .mockResolvedValueOnce({ entries: [{ pimCode: "BMI" }] });
@@ -158,34 +95,9 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       );
     });
     it("should resolve documents if documents with matching asset types were found", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [
-          {
-            id: "doc-1",
-            assetType: "AWARDS",
-            isLinkDocument: false,
-            title: "docu-1-title",
-            url: "http://some-url"
-          }
-        ],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: [],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({
+        documents: [createSystemDocument({ assetType: "AWARDS" })]
+      });
       context.nodeModel.findAll = jest
         .fn()
         .mockResolvedValueOnce({ entries: [{ pimCode: "AWARDS" }] });
@@ -193,10 +105,14 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       expect(await Systems.documents.resolve(source, null, context)).toEqual([
         {
           assetType: "AWARDS",
-          id: "doc-1",
+          extension: "pdf",
+          fileSize: 10,
+          format: "application/pdf",
+          id: "id-1",
           isLinkDocument: false,
-          title: "docu-1-title",
-          url: "http://some-url"
+          realFileName: "real-file-name.pdf",
+          title: "title",
+          url: "http://localhost:8000/real-file-name.pdf"
         }
       ]);
     });
@@ -204,52 +120,14 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
   describe("resolve relatedSystems tests", () => {
     it("should not resolve relatedSystems if systemReferences is null", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: null,
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ systemReferences: null });
 
       expect(
         await Systems.relatedSystems.resolve(source, null, context)
       ).toEqual([]);
     });
     it("should not resolve relatedSystems if systemReferences are empty list", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: [],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ systemReferences: [] });
 
       expect(
         await Systems.relatedSystems.resolve(source, null, context)
@@ -257,26 +135,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
     });
 
     it("should not resolve relatedSystems if matching systems are not found", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: ["test-reference"],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ systemReferences: ["test-reference"] });
       context.nodeModel.findAll = jest
         .fn()
         .mockResolvedValueOnce({ entries: [] });
@@ -286,26 +145,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       ).toEqual([]);
     });
     it("should resolve relatedSystems if matching systems are found", async () => {
-      const source: System = {
-        awardsAndCertificateDocuments: [],
-        awardsAndCertificateImages: [],
-        categories: [],
-        code: "system-1",
-        description: "system-1-description",
-        documents: [],
-        guaranteesAndWarrantiesImages: [],
-        guaranteesAndWarrantiesLinks: [],
-        images: [],
-        layerCodes: [],
-        name: "system-1-name",
-        path: "/s/system-1-system-1-name-1234567",
-        scoringWeight: 0.5,
-        shortDescription: "system-1-short-description",
-        systemReferences: ["test-reference"],
-        uniqueSellingPropositions: [],
-        videos: [],
-        classifications: []
-      };
+      const source = createSystem({ systemReferences: ["test-reference"] });
       context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
         entries: [
           { name: "system-2", code: "test-reference" },
@@ -334,26 +174,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
 
     describe("relatedSystems order tests", () => {
       it("should resolve relatedSystems in order of scoringweight", async () => {
-        const source: System = {
-          awardsAndCertificateDocuments: [],
-          awardsAndCertificateImages: [],
-          categories: [],
-          code: "system-1",
-          description: "system-1-description",
-          documents: [],
-          guaranteesAndWarrantiesImages: [],
-          guaranteesAndWarrantiesLinks: [],
-          images: [],
-          layerCodes: [],
-          name: "system-1-name",
-          path: "/s/system-1-system-1-name-1234567",
-          scoringWeight: 0.5,
-          shortDescription: "system-1-short-description",
-          systemReferences: ["test-reference"],
-          uniqueSellingPropositions: [],
-          videos: [],
-          classifications: []
-        };
+        const source = createSystem({ systemReferences: ["test-reference"] });
         context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
           entries: [
             {
@@ -396,26 +217,7 @@ describe("ContentfulServiceLocatorSection resolver", () => {
       });
 
       it("should resolve relatedSystems in order of name if same scoring weight found", async () => {
-        const source: System = {
-          awardsAndCertificateDocuments: [],
-          awardsAndCertificateImages: [],
-          categories: [],
-          code: "system-1",
-          description: "system-1-description",
-          documents: [],
-          guaranteesAndWarrantiesImages: [],
-          guaranteesAndWarrantiesLinks: [],
-          images: [],
-          layerCodes: [],
-          name: "system-1-name",
-          path: "/s/system-1-system-1-name-1234567",
-          scoringWeight: 0.5,
-          shortDescription: "system-1-short-description",
-          systemReferences: ["test-reference"],
-          uniqueSellingPropositions: [],
-          videos: [],
-          classifications: []
-        };
+        const source = createSystem({ systemReferences: ["test-reference"] });
         context.nodeModel.findAll = jest.fn().mockResolvedValueOnce({
           entries: [
             {

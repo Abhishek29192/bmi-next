@@ -1,6 +1,6 @@
 import type {
   Asset as PimAsset,
-  AssetAssetType,
+  AssetAssetType as PimAssetAssetType,
   Category as PimCategory,
   CategoryImage as PimCategoryImage,
   CategoryType,
@@ -11,7 +11,7 @@ export type System = {
   awardsAndCertificateDocuments: readonly Asset[];
   awardsAndCertificateImages: readonly Asset[];
   bim?: BIM;
-  brandName?: Brand;
+  brand?: Brand;
   categories: readonly Category[];
   classifications: readonly Classification[];
   code: string;
@@ -19,6 +19,7 @@ export type System = {
   documents: readonly SystemDocument[];
   guaranteesAndWarrantiesImages: readonly Asset[];
   guaranteesAndWarrantiesLinks: readonly Asset[];
+  hashedCode: string;
   keyFeatures?: KeyFeatures;
   images: readonly Image[];
   layerCodes: string[];
@@ -111,6 +112,7 @@ export type Product = {
 };
 
 export type Asset = PimAsset;
+export type AssetAssetType = PimAssetAssetType;
 
 export type Brand = {
   code: string;

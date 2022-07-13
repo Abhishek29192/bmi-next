@@ -16,71 +16,69 @@ import {
 
 jest.mock("@bmi-digital/functions-logger");
 
-const transformProducts = async (products: Product[]) =>
-  (await import("../productTransformer")).transformProducts(products);
+const transformProduct = async (product: Product) =>
+  (await import("../productTransformer")).transformProduct(product);
 
 beforeEach(() => {
   process.env.ENABLE_SAMPLE_ORDERING = "true";
 });
 
-describe("transformProducts", () => {
+describe("transformProduct", () => {
   it("transforms a product with no variants", async () => {
-    const products: Product[] = [createProduct({ variantOptions: undefined })];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({ variantOptions: undefined });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toEqual([]);
   });
 
   it("transforms a single variant option with minimal data", async () => {
-    const products: Product[] = [
-      {
-        approvalStatus: "approved",
-        code: "code",
-        externalProductCode: undefined,
-        description: "description",
-        assets: undefined,
-        categories: undefined,
-        classifications: undefined,
-        images: undefined,
-        isSampleOrderAllowed: undefined,
-        longDescription: "long description",
-        name: "name",
-        productBenefits: undefined,
-        shortDescription: "short description",
-        summary: "summary",
-        variantOptions: [
-          {
-            approvalStatus: "approved",
-            classifications: undefined,
-            code: "variant-code",
-            externalProductCode: undefined,
-            images: undefined,
-            isSampleOrderAllowed: undefined,
-            longDescription: undefined,
-            shortDescription: "variant short description",
-            productBenefits: undefined
-          }
-        ]
-      }
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product: Product = {
+      approvalStatus: "approved",
+      code: "code",
+      externalProductCode: undefined,
+      description: "description",
+      assets: undefined,
+      categories: undefined,
+      classifications: undefined,
+      images: undefined,
+      isSampleOrderAllowed: undefined,
+      longDescription: "long description",
+      name: "name",
+      productBenefits: undefined,
+      shortDescription: "short description",
+      summary: "summary",
+      variantOptions: [
+        {
+          approvalStatus: "approved",
+          classifications: undefined,
+          code: "variant-code",
+          externalProductCode: undefined,
+          images: undefined,
+          isSampleOrderAllowed: undefined,
+          longDescription: undefined,
+          shortDescription: "variant short description",
+          productBenefits: undefined
+        }
+      ]
+    };
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toEqual([
       {
         guaranteesAndWarrantiesImages: [],
         guaranteesAndWarrantiesLinks: [],
         awardsAndCertificateDocuments: [],
         awardsAndCertificateImages: [],
-        baseCode: products[0].code,
+        baseCode: product.code,
         baseScoringWeight: 0,
         bimIframeUrl: undefined,
         brand: undefined,
         categories: [],
         classifications: [],
-        code: products[0].variantOptions![0].code,
+        code: product.variantOptions![0].code,
         colour: undefined,
         colourMicrocopy: undefined,
         colourFamily: undefined,
         documents: [],
-        description: products[0].description,
+        description: product.description,
         externalProductCode: undefined,
         filters: [],
         fixingToolIframeUrl: undefined,
@@ -98,8 +96,8 @@ describe("transformProducts", () => {
           volume: undefined,
           label: ""
         },
-        name: products[0].name,
-        path: `/p/${products[0].name}-3464354221`,
+        name: product.name,
+        path: `/p/${product.name}-3464354221`,
         productBenefits: undefined,
         relatedVariants: [],
         specificationIframeUrl: undefined,
@@ -120,8 +118,8 @@ describe("transformProducts", () => {
   });
 
   it("transforms a fully populated product", async () => {
-    const products = [createFullyPopulatedProduct()];
-    const transformedProducts = await transformProducts(products);
+    const product = createFullyPopulatedProduct();
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -1068,8 +1066,7 @@ describe("transformProducts", () => {
       ]
     });
     product.classifications = [classification1, classification2];
-    const products = [product];
-    const transformedProducts = await transformProducts(products);
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -1971,15 +1968,13 @@ describe("transformProducts", () => {
   });
 
   it("transforms a product with multiple variant options into multiple products", async () => {
-    const products = [
-      createFullyPopulatedProduct({
-        variantOptions: [
-          createFullyPopulatedVariantOption({ code: "variant1" }),
-          createFullyPopulatedVariantOption({ code: "variant2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createFullyPopulatedProduct({
+      variantOptions: [
+        createFullyPopulatedVariantOption({ code: "variant1" }),
+        createFullyPopulatedVariantOption({ code: "variant2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -3796,48 +3791,49 @@ describe("transformProducts", () => {
     `);
   });
 
-  it("ignores non-approved base products", async () => {
-    const products = [
-      createProduct({ variantOptions: [createVariantOption()] }),
-      createProduct({
-        approvalStatus: "check",
-        variantOptions: [createVariantOption()]
-      }),
-      createProduct({
-        approvalStatus: "unapproved",
-        variantOptions: [createVariantOption()]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
-    expect(transformedProducts).toHaveLength(1);
+  it("ignores check approval status base products", async () => {
+    const product = createProduct({
+      approvalStatus: "check",
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toHaveLength(0);
+  });
+
+  it("ignores unapproved approval status base products", async () => {
+    const product = createProduct({
+      approvalStatus: "unapproved",
+      variantOptions: [createVariantOption()]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts).toHaveLength(0);
   });
 
   it("ignores non-approved variant options", async () => {
-    const products = [
-      createFullyPopulatedProduct({
-        variantOptions: [
-          createFullyPopulatedVariantOption({ code: "variant1" }),
-          createFullyPopulatedVariantOption({
-            code: "variant2",
-            approvalStatus: "check"
-          }),
-          createFullyPopulatedVariantOption({
-            code: "variant3",
-            approvalStatus: "unapproved"
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createFullyPopulatedProduct({
+      variantOptions: [
+        createFullyPopulatedVariantOption({ code: "variant1" }),
+        createFullyPopulatedVariantOption({
+          code: "variant2",
+          approvalStatus: "check"
+        }),
+        createFullyPopulatedVariantOption({
+          code: "variant3",
+          approvalStatus: "unapproved"
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toHaveLength(1);
     expect(transformedProducts[0].relatedVariants).toHaveLength(0);
   });
 
   it("handles a product with documents but no categories", async () => {
-    const products: Product[] = [
-      createProduct({ categories: undefined, assets: [createAsset()] })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      categories: undefined,
+      assets: [createAsset()]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].documents[0]).toEqual({
       assetType: "ASSEMBLY_INSTRUCTIONS",
       extension: "pdf",
@@ -3855,74 +3851,70 @@ describe("transformProducts", () => {
   });
 
   it("uses only the base scoring weight, not the variant scoring weight", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "scoringWeightAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                featureValues: [createFeatureValue({ value: "100" })]
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: "scoringWeightAttributes",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
-                    featureValues: [createFeatureValue({ value: "50" })]
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "scoringWeightAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
+              featureValues: [createFeatureValue({ value: "100" })]
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "scoringWeightAttributes",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/scoringWeightAttributes.scoringweight",
+                  featureValues: [createFeatureValue({ value: "50" })]
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].baseScoringWeight).toEqual(100);
   });
 
   it("overwrites base classification features with variant classification features of the same feature code", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            name: "base classification name",
-            features: [
-              createFeature({
-                name: "base feature name",
-                featureValues: [createFeatureValue({ value: "base value" })]
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                name: "variant classification name",
-                features: [
-                  createFeature({
-                    name: "variant feature name",
-                    featureValues: [
-                      createFeatureValue({ value: "variant value" })
-                    ]
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          name: "base classification name",
+          features: [
+            createFeature({
+              name: "base feature name",
+              featureValues: [createFeatureValue({ value: "base value" })]
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              name: "variant classification name",
+              features: [
+                createFeature({
+                  name: "variant feature name",
+                  featureValues: [
+                    createFeatureValue({ value: "variant value" })
+                  ]
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].classifications).toEqual([
       {
         name: "variant classification name",
@@ -3937,58 +3929,56 @@ describe("transformProducts", () => {
   });
 
   it("handles classifications and features being only on either the base or variant", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "base-only",
-            name: "base only classification name",
-            features: [
-              createFeature({
-                code: "base-only-feature",
-                name: "base only feature name"
-              })
-            ]
-          }),
-          createClassification({
-            code: "both",
-            name: "both base classification name",
-            features: [
-              createFeature({
-                code: "base-feature"
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: "variant-only",
-                name: "variant only classification name",
-                features: [
-                  createFeature({
-                    code: "variant-only-feature",
-                    name: "variant only feature name"
-                  })
-                ]
-              }),
-              createClassification({
-                code: "both",
-                name: "both variant classification name",
-                features: [
-                  createFeature({
-                    code: "variant-feature",
-                    name: "both variant feature name"
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "base-only",
+          name: "base only classification name",
+          features: [
+            createFeature({
+              code: "base-only-feature",
+              name: "base only feature name"
+            })
+          ]
+        }),
+        createClassification({
+          code: "both",
+          name: "both base classification name",
+          features: [
+            createFeature({
+              code: "base-feature"
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "variant-only",
+              name: "variant only classification name",
+              features: [
+                createFeature({
+                  code: "variant-only-feature",
+                  name: "variant only feature name"
+                })
+              ]
+            }),
+            createClassification({
+              code: "both",
+              name: "both variant classification name",
+              features: [
+                createFeature({
+                  code: "variant-feature",
+                  name: "both variant feature name"
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].classifications).toEqual([
       {
         features: [
@@ -4025,38 +4015,34 @@ describe("transformProducts", () => {
   });
 
   it("handles classifications not being present on the related variants", async () => {
-    const products = [
-      createProduct({
-        classifications: undefined,
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: undefined
-          }),
-          createVariantOption({
-            code: "variant2",
-            classifications: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: undefined,
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: undefined
+        }),
+        createVariantOption({
+          code: "variant2",
+          classifications: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toHaveLength(2);
   });
 
   it("handles classifications without features", async () => {
-    const products = [
-      createProduct({
-        classifications: [createClassification({ features: undefined })],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [createClassification({ features: undefined })],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toHaveLength(1);
     expect(transformedProducts[0].filters).toEqual([
       {
@@ -4108,18 +4094,16 @@ describe("transformProducts", () => {
   });
 
   it("handles classifications with empty list of features", async () => {
-    const products = [
-      createProduct({
-        classifications: [createClassification({ features: [] })],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: []
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [createClassification({ features: [] })],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: []
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toHaveLength(1);
     expect(transformedProducts[0].filters).toEqual([
       {
@@ -4171,22 +4155,20 @@ describe("transformProducts", () => {
   });
 
   it("handles classifications with feature filter codes without `/`", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            features: [createFeature({ code: "featureCodeWithoutSlash" })]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          features: [createFeature({ code: "featureCodeWithoutSlash" })]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toHaveLength(1);
     expect(transformedProducts[0].filters).toEqual([
       {
@@ -4248,193 +4230,169 @@ describe("transformProducts", () => {
   });
 
   it("use variant long description for description", async () => {
-    const products = [
-      createProduct({
-        description: "base description",
-        variantOptions: [
-          createVariantOption({
-            longDescription: "variant long description"
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      description: "base description",
+      variantOptions: [
+        createVariantOption({
+          longDescription: "variant long description"
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].description).toEqual(
       "variant long description"
     );
   });
 
   it("use base description for description if variant long description is undefined", async () => {
-    const products = [
-      createProduct({
-        description: "base description",
-        variantOptions: [
-          createVariantOption({
-            longDescription: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      description: "base description",
+      variantOptions: [
+        createVariantOption({
+          longDescription: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].description).toEqual("base description");
   });
 
   it("set isSampleOrderAllowed to true if variant is true", async () => {
-    const products = [
-      createProduct({
-        isSampleOrderAllowed: false,
-        variantOptions: [
-          createVariantOption({
-            isSampleOrderAllowed: true
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      isSampleOrderAllowed: false,
+      variantOptions: [
+        createVariantOption({
+          isSampleOrderAllowed: true
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].isSampleOrderAllowed).toEqual(true);
   });
 
   it("set isSampleOrderAllowed to false if variant is false and base is true", async () => {
-    const products = [
-      createProduct({
-        isSampleOrderAllowed: true,
-        variantOptions: [
-          createVariantOption({
-            isSampleOrderAllowed: false
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      isSampleOrderAllowed: true,
+      variantOptions: [
+        createVariantOption({
+          isSampleOrderAllowed: false
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].isSampleOrderAllowed).toEqual(false);
   });
 
   it("set isSampleOrderAllowed to false if variant is undefined and base is undefined", async () => {
-    const products = [
-      createProduct({
-        isSampleOrderAllowed: undefined,
-        variantOptions: [
-          createVariantOption({
-            isSampleOrderAllowed: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      isSampleOrderAllowed: undefined,
+      variantOptions: [
+        createVariantOption({
+          isSampleOrderAllowed: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].isSampleOrderAllowed).toEqual(false);
   });
 
   it("set isSampleOrderAllowed to false if variant is true and base is true and ENABLE_SAMPLE_ORDERING is false", async () => {
     process.env.ENABLE_SAMPLE_ORDERING = "false";
-    const products = [
-      createProduct({
-        isSampleOrderAllowed: true,
-        variantOptions: [
-          createVariantOption({
-            isSampleOrderAllowed: true
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      isSampleOrderAllowed: true,
+      variantOptions: [
+        createVariantOption({
+          isSampleOrderAllowed: true
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].isSampleOrderAllowed).toEqual(false);
   });
 
   it("set isSampleOrderAllowed to false if variant is true and base is true and ENABLE_SAMPLE_ORDERING is not set", async () => {
     delete process.env.ENABLE_SAMPLE_ORDERING;
-    const products = [
-      createProduct({
-        isSampleOrderAllowed: true,
-        variantOptions: [
-          createVariantOption({
-            isSampleOrderAllowed: true
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      isSampleOrderAllowed: true,
+      variantOptions: [
+        createVariantOption({
+          isSampleOrderAllowed: true
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].isSampleOrderAllowed).toEqual(false);
   });
 
   it("use variant product benefits if available", async () => {
-    const products = [
-      createProduct({
-        productBenefits: ["base-product-benefit"],
-        variantOptions: [
-          createVariantOption({
-            productBenefits: ["variant-product-benefit"]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      productBenefits: ["base-product-benefit"],
+      variantOptions: [
+        createVariantOption({
+          productBenefits: ["variant-product-benefit"]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].productBenefits).toEqual(
-      products[0].variantOptions![0].productBenefits
+      product.variantOptions![0].productBenefits
     );
   });
 
   it("use variant product benefits if empty array", async () => {
-    const products = [
-      createProduct({
-        productBenefits: ["base-product-benefit"],
-        variantOptions: [
-          createVariantOption({
-            productBenefits: []
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      productBenefits: ["base-product-benefit"],
+      variantOptions: [
+        createVariantOption({
+          productBenefits: []
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].productBenefits).toEqual(
-      products[0].variantOptions![0].productBenefits
+      product.variantOptions![0].productBenefits
     );
   });
 
   it("use base product benefits if variant product variants isn't available", async () => {
-    const products = [
-      createProduct({
-        productBenefits: ["base-product-benefit"],
-        variantOptions: [
-          createVariantOption({
-            productBenefits: undefined
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      productBenefits: ["base-product-benefit"],
+      variantOptions: [
+        createVariantOption({
+          productBenefits: undefined
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].productBenefits).toEqual(
-      products[0].productBenefits
+      product.productBenefits
     );
   });
 
   it("handles classification without features", async () => {
     const classification = createClassification({ features: undefined });
-    const products = [
-      createProduct({
-        classifications: [classification],
-        variantOptions: [
-          createVariantOption({
-            classifications: [classification]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [classification],
+      variantOptions: [
+        createVariantOption({
+          classifications: [classification]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].classifications).toEqual([]);
   });
 
   it("filters out unwanted classification features from base product", async () => {
-    const products = [
-      createProduct({
-        classifications: createIgnorableClassifications,
-        variantOptions: [
-          createVariantOption({
-            classifications: []
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: createIgnorableClassifications,
+      variantOptions: [
+        createVariantOption({
+          classifications: []
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].classifications).toMatchInlineSnapshot(
       [
         {
@@ -4627,17 +4585,15 @@ describe("transformProducts", () => {
   });
 
   it("filters out unwanted classification features from variant", async () => {
-    const products = [
-      createProduct({
-        classifications: [],
-        variantOptions: [
-          createVariantOption({
-            classifications: createIgnorableClassifications
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [],
+      variantOptions: [
+        createVariantOption({
+          classifications: createIgnorableClassifications
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].classifications).toMatchInlineSnapshot(
       [
         {
@@ -4831,12 +4787,10 @@ describe("transformProducts", () => {
 
   it("handles video asset without URL", async () => {
     const asset = createAsset({ assetType: "VIDEO", url: undefined });
-    const products = [
-      createProduct({
-        assets: [asset]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      assets: [asset]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].videos).toEqual([
       {
         label: asset.name,
@@ -4851,12 +4805,10 @@ describe("transformProducts", () => {
 
   it("handles brand category without an image", async () => {
     const brand = createCategory({ categoryType: "Brand", image: undefined });
-    const products = [
-      createProduct({
-        categories: [brand]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      categories: [brand]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].brand).toEqual({
       code: brand.code,
       name: brand.name,
@@ -4865,15 +4817,13 @@ describe("transformProducts", () => {
   });
 
   it("handles variants without images", async () => {
-    const products = [
-      createProduct({
-        variantOptions: [
-          createVariantOption({ code: "variant1", images: undefined }),
-          createVariantOption({ code: "variant2", images: undefined })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      variantOptions: [
+        createVariantOption({ code: "variant1", images: undefined }),
+        createVariantOption({ code: "variant2", images: undefined })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       undefined
     );
@@ -4883,22 +4833,20 @@ describe("transformProducts", () => {
   });
 
   it("handles missing master images", async () => {
-    const products = [
-      createProduct({
-        images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
-          }),
-          createVariantOption({
-            code: "variant2",
-            images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
+        }),
+        createVariantOption({
+          code: "variant2",
+          images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].masterImages).toEqual([]);
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
       undefined
@@ -4906,49 +4854,47 @@ describe("transformProducts", () => {
   });
 
   it("handles master images with missing image without format", async () => {
-    const products = [
-      createProduct({
-        images: [
-          createImage({
-            assetType: "MASTER_IMAGE",
-            format: "Product-Hero-Small-Desktop-Tablet"
-          }),
-          createImage({
-            assetType: "MASTER_IMAGE",
-            format: "Product-Color-Selector-Mobile"
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            images: [
-              createImage({
-                assetType: "MASTER_IMAGE",
-                format: "Product-Hero-Small-Desktop-Tablet"
-              }),
-              createImage({
-                assetType: "MASTER_IMAGE",
-                format: "Product-Color-Selector-Mobile"
-              })
-            ]
-          }),
-          createVariantOption({
-            code: "variant2",
-            images: [
-              createImage({
-                assetType: "MASTER_IMAGE",
-                format: "Product-Hero-Small-Desktop-Tablet"
-              }),
-              createImage({
-                assetType: "MASTER_IMAGE",
-                format: "Product-Color-Selector-Mobile"
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      images: [
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: "Product-Hero-Small-Desktop-Tablet"
+        }),
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: "Product-Color-Selector-Mobile"
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          images: [
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Hero-Small-Desktop-Tablet"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Color-Selector-Mobile"
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          images: [
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Hero-Small-Desktop-Tablet"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Color-Selector-Mobile"
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].masterImages).toEqual([
       {
         mainSource: "http://localhost:8000",
@@ -4959,69 +4905,65 @@ describe("transformProducts", () => {
   });
 
   it("handles missing gallery images", async () => {
-    const products = [
-      createProduct({
-        images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
-          }),
-          createVariantOption({
-            code: "variant2",
-            images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
+        }),
+        createVariantOption({
+          code: "variant2",
+          images: [createImage({ assetType: "TECHNICAL_DRAWINGS" })]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].galleryImages).toEqual([]);
   });
 
   it("handles gallery images with missing image without format", async () => {
-    const products = [
-      createProduct({
-        images: [
-          createImage({
-            assetType: "GALLERY",
-            format: "Product-Hero-Small-Desktop-Tablet"
-          }),
-          createImage({
-            assetType: "GALLERY",
-            format: "Product-Color-Selector-Mobile"
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            images: [
-              createImage({
-                assetType: "GALLERY",
-                format: "Product-Hero-Small-Desktop-Tablet"
-              }),
-              createImage({
-                assetType: "GALLERY",
-                format: "Product-Color-Selector-Mobile"
-              })
-            ]
-          }),
-          createVariantOption({
-            code: "variant2",
-            images: [
-              createImage({
-                assetType: "GALLERY",
-                format: "Product-Hero-Small-Desktop-Tablet"
-              }),
-              createImage({
-                assetType: "GALLERY",
-                format: "Product-Color-Selector-Mobile"
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      images: [
+        createImage({
+          assetType: "GALLERY",
+          format: "Product-Hero-Small-Desktop-Tablet"
+        }),
+        createImage({
+          assetType: "GALLERY",
+          format: "Product-Color-Selector-Mobile"
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          images: [
+            createImage({
+              assetType: "GALLERY",
+              format: "Product-Hero-Small-Desktop-Tablet"
+            }),
+            createImage({
+              assetType: "GALLERY",
+              format: "Product-Color-Selector-Mobile"
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          images: [
+            createImage({
+              assetType: "GALLERY",
+              format: "Product-Hero-Small-Desktop-Tablet"
+            }),
+            createImage({
+              assetType: "GALLERY",
+              format: "Product-Color-Selector-Mobile"
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].galleryImages).toEqual([
       {
         mainSource: "http://localhost:8000",
@@ -5032,136 +4974,132 @@ describe("transformProducts", () => {
   });
 
   it("handles measurements with different unit symbols", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: createFeatureUnit({ symbol: "mm" })
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: createFeatureUnit({ symbol: "cm" })
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: createFeatureUnit({ symbol: "mm" })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: createFeatureUnit({ symbol: "cm" })
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "mm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: createFeatureUnit({ symbol: "mm" })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: createFeatureUnit({ symbol: "cm" })
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].measurements.label).toEqual("3mm x 4cm");
   });
 
   it("handles measurements with missing featureUnit", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: undefined
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: undefined
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "5" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "6" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "7" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "8" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "9" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "10" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "11" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "12" })],
-                    featureUnit: undefined
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: undefined
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "5" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "6" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "7" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "8" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "9" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "10" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "11" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "12" })],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].measurements.label).toEqual("3x4x5");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
@@ -5176,89 +5114,87 @@ describe("transformProducts", () => {
   });
 
   it("handles measurements with missing unit symbols", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: createFeatureUnit({ symbol: undefined })
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: createFeatureUnit({ symbol: undefined })
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "5" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "6" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "7" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "8" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "9" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "10" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "11" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "11" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: undefined })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: undefined })
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "5" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "6" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "7" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "8" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "9" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "10" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "11" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "11" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].measurements.label).toEqual("3x4x5");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
@@ -5273,220 +5209,216 @@ describe("transformProducts", () => {
   });
 
   it("handles measurements on related variants with different unit symbols", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: createFeatureUnit({ symbol: "mm" })
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: createFeatureUnit({ symbol: "cm" })
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: createFeatureUnit({ symbol: "mm" })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: createFeatureUnit({ symbol: "cm" })
-                  })
-                ]
-              })
-            ]
-          }),
-          createVariantOption({
-            code: "variant2",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "5" })],
-                    featureUnit: createFeatureUnit({ symbol: "mm" })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "6" })],
-                    featureUnit: createFeatureUnit({ symbol: "cm" })
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "mm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: createFeatureUnit({ symbol: "mm" })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: createFeatureUnit({ symbol: "cm" })
+                })
+              ]
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "5" })],
+                  featureUnit: createFeatureUnit({ symbol: "mm" })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "6" })],
+                  featureUnit: createFeatureUnit({ symbol: "cm" })
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
     ).toEqual("5mm x 6cm");
   });
 
   it("handles measurements on related variants with missing featureUnit", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: undefined
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: undefined
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "5" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "6" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "7" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "8" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "9" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "10" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "11" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "12" })],
-                    featureUnit: undefined
-                  })
-                ]
-              })
-            ]
-          }),
-          createVariantOption({
-            code: "variant2",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "13" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "14" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "15" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "16" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "17" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "18" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "19" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "20" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "21" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "22" })],
-                    featureUnit: undefined
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: undefined
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "5" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "6" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "7" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "8" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "9" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "10" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "11" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "12" })],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "13" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "14" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "15" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "16" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "17" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "18" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "19" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "20" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "21" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "22" })],
+                  featureUnit: undefined
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
     ).toEqual("13x14x15");
@@ -5508,150 +5440,148 @@ describe("transformProducts", () => {
   });
 
   it("handles measurements on related varaints with missing unit symbols", async () => {
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.length",
-                featureValues: [createFeatureValue({ value: "1" })],
-                featureUnit: createFeatureUnit({ symbol: undefined })
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/measurements.width",
-                featureValues: [createFeatureValue({ value: "2" })],
-                featureUnit: createFeatureUnit({ symbol: undefined })
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createVariantOption({
-            code: "variant1",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "3" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "4" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "5" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "6" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "7" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "8" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "9" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "10" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "11" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "12" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  })
-                ]
-              })
-            ]
-          }),
-          createVariantOption({
-            code: "variant2",
-            classifications: [
-              createClassification({
-                code: "measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.length",
-                    featureValues: [createFeatureValue({ value: "13" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.width",
-                    featureValues: [createFeatureValue({ value: "14" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.height",
-                    featureValues: [createFeatureValue({ value: "15" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.thickness",
-                    featureValues: [createFeatureValue({ value: "16" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/measurements.volume",
-                    featureValues: [createFeatureValue({ value: "17" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
-                    featureValues: [createFeatureValue({ value: "18" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    featureValues: [createFeatureValue({ value: "19" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
-                    featureValues: [createFeatureValue({ value: "20" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
-                    featureValues: [createFeatureValue({ value: "21" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
-                    featureValues: [createFeatureValue({ value: "22" })],
-                    featureUnit: createFeatureUnit({ symbol: undefined })
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: undefined })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: undefined })
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "3" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "4" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "5" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "6" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "7" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "8" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "9" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "10" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "11" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "12" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                })
+              ]
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          classifications: [
+            createClassification({
+              code: "measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.length",
+                  featureValues: [createFeatureValue({ value: "13" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.width",
+                  featureValues: [createFeatureValue({ value: "14" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.height",
+                  featureValues: [createFeatureValue({ value: "15" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.thickness",
+                  featureValues: [createFeatureValue({ value: "16" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/measurements.volume",
+                  featureValues: [createFeatureValue({ value: "17" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.grossweight",
+                  featureValues: [createFeatureValue({ value: "18" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  featureValues: [createFeatureValue({ value: "19" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpallet",
+                  featureValues: [createFeatureValue({ value: "20" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightperpiece",
+                  featureValues: [createFeatureValue({ value: "21" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.weightpersqm",
+                  featureValues: [createFeatureValue({ value: "22" })],
+                  featureUnit: createFeatureUnit({ symbol: undefined })
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
     ).toEqual("13x14x15");
@@ -5677,49 +5607,47 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
-                featureValues: [{ value: "Gloss" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          }),
-          createClassification({
-            code: "generalInformation",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.textureFamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-diameter-40mm-2526773877`
     );
@@ -5742,44 +5670,42 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "true";
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          }),
-          createClassification({
-            code: "generalInformation",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-black-gloss-clay-2526773877`
     );
@@ -5802,49 +5728,47 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL = "false";
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          }),
-          createClassification({
-            code: "generalInformation",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-black-gloss-clay-2526773877`
     );
@@ -5867,49 +5791,47 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }],
-                featureUnit: createFeatureUnit()
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
-                featureValues: [{ value: "Diameter 40mm" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          }),
-          createClassification({
-            code: "generalInformation",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.variantattribute",
+              featureValues: [{ value: "Diameter 40mm" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        }),
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-black-gloss-clay-2526773877`
     );
@@ -5932,29 +5854,27 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
-                featureValues: [{ value: "Black" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.colour",
+              featureValues: [{ value: "Black" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-black-2526773877`
     );
@@ -5977,29 +5897,27 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "appearanceAttributes",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
-                featureValues: [{ value: "Gloss" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "appearanceAttributes",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/appearanceAttributes.texturefamily",
+              featureValues: [{ value: "Gloss" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-gloss-2526773877`
     );
@@ -6022,29 +5940,27 @@ describe("transformProducts", () => {
       process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
     delete process.env.ENABLE_PDP_VARIANT_ATTRIBUTE_URL;
 
-    const products = [
-      createProduct({
-        classifications: [
-          createClassification({
-            code: "generalInformation",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/generalInformation.materials",
-                featureValues: [{ value: "Clay" }],
-                featureUnit: createFeatureUnit()
-              })
-            ]
-          })
-        ],
-        code: "code",
-        name: "Product Name",
-        variantOptions: [
-          createVariantOption({ code: "variant-code-1" }),
-          createVariantOption({ code: "variant-code-2" })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "generalInformation",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/generalInformation.materials",
+              featureValues: [{ value: "Clay" }],
+              featureUnit: createFeatureUnit()
+            })
+          ]
+        })
+      ],
+      code: "code",
+      name: "Product Name",
+      variantOptions: [
+        createVariantOption({ code: "variant-code-1" }),
+        createVariantOption({ code: "variant-code-2" })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].path).toEqual(
       `/p/product-name-clay-2526773877`
     );
@@ -6064,152 +5980,150 @@ describe("transformProducts", () => {
 
   // TODO: Remove test case - DXB-3449
   it("is case-insensitive for base product classification codes", async () => {
-    const products = [
-      createFullyPopulatedProduct({
-        classifications: [
-          createClassification({
-            code: "ScoringWeightAttributes",
-            name: "Scoring",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
-                name: "Scoring Weight",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "100" })
-                ]
-              })
-            ]
-          }),
-          createClassification({
-            code: "AppearanceAttributes",
-            name: "Appearance",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
-                name: "Colour",
-                featureValues: [createFeatureValue({ value: "Rustic Red" })],
-                featureUnit: undefined
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
-                name: "Colour Family",
-                featureValues: [createFeatureValue({ value: "Red" })],
-                featureUnit: undefined
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
-                name: "Texture Family",
-                featureValues: [createFeatureValue({ value: "Matt" })],
-                featureUnit: undefined
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
-                name: "Variant Attribute",
-                featureValues: [
-                  createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
-                ],
-                featureUnit: undefined
-              })
-            ]
-          }),
-          createClassification({
-            code: "GeneralInformation",
-            name: "General",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
-                name: "Material",
-                featureValues: [createFeatureValue({ value: "Clay" })],
-                featureUnit: undefined
-              })
-            ]
-          }),
-          createClassification({
-            code: "Measurements",
-            name: "Measurements",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/Measurements.Length",
-                name: "Length",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "1" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/Measurements.Width",
-                name: "width",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "2" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/Measurements.Height",
-                name: "Height",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "3" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
-                name: "Thickness",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "4" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/Measurements.Volume",
-                name: "Volume",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "5" })
-                ]
-              })
-            ]
-          }),
-          createClassification({
-            code: "WeightAttributes",
-            name: "Weight",
-            features: [
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "1" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/WeightAttributes.NetWeight",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "2" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "3" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "4" })
-                ]
-              }),
-              createFeature({
-                code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
-                featureValues: [
-                  createFeatureValue({ code: undefined, value: "5" })
-                ]
-              })
-            ]
-          })
-        ],
-        variantOptions: [
-          createFullyPopulatedVariantOption({
-            classifications: []
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createFullyPopulatedProduct({
+      classifications: [
+        createClassification({
+          code: "ScoringWeightAttributes",
+          name: "Scoring",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
+              name: "Scoring Weight",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "100" })
+              ]
+            })
+          ]
+        }),
+        createClassification({
+          code: "AppearanceAttributes",
+          name: "Appearance",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
+              name: "Colour",
+              featureValues: [createFeatureValue({ value: "Rustic Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
+              name: "Colour Family",
+              featureValues: [createFeatureValue({ value: "Red" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
+              name: "Texture Family",
+              featureValues: [createFeatureValue({ value: "Matt" })],
+              featureUnit: undefined
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
+              name: "Variant Attribute",
+              featureValues: [
+                createFeatureValue({ value: "Rustic Red Matt 1x2x3x4x5" })
+              ],
+              featureUnit: undefined
+            })
+          ]
+        }),
+        createClassification({
+          code: "GeneralInformation",
+          name: "General",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
+              name: "Material",
+              featureValues: [createFeatureValue({ value: "Clay" })],
+              featureUnit: undefined
+            })
+          ]
+        }),
+        createClassification({
+          code: "Measurements",
+          name: "Measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/Measurements.Length",
+              name: "Length",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "1" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/Measurements.Width",
+              name: "width",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "2" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/Measurements.Height",
+              name: "Height",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "3" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
+              name: "Thickness",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "4" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/Measurements.Volume",
+              name: "Volume",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "5" })
+              ]
+            })
+          ]
+        }),
+        createClassification({
+          code: "WeightAttributes",
+          name: "Weight",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "1" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/WeightAttributes.NetWeight",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "2" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "3" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "4" })
+              ]
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
+              featureValues: [
+                createFeatureValue({ code: undefined, value: "5" })
+              ]
+            })
+          ]
+        })
+      ],
+      variantOptions: [
+        createFullyPopulatedVariantOption({
+          classifications: []
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       Array [
         Object {
@@ -7051,161 +6965,159 @@ describe("transformProducts", () => {
 
   // TODO: Remove test case - DXB-3449
   it("is case-insensitive for varaint option classification codes", async () => {
-    const products = [
-      createFullyPopulatedProduct({
-        classifications: [],
-        variantOptions: [
-          createFullyPopulatedVariantOption({
-            classifications: [
-              createClassification({
-                code: "ScoringWeightAttributes",
-                name: "Scoring",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
-                    name: "Scoring Weight",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "10" })
-                    ]
-                  })
-                ]
-              }),
-              createClassification({
-                code: "AppearanceAttributes",
-                name: "Appearance",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
-                    name: "Colour",
-                    featureValues: [
-                      createFeatureValue({ value: "Shadow Black" })
-                    ],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
-                    name: "Colour Family",
-                    featureValues: [createFeatureValue({ value: "Black" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
-                    name: "Texture Family",
-                    featureValues: [createFeatureValue({ value: "Gloss" })],
-                    featureUnit: undefined
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
-                    name: "Variant Attribute",
-                    featureValues: [
-                      createFeatureValue({
-                        value: "Shadow Black Gloss 6x7x8x9x10"
-                      })
-                    ],
-                    featureUnit: undefined
-                  })
-                ]
-              }),
-              createClassification({
-                code: "GeneralInformation",
-                name: "General",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
-                    name: "Material",
-                    featureValues: [createFeatureValue({ value: "Concrete" })],
-                    featureUnit: undefined
-                  })
-                ]
-              }),
-              createClassification({
-                code: "Measurements",
-                name: "Measurements",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/Measurements.Length",
-                    name: "Length",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "6" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/Measurements.Width",
-                    name: "Width",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "7" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/Measurements.Height",
-                    name: "Height",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "8" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
-                    name: "Thickness",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "9" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/Measurements.Volume",
-                    name: "Volume",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "10" })
-                    ]
-                  })
-                ]
-              }),
-              createClassification({
-                code: "WeightAttributes",
-                name: "Weight",
-                features: [
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
-                    name: "Gross Weight",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "6" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
-                    name: "Net Weight",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "7" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
-                    name: "Weight per Pallet",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "8" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
-                    name: "Weight per Piece",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "9" })
-                    ]
-                  }),
-                  createFeature({
-                    code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
-                    name: "Weight per sq m",
-                    featureValues: [
-                      createFeatureValue({ code: undefined, value: "10" })
-                    ]
-                  })
-                ]
-              })
-            ]
-          })
-        ]
-      })
-    ];
-    const transformedProducts = await transformProducts(products);
+    const product = createFullyPopulatedProduct({
+      classifications: [],
+      variantOptions: [
+        createFullyPopulatedVariantOption({
+          classifications: [
+            createClassification({
+              code: "ScoringWeightAttributes",
+              name: "Scoring",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/ScoringWeightAttributes.ScoringWeight",
+                  name: "Scoring Weight",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "10" })
+                  ]
+                })
+              ]
+            }),
+            createClassification({
+              code: "AppearanceAttributes",
+              name: "Appearance",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/AppearanceAttributes.Colour",
+                  name: "Colour",
+                  featureValues: [
+                    createFeatureValue({ value: "Shadow Black" })
+                  ],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/AppearanceAttributes.ColourFamily",
+                  name: "Colour Family",
+                  featureValues: [createFeatureValue({ value: "Black" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/AppearanceAttributes.TextureFamily",
+                  name: "Texture Family",
+                  featureValues: [createFeatureValue({ value: "Gloss" })],
+                  featureUnit: undefined
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/AppearanceAttributes.VariantAttribute",
+                  name: "Variant Attribute",
+                  featureValues: [
+                    createFeatureValue({
+                      value: "Shadow Black Gloss 6x7x8x9x10"
+                    })
+                  ],
+                  featureUnit: undefined
+                })
+              ]
+            }),
+            createClassification({
+              code: "GeneralInformation",
+              name: "General",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/GeneralInformation.Materials",
+                  name: "Material",
+                  featureValues: [createFeatureValue({ value: "Concrete" })],
+                  featureUnit: undefined
+                })
+              ]
+            }),
+            createClassification({
+              code: "Measurements",
+              name: "Measurements",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/Measurements.Length",
+                  name: "Length",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "6" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/Measurements.Width",
+                  name: "Width",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "7" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/Measurements.Height",
+                  name: "Height",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "8" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/Measurements.Thickness",
+                  name: "Thickness",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "9" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/Measurements.Volume",
+                  name: "Volume",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "10" })
+                  ]
+                })
+              ]
+            }),
+            createClassification({
+              code: "WeightAttributes",
+              name: "Weight",
+              features: [
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/WeightAttributes.GrossWeight",
+                  name: "Gross Weight",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "6" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/weightAttributes.netweight",
+                  name: "Net Weight",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "7" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPallet",
+                  name: "Weight per Pallet",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "8" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerPiece",
+                  name: "Weight per Piece",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "9" })
+                  ]
+                }),
+                createFeature({
+                  code: "bmiClassificationCatalog/1.0/WeightAttributes.WeightPerSqm",
+                  name: "Weight per sq m",
+                  featureValues: [
+                    createFeatureValue({ code: undefined, value: "10" })
+                  ]
+                })
+              ]
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
     expect(transformedProducts).toMatchInlineSnapshot(`
       Array [
         Object {

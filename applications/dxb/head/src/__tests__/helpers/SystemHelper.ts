@@ -17,19 +17,16 @@ export const createSystem = (system?: Partial<System>): System => ({
       allowedToDownload: false
     }),
     createAsset({
-      mime: undefined
+      mime: null
     }),
     createAsset({
       fileSize: 1.7976931348623157e308
     }),
     createAsset({
-      fileSize: undefined
+      format: null
     }),
     createAsset({
-      realFileName: undefined
-    }),
-    createAsset({
-      url: undefined
+      url: null
     })
   ],
   awardsAndCertificateImages: [
@@ -77,6 +74,7 @@ export const createSystem = (system?: Partial<System>): System => ({
       allowedToDownload: false
     })
   ],
+  hashedCode: "1234567890",
   keyFeatures: null,
   images: [createImage()],
   layerCodes: [],

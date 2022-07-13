@@ -17,15 +17,15 @@
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
     "@bmi/functions-firestore": "0.0.0",
-    "@bmi/gcp-pim-message-handler": "0.0.0",
     "@bmi/utils": "0.0.0",
-    "@bmi/pim-types": "0.0.0",
-    "@bmi/firestore-types": "0.0.0",
     "@bmi-digital/functions-logger": "1.2.0",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@bmi/firestore-types": "0.0.0",
+    "@bmi/pim-types": "0.0.0",
+    "@bmi/pub-sub-types": "0.0.0",
     "env-cmd": "^10.1.0",
     "inspectpack": "^4.7.1",
     "js-yaml": "^4.0.0",

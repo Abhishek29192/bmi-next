@@ -25,75 +25,77 @@ import {
   mapImages
 } from "./transformerUtils";
 
-export const transformSystems = (systems: PimSystem[]): System[] =>
-  systems
-    .filter((system) => system.approvalStatus === "approved")
-    .map((system) => {
-      let promotionalContent: string | undefined;
-      let uniqueSellingPropositions: string[] = [];
-      system.classifications?.forEach((classification) => {
-        classification.features?.forEach((feature) => {
-          const featureCode = feature.code.split("/").pop()!;
-          // TODO: Remove upercase checks - DXB-3449
-          if (
-            featureCode.toUpperCase() ===
-            "systemAttributes.promotionalcontent".toUpperCase()
-          ) {
-            promotionalContent = feature.featureValues[0].value;
-          } else if (
-            featureCode.toUpperCase() ===
-            "systemAttributes.uniquesellingpropositions".toUpperCase()
-          ) {
-            uniqueSellingPropositions = feature.featureValues.map(
-              (value) => value.value
-            );
-          }
-        });
-      });
-      const code = system.code;
-      const hashedCode = generateHashFromString(system.code);
-      const name = system.name;
-      return {
-        awardsAndCertificateDocuments: getAwardAndCertificateAsset(
-          AwardAndCertificateAssetType.Documents,
-          system.assets
-        ),
-        awardsAndCertificateImages: getAwardAndCertificateAsset(
-          AwardAndCertificateAssetType.Images,
-          system.assets
-        ),
-        bim: getBim(system.assets),
-        brand: getBrand(system.categories),
-        categories: system.categories,
-        classifications: mapClassifications(system),
-        code,
-        description: system.longDescription,
-        documents: mapSystemDocuments(system),
-        guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
-          GuaranteesAndWarrantiesAssetType.Images,
-          system.assets
-        ),
-        guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
-          GuaranteesAndWarrantiesAssetType.Links,
-          system.assets
-        ),
-        hashedCode,
-        images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
-        keyFeatures: mapKeyFeatures(system),
-        layerCodes: (system.systemLayers || []).map((layer) => layer.code),
-        name,
-        path: `/s/${generateUrl([code, name, hashedCode])}`,
-        promotionalContent,
-        scoringWeight: getScoringWeight(system.classifications),
-        shortDescription: system.shortDescription,
-        specification: getSpecification(system),
-        systemBenefits: system.systemBenefits,
-        systemLayers: mapSystemLayers(system),
-        systemReferences: mapSystemReferences(system),
-        uniqueSellingPropositions,
-        videos: mapVideos(system)
-      };
+export const transformSystem = (system: PimSystem): System[] => {
+  if (system.approvalStatus !== "approved") {
+    return [];
+  }
+  let promotionalContent: string | undefined;
+  let uniqueSellingPropositions: string[] = [];
+  system.classifications?.forEach((classification) => {
+    classification.features?.forEach((feature) => {
+      const featureCode = feature.code.split("/").pop()!;
+      // TODO: Remove upercase checks - DXB-3449
+      if (
+        featureCode.toUpperCase() ===
+        "systemAttributes.promotionalcontent".toUpperCase()
+      ) {
+        promotionalContent = feature.featureValues[0].value;
+      } else if (
+        featureCode.toUpperCase() ===
+        "systemAttributes.uniquesellingpropositions".toUpperCase()
+      ) {
+        uniqueSellingPropositions = feature.featureValues.map(
+          (value) => value.value
+        );
+      }
     });
+  });
+  const code = system.code;
+  const hashedCode = generateHashFromString(system.code);
+  const name = system.name;
+  return [
+    {
+      awardsAndCertificateDocuments: getAwardAndCertificateAsset(
+        AwardAndCertificateAssetType.Documents,
+        system.assets
+      ),
+      awardsAndCertificateImages: getAwardAndCertificateAsset(
+        AwardAndCertificateAssetType.Images,
+        system.assets
+      ),
+      bim: getBim(system.assets),
+      brand: getBrand(system.categories),
+      categories: system.categories,
+      classifications: mapClassifications(system),
+      code,
+      description: system.longDescription,
+      documents: mapSystemDocuments(system),
+      guaranteesAndWarrantiesImages: getGuaranteesAndWarrantiesAsset(
+        GuaranteesAndWarrantiesAssetType.Images,
+        system.assets
+      ),
+      guaranteesAndWarrantiesLinks: getGuaranteesAndWarrantiesAsset(
+        GuaranteesAndWarrantiesAssetType.Links,
+        system.assets
+      ),
+      hashedCode,
+      images: mapImages(groupImages(system.images || []), "MASTER_IMAGE"),
+      keyFeatures: mapKeyFeatures(system),
+      layerCodes: (system.systemLayers || []).map((layer) => layer.code),
+      name,
+      path: `/s/${generateUrl([code, name, hashedCode])}`,
+      promotionalContent,
+      scoringWeight: getScoringWeight(system.classifications),
+      shortDescription: system.shortDescription,
+      specification: getSpecification(system),
+      systemBenefits: system.systemBenefits,
+      systemLayers: mapSystemLayers(system),
+      systemReferences: mapSystemReferences(system),
+      uniqueSellingPropositions,
+      videos: mapVideos(system)
+    }
+  ];
+};
 
 const mapClassifications = (system: PimSystem): Classification[] =>
   filterClassifications(
