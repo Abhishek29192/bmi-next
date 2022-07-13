@@ -83,7 +83,7 @@ export const transformSystem = (system: PimSystem): System[] => {
       keyFeatures: mapKeyFeatures(system),
       layerCodes: (system.systemLayers || []).map((layer) => layer.code),
       name,
-      path: `/s/${generateUrl([code, name, hashedCode])}`,
+      path: `/s/${generateUrl([name, hashedCode])}`,
       promotionalContent,
       scoringWeight: getScoringWeight(system.classifications),
       shortDescription: system.shortDescription,

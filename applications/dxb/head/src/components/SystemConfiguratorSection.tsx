@@ -20,7 +20,6 @@ import { queryElasticSearch } from "../utils/elasticSearch";
 import withGTM, { pushToDataLayer } from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import * as storage from "../utils/storage";
-import { generateSystemPath } from "../utils/systems";
 import { useScrollToOnLoad } from "../utils/useScrollToOnLoad";
 import ConfiguratorPanel from "./configurator-panel/ConfiguratorPanel";
 import ProgressIndicator from "./ProgressIndicator";
@@ -335,10 +334,9 @@ const SystemConfiguratorResult = ({
       try {
         const response = await queryElasticSearch(query, esIndexNameSystem);
         if (response.hits?.total.value > 0) {
-          const pimObject = response.hits?.hits.map(({ _source }) => {
+          const pimObject = response.hits!.hits.map(({ _source }) => {
             return {
-              ..._source,
-              path: generateSystemPath(_source)
+              ..._source
             };
           });
           setRecommendedSystemPimObjects(
