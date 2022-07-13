@@ -3,7 +3,7 @@
   "About Us": "Om os",
   "Account": "Min konto",
   "CONTRACTOR": "Entreprenør",
-  "CORP_DEVELOPER": "Udvikler",
+  "CORP_DEVELOPER": "Andet",
   "Companies": "Virksomheder",
   "Company": "Virksomhed",
   "Company Description": "Beskrivelse",
@@ -12,7 +12,7 @@
   "Home": "Hjem",
   "Inventory": "Beholdning",
   "Logout": "Log ud",
-  "MERCHANT": "Købmand",
+  "MERCHANT": "Rådgiver",
   "Main office address": "Adresse",
   "No Options": "Ingen produkter/systemer matcher din søgning",
   "Notifications": "Beskeder",
@@ -60,13 +60,14 @@
     "older": "Ældre end 2 måneder",
     "today": "I dag"
   },
+  "requiredInformation": "nødvendig information",
   "results available": "tilgængelige resultater",
   "roles": {
+    "AUDITOR": "Revisor",
     "COMPANY_ADMIN": "Administrator",
     "INSTALLER": "Medlem",
     "MARKET_ADMIN": "BMI Administrator",
-    "SUPER_ADMIN": "Super Admin",
-    "AUDITOR": "Revisor"
+    "SUPER_ADMIN": "Super Admin"
   },
   "session": {
     "dialog": {
@@ -86,6 +87,5 @@
   "button": {
     "more": "Vis mere",
     "less": "Vis mindre"
-  },
-  "requiredInformation": "nødvendig information"
+  }
 }
