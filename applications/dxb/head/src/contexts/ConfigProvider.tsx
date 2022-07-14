@@ -29,6 +29,7 @@ export interface EnvConfig {
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
     isV2WebToolsCalculatorEnabled?: boolean;
+    oneTrustId?: string;
   };
 }
 
@@ -71,7 +72,8 @@ export const envConfig: EnvConfig = {
     esIndexNameSystem: process.env.GATSBY_ES_INDEX_NAME_SYSTEMS,
     isDevMode: process.env.NODE_ENV === "development",
     gcpSystemConfiguratorEndpoint:
-      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT
+      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
+    oneTrustId: process.env.ONETRUST_ID
   }
 };
 
