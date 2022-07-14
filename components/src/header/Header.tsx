@@ -17,6 +17,7 @@ import {
 } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef, useMemo } from "react";
+import { useConfig } from "@bmi/head/src/contexts/ConfigProvider";
 import { GTM } from "../";
 import Button from "../button/Button";
 import Clickable, {
@@ -126,6 +127,9 @@ const Header = ({
   const elementWidths = getElementWidths(navigation);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
 
   const gtm = useMemo(() => {
     const languageSectionState = !showLanguageSelection ? "open" : "close";
@@ -254,18 +258,22 @@ const Header = ({
       >
         <Container>
           <ul>
-            {utilities.map(({ label, action }, key) => (
-              <li key={`utilities-link-${key}`} className={styles["nav-item"]}>
-                <NavUtilityLinkButton
-                  className={styles["utilities-button"]}
-                  action={action}
-                  variant="text"
-                  target="_blank"
+            {!isSpaEnabled &&
+              utilities.map(({ label, action }, key) => (
+                <li
+                  key={`utilities-link-${key}`}
+                  className={styles["nav-item"]}
                 >
-                  {label}
-                </NavUtilityLinkButton>
-              </li>
-            ))}
+                  <NavUtilityLinkButton
+                    className={styles["utilities-button"]}
+                    action={action}
+                    variant="text"
+                    target="_blank"
+                  >
+                    {label}
+                  </NavUtilityLinkButton>
+                </li>
+              ))}
             {language && languages && (
               <li className={styles["nav-item"]}>
                 <Button
@@ -373,7 +381,19 @@ const Header = ({
                 value={value === true ? 0 : value}
                 variant="scrollable"
               >
-                {navigation.map(({ label, action, menu }, key) => {
+                {(isSpaEnabled
+                  ? [
+                      {
+                        label: "Icopal",
+                        action: { model: "htmlLink" as const, href: "#" }
+                      },
+                      {
+                        label: "Brass",
+                        action: { model: "htmlLink" as const, href: "#" }
+                      }
+                    ]
+                  : navigation
+                ).map(({ label, action, menu }, key) => {
                   let clickableAction = action;
 
                   if (menu && menu.length === 1 && menu[0].action) {
@@ -430,7 +450,7 @@ const Header = ({
               </Tabs>
             </nav>
             <div className={styles["navigation-bar-buttons"]}>
-              {!isBasketEmpty && (
+              {!isBasketEmpty && !isSpaEnabled && (
                 <Button
                   accessibilityLabel={basketLabel}
                   className={classnames(styles["basket-button"])}
@@ -442,7 +462,7 @@ const Header = ({
                   <Icon source={ShoppingCartOutlined} />
                 </Button>
               )}
-              {!isSearchDisabled && (
+              {!isSearchDisabled && !isSpaEnabled && (
                 <Button
                   accessibilityLabel={searchLabel}
                   className={classnames(styles["search-button"], {

@@ -28,6 +28,7 @@ export interface EnvConfig {
     isLegacyFiltersUsing?: boolean;
     spaceMarketCode?: string;
     isV2WebToolsCalculatorEnabled?: boolean;
+    isSpaEnabled?: boolean;
     oneTrustId?: string;
   };
 }
@@ -71,6 +72,8 @@ export const envConfig: EnvConfig = {
     gcpSystemConfiguratorEndpoint:
       process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
     oneTrustId: process.env.ONETRUST_ID
+      process.env.GATSBY_GCP_SYSTEM_CONFIGURATOR_ENDPOINT,
+    isSpaEnabled: convertStrToBool(process.env.GATSBY_IS_SPA_ENABLED)
   }
 };
 

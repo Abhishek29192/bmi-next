@@ -204,7 +204,9 @@ const queries = [
 ].filter(Boolean);
 
 const elasticSearchPlugin =
-  process.env.GATSBY_PREVIEW || process.env.DISABLE_ES_INDEXING
+  process.env.GATSBY_PREVIEW ||
+  process.env.DISABLE_ES_INDEXING ||
+  process.env.GATSBY_IS_SPA_ENABLED === "true"
     ? []
     : [
         {
@@ -440,7 +442,8 @@ const config = {
         options
       };
     }),
-    ...(process.env.DISABLE_PIM_DATA === "true"
+    ...(process.env.DISABLE_PIM_DATA === "true" ||
+    process.env.GATSBY_IS_SPA_ENABLED === "true"
       ? []
       : [
           {

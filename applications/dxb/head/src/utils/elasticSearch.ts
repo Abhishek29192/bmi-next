@@ -309,6 +309,9 @@ export const getPageQueryObject = (
 export const queryElasticSearch = async (query = {}, indexName: string) => {
   const url = `${process.env.GATSBY_ES_ENDPOINT}/${indexName}/_search`;
 
+  if (process.env.GATSBY_IS_SPA_ENABLED) {
+    return;
+  }
   if (window.fetch) {
     try {
       const response = await fetch(url, {

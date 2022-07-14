@@ -17,6 +17,7 @@ import WelcomeDialog from "../components/WelcomeDialog";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
+import { useConfig } from "../contexts/ConfigProvider";
 
 type HomepageData = {
   __typename: "ContentfulHomePage";
@@ -92,14 +93,18 @@ const HomePage = ({ data, pageContext }: Props) => {
     data.contentfulSite.resources || {};
 
   const GTMButton = withGTM<ButtonProps>(Button);
-
+  const {
+    config: { isSpaEnabled }
+  } = useConfig();
   return (
     <Page
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
       variantCodeToPathMap={pageContext?.variantCodeToPathMap}
-      ogImageUrl={slides?.[0]?.featuredMedia.image?.file.url}
+      ogImageUrl={
+        !isSpaEnabled ? slides?.[0]?.featuredMedia.image?.file.url : ""
+      }
     >
       {({ siteContext }) => {
         const { countryCode, getMicroCopy } = siteContext;
@@ -108,20 +113,22 @@ const HomePage = ({ data, pageContext }: Props) => {
         return (
           <>
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              <Search
-                buttonComponent={(props) => (
-                  <GTMButton
-                    gtm={{
-                      id: "search2",
-                      label: getMicroCopy(microCopy.SEARCH_LABEL)
-                    }}
-                    {...props}
-                  />
-                )}
-                action={getPathWithCountryCode(countryCode, "search")}
-                label={getMicroCopy(microCopy.SEARCH_LABEL)}
-                placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
-              />
+              {!isSpaEnabled && (
+                <Search
+                  buttonComponent={(props) => (
+                    <GTMButton
+                      gtm={{
+                        id: "search2",
+                        label: getMicroCopy(microCopy.SEARCH_LABEL)
+                      }}
+                      {...props}
+                    />
+                  )}
+                  action={getPathWithCountryCode(countryCode, "search")}
+                  label={getMicroCopy(microCopy.SEARCH_LABEL)}
+                  placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
+                />
+              )}
             </Hero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {spaBrands?.length ? (
