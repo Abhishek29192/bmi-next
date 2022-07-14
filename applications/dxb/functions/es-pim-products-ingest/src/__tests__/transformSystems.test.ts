@@ -37,11 +37,7 @@ describe("transformSystem", () => {
       path: "/s/generated-url"
     });
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
-    expect(generateUrl).toHaveBeenCalledWith([
-      code,
-      name,
-      "hashed-system-code"
-    ]);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
   it("should transform system to object without brand", () => {
@@ -63,11 +59,7 @@ describe("transformSystem", () => {
       path: "/s/generated-url"
     });
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
-    expect(generateUrl).toHaveBeenCalledWith([
-      code,
-      name,
-      "hashed-system-code"
-    ]);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
   it("should find brand Category by categoryType", () => {
@@ -96,11 +88,7 @@ describe("transformSystem", () => {
       path: "/s/generated-url"
     });
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
-    expect(generateUrl).toHaveBeenCalledWith([
-      code,
-      name,
-      "hashed-system-code"
-    ]);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 
   it("should not find brand Category if no brand categoryType", () => {
@@ -129,10 +117,6 @@ describe("transformSystem", () => {
       path: "/s/generated-url"
     });
     expect(generateHashFromString).toHaveBeenCalledWith(code, undefined);
-    expect(generateUrl).toHaveBeenCalledWith([
-      code,
-      name,
-      "hashed-system-code"
-    ]);
+    expect(generateUrl).toHaveBeenCalledWith([name, "hashed-system-code"]);
   });
 });

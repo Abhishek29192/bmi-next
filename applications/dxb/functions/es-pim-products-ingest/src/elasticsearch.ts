@@ -15,7 +15,7 @@ const getChunks = <T extends Product | System>(items: readonly T[]): T[][] => {
     const chunk = items.slice(i, i + chunkSize);
     chunksArray.push(chunk);
   }
-  logger.info({ message: `Chunk array: ${chunksArray}` });
+  logger.info({ message: `Chunk array: ${JSON.stringify(chunksArray)}` });
   return chunksArray;
 };
 
@@ -79,7 +79,9 @@ export const updateElasticSearch = async (
   const bulkOperations = getChunks(esProducts).map((c) =>
     getBulkOperations(index, c, action)
   );
-  logger.info({ message: `all bulkOperations: ${bulkOperations}` });
+  logger.info({
+    message: `all bulkOperations: ${JSON.stringify(bulkOperations)}`
+  });
   // Having to do this synchronously as we are seeing errors and ES dropping
   // (partially or fully) requests and need to make sure this is working before
   // we make it asynchronous again.
@@ -106,7 +108,9 @@ export const updateElasticSearch = async (
         });
     }
     logger.info({
-      message: `bulk response body items: ${response.body.items}`
+      message: `bulk response body items: ${JSON.stringify(
+        response.body.items
+      )}`
     });
   }
 
