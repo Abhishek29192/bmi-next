@@ -14,6 +14,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\""
   },
   "dependencies": {
+    "@bmi/fetch-retry": "0.0.0",
     "@bmi/functions-es-client": "0.0.0",
     "@bmi/functions-firestore": "0.0.0",
     "@bmi/pim-api": "0.0.0",
