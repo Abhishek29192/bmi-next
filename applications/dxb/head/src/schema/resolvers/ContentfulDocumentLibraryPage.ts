@@ -50,7 +50,7 @@ export default {
             allowFilterBy = [];
         }
 
-        const pimDouments = await resolveDocumentsFromProducts(
+        const pimDocuments = await resolveDocumentsFromProducts(
           assetTypes,
           {
             source,
@@ -59,8 +59,8 @@ export default {
           allowFilterBy
         );
         return {
-          filters: pimDouments.filters.filter(Boolean),
-          documents: pimDouments.documents
+          filters: pimDocuments.filters.filter(Boolean),
+          documents: pimDocuments.documents
         };
       }
 
