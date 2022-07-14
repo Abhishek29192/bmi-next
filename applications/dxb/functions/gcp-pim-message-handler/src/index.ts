@@ -71,7 +71,7 @@ async function* getProductsFromMessage(
       messageId,
       token,
       currentPage,
-      LOCALE as string
+      LOCALE!
     );
 
     logger.info({
@@ -112,7 +112,7 @@ async function* getSystemsFromMessage(
       messageId,
       token,
       currentPage,
-      LOCALE as string
+      LOCALE!
     );
 
     logger.info({
