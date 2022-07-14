@@ -1,4 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
+import fetchRetry from "@bmi/fetch-retry";
 import { fetchData } from "@bmi/pim-api";
 import { PimTypes } from "@bmi/pim-types";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
@@ -18,40 +19,22 @@ const triggerFullFetch = async (
   lastStartPage: number,
   numberOfPages: number
 ): Promise<Response> => {
-  let numberOfRetries = 0;
-  let response: Response;
-
-  do {
-    logger.info({
-      message: `Triggering fetch for pages ${lastStartPage} to ${
-        lastStartPage + numberOfPages
-      } of ${type}.`
-    });
-
-    try {
-      response = await fetch(FULL_FETCH_ENDPOINT!, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          type: type,
-          startPage: lastStartPage,
-          numberOfPages: numberOfPages
-        })
-      });
-
-      if (!response.ok) {
-        logger.error({
-          message: `Failed to trigger full fetch patch for ${type}: ${response.statusText}`
-        });
-      }
-    } catch (error) {
-      logger.error({ message: (error as Error).message });
-      return Promise.reject(error);
-    }
-    numberOfRetries++;
-  } while (numberOfRetries < 5 && response.status === 429);
+  logger.info({
+    message: `Triggering fetch for pages ${lastStartPage} to ${
+      lastStartPage + numberOfPages
+    } of ${type}.`
+  });
+  const response = await fetchRetry(FULL_FETCH_ENDPOINT!, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      type: type,
+      startPage: lastStartPage,
+      numberOfPages: numberOfPages
+    })
+  });
   logger.info({ message: `Success triggerFullFetch: ${response}.` });
   return response;
 };
@@ -70,14 +53,7 @@ const triggerFullFetchBatch = async (type: PimTypes) => {
     promises.push(batchResponse);
     lastStartPage += 10;
   }
-
-  const responses = await Promise.all(promises);
-  if (
-    Math.ceil(numberOfRequests) !==
-    responses.filter((response) => response.ok).length
-  ) {
-    throw new Error(`Failed to get all of the ${type} data.`);
-  }
+  await Promise.all(promises);
   logger.info({ message: `Success for triggerFullFetchBatch type: ${type}.` });
 };
 

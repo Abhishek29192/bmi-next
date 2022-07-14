@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 import { google, youtube_v3 } from "googleapis";
-import fetch, { Response } from "node-fetch";
+import fetchRetry from "../../../../libraries/fetch-retry/src/index";
 import { getYoutubeId } from "../../../../libraries/utils/src/youtube";
 import { Node } from "./types/Gatsby";
 
@@ -30,38 +30,18 @@ const formatYoutubeDetails = (data: youtube_v3.Schema$VideoListResponse) => {
 const getYoutubeDetails = async (
   youtubeId: string
 ): Promise<youtube_v3.Schema$VideoListResponse> => {
-  let numberOfRetries = 0;
-  let response: Response;
   const url = `${process.env.YOUTUBE_CACHE_API_URL}?youtubeId=${youtubeId}`;
   const headers = {
     Authorization: `Bearer ${process.env.YOUTUBE_CACHE_BEARER_TOKEN_SECRET}`
   };
 
-  do {
-    try {
-      response = await fetch(url, {
-        method: "GET",
-        headers: headers
-      });
-
-      if (!response.ok) {
-        console.error(`Failed to get details for YouTube video ${youtubeId}`);
-      } else {
-        return await response.json();
-      }
-    } catch (error) {
-      console.error(
-        `Failed to get details for YouTube video ${youtubeId}`,
-        error
-      );
-      return Promise.reject(error);
-    }
-    numberOfRetries++;
-  } while (numberOfRetries < 5 && response.status === 429);
-
-  return undefined;
+  return await (
+    await fetchRetry(url, {
+      method: "GET",
+      headers: headers
+    })
+  ).json();
 };
-
 export default {
   videoRatio: {
     async resolve(source: Node) {
