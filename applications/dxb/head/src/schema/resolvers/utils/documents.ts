@@ -92,7 +92,7 @@ export const resolveDocumentsFromProducts = async (
           ...document,
           title: updatedTitle,
           assetType___NODE: assetType.id,
-          isLinkDocument: false,
+          isLinkDocument: document.isLinkDocument,
           product___NODE: product.code,
           productFilters: product.filters
         };
