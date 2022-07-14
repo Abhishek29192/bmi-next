@@ -31,7 +31,7 @@ export const resolveDocumentsFromProducts = async (
           elemMatch: { assetType: { in: pimAssetTypes } }
         },
         ...(source.pimCodes && source.pimCodes.length
-          ? { code: { in: source.pimCodes } }
+          ? { baseCode: { in: source.pimCodes } }
           : {}),
         ...(source.categoryCodes && source.categoryCodes.length
           ? {
