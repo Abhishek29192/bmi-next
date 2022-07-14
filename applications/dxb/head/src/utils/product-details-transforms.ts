@@ -134,7 +134,7 @@ export const getProductAttributes = (
   options: Options,
   unavailableMicroCopies: UnavailableMicroCopies,
   queryParams = "",
-  variantCodeToPathMap = undefined // when this is provided then ``
+  variantCodeToPathMap: Record<string, string> | undefined = undefined // when this is provided then ``
 ): ProductOverviewPaneProps["attributes"] => {
   const selectedTextureFamily = product.textureFamily;
   const allTextureFamilies = getAllValues(product, "textureFamily") as string[];
@@ -216,7 +216,6 @@ export const getProductAttributes = (
           }
           return getPropValue(variant, key as keyof Filters) === value;
         });
-
         if (carry.matches >= matches.length) {
           return carry;
         }
@@ -278,15 +277,20 @@ export const getProductAttributes = (
     return matchColourVariants.length > 0;
   };
 
-  const getUnavailableCTA = (variantValue: string, propName: string) => {
+  const getUnavailableCTA = (
+    variantValue: string,
+    propName: string,
+    variantCodeToPathMap?: Record<string, string> | null
+  ) => {
     const bestMatch = product.relatedVariants.find(
       // eslint-disable-next-line security/detect-object-injection
       (variant) => variant[propName] === variantValue
     );
+
     if (!bestMatch) {
       return undefined;
     }
-    let variantPath = bestMatch.path;
+    let variantPath = variantCodeToPathMap?.[bestMatch.code] || bestMatch.path;
     if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
       variantPath = queryParams.startsWith("?")
         ? `${variantPath}${queryParams}`
@@ -308,15 +312,14 @@ export const getProductAttributes = (
           "colour"
         );
         const isSelected = selectedColour && colour === selectedColour;
-        const path =
-          variantCodeToPathMap && variant
-            ? getPathWithCountryCode(
-                countryCode,
-                variantCodeToPathMap[variant.code]
-              )
-            : variant
-            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-            : getUnavailableCTA(colour, "colour");
+        const path = variant
+          ? generateVariantPathWithQuery(
+              variant,
+              queryParams,
+              countryCode,
+              variantCodeToPathMap
+            )
+          : getUnavailableCTA(colour, "colour", variantCodeToPathMap);
 
         return {
           label: colour,
@@ -353,15 +356,18 @@ export const getProductAttributes = (
         const isSelected =
           selectedTextureFamily && textureFamily === selectedTextureFamily;
 
-        const path =
-          variantCodeToPathMap && variant
-            ? getPathWithCountryCode(
-                countryCode,
-                variantCodeToPathMap[variant.code]
-              )
-            : variant
-            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-            : getUnavailableCTA(textureFamily, "textureFamily");
+        const path = variant
+          ? generateVariantPathWithQuery(
+              variant,
+              queryParams,
+              countryCode,
+              variantCodeToPathMap
+            )
+          : getUnavailableCTA(
+              textureFamily,
+              "textureFamily",
+              variantCodeToPathMap
+            );
 
         return {
           label: textureFamily,
@@ -393,15 +399,14 @@ export const getProductAttributes = (
         );
         const isSelected = key === selectedSize.label;
 
-        const path =
-          variantCodeToPathMap && variant
-            ? getPathWithCountryCode(
-                countryCode,
-                variantCodeToPathMap[variant.code]
-              )
-            : variant
-            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-            : getUnavailableCTA(key, "measurements");
+        const path = variant
+          ? generateVariantPathWithQuery(
+              variant,
+              queryParams,
+              countryCode,
+              variantCodeToPathMap
+            )
+          : getUnavailableCTA(key, "measurements", variantCodeToPathMap);
 
         return {
           label: measurements.label,
@@ -435,15 +440,18 @@ export const getProductAttributes = (
             selectedVariantAttribute === variantAttribute) ||
           false;
 
-        const path =
-          variantCodeToPathMap && variant
-            ? getPathWithCountryCode(
-                countryCode,
-                variantCodeToPathMap[variant.code]
-              )
-            : variant
-            ? generateVariantPathWithQuery(variant, queryParams, countryCode)
-            : getUnavailableCTA(variantAttribute, "variantattribute");
+        const path = variant
+          ? generateVariantPathWithQuery(
+              variant,
+              queryParams,
+              countryCode,
+              variantCodeToPathMap
+            )
+          : getUnavailableCTA(
+              variantAttribute,
+              "variantattribute",
+              variantCodeToPathMap
+            );
 
         return {
           label: variantAttribute,
@@ -488,9 +496,10 @@ export const getDefaultPreviewImage = (videoUrl: string) =>
 const generateVariantPathWithQuery = (
   variant: RelatedVariant,
   queryParams: string,
-  countryCode: string
+  countryCode: string,
+  variantCodeToPathMap?: Record<string, string> | null
 ) => {
-  let variantPath = variant.path;
+  let variantPath = variantCodeToPathMap?.[variant.code] || variant.path;
   if (queryParams && queryParams.length > 0 && variantPath.indexOf("?") < 0) {
     variantPath = queryParams.startsWith("?")
       ? `${variantPath}${queryParams}`
