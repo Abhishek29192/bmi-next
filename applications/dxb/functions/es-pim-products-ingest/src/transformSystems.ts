@@ -15,7 +15,7 @@ export const transformSystem = (system: PimSystem): EsSystem => {
   const { approvalStatus, type, images, code, name, shortDescription } = system;
   const brand = getBrandCode(system.categories);
   const hashedCode = generateHashFromString(code);
-  const path = `/s/${generateUrl([code, name, hashedCode])}`;
+  const path = `/s/${generateUrl([name, hashedCode])}`;
   logger.info({
     message: `System brand: ${brand}`
   });
