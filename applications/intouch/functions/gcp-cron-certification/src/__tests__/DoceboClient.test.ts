@@ -92,8 +92,7 @@ describe("DoceboClient", () => {
           userId: record["user.idUser"],
           title: record["certification.title"],
           code: record["certification.code"],
-          expiration: record["certification.expiration"],
-          to_renew_in: record["enrollment.to_renew_in"]
+          toNewIn: record["enrollment.to_renew_in"]
         })
       ]);
     });

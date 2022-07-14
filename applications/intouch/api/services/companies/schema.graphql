@@ -6242,6 +6242,12 @@ type Mutation {
   sendReminderToIncompleteCompanyProfile: String
   restartGuarantee(projectId: Int!): String
   archiveProjects: String
+  truncateAndInsertCertification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: TruncateAndInsertCertificationInput
+  ): String
 }
 
 """The output of our create `Address` mutation."""
@@ -22669,6 +22675,17 @@ type Auth0ImportResult {
 input ImportAccountsCompaniesFromCSVInput {
   files: [Upload!]!
   dryRun: Boolean
+}
+
+input TruncateAndInsertCertificationInput {
+  certificates: [DoceboCertification]
+}
+
+input DoceboCertification {
+  userId: String
+  code: String
+  title: String
+  toNewIn: String
 }
 
 """
