@@ -7329,6 +7329,13 @@ export type DeleteSystemPayloadSystemEdgeArgs = {
   orderBy?: InputMaybe<Array<SystemsOrderBy>>;
 };
 
+export type DoceboCertification = {
+  code?: InputMaybe<Scalars["String"]>;
+  title?: InputMaybe<Scalars["String"]>;
+  toNewIn?: InputMaybe<Scalars["String"]>;
+  userId?: InputMaybe<Scalars["String"]>;
+};
+
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
   sys: Sys;
@@ -11915,6 +11922,7 @@ export type Mutation = {
   resetPasswordImportedUsers?: Maybe<ResetPasswordImportedUsersResult>;
   restartGuarantee?: Maybe<Scalars["String"]>;
   sendReminderToIncompleteCompanyProfile?: Maybe<Scalars["String"]>;
+  truncateAndInsertCertification?: Maybe<Scalars["String"]>;
   /** Updates a single `Account` using a unique key and a patch. */
   updateAccount?: Maybe<UpdateAccountPayload>;
   /** Updates a single `Account` using a unique key and a patch. */
@@ -12606,6 +12614,11 @@ export type MutationResetPasswordImportedUsersArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationRestartGuaranteeArgs = {
   projectId: Scalars["Int"];
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationTruncateAndInsertCertificationArgs = {
+  input?: InputMaybe<TruncateAndInsertCertificationInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -18076,6 +18089,10 @@ export type TrainingContentOrder =
   | "sys_publishedAt_DESC"
   | "sys_publishedVersion_ASC"
   | "sys_publishedVersion_DESC";
+
+export type TruncateAndInsertCertificationInput = {
+  certificates?: InputMaybe<Array<InputMaybe<DoceboCertification>>>;
+};
 
 /** All input for the `updateAccountByDoceboUserId` mutation. */
 export type UpdateAccountByDoceboUserIdInput = {

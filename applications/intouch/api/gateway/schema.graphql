@@ -12147,6 +12147,13 @@ The 'Dimension' type represents dimensions as whole numeric values between `1` a
 """
 scalar Dimension
 
+input DoceboCertification {
+  code: String
+  title: String
+  toNewIn: String
+  userId: String
+}
+
 interface Entry {
   contentfulMetadata: ContentfulMetadata!
   sys: Sys!
@@ -19610,6 +19617,12 @@ type Mutation {
   ): resetPasswordImportedUsersResult
   restartGuarantee(projectId: Int!): String
   sendReminderToIncompleteCompanyProfile: String
+  truncateAndInsertCertification(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: TruncateAndInsertCertificationInput
+  ): String
 
   """
   Updates a single `Account` using a unique key and a patch.
@@ -29053,6 +29066,10 @@ enum TrainingContentOrder {
   sys_publishedAt_DESC
   sys_publishedVersion_ASC
   sys_publishedVersion_DESC
+}
+
+input TruncateAndInsertCertificationInput {
+  certificates: [DoceboCertification]
 }
 
 """

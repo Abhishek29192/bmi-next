@@ -32,6 +32,7 @@ import { resetPassword } from "../../services/account";
 import { getDocumentType } from "../../utils/companyDocument";
 import { PostGraphileContext } from "../../types";
 import * as reminderMutation from "../../services/reminder";
+import * as certificateMutation from "../../services/certification";
 import typeDefs from "./typeDefs";
 
 const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
@@ -250,7 +251,8 @@ const ExtendSchemaPlugin = makeExtendSchemaPlugin((build) => {
         ) => {
           return restartGuarantee(args, context);
         },
-        ...reminderMutation
+        ...reminderMutation,
+        ...certificateMutation
       },
       ImportAccountsCompaniesFromCSVResult: {
         accounts: async (parent, args, context, resolveInfo) => {
