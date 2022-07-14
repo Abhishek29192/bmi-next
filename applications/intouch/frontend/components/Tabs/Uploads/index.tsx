@@ -299,6 +299,7 @@ export const UploadsTab = ({ project }: UploadsTabProps) => {
             <Button
               variant="outlined"
               onClick={() => setEvidenceDialogOpen(true)}
+              data-testid="add-evidence-button"
             >
               {t("upload_tab.header")}
             </Button>
