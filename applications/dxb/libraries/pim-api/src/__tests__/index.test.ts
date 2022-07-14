@@ -62,7 +62,7 @@ describe("fetchData", () => {
     delete process.env.PIM_CLIENT_ID;
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -80,7 +80,7 @@ describe("fetchData", () => {
     delete process.env.PIM_OAUTH_CLIENT_SECRET;
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -101,7 +101,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -133,7 +133,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -167,7 +167,7 @@ describe("fetchData", () => {
     });
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -215,7 +215,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual("Expected error");
@@ -273,7 +273,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toEqual(
@@ -333,7 +333,7 @@ describe("fetchData", () => {
     );
 
     try {
-      await fetchData(PimTypes.Products, process.env.LOCALE as string);
+      await fetchData(PimTypes.Products, process.env.LOCALE!);
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
       expect((error as Error).message).toStrictEqual(
@@ -387,10 +387,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(
-      PimTypes.Products,
-      process.env.LOCALE as string
-    );
+    const response = await fetchData(PimTypes.Products, process.env.LOCALE!);
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -439,10 +436,7 @@ describe("fetchData", () => {
       }
     );
 
-    const response = await fetchData(
-      PimTypes.Systems,
-      process.env.LOCALE as string
-    );
+    const response = await fetchData(PimTypes.Systems, process.env.LOCALE!);
 
     const body = fetchMock.lastOptions(pimAuthTokenUrl)!.body;
     const expectedUrlencoded = new URLSearchParams();
@@ -493,7 +487,7 @@ describe("fetchData", () => {
 
     const response = await fetchData(
       PimTypes.Products,
-      process.env.LOCALE as string,
+      process.env.LOCALE!,
       18
     );
 
@@ -536,7 +530,7 @@ describe("getProductsByMessageId", () => {
         "message-id",
         "token",
         1,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -557,7 +551,7 @@ describe("getProductsByMessageId", () => {
         "message-id",
         "token",
         1,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -581,7 +575,7 @@ describe("getProductsByMessageId", () => {
         "message-id",
         "token",
         1,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -642,7 +636,7 @@ describe("getProductsByMessageId", () => {
         messageId,
         token,
         currentPage,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -717,7 +711,7 @@ describe("getProductsByMessageId", () => {
         messageId,
         token,
         currentPage,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -786,7 +780,7 @@ describe("getProductsByMessageId", () => {
       messageId,
       token,
       currentPage,
-      process.env.LOCALE as string
+      process.env.LOCALE!
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
@@ -833,7 +827,7 @@ describe("getSystemsByMessageId", () => {
         "message-id",
         "token",
         1,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -876,7 +870,7 @@ describe("getSystemsByMessageId", () => {
         messageId,
         token,
         currentPage,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -951,7 +945,7 @@ describe("getSystemsByMessageId", () => {
         messageId,
         token,
         currentPage,
-        process.env.LOCALE as string
+        process.env.LOCALE!
       );
       expect(false).toEqual("An error should have been thrown");
     } catch (error) {
@@ -1020,7 +1014,7 @@ describe("getSystemsByMessageId", () => {
       messageId,
       token,
       currentPage,
-      process.env.LOCALE as string
+      process.env.LOCALE!
     );
 
     expect(actualProducts).toStrictEqual(expectedProducts);
