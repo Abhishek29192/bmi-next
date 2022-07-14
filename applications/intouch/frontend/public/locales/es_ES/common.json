@@ -60,13 +60,14 @@
     "older": "Más de 2 meses",
     "today": "Hoy"
   },
+  "requiredInformation": "información requerida",
   "results available": "Resultados disponibles",
   "roles": {
+    "AUDITOR": "Auditor",
     "COMPANY_ADMIN": "Administrador de la empresa",
     "INSTALLER": "Miembro",
     "MARKET_ADMIN": "Administrador de BMI",
-    "SUPER_ADMIN": "Super Admin",
-    "AUDITOR": "Auditor"
+    "SUPER_ADMIN": "Super Admin"
   },
   "session": {
     "dialog": {
@@ -86,6 +87,5 @@
   "button": {
     "more": "Mostrar más",
     "less": "Muestra menos"
-  },
-  "requiredInformation": "información requerida"
+  }
 }

@@ -60,13 +60,14 @@
     "older": "Mais de 2 meses",
     "today": "Hoje"
   },
+  "requiredInformation": "informação requerida",
   "results available": "Resultados disponíveis",
   "roles": {
+    "AUDITOR": "Auditor",
     "COMPANY_ADMIN": "Gerente de empresa",
     "INSTALLER": "Membro",
     "MARKET_ADMIN": "Administrador de BMI",
-    "SUPER_ADMIN": "super administrador",
-    "AUDITOR": "Auditor"
+    "SUPER_ADMIN": "super administrador"
   },
   "session": {
     "dialog": {
@@ -78,14 +79,13 @@
   },
   "tier": {
     "T1": "Membro",
-    "T2": "parceiros",
-    "T3": "especialista",
+    "T2": "Partner - Inclinado",
+    "T3": "Partner - Plana",
     "T4": "Elite"
   },
   "visitWebsite": "visite o site",
   "button": {
     "more": "Mostre mais",
     "less": "mostre menos"
-  },
-  "requiredInformation": "informação requerida"
+  }
 }
