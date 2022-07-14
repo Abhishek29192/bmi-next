@@ -43,7 +43,6 @@ export type Data = {
   headScripts?: {
     headScripts: string;
   } | null;
-  scriptOnetrust?: string | null;
   regions: Region[];
 };
 
@@ -72,7 +71,6 @@ export const query = graphql`
     headScripts {
       headScripts
     }
-    scriptOnetrust
     regions {
       ...RegionFragment
     }

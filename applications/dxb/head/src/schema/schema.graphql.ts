@@ -487,7 +487,6 @@ type ContentfulSite implements Node {
   footerSecondaryNavigation: ContentfulNavigation @link(from: "footerSecondaryNavigation___NODE")
   resources: ContentfulResources @link(from: "resources___NODE")
   headScripts: contentfulSiteHeadScriptsTextNode @link(from: "headScripts___NODE")
-  scriptOnetrust: String
   regions: [RegionJson]! @link(from: "regions___NODE")
 }
 
