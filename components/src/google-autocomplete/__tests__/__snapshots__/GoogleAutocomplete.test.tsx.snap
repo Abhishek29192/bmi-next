@@ -144,3 +144,22 @@ exports[`GoogleAutocomplete component loader renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`GoogleAutocomplete component renders options correctly renders correctly if options are strings 1`] = `
+<ul
+  aria-labelledby="google-autocomplete-test-label"
+  class="MuiAutocomplete-listbox"
+  id="google-autocomplete-test-popup"
+  role="listbox"
+>
+  <li
+    aria-disabled="false"
+    aria-selected="false"
+    class="MuiAutocomplete-option"
+    data-option-index="0"
+    id="google-autocomplete-test-option-0"
+    role="option"
+    tabindex="-1"
+  />
+</ul>
+`;
