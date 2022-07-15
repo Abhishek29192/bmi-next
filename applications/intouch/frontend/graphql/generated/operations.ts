@@ -1818,6 +1818,7 @@ export type GetProjectCompanyMembersQueryVariables = SchemaTypes.Exact<{
   existAccounts?: SchemaTypes.InputMaybe<
     Array<SchemaTypes.Scalars["Int"]> | SchemaTypes.Scalars["Int"]
   >;
+  companyId: SchemaTypes.Scalars["Int"];
 }>;
 
 export type GetProjectCompanyMembersQuery = {
