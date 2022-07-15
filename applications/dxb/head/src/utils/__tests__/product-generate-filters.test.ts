@@ -4,31 +4,13 @@ import { generateFilters } from "../product-filters";
 
 describe("product-filters geterateFilters tests", () => {
   describe("CategoryFilters tests", () => {
-    describe("When categories and allowed filters are not pased", () => {
-      it("should return empty productFilters", () => {
-        expect(generateFilters()).toEqual([]);
-      });
-    });
-
-    describe("When firestore filters are null", () => {
-      it("should return empty productFilters", () => {
-        const allowedFilters = new Map<string, string[]>();
-        expect(generateFilters(null, allowedFilters, allowedFilters)).toEqual(
-          []
-        );
-      });
-    });
-
-    describe("When categories and feature filters are null", () => {
-      it("should return empty productFilters", () => {
-        expect(generateFilters([], null, null)).toEqual([]);
-      });
-    });
     describe("When categories are empty array", () => {
       it("should return empty productFilters", () => {
         const categoryFilter = new Map<string, string[]>();
         categoryFilter.set("Category", []);
-        expect(generateFilters([], categoryFilter, null)).toEqual([]);
+        expect(generateFilters([], categoryFilter, null, new Map())).toEqual(
+          []
+        );
       });
     });
 
@@ -40,7 +22,8 @@ describe("product-filters geterateFilters tests", () => {
           generateFilters(
             [createFirestoreFilter()],
             categoryFilter,
-            classFilter
+            classFilter,
+            new Map()
           )
         ).toEqual([]);
       });
@@ -56,7 +39,8 @@ describe("product-filters geterateFilters tests", () => {
             generateFilters(
               [createFirestoreFilter()],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([]);
         });
@@ -82,13 +66,14 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([
             {
               filterCode: "Category",
               name: "Category",
-              label: "filterLabels.Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {
@@ -124,13 +109,14 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([
             {
               filterCode: "Category",
               name: "Category",
-              label: "filterLabels.Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {
@@ -169,13 +155,14 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([
             {
               filterCode: "Category",
               name: "Category",
-              label: "filterLabels.Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {
@@ -211,13 +198,14 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "filterLabels.PITCHROOF_NO",
+              label: "MC:filterLabels.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -259,13 +247,14 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([
             {
               filterCode: "Category",
               name: "Category",
-              label: "filterLabels.Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {
@@ -285,7 +274,7 @@ describe("product-filters geterateFilters tests", () => {
             {
               filterCode: "PITCHROOF_NO",
               name: "PITCHROOF_NO",
-              label: "filterLabels.PITCHROOF_NO",
+              label: "MC:filterLabels.PITCHROOF_NO",
               value: [],
               options: [
                 {
@@ -325,13 +314,14 @@ describe("product-filters geterateFilters tests", () => {
                   })
                 ],
                 categoryFilter,
-                classFilter
+                classFilter,
+                new Map()
               )
             ).toEqual([
               {
                 filterCode: "Category",
                 name: "Category",
-                label: "filterLabels.Category",
+                label: "MC:filterLabels.Category",
                 value: [],
                 options: [
                   {
@@ -350,7 +340,7 @@ describe("product-filters geterateFilters tests", () => {
               {
                 filterCode: "PITCHROOF_NO",
                 name: "PITCHROOF_NO",
-                label: "filterLabels.PITCHROOF_NO",
+                label: "MC:filterLabels.PITCHROOF_NO",
                 value: [],
                 options: [
                   {
@@ -364,42 +354,187 @@ describe("product-filters geterateFilters tests", () => {
           });
         });
       });
+
+      it("should return microcopied value for group label if present", () => {
+        const categoryFilter = new Map<string, string[]>();
+        categoryFilter.set("PITCHROOF_NO", []);
+        categoryFilter.set("Category", []);
+        const classFilter = new Map<string, string[]>();
+        expect(
+          generateFilters(
+            [
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-1",
+                name: "category-1",
+                parentFilterCode: "PITCHROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-2",
+                name: "category-2",
+                parentFilterCode: "PITCHROOF_NO"
+              })
+            ],
+            categoryFilter,
+            classFilter,
+            new Map([
+              ["filterLabels.Category", "Category Group Label"],
+              ["filterLabels.PITCHROOF_NO", "Pitched Roof Group Label"]
+            ])
+          )
+        ).toEqual([
+          {
+            filterCode: "Category",
+            name: "Category",
+            label: "Category Group Label",
+            value: [],
+            options: [
+              {
+                label: "category-1",
+                value: "category-1",
+
+                sortValue: "category-1"
+              },
+              {
+                label: "category-2",
+                value: "category-2",
+
+                sortValue: "category-2"
+              }
+            ]
+          },
+          {
+            filterCode: "PITCHROOF_NO",
+            name: "PITCHROOF_NO",
+            label: "Pitched Roof Group Label",
+            value: [],
+            options: [
+              {
+                label: "category-1",
+                value: "category-1",
+                sortValue: "category-1"
+              },
+              {
+                label: "category-2",
+                value: "category-2",
+                sortValue: "category-2"
+              }
+            ]
+          }
+        ]);
+      });
+
+      it("should return override firestore group label with microcopied value if present", () => {
+        const categoryFilter = new Map<string, string[]>();
+        categoryFilter.set("PITCHROOF_NO", []);
+        categoryFilter.set("FLATROOF_NO", []);
+        const classFilter = new Map<string, string[]>();
+        expect(
+          generateFilters(
+            [
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-1",
+                name: "category-1",
+                groupLabel: "parent-category-1",
+                parentFilterCode: "PITCHROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-2",
+                name: "category-2",
+                groupLabel: "parent-category-1",
+                parentFilterCode: "PITCHROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "PITCHROOF_NO",
+                code: "parent-category-1",
+                name: "parent-category-1",
+                parentFilterCode: ""
+              }),
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-3",
+                name: "category-3",
+                groupLabel: "parent-category-2",
+                parentFilterCode: "FLATROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "Category",
+                code: "category-4",
+                name: "category-4",
+                groupLabel: "parent-category-2",
+                parentFilterCode: "FLATROOF_NO"
+              }),
+              createFirestoreFilter({
+                filterCode: "FLATROOF_NO",
+                code: "parent-category-2",
+                name: "parent-category-2",
+                parentFilterCode: ""
+              })
+            ],
+            categoryFilter,
+            classFilter,
+            new Map([["filterLabels.PITCHROOF_NO", "Pitched Roof Group Label"]])
+          )
+        ).toEqual([
+          {
+            filterCode: "PITCHROOF_NO",
+            name: "PITCHROOF_NO",
+            label: "Pitched Roof Group Label",
+            value: [],
+            options: [
+              {
+                label: "category-1",
+                value: "category-1",
+                sortValue: "category-1"
+              },
+              {
+                label: "category-2",
+                value: "category-2",
+                sortValue: "category-2"
+              }
+            ]
+          },
+          {
+            filterCode: "FLATROOF_NO",
+            name: "FLATROOF_NO",
+            label: "parent-category-2",
+            value: [],
+            options: [
+              {
+                label: "category-3",
+                value: "category-3",
+                sortValue: "category-3"
+              },
+              {
+                label: "category-4",
+                value: "category-4",
+                sortValue: "category-4"
+              }
+            ]
+          }
+        ]);
+      });
     });
   });
 
   describe("ClassificationFeatureFilters tests", () => {
-    describe("When allowFilters is not passed", () => {
-      it("should return empty productFilters", () => {
-        expect(generateFilters()).toEqual([]);
-      });
-    });
-
     describe("When allowFilters is emtpy array", () => {
       it("should return empty productFilters", () => {
-        const classFilter = new Map<string, string[]>();
         expect(
           generateFilters(
             [createFirestoreFilter({ isCategory: false })],
-            null,
-            classFilter
+            new Map(),
+            new Map(),
+            new Map()
           )
         ).toEqual([]);
       });
     });
 
     describe("When allowFilters criteria is NOT emtpy array", () => {
-      describe("classification features are null", () => {
-        it("should return empty productFilters", () => {
-          const categoryFilter = new Map<string, string[]>();
-          categoryFilter.set("some-filter-category", []);
-          const classFilter = new Map<string, string[]>();
-          classFilter.set("feature-1", []);
-          expect(generateFilters(null, categoryFilter, classFilter)).toEqual(
-            []
-          );
-        });
-      });
-
       describe("And None of the filterBy criteria match classification features", () => {
         it("should return empty productFilters", () => {
           const categoryFilter = new Map<string, string[]>();
@@ -410,7 +545,8 @@ describe("product-filters geterateFilters tests", () => {
             generateFilters(
               [createFirestoreFilter({ isCategory: false })],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             )
           ).toEqual([]);
         });
@@ -445,7 +581,8 @@ describe("product-filters geterateFilters tests", () => {
                   })
                 ],
                 categoryFilter,
-                classFilter
+                classFilter,
+                new Map()
               );
               expect(result).toEqual([
                 {
@@ -469,23 +606,6 @@ describe("product-filters geterateFilters tests", () => {
               ]);
             });
           });
-          //TODO: check with Ben, if this case is possible now?
-          // or if the classificiations without any values can be filtered out in firestore xform
-          // describe("And feature has NO values", () => {
-          //   it("returns no filters", () => {
-          //     const result: ProductFilter[] = generateFilters(
-          //       [
-          //         createFilter({
-          //           filterCode: "roofAttributes.minimumpitch",
-          //           code: "roofAttributes.minimumpitch",
-          //           unit: "°"
-          //         })
-          //       ],
-          //       ["roofAttributes.minimumpitch"]
-          //     );
-          //     expect(result).toEqual([]);
-          //   });
-          // });
 
           describe("And feature code but has no feature unit", () => {
             it("returns matching filters", () => {
@@ -514,7 +634,8 @@ describe("product-filters geterateFilters tests", () => {
                   })
                 ],
                 categoryFilter,
-                classFilter
+                classFilter,
+                new Map()
               );
               expect(result).toEqual([
                 {
@@ -566,7 +687,8 @@ describe("product-filters geterateFilters tests", () => {
                   })
                 ],
                 categoryFilter,
-                classFilter
+                classFilter,
+                new Map()
               );
               expect(result).toEqual([
                 {
@@ -645,7 +767,8 @@ describe("product-filters geterateFilters tests", () => {
                     })
                   ],
                   categoryFilter,
-                  classFilter
+                  classFilter,
+                  new Map()
                 );
 
                 expect(result).toEqual([
@@ -725,7 +848,8 @@ describe("product-filters geterateFilters tests", () => {
                     })
                   ],
                   categoryFilter,
-                  classFilter
+                  classFilter,
+                  new Map()
                 );
                 expect(result).toEqual([
                   {
@@ -821,7 +945,8 @@ describe("product-filters geterateFilters tests", () => {
                   })
                 ],
                 categoryFilter,
-                classFilter
+                classFilter,
+                new Map()
               );
               expect(result).toEqual([
                 {
@@ -902,7 +1027,8 @@ describe("product-filters geterateFilters tests", () => {
                 })
               ],
               categoryFilter,
-              classFilter
+              classFilter,
+              new Map()
             );
             expect(result).toEqual([]);
           });
@@ -943,7 +1069,8 @@ describe("product-filters geterateFilters tests", () => {
               })
             ],
             categoryFilter,
-            classFilter
+            classFilter,
+            new Map()
           );
           expect(result).toEqual([]);
         });

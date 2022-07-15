@@ -70,7 +70,10 @@ describe("Query resolver", () => {
     });
 
     it("should handle empty products list", async () => {
-      context.nodeModel.findAll = jest.fn().mockResolvedValue({ entries: [] });
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({ entries: [] })
+        .mockResolvedValueOnce({ entries: [] });
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual({
         allowFilterBy: [],
@@ -89,12 +92,15 @@ describe("Query resolver", () => {
 
     it("should run query without filters if not provided", async () => {
       const filters = { allowFilterBy: [], filters: [] };
-      getPlpFilters.mockResolvedValue([]);
-      context.nodeModel.findAll = jest.fn().mockResolvedValue({
-        entries: [
-          { categories: [{ code: "category-1" }, { code: "category-2" }] }
-        ]
-      });
+      getPlpFilters.mockReturnValue([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({
+          entries: [
+            { categories: [{ code: "category-1" }, { code: "category-2" }] }
+          ]
+        })
+        .mockResolvedValueOnce({ entries: [] });
 
       expect(
         await Query.plpFilters.resolve(
@@ -112,10 +118,11 @@ describe("Query resolver", () => {
 
     it("should run query if resolved categories is empty", async () => {
       const filters = { allowFilterBy: [], filters: [] };
-      getPlpFilters.mockResolvedValue([]);
+      getPlpFilters.mockReturnValue([]);
       context.nodeModel.findAll = jest
         .fn()
-        .mockResolvedValue({ entries: [{ categories: null }] });
+        .mockResolvedValueOnce({ entries: [{ categories: null }] })
+        .mockResolvedValueOnce({ entries: [] });
 
       expect(
         await Query.plpFilters.resolve(null, { ...args }, context)
@@ -139,14 +146,17 @@ describe("Query resolver", () => {
 
     it("should resolve plp filters", async () => {
       const filters = { allowFilterBy: [], filters: [] };
-      getPlpFilters = jest.fn().mockResolvedValue([]);
-      context.nodeModel.findAll = jest.fn().mockResolvedValue({
-        entries: [
-          {
-            code: "product-1"
-          }
-        ]
-      });
+      getPlpFilters = jest.fn().mockReturnValue([]);
+      context.nodeModel.findAll = jest
+        .fn()
+        .mockResolvedValueOnce({
+          entries: [
+            {
+              code: "product-1"
+            }
+          ]
+        })
+        .mockResolvedValueOnce({ entries: [] });
 
       expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
         filters
@@ -154,7 +164,8 @@ describe("Query resolver", () => {
 
       expect(getPlpFilters).toHaveBeenCalledWith({
         allowedFilters: [],
-        products: [{ code: "product-1" }]
+        products: [{ code: "product-1" }],
+        microCopies: new Map()
       });
     });
 
@@ -162,19 +173,22 @@ describe("Query resolver", () => {
       it("should resolve plp filters with product categories", async () => {
         process.env.GATSBY_USE_LEGACY_FILTERS = "false";
         const filters = { allowFilterBy: ["PRODUCT_NO"], filters: [] };
-        getPlpFilters = jest.fn().mockResolvedValue([]);
-        context.nodeModel.findAll = jest.fn().mockResolvedValue({
-          entries: [
-            {
-              code: "product-1",
-              categories: [],
-              groups: [
-                { label: "cat 1", code: "PRODUCT_NO" },
-                { label: "cat 2", code: "PRODUCT_NO" }
-              ]
-            }
-          ]
-        });
+        getPlpFilters = jest.fn().mockReturnValue([]);
+        context.nodeModel.findAll = jest
+          .fn()
+          .mockResolvedValueOnce({
+            entries: [
+              {
+                code: "product-1",
+                categories: [],
+                groups: [
+                  { label: "cat 1", code: "PRODUCT_NO" },
+                  { label: "cat 2", code: "PRODUCT_NO" }
+                ]
+              }
+            ]
+          })
+          .mockResolvedValueOnce({ entries: [] });
 
         expect(await Query.plpFilters.resolve(null, args, context)).toEqual(
           filters
@@ -197,7 +211,8 @@ describe("Query resolver", () => {
                 }
               ]
             }
-          ]
+          ],
+          microCopies: new Map()
         });
       });
     });

@@ -390,15 +390,11 @@ const getFilters = (
   const categoryFilters = categories.flatMap((category) => {
     let groupLabel = undefined;
     if (category.parentCategoryCode && category.parentCategoryCode.length > 0) {
-      const parentCaegory: PimCategory[] = categories.filter(
+      const parentCategory: PimCategory[] = categories.filter(
         (cat) => cat.code === category.parentCategoryCode
       );
-      if (
-        parentCaegory &&
-        parentCaegory.length &&
-        parentCaegory[0].name.length
-      ) {
-        groupLabel = parentCaegory[0].name;
+      if (parentCategory[0]?.name.length) {
+        groupLabel = parentCategory[0].name;
       }
     }
     const categoryType: Filter = {

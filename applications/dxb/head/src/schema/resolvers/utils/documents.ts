@@ -67,9 +67,25 @@ export const resolveDocumentsFromProducts = async (
     type: "ContentfulResources"
   });
 
+  const { entries: resourceEntries } =
+    await context.nodeModel.findAll<MicroCopy>(
+      {
+        query: {},
+        type: "ContentfulMicroCopy"
+      },
+      { connectionType: "ContentfulMicroCopy" }
+    );
+  const filterMicroCopies: Map<string, string> = [...resourceEntries].reduce(
+    (map, microCopy) => {
+      return map.set(microCopy.key, microCopy.value);
+    },
+    new Map()
+  );
+
   const productFilters = getPlpFilters({
     products: products,
-    allowedFilters: allowedFilters || []
+    allowedFilters: allowedFilters || [],
+    microCopies: filterMicroCopies
   });
 
   const result = products.flatMap((product) =>
