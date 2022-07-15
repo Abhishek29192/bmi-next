@@ -1,5 +1,9 @@
 import mockConsole from "jest-mock-console";
-import { ResultsRow, VergeMetalFlushOption } from "../../types";
+import {
+  ProductCategory,
+  ResultsRow,
+  VergeMetalFlushOption
+} from "../../types";
 import { Measurements } from "../../types/roof";
 import QuantitiesCalculator, {
   convertProductRowToResultsRow,
@@ -265,7 +269,7 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "5555550",
         image:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        category: "accessories",
+        category: ProductCategory.Accessories,
         packSize: 2
       }
     ],
@@ -276,7 +280,7 @@ const input: QuantitiesCalculatorProps = {
         externalProductCode: "5555551",
         image:
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h77/hdc/8975277129758/Product-Hero-Small-Desktop-Tablet-44134186-Icopal-Takshingel-type-S-Kullsortjpg",
-        category: "accessories"
+        category: ProductCategory.Accessories
       }
     ],
     clip: {
@@ -285,7 +289,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Clips",
       externalProductCode: "113456781",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     ridgeAndHipScrew: {
       code: "ridgeAndHipScrew",
@@ -293,7 +297,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ridge and Hip Screw",
       externalProductCode: "113456782",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     longScrew: {
       code: "longScrew",
@@ -301,7 +305,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Long Screw",
       externalProductCode: "113456783",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     screw: {
       code: "screw",
@@ -309,7 +313,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Screw",
       externalProductCode: "113456784",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     stormBracket: {
       code: "stormBracket",
@@ -317,7 +321,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Storm Bracket",
       externalProductCode: "113456785",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     finishingKit: {
       code: "finishingKit",
@@ -325,7 +329,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Finishing Kit",
       externalProductCode: "113456786",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     ventilationHoodOptions: [
       {
@@ -334,7 +338,7 @@ const input: QuantitiesCalculatorProps = {
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 1",
         externalProductCode: "100456781",
-        category: "ventilation"
+        category: ProductCategory.Ventilation
       },
       {
         code: "vho2",
@@ -342,7 +346,7 @@ const input: QuantitiesCalculatorProps = {
           "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
         name: "Ventilation Hood 2",
         externalProductCode: "100456782",
-        category: "ventilation"
+        category: ProductCategory.Ventilation
       }
     ],
     minBattenGauge: 31,
@@ -452,7 +456,7 @@ const input: QuantitiesCalculatorProps = {
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/ha8/hf4/8975277850654/Product-Hero-Small-Desktop-Tablet-44134160-Icopal-Takshingel-type-S-Teglrodjpg",
       name: "Ventilation Hood 1",
       externalProductCode: "100456781",
-      category: "ventilation"
+      category: ProductCategory.Ventilation
     }
   ],
   underlay: {
@@ -480,7 +484,7 @@ const input: QuantitiesCalculatorProps = {
       image:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33332",
-      category: "accessories"
+      category: ProductCategory.Accessories
     },
     downpipeConnector: {
       code: "Downpipe_Connector",
@@ -488,7 +492,7 @@ const input: QuantitiesCalculatorProps = {
       image:
         "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
       externalProductCode: "33331",
-      category: "accessories"
+      category: ProductCategory.Accessories
     }
   },
   gutteringHook: {
@@ -1171,7 +1175,11 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     const calculator = new QuantitiesCalculator(input);
 
     expect(() => {
-      calculator.addProduct("ventilation", input.mainTileVariant, 5);
+      calculator.addProduct(
+        ProductCategory.Ventilation,
+        input.mainTileVariant,
+        5
+      );
     }).toThrow(
       `Product of code: ${input.mainTileVariant.code} is being added to two different category`
     );
@@ -1225,6 +1233,41 @@ describe("PitchedRoofCalculator QuantitiesCalculator", () => {
     });
 
     expect(results).toMatchSnapshot();
+  });
+
+  it("returns data for all ridges", () => {
+    const tRidge = {
+      code: "275213122_Zanda_Protector_T_ridge_black",
+      name: "Zanda Protector T-møne",
+      externalProductCode: "46035833",
+      image:
+        "https://bmipimngqa.azureedge.net/sys-master-hybris-media/h93/h6b/9003661230110/Product-Color-Selector-Mobile-Zanda-Protector-T-monejpg",
+      length: 35
+    };
+    const yRidge = {
+      code: "275215122_Zanda_Protector_Y_ridge_black",
+      name: "Zanda Protector valmtetning",
+      externalProductCode: "46035897",
+      image:
+        "https://bmipimngqa.azureedge.net/sys-master-hybris-media/he1/hcd/9003550212126/Product-Color-Selector-Mobile-275215122-Concrete-Y-Ridge-Protector20-Blackjpg",
+      length: 25
+    };
+    const ridgeEnd = {
+      code: "275216122_Zanda_Protector_ridge_end_black",
+      name: "Zanda Protector møneavslutning",
+      externalProductCode: "46035920",
+      image:
+        "https://bmipimngqa.azureedge.net/sys-master-hybris-media/hb2/h24/9003659788318/Product-Color-Selector-Mobile-Zanda-Protector-moneavslutningjpg",
+      length: 25
+    };
+
+    const calculator = new QuantitiesCalculator({
+      ...input,
+      ridge: { ...input.ridge, tRidge, yRidge, ridgeEnd }
+    });
+    expect(calculator.results.get(tRidge.code)).toBeTruthy();
+    expect(calculator.results.get(yRidge.code)).toBeTruthy();
+    expect(calculator.results.get(ridgeEnd.code)).toBeTruthy();
   });
 
   it("returns data without half tiles", () => {

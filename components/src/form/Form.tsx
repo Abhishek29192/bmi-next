@@ -1,9 +1,9 @@
 import classnames from "classnames";
 import React, { FormEvent, useState } from "react";
-import Button from "./_Button";
 import styles from "./Form.module.scss";
-import SubmitButton from "./_SubmitButton";
 import { InputValue } from "./withFormControl";
+import Button from "./_Button";
+import SubmitButton from "./_SubmitButton";
 
 export type Values = Record<string, InputValue | undefined>;
 type ValidationPasses = false | "" | null | undefined;
@@ -19,7 +19,7 @@ export type Props = Omit<React.HTMLProps<HTMLFormElement>, "onSubmit"> & {
 };
 
 type ContextType = {
-  updateFormState: (fieldValues: Values, fieldErrors: Errors) => void;
+  updateFormState: (fieldValues: Values, fieldErrors?: Errors) => void;
   hasBeenSubmitted: boolean;
   submitButtonDisabled: boolean;
   values: Values;
@@ -47,7 +47,7 @@ const Form = ({
   const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
   const submitButtonDisabled = Object.values(errors).some(Boolean);
 
-  const updateFormState = (fieldValues: Values, fieldErrors: Errors) => {
+  const updateFormState = (fieldValues: Values, fieldErrors: Errors = {}) => {
     setValues((prev) => ({ ...prev, ...fieldValues }));
     setErrors((prev) => ({ ...prev, ...fieldErrors }));
   };

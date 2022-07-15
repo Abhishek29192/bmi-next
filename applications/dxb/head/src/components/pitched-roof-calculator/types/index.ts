@@ -106,12 +106,13 @@ export type MainTile = BaseProduct &
     variants: MainTileVariant[];
   };
 
-export type ProductCategory =
-  | "tiles"
-  | "fixings"
-  | "sealing"
-  | "ventilation"
-  | "accessories";
+export enum ProductCategory {
+  Tiles = "tiles",
+  Sealing = "sealing",
+  Fixings = "fixings",
+  Ventilation = "ventilation",
+  Accessories = "accessories"
+}
 
 export type Data = {
   mainTiles: MainTile[];

@@ -2,8 +2,9 @@ import { act, render } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
-import { CalculatorSteps, MainTile } from "../../types";
+import data from "../../samples/v2/data.json";
+import { CalculatorSteps } from "../../types";
+import { MainTile } from "../../types/v2";
 import roofs from "../calculation/roofs";
 import {
   Props as CalculatorStepperProps,

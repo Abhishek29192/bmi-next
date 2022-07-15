@@ -1,9 +1,9 @@
-import React from "react";
-import { render } from "@testing-library/react";
 import { FormContext } from "@bmi/components";
+import { render } from "@testing-library/react";
+import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import TileSelection from "../_TileSelection";
 
 const dimensionsSample = {

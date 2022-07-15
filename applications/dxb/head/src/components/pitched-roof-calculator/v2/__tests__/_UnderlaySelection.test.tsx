@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import UnderlaySelection from "../_UnderlaySelection";
 
 const dimensionsSample = {

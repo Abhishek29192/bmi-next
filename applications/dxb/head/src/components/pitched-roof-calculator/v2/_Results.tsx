@@ -15,13 +15,13 @@ import { AnalyticsContext } from "../helpers/analytics";
 import {
   Guttering,
   LengthBasedProduct,
-  MainTileVariant,
   ResultsObject,
   ResultsRow,
   Underlay,
   VergeOption
 } from "../types";
 import { Line, LinesMap, Measurements } from "../types/roof";
+import { MainTileVariant } from "../types/v2";
 import { battenCalc } from "./calculation/calculate";
 import { CONTINGENCY_PERCENTAGE_TEXT } from "./calculation/constants";
 import QuantitiesCalculator from "./calculation/QuantitiesCalculator";

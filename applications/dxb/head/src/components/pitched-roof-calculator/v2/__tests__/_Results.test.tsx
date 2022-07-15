@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { renderToString } from "react-dom/server";
 import { MicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import data from "../../samples/data.json";
+import data from "../../samples/v2/data.json";
 import { Measurements } from "../../types/roof";
 import { Props } from "../subcomponents/quantity-table/QuantityTable";
 import Results from "../_Results";

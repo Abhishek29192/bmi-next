@@ -12,8 +12,10 @@ import { useConfig } from "../contexts/ConfigProvider";
 import { devLog } from "../utils/devLog";
 import { pushToDataLayer } from "../utils/google-tag-manager";
 import no from "./pitched-roof-calculator/samples/copy/no.json";
-import sampleData from "./pitched-roof-calculator/samples/data.json";
-import { Data } from "./pitched-roof-calculator/types";
+import sampleDataV1 from "./pitched-roof-calculator/samples/data.json";
+import sampleDataV2 from "./pitched-roof-calculator/samples/v2/data.json";
+import { Data as DataV1 } from "./pitched-roof-calculator/types";
+import { Data as DataV2 } from "./pitched-roof-calculator/types/v2";
 
 const PitchedRoofCalculatorV1 = React.lazy(
   () => import("./pitched-roof-calculator/v1/PitchedRoofCalculator")
@@ -46,6 +48,7 @@ type Props = {
 
 const CalculatorProvider = ({ children, onError }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [data, setData] = useState<DataV2 | DataV1>();
   const [parameters, setParameters] = useState<Partial<Parameters>>({});
   const {
     config: {
@@ -64,8 +67,6 @@ const CalculatorProvider = ({ children, onError }: Props) => {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const [data, setData] = useState<Data>();
-
   useEffect(() => {
     if (!isOpen) {
       return;
@@ -76,7 +77,10 @@ const CalculatorProvider = ({ children, onError }: Props) => {
     const fetchAndSetData = async () => {
       if (!webtoolsCalculatorDataUrl) {
         devLog("Calculator data url was not found, using sample data instead.");
-        setData(sampleData as Data);
+        const data = isV2WebToolsCalculatorEnabled
+          ? (sampleDataV2 as DataV2)
+          : (sampleDataV1 as DataV1);
+        setData(data);
         return;
       }
 
@@ -142,7 +146,10 @@ const CalculatorProvider = ({ children, onError }: Props) => {
       {/* Currently, this is only available for Norway */}
       {!showCalculatorDialog ? null : isV2WebToolsCalculatorEnabled ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <PitchedRoofCalculatorV2 {...calculatorProps} />
+          <PitchedRoofCalculatorV2
+            {...calculatorProps}
+            data={calculatorProps.data as DataV2}
+          />
         </Suspense>
       ) : (
         <MicroCopy.Provider values={no}>
