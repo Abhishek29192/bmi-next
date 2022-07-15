@@ -6,6 +6,7 @@ export const deleteESItemByCode = async (
   item: DeleteItem,
   itemType: string
 ) => {
+  // TODO: Remove lower caseing as part of DXB-3449
   const index = `${process.env.ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   const client = await getEsClient();
   const match =
