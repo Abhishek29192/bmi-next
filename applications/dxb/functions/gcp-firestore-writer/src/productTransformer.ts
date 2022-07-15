@@ -555,16 +555,16 @@ const mapRelatedVariants = (
           }
         });
       });
+      const groupedImages = groupImages([
+        ...(variant.images || []),
+        ...(product.images || [])
+      ]);
       const hashedCode = generateHashFromString(variant.code);
       const name = product.name;
       return {
         code: variant.code,
         name,
-        thumbnail: variant.images?.find(
-          (image) =>
-            image.assetType === "MASTER_IMAGE" &&
-            image.format === "Product-Color-Selector-Mobile"
-        )?.url,
+        thumbnail: mapImages(groupedImages, "MASTER_IMAGE")[0]?.thumbnail,
         colour,
         colourFamily,
         hashedCode,
