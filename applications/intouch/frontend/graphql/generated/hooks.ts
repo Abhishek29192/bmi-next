@@ -2466,8 +2466,11 @@ export type DeleteProjectMemberMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.DeleteProjectMemberMutationVariables
 >;
 export const GetProjectCompanyMembersDocument = gql`
-  query getProjectCompanyMembers($existAccounts: [Int!]) {
-    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+  query getProjectCompanyMembers($existAccounts: [Int!], $companyId: Int!) {
+    companyMembers(
+      filter: { accountId: { notIn: $existAccounts } }
+      condition: { companyId: $companyId }
+    ) {
       nodes {
         id
         accountId
@@ -2500,11 +2503,12 @@ export const GetProjectCompanyMembersDocument = gql`
  * const { data, loading, error } = useGetProjectCompanyMembersQuery({
  *   variables: {
  *      existAccounts: // value for 'existAccounts'
+ *      companyId: // value for 'companyId'
  *   },
  * });
  */
 export function useGetProjectCompanyMembersQuery(
-  baseOptions?: Apollo.QueryHookOptions<
+  baseOptions: Apollo.QueryHookOptions<
     OperationTypes.GetProjectCompanyMembersQuery,
     OperationTypes.GetProjectCompanyMembersQueryVariables
   >
