@@ -31,7 +31,7 @@ export const resolveDocumentsFromProducts = async (
           elemMatch: { assetType: { in: pimAssetTypes } }
         },
         ...(source.pimCodes && source.pimCodes.length
-          ? { code: { in: source.pimCodes } }
+          ? { baseCode: { in: source.pimCodes } }
           : {}),
         ...(source.categoryCodes && source.categoryCodes.length
           ? {
@@ -92,7 +92,7 @@ export const resolveDocumentsFromProducts = async (
           ...document,
           title: updatedTitle,
           assetType___NODE: assetType.id,
-          isLinkDocument: false,
+          isLinkDocument: document.isLinkDocument,
           product___NODE: product.code,
           productFilters: product.filters
         };
