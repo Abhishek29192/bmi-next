@@ -76,10 +76,12 @@ const ProductsGridView = ({
               subtitle={uniqueClassifications}
               subtitleVariant="h6"
               media={
-                <img
-                  src={mainImage}
-                  alt={`${uniqueClassifications} ${product.name}`}
-                />
+                mainImage ? (
+                  <img
+                    src={mainImage}
+                    alt={`${uniqueClassifications} ${product.name}`}
+                  />
+                ) : undefined
               }
               imageSize="contain"
               brandImageSource={brandLogo}
