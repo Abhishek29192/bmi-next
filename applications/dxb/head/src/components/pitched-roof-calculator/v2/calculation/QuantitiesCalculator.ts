@@ -4,7 +4,7 @@ import {
   GutteringVariant,
   LengthBasedProduct,
   ProductCategory,
-  ResultsObject,
+  ResultsObject as BasicResult,
   ResultsRow,
   Underlay,
   VergeMetalFlushOption,
@@ -532,8 +532,8 @@ class QuantitiesCalculator {
   }
 
   // Those have quantity as the number of packs
-  getResultsRowsByCategory(): ResultsObject {
-    const result: ResultsObject = {
+  getResultsRowsByCategory(): BasicResult {
+    const result: BasicResult = {
       tiles: [],
       fixings: [],
       sealing: [],

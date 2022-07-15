@@ -17,41 +17,83 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           MC: results.categories.tiles
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector main tile black",
-      "externalProductCode": "46035712",
-      "packSize": "-",
-      "quantity": 1454
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector half tile black",
-      "externalProductCode": "46035795",
-      "packSize": "-",
-      "quantity": 33
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_ridge tile black",
-      "externalProductCode": "46035761",
-      "packSize": "-",
-      "quantity": 49
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda Protector main tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector main tile black"
+          >
+            1454
+          </div>
+          <button
+            aria-label="Remove Zanda Protector main tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector main tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector main tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda Protector half tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector half tile black"
+          >
+            33
+          </div>
+          <button
+            aria-label="Remove Zanda Protector half tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector half tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_ridge tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_ridge tile black"
+          >
+            49
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_ridge tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_ridge tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_ridge tile black"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -65,57 +107,133 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           MC: results.categories.fixings
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 267
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1249
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Clips
+          </div>
+          <div
+            aria-label="Quantity for Clips"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Clips"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Clips"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Clips"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Ridge and Hip Screw
+          </div>
+          <div
+            aria-label="Quantity for Ridge and Hip Screw"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Ridge and Hip Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ridge and Hip Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ridge and Hip Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Long Screw
+          </div>
+          <div
+            aria-label="Quantity for Long Screw"
+          >
+            267
+          </div>
+          <button
+            aria-label="Remove Long Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Long Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Long Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Screw
+          </div>
+          <div
+            aria-label="Quantity for Screw"
+          >
+            1249
+          </div>
+          <button
+            aria-label="Remove Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Finishing Kit
+          </div>
+          <div
+            aria-label="Quantity for Finishing Kit"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Finishing Kit"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Finishing Kit"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Finishing Kit"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -129,25 +247,33 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           MC: results.categories.ventilation
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "ventilation",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ventilation Hood 1",
-      "externalProductCode": "100456781",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Ventilation Hood 1
+          </div>
+          <div
+            aria-label="Quantity for Ventilation Hood 1"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Ventilation Hood 1"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ventilation Hood 1"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ventilation Hood 1"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -161,25 +287,33 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           MC: results.categories.sealing
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "sealing",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "M_Glue_290ml",
-      "externalProductCode": "51531703",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            M_Glue_290ml
+          </div>
+          <div
+            aria-label="Quantity for M_Glue_290ml"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove M_Glue_290ml"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of M_Glue_290ml"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of M_Glue_290ml"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -193,105 +327,283 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
           MC: results.categories.accessories
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left start",
-      "externalProductCode": "86035763",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left",
-      "externalProductCode": "86035761",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right start",
-      "externalProductCode": "86035764",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right",
-      "externalProductCode": "86035762",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Grey",
-      "externalProductCode": "4391",
-      "packSize": "-",
-      "quantity": 10
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Hook Grey",
-      "externalProductCode": "4392",
-      "packSize": "-",
-      "quantity": 14
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe",
-      "externalProductCode": "33332",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe Connector",
-      "externalProductCode": "33331",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
-      "description": "Underlay Divoroll TOP RU",
-      "externalProductCode": "26583450",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Fuglelist ventilert",
-      "externalProductCode": "5555551",
-      "packSize": "-",
-      "quantity": 6
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Other accesories example",
-      "externalProductCode": "5555550",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Test Guttering Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Grey"
+          >
+            10
+          </div>
+          <button
+            aria-label="Remove Test Guttering Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Test Guttering Hook Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Hook Grey"
+          >
+            14
+          </div>
+          <button
+            aria-label="Remove Test Guttering Hook Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Hook Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Hook Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe
+          </div>
+          <div
+            aria-label="Quantity for Downpipe"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Downpipe"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe Connector
+          </div>
+          <div
+            aria-label="Quantity for Downpipe Connector"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Downpipe Connector"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe Connector"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe Connector"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Underlay Divoroll TOP RU
+          </div>
+          <div
+            aria-label="Quantity for Underlay Divoroll TOP RU"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Underlay Divoroll TOP RU"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Underlay Divoroll TOP RU"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Fuglelist ventilert
+          </div>
+          <div
+            aria-label="Quantity for Fuglelist ventilert"
+          >
+            6
+          </div>
+          <button
+            aria-label="Remove Fuglelist ventilert"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Fuglelist ventilert"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Fuglelist ventilert"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Other accesories example
+          </div>
+          <div
+            aria-label="Quantity for Other accesories example"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove Other accesories example"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Other accesories example"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="Alert Alert--first"
@@ -321,9 +633,9 @@ exports[`PitchedRoofCalculator Results component renders with debugging mode on 
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              MC: results.alerts.quantities.title
+              MC: results.alerts.quantities.not.updated.title
             </h5>
-            MC: results.alerts.quantities.text
+            MC: results.alerts.quantities.not.updated.text
           </div>
         </div>
       </div>
@@ -460,41 +772,83 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           MC: results.categories.tiles
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector main tile black",
-      "externalProductCode": "46035712",
-      "packSize": "-",
-      "quantity": 1454
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector half tile black",
-      "externalProductCode": "46035795",
-      "packSize": "-",
-      "quantity": 33
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_ridge tile black",
-      "externalProductCode": "46035761",
-      "packSize": "-",
-      "quantity": 49
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda Protector main tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector main tile black"
+          >
+            1454
+          </div>
+          <button
+            aria-label="Remove Zanda Protector main tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector main tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector main tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda Protector half tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector half tile black"
+          >
+            33
+          </div>
+          <button
+            aria-label="Remove Zanda Protector half tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector half tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_ridge tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_ridge tile black"
+          >
+            49
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_ridge tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_ridge tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_ridge tile black"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -508,57 +862,133 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           MC: results.categories.fixings
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 267
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1249
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Clips
+          </div>
+          <div
+            aria-label="Quantity for Clips"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Clips"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Clips"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Clips"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Ridge and Hip Screw
+          </div>
+          <div
+            aria-label="Quantity for Ridge and Hip Screw"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Ridge and Hip Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ridge and Hip Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ridge and Hip Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Long Screw
+          </div>
+          <div
+            aria-label="Quantity for Long Screw"
+          >
+            267
+          </div>
+          <button
+            aria-label="Remove Long Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Long Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Long Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Screw
+          </div>
+          <div
+            aria-label="Quantity for Screw"
+          >
+            1249
+          </div>
+          <button
+            aria-label="Remove Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Finishing Kit
+          </div>
+          <div
+            aria-label="Quantity for Finishing Kit"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Finishing Kit"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Finishing Kit"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Finishing Kit"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -572,25 +1002,33 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           MC: results.categories.ventilation
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "ventilation",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ventilation Hood 1",
-      "externalProductCode": "100456781",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Ventilation Hood 1
+          </div>
+          <div
+            aria-label="Quantity for Ventilation Hood 1"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Ventilation Hood 1"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ventilation Hood 1"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ventilation Hood 1"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -604,25 +1042,33 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           MC: results.categories.sealing
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "sealing",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "M_Glue_290ml",
-      "externalProductCode": "51531703",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            M_Glue_290ml
+          </div>
+          <div
+            aria-label="Quantity for M_Glue_290ml"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove M_Glue_290ml"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of M_Glue_290ml"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of M_Glue_290ml"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -636,105 +1082,283 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
           MC: results.categories.accessories
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left start",
-      "externalProductCode": "86035763",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left",
-      "externalProductCode": "86035761",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right start",
-      "externalProductCode": "86035764",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right",
-      "externalProductCode": "86035762",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Grey",
-      "externalProductCode": "4391",
-      "packSize": "-",
-      "quantity": 10
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Hook Grey",
-      "externalProductCode": "4392",
-      "packSize": "-",
-      "quantity": 14
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe",
-      "externalProductCode": "33332",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe Connector",
-      "externalProductCode": "33331",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
-      "description": "Underlay Divoroll TOP RU",
-      "externalProductCode": "26583450",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Fuglelist ventilert",
-      "externalProductCode": "5555551",
-      "packSize": "-",
-      "quantity": 6
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Other accesories example",
-      "externalProductCode": "5555550",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Test Guttering Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Grey"
+          >
+            10
+          </div>
+          <button
+            aria-label="Remove Test Guttering Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Test Guttering Hook Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Hook Grey"
+          >
+            14
+          </div>
+          <button
+            aria-label="Remove Test Guttering Hook Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Hook Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Hook Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe
+          </div>
+          <div
+            aria-label="Quantity for Downpipe"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Downpipe"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe Connector
+          </div>
+          <div
+            aria-label="Quantity for Downpipe Connector"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Downpipe Connector"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe Connector"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe Connector"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Underlay Divoroll TOP RU
+          </div>
+          <div
+            aria-label="Quantity for Underlay Divoroll TOP RU"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Underlay Divoroll TOP RU"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Underlay Divoroll TOP RU"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Fuglelist ventilert
+          </div>
+          <div
+            aria-label="Quantity for Fuglelist ventilert"
+          >
+            6
+          </div>
+          <button
+            aria-label="Remove Fuglelist ventilert"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Fuglelist ventilert"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Fuglelist ventilert"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Other accesories example
+          </div>
+          <div
+            aria-label="Quantity for Other accesories example"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove Other accesories example"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Other accesories example"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="Alert Alert--first"
@@ -764,9 +1388,9 @@ exports[`PitchedRoofCalculator Results component renders with default ridge 1`] 
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              MC: results.alerts.quantities.title
+              MC: results.alerts.quantities.not.updated.title
             </h5>
-            MC: results.alerts.quantities.text
+            MC: results.alerts.quantities.not.updated.text
           </div>
         </div>
       </div>
@@ -830,41 +1454,83 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           MC: results.categories.tiles
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector main tile black",
-      "externalProductCode": "46035712",
-      "packSize": "-",
-      "quantity": 1454
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector half tile black",
-      "externalProductCode": "46035795",
-      "packSize": "-",
-      "quantity": 33
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_ridge tile black",
-      "externalProductCode": "46035761",
-      "packSize": "-",
-      "quantity": 49
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda Protector main tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector main tile black"
+          >
+            1454
+          </div>
+          <button
+            aria-label="Remove Zanda Protector main tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector main tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector main tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda Protector half tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector half tile black"
+          >
+            33
+          </div>
+          <button
+            aria-label="Remove Zanda Protector half tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector half tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_ridge tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_ridge tile black"
+          >
+            49
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_ridge tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_ridge tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_ridge tile black"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -878,57 +1544,133 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           MC: results.categories.fixings
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 267
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1249
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Clips
+          </div>
+          <div
+            aria-label="Quantity for Clips"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Clips"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Clips"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Clips"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Ridge and Hip Screw
+          </div>
+          <div
+            aria-label="Quantity for Ridge and Hip Screw"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Ridge and Hip Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ridge and Hip Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ridge and Hip Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Long Screw
+          </div>
+          <div
+            aria-label="Quantity for Long Screw"
+          >
+            267
+          </div>
+          <button
+            aria-label="Remove Long Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Long Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Long Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Screw
+          </div>
+          <div
+            aria-label="Quantity for Screw"
+          >
+            1249
+          </div>
+          <button
+            aria-label="Remove Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Finishing Kit
+          </div>
+          <div
+            aria-label="Quantity for Finishing Kit"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Finishing Kit"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Finishing Kit"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Finishing Kit"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -942,25 +1684,33 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           MC: results.categories.ventilation
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "ventilation",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ventilation Hood 1",
-      "externalProductCode": "100456781",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Ventilation Hood 1
+          </div>
+          <div
+            aria-label="Quantity for Ventilation Hood 1"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Ventilation Hood 1"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ventilation Hood 1"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ventilation Hood 1"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -974,25 +1724,33 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           MC: results.categories.sealing
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "sealing",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "M_Glue_290ml",
-      "externalProductCode": "51531703",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            M_Glue_290ml
+          </div>
+          <div
+            aria-label="Quantity for M_Glue_290ml"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove M_Glue_290ml"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of M_Glue_290ml"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of M_Glue_290ml"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -1006,73 +1764,183 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
           MC: results.categories.accessories
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Grey",
-      "externalProductCode": "4391",
-      "packSize": "-",
-      "quantity": 10
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Test Guttering Hook Grey",
-      "externalProductCode": "4392",
-      "packSize": "-",
-      "quantity": 14
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe",
-      "externalProductCode": "33332",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/hc6/h4b/8975279292446/Product-Hero-Small-Desktop-Tablet-44134213-Icopal-Takshingel-type-S-Skiferjpg",
-      "description": "Downpipe Connector",
-      "externalProductCode": "33331",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
-      "description": "Underlay Divoroll TOP RU",
-      "externalProductCode": "26583450",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Fuglelist ventilert",
-      "externalProductCode": "5555551",
-      "packSize": "-",
-      "quantity": 6
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Other accesories example",
-      "externalProductCode": "5555550",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Test Guttering Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Grey"
+          >
+            10
+          </div>
+          <button
+            aria-label="Remove Test Guttering Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Test Guttering Hook Grey
+          </div>
+          <div
+            aria-label="Quantity for Test Guttering Hook Grey"
+          >
+            14
+          </div>
+          <button
+            aria-label="Remove Test Guttering Hook Grey"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Test Guttering Hook Grey"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Test Guttering Hook Grey"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe
+          </div>
+          <div
+            aria-label="Quantity for Downpipe"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Downpipe"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Downpipe Connector
+          </div>
+          <div
+            aria-label="Quantity for Downpipe Connector"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Downpipe Connector"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Downpipe Connector"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Downpipe Connector"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Underlay Divoroll TOP RU
+          </div>
+          <div
+            aria-label="Quantity for Underlay Divoroll TOP RU"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Underlay Divoroll TOP RU"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Underlay Divoroll TOP RU"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Fuglelist ventilert
+          </div>
+          <div
+            aria-label="Quantity for Fuglelist ventilert"
+          >
+            6
+          </div>
+          <button
+            aria-label="Remove Fuglelist ventilert"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Fuglelist ventilert"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Fuglelist ventilert"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Other accesories example
+          </div>
+          <div
+            aria-label="Quantity for Other accesories example"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove Other accesories example"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Other accesories example"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="Alert Alert--first"
@@ -1102,9 +1970,9 @@ exports[`PitchedRoofCalculator Results component renders with main tile as verge
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              MC: results.alerts.quantities.title
+              MC: results.alerts.quantities.not.updated.title
             </h5>
-            MC: results.alerts.quantities.text
+            MC: results.alerts.quantities.not.updated.text
           </div>
         </div>
       </div>
@@ -1168,41 +2036,83 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           MC: results.categories.tiles
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector main tile black",
-      "externalProductCode": "46035712",
-      "packSize": "-",
-      "quantity": 1454
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda Protector half tile black",
-      "externalProductCode": "46035795",
-      "packSize": "-",
-      "quantity": 33
-    },
-    {
-      "category": "tiles",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_ridge tile black",
-      "externalProductCode": "46035761",
-      "packSize": "-",
-      "quantity": 49
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda Protector main tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector main tile black"
+          >
+            1454
+          </div>
+          <button
+            aria-label="Remove Zanda Protector main tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector main tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector main tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda Protector half tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda Protector half tile black"
+          >
+            33
+          </div>
+          <button
+            aria-label="Remove Zanda Protector half tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda Protector half tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda Protector half tile black"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_ridge tile black
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_ridge tile black"
+          >
+            49
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_ridge tile black"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_ridge tile black"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_ridge tile black"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -1216,57 +2126,133 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           MC: results.categories.fixings
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Clips",
-      "externalProductCode": "113456781",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ridge and Hip Screw",
-      "externalProductCode": "113456782",
-      "packSize": "-",
-      "quantity": 98
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Long Screw",
-      "externalProductCode": "113456783",
-      "packSize": "-",
-      "quantity": 267
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Screw",
-      "externalProductCode": "113456784",
-      "packSize": "-",
-      "quantity": 1249
-    },
-    {
-      "category": "fixings",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Finishing Kit",
-      "externalProductCode": "113456786",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Clips
+          </div>
+          <div
+            aria-label="Quantity for Clips"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Clips"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Clips"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Clips"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Ridge and Hip Screw
+          </div>
+          <div
+            aria-label="Quantity for Ridge and Hip Screw"
+          >
+            98
+          </div>
+          <button
+            aria-label="Remove Ridge and Hip Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ridge and Hip Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ridge and Hip Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Long Screw
+          </div>
+          <div
+            aria-label="Quantity for Long Screw"
+          >
+            267
+          </div>
+          <button
+            aria-label="Remove Long Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Long Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Long Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Screw
+          </div>
+          <div
+            aria-label="Quantity for Screw"
+          >
+            1249
+          </div>
+          <button
+            aria-label="Remove Screw"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Screw"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Screw"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Finishing Kit
+          </div>
+          <div
+            aria-label="Quantity for Finishing Kit"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Finishing Kit"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Finishing Kit"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Finishing Kit"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -1280,25 +2266,33 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           MC: results.categories.ventilation
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "ventilation",
-      "image": "f4420511632ec8f82eb7b56aff3a072b.jpg",
-      "description": "Ventilation Hood 1",
-      "externalProductCode": "100456781",
-      "packSize": "-",
-      "quantity": 1
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Ventilation Hood 1
+          </div>
+          <div
+            aria-label="Quantity for Ventilation Hood 1"
+          >
+            1
+          </div>
+          <button
+            aria-label="Remove Ventilation Hood 1"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Ventilation Hood 1"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Ventilation Hood 1"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -1312,25 +2306,33 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           MC: results.categories.sealing
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "sealing",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "M_Glue_290ml",
-      "externalProductCode": "51531703",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            M_Glue_290ml
+          </div>
+          <div
+            aria-label="Quantity for M_Glue_290ml"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove M_Glue_290ml"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of M_Glue_290ml"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of M_Glue_290ml"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="FieldContainer"
@@ -1344,73 +2346,183 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
           MC: results.categories.accessories
         </h6>
       </div>
-      <p>
-        {
-  "rows": [
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left start",
-      "externalProductCode": "86035763",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black left",
-      "externalProductCode": "86035761",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right start",
-      "externalProductCode": "86035764",
-      "packSize": "-",
-      "quantity": 2
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Zanda_Protector_verge metal flush black right",
-      "externalProductCode": "86035762",
-      "packSize": "-",
-      "quantity": 100
-    },
-    {
-      "category": "accessories",
-      "image": "https://bmipimngprodtfe.azureedge.net/sys-master-hybris-media/h02/hc4/8975281455134/Product-Hero-Small-Desktop-Tablet-44134232-Icopal-Takshingel-type-S-Teglrod-med-skyggejpg",
-      "description": "Underlay Divoroll TOP RU",
-      "externalProductCode": "26583450",
-      "packSize": "-",
-      "quantity": 3
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Fuglelist ventilert",
-      "externalProductCode": "5555551",
-      "packSize": "-",
-      "quantity": 6
-    },
-    {
-      "category": "accessories",
-      "image": "893ed88a9339cf3c629e614a923f7c1c.jpg",
-      "description": "Other accesories example",
-      "externalProductCode": "5555550",
-      "packSize": "-",
-      "quantity": 0
-    }
-  ],
-  "title": "MC: results.table.title",
-  "packSize": "MC: results.table.packSize",
-  "externalProductCode": "MC: results.table.externalProductCode",
-  "quantity": "MC: results.table.quantity",
-  "remove": "MC: results.table.remove"
-}
-      </p>
+      <div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black left
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black left"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black left"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black left"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black left"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right start
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right start"
+          >
+            2
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right start"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right start"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Zanda_Protector_verge metal flush black right
+          </div>
+          <div
+            aria-label="Quantity for Zanda_Protector_verge metal flush black right"
+          >
+            100
+          </div>
+          <button
+            aria-label="Remove Zanda_Protector_verge metal flush black right"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Zanda_Protector_verge metal flush black right"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Zanda_Protector_verge metal flush black right"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Underlay Divoroll TOP RU
+          </div>
+          <div
+            aria-label="Quantity for Underlay Divoroll TOP RU"
+          >
+            3
+          </div>
+          <button
+            aria-label="Remove Underlay Divoroll TOP RU"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Underlay Divoroll TOP RU"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Underlay Divoroll TOP RU"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Fuglelist ventilert
+          </div>
+          <div
+            aria-label="Quantity for Fuglelist ventilert"
+          >
+            6
+          </div>
+          <button
+            aria-label="Remove Fuglelist ventilert"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Fuglelist ventilert"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Fuglelist ventilert"
+          >
+            -
+          </button>
+        </div>
+        <div>
+          <div>
+            Other accesories example
+          </div>
+          <div
+            aria-label="Quantity for Other accesories example"
+          >
+            0
+          </div>
+          <button
+            aria-label="Remove Other accesories example"
+          >
+            Delete
+          </button>
+          <button
+            aria-label="Increase quantity of Other accesories example"
+          >
+            +
+          </button>
+          <button
+            aria-label="Decrease quantity of Other accesories example"
+          >
+            -
+          </button>
+        </div>
+      </div>
     </div>
     <div
       class="Alert Alert--first"
@@ -1440,9 +2552,9 @@ exports[`PitchedRoofCalculator Results component renders with no guttering 1`] =
                   d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
                 />
               </svg>
-              MC: results.alerts.quantities.title
+              MC: results.alerts.quantities.not.updated.title
             </h5>
-            MC: results.alerts.quantities.text
+            MC: results.alerts.quantities.not.updated.text
           </div>
         </div>
       </div>

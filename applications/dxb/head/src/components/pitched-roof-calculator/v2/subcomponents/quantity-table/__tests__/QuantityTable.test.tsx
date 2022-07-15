@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { ProductCategory, ResultsRow } from "../../../../types";
 import QuantityTable, {
   BuildLargeViewRows,
   BuildMediumViewRows,
@@ -7,41 +8,46 @@ import QuantityTable, {
 } from "../QuantityTable";
 import tileBrown from "./images/tile-brown.jpg";
 
-const rowsTemplate = [
+const rowsTemplate: ResultsRow[] = [
   {
     image: tileBrown,
     description: "First item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
-    quantity: 43
+    quantity: 43,
+    category: ProductCategory.Tiles
   },
   {
     image: tileBrown,
     description: "Second item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
-    quantity: 43
+    quantity: 43,
+    category: ProductCategory.Tiles
   },
   {
     image: tileBrown,
     description: "Third item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
-    quantity: 43
+    quantity: 43,
+    category: ProductCategory.Tiles
   },
   {
     image: tileBrown,
     description: "Fourth item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
-    quantity: 43
+    quantity: 43,
+    category: ProductCategory.Tiles
   },
   {
     image: tileBrown,
     description: "Fifth item",
     externalProductCode: "123456789",
     packSize: "22 x 42",
-    quantity: 43
+    quantity: 43,
+    category: ProductCategory.Tiles
   }
 ];
 
@@ -85,7 +91,7 @@ describe("BuildSmallViewRows component", () => {
     fireEvent.click(
       screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
     );
-    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0]);
   });
 
   it("onChangeQuantity execute correctly", () => {
@@ -100,7 +106,7 @@ describe("BuildSmallViewRows component", () => {
     fireEvent.click(screen.getAllByLabelText("Up")[0]);
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
     expect(onChangeQuantity).toHaveBeenCalledWith(
-      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0],
       rowsTemplate[0].quantity + 1
     );
   });
@@ -126,7 +132,7 @@ describe("BuildLargeViewRows component", () => {
     fireEvent.click(
       screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
     );
-    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0]);
   });
 
   it("onChangeQuantity execute correctly", () => {
@@ -141,7 +147,7 @@ describe("BuildLargeViewRows component", () => {
     fireEvent.click(screen.getAllByLabelText("Up")[0]);
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
     expect(onChangeQuantity).toHaveBeenCalledWith(
-      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0],
       rowsTemplate[0].quantity + 1
     );
   });
@@ -167,7 +173,7 @@ describe("BuildMediumViewRows component", () => {
     fireEvent.click(
       screen.getByLabelText(`Remove ${rowsTemplate[0].description}`)
     );
-    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0].externalProductCode);
+    expect(onDelete).toHaveBeenCalledWith(rowsTemplate[0]);
   });
 
   it("calls onChangeQuantity function", () => {
@@ -182,7 +188,7 @@ describe("BuildMediumViewRows component", () => {
     fireEvent.click(screen.getAllByLabelText("Up")[0]);
     expect(onChangeQuantity).toHaveBeenCalledTimes(1);
     expect(onChangeQuantity).toHaveBeenCalledWith(
-      rowsTemplate[0].externalProductCode,
+      rowsTemplate[0],
       rowsTemplate[0].quantity + 1
     );
   });

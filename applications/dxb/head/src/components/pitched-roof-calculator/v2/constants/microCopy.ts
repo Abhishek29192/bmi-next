@@ -71,12 +71,22 @@ export const microCopy = {
   RESULTS_TABLE_EXTERNAL_PRODUCT_CODE: "results.table.externalProductCode",
   RESULTS_TABLE_QUANTITY: "results.table.quantity",
   RESULTS_TABLE_REMOVE: "results.table.remove",
-  RESULTS_ALERTS_QUANTITIES_TITLE: "results.alerts.quantities.title",
-  RESULTS_ALERTS_QUANTITIES_TEXT: "results.alerts.quantities.text",
+  RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TITLE:
+    "results.alerts.quantities.not.updated.title",
+  RESULTS_ALERTS_QUANTITIES_NOT_UPDATED_TEXT:
+    "results.alerts.quantities.not.updated.text",
+  RESULTS_ALERTS_QUANTITIES_UPDATED_TITLE:
+    "results.alerts.quantities.updated.title",
+  RESULTS_ALERTS_QUANTITIES_UPDATED_TEXT:
+    "results.alerts.quantities.updated.text",
+  RESULTS_ALERTS_QUANTITIES_RESET_BUTTON:
+    "results.alerts.quantities.reset.button",
   RESULTS_ALERTS_NEED_TO_KNOW_TITLE: "results.alerts.needToKnow.title",
   RESULTS_ALERTS_NEED_TO_KNOW_TEXT: "results.alerts.needToKnow.text",
   RESULTS_EMAIL_TITLE: "results.email.title",
   RESULTS_EMAIL_HELP: "results.email.help",
+  RESULTS_EDITED_PRODUCTS_TITLE: "results.edited.products.title",
+  PDF_REPORT_EXTRAS_SECTION_TITLE: "pdf.report.extras.section.title",
   VALIDATION_ERRORS_FIELD_REQUIRED: "validation.errors.fieldRequired",
   VALIDATION_ERRORS_POSITIVE_NUMBERS_ONLY:
     "validation.errors.positiveNumberOnly",

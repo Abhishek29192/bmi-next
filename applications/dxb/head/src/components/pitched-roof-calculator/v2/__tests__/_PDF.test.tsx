@@ -2,7 +2,9 @@ import { pdf } from "@bmi-digital/react-pdf-maker";
 import React from "react";
 import { getMicroCopy } from "../../helpers/microCopy";
 import en from "../../samples/copy/en.json";
-import { ProductCategory, ResultsObject } from "../../types";
+import { ResultsObject } from "../../types/v2";
+
+import { ProductCategory } from "../../types";
 import { getPDF, shouldAddPageBreak, Typography } from "../_PDF";
 
 const resultsSample: ResultsObject = {
@@ -141,6 +143,16 @@ const resultsSample: ResultsObject = {
       packSize: "-",
       quantity: 0
     }
+  ],
+  extras: [
+    {
+      category: ProductCategory.Accessories,
+      image: "data:image/jpg;base64,imagedata",
+      description: "Ling screw",
+      externalProductCode: "4325423",
+      packSize: "-",
+      quantity: 0
+    }
   ]
 };
 
@@ -162,7 +174,8 @@ describe("PitchedRoofCalculator PDF tool", () => {
         fixings: [],
         sealing: [],
         ventilation: [],
-        accessories: []
+        accessories: [],
+        extras: []
       },
       area: "150",
       getMicroCopy: (...params) => getMicroCopy(en, ...params)
@@ -260,7 +273,7 @@ describe("PitchedRoofCalculator shouldAddPageBreak function", () => {
     ).toBeFalsy();
   });
 
-  it("returns false be default", () => {
+  it("returns false by default", () => {
     expect(
       shouldAddPageBreak(
         {
