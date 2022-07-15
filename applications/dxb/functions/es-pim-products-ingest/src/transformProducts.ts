@@ -143,7 +143,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     message: `allGroupsOfCategories: ${allGroupsOfCategories}`
   });
 
-  //TODO: remove `toUpperCase` when case agnostic to be reverted!
+  //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
@@ -434,6 +434,7 @@ const filterTwoOneAttributes = (
       pimClassificationCatalogueNamespace,
       feature.code
     );
+    // TODO: Remove lower caseing as part of DXB-3449
     const attributeName = featureCode
       .replace(`${classificationCode}.`, "")
       .toLowerCase();

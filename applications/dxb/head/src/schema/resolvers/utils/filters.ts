@@ -40,10 +40,19 @@ export const getPlpFilters = ({
     const uniqueAllowFilterKeys = Array.from(
       new Set(allowedFilters.map((filter) => filter.split("|")[0].trim()))
     );
+    console.log("======================================");
+    console.log(`All filters: ${JSON.stringify(allFilters)}`);
+    console.log(
+      `Unique allow filters: ${JSON.stringify(uniqueAllowFilterKeys)}`
+    );
+    console.log("======================================");
     //order them in the `allowFilterBy` specified order
     return uniqueAllowFilterKeys
       .map((uniqueFilter) =>
-        allFilters.find(({ name }) => name === uniqueFilter)
+        allFilters.find(
+          // TODO: Remove upper caseing as part of DXB-3449
+          ({ name }) => name.toUpperCase() === uniqueFilter.toUpperCase()
+        )
       )
       .filter(isDefined);
   }

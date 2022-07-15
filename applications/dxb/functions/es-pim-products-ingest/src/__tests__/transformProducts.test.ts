@@ -47,7 +47,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Category".toUpperCase() //TODO: remove when case agnostic to be reverted!
+        "Category".toUpperCase() //TODO: DXB-3449 - remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "code", name: "name" }]);
     });
@@ -59,7 +59,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const newFeatureValueAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Category".toUpperCase() //TODO: remove when case agnostic to be reverted!
+        "Category".toUpperCase() //TODO: DXB-3449 -remove when case agnostic to be reverted!
       );
 
       expect(newFeatureValueAsProp).toEqual([
@@ -83,7 +83,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "ProductLine".toUpperCase() //TODO: remove when case agnostic to be reverted!
+        "ProductLine".toUpperCase() //TODO: DXB-3449 -remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([
         { code: "RoofTiles", name: "Roof Tiles" }
@@ -103,7 +103,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "ProductFamily".toUpperCase() //TODO: remove when case agnostic to be reverted!
+        "ProductFamily".toUpperCase() //TODO: DXB-3449 -remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "Tiles", name: "Tiles" }]);
     });
@@ -122,7 +122,7 @@ describe("transformProduct", () => {
       const transformedProduct = await transformProduct(product);
       const categoryAsProp = getDynamicPropValue(
         transformedProduct[0],
-        "Brand".toUpperCase() //TODO: remove when case agnostic to be reverted!
+        "Brand".toUpperCase() //TODO: DXB-3449 -remove when case agnostic to be reverted!
       );
       expect(categoryAsProp).toEqual([{ code: "Aerodek", name: "Aerodek" }]);
     });

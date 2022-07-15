@@ -33,11 +33,13 @@ export const disableFiltersFromAggregationsPLP = (
   //make keys of aggregations lowercase as the buckets and filterCode should match!
   const aggregationsCopy: Aggregations = {};
   Object.keys(aggregations).forEach((key) => {
+    // TODO: Remove lower caseing as part of DXB-3449
     // eslint-disable-next-line security/detect-object-injection
     aggregationsCopy[key.toLowerCase()] = aggregations[key];
   });
   return filters.map((filter) => {
     const buckets =
+      // TODO: Remove lower caseing as part of DXB-3449
       aggregationsCopy[removePLPFilterPrefix(filter.filterCode.toLowerCase())]
         ?.buckets;
 
@@ -116,6 +118,7 @@ const generateUserSelectedFilterTerms = (updatedFilters: Filter[]) => {
     .reduce((acc, currFilter) => {
       const termsQuery = (name, value) => ({
         terms: {
+          // TODO: DXB-3449 - remove toUpperCase when PIM has completed BPN-1055
           [`${removePLPFilterPrefix(name).toUpperCase()}.code.keyword`]: value
         }
       });

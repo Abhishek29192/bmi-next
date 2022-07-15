@@ -201,6 +201,7 @@ export const generateSubtitleValues = (classifications: Classification[]) => {
       eligibleFeatures.forEach((eligibleFeatureCode) => {
         const featureValues = (
           allClassificationAttributes?.features?.find((feature) =>
+            // TODO: Remove lower caseing as part of DXB-3449
             feature.code
               .toLowerCase()
               .endsWith(eligibleFeatureCode.toLowerCase())

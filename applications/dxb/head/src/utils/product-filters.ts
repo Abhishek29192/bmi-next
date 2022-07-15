@@ -92,6 +92,7 @@ export const generateFilters = (
     "code"
   );
 
+  // TODO: Remove lower caseing as part of DXB-3449
   const eligibleFirestoreClassFilters =
     allowedFeatureFilters && allowedFeatureFilters.size > 0
       ? firestoreFilters.filter((firestoreFilter) =>

@@ -72,6 +72,7 @@ export const updateElasticSearch = async (
   esProducts: readonly (Product | System)[],
   action?: Operation
 ) => {
+  // TODO: Remove lower caseing as part of DXB-3449
   const index = `${ES_INDEX_PREFIX}_${itemType}`.toLowerCase();
   logger.info({ message: `update ElasticSearch by index: ${index}` });
   const client = await getEsClient();
