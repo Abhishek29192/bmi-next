@@ -279,13 +279,16 @@ export const getProductAttributes = (
 
   const getUnavailableCTA = (
     variantValue: string,
-    propName: string,
+    propName: "colour" | "textureFamily" | "measurements" | "variantAttribute",
     variantCodeToPathMap?: Record<string, string> | null
   ) => {
-    const bestMatch = product.relatedVariants.find(
+    const bestMatch = product.relatedVariants.find((variant) => {
+      if (propName === "measurements") {
+        return variant.measurements.label === variantValue;
+      }
       // eslint-disable-next-line security/detect-object-injection
-      (variant) => variant[propName] === variantValue
-    );
+      return variant[propName] === variantValue;
+    });
 
     if (!bestMatch) {
       return undefined;
@@ -449,7 +452,7 @@ export const getProductAttributes = (
             )
           : getUnavailableCTA(
               variantAttribute,
-              "variantattribute",
+              "variantAttribute",
               variantCodeToPathMap
             );
 
