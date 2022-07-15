@@ -93,8 +93,7 @@ export default class DoceboClient {
           userId: item["user.idUser"],
           title: item["certification.title"],
           code: item["certification.code"],
-          expiration: item["certification.expiration"],
-          to_renew_in: item["enrollment.to_renew_in"]
+          toNewIn: item["enrollment.to_renew_in"]
         }));
       }
     }

@@ -297,6 +297,17 @@ export default gql`
     dryRun: Boolean
   }
 
+  input DoceboCertification {
+    userId: String
+    code: String
+    title: String
+    toNewIn: String
+  }
+
+  input TruncateAndInsertCertificationInput {
+    certificates: [DoceboCertification]
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -315,5 +326,8 @@ export default gql`
     sendReminderToIncompleteCompanyProfile: String
     restartGuarantee(projectId: Int!): String
     archiveProjects: String
+    truncateAndInsertCertification(
+      input: TruncateAndInsertCertificationInput
+    ): String
   }
 `;

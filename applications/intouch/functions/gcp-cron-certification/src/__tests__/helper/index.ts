@@ -10,16 +10,22 @@ export type ReportRecord = {
   userId: string;
   title: string;
   code: string;
-  expiration: string;
-  to_renew_in: string;
+  toNewIn: string;
+};
+
+export type GetDoceboUsers = {
+  accounts: {
+    nodes: {
+      doceboUserId: number;
+    }[];
+  };
 };
 
 export const generateReportRecordFactory = (record = {}) => ({
   userId: "1",
   title: "certification.title",
   code: "certification.code",
-  expiration: "certification.expiration",
-  to_renew_in: "enrollment.to_renew_in",
+  toNewIn: "enrollment.to_renew_in",
   ...record
 });
 
@@ -35,6 +41,21 @@ export const generateReportAPIRecordFactory = (record = {}) => ({
 export const generateReportAPIResponseFactory = (records: any[] = []) => ({
   data: {
     rows: [generateReportAPIRecordFactory(), ...records]
+  }
+});
+
+export const generateGetDoceboUsersResponseFactory = (
+  users: GetDoceboUsers["accounts"]["nodes"] = []
+): { data: GetDoceboUsers } => ({
+  data: {
+    accounts: {
+      nodes: [
+        {
+          doceboUserId: 1
+        },
+        ...users
+      ]
+    }
   }
 });
 
