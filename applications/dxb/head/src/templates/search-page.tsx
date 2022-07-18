@@ -367,9 +367,9 @@ export const pageQuery = graphql`
         "Category"
         "ProductLine"
         "Brand"
-        "appearanceAttributes.colourfamily"
+        "appearanceAttributes.colourFamily"
         "generalInformation.materials"
-        "appearanceAttributes.texturefamily"
+        "appearanceAttributes.textureFamily"
       ]
     ) {
       filters {

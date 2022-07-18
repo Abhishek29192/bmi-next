@@ -5,13 +5,16 @@ import {
   getVariantsByBaseProductCodeQuery
 } from "./elasticSearchCommonQuery";
 
+//TODO: DXB-3449 - remove lowercase duplicate when case agnostic to be reverted!
 const ES_AGGREGATION_NAMES = {
+  "appearanceAttributes.colourFamily": "colourfamily",
   "appearanceAttributes.colourfamily": "colourfamily",
   "appearanceAttributes.materials": "materials",
+  "appearanceAttributes.textureFamily": "texturefamily",
   "appearanceAttributes.texturefamily": "texturefamily",
-  productFamily: "allCategories",
-  productLine: "allCategories",
-  brand: "allCategories",
+  ProductFamily: "allCategories",
+  ProductLine: "allCategories",
+  Brand: "allCategories",
   // Search page - Pages tab
   "page-type-tag": "tags",
   // Search page - Documents tab
