@@ -428,7 +428,7 @@ const Results = ({
         >
           <QuantityTable
             onDelete={deleteRow(setUpdatedProducts, true)}
-            onChangeQuantity={changeQuantity(setAccessoryRows, false)}
+            onChangeQuantity={changeQuantity(setUpdatedProducts, false)}
             rows={updatedProducts}
             {...tableLabels}
           />
