@@ -266,22 +266,33 @@ export const mapImages = (
 ): Image[] => {
   return groupedImages
     .map((images) => {
-      const masterImages = images.filter(
-        (image) =>
+      let mainSource;
+      let thumbnail;
+      let altText;
+      images.forEach((image) => {
+        if (
           image.assetType === assetType &&
-          (image.format === "Product-Hero-Small-Desktop-Tablet" ||
-            image.format === "Product-Color-Selector-Mobile")
-      );
+          image.format === "Product-Hero-Small-Desktop-Tablet"
+        ) {
+          mainSource = image.url;
+          return;
+        }
+        if (
+          image.assetType === assetType &&
+          image.format === "Product-Color-Selector-Mobile"
+        ) {
+          thumbnail = image.url;
+          return;
+        }
+        if (image.assetType === assetType && !image.format) {
+          altText = image.name;
+          return;
+        }
+      });
       return {
-        mainSource: masterImages.find(
-          (image) => image.format === "Product-Hero-Small-Desktop-Tablet"
-        )?.url,
-        thumbnail: masterImages.find(
-          (image) => image.format === "Product-Color-Selector-Mobile"
-        )?.url,
-        altText: images.find(
-          (image) => image.assetType === assetType && !image.format
-        )?.name
+        mainSource,
+        thumbnail,
+        altText
       };
     })
     .filter((image) => image.mainSource || image.thumbnail);
