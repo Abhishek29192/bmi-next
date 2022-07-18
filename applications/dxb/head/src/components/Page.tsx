@@ -79,7 +79,6 @@ const Page = ({
     menuUtilities,
     resources,
     headScripts,
-    scriptOnetrust,
     regions
   } = siteData;
 
@@ -116,8 +115,7 @@ const Page = ({
         defer={false}
         ogImageUrl={ogImageUrl}
         scripts={{
-          headScripts,
-          scriptOnetrust
+          headScripts
         }}
         path={path}
         seo={seo}

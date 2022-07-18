@@ -98,7 +98,6 @@ describe("General Error", () => {
         sdpSpecificationNotesCta: null
       },
       headScripts: null,
-      scriptOnetrust: null,
       regions: [
         {
           label: "Europe",
