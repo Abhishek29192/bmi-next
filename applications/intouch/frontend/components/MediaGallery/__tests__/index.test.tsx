@@ -19,7 +19,7 @@ const galleryItemTypeImage: GalleryItem = {
   id: "1",
   url: "test-fileUrl.jpg",
   title: "test-title-2",
-  description: "test-description-2",
+  description: null,
   fileUrl: "test-fileUrl.jpg"
 };
 
@@ -55,6 +55,17 @@ describe("MediaGallery", () => {
     );
     expect(getByTestId("carousel")).toBeTruthy();
     expect(getByTestId("download-button")).toBeTruthy();
+  });
+
+  it("item not active", () => {
+    const initial = {
+      isOpen: true,
+      onClose: jest.fn(),
+      activeItem: null,
+      items: [activeItem]
+    };
+    const { container } = renderWithI18NProvider(<MediaGallery {...initial} />);
+    expect(container.parentElement).toMatchSnapshot();
   });
 
   describe("should preview as", () => {
@@ -96,11 +107,36 @@ describe("MediaGallery", () => {
       } = renderWithI18NProvider(
         <MediaGallery {...initialProps} items={items} />
       );
-
+      const iframe = getAllByTestId("iframe-element");
+      fireEvent.load(iframe[0]);
       expect(parentElement).toMatchSnapshot();
       expect(parentElement.getElementsByClassName("slide").length).toBe(1);
       expect(getAllByTestId("carousel")).toBeTruthy();
       expect(parentElement.getElementsByTagName("iframe").length).toBe(1);
+    });
+
+    it("check prev and next buttons for many items", () => {
+      const items = [galleryItemTypeVimeo, galleryItemTypeImage];
+      const { getAllByTestId } = renderWithI18NProvider(
+        <MediaGallery {...initialProps} items={items} />
+      );
+
+      const prevButton = getAllByTestId("carousel-prev-button");
+      const nextButton = getAllByTestId("carousel-next-button");
+      fireEvent.click(nextButton[0]);
+      fireEvent.click(prevButton[0]);
+      fireEvent.click(prevButton[0]);
+    });
+
+    it("check prev and next buttons", () => {
+      const items = [galleryItemTypeImage];
+      const { getAllByTestId } = renderWithI18NProvider(
+        <MediaGallery {...initialProps} items={items} />
+      );
+
+      const nextButton = getAllByTestId("carousel-next-button");
+      fireEvent.click(nextButton[0]);
+      fireEvent.click(nextButton[0]);
     });
   });
 

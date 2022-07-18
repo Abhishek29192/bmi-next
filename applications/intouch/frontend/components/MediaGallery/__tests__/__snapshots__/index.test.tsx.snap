@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`MediaGallery item not active 1`] = `
+<body
+  style=""
+>
+  <div />
+</body>
+`;
+
 exports[`MediaGallery should download fileUrl 1`] = `
 <body
   style="padding-right: 0px; overflow: hidden;"
@@ -27,14 +35,14 @@ exports[`MediaGallery should download fileUrl 1`] = `
       tabindex="-1"
     >
       <div
-        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-85"
+        class="Dialog Dialog--bg-white Dialog--width-lg modal makeStyles-paper-131"
       >
         <div
           class="header"
         >
           <button
             aria-label="Close"
-            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 iconButton"
+            class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-143 iconButtonStyles-medium-149 iconButtonStyles-text-145 iconButton"
             tabindex="0"
             type="button"
           >
@@ -94,16 +102,16 @@ exports[`MediaGallery should download fileUrl 1`] = `
                             test-title-2
                           </h6>
                           <button
-                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-86 MuiButton-contained buttonStyles-contained-88 MuiButton-containedPrimary"
+                            class="MuiButtonBase-root MuiButton-root buttonStyles-root-132 MuiButton-contained buttonStyles-contained-134 MuiButton-containedPrimary"
                             data-testid="download-button"
                             tabindex="0"
                             type="button"
                           >
                             <span
-                              class="MuiButton-label buttonStyles-label-89"
+                              class="MuiButton-label buttonStyles-label-135"
                             >
                               <span
-                                class="MuiButton-startIcon buttonStyles-startIcon-90 MuiButton-iconSizeMedium"
+                                class="MuiButton-startIcon buttonStyles-startIcon-136 MuiButton-iconSizeMedium"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -124,7 +132,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
                           </button>
                         </div>
                         <img
-                          alt="test-description-2"
+                          alt="test-title-2"
                           class="image"
                           src="test-fileUrl.jpg"
                         />
@@ -137,7 +145,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 carouselControl carouselControl--previous"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-143 iconButtonStyles-medium-149 iconButtonStyles-text-145 carouselControl carouselControl--previous"
           data-testid="carousel-prev-button"
           tabindex="0"
           type="button"
@@ -161,7 +169,7 @@ exports[`MediaGallery should download fileUrl 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-97 iconButtonStyles-medium-103 iconButtonStyles-text-99 carouselControl carouselControl--next"
+          class="MuiButtonBase-root MuiIconButton-root iconButtonStyles-root-143 iconButtonStyles-medium-149 iconButtonStyles-text-145 carouselControl carouselControl--next"
           data-testid="carousel-next-button"
           tabindex="0"
           type="button"
@@ -511,7 +519,7 @@ exports[`MediaGallery should preview as url if any 1`] = `
                           </button>
                         </div>
                         <img
-                          alt="test-description-2"
+                          alt="test-title-2"
                           class="image"
                           src="test-fileUrl.jpg"
                         />
@@ -676,20 +684,14 @@ exports[`MediaGallery should preview as vimeo if type vimeo 1`] = `
                           </h6>
                         </div>
                         <div>
-                          <div
-                            class="iframeBackground"
-                          >
-                            <svg
-                              color="primary"
-                              style="height: 360px;"
-                            />
-                          </div>
                           <iframe
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowfullscreen=""
                             class="iframe"
+                            data-testid="iframe-element"
                             frameborder="0"
                             height="360"
+                            sandbox="allow-scripts allow-same-origin"
                             src="https://player.vimeo.com/video/test-videolink"
                             width="640"
                           />

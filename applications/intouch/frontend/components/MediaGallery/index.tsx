@@ -51,6 +51,8 @@ const VimeoIFrame = ({ url }: { url: string }) => {
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
         className={styles.iframe}
+        sandbox="allow-scripts allow-same-origin"
+        data-testid="iframe-element"
       />
     </div>
   );
