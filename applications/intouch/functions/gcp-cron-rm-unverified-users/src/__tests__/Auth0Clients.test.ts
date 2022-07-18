@@ -6,11 +6,8 @@ process.env.AUTH0_MANAGEMENT_CLIENT_ID = "AUTH0_MANAGEMENT_CLIENT_ID";
 process.env.AUTH0_ISSUER_BASE_URL = "AUTH0_ISSUER_BASE_URL";
 process.env.AUTH0_AUDIENCE = "AUTH0_AUDIENCE";
 process.env.FRONTEND_BASE_URL = "FRONTEND_BASE_URL";
+process.env.AUTH0_API_CLIENT_SECRET = "AUTH0_API_CLIENT_SECRET";
 
-const getSecretMock = jest.fn().mockReturnValue("gcp secret acquired");
-jest.mock("@bmi-digital/functions-secret-client", () => ({
-  getSecret: (params: any) => getSecretMock(params)
-}));
 const fetchMock = jest.fn();
 jest.mock("node-fetch", () => {
   const original = jest.requireActual("node-fetch");
@@ -91,7 +88,6 @@ describe("Auth0Client", () => {
 
         await auth0.getUnverifiedUser();
 
-        expect(getSecretMock).toHaveBeenCalledWith("AUTH0_API_CLIENT_SECRET");
         expect(fetchMock).toHaveBeenNthCalledWith(
           1,
           `${process.env.AUTH0_ISSUER_BASE_URL}/oauth/token`,
@@ -103,7 +99,7 @@ describe("Auth0Client", () => {
             body: JSON.stringify({
               grant_type: "client_credentials",
               client_id: process.env.AUTH0_MANAGEMENT_CLIENT_ID,
-              client_secret: "gcp secret acquired",
+              client_secret: "AUTH0_API_CLIENT_SECRET",
               audience: process.env.AUTH0_AUDIENCE
             })
           }

@@ -26,7 +26,6 @@
     "@bmi/logger": "0.0.11",
     "@contentful/rich-text-react-renderer": "^15.0.0",
     "@contentful/rich-text-types": "^15.0.0",
-    "@google-cloud/secret-manager": "^3.7.1",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
@@ -89,7 +88,6 @@
     "storybook-addon-next-router": "^2.0.4"
   },
   "browser": {
-    "@google-cloud/secret-manager": false,
     "@google-cloud/logging-winston": false
   }
 }

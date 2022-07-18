@@ -5,7 +5,6 @@ dotenv.config();
 import { WinstonLogger } from "@bmi-digital/logger";
 import { graphqlUploadExpress } from "graphql-upload";
 
-import { setEnvFromSecrets } from "./services/secrets";
 import { postgraphile } from "./postgraphile";
 import parseUserInfo from "./middleware/parseUserInfo";
 import pubsub from "./middleware/pubsub";
@@ -17,16 +16,6 @@ const PORT = process.env.PORT || 4001;
 const MAX_FILE_SIZE = 40;
 
 async function main() {
-  await setEnvFromSecrets([
-    { secret: "COMPANIES_DB_HOST", env: "PG_HOST" },
-    { secret: "COMPANIES_DB_PASSWORD", env: "PG_PASSWORD" },
-    { secret: "AUTH0_API_CLIENT_SECRET", env: "AUTH0_API_CLIENT_SECRET" },
-    { secret: "CONTENTFUL_TOKEN", env: "CONTENTFUL_TOKEN" },
-    { secret: "PG_SSL_CLIENT_KEY", env: "PG_SSL_CLIENT_KEY" },
-    { secret: "PG_SSL_CLIENT_CERT", env: "PG_SSL_CLIENT_CERT" },
-    { secret: "PG_SSL_SERVER_CA", env: "PG_SSL_SERVER_CA" }
-  ]);
-
   const app = express();
   app.use(WinstonLogger);
   app.use(express.json());

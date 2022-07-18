@@ -49,17 +49,7 @@ jest.mock("@bmi-digital/functions-logger", () => ({
   info: (message: any) => loggerInfo(message)
 }));
 
-const getSecret = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => {
-  return { getSecret };
-});
-
 const mockAccessSecretVersion = jest.fn();
-jest.mock("@google-cloud/secret-manager", () => ({
-  SecretManagerServiceClient: jest.fn(() => ({
-    accessSecretVersion: mockAccessSecretVersion
-  }))
-}));
 
 const setApiKey = jest.fn();
 const send = jest.fn();

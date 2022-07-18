@@ -1,4 +1,5 @@
 process.env.FRONTEND_API_URL = "http://localhost/";
+process.env.GATEWAY_API_KEY = "bearer";
 
 import GatewayClient from "../GatewayClient";
 
@@ -13,10 +14,6 @@ jest.mock("node-fetch", () => {
     Request: jest.fn((...options: any[]) => requestSpy(options))
   };
 });
-const getSecretSpy = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => ({
-  getSecret: (key: any) => getSecretSpy(key)
-}));
 
 describe("GatewayClient", () => {
   beforeEach(() => {
@@ -36,11 +33,7 @@ describe("GatewayClient", () => {
 
   describe("create", () => {
     it("normal case", async () => {
-      const bearer = "bearer";
-      getSecretSpy.mockReturnValueOnce(bearer);
-
       await GatewayClient.create();
-      expect(getSecretSpy).toHaveBeenCalledWith("GATEWAY_API_KEY");
     });
   });
 
@@ -57,8 +50,6 @@ describe("GatewayClient", () => {
     });
 
     it("normal case", async () => {
-      const bearer = "bearer";
-      getSecretSpy.mockReturnValueOnce(bearer);
       const gateway = await GatewayClient.create();
       await gateway.archiveGuarantee();
 

@@ -8,11 +8,6 @@ jest.mock("node-fetch", () => {
   };
 });
 
-export const getSecretSpy = jest.fn();
-jest.mock("@bmi-digital/functions-secret-client", () => ({
-  getSecret: (key: any) => getSecretSpy(key)
-}));
-
 export const loggerInfo = jest.fn();
 export const loggerError = jest.fn();
 jest.mock("@bmi-digital/functions-logger", () => ({
