@@ -1,5 +1,4 @@
 import fetch, { Request } from "node-fetch";
-import { getSecret } from "@bmi-digital/functions-secret-client";
 import { ReportRecord } from "./__tests__/helper";
 
 const { FRONTEND_API_URL } = process.env;
@@ -31,7 +30,7 @@ export default class GatewayClient {
   }
 
   public static async create(): Promise<GatewayClient> {
-    const bearer = await getSecret("GATEWAY_API_KEY");
+    const bearer = process.env.GATEWAY_API_KEY!;
     return new GatewayClient(bearer);
   }
 

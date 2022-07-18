@@ -1,12 +1,10 @@
-import merge from "lodash/merge";
-import { gql } from "@apollo/client";
-import { ApolloClient, NormalizedCacheObject } from "@apollo/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { ApolloClient, gql, NormalizedCacheObject } from "@apollo/client";
 import { NextLogger } from "@bmi/logger";
-import { getServerPageGetGlobalDataPublic } from "../../graphql/generated/page";
+import merge from "lodash/merge";
+import { NextApiRequest, NextApiResponse } from "next";
 import { GetGlobalDataQuery } from "../../graphql/generated/operations";
+import { getServerPageGetGlobalDataPublic } from "../../graphql/generated/page";
 import { initializeApollo } from "../apolloClient";
-import { getSecret } from "../utils/secrets";
 
 type PageContext = {
   req: NextApiRequest;
@@ -22,12 +20,8 @@ export type GlobalPageProps = {
 export const innerGetServerSideProps = async (getServerSideProps, ctx) => {
   const { req, res } = ctx;
 
-  const GATEWAY_API_KEY = await getSecret(
-    process.env.GCP_SECRET_PROJECT,
-    "GATEWAY_API_KEY"
-  );
   const headers = {
-    "x-api-key": GATEWAY_API_KEY
+    "x-api-key": process.env.GATEWAY_API_KEY
   };
 
   const apolloClient = initializeApollo(null, { req, res, headers });

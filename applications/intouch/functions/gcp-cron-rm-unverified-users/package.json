@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
-    "@bmi-digital/functions-secret-client": "1.1.1",
     "auth0": "^2.40.0",
     "date-fns": "^2.28.0",
     "node-fetch": "^2.6.1"

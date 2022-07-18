@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
-    "@bmi-digital/functions-secret-client": "1.1.1",
     "node-fetch": "^2.6.1",
     "pg": "^8.5.1",
     "pg-format": "^1.0.4"
