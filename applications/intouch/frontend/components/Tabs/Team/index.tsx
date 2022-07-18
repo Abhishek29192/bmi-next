@@ -13,6 +13,7 @@ import {
 } from "../../../graphql/generated/hooks";
 import { NoContent } from "../../NoContent";
 import AccessControl from "../../../lib/permissions/AccessControl";
+import { GetProjectQuery } from "../../../graphql/generated/operations";
 import { AddTeamMemberDialog } from "./AddTeamMemberDialog";
 import { TeamMemberItem } from "./TeamMemberItem";
 import styles from "./styles.module.scss";
@@ -21,12 +22,14 @@ export type TeamTabProps = {
   projectId: number;
   teams: ProjectMember[];
   canNominateProjectResponsible: boolean;
+  project: GetProjectQuery["project"];
 };
 
 export const TeamTab = ({
   projectId,
   teams,
-  canNominateProjectResponsible
+  canNominateProjectResponsible,
+  project
 }: TeamTabProps) => {
   const { t } = useTranslation("project-page");
 
@@ -75,12 +78,14 @@ export const TeamTab = ({
       }
     });
   };
+
   const addTeamMemberHandler = async () => {
     const existAccounts = projectMembers.map((member) => member.accountId);
 
     getProjectCompanyMembers({
       variables: {
-        existAccounts: existAccounts
+        existAccounts: existAccounts,
+        companyId: project.company.id
       }
     });
     setTeamMemberDialogOpen(true);
@@ -132,7 +137,11 @@ export const TeamTab = ({
     <div className={styles.main}>
       <div className={styles.header}>
         <AccessControl dataModel="project" action="addTeamMember">
-          <Button variant="outlined" onClick={addTeamMemberHandler}>
+          <Button
+            data-testid="add-team-member-button"
+            variant="outlined"
+            onClick={addTeamMemberHandler}
+          >
             {t("teamTab.header")}
           </Button>
         </AccessControl>
@@ -204,8 +213,11 @@ export const DELETE_PROJECT_MEMBER = gql`
   }
 `;
 export const PROJECT_COMPANY_MEMBERS = gql`
-  query getProjectCompanyMembers($existAccounts: [Int!]) {
-    companyMembers(filter: { accountId: { notIn: $existAccounts } }) {
+  query getProjectCompanyMembers($existAccounts: [Int!], $companyId: Int!) {
+    companyMembers(
+      filter: { accountId: { notIn: $existAccounts } }
+      condition: { companyId: $companyId }
+    ) {
       nodes {
         id
         accountId

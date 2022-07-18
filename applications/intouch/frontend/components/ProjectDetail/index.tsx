@@ -253,6 +253,7 @@ const ProjectDetail = ({
                 projectId={projectId}
                 teams={project.projectMembers.nodes as ProjectMember[]}
                 canNominateProjectResponsible={canNominateResponsibleInstaller()}
+                project={project}
               />
             </TabCard>
           </Tabs.TabPanel>
