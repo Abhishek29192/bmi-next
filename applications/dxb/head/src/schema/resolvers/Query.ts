@@ -78,12 +78,13 @@ export default {
             allowFilterByLocal.push("ProductLine");
           }
         }
-        allowFilterByLocal.push("appearanceAttributes.colourfamily");
+        allowFilterByLocal.push("appearanceAttributes.colourFamily");
         allowFilterByLocal.push("generalInformation.materials");
         //couldnt see this in Elastic search response..hence all the options are disabled on the UI!
-        allowFilterByLocal.push("appearanceAttributes.texturefamily");
+        allowFilterByLocal.push("appearanceAttributes.textureFamily");
         // If you are not on a category product listing page, then show category filters!
         // if `pageCategory` is specified, then check its category type too!
+        // This is done afterwards to ensure the category specific filters are after the others.
         if (pageCategory && pageCategory.categoryType !== "Category") {
           const categoryGroupCodes = Array.from(
             new Set(
