@@ -15,8 +15,6 @@
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
     "@bmi-digital/react-pdf-maker": "1.1.1",
-    "@google-cloud/secret-manager": "^3.7.1",
-    "@bmi-digital/functions-secret-client": "1.1.1",
     "@google-cloud/storage": "^5.7.0",
     "@sendgrid/mail": "^7.4.2",
     "google-auth-library": "^7.5.0",
