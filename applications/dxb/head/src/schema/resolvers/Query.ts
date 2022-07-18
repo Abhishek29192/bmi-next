@@ -166,9 +166,6 @@ export default {
         microCopies: filterMicroCopies
       });
 
-      console.log("==========================");
-      console.log(`Filters: ${JSON.stringify(productFilters, undefined, 2)}`);
-      console.log("==========================");
       return {
         filters: productFilters,
         allowFilterBy: allowFilterByLocal
