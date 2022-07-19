@@ -597,9 +597,12 @@ const config = {
         generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
       }
     },
+    ...(process.env.PERFORMANCE_ANALYTICS === "true" &&
+    process.env.CI !== "true"
+      ? [`gatsby-plugin-perf-budgets`]
+      : []),
     ...(process.env.PERFORMANCE_ANALYTICS === "true"
       ? [
-          // `gatsby-plugin-perf-budgets`,
           {
             resolve: "gatsby-build-newrelic",
             options: {
