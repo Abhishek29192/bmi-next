@@ -287,5 +287,13 @@ export default {
           return weightB - weightA;
         });
     }
+  },
+  video: {
+    async resolve(source: Product, args: ResolveArgs, context: Context) {
+      return source.videos.map((video) => ({
+        __typename: "PIMVideo",
+        ...video
+      }));
+    }
   }
 };

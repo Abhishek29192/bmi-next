@@ -18,12 +18,7 @@ import type {
   Product as PimProduct
 } from "@bmi/pim-types";
 import { Category } from "@bmi/pim-types";
-import {
-  generateHashFromString,
-  generateUrl,
-  getYoutubeId,
-  isDefined
-} from "@bmi/utils";
+import { generateHashFromString, generateUrl, isDefined } from "@bmi/utils";
 import { productIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -32,6 +27,7 @@ import {
   getBrand,
   getGuaranteesAndWarrantiesAsset,
   getScoringWeight,
+  getVideoUrl,
   groupImages,
   mapClassification,
   mapDocuments,
@@ -279,7 +275,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
             subtitle: null,
             previewMedia: null,
             videoRatio: null,
-            youtubeId: asset.url ? getYoutubeId(asset.url) : ""
+            videoUrl: getVideoUrl(asset.url)
           })),
         weight: {
           grossWeight,

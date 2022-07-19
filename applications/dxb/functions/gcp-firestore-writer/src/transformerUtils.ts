@@ -297,3 +297,10 @@ export const mapImages = (
     })
     .filter((image) => image.mainSource || image.thumbnail);
 };
+
+export const getVideoUrl = (url?: string) =>
+  url
+    ? url.startsWith("https://")
+      ? url
+      : `https://www.youtube.com/watch?v=${url}`
+    : "";

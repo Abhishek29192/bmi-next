@@ -44,7 +44,7 @@ export type GallerySectionMedias =
   | GalleryPimVideo;
 
 export const transformMediaSrc = (
-  media: GallerySectionMedias[] = []
+  media: readonly GallerySectionMedias[] = []
 ): MediaData[] => {
   return media.map((item) => {
     switch (item.__typename) {

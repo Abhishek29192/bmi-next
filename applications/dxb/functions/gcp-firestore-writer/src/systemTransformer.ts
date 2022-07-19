@@ -10,7 +10,7 @@ import {
   Video
 } from "@bmi/firestore-types";
 import { System as PimSystem } from "@bmi/pim-types";
-import { generateHashFromString, generateUrl, getYoutubeId } from "@bmi/utils";
+import { generateHashFromString, generateUrl } from "@bmi/utils";
 import { systemIgnorableAttributes } from "./ignorableFeatureCodes";
 import {
   filterClassifications,
@@ -19,6 +19,7 @@ import {
   getBrand,
   getGuaranteesAndWarrantiesAsset,
   getScoringWeight,
+  getVideoUrl,
   groupImages,
   mapClassification,
   mapDocuments,
@@ -177,5 +178,5 @@ const mapVideos = (system: PimSystem): Video[] =>
       subtitle: null,
       previewMedia: null,
       videoRatio: null,
-      youtubeId: asset.url ? getYoutubeId(asset.url) : ""
+      videoUrl: getVideoUrl(asset.url)
     }));

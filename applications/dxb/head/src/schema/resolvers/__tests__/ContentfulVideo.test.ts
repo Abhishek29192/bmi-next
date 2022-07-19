@@ -1,5 +1,5 @@
-import fetchMockJest, { mockClear } from "fetch-mock-jest";
 import { mockResponses } from "@bmi-digital/fetch-mocks";
+import fetchMockJest, { mockClear } from "fetch-mock-jest";
 import { Node } from "../types/Gatsby";
 
 const source: Node = {
@@ -12,27 +12,12 @@ const source: Node = {
 
 jest.mock("dotenv");
 
+const youtubeList = jest.fn();
 jest.mock("googleapis", () => ({
   google: {
     youtube: jest.fn().mockReturnValue({
       videos: {
-        list: jest.fn().mockImplementation(({ id: [youtubeId] }) => {
-          if (!youtubeId) {
-            return { data: null };
-          }
-          return {
-            data: {
-              items: [
-                {
-                  player: {
-                    embedHeight: "20.4",
-                    embedWidth: "16.8"
-                  }
-                }
-              ]
-            }
-          };
-        })
+        list: youtubeList
       }
     })
   }
@@ -75,16 +60,40 @@ describe("ContentfulVideo", () => {
     });
     it("should resolve null if youtube.videos.list data is null", async () => {
       process.env.GOOGLE_YOUTUBE_API_KEY = "GOOGLE_YOUTUBE_API_KEY";
-      expect(
-        await videoRatioResolve({ ...source, youtubeId: null })
-      ).toBeNull();
+
+      youtubeList.mockResolvedValueOnce({ data: null });
+
+      expect(await videoRatioResolve(source)).toBeNull();
+
+      expect(youtubeList).toHaveBeenCalledWith({
+        part: ["player"],
+        id: [source.youtubeId],
+        maxHeight: 9999
+      });
     });
 
     it("should resolve video ratio if no ENABLE_YOUTUBE_CACHE provided", async () => {
       process.env.GOOGLE_YOUTUBE_API_KEY = "GOOGLE_YOUTUBE_API_KEY";
+      youtubeList.mockResolvedValueOnce({
+        data: {
+          items: [
+            {
+              player: {
+                embedHeight: "20.4",
+                embedWidth: "16.8"
+              }
+            }
+          ]
+        }
+      });
       expect(await videoRatioResolve(source)).toEqual({
         height: 20.4,
         width: 16.8
+      });
+      expect(youtubeList).toHaveBeenCalledWith({
+        part: ["player"],
+        id: [source.youtubeId],
+        maxHeight: 9999
       });
     });
 

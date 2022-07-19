@@ -868,7 +868,7 @@ type PimVideo {
   subtitle: String # Always null
   previewMedia: String # Always null
   videoRatio: String # Always null
-  youtubeId: String
+  videoUrl: String
 }
 
 type Weight {
