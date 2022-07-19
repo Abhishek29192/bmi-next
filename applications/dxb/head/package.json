@@ -25,7 +25,7 @@
     "lighthouse": "yarn lhci autorun",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "microcopy": "node ./scripts/get-microcopy.js",
-    "performance": "cross-env NODE_ENV=production yarn build --graphql-tracing",
+    "performance": "cross-env NODE_ENV=production GATSBY_OPEN_TRACING_CONFIG_FILE=./node_modules/gatsby-build-newrelic/zipkin-local.js yarn build --graphql-tracing",
     "start": "gatsby build --prefix-paths && gatsby serve",
     "test": "jest --coverage --reporters=default --reporters=jest-junit"
   },
