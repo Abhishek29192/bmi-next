@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS docebo_tier CASCADE;
