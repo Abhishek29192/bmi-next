@@ -801,10 +801,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -1902,10 +1898,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -3130,10 +3122,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -4340,10 +4328,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -5617,10 +5601,6 @@ exports[`ProductListerPage template New plpFilters tests ProductListerPage with 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -8772,10 +8752,6 @@ exports[`ProductListerPage template New plpFilters tests When level 1 hero selec
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -10073,10 +10049,6 @@ exports[`ProductListerPage template no search for Gatsby preview 1`] = `
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -11385,10 +11357,6 @@ exports[`ProductListerPage template test filter resolver utils when it is not a 
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -12697,10 +12665,6 @@ exports[`ProductListerPage template test filter resolver utils when no filters a
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -14009,10 +13973,6 @@ exports[`ProductListerPage template test hande change url by click on filters an
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15319,10 +15279,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15370,10 +15326,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15421,10 +15373,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15472,10 +15420,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15523,10 +15467,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15574,10 +15514,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15625,10 +15561,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15676,10 +15608,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15727,10 +15655,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15778,10 +15702,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15829,10 +15749,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15880,10 +15796,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15931,10 +15843,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -15982,10 +15890,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16033,10 +15937,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16084,10 +15984,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16135,10 +16031,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16186,10 +16078,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16237,10 +16125,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16288,10 +16172,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16339,10 +16219,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16390,10 +16266,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16441,10 +16313,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16492,10 +16360,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16543,10 +16407,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16594,10 +16454,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16645,10 +16501,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16696,10 +16548,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16747,10 +16595,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -16798,10 +16642,6 @@ exports[`ProductListerPage template test hande fetch product by click on paginat
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18119,10 +17959,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18170,10 +18006,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18221,10 +18053,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18272,10 +18100,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18323,10 +18147,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18374,10 +18194,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18425,10 +18241,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18476,10 +18288,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18527,10 +18335,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18578,10 +18382,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18629,10 +18429,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18680,10 +18476,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18731,10 +18523,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18782,10 +18570,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18833,10 +18617,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18884,10 +18664,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18935,10 +18711,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -18986,10 +18758,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19037,10 +18805,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19088,10 +18852,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19139,10 +18899,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19190,10 +18946,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19241,10 +18993,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19292,10 +19040,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19343,10 +19087,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19394,10 +19134,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19445,10 +19181,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19496,10 +19228,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19547,10 +19275,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
@@ -19598,10 +19322,6 @@ exports[`ProductListerPage template test handle fetch product by click on pagina
                       role="button"
                       tabindex="0"
                     >
-                      <img
-                        alt=" imaproduct"
-                        class="header-picture Media Media--contain"
-                      />
                       <div
                         class="body"
                       >
