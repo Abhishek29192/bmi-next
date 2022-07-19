@@ -605,9 +605,10 @@ const config = {
               NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
               NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
               SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
-              customTags: {
-                featureFlag: process.env.NEW_RELIC_FEATURE_FLAG
-              }
+              collectTraces: true,
+              collectLogs: true,
+              collectMetrics: true,
+              customTags: {}
             }
           }
         ]
