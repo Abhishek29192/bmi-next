@@ -148,6 +148,16 @@ const recaptchaContent_ID: RecaptchaPolicyContentType = {
   termsOfServiceUrl: "https://policies.google.com/terms?hl=id"
 };
 
+const recaptchaContent_PL: RecaptchaPolicyContentType = {
+  startText: "Ta witryna jest chroniona przez reCAPTCHA i obowiązuje ",
+  privacyPloicyText: "Polityka prywatności",
+  andText: " i ",
+  termsOfServiceText: "Warunki korzystania z usługi",
+  endText: " Google.",
+  privacyPolicyUrl: "https://policies.google.com/privacy?hl=pl",
+  termsOfServiceUrl: "https://policies.google.com/terms?hl=pl"
+};
+
 const RecaptchaPrivacyContentMap: Map<string, RecaptchaPolicyContentType> =
   new Map<string, RecaptchaPolicyContentType>();
 RecaptchaPrivacyContentMap["no"] = recaptchaContent_NO;
@@ -163,6 +173,7 @@ RecaptchaPrivacyContentMap["pt"] = recaptchaContent_PT;
 RecaptchaPrivacyContentMap["be"] = recaptchaContent_BE_NL;
 RecaptchaPrivacyContentMap["ro"] = recaptchaContent_RO;
 RecaptchaPrivacyContentMap["id"] = recaptchaContent_ID;
+RecaptchaPrivacyContentMap["pl"] = recaptchaContent_PL;
 
 const getRecaptchaPrivacyContent = (
   countryCode: string
