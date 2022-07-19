@@ -289,9 +289,10 @@ export default {
     }
   },
   video: {
+    type: ["PimVideo"],
     async resolve(source: Product, args: ResolveArgs, context: Context) {
       return source.videos.map((video) => ({
-        __typename: "PIMVideo",
+        __typename: "PimVideo",
         ...video
       }));
     }
