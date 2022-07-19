@@ -289,7 +289,7 @@
 
 
 [[redirects]]
- from="/za/sxa/file/download*"
+ from="/za/sxa/file/*"
  to="/za/product-catalogues-brochures-folders/"
  force=true
 

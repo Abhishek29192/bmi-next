@@ -3324,7 +3324,7 @@
 
 
 [[redirects]]
- from="/fi/sxa/file/download*"
+ from="/fi/sxa/file/*"
  to="/fi/esitteet-ja-dokumentit/"
  force=true
 

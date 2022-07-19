@@ -468,7 +468,7 @@ force = true
 
 
 [[redirects]]
-from = "/uk/sxa/file/download*"
+from = "/uk/sxa/file/*"
 to = "/uk/downloads/"
 status = 301
 force = true
