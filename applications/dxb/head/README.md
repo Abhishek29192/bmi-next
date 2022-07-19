@@ -580,7 +580,7 @@ Visit [New Relic](https://newrelic.com/signup) and sign up for a new account.
 
 ### Collecting metrics
 
-To get metrics from the build, set `PERFORMANCE_ANALYTICS` to `true`.
+To get metrics from the build, `PERFORMANCE_ANALYTICS` needs to be set to `true`. To get trace metrics `GATSBY_OPEN_TRACING_CONFIG_FILE` needs to be set to `./node_modules/gatsby-build-newrelic/zipkin-local.js` and `--graphql-tracing` needs to be passed in. This is all done as part of the `performance` yarn script.
 
 ## Performance run
 

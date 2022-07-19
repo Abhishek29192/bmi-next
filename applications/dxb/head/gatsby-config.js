@@ -475,7 +475,8 @@ const config = {
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        devMode: process.env.NODE_ENV === "development"
+        devMode: true,
+        disable: process.env.CI === "true"
       }
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
@@ -598,7 +599,7 @@ const config = {
     },
     ...(process.env.PERFORMANCE_ANALYTICS === "true"
       ? [
-          `gatsby-plugin-perf-budgets`,
+          // `gatsby-plugin-perf-budgets`,
           {
             resolve: "gatsby-build-newrelic",
             options: {

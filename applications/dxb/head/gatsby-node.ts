@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
 import dotenv from "dotenv";
 import findUp from "find-up";
+import fs from "fs";
 import type { GatsbyNode } from "gatsby";
+import path from "path";
 import toml from "toml";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import { createSystemPages } from "./src/gatsby/systemDetailsPages";
