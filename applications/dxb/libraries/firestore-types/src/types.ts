@@ -235,7 +235,7 @@ export type Video = {
   subtitle: null;
   previewMedia: null;
   videoRatio: null;
-  youtubeId: string;
+  videoUrl: string;
 };
 
 export type CategoryGroup = { label: string; code: string };

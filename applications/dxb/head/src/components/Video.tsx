@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
-import { graphql } from "gatsby";
 import { YoutubeVideo } from "@bmi/components";
+import { graphql } from "gatsby";
+import React, { useMemo } from "react";
 import { useGTM } from "../utils/google-tag-manager";
 import { getDefaultPreviewImage } from "../utils/product-details-transforms";
 import Image, { Data as ImageData } from "./Image";

@@ -1,7 +1,7 @@
-import { google, youtube_v3 } from "googleapis";
 import { config } from "dotenv";
+import { google, youtube_v3 } from "googleapis";
 import fetch, { Response } from "node-fetch";
-import { getYoutubeId } from "../../utils/product-details-transforms";
+import { getYoutubeId } from "../../../../libraries/utils/src/youtube";
 import { Node } from "./types/Gatsby";
 
 config({

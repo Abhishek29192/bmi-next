@@ -6,7 +6,7 @@ const createVideo = (video?: Partial<Video>): Video => ({
   subtitle: null,
   title: "",
   videoRatio: null,
-  youtubeId: "3901c0ds7oo",
+  videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo",
   ...video
 });
 

@@ -948,7 +948,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -1937,7 +1937,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -2856,7 +2856,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -3761,7 +3761,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -4798,7 +4798,25 @@ describe("transformProduct", () => {
         subtitle: null,
         title: "",
         videoRatio: null,
-        youtubeId: ""
+        videoUrl: ""
+      }
+    ]);
+  });
+
+  it("handles video asset of just YouTube ID", async () => {
+    const asset = createAsset({ assetType: "VIDEO", url: "3901c0ds7oo" });
+    const product = createProduct({
+      assets: [asset]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].videos).toEqual([
+      {
+        label: asset.name,
+        previewMedia: null,
+        subtitle: null,
+        title: "",
+        videoRatio: null,
+        videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo"
       }
     ]);
   });
@@ -7046,7 +7064,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -8040,7 +8058,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {

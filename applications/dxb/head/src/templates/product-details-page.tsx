@@ -114,19 +114,7 @@ const ProductDetailsPage = ({ pageContext, data }: Props) => {
                     ...product.masterImages,
                     ...product.galleryImages
                   ]),
-                  videos: transformMediaSrc(
-                    product.videos.map((video) => {
-                      return {
-                        __typename: "PimVideo",
-                        previewMedia: video.previewMedia,
-                        videoRatio: video.videoRatio,
-                        title: video.title,
-                        label: video.label,
-                        subtitle: video.subtitle,
-                        videoUrl: video.youtubeId
-                      };
-                    })
-                  ),
+                  videos: transformMediaSrc(product.videos),
                   attributes: getProductAttributes(
                     product,
                     pageContext.countryCode,
