@@ -546,9 +546,21 @@ migrate_content_indonesia:
 deploy_gatsby_cloud_indonesia:
   extends: .deploy_gatsby_cloud
   needs:
-    - migrate_content_romania
+    - migrate_content_indonesia
   variables:
     DXB_MARKET_ID: "ID"
+
+migrate_content_poland:
+  extends: .migrate_content
+  variables:
+    DXB_MARKET_ID: "PL"
+
+deploy_gatsby_cloud_poland:
+  extends: .deploy_gatsby_cloud
+  needs:
+    - migrate_content_poland
+  variables:
+    DXB_MARKET_ID: "PL"
 
 migrate_content_group:
   extends: .migrate_content
