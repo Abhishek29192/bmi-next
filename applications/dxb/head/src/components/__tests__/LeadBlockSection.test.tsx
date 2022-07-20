@@ -4,7 +4,7 @@ import { ContentfulRichTextGatsbyReference } from "gatsby-source-contentful/rich
 import React from "react";
 import LeadBlockSection, {
   Data as LeadBlockSectionProps
-} from "../components/LeadBlockSection";
+} from "../LeadBlockSection";
 
 const leadBlockSectionData: LeadBlockSectionProps = {
   __typename: "ContentfulLeadBlockSection",

@@ -17,7 +17,6 @@ import {
 } from "@material-ui/icons";
 import classnames from "classnames";
 import React, { forwardRef, useMemo } from "react";
-import { useConfig } from "@bmi/head/src/contexts/ConfigProvider";
 import { GTM } from "../";
 import Button from "../button/Button";
 import Clickable, {
@@ -76,6 +75,8 @@ type HeaderProps = {
   languageLabel?: string;
   languageIntroduction?: React.ReactNode;
   SampleBasketDialog?: React.ElementType;
+  isGatsbyDisabledElasticSearch?: boolean;
+  isSpaEnabled?: boolean;
 };
 
 const Header = ({
@@ -108,7 +109,9 @@ const Header = ({
   closeButtonComponent: CloseButtonComponent = Button,
   SampleBasketDialog,
   onCountrySelection,
-  useGTM
+  useGTM,
+  isGatsbyDisabledElasticSearch,
+  isSpaEnabled
 }: HeaderProps) => {
   const body =
     typeof document !== "undefined"
@@ -127,9 +130,6 @@ const Header = ({
   const elementWidths = getElementWidths(navigation);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const {
-    config: { isSpaEnabled }
-  } = useConfig();
 
   const gtm = useMemo(() => {
     const languageSectionState = !showLanguageSelection ? "open" : "close";
@@ -368,7 +368,12 @@ const Header = ({
               className={styles["logo-link"]}
               aria-label={logoLabel}
             >
-              <Icon className={styles["logo"]} source={BmiIcon} />
+              <Icon
+                className={
+                  isSpaEnabled ? styles["static-logo"] : styles["logo"]
+                }
+                source={BmiIcon}
+              />
             </Clickable>
             <nav
               aria-label="Navigation"
@@ -381,72 +386,63 @@ const Header = ({
                 value={value === true ? 0 : value}
                 variant="scrollable"
               >
-                {(isSpaEnabled
-                  ? [
-                      {
-                        label: "Icopal",
-                        action: { model: "htmlLink" as const, href: "#" }
-                      },
-                      {
-                        label: "Brass",
-                        action: { model: "htmlLink" as const, href: "#" }
-                      }
-                    ]
-                  : navigation
-                ).map(({ label, action, menu }, key) => {
-                  let clickableAction = action;
+                {(isSpaEnabled ? [] : navigation).map(
+                  ({ label, action, menu }, key) => {
+                    let clickableAction = action;
 
-                  if (menu && menu.length === 1 && menu[0].action) {
-                    clickableAction = menu[0].action;
-                  }
+                    if (menu && menu.length === 1 && menu[0].action) {
+                      clickableAction = menu[0].action;
+                    }
 
-                  if (clickableAction) {
-                    const ClickableNavItem = (
-                      { children, ...props }: ClickableProps,
-                      ref: any
-                    ) => {
+                    if (clickableAction) {
+                      const ClickableNavItem = (
+                        { children, ...props }: ClickableProps,
+                        ref: any
+                      ) => {
+                        return (
+                          <Clickable {...clickableAction} {...props}>
+                            {children &&
+                              React.Children.map(children, (child) =>
+                                child && React.isValidElement(child)
+                                  ? React.cloneElement(child, {
+                                      children: label
+                                    })
+                                  : null
+                              )}
+                          </Clickable>
+                        );
+                      };
+
                       return (
-                        <Clickable {...clickableAction} {...props}>
-                          {children &&
-                            React.Children.map(children, (child) =>
-                              child && React.isValidElement(child)
-                                ? React.cloneElement(child, {
-                                    children: label
-                                  })
-                                : null
-                            )}
-                        </Clickable>
+                        <Tab
+                          className={classnames(
+                            styles["nav-item"],
+                            styles["nav-item--no-children"],
+                            activeNavLabel === label &&
+                              styles["nav-item--selected"]
+                          )}
+                          key={`navigation-tab-${key}`}
+                          component={forwardRef(ClickableNavItem)}
+                        />
                       );
-                    };
+                    }
 
                     return (
                       <Tab
+                        aria-controls={`navigation-tabpanel-${key}`}
                         className={classnames(
                           styles["nav-item"],
-                          styles["nav-item--no-children"],
                           activeNavLabel === label &&
                             styles["nav-item--selected"]
                         )}
+                        icon={<KeyboardArrowDown />}
+                        id={`navigation-tab-${key}`}
                         key={`navigation-tab-${key}`}
-                        component={forwardRef(ClickableNavItem)}
+                        label={label}
                       />
                     );
                   }
-
-                  return (
-                    <Tab
-                      aria-controls={`navigation-tabpanel-${key}`}
-                      className={classnames(
-                        styles["nav-item"],
-                        activeNavLabel === label && styles["nav-item--selected"]
-                      )}
-                      icon={<KeyboardArrowDown />}
-                      id={`navigation-tab-${key}`}
-                      key={`navigation-tab-${key}`}
-                      label={label}
-                    />
-                  );
-                })}
+                )}
               </Tabs>
             </nav>
             <div className={styles["navigation-bar-buttons"]}>
@@ -462,7 +458,7 @@ const Header = ({
                   <Icon source={ShoppingCartOutlined} />
                 </Button>
               )}
-              {!isSearchDisabled && !isSpaEnabled && (
+              {!isSearchDisabled && !isGatsbyDisabledElasticSearch && (
                 <Button
                   accessibilityLabel={searchLabel}
                   className={classnames(styles["search-button"], {
@@ -507,13 +503,13 @@ const Header = ({
             <Icon source={Close} />
           </Button>
           <Navigation
-            menu={navigation}
+            menu={!isSpaEnabled ? navigation : []}
             initialDepth={typeof value === "number" ? 1 : 0}
             initialValue={value}
-            buttonComponent={navigationButtonComponent}
-            promoButtonComponent={promoButtonComponent}
+            buttonComponent={!isSpaEnabled ? navigationButtonComponent : null}
+            promoButtonComponent={!isSpaEnabled ? promoButtonComponent : null}
             toggleLanguageSelection={toggleLanguageSelection}
-            utilities={utilities}
+            utilities={!isSpaEnabled ? utilities : null}
             setRootValue={setValue}
             mainMenuTitleLabel={mainMenuTitleLabel}
             mainMenuDefaultLabel={mainMenuDefaultLabel}
@@ -570,5 +566,4 @@ const Header = ({
     </Paper>
   );
 };
-
 export default Header;

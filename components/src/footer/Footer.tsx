@@ -150,13 +150,20 @@ const Footer = ({
   secondaryNavigation,
   logo
 }: Props) => {
+  console.log(!mainNavigation.length);
   return (
-    <div className={styles["Footer"]}>
+    <div
+      className={classnames(styles["Footer"], {
+        [styles["Footer-no-border"]!]: mainNavigation.length === 0
+      })}
+    >
       <Container>
-        <MainNavigation
-          menu={mainNavigation}
-          buttonComponent={buttonComponent}
-        />
+        {!!mainNavigation.length && (
+          <MainNavigation
+            menu={mainNavigation}
+            buttonComponent={buttonComponent}
+          />
+        )}
         <SecondaryNavigation
           menu={secondaryNavigation}
           logo={logo}

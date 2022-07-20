@@ -15,7 +15,7 @@ import { Data as SiteData } from "../../../components/Site";
 import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
 import { ConfigProvider } from "../../../contexts/ConfigProvider";
 import { createMockSiteData } from "../../../test/mockSiteData";
-import { Data as LeadBlockSectionData } from "../components/LeadBlockSection";
+import { Data as LeadBlockSectionData } from "../../../components/LeadBlockSection";
 import SimplePage, { Data, Props } from "../components/simple-page";
 import {
   cta,

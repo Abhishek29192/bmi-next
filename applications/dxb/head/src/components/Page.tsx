@@ -177,8 +177,8 @@ const Page = ({
                     </BrandProvider>
                   </CalculatorProvider>
                   {signupBlock && !isSpaEnabled ? (
-          <SignupBlock data={signupBlock} />
-        ) : null}
+                    <SignupBlock data={signupBlock} />
+                  ) : null}
                   <Footer
                     mainNavigation={footerMainNavigation}
                     secondaryNavigation={footerSecondaryNavigation}

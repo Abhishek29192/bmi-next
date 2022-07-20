@@ -206,7 +206,7 @@ const queries = [
 const elasticSearchPlugin =
   process.env.GATSBY_PREVIEW ||
   process.env.DISABLE_ES_INDEXING ||
-  process.env.GATSBY_IS_SPA_ENABLED === "true"
+  process.env.GATSBY_DISABLE_SEARCH === "true"
     ? []
     : [
         {

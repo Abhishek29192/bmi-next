@@ -2474,7 +2474,7 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
     class="HidePrint"
   >
     <div
-      class="Footer"
+      class="Footer Footer-no-border"
     >
       <div
         class="Container"
@@ -2482,9 +2482,6 @@ exports[`Sitemap renders correctly when footerMainNavigation is falsy 1`] = `
         <div
           class="MuiContainer-root MuiContainer-maxWidthXl"
         >
-          <div
-            class="MuiGrid-root Grid MuiGrid-container MuiGrid-spacing-xs-3 MuiGrid-justify-content-xs-space-between"
-          />
           <div
             class="secondary-navigation"
           >

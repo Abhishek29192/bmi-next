@@ -213,17 +213,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
           siteId: site.id,
           countryCode: site.countryCode,
           variantCodeToPathMap,
-        assetTypeFilter: process.env.MARKET_TAG_NAME
-          ? {
-              metadata: {
-                tags: {
-                  elemMatch: {
-                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+          assetTypeFilter: process.env.MARKET_TAG_NAME
+            ? {
+                metadata: {
+                  tags: {
+                    elemMatch: {
+                      contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                    }
                   }
                 }
               }
-            }
-          : null}
+            : null
+        }
       });
 
       await createPage({
@@ -244,16 +245,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         });
       }
 
-      if (!process.env.GATSBY_PREVIEW) {
-        await createPage({
-          path: getPathWithCountryCode(site.countryCode, `sitemap/`),
-          component: path.resolve("./src/templates/sitemap.tsx"),
-          context: {
-            siteId: site.id
-          }
-        });
-      }
-
       if (process.env.GATSBY_ENABLE_SYSTEM_DETAILS_PAGES === "true") {
         await createSystemPages({
           siteId: site.id,
@@ -266,6 +257,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
       await createPage({
         path: getPathWithCountryCode(site.countryCode, `ie-dialog/`),
         component: path.resolve("./src/templates/ie-dialog/index.tsx"),
+        context: {
+          siteId: site.id
+        }
+      });
+    }
+    if (!process.env.GATSBY_PREVIEW) {
+      await createPage({
+        path: getPathWithCountryCode(site.countryCode, `sitemap/`),
+        component: path.resolve("./src/templates/sitemap.tsx"),
         context: {
           siteId: site.id
         }

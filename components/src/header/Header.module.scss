@@ -50,6 +50,12 @@ $chevron-margin-left-lg: 3px;
     height: 50px;
   }
 
+  .static-logo {
+    margin: $logo-margin $logo-margin $logo-margin 0;
+    width: 50px;
+    height: 50px;
+  }
+
   .navigation {
     display: none;
 

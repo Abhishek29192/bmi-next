@@ -94,8 +94,9 @@ const HomePage = ({ data, pageContext }: Props) => {
 
   const GTMButton = withGTM<ButtonProps>(Button);
   const {
-    config: { isSpaEnabled }
+    config: { isSpaEnabled, isGatsbyDisabledElasticSearch }
   } = useConfig();
+
   return (
     <Page
       title={title}
@@ -113,7 +114,7 @@ const HomePage = ({ data, pageContext }: Props) => {
         return (
           <>
             <Hero level={0} heroes={heroItems} hasSpaceBottom>
-              {!isSpaEnabled && (
+              {!isGatsbyDisabledElasticSearch && (
                 <Search
                   buttonComponent={(props) => (
                     <GTMButton

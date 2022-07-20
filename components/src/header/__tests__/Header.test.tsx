@@ -1,4 +1,4 @@
-import { render, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import React from "react";
 import Clickable from "../../clickable/Clickable";
 import { Arrow } from "../../icon";
@@ -259,6 +259,7 @@ describe("Header component", () => {
 
     expect(findByText("EN")).not.toBeNull();
   });
+
   it("show basket icon if basket is not empty", () => {
     const { queryByRole } = render(
       <Header
@@ -276,6 +277,7 @@ describe("Header component", () => {
 
     expect(queryByRole("button", { name: "basketLabel" })).toBeInTheDocument();
   });
+
   it("toggle sample basket dialog", async () => {
     const { getByRole, queryByText } = render(
       <Header
@@ -298,5 +300,26 @@ describe("Header component", () => {
     expect(queryByText("renders cart")).toBeVisible();
     basketButton.click();
     await waitFor(() => expect(queryByText("renders cart")).not.toBeVisible());
+  });
+
+  it("no search input when ES is disabled", () => {
+    const searchLabel = "Search";
+
+    const { container } = render(
+      <Header
+        utilities={utilities}
+        navigation={navigation}
+        language={languages[0].menu[0]}
+        languages={languages}
+        languageLabel={languageLabel}
+        languageIntroduction={<p>Select a language</p>}
+        searchLabel={searchLabel}
+        useGTM={jest.fn}
+        isGatsbyDisabledElasticSearch={true}
+      />
+    );
+
+    expect(container).toMatchSnapshot();
+    expect(screen.queryByText(searchLabel)).not.toBeInTheDocument();
   });
 });

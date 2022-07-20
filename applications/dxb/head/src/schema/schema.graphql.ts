@@ -430,6 +430,7 @@ union ContentfulSection =
   | ContentfulTeamSection
   | ContentfulSampleBasketSection
   | ContentfulSignupBlock
+  | ContentfulLeadBlockSection
 
 type ContentfulMicroCopy implements Node {
   key: String!
