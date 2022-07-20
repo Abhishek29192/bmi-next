@@ -25,6 +25,7 @@ import { renderVideo } from "../components/Video";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
 import { updateBreadcrumbTitleFromContentful } from "../utils/breadcrumbUtils";
+import { getPathWithCountryCode } from "../utils/path";
 
 type BrandLandingPageData = Omit<PageInfoData, "sections"> &
   Omit<PageData, "breadcrumbs"> & {
@@ -129,6 +130,7 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
     >
       {({ siteContext }) => {
         const heroItems = getHeroItemsWithContext(siteContext, slides);
+        const { countryCode, getMicroCopy } = siteContext;
 
         return (
           <>
@@ -141,8 +143,22 @@ const BrandLandingPage = ({ data, pageContext }: Props) => {
               heroes={[firstSlide, ...heroItems]}
               hasSpaceBottom
               isHeroKeyLine={Boolean(isBrandProviderEnabled && brandLogo)}
-            />
-
+            >
+              <Search
+                buttonComponent={(props) => (
+                  <GTMButton
+                    gtm={{
+                      id: "search2",
+                      label: getMicroCopy(microCopy.SEARCH_LABEL)
+                    }}
+                    {...props}
+                  />
+                )}
+                action={getPathWithCountryCode(countryCode, "search")}
+                label={getMicroCopy(microCopy.SEARCH_LABEL)}
+                placeholder={getMicroCopy(microCopy.SEARCH_PLACEHOLDER_HERO)}
+              />
+            </Hero>
             {overlapCards && <OverlapCards data={overlapCards} />}
             {sections && <Sections data={sections} />}
             <Section backgroundColor="alabaster" isSlim>

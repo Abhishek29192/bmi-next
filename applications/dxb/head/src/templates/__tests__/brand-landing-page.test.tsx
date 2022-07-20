@@ -428,4 +428,13 @@ describe("Brand Landing Page Template", () => {
     expect(queryByText("firstSlideCTA")).not.toBeNull();
     expect(container).toMatchSnapshot();
   });
+  it("renders search functionality correctly on hero section", () => {
+    const { container } = renderWithRouter(
+      <BrandLandingPage
+        data={data}
+        pageContext={{ variantCodeToPathMap: {} }}
+      />
+    );
+    expect(container.getElementsByClassName("Search").length).toBeTruthy();
+  });
 });
