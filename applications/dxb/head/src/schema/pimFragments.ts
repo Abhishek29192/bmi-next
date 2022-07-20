@@ -131,6 +131,6 @@ export const pimFragments = graphql`
     subtitle
     previewMedia
     videoRatio
-    youtubeId
+    videoUrl
   }
 `;

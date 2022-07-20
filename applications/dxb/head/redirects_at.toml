@@ -2379,7 +2379,7 @@
 
 
 [[redirects]]
-  from = "/at/sxa/file/download*"
+  from = "/at/sxa/file/*"
   to = "/at/downloads/"
   status = 301
   force = true

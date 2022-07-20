@@ -34,7 +34,6 @@ export default {
       categoryCodes: "[String!]",
       allowFilterBy: "[String!]"
     },
-
     async resolve(
       source: Node,
       args: ResolveArgs,
@@ -79,12 +78,13 @@ export default {
             allowFilterByLocal.push("ProductLine");
           }
         }
-        allowFilterByLocal.push("appearanceAttributes.colourfamily");
+        allowFilterByLocal.push("appearanceAttributes.colourFamily");
         allowFilterByLocal.push("generalInformation.materials");
         //couldnt see this in Elastic search response..hence all the options are disabled on the UI!
-        allowFilterByLocal.push("appearanceAttributes.texturefamily");
+        allowFilterByLocal.push("appearanceAttributes.textureFamily");
         // If you are not on a category product listing page, then show category filters!
         // if `pageCategory` is specified, then check its category type too!
+        // This is done afterwards to ensure the category specific filters are after the others.
         if (pageCategory && pageCategory.categoryType !== "Category") {
           const categoryGroupCodes = Array.from(
             new Set(
@@ -147,57 +147,26 @@ export default {
         }
       }
 
-      const productFilters = await getPlpFilters({
+      const { entries: resourceEntries } =
+        await context.nodeModel.findAll<MicroCopy>(
+          {
+            query: {},
+            type: "ContentfulMicroCopy"
+          },
+          { connectionType: "ContentfulMicroCopy" }
+        );
+      const filterMicroCopies: Map<string, string> = [
+        ...resourceEntries
+      ].reduce((map, microCopy) => {
+        return map.set(microCopy.key, microCopy.value);
+      }, new Map());
+
+      const productFilters = getPlpFilters({
         products: resolvedProducts,
-        allowedFilters: allowFilterByLocal
+        allowedFilters: allowFilterByLocal,
+        microCopies: filterMicroCopies
       });
 
-      const plpMicrocopyPrefix = "filterLabels";
-      //are there any empty labels in the group labels?
-      //if so, try too find their microcopies using their filtercode
-      const missingLabelKeys = productFilters
-        .filter(
-          (item) => !item.label || (item.label && item.label.length === 0)
-        )
-        .map((filter) => `${plpMicrocopyPrefix}.${filter.filterCode}`);
-
-      if (missingLabelKeys.length) {
-        const { entries: resourceEntries } =
-          await context.nodeModel.findAll<MicroCopy>(
-            {
-              query: {
-                filter: {
-                  key: {
-                    in: [...missingLabelKeys]
-                  }
-                }
-              },
-              type: "ContentfulMicroCopy"
-            },
-            { connectionType: "ContentfulMicroCopy" }
-          );
-        const filterMicroCopies = [...resourceEntries];
-
-        //go through each product filter and if /groupLabel/ is empty, then get microcopy using its code/name
-        productFilters.forEach((productFilter) => {
-          if (
-            !productFilter.label ||
-            (productFilter.label && productFilter.label.length === 0)
-          ) {
-            const microCopyObj = filterMicroCopies.find(
-              (item) =>
-                item.key === `${plpMicrocopyPrefix}.${productFilter.filterCode}`
-            );
-            //update the label
-            if (microCopyObj) {
-              productFilter.label = microCopyObj.value;
-            } else {
-              // microcopy is in contentful missing.. should we create 'MC:filterLabels.{filtercode}'?
-              productFilter.label = `MC:${plpMicrocopyPrefix}.${productFilter.filterCode}`;
-            }
-          }
-        });
-      }
       return {
         filters: productFilters,
         allowFilterBy: allowFilterByLocal

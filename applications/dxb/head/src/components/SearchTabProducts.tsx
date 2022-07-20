@@ -67,6 +67,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // NOTE: map colour filter values to specific colour swatch representation
   const enhancedFilters: Filter[] = useMemo(() => {
     return initialFilters.map((filter) => {
+      // TODO: Remove lower caseing as part of DXB-3449
       if (filter.name.toLowerCase().endsWith("colourfamily")) {
         return enhanceColourFilterWithSwatches(filter);
       }

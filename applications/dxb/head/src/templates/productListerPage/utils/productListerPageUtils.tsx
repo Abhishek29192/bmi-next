@@ -67,7 +67,11 @@ export const renderProducts = (
           titleVariant="h5"
           subtitle={subTitle}
           subtitleVariant="h6"
-          media={<img src={mainImage} alt={`${subTitle} ${product.name}`} />}
+          media={
+            mainImage && (
+              <img src={mainImage} alt={`${subTitle} ${product.name}`} />
+            )
+          }
           imageSize="contain"
           brandImageSource={brandLogo}
           action={{

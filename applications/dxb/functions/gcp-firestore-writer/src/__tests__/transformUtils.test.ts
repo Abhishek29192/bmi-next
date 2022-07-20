@@ -1,5 +1,10 @@
 import { createAsset } from "@bmi/pim-types";
-import { isImageAsset, isLinkAsset, mapDocuments } from "../transformerUtils";
+import {
+  getVideoUrl,
+  isImageAsset,
+  isLinkAsset,
+  mapDocuments
+} from "../transformerUtils";
 
 describe("transformUtils tests", () => {
   describe("isImageAsset tests", () => {
@@ -64,6 +69,24 @@ describe("transformUtils tests", () => {
       });
       const result = mapDocuments([asset]);
       expect(result).toEqual([]);
+    });
+  });
+
+  describe("getVideoUrl", () => {
+    it("should return empty string when URL is undefined", () => {
+      expect(getVideoUrl(undefined)).toEqual("");
+    });
+
+    it("should return URL when URL starts with https", () => {
+      expect(
+        getVideoUrl("https://www.youtube.com/watch?v=3901c0ds7oo")
+      ).toEqual("https://www.youtube.com/watch?v=3901c0ds7oo");
+    });
+
+    it("should return full YouTube URL when URL is just the ID", () => {
+      expect(getVideoUrl("3901c0ds7oo")).toEqual(
+        "https://www.youtube.com/watch?v=3901c0ds7oo"
+      );
     });
   });
 });

@@ -267,6 +267,7 @@ export const filterDocuments = (
       if (isPimDoc) {
         const productFilterWithName = (document as PIMDocument).productFilters
           .filter(
+            // TODO: Remove lower caseing as part of DXB-3449
             (productFilter) =>
               productFilter.filterCode.toLowerCase() ===
               filterName.toLowerCase()

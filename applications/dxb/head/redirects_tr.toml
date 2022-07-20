@@ -548,7 +548,7 @@
 
 
 [[redirects]]
-  from = "/tr/sxa/file/download*"
+  from = "/tr/sxa/file/*"
   to = "/tr/downloads/"
   status = 301
   force = true

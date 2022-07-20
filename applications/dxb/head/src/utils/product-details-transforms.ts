@@ -1,7 +1,7 @@
 import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
-import { isDefined } from "../../../libraries/utils/src";
+import { getYoutubeId, isDefined } from "../../../libraries/utils/src";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
 
@@ -279,13 +279,16 @@ export const getProductAttributes = (
 
   const getUnavailableCTA = (
     variantValue: string,
-    propName: string,
+    propName: "colour" | "textureFamily" | "measurements" | "variantAttribute",
     variantCodeToPathMap?: Record<string, string> | null
   ) => {
-    const bestMatch = product.relatedVariants.find(
+    const bestMatch = product.relatedVariants.find((variant) => {
+      if (propName === "measurements") {
+        return variant.measurements.label === variantValue;
+      }
       // eslint-disable-next-line security/detect-object-injection
-      (variant) => variant[propName] === variantValue
-    );
+      return variant[propName] === variantValue;
+    });
 
     if (!bestMatch) {
       return undefined;
@@ -449,7 +452,7 @@ export const getProductAttributes = (
             )
           : getUnavailableCTA(
               variantAttribute,
-              "variantattribute",
+              "variantAttribute",
               variantCodeToPathMap
             );
 
@@ -481,13 +484,6 @@ export const mapClassificationValues = (
     .filter(isDefined)
     .filter((item) => item.trim().length > 0)
     .join(", ");
-};
-
-export const getYoutubeId = (urlOrCode: string) => {
-  const regExp =
-    /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?.*v(?:i)?=|\\&v(?:i)?=))([^#\\&\\?]*).*/;
-  const match = urlOrCode?.match(regExp);
-  return match?.length ? match[1] : urlOrCode;
 };
 
 export const getDefaultPreviewImage = (videoUrl: string) =>

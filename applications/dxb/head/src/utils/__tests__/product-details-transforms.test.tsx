@@ -11,7 +11,6 @@ import createRelatedVariant from "../../__tests__/helpers/RelatedVariantHelper";
 import {
   getDefaultPreviewImage,
   getProductAttributes,
-  getYoutubeId,
   mapClassificationValues,
   transformImages
 } from "../product-details-transforms";
@@ -24,10 +23,10 @@ describe("product-details-transforms tests", () => {
         "no",
         { size: "Size", variantAttribute: "variantattribute" },
         {
-          color: "unavaialbeMicroCopy",
-          size: "unavaialbeMicroCopy 2",
-          variantattribute: "unavaialbeMicroCopy 3",
-          texturefamily: "unavaialbeMicroCopy 4"
+          color: "unavailableMicroCopy",
+          size: "unavailableMicroCopy 2",
+          variantattribute: "unavailableMicroCopy 3",
+          texturefamily: "unavailableMicroCopy 4"
         }
       );
 
@@ -38,7 +37,7 @@ describe("product-details-transforms tests", () => {
           {
             name: "Colour",
             type: "thumbnails",
-            unavailableMicroCopy: "unavaialbeMicroCopy",
+            unavailableMicroCopy: "unavailableMicroCopy",
             variants: [
               {
                 label: "colour",
@@ -51,7 +50,7 @@ describe("product-details-transforms tests", () => {
           {
             name: "Texture Family",
             type: "chips",
-            unavailableMicroCopy: "unavaialbeMicroCopy 4",
+            unavailableMicroCopy: "unavailableMicroCopy 4",
             variants: [
               { label: "texture-family", isSelected: true, availability: false }
             ]
@@ -59,16 +58,25 @@ describe("product-details-transforms tests", () => {
           {
             name: "Size",
             type: "chips",
-            unavailableMicroCopy: "unavaialbeMicroCopy 2",
+            unavailableMicroCopy: "unavailableMicroCopy 2",
             variants: [
-              { label: "label", isSelected: false, availability: false },
+              {
+                label: "label",
+                isSelected: false,
+                availability: false,
+                action: {
+                  linkComponent: Link,
+                  model: "routerLink",
+                  to: "/no/p/name-hashed-related-code/"
+                }
+              },
               { label: "6x7x8symbol", isSelected: true, availability: false }
             ]
           },
           {
             name: "variantattribute",
             type: "chips",
-            unavailableMicroCopy: "unavaialbeMicroCopy 3",
+            unavailableMicroCopy: "unavailableMicroCopy 3",
             variants: [
               {
                 label: "variant-attribute",
@@ -92,7 +100,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -105,7 +113,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -117,9 +125,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -130,7 +147,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -149,7 +166,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -162,7 +179,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -174,9 +191,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -187,7 +213,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -207,7 +233,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -220,7 +246,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -232,9 +258,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -245,7 +280,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -265,7 +300,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -278,7 +313,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -290,9 +325,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -303,7 +347,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -326,7 +370,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -339,7 +383,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -351,9 +395,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -364,7 +417,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -387,7 +440,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     { label: "colour", isSelected: true, availability: false }
                   ]
@@ -395,7 +448,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -407,9 +460,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -420,7 +482,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -443,7 +505,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "blue",
@@ -460,7 +522,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -472,9 +534,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -485,7 +556,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -514,24 +585,24 @@ describe("product-details-transforms tests", () => {
               const expectedResult = [
                 {
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: []
                 },
                 {
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: []
                 },
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: []
                 },
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: []
                 }
               ];
@@ -546,7 +617,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -559,7 +630,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -571,9 +642,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -584,7 +664,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -650,19 +730,19 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: []
                 },
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: []
                 },
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
                     {
                       label: "label",
@@ -714,7 +794,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: []
                 }
               ];
@@ -730,7 +810,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -743,7 +823,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -755,9 +835,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -768,7 +857,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -788,7 +877,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -801,7 +890,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -813,9 +902,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -826,7 +924,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -852,7 +950,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -865,7 +963,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -877,9 +975,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -890,7 +997,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -912,7 +1019,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -925,7 +1032,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -937,9 +1044,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -950,7 +1066,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -970,7 +1086,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -983,7 +1099,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -995,9 +1111,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -1008,7 +1133,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -1034,7 +1159,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -1047,7 +1172,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -1059,9 +1184,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -1072,7 +1206,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -1094,7 +1228,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -1107,7 +1241,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -1119,9 +1253,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -1132,7 +1275,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -1152,7 +1295,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -1165,7 +1308,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -1177,9 +1320,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -1190,7 +1342,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -1213,7 +1365,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -1226,7 +1378,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -1238,9 +1390,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -1251,7 +1412,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -1272,7 +1433,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Colour",
                   type: "thumbnails",
-                  unavailableMicroCopy: "unavaialbeMicroCopy",
+                  unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
                     {
                       label: "colour",
@@ -1285,7 +1446,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Texture Family",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                  unavailableMicroCopy: "unavailableMicroCopy 4",
                   variants: [
                     {
                       label: "texture-family",
@@ -1297,9 +1458,18 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "Size",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                  unavailableMicroCopy: "unavailableMicroCopy 2",
                   variants: [
-                    { label: "label", isSelected: false, availability: false },
+                    {
+                      label: "label",
+                      isSelected: false,
+                      availability: false,
+                      action: {
+                        linkComponent: Link,
+                        model: "routerLink",
+                        to: "/no/p/name-hashed-related-code/"
+                      }
+                    },
                     {
                       label: "6x7x8symbol",
                       isSelected: true,
@@ -1310,7 +1480,7 @@ describe("product-details-transforms tests", () => {
                 {
                   name: "variantattribute",
                   type: "chips",
-                  unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                  unavailableMicroCopy: "unavailableMicroCopy 3",
                   variants: [
                     {
                       label: "variant-attribute",
@@ -1330,7 +1500,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Colour",
                 type: "thumbnails",
-                unavailableMicroCopy: "unavaialbeMicroCopy",
+                unavailableMicroCopy: "unavailableMicroCopy",
                 variants: [
                   {
                     label: "colour",
@@ -1343,7 +1513,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Texture Family",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 4",
+                unavailableMicroCopy: "unavailableMicroCopy 4",
                 variants: [
                   {
                     label: "texture-family",
@@ -1355,9 +1525,18 @@ describe("product-details-transforms tests", () => {
               {
                 name: "Size",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 2",
+                unavailableMicroCopy: "unavailableMicroCopy 2",
                 variants: [
-                  { label: "label", isSelected: false, availability: false },
+                  {
+                    label: "label",
+                    isSelected: false,
+                    availability: false,
+                    action: {
+                      linkComponent: Link,
+                      model: "routerLink",
+                      to: "/no/p/name-hashed-related-code/"
+                    }
+                  },
                   {
                     label: "6x7x8symbol",
                     isSelected: true,
@@ -1368,7 +1547,7 @@ describe("product-details-transforms tests", () => {
               {
                 name: "variantattribute",
                 type: "chips",
-                unavailableMicroCopy: "unavaialbeMicroCopy 3",
+                unavailableMicroCopy: "unavailableMicroCopy 3",
                 variants: [
                   {
                     label: "variant-attribute",
@@ -1463,102 +1642,6 @@ describe("product-details-transforms tests", () => {
           });
         });
       });
-    });
-  });
-
-  describe("getYoutubeId", () => {
-    it("returns ID for standard URL", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube.com/watch?v=${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for standard URL with start time", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube.com/watch?v=${expectedYoutubeId}&t=10s`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for share link URL", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://youtu.be/${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for share link URL with start time", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://youtu.be/${expectedYoutubeId}?t=10`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for embedded URL", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube.com/embed/${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for embedded URL with start time", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube.com/embed/${expectedYoutubeId}?start=10`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for privacy-enhanced embedded URL", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for privacy-enhanced embedded URL with start time", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://www.youtube-nocookie.com/embed/${expectedYoutubeId}?start=10`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for URL without 'www.'", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `https://youtube.com/watch?v=${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for URL without protocol", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `youtube.com/watch?v=${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns ID for URL with http protocol", () => {
-      const expectedYoutubeId = "HgeCkGZrPRs";
-      const actualYoutubeId = getYoutubeId(
-        `http://youtube.com/watch?v=${expectedYoutubeId}`
-      );
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
-    });
-
-    it("returns passes through any value that doesn't match the regex", () => {
-      const expectedYoutubeId = "djskhvjksdvjksdb";
-      const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
-      expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
     });
   });
 

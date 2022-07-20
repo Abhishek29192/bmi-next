@@ -301,7 +301,7 @@ describe("transformSystem", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
         },
@@ -564,7 +564,7 @@ describe("transformSystem", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
         },
@@ -737,7 +737,25 @@ describe("transformSystem", () => {
         subtitle: null,
         title: "",
         videoRatio: null,
-        youtubeId: ""
+        videoUrl: ""
+      }
+    ]);
+  });
+
+  it("handles video asset of just YouTube ID", () => {
+    const asset = createAsset({ assetType: "VIDEO", url: "3901c0ds7oo" });
+    const system = createSystem({
+      assets: [asset]
+    });
+    const transformedSystem = transformSystem(system);
+    expect(transformedSystem[0].videos).toEqual([
+      {
+        label: asset.name,
+        previewMedia: null,
+        subtitle: null,
+        title: "",
+        videoRatio: null,
+        videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo"
       }
     ]);
   });
@@ -1026,7 +1044,7 @@ describe("transformSystem", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
         },

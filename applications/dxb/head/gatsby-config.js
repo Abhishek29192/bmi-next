@@ -1,8 +1,13 @@
-import fs from "fs";
-import path from "path";
-import dotenv from "dotenv";
-import type { GatsbyConfig } from "gatsby";
-import getCredentialData from "./src/utils/get-credentials-data";
+"use strict";
+
+const fs = require("fs");
+const path = require("path");
+const dotenv = require("dotenv");
+const getCredentialData = require("./src/utils/get-credentials-data");
+
+/**
+ * @typedef { import("gatsby").GatsbyConfig } GatsbyConfig
+ */
 
 dotenv.config({
   path: `./.env.${process.env.NODE_ENV}`
@@ -107,7 +112,7 @@ const queries = [
               pageData.contentfulSimplePage;
 
             // If not one of the above pages or excluded then do not index
-            if (page && !page.seo?.noIndex) {
+            if (page && page.seo && !page.seo.noIndex) {
               // relying on PageInfoFragment
               return {
                 __typename: page.__typename,
@@ -222,7 +227,10 @@ const googleTagManagerPlugin =
       ]
     : [];
 
-const config: GatsbyConfig = {
+/**
+ * @type {GatsbyConfig}
+ */
+const config = {
   siteMetadata: {
     title: `BMI dxb`,
     description: ``,
@@ -464,11 +472,11 @@ const config: GatsbyConfig = {
     `gatsby-plugin-image`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-perf-budgets`,
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        devMode: process.env.NODE_ENV === "development"
+        devMode: true,
+        disable: process.env.CI === "true"
       }
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
@@ -589,6 +597,26 @@ const config: GatsbyConfig = {
         generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
       }
     },
+    ...(process.env.PERFORMANCE_ANALYTICS === "true" &&
+    process.env.CI !== "true"
+      ? [`gatsby-plugin-perf-budgets`]
+      : []),
+    ...(process.env.PERFORMANCE_ANALYTICS === "true"
+      ? [
+          {
+            resolve: "gatsby-build-newrelic",
+            options: {
+              NR_LICENSE_KEY: process.env.NEW_RELIC_LICENSE_KEY,
+              NR_ACCOUNT_ID: process.env.NEW_RELIC_ACCOUNT_ID,
+              SITE_NAME: process.env.NEW_RELIC_SITE_NAME,
+              collectTraces: true,
+              collectLogs: true,
+              collectMetrics: true,
+              customTags: {}
+            }
+          }
+        ]
+      : []),
     // Avoid extra memory consumption as these shouldn't be needed on prod
     {
       resolve: "gatsby-plugin-no-sourcemaps"
@@ -604,4 +632,4 @@ const config: GatsbyConfig = {
   }
 };
 
-export default config;
+module.exports = config;

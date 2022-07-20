@@ -554,3 +554,34 @@ There are certain fields that aren't in plain text and aren't obvious what they 
    1. Run spider
    1. Run active scan
 1. Export context
+
+## New Relic
+
+There is a Gatsby plugin which we can use to get some metrics for our build. To be able to do this, an account is needed.
+
+### Create free account
+
+Visit [New Relic](https://newrelic.com/signup) and sign up for a new account.
+
+### Get an API key
+
+1. Go to accounts (top right)
+1. Go to `API keys`
+1. Create an `Ingest - License` key
+1. Populate `NEW_RELIC_LICENSE_KEY` with the new license key
+1. Populate `NEW_RELIC_ACCOUNT_ID` with your account ID
+1. Populate `NEW_RELIC_SITE_NAME` with `DXB`
+
+### Setup a dashboard
+
+1. Go to [Gatsby Builds Quickstart](https://newrelic.com/instant-observability/gatsby-build/d234c09c-3338-4713-8340-ca75766445d6)
+1. Scroll to the bottom and click `Install now`
+1. Follow the installation wizard, _skipping the installation step as it's already done_
+
+### Collecting metrics
+
+To get metrics from the build, `PERFORMANCE_ANALYTICS` needs to be set to `true`. To get trace metrics `GATSBY_OPEN_TRACING_CONFIG_FILE` needs to be set to `./node_modules/gatsby-build-newrelic/zipkin-local.js` and `--graphql-tracing` needs to be passed in. This is all done as part of the `performance` yarn script.
+
+## Performance run
+
+Once a New Relic account has been created and the environment variables have been setup, `yarn workspace @bmi/head performance` can be run to get some performance metrics. This will run the standard `build` script, but with `--graphql-tracing` to get the full set of metrics. It also sets `NODE_ENV` to `production`, to ensure that a build is run as if it were for production, so make sure there is a `.env.production` env file with all the necessary properties set.

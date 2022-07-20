@@ -143,7 +143,7 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
     message: `allGroupsOfCategories: ${allGroupsOfCategories}`
   });
 
-  //TODO: remove `toUpperCase` when case agnostic to be reverted!
+  //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
   const allCategoriesAsProps: IndexedItemGroup<ESIndexObject> = Object.keys(
     allGroupsOfCategories
   )
@@ -278,7 +278,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           )
           ?.features?.find(
             (feature) =>
-              feature.code.split("/").pop() === "appearanceAttributes.colour"
+              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+              feature.code.split("/").pop()!.toUpperCase() ===
+              "appearanceAttributes.colour".toUpperCase()
           )?.featureValues[0].value,
         combinedClassifications
           .find(
@@ -286,7 +288,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           )
           ?.features?.find(
             (feature) =>
-              feature.code.split("/").pop() === "generalInformation.materials"
+              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+              feature.code.split("/").pop()!.toUpperCase() ===
+              "generalInformation.materials".toUpperCase()
           )?.featureValues[0].value,
         combinedClassifications
           .find(
@@ -294,8 +298,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           )
           ?.features?.find(
             (feature) =>
-              feature.code.split("/").pop() ===
-              "appearanceAttributes.texturefamily"
+              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+              feature.code.split("/").pop()!.toUpperCase() ===
+              "appearanceAttributes.texturefamily".toUpperCase()
           )?.featureValues[0].value,
         combinedClassifications
           .find(
@@ -303,8 +308,9 @@ export const transformProduct = (product: PIMProduct): ESProduct[] => {
           )
           ?.features?.find(
             (feature) =>
-              feature.code.split("/").pop() ===
-              "appearanceAttributes.variantattribute"
+              //TODO: DXB-3449 - remove `toUpperCase` when case agnostic to be reverted!
+              feature.code.split("/").pop()!.toUpperCase() ===
+              "appearanceAttributes.variantattribute".toUpperCase()
           )?.featureValues[0].value
       )}`,
       subTitle
@@ -434,6 +440,7 @@ const filterTwoOneAttributes = (
       pimClassificationCatalogueNamespace,
       feature.code
     );
+    // TODO: Remove lower caseing as part of DXB-3449
     const attributeName = featureCode
       .replace(`${classificationCode}.`, "")
       .toLowerCase();

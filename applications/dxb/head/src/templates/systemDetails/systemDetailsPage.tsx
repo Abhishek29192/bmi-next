@@ -60,19 +60,7 @@ const SystemDetailsPage = ({ pageContext, data }: Props) => {
   const media = [
     ...transformImages(system.images),
     //TODO: check if it doesnt work on system detals page!!!
-    ...transformMediaSrc(
-      system.videos.map((video) => {
-        return {
-          __typename: "PimVideo",
-          previewMedia: video.previewMedia,
-          videoRatio: video.videoRatio,
-          title: video.title,
-          label: video.label,
-          subtitle: video.subtitle,
-          videoUrl: video.youtubeId
-        };
-      })
-    )
+    ...transformMediaSrc(system.videos)
   ];
 
   const GTMThumbnail = withGTM<ThumbnailProps>(Thumbnail, {

@@ -948,7 +948,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -1937,7 +1937,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -2856,7 +2856,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -3761,7 +3761,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -4798,7 +4798,25 @@ describe("transformProduct", () => {
         subtitle: null,
         title: "",
         videoRatio: null,
-        youtubeId: ""
+        videoUrl: ""
+      }
+    ]);
+  });
+
+  it("handles video asset of just YouTube ID", async () => {
+    const asset = createAsset({ assetType: "VIDEO", url: "3901c0ds7oo" });
+    const product = createProduct({
+      assets: [asset]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].videos).toEqual([
+      {
+        label: asset.name,
+        previewMedia: null,
+        subtitle: null,
+        title: "",
+        videoRatio: null,
+        videoUrl: "https://www.youtube.com/watch?v=3901c0ds7oo"
       }
     ]);
   });
@@ -4816,19 +4834,122 @@ describe("transformProduct", () => {
     });
   });
 
+  it("handles products without images", async () => {
+    const product = createProduct({
+      images: undefined,
+      variantOptions: [
+        createVariantOption({
+          code: "variant1",
+          images: [
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: undefined,
+              url: "http://localhost:8000/variant1",
+              name: "Variant 1 Image"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Hero-Small-Desktop-Tablet",
+              url: "http://localhost:8000/variant1-main"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Color-Selector-Mobile",
+              url: "http://localhost:8000/variant1-thumbnail"
+            })
+          ]
+        }),
+        createVariantOption({
+          code: "variant2",
+          images: [
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: undefined,
+              url: "http://localhost:8000/variant2",
+              name: "Variant 2 Image"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Hero-Small-Desktop-Tablet",
+              url: "http://localhost:8000/variant2-main"
+            }),
+            createImage({
+              assetType: "MASTER_IMAGE",
+              format: "Product-Color-Selector-Mobile",
+              url: "http://localhost:8000/variant2-thumbnail"
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].masterImages).toEqual([
+      {
+        mainSource: "http://localhost:8000/variant1-main",
+        thumbnail: "http://localhost:8000/variant1-thumbnail",
+        altText: "Variant 1 Image"
+      }
+    ]);
+    expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
+      "http://localhost:8000/variant2-thumbnail"
+    );
+    expect(transformedProducts[1].masterImages).toEqual([
+      {
+        mainSource: "http://localhost:8000/variant2-main",
+        thumbnail: "http://localhost:8000/variant2-thumbnail",
+        altText: "Variant 2 Image"
+      }
+    ]);
+    expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
+      "http://localhost:8000/variant1-thumbnail"
+    );
+  });
+
   it("handles variants without images", async () => {
     const product = createProduct({
+      images: [
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: undefined,
+          url: "http://localhost:8000/main",
+          name: "Image"
+        }),
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: "Product-Hero-Small-Desktop-Tablet",
+          url: "http://localhost:8000/main"
+        }),
+        createImage({
+          assetType: "MASTER_IMAGE",
+          format: "Product-Color-Selector-Mobile",
+          url: "http://localhost:8000/thumbnail"
+        })
+      ],
       variantOptions: [
         createVariantOption({ code: "variant1", images: undefined }),
         createVariantOption({ code: "variant2", images: undefined })
       ]
     });
     const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].masterImages).toEqual([
+      {
+        mainSource: "http://localhost:8000/main",
+        thumbnail: "http://localhost:8000/thumbnail",
+        altText: "Image"
+      }
+    ]);
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
-      undefined
+      "http://localhost:8000/thumbnail"
     );
+    expect(transformedProducts[1].masterImages).toEqual([
+      {
+        mainSource: "http://localhost:8000/main",
+        thumbnail: "http://localhost:8000/thumbnail",
+        altText: "Image"
+      }
+    ]);
     expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
-      undefined
+      "http://localhost:8000/thumbnail"
     );
   });
 
@@ -4849,6 +4970,10 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(transformedProducts[0].masterImages).toEqual([]);
     expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
+      undefined
+    );
+    expect(transformedProducts[1].masterImages).toEqual([]);
+    expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
       undefined
     );
   });
@@ -4902,6 +5027,12 @@ describe("transformProduct", () => {
         altText: undefined
       }
     ]);
+    expect(transformedProducts[0].relatedVariants[0].thumbnail).toEqual(
+      "http://localhost:8000"
+    );
+    expect(transformedProducts[1].relatedVariants[0].thumbnail).toEqual(
+      "http://localhost:8000"
+    );
   });
 
   it("handles missing gallery images", async () => {
@@ -6933,7 +7064,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {
@@ -7927,7 +8058,7 @@ describe("transformProduct", () => {
               "subtitle": null,
               "title": "",
               "videoRatio": null,
-              "youtubeId": "3901c0ds7oo",
+              "videoUrl": "https://www.youtube.com/watch?v=3901c0ds7oo",
             },
           ],
           "weight": Object {

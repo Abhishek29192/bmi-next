@@ -1,33 +1,16 @@
-import { createFilter, createProduct, Product } from "@bmi/firestore-types";
+import { createFilter, createProduct } from "@bmi/firestore-types";
 import { getPlpFilters } from "../filters";
 
 describe("filters tests", () => {
   describe("getPlpFilters function", () => {
-    it("should return empty filters, when allowedFilters is null", () => {
-      const products: Readonly<Product[]> = [createProduct()];
-      expect(
-        getPlpFilters({
-          products: products,
-          allowedFilters: null
-        })
-      ).toStrictEqual([]);
-    });
-
-    it("should return empty filters, when products are null", () => {
-      expect(
-        getPlpFilters({
-          products: null,
-          allowedFilters: []
-        })
-      ).toStrictEqual([]);
-    });
     it("should return empty filters, when product categories are null", () => {
       const baseProduct = createProduct();
       baseProduct.categories = null;
       expect(
         getPlpFilters({
           products: [baseProduct],
-          allowedFilters: []
+          allowedFilters: [],
+          microCopies: new Map()
         })
       ).toStrictEqual([]);
     });
@@ -36,7 +19,8 @@ describe("filters tests", () => {
       expect(
         getPlpFilters({
           products: [baseProduct],
-          allowedFilters: []
+          allowedFilters: [],
+          microCopies: new Map()
         })
       ).toStrictEqual([]);
     });
@@ -57,7 +41,8 @@ describe("filters tests", () => {
         expect(
           getPlpFilters({
             products: [baseProduct],
-            allowedFilters: ["Brand"]
+            allowedFilters: ["Brand"],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
@@ -123,13 +108,14 @@ describe("filters tests", () => {
         expect(
           getPlpFilters({
             products: [baseProduct],
-            allowedFilters: ["Category"]
+            allowedFilters: ["Category"],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
             name: "Category",
             filterCode: "Category",
-            label: "Colour",
+            label: "MC:filterLabels.Category",
             value: [],
             options: [
               {
@@ -209,13 +195,14 @@ describe("filters tests", () => {
         expect(
           getPlpFilters({
             products: [baseProduct],
-            allowedFilters: ["Category | PITCHEDROOF_NO"]
+            allowedFilters: ["Category | PITCHEDROOF_NO"],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
             name: "Category",
             filterCode: "Category",
-            label: "Colour",
+            label: "MC:filterLabels.Category",
             options: [
               {
                 value: "PITCHEDROOF_NO",
@@ -278,13 +265,14 @@ describe("filters tests", () => {
             allowedFilters: [
               "Category | PITCHEDROOF_NO",
               "Category | TILES_STEELROOF_NO"
-            ]
+            ],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
             name: "Category",
             filterCode: "Category",
-            label: "Colour",
+            label: "MC:filterLabels.Category",
             options: [
               {
                 value: "PITCHEDROOF_NO",
@@ -306,6 +294,7 @@ describe("filters tests", () => {
         baseProduct.filters = [
           createFilter({
             filterCode: "Category",
+            groupLabel: "Ståltak produkter",
             code: "MAINTILE_STEELROOF_NO",
             value: "MAINTILE_STEELROOF_NO",
             name: "Takpanne stål",
@@ -314,6 +303,7 @@ describe("filters tests", () => {
           }),
           createFilter({
             filterCode: "Category",
+            groupLabel: undefined,
             code: "PRODUCTS_NO",
             value: "PRODUCTS_NO",
             name: "Produkter",
@@ -322,6 +312,7 @@ describe("filters tests", () => {
           }),
           createFilter({
             filterCode: "Category",
+            groupLabel: "Produkter",
             code: "ROOF_NO",
             value: "ROOF_NO",
             name: "Takprodukter",
@@ -330,6 +321,7 @@ describe("filters tests", () => {
           }),
           createFilter({
             filterCode: "Category",
+            groupLabel: "Skråtak",
             code: "TILES_STEELROOF_NO",
             value: "TILES_STEELROOF_NO",
             name: "Ståltak produkter",
@@ -338,6 +330,7 @@ describe("filters tests", () => {
           }),
           createFilter({
             filterCode: "Category",
+            groupLabel: "Takprodukter",
             code: "PITCHEDROOF_NO",
             value: "PITCHEDROOF_NO",
             name: "Skråtak",
@@ -349,13 +342,14 @@ describe("filters tests", () => {
         expect(
           getPlpFilters({
             products: [baseProduct],
-            allowedFilters: ["Category | PITCHEDROOF_NO", "Category"]
+            allowedFilters: ["Category | PITCHEDROOF_NO", "Category"],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
             name: "Category",
             filterCode: "Category",
-            label: "Colour",
+            label: "MC:filterLabels.Category",
             value: [],
             options: [
               {
@@ -390,13 +384,14 @@ describe("filters tests", () => {
         expect(
           getPlpFilters({
             products: [baseProduct],
-            allowedFilters: ["Category", "Category | PITCHEDROOF_NO"]
+            allowedFilters: ["Category", "Category | PITCHEDROOF_NO"],
+            microCopies: new Map()
           })
         ).toStrictEqual([
           {
             name: "Category",
             filterCode: "Category",
-            label: "Colour",
+            label: "MC:filterLabels.Category",
             value: [],
             options: [
               {
@@ -434,7 +429,7 @@ describe("filters tests", () => {
           baseProduct.filters = [
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Ståltak produkter",
               code: "MAINTILE_STEELROOF_NO",
               value: "MAINTILE_STEELROOF_NO",
               name: "Takpanne stål",
@@ -443,7 +438,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: undefined,
               code: "PRODUCTS_NO",
               value: "PRODUCTS_NO",
               name: "Produkter",
@@ -452,7 +447,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Produkter",
               code: "ROOF_NO",
               value: "ROOF_NO",
               name: "Takprodukter",
@@ -461,7 +456,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Skråtak",
               code: "TILES_STEELROOF_NO",
               value: "TILES_STEELROOF_NO",
               name: "Ståltak produkter",
@@ -470,7 +465,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Takprodukter",
               code: "PITCHEDROOF_NO",
               value: "PITCHEDROOF_NO",
               name: "Skråtak",
@@ -482,7 +477,7 @@ describe("filters tests", () => {
           baseProduct2.filters = [
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Ståltak produkter_2",
               code: "MAINTILE_STEELROOF_NO",
               value: "MAINTILE_STEELROOF_NO",
               name: "Takpanne stål",
@@ -491,7 +486,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: undefined,
               code: "PRODUCTS_NO",
               value: "PRODUCTS_NO",
               name: "Produkter",
@@ -500,7 +495,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Produkter",
               code: "ROOF_NO_2",
               value: "ROOF_NO_2",
               name: "Takprodukter_2",
@@ -509,7 +504,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Skråtak_2",
               code: "TILES_STEELROOF_NO_2",
               value: "TILES_STEELROOF_NO_2",
               name: "Ståltak produkter_2",
@@ -518,7 +513,7 @@ describe("filters tests", () => {
             }),
             createFilter({
               filterCode: "Category",
-              groupLabel: "Category",
+              groupLabel: "Takprodukter_2",
               code: "PITCHEDROOF_NO_2",
               value: "PITCHEDROOF_NO_2",
               name: "Skråtak_2",
@@ -530,13 +525,14 @@ describe("filters tests", () => {
           expect(
             getPlpFilters({
               products: [baseProduct, baseProduct2],
-              allowedFilters: ["Category | PITCHEDROOF_NO", "Category"]
+              allowedFilters: ["Category | PITCHEDROOF_NO", "Category"],
+              microCopies: new Map()
             })
           ).toEqual([
             {
               name: "Category",
               filterCode: "Category",
-              label: "Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {
@@ -586,13 +582,14 @@ describe("filters tests", () => {
           expect(
             getPlpFilters({
               products: [baseProduct, baseProduct2],
-              allowedFilters: ["Category", "Category | PITCHEDROOF_NO"]
+              allowedFilters: ["Category", "Category | PITCHEDROOF_NO"],
+              microCopies: new Map()
             })
           ).toStrictEqual([
             {
               name: "Category",
               filterCode: "Category",
-              label: "Category",
+              label: "MC:filterLabels.Category",
               value: [],
               options: [
                 {

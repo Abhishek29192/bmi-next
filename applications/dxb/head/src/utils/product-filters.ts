@@ -47,9 +47,10 @@ export const groupDistinctBy = <T extends IndexedItem>(
 };
 
 export const generateFilters = (
-  firestoreFilters: FirestoreFilter[] = [],
-  allowedCategoryFilters: Map<string, string[]> = new Map(),
-  allowedFeatureFilters: Map<string, string[]> = new Map()
+  firestoreFilters: FirestoreFilter[],
+  allowedCategoryFilters: Map<string, string[]>,
+  allowedFeatureFilters: Map<string, string[]>,
+  microCopies: Map<string, string>
 ): ProductFilter[] => {
   if (
     !firestoreFilters ||
@@ -92,6 +93,7 @@ export const generateFilters = (
     "code"
   );
 
+  // TODO: Remove lower caseing as part of DXB-3449
   const eligibleFirestoreClassFilters =
     allowedFeatureFilters && allowedFeatureFilters.size > 0
       ? firestoreFilters.filter((firestoreFilter) =>
@@ -116,20 +118,15 @@ export const generateFilters = (
     .reduce((prevValue, filterNameKey) => {
       const firestoreFilters: FirestoreFilter[] =
         combinedGroupedFirestoreFilterValues[filterNameKey];
-      const anyFilterWithGroupLabel = (firestoreFilters || []).find(
-        (filter) => (filter.groupLabel || "").length > 0
-      );
 
       // grpLabel : cannot be undefined. it breaks the UI ( matchin checkboxed etc.)
-      // TODO: need to see, if we can use name field
       const groupLabel =
-        firestoreFilters &&
-        firestoreFilters.length &&
-        firestoreFilters[0].groupLabel
-          ? firestoreFilters[0].groupLabel
-          : anyFilterWithGroupLabel?.groupLabel
-          ? anyFilterWithGroupLabel.groupLabel
-          : `filterLabels.${filterNameKey}`;
+        microCopies.get(`filterLabels.${filterNameKey}`) ||
+        (filterNameKey === "Category"
+          ? `MC:filterLabels.${filterNameKey}`
+          : firestoreFilters?.find(
+              (filter) => (filter.groupLabel || "").length > 0
+            )?.groupLabel || `MC:filterLabels.${filterNameKey}`);
 
       const tryConvertToNumber = (value: string) =>
         parseInt(value.replace(/\D+/gi, ""));
