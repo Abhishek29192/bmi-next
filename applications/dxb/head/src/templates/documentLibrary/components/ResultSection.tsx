@@ -1,13 +1,10 @@
-import React from "react";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import React from "react";
+import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
 import { useSiteContext } from "../../../components/Site";
 import filterStyles from "../../../components/styles/Filters.module.scss";
-import DocumentResults, {
-  DocumentResultData,
-  Format
-} from "../../../components/DocumentResults";
-import DocumentResultsFooter from "../../../components/DocumentResultsFooter";
+import DocumentResults, { DocumentResultData, Format } from "./DocumentResults";
 
 export type Props = {
   results: DocumentResultData[];

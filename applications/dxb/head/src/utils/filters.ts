@@ -1,11 +1,8 @@
 import { Filter } from "@bmi/components";
 import QueryString from "query-string";
 import { useEffect, useState } from "react";
-import { DocumentResultData } from "../components/DocumentResults";
-import {
-  Data as ContentfulDocumentData,
-  Data as DocumentData
-} from "../types/Document";
+import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
+import { ContentfulDocument as ContentfulDocumentData } from "../types/Document";
 import {
   ProductDocument as PIMDocument,
   ProductFilter,
@@ -21,12 +18,6 @@ export type URLProductFilter = {
 
 export type ResultType = "Simple" | "Technical" | "Card Collection";
 
-export enum ResultTypeEnum {
-  Simple = "Simple",
-  Technical = "Technical",
-  CardCollection = "Card Collection"
-}
-
 export type Source = "PIM" | "CMS" | "ALL";
 
 export enum SourceEnum {
@@ -35,7 +26,7 @@ export enum SourceEnum {
   ALL = "ALL"
 }
 
-export const isPIMDocument = (
+const isPIMDocument = (
   item: DocumentResultData
 ): item is PIMDocument | PIMSystemDocument => {
   return ["PIMDocument", "PIMSystemDocument"].includes(item.__typename);
@@ -102,71 +93,17 @@ export const clearFilterValues = (filters) => {
   }));
 };
 
-export const generateUniqueDocuments = (
-  resultsType: ResultType,
-  documents: DocumentResultData[]
-): DocumentResultData[] => {
-  //JIRA: 2042: this needs to be done only for "Simple" table results
-  if (resultsType === ResultTypeEnum.Simple) {
-    const allPIMDocuments = Array<PIMDocument | PIMSystemDocument>();
-    const allOtherDocuments = Array<DocumentData>(); // this is defined in a component lib
-    documents.forEach((document) => {
-      isPIMDocument(document)
-        ? allPIMDocuments.push(document)
-        : allOtherDocuments.push(document);
-    });
-
-    const uniquePIMDocuments = allPIMDocuments.reduce(
-      (uniqueDocuments, document) => {
-        const existingDocument = uniqueDocuments.find(
-          (unique) =>
-            `${unique.title}-${unique.url}` ===
-            `${document.title}-${document.url}`
-        );
-        if (!existingDocument) {
-          uniqueDocuments.push({
-            ...document
-          });
-        }
-        return uniqueDocuments;
-      },
-      []
-    );
-    const uniqueCMSDocuments = allOtherDocuments.reduce(
-      (uniqueDocuments, document) => {
-        uniqueDocuments.find(
-          (unique) =>
-            `${unique.asset.file.fileName}` ===
-            `${document.asset.file.fileName}`
-        ) || uniqueDocuments.push(document);
-        return uniqueDocuments;
-      },
-      []
-    );
-    return [...uniquePIMDocuments, ...uniqueCMSDocuments].sort((doca, docb) =>
-      doca.title > docb.title ? -1 : 1
-    );
-  }
-  return documents.sort((doca, docb) => (doca.title > docb.title ? -1 : 1));
-};
-
-export const isDocumentPIM = (
-  item: DocumentResultData
-): item is PIMDocument | PIMSystemDocument => {
-  return ["PIMDocument", "PIMSystemDocument"].includes(item.__typename);
-};
-
 //TODO: this should be done with ES query!!
 // there is a card for this task in backlog
 // this will be done when documents are indexed in ES with products
 export const filterDocuments = (
-  documents: DocumentResultData[],
+  documents: (PIMDocument | ContentfulDocumentData)[],
   filters: Array<Filter>
-): DocumentResultData[] => {
+): (PIMDocument | ContentfulDocumentData)[] => {
   const valueMatcher = {
     // TODO: Replace productFilters usage with productBrandCode
     brand: (document: DocumentResultData, valuesToMatch: string[]): boolean => {
-      const isPimDoc = isDocumentPIM(document);
+      const isPimDoc = isPIMDocument(document);
       if (isPimDoc) {
         const brandFilterValues = (document as PIMDocument).productFilters
           .filter((productFilter) => productFilter.filterCode === "Brand")
@@ -189,7 +126,7 @@ export const filterDocuments = (
       document: DocumentResultData,
       valuesToMatch: string[]
     ): boolean => {
-      const isPimDoc = isDocumentPIM(document);
+      const isPimDoc = isPIMDocument(document);
       if (isPimDoc) {
         const productFamilyFilter = (document as PIMDocument).productFilters
           .filter(
@@ -218,7 +155,7 @@ export const filterDocuments = (
       filterName: string,
       valuesToMatch: string[]
     ): boolean => {
-      const isPimDoc = isDocumentPIM(document);
+      const isPimDoc = isPIMDocument(document);
       if (isPimDoc) {
         const categoryCodes = (document as PIMDocument).productCategories.map(
           (category) => category.code
@@ -263,7 +200,7 @@ export const filterDocuments = (
       filterName: string,
       valuesToMatch: string[]
     ): boolean => {
-      const isPimDoc = isDocumentPIM(document);
+      const isPimDoc = isPIMDocument(document);
       if (isPimDoc) {
         const productFilterWithName = (document as PIMDocument).productFilters
           .filter(

@@ -7,15 +7,12 @@ import {
   Section
 } from "@bmi/components";
 import { graphql } from "gatsby";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import BackToResults from "../../components/BackToResults";
 import Breadcrumbs, {
   Data as BreadcrumbsData
 } from "../../components/Breadcrumbs";
-import { getCount as getCardsCount } from "../../components/DocumentCardsResults";
-import { DocumentResultData, Format } from "../../components/DocumentResults";
 import { getCount as getSimpleTableCount } from "../../components/DocumentSimpleTableResults";
-import { getCount as getTechnicalTableCount } from "../../components/DocumentTechnicalTableResults";
 import Page, { Data as PageData } from "../../components/Page";
 import { Data as PageInfoData } from "../../components/PageInfo";
 import ProgressIndicator from "../../components/ProgressIndicator";
@@ -28,15 +25,12 @@ import { useConfig } from "../../contexts/ConfigProvider";
 import { DocumentsWithFilters } from "../../types/documentsWithFilters";
 import { updateBreadcrumbTitleFromContentful } from "../../utils/breadcrumbUtils";
 import { devLog } from "../../utils/devLog";
-import {
-  filterDocuments,
-  generateUniqueDocuments,
-  ResultType,
-  Source
-} from "../../utils/filters";
+import { filterDocuments, ResultType, Source } from "../../utils/filters";
+import { getCount as getCardsCount } from "./components/DocumentCardsResults";
+import { DocumentResultData, Format } from "./components/DocumentResults";
+import { getCount as getTechnicalTableCount } from "./components/DocumentTechnicalTableResults";
 import FilterSection from "./components/FilterSection";
 import ResultSection from "./components/ResultSection";
-import { sourceToSortMap } from "./helpers/documnetLibraryHelpers";
 
 const PAGE_SIZE = 24;
 
@@ -49,7 +43,7 @@ export type Data = PageInfoData &
     breadcrumbs: BreadcrumbsData;
     categoryCodes: string[];
     breadcrumbTitle: string;
-    documentsWithFilters: DocumentsWithFilters | null;
+    documentsWithFilters: DocumentsWithFilters;
   };
 
 type Props = {
@@ -106,7 +100,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
     seo,
     documentsWithFilters
   } = data.contentfulDocumentLibraryPage;
-  const unsortedDocuments = documentsWithFilters.documents;
+  const initialDocuments = documentsWithFilters.documents;
   const enhancedBreadcrumbs = updateBreadcrumbTitleFromContentful(
     breadcrumbs,
     breadcrumbTitle
@@ -125,14 +119,6 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   // Largely duplicated from product-lister-page.tsx
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const initialDocuments = useMemo(
-    () =>
-      // eslint-disable-next-line security/detect-object-injection
-      sourceToSortMap[source](
-        generateUniqueDocuments(resultsType, unsortedDocuments)
-      ),
-    [unsortedDocuments]
-  );
   // eslint-disable-next-line security/detect-object-injection
   const format: Format = resultTypeFormatMap[source][resultsType];
   // eslint-disable-next-line security/detect-object-injection
@@ -143,13 +129,8 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   const [results, setResults] = useState(initialDocuments);
   const resultsElement = useRef<HTMLDivElement>(null);
 
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState(documentsWithFilters.filters);
 
-  useEffect(() => {
-    if (documentsWithFilters) {
-      setFilters(documentsWithFilters.filters);
-    }
-  }, [documentsWithFilters]);
   const maxSize = documentDownloadMaxLimit * 1048576;
 
   const fakeSearch = async (documents, filters, page) => {
@@ -172,7 +153,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
   };
 
   const handlePageChange = (_, page) => {
-    const scrollY = (resultsElement.current!.offsetTop || 200) - 200;
+    const scrollY = (resultsElement.current?.offsetTop || 200) - 200;
     window.scrollTo(0, scrollY);
     setPage(page);
   };
@@ -224,7 +205,7 @@ const DocumentLibraryPage = ({ pageContext, data }: Props) => {
       title={title}
       pageData={pageData}
       siteData={data.contentfulSite}
-      variantCodeToPathMap={pageContext!.variantCodeToPathMap}
+      variantCodeToPathMap={pageContext.variantCodeToPathMap}
     >
       {({ siteContext: { getMicroCopy } }) => (
         <>

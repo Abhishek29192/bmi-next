@@ -1,11 +1,11 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
+import fileIconsMap from "../../../../components/FileIconsMap";
+import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
+import { ProductDocument } from "../../../../types/pim";
+import createAssetType from "../../../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import DesktopDocumentTechnicalTableResults from "../_DesktopDocumentTechnicalTableResults";
-import { Data as AssetTypeData } from "../../types/AssetType";
-import createAssetType from "../../__tests__/helpers/AssetTypeHelper";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
-import fileIconsMap from "../FileIconsMap";
-import { ProductDocument } from "../../types/pim";
 
 describe("DesktopDocumentTechnicalTableResults component", () => {
   describe("Renders correctly", () => {
