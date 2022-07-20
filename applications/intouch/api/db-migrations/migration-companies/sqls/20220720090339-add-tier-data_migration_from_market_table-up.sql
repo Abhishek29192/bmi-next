@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS docebo_tier CASCADE;
+DROP SEQUENCE IF EXISTS docebo_tier_id_seq;
 
 CREATE SEQUENCE docebo_tier_id_seq START 1;
 
@@ -13,6 +14,28 @@ CONSTRAINT docebo_tier_market_id_tier_code_docebo_catalogue_key UNIQUE (market_i
 );
 
 ALTER TABLE docebo_tier OWNER to postgres;
+
+grant select, update, insert, delete on docebo_tier to super_admin;
+grant select on docebo_tier to market_admin;
+grant select on docebo_tier to company_admin;
+grant select on docebo_tier to installer;
+grant select on docebo_tier to auditor;
+
+DROP POLICY IF EXISTS policy_super_admin ON docebo_tier;
+CREATE POLICY policy_super_admin ON docebo_tier FOR ALL TO super_admin USING (true);
+
+DROP POLICY IF EXISTS policy_market_admin ON docebo_tier;
+CREATE POLICY policy_market_admin ON docebo_tier FOR SELECT TO market_admin USING (current_market() = market_id);
+
+DROP POLICY IF EXISTS policy_company_admin ON docebo_tier;
+CREATE POLICY policy_company_admin ON docebo_tier FOR SELECT TO company_admin USING (current_market() = market_id);
+
+DROP POLICY IF EXISTS policy_installer ON docebo_tier;
+CREATE POLICY policy_installer ON docebo_tier FOR SELECT TO installer USING (current_market() = market_id);
+
+DROP POLICY IF EXISTS policy_auditor ON docebo_tier;
+CREATE POLICY policy_auditor ON docebo_tier FOR SELECT TO auditor USING (current_market() = market_id);
+
 
 INSERT INTO docebo_tier (market_id,tier_code,docebo_catalogue_id)
 SELECT id as market_id,
