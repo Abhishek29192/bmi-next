@@ -475,7 +475,8 @@ const config = {
     {
       resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
       options: {
-        devMode: process.env.NODE_ENV === "development"
+        devMode: true,
+        disable: process.env.CI === "true"
       }
     },
     ...(process.env.SPACE_MARKET_CODE && !process.env.GATSBY_PREVIEW
@@ -596,9 +597,12 @@ const config = {
         generateMatchPathRewrites: true // boolean to turn off automatic creation of redirect rules for client only paths
       }
     },
+    ...(process.env.PERFORMANCE_ANALYTICS === "true" &&
+    process.env.CI !== "true"
+      ? [`gatsby-plugin-perf-budgets`]
+      : []),
     ...(process.env.PERFORMANCE_ANALYTICS === "true"
       ? [
-          `gatsby-plugin-perf-budgets`,
           {
             resolve: "gatsby-build-newrelic",
             options: {
