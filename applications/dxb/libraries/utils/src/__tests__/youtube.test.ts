@@ -89,6 +89,14 @@ describe("getYoutubeId", () => {
     expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
   });
 
+  it("returns ID for URL with other params before ID", () => {
+    const expectedYoutubeId = "HgeCkGZrPRs";
+    const actualYoutubeId = getYoutubeId(
+      `http://youtube.com/watch?t=10v=${expectedYoutubeId}`
+    );
+    expect(actualYoutubeId).toStrictEqual(expectedYoutubeId);
+  });
+
   it("returns passes through any value that doesn't match the regex", () => {
     const expectedYoutubeId = "djskhvjksdvjksdb";
     const actualYoutubeId = getYoutubeId(`djskhvjksdvjksdb`);
