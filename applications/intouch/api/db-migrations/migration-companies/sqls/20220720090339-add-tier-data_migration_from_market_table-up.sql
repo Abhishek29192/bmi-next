@@ -1,8 +1,7 @@
 DROP TABLE IF EXISTS docebo_tier CASCADE;
 DROP SEQUENCE IF EXISTS docebo_tier_id_seq;
 
-CREATE SEQUENCE docebo_tier_id_seq START 1;
-
+CREATE SEQUENCE IF NOT EXISTS docebo_tier_id_seq START 1;
 CREATE TABLE IF NOT EXISTS public.docebo_tier
 (
 id integer NOT NULL DEFAULT nextval('docebo_tier_id_seq'::regclass),
@@ -10,11 +9,12 @@ market_id integer NOT NULL,
 tier_code tier NOT NULL,
 docebo_catalogue_id integer,
 CONSTRAINT docebo_tier_pkey PRIMARY KEY (id),
-CONSTRAINT docebo_tier_market_id_tier_code_docebo_catalogue_key UNIQUE (market_id, tier_code, docebo_catalogue_id)
+CONSTRAINT docebo_tier_market_id_tier_code_key UNIQUE (market_id, tier_code)
 );
 
 ALTER TABLE docebo_tier OWNER to postgres;
 
+grant usage, select ON SEQUENCE docebo_tier_id_seq TO super_admin;
 grant select, update, insert, delete on docebo_tier to super_admin;
 grant select on docebo_tier to market_admin;
 grant select on docebo_tier to company_admin;
