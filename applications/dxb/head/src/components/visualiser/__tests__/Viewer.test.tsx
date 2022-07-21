@@ -248,4 +248,42 @@ describe("Viewer", () => {
       });
     });
   });
+
+  describe("handle tooltip click", () => {
+    it("should toggle state by click on tooltip", () => {
+      viewer.setState = function (state) {
+        if (typeof state === "function") {
+          const newState = state(viewer.state, viewer.props);
+          viewer.state = { ...viewer.state, ...newState };
+        }
+      };
+      expect(viewer.state.showRotationTooltip).toBe(false);
+      viewer.handleTooltipClick();
+      expect(viewer.state.showRotationTooltip).toBe(true);
+    });
+  });
+
+  describe("save camera position", () => {
+    beforeEach(() => {
+      viewer.setState = function (state) {
+        viewer.state = { ...viewer.state, ...state };
+      };
+    });
+    describe("when there is saved position", () => {
+      it("shouldn't save new position", () => {
+        viewer.camera.position.set(1, 1, 1);
+        viewer.saveCameraState();
+        viewer.camera.position.set(2, 2, 2);
+        viewer.saveCameraState();
+        expect(viewer.state.cameraPosition).toEqual({ x: 1, y: 1, z: 1 });
+      });
+    });
+    describe("when there is not saved position yet", () => {
+      it("should save position to state", () => {
+        viewer.camera.position.set(1, 1, 1);
+        viewer.saveCameraState();
+        expect(viewer.state.cameraPosition).toEqual({ x: 1, y: 1, z: 1 });
+      });
+    });
+  });
 });

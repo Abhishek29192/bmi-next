@@ -17,7 +17,12 @@ import tilesSetData from "./visualiser/data/tiles.json";
 import { Tile } from "./visualiser/Types";
 import { Parameters } from "./visualiser/Visualiser";
 
-const Visualiser = React.lazy(() => import("./visualiser/Visualiser"));
+const isVisualiserV2Enabled =
+  process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true";
+
+const Visualiser = isVisualiserV2Enabled
+  ? React.lazy(() => import("./visualiser/Visualiser"))
+  : React.lazy(() => import("./visualiser/VisualiserOld"));
 
 type Context = {
   isOpen: boolean;
@@ -187,7 +192,7 @@ const VisualiserProvider = ({
 
       {!(typeof window === "undefined") && isOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          {process.env.GATSBY_ENABLE_V2_WEBTOOLS_VISUALISATOR === "true" ? (
+          {isVisualiserV2Enabled ? (
             VisualizerComponent
           ) : (
             <MicroCopy.Provider values={no}>
