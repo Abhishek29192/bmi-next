@@ -11,13 +11,19 @@ const getTitleWithContentNodes = async (
     nodes.push(node);
   }
 
-  if (node.type === "Section" && node.question___NODE) {
+  if (
+    node.__typename === "ContentfulSystemConfiguratorSection" &&
+    node.question___NODE
+  ) {
     nextNode = await context.nodeModel.getNodeById({
       id: node.question___NODE
     });
   }
 
-  if (node.type === "Question" && node.answers___NODE) {
+  if (
+    node.__typename === "ContentfulSystemConfiguratorQuestion" &&
+    node.answers___NODE
+  ) {
     const answers = await context.nodeModel.getNodesByIds({
       ids: node.answers___NODE
     });
@@ -26,13 +32,16 @@ const getTitleWithContentNodes = async (
     );
   }
 
-  if (node.type === "Answer" && node.nextStep___NODE) {
+  if (
+    node.__typename === "ContentfulSystemConfiguratorAnswer" &&
+    node.nextStep___NODE
+  ) {
     nextNode = await context.nodeModel.getNodeById({
       id: node.nextStep___NODE
     });
   }
 
-  // Ignore node.type === "Result" since it can't have noResult below it
+  // Ignore node.__typename === "ContentfulSystemConfiguratorResult" since it can't have noResult below it
 
   if (nextNode) {
     return getTitleWithContentNodes(nextNode, context, nodes);
