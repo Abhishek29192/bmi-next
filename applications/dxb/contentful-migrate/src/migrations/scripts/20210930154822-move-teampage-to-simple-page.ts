@@ -39,7 +39,9 @@ export const up: MigrationFunction = (
         return;
       }
 
-      const key = MurmurHash3(localisedTitle[0] + new Date().getTime().toString)
+      const key = MurmurHash3(
+        localisedTitle[0] + new Date().getTime().toString()
+      )
         .result()
         .toString();
       try {
