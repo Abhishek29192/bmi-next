@@ -1,7 +1,7 @@
 import logger from "@bmi-digital/functions-logger";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import fetch from "node-fetch";
-import { Answer, NextStep, Response, Type } from "./types";
+import { Answer, NextStep, Response, TransformedAnswer } from "./types";
 
 const {
   CONTENTFUL_DELIVERY_TOKEN,
@@ -15,9 +15,34 @@ const {
 export const recaptchaTokenHeader = "X-Recaptcha-Token";
 const minimumScore = parseFloat(RECAPTCHA_MINIMUM_SCORE || "1.0");
 
-const nextStepMap: Record<Type, "answersCollection" | "recommendedSystems"> = {
-  Question: "answersCollection",
-  Result: "recommendedSystems"
+const transformAnswer = (
+  answer: Omit<Answer, "nextStep">
+): TransformedAnswer => {
+  const { sys, title, description } = answer;
+
+  const data = {
+    contentful_id: sys.id,
+    id: sys.id,
+    title
+  };
+
+  return {
+    ...data,
+    __typename: `ContentfulSystemConfiguratorAnswer`,
+    description: description && {
+      raw: JSON.stringify(description.json),
+      references: description.links.assets.block.map((blockAsset) => ({
+        __typename: "ContentfulAsset",
+        contentful_id: blockAsset.sys.id,
+        id: blockAsset.sys.id,
+        title: blockAsset.title,
+        file: {
+          url: blockAsset.url!,
+          contentType: blockAsset.contentType!
+        }
+      }))
+    }
+  };
 };
 
 const transformNextStepData = (nextStepData: NextStep): Response => {
@@ -26,20 +51,15 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
   const data = {
     contentful_id: sys.id,
     id: sys.id,
-    type: null,
-    title,
-    answers: null,
-    recommendedSystems: null,
-    content: null
+    title
   };
 
-  if (nextStepData.__typename === "SystemConfiguratorBlock") {
-    const { type, answersCollection, recommendedSystems, description } =
-      nextStepData;
+  if (nextStepData.__typename === "SystemConfiguratorQuestion") {
+    const { answersCollection, description } = nextStepData;
 
     return {
       ...data,
-      __typename: `ContentfulSystemConfiguratorBlock`,
+      __typename: `ContentfulSystemConfiguratorQuestion`,
       description: description && {
         raw: JSON.stringify(description.json),
         references: description.links.assets.block.map((blockAsset) => ({
@@ -53,14 +73,29 @@ const transformNextStepData = (nextStepData: NextStep): Response => {
           }
         }))
       },
-      type,
-      answers:
-        (answersCollection &&
-          answersCollection.items.map((answer) =>
-            transformNextStepData(answer)
-          )) ||
-        null,
-      recommendedSystems: recommendedSystems || null
+      answers: answersCollection.items.map((answer) => transformAnswer(answer))
+    };
+  }
+
+  if (nextStepData.__typename === "SystemConfiguratorResult") {
+    const { recommendedSystems, description } = nextStepData;
+    return {
+      ...data,
+      __typename: `ContentfulSystemConfiguratorResult`,
+      description: description && {
+        raw: JSON.stringify(description.json),
+        references: description.links.assets.block.map((blockAsset) => ({
+          __typename: "ContentfulAsset",
+          contentful_id: blockAsset.sys.id,
+          id: blockAsset.sys.id,
+          title: blockAsset.title,
+          file: {
+            url: blockAsset.url!,
+            contentType: blockAsset.contentType!
+          }
+        }))
+      },
+      recommendedSystems: recommendedSystems
     };
   }
 
@@ -95,7 +130,7 @@ const runQuery = async (
     throw Error(json.errors[0].message);
   }
 
-  return json.data.systemConfiguratorBlock;
+  return json.data.systemConfiguratorAnswer;
 };
 
 const generateError = (message: string) => {
@@ -109,68 +144,102 @@ const PAGE_SIZE = 9;
 
 export const query = (page: number) => `
 query NextStep($answerId: String!, $locale: String!, $preview: Boolean) {
-  systemConfiguratorBlock(id: $answerId, locale: $locale, preview: $preview) {
+  systemConfiguratorAnswer(id: $answerId, locale: $locale, preview: $preview) {
     nextStep {
       __typename
-      ...EntryFragment
-      ...QuestionFragment
-      ...ResultFragment
-      ...TitleWithContentFragment
-    }
-  }
-}
-
-fragment QuestionFragment on SystemConfiguratorBlock {
-  answersCollection(limit: ${PAGE_SIZE}, skip: ${page * PAGE_SIZE}) {
-    total
-    items {
-      ...EntryFragment
-    }
-  }
-}
-
-fragment ResultFragment on SystemConfiguratorBlock {
-  recommendedSystems
-}
-
-fragment EntryFragment on SystemConfiguratorBlock {
-  __typename
-  sys {
-    id
-  }
-  title
-  description {
-    ...RichTextFragment
-  }
-  type
-}
-
-fragment TitleWithContentFragment on TitleWithContent {
-  sys {
-    id
-  }
-  title
-  content {
-    json
-  }
-}
-
-fragment AssetFragment on Asset {
-  __typename
-  sys {
-    id
-  }
-  title
-  url
-  contentType
-}
-
-fragment RichTextFragment on SystemConfiguratorBlockDescription {
-  json
-  links {
-    assets {
-      block {
-          ...AssetFragment
+      ...on SystemConfiguratorQuestion {
+        sys {
+          id
+        }
+        title
+        description {
+          ...on SystemConfiguratorQuestionDescription {
+            json
+            links {
+              assets {
+                block {
+                  ...on Asset {
+                    __typename
+                    sys {
+                      id
+                    }
+                    title
+                    url
+                    contentType
+                  }
+                }
+              }
+            }
+          }
+        }
+        answersCollection(limit: ${PAGE_SIZE}, skip: ${page * PAGE_SIZE}) {
+          total
+          items {
+            ...on SystemConfiguratorAnswer {
+              __typename
+              sys {
+                id
+              }
+              title
+              description {
+                ...on SystemConfiguratorAnswerDescription {
+                  json
+                  links {
+                    assets {
+                      block {
+                        ...on Asset {
+                          __typename
+                          sys {
+                            id
+                          }
+                          title
+                          url
+                          contentType
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ...on SystemConfiguratorResult {
+        sys {
+          id
+        }
+        title
+        description {
+          ...on SystemConfiguratorResultDescription {
+            json
+            links {
+              assets {
+                block {
+                  ...on Asset {
+                    __typename
+                    sys {
+                      id
+                    }
+                    title
+                    url
+                    contentType
+                  }
+                }
+              }
+            }
+          }
+        }
+        recommendedSystems
+      }
+      ...on TitleWithContent {
+        sys {
+          id
+        }
+        title
+        content {
+          json
+        }
       }
     }
   }
@@ -287,10 +356,7 @@ export const nextStep: HttpFunction = async (request, response) => {
         );
     }
 
-    if (
-      data.nextStep?.__typename !== "SystemConfiguratorBlock" ||
-      !data.nextStep.answersCollection
-    ) {
+    if (!(data.nextStep && "answersCollection" in data.nextStep)) {
       break;
     }
 
@@ -311,23 +377,6 @@ export const nextStep: HttpFunction = async (request, response) => {
       .send(
         generateError(
           `System Configurator next step not found for entry ${answerId}.`
-        )
-      );
-  }
-
-  if (nextStep.__typename === "SystemConfiguratorBlock") {
-    const { type } = nextStep;
-
-    // eslint-disable-next-line security/detect-object-injection
-    if (nextStep[nextStepMap[type]]) {
-      return response.status(200).send(transformNextStepData(nextStep));
-    }
-
-    return response
-      .status(400)
-      .send(
-        generateError(
-          `Type ${type} is not a valid System Configurator next step of type Answer (type Question or Result only).`
         )
       );
   }

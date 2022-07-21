@@ -15,31 +15,31 @@ import ExploreBarSection, {
   Data as ExploreBarSectionData
 } from "./ExploreBarSection";
 import FormSection, { Data as FormSectionData } from "./FormSection";
+import IframeSection, { Data as IframeSectionData } from "./IframeSection";
+import LeadBlockSection, { Data as LeadBlockData } from "./LeadBlockSection";
 import ImageGallerySection, {
   Data as ImageGallerySectionData
 } from "./MediaGallerySection";
 import PromoSection, { Data as PromoSectionData } from "./PromoSection";
+import SampleBasketSection from "./SampleBasketSection";
 import ServiceLocatorSection, {
   Data as ServiceLocatorSectionData
 } from "./service-locator-section/index";
+import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
 import SyndicateSection, {
   Data as SyndicateSectionData
 } from "./SyndicateSection";
-import TabsOrAccordionSection, {
-  Data as TabsOrAccordionSectionData
-} from "./TabsOrAccordionSection";
-import TitleWithContentSection, {
-  Data as TitleWithContentData
-} from "./TitleWithContentSection";
-import TeamSection, { Data as TeamSectionData } from "./TeamSection";
-import VideoSection, { Data as VideoSectionData } from "./VideoSection";
-import IframeSection, { Data as IframeSectionData } from "./IframeSection";
 import SystemConfiguratorSection, {
   Data as SystemConfiguratorSectionData
 } from "./SystemConfiguratorSection";
-import SampleBasketSection from "./SampleBasketSection";
-import SignupBlock, { Data as SignupBlockData } from "./SignupBlock";
-import LeadBlockSection, { Data as LeadBlockData } from "./LeadBlockSection";
+import TabsOrAccordionSection, {
+  Data as TabsOrAccordionSectionData
+} from "./TabsOrAccordionSection";
+import TeamSection, { Data as TeamSectionData } from "./TeamSection";
+import TitleWithContentSection, {
+  Data as TitleWithContentData
+} from "./TitleWithContentSection";
+import VideoSection, { Data as VideoSectionData } from "./VideoSection";
 
 export type SectionData =
   | ExploreBarSectionData
@@ -76,7 +76,7 @@ export const sectionsMap = {
   ContentfulServiceLocatorSection: ServiceLocatorSection,
   ContentfulVideoSection: VideoSection,
   ContentfulIframe: IframeSection,
-  ContentfulSystemConfiguratorBlock: SystemConfiguratorSection,
+  ContentfulSystemConfiguratorSection: SystemConfiguratorSection,
   ContentfulTeamSection: TeamSection,
   ContentfulSampleBasketSection: SampleBasketSection,
   ContentfulSignupBlock: SignupBlock,
@@ -211,7 +211,7 @@ export const query = graphql`
     ...ServiceLocatorSectionFragment
     ...VideoSectionFragment
     ...IframeSectionFragment
-    ...SystemConfiguratorBlockFragment
+    ...SystemConfiguratorSectionFragment
     ...TeamSectionFragment
     ...SampleBasketSectionFragment
     ...SignupBlockFragment
