@@ -71,9 +71,10 @@ export default abstract class Viewer<
     this.handleTopRotation = this.handleTopRotation.bind(this);
     this.handleBottomRotation = this.handleBottomRotation.bind(this);
     this.handleResetRotation = this.handleResetRotation.bind(this);
-    this.handleTooltipOpen = this.handleTooltipOpen.bind(this);
+    this.handleTooltipClick = this.handleTooltipClick.bind(this);
     this.handleTooltipClose = this.handleTooltipClose.bind(this);
     this.computeCameraPosition = this.computeCameraPosition.bind(this);
+    this.saveCameraState = this.saveCameraState.bind(this);
   }
 
   /**
@@ -154,6 +155,16 @@ export default abstract class Viewer<
     return this.getRoundAzimutAngle() <= this.controls?.minAzimuthAngle;
   }
 
+  saveCameraState() {
+    if (!this.camera || this.state.cameraPosition) return;
+
+    const cameraPosition = this.camera.position.clone();
+
+    this.setState({
+      cameraPosition
+    });
+  }
+
   isCameraPositionPristine() {
     if (!this.state.cameraPosition || !this.camera) return false;
     const currentPosition = this.camera.position
@@ -171,6 +182,8 @@ export default abstract class Viewer<
     if (!this.container) {
       return;
     }
+
+    this.saveCameraState();
 
     const size = this.container.getBoundingClientRect();
     this.camera!.aspect = size.width / size.height;
@@ -230,12 +243,10 @@ export default abstract class Viewer<
     return new Vector3(x, y, z).add(this.controls.target);
   }
 
-  handleTooltipOpen() {
-    const cameraPosition = this.camera?.position.clone();
-    this.setState({
-      showRotationTooltip: true,
-      cameraPosition
-    });
+  handleTooltipClick() {
+    this.setState((prevState) => ({
+      showRotationTooltip: !prevState.showRotationTooltip
+    }));
   }
 
   handleTooltipClose(event) {
@@ -301,9 +312,15 @@ export default abstract class Viewer<
 
   render() {
     return (
-      <div className={styles["viewer"]}>
+      <div
+        className={
+          isVisualisatorEnabled ? styles["viewer-new"] : styles["viewer"]
+        }
+      >
         <div
-          className={styles["canvas"]}
+          className={
+            isVisualisatorEnabled ? styles["canvas-new"] : styles["canvas"]
+          }
           ref={(r) => {
             this.container = r;
           }}
@@ -388,7 +405,7 @@ export default abstract class Viewer<
                   <Icon
                     source={ThreeDRotation}
                     viewBox="-4 -4 32 32"
-                    onClick={this.handleTooltipOpen}
+                    onClick={this.handleTooltipClick}
                     className={`${styles["large-icon"]} ${
                       this.state.showRotationTooltip
                         ? styles["large-icon-selected"]

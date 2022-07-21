@@ -14,21 +14,12 @@
   }
 
   .share-button {
-    width: 48px;
-    height: 48px;
-    min-width: unset;
+    margin: 6px 0;
   }
 
   .content {
     overflow-y: auto;
-    background-color: $color-pearl;
-    padding: 0;
     height: 100%;
-
-    &-title {
-      margin: 6px auto 16px 30px;
-      align-self: center;
-    }
   }
 
   .progress-container {
@@ -46,10 +37,11 @@
   }
 
   .details {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin: 18px 10px;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    pointer-events: none;
+    right: 30px;
 
     :global {
       [class*="MuiPaper-root"] {
@@ -59,24 +51,30 @@
       }
     }
 
-    &-actions {
-      display: flex;
-      gap: 12px;
-      margin-left: auto;
+    .details-logo {
+      margin-bottom: 0.5rem;
     }
 
-    @media (max-width: $breakpoint-sm) {
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
+    .details-title {
+      margin-bottom: 0.5rem;
+    }
 
-      &-actions {
-        margin-left: unset;
+    @media (min-width: $breakpoint-md) {
+      .details-logo {
+        margin-bottom: 1rem;
+      }
+
+      .details-title {
+        margin-bottom: 1rem;
       }
     }
   }
 
   .actions {
+    position: absolute;
+    border: 0;
+    left: 0;
+    bottom: 0;
     width: 100%;
     display: flex;
     align-items: center;
@@ -101,14 +99,14 @@
 
   .container {
     @media (min-width: $breakpoint-sm) {
-      padding: 0px 20px;
+      padding: 0px 20px 20px;
     }
 
     &--viewer {
       display: flex;
-      flex-direction: column;
-      flex: 1;
-      min-height: 0;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
 
       :global {
         [class*="canvas:focus"] {
