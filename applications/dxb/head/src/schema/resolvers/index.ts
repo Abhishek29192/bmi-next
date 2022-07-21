@@ -6,7 +6,7 @@ import ContentfulLink from "./ContentfulLink";
 import ContentfulPage from "./ContentfulPage";
 import ContentfulServiceLocatorSection from "./ContentfulServiceLocatorSection";
 import ContentfulSite from "./ContentfulSite";
-import ContentfulSystemConfiguratorBlock from "./ContentfulSystemConfiguratorBlock";
+import ContentfulSystemConfiguratorSection from "./ContentfulSystemConfiguratorSection";
 import ContentfulVideo from "./ContentfulVideo";
 import Product from "./Product";
 import Query from "./Query";
@@ -38,7 +38,7 @@ export default {
   ContentfulServiceLocatorSection,
   ContentfulSimplePage,
   ContentfulSite,
-  ContentfulSystemConfiguratorBlock,
+  ContentfulSystemConfiguratorSection,
   ContentfulVideo,
   Product,
   RelatedVariant: {
