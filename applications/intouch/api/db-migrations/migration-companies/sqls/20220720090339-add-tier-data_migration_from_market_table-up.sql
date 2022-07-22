@@ -1,3 +1,5 @@
+BEGIN TRANSACTION;
+
 DROP TABLE IF EXISTS docebo_tier CASCADE;
 DROP SEQUENCE IF EXISTS docebo_tier_id_seq;
 
@@ -42,9 +44,14 @@ alter type public."tier" ADD VALUE 'T5';
 alter type public."tier" ADD VALUE 'T6';
 alter type public."tier" ADD VALUE 'T7';
 
+COMMIT TRANSACTION;
+
+BEGIN TRANSACTION;
 INSERT INTO docebo_tier (market_id,tier_code,docebo_catalogue_id)
 SELECT id as market_id,
        UNNEST(ARRAY ['T1', 'T2', 'T3','T4','T5','T6','T7'])::TIER AS tier_code,
        UNNEST(ARRAY [T1, T2, T3, T4, T5, T6, T7]) AS docebo_catalogue_id
 FROM (SELECT id, docebo_catalogue_id as T1, docebo_catalogue_id_t2  as T2, docebo_catalogue_id_t3 as T3,docebo_catalogue_id_t4 as T4, docebo_catalogue_id_t4 AS T5, docebo_catalogue_id_t4 AS T6, docebo_catalogue_id_t4 AS T7
 from market) X
+
+COMMIT TRANSACTION;
