@@ -13,6 +13,7 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "../constants/microCopies";
 import { EnvConfig, useConfig } from "../contexts/ConfigProvider";
+import { DocumentResultData } from "../templates/documentLibrary/components/DocumentResults";
 import { downloadAs, getDownloadLink } from "../utils/client-download";
 import { devLog } from "../utils/devLog";
 import withGTM from "../utils/google-tag-manager";
@@ -20,7 +21,6 @@ import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFileNamebyTitle
 } from "./DocumentFileUtils";
-import { DocumentResultData } from "./DocumentResults";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
 import { useSiteContext } from "./Site";
 import styles from "./styles/DocumentResultsFooter.module.scss";

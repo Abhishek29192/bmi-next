@@ -1,11 +1,11 @@
-import React from "react";
 import { render } from "@testing-library/react";
+import React from "react";
+import createContentfulDocument from "../../../../__tests__/helpers/ContentfulDocumentHelper";
+import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import DocumentResults, {
   DocumentResultData,
   Format
 } from "../DocumentResults";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
-import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
 
 describe("DocumentResults component", () => {
   let inputDataItems: DocumentResultData[];

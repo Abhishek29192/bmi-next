@@ -1,9 +1,8 @@
 import { useMediaQuery } from "@material-ui/core";
 import { render, screen } from "@testing-library/react";
 import React from "react";
-import { ProductDocument } from "../../types/pim";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
-
+import { ProductDocument } from "../../../../types/pim";
+import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import DocumentTechnicalTableResults, {
   getCount
 } from "../DocumentTechnicalTableResults";

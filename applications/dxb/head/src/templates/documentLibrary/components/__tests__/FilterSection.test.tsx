@@ -1,8 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-import FilterSection, {
-  Props as FilterSectionProps
-} from "../components/FilterSection";
+import FilterSection, { Props as FilterSectionProps } from "../FilterSection";
 
 describe("FilterSection", () => {
   const handleFiltersChange = jest

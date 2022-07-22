@@ -363,7 +363,7 @@ describe("Document Library page", () => {
     expect(
       container.querySelectorAll(".DocumentSimpleTableResults .row").length
     ).toBe(1);
-    expect(getByText("documentTitle0")).toBeTruthy();
+    expect(getByText("documentTitle24")).toBeTruthy();
   });
 
   it("render downloadList info block after selected at least 1 document", () => {

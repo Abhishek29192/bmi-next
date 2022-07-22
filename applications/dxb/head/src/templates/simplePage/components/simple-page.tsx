@@ -8,9 +8,6 @@ import Breadcrumbs, {
 import ExploreBar, {
   Data as ExploreBarData
 } from "../../../components/ExploreBar";
-import LeadBlockSection, {
-  Data as LeadBlockSectionData
-} from "../../../components/LeadBlockSection";
 import { Data as LinkData } from "../../../components/Link";
 import LinkColumnsSection, {
   Data as LinkColumnsSectionData
@@ -32,6 +29,9 @@ import {
   generateHeroProps
 } from "../../../utils/heroLevelUtils";
 import { renderHero } from "../../../utils/heroTypesUI";
+import LeadBlockSection, {
+  Data as LeadBlockSectionData
+} from "./LeadBlockSection";
 
 export type Data = PageInfoData &
   PageData & {

@@ -1,13 +1,13 @@
 import { graphql } from "gatsby";
 import React, { useMemo } from "react";
-import { Data as DocumentData } from "../types/Document";
+import DocumentSimpleTableResults from "../../../components/DocumentSimpleTableResults";
+import { ContentfulDocument as DocumentData } from "../../../types/Document";
 import {
   ProductDocument as PIMDocument,
   SystemDocument as PIMSystemDocument
-} from "../types/pim";
-import groupBy from "../utils/groupBy";
+} from "../../../types/pim";
+import groupBy from "../../../utils/groupBy";
 import DocumentCardsResults from "./DocumentCardsResults";
-import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import DocumentTechnicalTableResults from "./DocumentTechnicalTableResults";
 
 export type DocumentResultData = PIMDocument | DocumentData | PIMSystemDocument;

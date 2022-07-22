@@ -88,7 +88,7 @@ describe("transformMediaSrc function", () => {
 
       {
         __typename: "PimVideo",
-        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI%22",
+        videoUrl: "https://www.youtube.com/watch?v=AGVIbPFLDcI",
         title: "PimVideoTitle",
         label: "PimVideoLabel",
         subtitle: "subtitle",
@@ -116,7 +116,7 @@ describe("transformMediaSrc function", () => {
     );
     expect(expectResult[2]).toEqual(
       expect.objectContaining({
-        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI%22/maxresdefault.jpg",
+        thumbnail: "https://i.ytimg.com/vi/AGVIbPFLDcI/maxresdefault.jpg",
         isVideo: true,
         caption: "PimVideoTitle"
       })

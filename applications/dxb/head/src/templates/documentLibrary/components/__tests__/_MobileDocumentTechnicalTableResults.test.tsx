@@ -1,12 +1,12 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { Data as AssetTypeData } from "../../types/AssetType";
-import { ProductDocument } from "../../types/pim";
+import fileIconsMap from "../../../../components/FileIconsMap";
+import { ContentfulAssetType as AssetTypeData } from "../../../../types/AssetType";
+import { ProductDocument } from "../../../../types/pim";
 import createAssetType, {
   createAssetTypeInvalid
-} from "../../__tests__/helpers/AssetTypeHelper";
-import createPimDocument from "../../__tests__/helpers/PimDocumentHelper";
-import fileIconsMap from "../FileIconsMap";
+} from "../../../../__tests__/helpers/AssetTypeHelper";
+import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
 import MobileDocumentTechnicalTableResults from "../_MobileDocumentTechnicalTableResults";
 
 describe("MobileDocumentTechnicalTableResults component", () => {

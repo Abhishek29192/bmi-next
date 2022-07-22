@@ -18,7 +18,7 @@ import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { microCopy } from "../constants/microCopies";
 import { useConfig } from "../contexts/ConfigProvider";
-import { Data as DocumentData } from "../types/Document";
+import { ContentfulDocument as DocumentData } from "../types/Document";
 import {
   ProductDocument as PIMDocument,
   PseudoZipPIMDocument,

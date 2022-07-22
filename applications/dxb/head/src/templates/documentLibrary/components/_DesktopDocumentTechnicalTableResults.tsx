@@ -13,20 +13,20 @@ import axios from "axios";
 import classnames from "classnames";
 import React, { useContext } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { microCopy } from "../constants/microCopies";
-import { useConfig } from "../contexts/ConfigProvider";
-import { Data as AssetTypeData } from "../types/AssetType";
-import { ProductDocument } from "../types/pim";
-import { downloadAs } from "../utils/client-download";
-import withGTM from "../utils/google-tag-manager";
 import createAssetFileCountMap, {
   AssetUniqueFileCountMap,
   generateFilenameByRealFileName,
   generateFileNamebyTitle
-} from "./DocumentFileUtils";
-import { useSiteContext } from "./Site";
+} from "../../../components/DocumentFileUtils";
+import { useSiteContext } from "../../../components/Site";
+import { Format } from "../../../components/types";
+import { microCopy } from "../../../constants/microCopies";
+import { useConfig } from "../../../contexts/ConfigProvider";
+import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
+import { ProductDocument } from "../../../types/pim";
+import { downloadAs } from "../../../utils/client-download";
+import withGTM from "../../../utils/google-tag-manager";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { Format } from "./types";
 import AssetHeader from "./_AssetHeader";
 
 interface Props {

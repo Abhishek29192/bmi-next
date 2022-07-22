@@ -1,24 +1,21 @@
 // TODO: Find another place for this file.
+import { Product } from "applications/dxb/libraries/firestore-types/src";
 import {
   generateDigestFromData,
   isDefined
 } from "../../../../../libraries/utils/src";
-import { Data as ContentfulDocument } from "../../../types/Document";
+import { ProductFilter } from "../../../types/pim";
+import { ContentfulAssetType, ContentfulDocument } from "../types/Contentful";
 import {
   ContentfulDocumentsWithFilters,
   ProductDocumentsWithFilters
-} from "../../../types/documentsWithFilters";
-import {
-  AssetType,
-  Product,
-  ProductDocument,
-  ProductFilter
-} from "../../../types/pim";
+} from "../types/DocumentsWithFilters";
 import { Context, MicroCopy, Node } from "../types/Gatsby";
+import { ProductDocument } from "../types/pim";
 import { getPlpFilters } from "./filters";
 
 export const resolveDocumentsFromProducts = async (
-  assetTypes: AssetType[],
+  assetTypes: ContentfulAssetType[],
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters?: string[]
 ): Promise<ProductDocumentsWithFilters> => {
@@ -48,7 +45,7 @@ export const resolveDocumentsFromProducts = async (
     type: "Product"
   });
 
-  const products = [...entries];
+  const products: Product[] = [...entries];
 
   if (products.length === 0) {
     return { documents: [], filters: [] };
@@ -88,7 +85,7 @@ export const resolveDocumentsFromProducts = async (
     microCopies: filterMicroCopies
   });
 
-  const result = products.flatMap((product) =>
+  let result = products.flatMap((product: Product) =>
     (product.documents || [])
       .filter(
         (document) =>
@@ -109,13 +106,11 @@ export const resolveDocumentsFromProducts = async (
           title: updatedTitle,
           assetType___NODE: assetType.id,
           isLinkDocument: document.isLinkDocument,
-          product___NODE: product.code,
           productFilters: product.filters
         };
 
         if (document.isLinkDocument) {
           return {
-            ...document,
             ...fieldData,
             parent: source.id,
             children: [],
@@ -124,7 +119,7 @@ export const resolveDocumentsFromProducts = async (
               owner: "@bmi/resolvers",
               contentDigest: generateDigestFromData(fieldData)
             }
-          };
+          } as unknown as ProductDocument;
         }
 
         return {
@@ -136,18 +131,53 @@ export const resolveDocumentsFromProducts = async (
             owner: "@bmi/resolvers",
             contentDigest: generateDigestFromData(fieldData)
           }
-        };
+        } as unknown as ProductDocument;
       })
-      .filter(isDefined)
   );
+  // DXB-2042: this needs to be done only for "Simple" table results
+  if (source.resultsType === "Simple") {
+    result = result.reduce<ProductDocument[]>((documents, document) => {
+      const foundDocument = documents.find(
+        (doc) => doc.title === document.title && doc.url === document.url
+      );
+      if (foundDocument) {
+        return documents.map((doc) => {
+          if (doc.title === document.title && doc.url === document.url) {
+            return {
+              ...doc,
+              productFilters: [
+                ...(doc.productFilters as ProductFilter[]).reduce(
+                  (filters, filter) => {
+                    if (
+                      filters.find(
+                        (fil) =>
+                          fil.filterCode === filter.filterCode &&
+                          fil.value === filter.value
+                      )
+                    ) {
+                      return filters;
+                    }
+                    return [...filters, filter];
+                  },
+                  []
+                )
+              ]
+            };
+          }
+          return doc;
+        });
+      }
+      return [...documents, document];
+    }, []);
+  }
   return {
     filters: productFilters,
-    documents: result as unknown as ProductDocument[]
+    documents: result
   };
 };
 
 export const resolveDocumentsFromContentful = async (
-  assetTypes: AssetType[],
+  assetTypes: ContentfulAssetType[],
   { source, context }: { source: Partial<Node>; context: Context },
   allowedFilters: string[]
 ): Promise<ContentfulDocumentsWithFilters> => {
@@ -155,7 +185,7 @@ export const resolveDocumentsFromContentful = async (
     ? { assetType: { id: { in: assetTypes.map(({ id }) => id) } } }
     : {};
 
-  const { entries } = await context.nodeModel.findAll<Node>({
+  const { entries } = await context.nodeModel.findAll<ContentfulDocument>({
     query: {
       filter
     },
@@ -169,23 +199,20 @@ export const resolveDocumentsFromContentful = async (
 
   let brandFilter = undefined;
   if (allowedFilters.some((filterName) => filterName === "Brand")) {
-    brandFilter = await generateBrandFilterFromDocuments(
-      documents as unknown as ContentfulDocument[],
-      context
-    );
+    brandFilter = await generateBrandFilterFromDocuments(documents, context);
   }
 
   let assetTypeFilter = undefined;
   if (allowedFilters.some((filterName) => filterName === "AssetType")) {
     assetTypeFilter = await generateAssetTypeFilterFromDocuments(
       assetTypes,
-      documents as unknown as ContentfulDocument[],
+      documents,
       context
     );
   }
   return {
-    documents: documents as unknown as ContentfulDocument[],
-    filters: [brandFilter, assetTypeFilter].filter(Boolean)
+    documents: documents,
+    filters: [brandFilter, assetTypeFilter].filter(isDefined)
   };
 };
 
@@ -236,7 +263,7 @@ const generateBrandFilterFromDocuments = async (
 };
 
 const generateAssetTypeFilterFromDocuments = async (
-  assetTypes: AssetType[],
+  assetTypes: ContentfulAssetType[],
   documents: ContentfulDocument[],
   context: Context
 ): Promise<ProductFilter> => {
@@ -266,7 +293,7 @@ const generateAssetTypeFilterFromDocuments = async (
   );
   // Find Unique assetTypes, they're the same as far as TS is concerned
   const allValues = documentReferencedAssetTypes
-    .filter(Boolean)
+    .filter(isDefined)
     .reduce(uniqueByCode, []);
 
   if (allValues.length === 0) {
