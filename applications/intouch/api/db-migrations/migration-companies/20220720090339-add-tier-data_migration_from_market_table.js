@@ -22,7 +22,7 @@ exports.up = function (db) {
   var filePath = path.join(
     __dirname,
     "sqls",
-    "20220708090328-add-function-and-fields-to-evidence-item-up.sql"
+    "20220720090339-add-tier-data_migration_from_market_table-up.sql"
   );
   return new Promise(function (resolve, reject) {
     fs.readFile(filePath, { encoding: "utf-8" }, function (err, data) {
@@ -40,7 +40,7 @@ exports.down = function (db) {
   var filePath = path.join(
     __dirname,
     "sqls",
-    "20220708090328-add-function-and-fields-to-evidence-item-down.sql"
+    "20220720090339-add-tier-data_migration_from_market_table-down.sql"
   );
   return new Promise(function (resolve, reject) {
     fs.readFile(filePath, { encoding: "utf-8" }, function (err, data) {
@@ -57,4 +57,3 @@ exports.down = function (db) {
 exports._meta = {
   version: 1
 };
- 
