@@ -12,15 +12,15 @@ import {
   waitFor
 } from "@testing-library/react";
 import React from "react";
-import { DataTypeEnum, NavigationData } from "../../../components/Link";
-import { Data as SiteData } from "../../../components/Site";
-import ProvideStyles from "../../../components/__tests__/utils/StylesProvider";
-import { ConfigProvider, EnvConfig } from "../../../contexts/ConfigProvider";
-import * as elasticSearch from "../../../utils/elasticSearch";
+import { DataTypeEnum, NavigationData } from "../../../../components/Link";
+import { Data as SiteData } from "../../../../components/Site";
+import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider";
+import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
+import * as elasticSearch from "../../../../utils/elasticSearch";
 import ProductListerPage, {
   Data as PdpPageInfoData,
   PageContextType
-} from "../components/product-lister-page";
+} from "../product-lister-page";
 
 window.alert = jest.fn();
 

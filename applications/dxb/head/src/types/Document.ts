@@ -1,9 +1,9 @@
 import { graphql } from "gatsby";
 import { Data as ImageData } from "../components/Image";
 import { RichTextData } from "../components/RichText";
-import { Data as AssetTypeData } from "./AssetType";
+import { ContentfulAssetType as AssetTypeData } from "./AssetType";
 
-export type Data = {
+export type ContentfulDocument = {
   __typename: "ContentfulDocument";
   id: string;
   title: string;

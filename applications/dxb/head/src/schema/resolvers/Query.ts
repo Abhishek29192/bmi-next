@@ -1,6 +1,8 @@
 import { Product } from "@bmi/firestore-types";
-import { AssetType, PLPFilterResponse, ProductDocument } from "../../types/pim";
+import { PLPFilterResponse } from "../../types/pim";
+import { ContentfulAssetType } from "./types/Contentful";
 import { Context, MicroCopy, Node, ResolveArgs } from "./types/Gatsby";
+import { ProductDocument } from "./types/pim";
 import { resolveDocumentsFromProducts } from "./utils/documents";
 import { getPlpFilters } from "./utils/filters";
 
@@ -12,7 +14,7 @@ export default {
       args: ResolveArgs,
       context: Context
     ): Promise<ProductDocument[]> {
-      const { entries } = await context.nodeModel.findAll<AssetType>(
+      const { entries } = await context.nodeModel.findAll<ContentfulAssetType>(
         { query: {}, type: "ContentfulAssetType" },
         { connectionType: "ContentfulAssetType" }
       );

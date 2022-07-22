@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import fileIconsMap from "../components/FileIconsMap";
 import { microCopy } from "../constants/microCopies";
-import { Data as DocumentData } from "../types/Document";
+import { ContentfulDocument as DocumentData } from "../types/Document";
 import withGTM from "../utils/google-tag-manager";
 import { getClickableActionFromUrl } from "./Link";
 import RichText, { RichTextData } from "./RichText";

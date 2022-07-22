@@ -1,4 +1,4 @@
-import { Data as AssetTypeData } from "../../types/AssetType";
+import { ContentfulAssetType as AssetTypeData } from "../../types/AssetType";
 import createRichText from "./RichTextHelper";
 
 const createAssetType = (

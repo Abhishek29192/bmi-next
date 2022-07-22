@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionSummaryProps,
@@ -9,15 +8,16 @@ import {
   IconButtonProps,
   iconMap
 } from "@bmi/components";
+import React from "react";
+import { Format } from "../../../components/types";
+import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
 import {
   ProductDocument as PIMProductDocument,
   SystemDocument as PIMSystemDocument
-} from "../types/pim";
-import withGTM from "../utils/google-tag-manager";
-import { Data as AssetTypeData } from "../types/AssetType";
-import AssetHeader from "./_AssetHeader";
+} from "../../../types/pim";
+import withGTM from "../../../utils/google-tag-manager";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
-import { Format } from "./types";
+import AssetHeader from "./_AssetHeader";
 
 interface Props {
   documentsByProduct: [string, (PIMProductDocument | PIMSystemDocument)[]][];

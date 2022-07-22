@@ -1,4 +1,4 @@
-import { Data as ContentfulDocumentData } from "../../types/Document";
+import { ContentfulDocument as ContentfulDocumentData } from "../../types/Document";
 import createAssetType from "./AssetTypeHelper";
 
 const createContentfulDocument = (

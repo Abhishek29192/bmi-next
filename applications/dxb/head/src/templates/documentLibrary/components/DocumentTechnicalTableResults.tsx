@@ -1,10 +1,10 @@
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import React, { useMemo } from "react";
-import { Data as AssetTypeData } from "../types/AssetType";
-import { ProductDocument } from "../types/pim";
-import { groupDistinctBy } from "../utils/product-filters";
-import fileIconsMap from "./FileIconsMap";
+import fileIconsMap from "../../../components/FileIconsMap";
+import { ContentfulAssetType as AssetTypeData } from "../../../types/AssetType";
+import { ProductDocument } from "../../../types/pim";
+import { groupDistinctBy } from "../../../utils/product-filters";
 import styles from "./styles/DocumentTechnicalTableResults.module.scss";
 import DesktopDocumentTechnicalTableResults from "./_DesktopDocumentTechnicalTableResults";
 import MobileDocumentTechnicalTableResults from "./_MobileDocumentTechnicalTableResults";
@@ -32,6 +32,7 @@ const DocumentTechnicalTableResults = ({
   page,
   documentsPerPage
 }: Props) => {
+  // TODO: What on earth is this doing?!
   const assetTypes = useMemo(
     () =>
       documents

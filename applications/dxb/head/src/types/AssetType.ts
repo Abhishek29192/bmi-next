@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import { RichTextData } from "../components/RichText";
 
-export type Data = {
+export type ContentfulAssetType = {
   __typename: "ContentfulAssetType";
   id: string;
   name: string;

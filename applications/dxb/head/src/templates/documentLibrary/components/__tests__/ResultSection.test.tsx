@@ -1,10 +1,8 @@
+import { fireEvent, render, waitFor } from "@testing-library/react";
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
-import ResultSection, {
-  Props as ResultSectionProps
-} from "../components/ResultSection";
-import createPimDocument from "../../../__tests__/helpers/PimDocumentHelper";
-import * as documentResultsFooter from "../../../components/DocumentResultsFooter";
+import * as documentResultsFooter from "../../../../components/DocumentResultsFooter";
+import createPimDocument from "../../../../__tests__/helpers/PimDocumentHelper";
+import ResultSection, { Props as ResultSectionProps } from "../ResultSection";
 
 const executeRecaptchaSpy = jest.fn().mockResolvedValue("RECAPTCHA");
 jest.mock("react-google-recaptcha-v3", () => {

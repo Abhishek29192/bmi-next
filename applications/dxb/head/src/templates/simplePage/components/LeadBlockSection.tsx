@@ -1,16 +1,22 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Button } from "@bmi/components";
-import { LeadBlock } from "@bmi/components";
-import { Section } from "@bmi/components";
-import { TableOfContent } from "@bmi/components";
-import { AnchorLink, AnchorLinkProps } from "@bmi/components";
+import {
+  AnchorLink,
+  AnchorLinkProps,
+  Button,
+  LeadBlock,
+  Section,
+  TableOfContent
+} from "@bmi/components";
 import { BLOCKS } from "@contentful/rich-text-types";
-import { microCopy } from "../constants/microCopies";
-import withGTM from "../utils/google-tag-manager";
-import { useSiteContext } from "./Site";
-import RichText, { RichTextData, parseReachDataRawFields } from "./RichText";
-import Link, { Data as LinkData } from "./Link";
+import { graphql } from "gatsby";
+import React from "react";
+import Link, { Data as LinkData } from "../../../components/Link";
+import RichText, {
+  parseReachDataRawFields,
+  RichTextData
+} from "../../../components/RichText";
+import { useSiteContext } from "../../../components/Site";
+import { microCopy } from "../../../constants/microCopies";
+import withGTM from "../../../utils/google-tag-manager";
 
 export type Data = {
   __typename: "ContentfulLeadBlockSection";

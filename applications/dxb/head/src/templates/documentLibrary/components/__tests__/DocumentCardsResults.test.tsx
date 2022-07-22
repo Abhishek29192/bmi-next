@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import { Data as DocumentData } from "../../types/Document";
-import createContentfulDocument from "../../__tests__/helpers/ContentfulDocumentHelper";
+import { ContentfulDocument as DocumentData } from "../../../../types/Document";
+import createContentfulDocument from "../../../../__tests__/helpers/ContentfulDocumentHelper";
 import DocumentCardsResults, { getCount } from "../DocumentCardsResults";
 
 describe("Brands component", () => {
