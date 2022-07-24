@@ -190,15 +190,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
       })
     );
 
-    await createPage({
-      path: getPathWithCountryCode(site.countryCode, `search`),
-      component: path.resolve("./src/templates/search-page.tsx"),
-      context: {
-        siteId: site.id,
-        countryCode: site.countryCode,
-        variantCodeToPathMap
-      }
-    });
+    if (process.env.MARKET_TAG_NAME) {
+      await createPage({
+        path: getPathWithCountryCode(site.countryCode, `search`),
+        component: path.resolve("./src/templates/search-page.tsx"),
+        context: {
+          siteId: site.id,
+          countryCode: site.countryCode,
+          variantCodeToPathMap,
+          marketTagName: process.env.MARKET_TAG_NAME
+        }
+      });
+    }
 
     await createPage({
       path: getPathWithCountryCode(site.countryCode, `422/`),
