@@ -7,6 +7,7 @@ import { Typography } from "@bmi/components";
 import { TextField } from "@bmi/components";
 import { Select, SelectMenuItem } from "@bmi/components";
 import { AlertBanner } from "@bmi/components";
+import { gql } from "@apollo/client";
 import { useMarketContext } from "../../context/MarketContext";
 import {
   validateEmailInput,
@@ -15,11 +16,12 @@ import {
 } from "../../lib/validations/utils";
 import AccessControl from "../../lib/permissions/AccessControl";
 import { GetCompanyQuery } from "../../graphql/generated/operations";
-import { BUSINESS_TYPES, TIERS } from "../../lib/constants";
+import { BUSINESS_TYPES } from "../../lib/constants";
 import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
 import { getNestedValue } from "../../lib/utils/object";
+import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
 import { SetCompanyOperations } from "./SetCompanyOperations";
@@ -50,7 +52,7 @@ export const SetCompanyDetailsDialog = ({
   loading
 }: SetCompanyDetailsDialogProps) => {
   const { t } = useTranslation(["common", "company-page"]);
-
+  const { data: getTierBenefit } = useGetTierBenefitQuery();
   const { market } = useMarketContext();
 
   const [shouldRemoveLogo, setShouldRemoveLogo] = useState(false);
@@ -85,6 +87,10 @@ export const SetCompanyDetailsDialog = ({
   const operations = useMemo(() => {
     return company?.companyOperationsByCompany?.nodes || [];
   }, [company]);
+
+  const tierBenefits = useMemo(() => {
+    return getTierBenefit?.tierBenefitCollection.items || [];
+  }, [getTierBenefit]);
 
   const handleSubmit = useCallback(
     (event, values) => {
@@ -145,6 +151,7 @@ export const SetCompanyDetailsDialog = ({
           onKeyDown={(e) => {
             if (e.key === "Enter") e.preventDefault();
           }}
+          data-testid="company-details-form"
         >
           <Grid container xs={12} spacing={3}>
             <Grid item xs={12} lg={6}>
@@ -222,11 +229,12 @@ export const SetCompanyDetailsDialog = ({
                 }
               >
                 <Select {...getFieldProps("tier")} isRequired>
-                  {Object.entries(TIERS).map(([, tier]) => (
-                    <SelectMenuItem key={tier} value={tier}>
-                      {t(`common:tier.${tier}`)}
-                    </SelectMenuItem>
-                  ))}
+                  {tierBenefits.length &&
+                    tierBenefits.map(({ tier, name }) => (
+                      <SelectMenuItem key={tier} value={tier}>
+                        {name}
+                      </SelectMenuItem>
+                    ))}
                 </Select>
               </AccessControl>
             </Grid>
@@ -359,3 +367,14 @@ export const SetCompanyDetailsDialog = ({
     </Dialog>
   );
 };
+
+export const GET_TIER_BENEFIT = gql`
+  query getTierBenefit {
+    tierBenefitCollection {
+      items {
+        tier
+        name
+      }
+    }
+  }
+`;

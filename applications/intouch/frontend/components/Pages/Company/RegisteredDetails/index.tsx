@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import capitalize from "lodash/capitalize";
 import { gql } from "@apollo/client";
 import { Operation } from "@bmi/intouch-api-types";
 import { Typography } from "@bmi/components";
 import { useTranslation } from "next-i18next";
 import { GetCompanyQuery } from "../../../../graphql/generated/operations";
+import { useGetTierBenefitQuery } from "../../../../graphql/generated/hooks";
 import { InfoPair } from "../../../InfoPair";
 import { Address } from "../../../Address";
 import { OnCompanyUpdateSuccess } from "../../../SetCompanyDetailsDialog";
@@ -51,9 +52,16 @@ export const CompanyRegisteredDetails = ({
     taxNumber,
     tier
   } = company;
+  const { data: getTierBenefit } = useGetTierBenefitQuery();
   const operations = companyOperationsByCompany.nodes.map(
     (node) => node.operation
   );
+  const tierName = useMemo(() => {
+    const tierBenefit = getTierBenefit?.tierBenefitCollection.items.find(
+      ({ tier: tierBenefit }) => tierBenefit === tier
+    );
+    return tierBenefit?.name || null;
+  }, [getTierBenefit]);
 
   return (
     <div className={styles.main}>
@@ -82,8 +90,8 @@ export const CompanyRegisteredDetails = ({
           </InfoPair>
         ) : null}
 
-        {tier ? (
-          <InfoPair title={t("Tier")}>{t(`common:tier.${tier}`)}</InfoPair>
+        {tier && tierName ? (
+          <InfoPair title={t("Tier")}>{tierName}</InfoPair>
         ) : null}
 
         {operations.length > 0 ? (

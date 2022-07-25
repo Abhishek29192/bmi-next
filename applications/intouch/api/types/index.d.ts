@@ -4231,7 +4231,7 @@ export type ContentfulTag = {
 
 export type ContentfulTechnologyType = "FLAT" | "OTHER" | "PITCHED";
 
-export type ContentfulTiers = "T1" | "T2" | "T3" | "T4";
+export type ContentfulTiers = "T1" | "T2" | "T3" | "T4" | "T5" | "T6" | "T7";
 
 /** A training course that BMI offers in Docebo */
 export type Course = {
@@ -5564,6 +5564,38 @@ export type CreateCourseTempPayloadCourseTempEdgeArgs = {
   orderBy?: InputMaybe<Array<CourseTempsOrderBy>>;
 };
 
+/** All input for the create `DoceboTier` mutation. */
+export type CreateDoceboTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The `DoceboTier` to be created by this mutation. */
+  doceboTier: DoceboTierInput;
+};
+
+/** The output of our create `DoceboTier` mutation. */
+export type CreateDoceboTierPayload = {
+  __typename?: "CreateDoceboTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoceboTier` that was created by this mutation. */
+  doceboTier?: Maybe<DoceboTier>;
+  /** An edge for our `DoceboTier`. May be used by Relay 1. */
+  doceboTierEdge?: Maybe<DoceboTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our create `DoceboTier` mutation. */
+export type CreateDoceboTierPayloadDoceboTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
+};
+
 /** All input for the create `EvidenceItem` mutation. */
 export type CreateEvidenceItemInput = {
   /**
@@ -6729,6 +6761,60 @@ export type DeleteCourseTempPayloadCourseTempEdgeArgs = {
   orderBy?: InputMaybe<Array<CourseTempsOrderBy>>;
 };
 
+/** All input for the `deleteDoceboTierByMarketIdAndTierCode` mutation. */
+export type DeleteDoceboTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** All input for the `deleteDoceboTierByNodeId` mutation. */
+export type DeleteDoceboTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoceboTier` to be deleted. */
+  nodeId: Scalars["ID"];
+};
+
+/** All input for the `deleteDoceboTier` mutation. */
+export type DeleteDoceboTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+};
+
+/** The output of our delete `DoceboTier` mutation. */
+export type DeleteDoceboTierPayload = {
+  __typename?: "DeleteDoceboTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  deletedDoceboTierNodeId?: Maybe<Scalars["ID"]>;
+  /** The `DoceboTier` that was deleted by this mutation. */
+  doceboTier?: Maybe<DoceboTier>;
+  /** An edge for our `DoceboTier`. May be used by Relay 1. */
+  doceboTierEdge?: Maybe<DoceboTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our delete `DoceboTier` mutation. */
+export type DeleteDoceboTierPayloadDoceboTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
+};
+
 /** All input for the `deleteEvidenceItemByNodeId` mutation. */
 export type DeleteEvidenceItemByNodeIdInput = {
   /**
@@ -7335,6 +7421,89 @@ export type DoceboCertification = {
   toNewIn?: InputMaybe<Scalars["String"]>;
   userId?: InputMaybe<Scalars["String"]>;
 };
+
+export type DoceboTier = Node & {
+  __typename?: "DoceboTier";
+  doceboCatalogueId?: Maybe<Scalars["Int"]>;
+  id: Scalars["Int"];
+  marketId: Scalars["Int"];
+  /** A globally unique identifier. Can be used in various places throughout the system to identify this single value. */
+  nodeId: Scalars["ID"];
+  tierCode: Tier;
+};
+
+/**
+ * A condition to be used against `DoceboTier` object types. All fields are tested
+ * for equality and combined with a logical ‘and.’
+ */
+export type DoceboTierCondition = {
+  /** Checks for equality with the object’s `id` field. */
+  id?: InputMaybe<Scalars["Int"]>;
+  /** Checks for equality with the object’s `marketId` field. */
+  marketId?: InputMaybe<Scalars["Int"]>;
+};
+
+/** A filter to be used against `DoceboTier` object types. All fields are combined with a logical ‘and.’ */
+export type DoceboTierFilter = {
+  /** Checks for all expressions in this list. */
+  and?: InputMaybe<Array<DoceboTierFilter>>;
+  /** Filter by the object’s `id` field. */
+  id?: InputMaybe<IntFilter>;
+  /** Filter by the object’s `marketId` field. */
+  marketId?: InputMaybe<IntFilter>;
+  /** Negates the expression. */
+  not?: InputMaybe<DoceboTierFilter>;
+  /** Checks for any expressions in this list. */
+  or?: InputMaybe<Array<DoceboTierFilter>>;
+};
+
+/** An input for mutations affecting `DoceboTier` */
+export type DoceboTierInput = {
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** Represents an update to a `DoceboTier`. Fields that are set will be updated. */
+export type DoceboTierPatch = {
+  doceboCatalogueId?: InputMaybe<Scalars["Int"]>;
+  id?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+  tierCode?: InputMaybe<Tier>;
+};
+
+/** A connection to a list of `DoceboTier` values. */
+export type DoceboTiersConnection = {
+  __typename?: "DoceboTiersConnection";
+  /** A list of edges which contains the `DoceboTier` and cursor to aid in pagination. */
+  edges: Array<DoceboTiersEdge>;
+  /** A list of `DoceboTier` objects. */
+  nodes: Array<DoceboTier>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+  /** The count of *all* `DoceboTier` you could get from the connection. */
+  totalCount: Scalars["Int"];
+};
+
+/** A `DoceboTier` edge in the connection. */
+export type DoceboTiersEdge = {
+  __typename?: "DoceboTiersEdge";
+  /** A cursor for use in pagination. */
+  cursor?: Maybe<Scalars["Cursor"]>;
+  /** The `DoceboTier` at the end of the edge. */
+  node: DoceboTier;
+};
+
+/** Methods to use when ordering `DoceboTier`. */
+export type DoceboTiersOrderBy =
+  | "ID_ASC"
+  | "ID_DESC"
+  | "MARKET_ID_ASC"
+  | "MARKET_ID_DESC"
+  | "NATURAL"
+  | "PRIMARY_KEY_ASC"
+  | "PRIMARY_KEY_DESC";
 
 export type Entry = {
   contentfulMetadata: ContentfulMetadata;
@@ -11757,6 +11926,8 @@ export type Mutation = {
   createCourseSyncConfiguration?: Maybe<CreateCourseSyncConfigurationPayload>;
   /** Creates a single `CourseTemp`. */
   createCourseTemp?: Maybe<CreateCourseTempPayload>;
+  /** Creates a single `DoceboTier`. */
+  createDoceboTier?: Maybe<CreateDoceboTierPayload>;
   createDoceboUser?: Maybe<UserCreateResponse>;
   /** Creates a single `EvidenceItem`. */
   createEvidenceItem?: Maybe<CreateEvidenceItemPayload>;
@@ -11854,6 +12025,12 @@ export type Mutation = {
   deleteCourseTemp?: Maybe<DeleteCourseTempPayload>;
   /** Deletes a single `CourseTemp` using its globally unique id. */
   deleteCourseTempByNodeId?: Maybe<DeleteCourseTempPayload>;
+  /** Deletes a single `DoceboTier` using a unique key. */
+  deleteDoceboTier?: Maybe<DeleteDoceboTierPayload>;
+  /** Deletes a single `DoceboTier` using a unique key. */
+  deleteDoceboTierByMarketIdAndTierCode?: Maybe<DeleteDoceboTierPayload>;
+  /** Deletes a single `DoceboTier` using its globally unique id. */
+  deleteDoceboTierByNodeId?: Maybe<DeleteDoceboTierPayload>;
   /** Deletes a single `EvidenceItem` using a unique key. */
   deleteEvidenceItem?: Maybe<DeleteEvidenceItemPayload>;
   /** Deletes a single `EvidenceItem` using its globally unique id. */
@@ -11997,6 +12174,15 @@ export type Mutation = {
   updateCourseTemp?: Maybe<UpdateCourseTempPayload>;
   /** Updates a single `CourseTemp` using its globally unique id and a patch. */
   updateCourseTempByNodeId?: Maybe<UpdateCourseTempPayload>;
+  /** Updates a single `DoceboTier` using a unique key and a patch. */
+  updateDoceboTier?: Maybe<UpdateDoceboTierPayload>;
+  /** Updates a single `DoceboTier` using a unique key and a patch. */
+  updateDoceboTierByMarketIdAndTierCode?: Maybe<UpdateDoceboTierPayload>;
+  /** Updates a single `DoceboTier` using its globally unique id and a patch. */
+  updateDoceboTierByNodeId?: Maybe<UpdateDoceboTierPayload>;
+  updateDoceboTiersByMarket?: Maybe<
+    Array<Maybe<UpdateDoceboTiersByMarketResult>>
+  >;
   updateDoceboUser?: Maybe<UserUpdateResponse>;
   /** Updates a single `EvidenceItem` using a unique key and a patch. */
   updateEvidenceItem?: Maybe<UpdateEvidenceItemPayload>;
@@ -12171,6 +12357,11 @@ export type MutationCreateCourseSyncConfigurationArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationCreateCourseTempArgs = {
   input: CreateCourseTempInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationCreateDoceboTierArgs = {
+  input: CreateDoceboTierInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12423,6 +12614,21 @@ export type MutationDeleteCourseTempArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationDeleteCourseTempByNodeIdArgs = {
   input: DeleteCourseTempByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoceboTierArgs = {
+  input: DeleteDoceboTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoceboTierByMarketIdAndTierCodeArgs = {
+  input: DeleteDoceboTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationDeleteDoceboTierByNodeIdArgs = {
+  input: DeleteDoceboTierByNodeIdInput;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -12805,6 +13011,26 @@ export type MutationUpdateCourseTempArgs = {
 /** The root mutation type which contains root level fields which mutate data. */
 export type MutationUpdateCourseTempByNodeIdArgs = {
   input: UpdateCourseTempByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboTierArgs = {
+  input: UpdateDoceboTierInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboTierByMarketIdAndTierCodeArgs = {
+  input: UpdateDoceboTierByMarketIdAndTierCodeInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboTierByNodeIdArgs = {
+  input: UpdateDoceboTierByNodeIdInput;
+};
+
+/** The root mutation type which contains root level fields which mutate data. */
+export type MutationUpdateDoceboTiersByMarketArgs = {
+  input?: InputMaybe<UpdateDoceboTiersByMarketInput>;
 };
 
 /** The root mutation type which contains root level fields which mutate data. */
@@ -15366,6 +15592,12 @@ export type Query = Node & {
   currentAccountId?: Maybe<Scalars["Int"]>;
   currentCompany?: Maybe<Scalars["Int"]>;
   currentMarket?: Maybe<Scalars["Int"]>;
+  doceboTier?: Maybe<DoceboTier>;
+  doceboTierByMarketIdAndTierCode?: Maybe<DoceboTier>;
+  /** Reads a single `DoceboTier` using its globally unique `ID`. */
+  doceboTierByNodeId?: Maybe<DoceboTier>;
+  /** Reads and enables pagination through a set of `DoceboTier`. */
+  doceboTiers?: Maybe<DoceboTiersConnection>;
   entryCollection?: Maybe<EntryCollection>;
   evidenceCategory?: Maybe<EvidenceCategory>;
   evidenceCategoryCollection?: Maybe<EvidenceCategoryCollection>;
@@ -15926,6 +16158,34 @@ export type QueryCoursesArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   offset?: InputMaybe<Scalars["Int"]>;
   orderBy?: InputMaybe<Array<CoursesOrderBy>>;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoceboTierArgs = {
+  id: Scalars["Int"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoceboTierByMarketIdAndTierCodeArgs = {
+  marketId: Scalars["Int"];
+  tierCode: Tier;
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoceboTierByNodeIdArgs = {
+  nodeId: Scalars["ID"];
+};
+
+/** The root query type which gives access points into the data universe. */
+export type QueryDoceboTiersArgs = {
+  after?: InputMaybe<Scalars["Cursor"]>;
+  before?: InputMaybe<Scalars["Cursor"]>;
+  condition?: InputMaybe<DoceboTierCondition>;
+  filter?: InputMaybe<DoceboTierFilter>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  offset?: InputMaybe<Scalars["Int"]>;
+  orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
 };
 
 /** The root query type which gives access points into the data universe. */
@@ -17675,7 +17935,7 @@ export type SystemsOrderBy =
 
 export type Technology = "FLAT" | "OTHER" | "PITCHED";
 
-export type Tier = "T1" | "T2" | "T3" | "T4";
+export type Tier = "T1" | "T2" | "T3" | "T4" | "T5" | "T6" | "T7";
 
 /** A benefit received by being part of a tier [See type definition](https://app.contentful.com/spaces/j30snaps0u9c/content_types/tierBenefit) */
 export type TierBenefit = Entry & {
@@ -18904,6 +19164,84 @@ export type UpdateCourseTempPayloadCourseTempEdgeArgs = {
   orderBy?: InputMaybe<Array<CourseTempsOrderBy>>;
 };
 
+/** All input for the `updateDoceboTierByMarketIdAndTierCode` mutation. */
+export type UpdateDoceboTierByMarketIdAndTierCodeInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  marketId: Scalars["Int"];
+  /** An object where the defined keys will be set on the `DoceboTier` being updated. */
+  patch: DoceboTierPatch;
+  tierCode: Tier;
+};
+
+/** All input for the `updateDoceboTierByNodeId` mutation. */
+export type UpdateDoceboTierByNodeIdInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  /** The globally unique `ID` which will identify a single `DoceboTier` to be updated. */
+  nodeId: Scalars["ID"];
+  /** An object where the defined keys will be set on the `DoceboTier` being updated. */
+  patch: DoceboTierPatch;
+};
+
+/** All input for the `updateDoceboTier` mutation. */
+export type UpdateDoceboTierInput = {
+  /**
+   * An arbitrary string value with no semantic meaning. Will be included in the
+   * payload verbatim. May be used to track mutations by the client.
+   */
+  clientMutationId?: InputMaybe<Scalars["String"]>;
+  id: Scalars["Int"];
+  /** An object where the defined keys will be set on the `DoceboTier` being updated. */
+  patch: DoceboTierPatch;
+};
+
+/** The output of our update `DoceboTier` mutation. */
+export type UpdateDoceboTierPayload = {
+  __typename?: "UpdateDoceboTierPayload";
+  /**
+   * The exact same `clientMutationId` that was provided in the mutation input,
+   * unchanged and unused. May be used by a client to track mutations.
+   */
+  clientMutationId?: Maybe<Scalars["String"]>;
+  /** The `DoceboTier` that was updated by this mutation. */
+  doceboTier?: Maybe<DoceboTier>;
+  /** An edge for our `DoceboTier`. May be used by Relay 1. */
+  doceboTierEdge?: Maybe<DoceboTiersEdge>;
+  /** Our root query field type. Allows us to run any query from our mutation payload. */
+  query?: Maybe<Query>;
+};
+
+/** The output of our update `DoceboTier` mutation. */
+export type UpdateDoceboTierPayloadDoceboTierEdgeArgs = {
+  orderBy?: InputMaybe<Array<DoceboTiersOrderBy>>;
+};
+
+export type UpdateDoceboTiersByMarketInput = {
+  T1?: InputMaybe<Scalars["Int"]>;
+  T2?: InputMaybe<Scalars["Int"]>;
+  T3?: InputMaybe<Scalars["Int"]>;
+  T4?: InputMaybe<Scalars["Int"]>;
+  T5?: InputMaybe<Scalars["Int"]>;
+  T6?: InputMaybe<Scalars["Int"]>;
+  T7?: InputMaybe<Scalars["Int"]>;
+  marketId?: InputMaybe<Scalars["Int"]>;
+};
+
+export type UpdateDoceboTiersByMarketResult = {
+  __typename?: "UpdateDoceboTiersByMarketResult";
+  docebo_catalogue_id?: Maybe<Scalars["Int"]>;
+  id?: Maybe<Scalars["Int"]>;
+  market_id?: Maybe<Scalars["Int"]>;
+  tier_code?: Maybe<Tier>;
+};
+
 /** All input for the `updateEvidenceItemByNodeId` mutation. */
 export type UpdateEvidenceItemByNodeIdInput = {
   /**
@@ -19639,6 +19977,7 @@ export type _Entity =
   | CourseEnrollmentTemp
   | CourseSyncConfiguration
   | CourseTemp
+  | DoceboTier
   | EvidenceItem
   | Guarantee
   | Invitation
