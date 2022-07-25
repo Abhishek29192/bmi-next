@@ -84,5 +84,12 @@ module.exports = {
       method: "GET",
       url: `/extensions`
     });
+  },
+  getAllContentTypes: async (makeRequest) => {
+    const allContentTypes = await makeRequest({
+      method: "GET",
+      url: "/content_types"
+    });
+    return allContentTypes;
   }
 };
