@@ -1,8 +1,8 @@
-import React from "react";
 import classnames from "classnames";
+import React from "react";
 import YoutubeVideo, {
-  Props as YoutubeVideoProps,
-  Layout
+  Layout,
+  Props as YoutubeVideoProps
 } from "../youtube-video/YoutubeVideo";
 import styles from "./Media.module.scss";
 

@@ -1,5 +1,7 @@
 import * as all from "@bmi-digital/use-dimensions";
 import { Filter } from "@bmi/components";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
+import { createProduct as createESProduct } from "@bmi/elasticsearch-types";
 import {
   createHistory,
   createMemorySource,
@@ -18,14 +20,15 @@ import ProvideStyles from "../../../../components/__tests__/utils/StylesProvider
 import { ConfigProvider, EnvConfig } from "../../../../contexts/ConfigProvider";
 import * as elasticSearch from "../../../../utils/elasticSearch";
 import ProductListerPage, {
-  Data as PdpPageInfoData,
-  PageContextType
+  Data as PlpPageInfoData,
+  PageContextType,
+  Props
 } from "../product-lister-page";
 
 window.alert = jest.fn();
 
 const heroTitle = "i am a title";
-const pageInfo: PdpPageInfoData = {
+const pageInfo: PlpPageInfoData = {
   __typename: "ContentfulProductListerPage",
   id: "title",
   title: heroTitle,
@@ -140,10 +143,9 @@ const siteData: SiteData = {
   ]
 };
 
-const pageData = {
+const pageData: Props["data"] = {
   contentfulProductListerPage: pageInfo,
   contentfulSite: siteData,
-  productFilters: [],
   plpFilters: { filters: [], allowFilterBy: ["test"] },
   initialProducts: []
 };
@@ -159,77 +161,7 @@ const pageContext: PageContextType = {
   }
 };
 
-const productWithVariantAndBase = {
-  code: "test1",
-  externalProductCode: "test1",
-  name: "imaproduct",
-  description: "imadescription",
-  documents: [],
-  breadcrumbs: null,
-  categories: [
-    {
-      name: "category-code-1",
-      categoryType: "Category",
-      code: "category-code-1",
-      parentCategoryCode: ""
-    },
-    {
-      name: "Bob",
-      categoryType: "Category",
-      code: "BOB",
-      parentCategoryCode: "Root"
-    }
-  ],
-  images: [],
-  variantOptions: [
-    {
-      code: "test1",
-      externalProductCode: "test1",
-      isSampleOrderAllowed: false,
-      approvalStatus: "approved",
-      shortDescription: "blah",
-      longDescription: "blah blah",
-      images: null,
-      breadcrumbs: null,
-      path: ""
-    }
-  ],
-  baseProduct: {
-    code: "test1",
-    externalProductCode: "test1",
-    name: "imaproduct",
-    description: "imadescription",
-    documents: [],
-    breadcrumbs: null,
-    categories: [
-      {
-        name: "Root",
-        categoryType: "Category",
-        code: "Root",
-        parentCategoryCode: ""
-      },
-      {
-        name: "Bob",
-        categoryType: "Category",
-        code: "BOB",
-        parentCategoryCode: "Root"
-      }
-    ],
-    variantOptions: [
-      {
-        code: "test1",
-        externalProductCode: "test1",
-        isSampleOrderAllowed: false,
-        approvalStatus: "approved",
-        shortDescription: "blah",
-        longDescription: "blah blah",
-        images: null,
-        breadcrumbs: null,
-        path: ""
-      }
-    ]
-  }
-};
+const productWithVariantAndBase: ESProduct = createESProduct();
 
 function getDimensionHookFn(width: number): () => all.UseDimensionsHook {
   return () => [() => {}, { width, height: 0 }, document.createElement("div")];
@@ -336,7 +268,7 @@ describe("ProductListerPage template", () => {
     describe("ProductListerPage with multiple category codes", () => {
       describe("And First Category code on first initial product match", () => {
         it("renders category code Section Title", async () => {
-          const localPageData = {
+          const localPageData: Props["data"] = {
             ...pageData,
             initialProducts: [
               {
@@ -456,7 +388,10 @@ describe("ProductListerPage template", () => {
             }
           ];
           pageData.initialProducts = [productWithVariantAndBase];
-          pageData.plpFilters.filters = productFilters;
+          pageData.plpFilters = {
+            filters: productFilters,
+            allowFilterBy: ["colour"]
+          };
           const { container, getByLabelText, queryByText } =
             renderWithStylesAndLocationProvider(pageData, pageContext);
           await getByLabelText(color1Label);
@@ -513,9 +448,10 @@ describe("ProductListerPage template", () => {
     });
   });
 
-  it("no search for Gatsby preview", async () => {
-    pageData.initialProducts = [productWithVariantAndBase];
-    pageData.productFilters = [];
+  it("renders an default image if there is no image available", async () => {
+    pageData.initialProducts = [
+      { ...productWithVariantAndBase, images: undefined }
+    ];
     pageData.contentfulProductListerPage.heroType = "Spotlight";
     const { container, findByText } = renderWithStylesAndLocationProvider(
       pageData,
@@ -526,7 +462,19 @@ describe("ProductListerPage template", () => {
     expect(container.parentElement).toMatchSnapshot();
   });
 
-  it("test hande change by click on pagination", async () => {
+  it("no search for Gatsby preview", async () => {
+    pageData.initialProducts = [productWithVariantAndBase];
+    pageData.contentfulProductListerPage.heroType = "Spotlight";
+    const { container, findByText } = renderWithStylesAndLocationProvider(
+      pageData,
+      pageContext,
+      { isPreviewMode: true }
+    );
+    await findByText(heroTitle);
+    expect(container.parentElement).toMatchSnapshot();
+  });
+
+  it("test handle change by click on pagination", async () => {
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
     jest.spyOn(window, "scrollTo").mockImplementation();
@@ -604,7 +552,7 @@ describe("ProductListerPage template", () => {
     expect(container.parentElement).toMatchSnapshot();
   });
 
-  it("test hande fetch product by click on pagination when ES return aggregations", async () => {
+  it("test handle fetch product by click on pagination when ES return aggregations", async () => {
     const products = new Array(30).fill(productWithVariantAndBase);
     pageData.initialProducts = [...products];
     mockQueryES.mockResolvedValueOnce({
@@ -634,7 +582,7 @@ describe("ProductListerPage template", () => {
     expect(container.parentElement).toMatchSnapshot();
   });
 
-  it("test hande change url by click on filters and test clear all click", async () => {
+  it("test handle change url by click on filters and test clear all click", async () => {
     window.history.replaceState = jest.fn();
     const color1Label = "colour-1";
     const color2Label = "colour-2";
@@ -658,7 +606,10 @@ describe("ProductListerPage template", () => {
         ]
       }
     ];
-    pageData.plpFilters.filters = productFilters;
+    pageData.plpFilters = {
+      filters: productFilters,
+      allowFilterBy: ["colour"]
+    };
     const { container, queryByText, getByText } =
       renderWithStylesAndLocationProvider(pageData, pageContext);
     expect(container.parentElement).toMatchSnapshot();
@@ -672,7 +623,7 @@ describe("ProductListerPage template", () => {
     const texture1Label = "texture-1";
     const texture2Label = "texture-2";
 
-    const productFilters: Filter[] = [
+    const plpFilters: Filter[] = [
       {
         filterCode: "texturefamily",
         name: "texturefamily",
@@ -684,17 +635,10 @@ describe("ProductListerPage template", () => {
       }
     ];
     pageData.initialProducts = [productWithVariantAndBase];
-    pageData.productFilters = productFilters;
-    const { container } = renderWithStylesAndLocationProvider(
-      pageData,
-      pageContext
-    );
-    expect(container.parentElement).toMatchSnapshot();
-  });
-
-  it("test filter resolver utils when no filters at all", async () => {
-    pageData.initialProducts = [productWithVariantAndBase];
-    pageData.productFilters = null;
+    pageData.plpFilters = {
+      filters: plpFilters,
+      allowFilterBy: ["texturefamily"]
+    };
     const { container } = renderWithStylesAndLocationProvider(
       pageData,
       pageContext

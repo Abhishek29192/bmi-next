@@ -43,7 +43,8 @@ describe("product-details-transforms tests", () => {
                 label: "colour",
                 isSelected: true,
                 availability: false,
-                thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                media: null
               }
             ]
           },
@@ -106,7 +107,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -172,7 +174,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -239,7 +242,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -306,7 +310,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -376,7 +381,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -442,7 +448,13 @@ describe("product-details-transforms tests", () => {
                   type: "thumbnails",
                   unavailableMicroCopy: "unavailableMicroCopy",
                   variants: [
-                    { label: "colour", isSelected: true, availability: false }
+                    {
+                      label: "colour",
+                      isSelected: true,
+                      availability: false,
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
+                    }
                   ]
                 },
                 {
@@ -623,7 +635,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -816,7 +829,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -883,7 +897,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -956,7 +971,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1025,7 +1041,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1092,7 +1109,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -1165,7 +1183,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1234,7 +1253,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1301,7 +1321,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },
@@ -1371,7 +1392,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1439,7 +1461,8 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       availability: false,
-                      thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                      thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null
                     }
                   ]
                 },
@@ -1506,7 +1529,8 @@ describe("product-details-transforms tests", () => {
                     label: "colour",
                     isSelected: true,
                     availability: false,
-                    thumbnail: "http://localhost:8000/image-thumbnail.jpg"
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
                   }
                 ]
               },

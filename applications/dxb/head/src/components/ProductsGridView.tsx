@@ -9,13 +9,14 @@ import { Product as ESProduct } from "@bmi/elasticsearch-types";
 import { Link } from "gatsby";
 import React from "react";
 import { microCopy } from "../constants/microCopies";
+import DefaultImage from "../images/DefaultImage.svg";
 import { useSearchParams } from "../utils/filters";
 import withGTM from "../utils/google-tag-manager";
 import { getPathWithCountryCode } from "../utils/path";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
 
-type Props = {
+export type Props = {
   products: ReadonlyArray<ESProduct>;
   pageContext: {
     countryCode: string;
@@ -81,7 +82,9 @@ const ProductsGridView = ({
                     src={mainImage}
                     alt={`${uniqueClassifications} ${product.name}`}
                   />
-                ) : undefined
+                ) : (
+                  <DefaultImage />
+                )
               }
               imageSize="contain"
               brandImageSource={brandLogo}
