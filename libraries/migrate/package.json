@@ -5,13 +5,16 @@
   "main": "cli.js",
   "bin": "./cli.js",
   "scripts": {
-    "createRoles": "./createRoles.js"
+    "createRoles": "./createRoles.js",
+    "dxb-update-mc": "node ./projects/dxb/cma/update-mc.js",
+    "dxb-update-mc:publish": "node ./projects/dxb/cma/update-mc.js --publish"
   },
   "resolutions": {
     "eslint": "6.8.0"
   },
   "dependencies": {
     "@contentful/rich-text-from-markdown": "^15.0.0",
+    "contentful-management": "^10.0.0",
     "contentful-migrate": "^0.17.0",
     "dotenv": "^8.2.0",
     "eslint-config-standard": "^14.1.1",
