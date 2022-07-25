@@ -114,7 +114,7 @@ exports[`CompanyRegisteredDetails matches snapshot 1`] = `
         <div
           class="MuiTypography-root Typography MuiTypography-body1"
         >
-          tier.T2
+          tier benefit T2
         </div>
       </div>
       <div

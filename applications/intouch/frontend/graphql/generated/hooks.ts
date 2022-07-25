@@ -965,10 +965,6 @@ export const UpdateMarketDocument = gql`
             sendMailbox
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
-            doceboCatalogueId
-            doceboCatalogueIdT2
-            doceboCatalogueIdT3
-            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm
@@ -1023,6 +1019,60 @@ export type UpdateMarketMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateMarketMutation,
   OperationTypes.UpdateMarketMutationVariables
 >;
+export const UpdateDoceboTiersByMarketDocument = gql`
+  mutation updateDoceboTiersByMarket($input: UpdateDoceboTiersByMarketInput!) {
+    updateDoceboTiersByMarket(input: $input) {
+      id
+      docebo_catalogue_id
+      market_id
+      tier_code
+    }
+  }
+`;
+export type UpdateDoceboTiersByMarketMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateDoceboTiersByMarketMutation,
+  OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+>;
+
+/**
+ * __useUpdateDoceboTiersByMarketMutation__
+ *
+ * To run a mutation, you first call `useUpdateDoceboTiersByMarketMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateDoceboTiersByMarketMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateDoceboTiersByMarketMutation, { data, loading, error }] = useUpdateDoceboTiersByMarketMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUpdateDoceboTiersByMarketMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >(UpdateDoceboTiersByMarketDocument, options);
+}
+export type UpdateDoceboTiersByMarketMutationHookResult = ReturnType<
+  typeof useUpdateDoceboTiersByMarketMutation
+>;
+export type UpdateDoceboTiersByMarketMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateDoceboTiersByMarketMutation>;
+export type UpdateDoceboTiersByMarketMutationOptions =
+  Apollo.BaseMutationOptions<
+    OperationTypes.UpdateDoceboTiersByMarketMutation,
+    OperationTypes.UpdateDoceboTiersByMarketMutationVariables
+  >;
 export const BulkImportDocument = gql`
   mutation bulkImport($input: BulkImportInput!) {
     bulkImport(input: $input) {
@@ -2201,6 +2251,66 @@ export type GetEvidenceItemsReportLazyQueryHookResult = ReturnType<
 export type GetEvidenceItemsReportQueryResult = Apollo.QueryResult<
   OperationTypes.GetEvidenceItemsReportQuery,
   OperationTypes.GetEvidenceItemsReportQueryVariables
+>;
+export const GetTierBenefitDocument = gql`
+  query getTierBenefit {
+    tierBenefitCollection {
+      items {
+        tier
+        name
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetTierBenefitQuery__
+ *
+ * To run a query within a React component, call `useGetTierBenefitQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetTierBenefitQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetTierBenefitQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetTierBenefitQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >(GetTierBenefitDocument, options);
+}
+export function useGetTierBenefitLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    OperationTypes.GetTierBenefitQuery,
+    OperationTypes.GetTierBenefitQueryVariables
+  >(GetTierBenefitDocument, options);
+}
+export type GetTierBenefitQueryHookResult = ReturnType<
+  typeof useGetTierBenefitQuery
+>;
+export type GetTierBenefitLazyQueryHookResult = ReturnType<
+  typeof useGetTierBenefitLazyQuery
+>;
+export type GetTierBenefitQueryResult = Apollo.QueryResult<
+  OperationTypes.GetTierBenefitQuery,
+  OperationTypes.GetTierBenefitQueryVariables
 >;
 export const CreateGuaranteeDocument = gql`
   mutation createGuarantee($input: CreateGuaranteeInput!) {
@@ -4167,15 +4277,19 @@ export const MarketsDocument = gql`
         sendMailbox
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
         gtagMarketMedia
         locationBiasRadiusKm
+      }
+    }
+    doceboTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        doceboCatalogueId
       }
     }
   }
@@ -5024,65 +5138,4 @@ export type TrainingLazyQueryHookResult = ReturnType<
 export type TrainingQueryResult = Apollo.QueryResult<
   OperationTypes.TrainingQuery,
   OperationTypes.TrainingQueryVariables
->;
-export const DoceboCatalogIdByMarketDomainDocument = gql`
-  query DoceboCatalogIdByMarketDomain($domain: String!) {
-    marketByDomain(domain: $domain) {
-      doceboCatalogueId
-      doceboCatalogueIdT2
-      doceboCatalogueIdT3
-      doceboCatalogueIdT4
-    }
-  }
-`;
-
-/**
- * __useDoceboCatalogIdByMarketDomainQuery__
- *
- * To run a query within a React component, call `useDoceboCatalogIdByMarketDomainQuery` and pass it any options that fit your needs.
- * When your component renders, `useDoceboCatalogIdByMarketDomainQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useDoceboCatalogIdByMarketDomainQuery({
- *   variables: {
- *      domain: // value for 'domain'
- *   },
- * });
- */
-export function useDoceboCatalogIdByMarketDomainQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >(DoceboCatalogIdByMarketDomainDocument, options);
-}
-export function useDoceboCatalogIdByMarketDomainLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<
-    OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-    OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
-  >(DoceboCatalogIdByMarketDomainDocument, options);
-}
-export type DoceboCatalogIdByMarketDomainQueryHookResult = ReturnType<
-  typeof useDoceboCatalogIdByMarketDomainQuery
->;
-export type DoceboCatalogIdByMarketDomainLazyQueryHookResult = ReturnType<
-  typeof useDoceboCatalogIdByMarketDomainLazyQuery
->;
-export type DoceboCatalogIdByMarketDomainQueryResult = Apollo.QueryResult<
-  OperationTypes.DoceboCatalogIdByMarketDomainQuery,
-  OperationTypes.DoceboCatalogIdByMarketDomainQueryVariables
 >;

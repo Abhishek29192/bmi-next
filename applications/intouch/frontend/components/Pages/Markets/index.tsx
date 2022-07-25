@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, Fragment } from "react";
 import { useTranslation } from "next-i18next";
 import { AlertBanner } from "@bmi/components";
 import { TextField } from "@bmi/components";
@@ -12,67 +12,43 @@ import classnames from "classnames";
 import { SidePanel } from "../../../components/SidePanel";
 import { FilterResult } from "../../FilterResult";
 import { formatDate } from "../../../lib/utils";
-import { useUpdateMarketMutation } from "../../../graphql/generated/hooks";
+import {
+  useUpdateMarketMutation,
+  useUpdateDoceboTiersByMarketMutation
+} from "../../../graphql/generated/hooks";
 import {
   MarketsQuery,
   UpdateMarketMutation
 } from "../../../graphql/generated/operations";
 import layoutStyles from "../../Layout/styles.module.scss";
 import styles from "./styles.module.scss";
+import { marketKeys } from "./config";
 
 type Props = {
   markets: MarketsQuery["markets"];
+  doceboTiers: MarketsQuery["doceboTiers"];
+};
+
+type DoceboTeirs = {
+  T1?: number;
+  T2?: number;
+  T3?: number;
+  T4?: number;
+  T5?: number;
+  T6?: number;
+  T7?: number;
 };
 
 type MarketList =
   | MarketsQuery["markets"]
   | UpdateMarketMutation["updateMarket"]["query"]["markets"];
-type _Market = MarketList["nodes"][0];
+type _Market = MarketList["nodes"][0] & DoceboTeirs;
 
-const marketKeys = [
-  { type: "text", key: "id", label: "Id" },
-  { type: "text", key: "language", label: "Language" },
-  { type: "text", key: "domain", label: "Domain" },
-  { type: "text", key: "cmsSpaceId", label: "Cms space Id" },
-  { type: "text", key: "name", label: "Name" },
-  { type: "text", key: "sendName", label: "Send name" },
-  { type: "text", key: "sendMailbox", label: "Send mailbox" },
-  {
-    type: "text",
-    key: "doceboInstallersBranchId",
-    label: "Docebo installers branch id"
-  },
-  {
-    type: "text",
-    key: "doceboCompanyAdminBranchId",
-    label: "Docebo company admin branch id"
-  },
-  { type: "number", key: "doceboCatalogueId", label: "Docebo catalogue id" },
-  {
-    type: "number",
-    key: "doceboCatalogueIdT2",
-    label: "Docebo catalogue id T2"
-  },
-  {
-    type: "number",
-    key: "doceboCatalogueIdT3",
-    label: "Docebo catalogue id T3"
-  },
-  {
-    type: "number",
-    key: "doceboCatalogueIdT4",
-    label: "Docebo catalogue id T4"
-  },
-  { type: "text", key: "merchandisingUrl", label: "Merchandising url" },
-  { type: "checkbox", key: "projectsEnabled", label: "Projects enabled" },
-  {
-    type: "number",
-    key: "locationBiasRadiusKm",
-    label: "Location biasRadius Km"
-  },
-  { type: "text", key: "gtag", label: "Gtag" },
-  { type: "text", key: "gtagMarketMedia", label: "Gtag market media" }
-];
+type ResultProps = {
+  severity: "error" | "warning" | "info" | "success" | null;
+  title: string | null;
+  messages?: any[] | null;
+};
 
 const getValue = (t, type, value) => {
   switch (type) {
@@ -84,56 +60,74 @@ const getValue = (t, type, value) => {
       return value === true ? t("enabled") : t("disabled");
     case "date":
       return formatDate(value);
-
     default:
       break;
   }
 };
 
-type ResultProps = {
-  severity: "error" | "warning" | "info" | "success" | null;
-  title: string | null;
-  messages?: string[] | null;
-};
-
-const MarketPage = ({ markets }: Props) => {
+const MarketPage = ({ markets, doceboTiers }: Props) => {
   const { t } = useTranslation("admin-markets");
-
   const [isEditing, setIsEditing] = useState<boolean>(false);
-
   const [result, setResult] = useState<ResultProps>({
     severity: null,
     title: null,
-    messages: null
+    messages: []
   });
+  const [selectedMarketId, setSelectedMarketId] = useState(markets.nodes[0].id);
   const [items, setItems] = useState<MarketList>(markets);
   const [filteredItems, setFilteredItems] = useState<MarketList>(markets);
   const [filterState, setFilterState] = useState({
     searched: null,
     filters: []
   });
-
   const [selectedItem, setSelectedItem] = useState<_Market>();
 
-  const [udpateMarket] = useUpdateMarketMutation({
-    onError: ({ networkError }) => {
-      setResult({
-        severity: "error",
-        title: t("error"),
-        messages: networkError?.["result"]?.errors?.map(
-          ({ message }) => message
-        )
-      });
-    },
-    onCompleted: (data) => {
-      setItems(data?.updateMarket?.query.markets);
-      setResult({
-        title: t("success"),
-        severity: "success"
-      });
-    }
-  });
-
+  const [udpateMarket, { loading: updateMarketLoading }] =
+    useUpdateMarketMutation({
+      onError: ({ networkError }) => {
+        setResult({
+          severity: "error",
+          title: t("error"),
+          messages: [
+            ...result.messages,
+            ...(networkError?.["result"]?.errors?.map(
+              ({ message }) => message
+            ) || [])
+          ]
+        });
+      },
+      onCompleted: (data) => {
+        setItems({ ...items, ...data.updateMarket.query.markets });
+        setResult({
+          title: t("success"),
+          severity: "success",
+          messages: []
+        });
+      }
+    });
+  const [updateDoceboTiers, { loading: updateDoceboTiersLoading }] =
+    useUpdateDoceboTiersByMarketMutation({
+      onError: ({ networkError, message }) => {
+        const errors = networkError
+          ? networkError["result"].errors.map(({ message }) => message)
+          : [message];
+        setResult({
+          severity: "error",
+          title: t("error"),
+          messages: [...result.messages, ...errors]
+        });
+      },
+      onCompleted: (data) => {
+        const doceboTiers = data.updateDoceboTiersByMarket.reduce(
+          (prev, cur) => ({
+            ...prev,
+            [cur.tier_code]: cur.docebo_catalogue_id
+          }),
+          {}
+        ) as DoceboTeirs;
+        setItems({ ...items, ...doceboTiers });
+      }
+    });
   const onItemChange = useCallback(
     (name, value, type) => {
       setSelectedItem((prev) => ({
@@ -145,10 +139,22 @@ const MarketPage = ({ markets }: Props) => {
   );
 
   const onMarketSubmit = useCallback(
-    (event) => {
+    async (event) => {
       event.preventDefault();
-      const { id, __typename, ...rest } = selectedItem;
-      udpateMarket({
+      const { id, __typename, T1, T2, T3, T4, T5, T6, T7, ...rest } =
+        selectedItem;
+      const catalogueToUpdate = {
+        T1,
+        T2,
+        T3,
+        T4,
+        T5,
+        T6,
+        T7
+      };
+
+      setResult({ severity: null, title: null, messages: [] });
+      await udpateMarket({
         variables: {
           input: {
             id,
@@ -158,8 +164,16 @@ const MarketPage = ({ markets }: Props) => {
           }
         }
       });
+      await updateDoceboTiers({
+        variables: {
+          input: {
+            marketId: id,
+            ...catalogueToUpdate
+          }
+        }
+      });
     },
-    [udpateMarket, selectedItem]
+    [udpateMarket, updateDoceboTiers, selectedItem]
   );
 
   const onSearch = (value: string): void => {
@@ -176,7 +190,7 @@ const MarketPage = ({ markets }: Props) => {
         ...prevStatus,
         nodes: items.nodes.filter(
           ({ name }) =>
-            name?.toLowerCase().indexOf(searched.toLowerCase()) !== -1
+            name.toLowerCase().indexOf(searched.toLowerCase()) !== -1
         )
       }));
     } else {
@@ -184,6 +198,19 @@ const MarketPage = ({ markets }: Props) => {
     }
   }, [filterState]);
 
+  useEffect(() => {
+    const catalogueIds: DoceboTeirs = doceboTiers.nodes
+      .filter(({ marketId }) => marketId === selectedMarketId)
+      .reduce(
+        (prev, cur) => ({ ...prev, [cur.tierCode]: cur.doceboCatalogueId }),
+        {}
+      );
+    const item = {
+      ...markets.nodes.find(({ id }) => id === selectedMarketId),
+      ...catalogueIds
+    };
+    setSelectedItem(item);
+  }, [selectedMarketId]);
   return (
     <div
       className={classnames(layoutStyles.searchPanelWrapper, styles.container)}
@@ -195,101 +222,108 @@ const MarketPage = ({ markets }: Props) => {
         searchLabel={t("sidePanel.search.label")}
         noResultLabel={t("sidePanel.search.noResult")}
       >
-        {filteredItems.nodes.map((item: _Market, index: number) => (
-          <div key={`market-${index}`} onClick={(e) => setSelectedItem(item)}>
-            <FilterResult
-              testId="list-item"
-              label={item.name}
-              key={item.domain}
-            >
-              <Typography variant="subtitle2">{`${item.domain}.intouch.bmigroup.com`}</Typography>
-            </FilterResult>
-          </div>
+        {filteredItems.nodes.map((item: _Market) => (
+          <FilterResult
+            key={`market-${item.domain}`}
+            onClick={() => setSelectedMarketId(item.id)}
+            testId="list-item"
+            label={item.name}
+            isSelected={selectedMarketId === item.id}
+          >
+            <Typography variant="subtitle2">{`${item.domain}.intouch.bmigroup.com`}</Typography>
+          </FilterResult>
         ))}
       </SidePanel>
       {selectedItem && (
         <div className={styles.detailPanel}>
           {isEditing ? (
-            <Form
-              onSubmit={onMarketSubmit}
-              style={{ width: "100%" }}
-              {...{ testId: "market-form" }}
-            >
-              <Grid container>
-                <Grid xs={12} item>
-                  <Grid
-                    item
-                    xs={12}
-                    container
-                    spacing={0}
-                    direction="row"
-                    alignItems="flex-start"
-                    justify="space-between"
-                    style={{ display: "flex" }}
-                  >
-                    <Grid item xs={10}>
-                      <Typography
-                        variant="h3"
-                        hasUnderline
-                        style={{ marginBottom: "15px" }}
-                      >
-                        {selectedItem.name}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={2}>
-                      <Button
-                        className={styles.editBtn}
-                        onClick={() => setIsEditing(!isEditing)}
-                      >
-                        {!isEditing ? t("edit") : t("show")}
-                      </Button>
+            <Fragment>
+              <Form
+                onSubmit={onMarketSubmit}
+                style={{ width: "100%" }}
+                {...{ testId: "market-form" }}
+              >
+                <Grid container>
+                  <Grid xs={12} item>
+                    <Grid
+                      item
+                      xs={12}
+                      container
+                      spacing={0}
+                      direction="row"
+                      alignItems="flex-start"
+                      justify="space-between"
+                      style={{ display: "flex" }}
+                    >
+                      <Grid item xs={10}>
+                        <Typography
+                          variant="h3"
+                          hasUnderline
+                          style={{ marginBottom: "15px" }}
+                        >
+                          {selectedItem.name}
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                        <Button
+                          className={styles.editBtn}
+                          onClick={() => setIsEditing(!isEditing)}
+                          data-testid={"btn-show"}
+                        >
+                          {t("show")}
+                        </Button>
+                      </Grid>
                     </Grid>
                   </Grid>
+                  {marketKeys.map(({ key, type, label }) =>
+                    type === "checkbox" ? (
+                      <Grid item xs={12}>
+                        <Checkbox
+                          name={key}
+                          label={label}
+                          checked={selectedItem[`${key}`] || ""}
+                          onChange={(value) => onItemChange(key, value, type)}
+                        />
+                      </Grid>
+                    ) : (
+                      <Grid key={key} xs={12} item>
+                        <TextField
+                          fullWidth
+                          name={key}
+                          label={label}
+                          type={type}
+                          disabled={["id"].includes(key)}
+                          value={selectedItem[`${key}`] || ""}
+                          onChange={(value) => onItemChange(key, value, type)}
+                          {...{ "data-testid": `input-${key}` }}
+                        />
+                      </Grid>
+                    )
+                  )}
                 </Grid>
-                {marketKeys.map(({ key, type, label }) =>
-                  type === "checkbox" ? (
-                    <Grid item xs={12}>
-                      <Checkbox
-                        name={key}
-                        label={label}
-                        checked={selectedItem[`${key}`] || ""}
-                        onChange={(value) => onItemChange(key, value, type)}
-                      />
-                    </Grid>
-                  ) : (
-                    <Grid key={key} xs={12} item>
-                      <TextField
-                        fullWidth
-                        name={key}
-                        label={label}
-                        type={type}
-                        disabled={["id"].includes(key)}
-                        value={selectedItem[`${key}`] || ""}
-                        onChange={(value) => onItemChange(key, value, type)}
-                        {...{ "data-testid": `input-${key}` }}
-                      />
-                    </Grid>
-                  )
+                <Form.ButtonWrapper>
+                  <Form.SubmitButton {...{ "data-testid": "btn-save " }}>
+                    Save
+                  </Form.SubmitButton>
+                </Form.ButtonWrapper>
+              </Form>
+              {result.severity &&
+                !updateMarketLoading &&
+                !updateDoceboTiersLoading && (
+                  <div style={{ marginTop: 15 }}>
+                    <AlertBanner severity={result.severity}>
+                      <AlertBanner.Title>{result.title}</AlertBanner.Title>
+                      {result.messages.length ? (
+                        <div>
+                          {result.messages.map((message, index) => (
+                            <div key={`error-${index}`}>{message}</div>
+                          ))}
+                        </div>
+                      ) : null}
+                    </AlertBanner>
+                  </div>
                 )}
-              </Grid>
-              <Form.ButtonWrapper>
-                <Form.SubmitButton {...{ "data-testid": "btn-save " }}>
-                  Save
-                </Form.SubmitButton>
-              </Form.ButtonWrapper>
-              {result.title ? (
-                <div style={{ marginTop: 15 }}>
-                  <AlertBanner severity={result?.severity}>
-                    <AlertBanner.Title>{result?.title}</AlertBanner.Title>
-                    <div>
-                      {result?.messages?.map((message, index) => (
-                        <div key={`error-${index}`}>{message}</div>
-                      ))}
-                    </div>
-                  </AlertBanner>
-                </div>
-              ) : null}
-            </Form>
+            </Fragment>
           ) : (
             <Grid {...{ testId: "market-details" }} container>
               <Grid
@@ -317,7 +351,7 @@ const MarketPage = ({ markets }: Props) => {
                     onClick={() => setIsEditing(!isEditing)}
                     {...{ "data-testid": "btn-edit" }}
                   >
-                    {!isEditing ? t("edit") : t("show")}
+                    {t("edit")}
                   </Button>
                 </Grid>
               </Grid>
@@ -363,10 +397,6 @@ export const updateMarket = gql`
             sendMailbox
             doceboInstallersBranchId
             doceboCompanyAdminBranchId
-            doceboCatalogueId
-            doceboCatalogueIdT2
-            doceboCatalogueIdT3
-            doceboCatalogueIdT4
             merchandisingUrl
             projectsEnabled
             locationBiasRadiusKm
@@ -375,6 +405,17 @@ export const updateMarket = gql`
           }
         }
       }
+    }
+  }
+`;
+
+export const updateDoceboTiersByMarket = gql`
+  mutation updateDoceboTiersByMarket($input: UpdateDoceboTiersByMarketInput!) {
+    updateDoceboTiersByMarket(input: $input) {
+      id
+      docebo_catalogue_id
+      market_id
+      tier_code
     }
   }
 `;

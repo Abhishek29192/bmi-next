@@ -462,10 +462,6 @@ export type UpdateMarketMutation = {
           sendMailbox?: string | null;
           doceboInstallersBranchId?: string | null;
           doceboCompanyAdminBranchId?: string | null;
-          doceboCatalogueId?: number | null;
-          doceboCatalogueIdT2?: number | null;
-          doceboCatalogueIdT3?: number | null;
-          doceboCatalogueIdT4?: number | null;
           merchandisingUrl?: string | null;
           projectsEnabled?: boolean | null;
           locationBiasRadiusKm?: number | null;
@@ -475,6 +471,21 @@ export type UpdateMarketMutation = {
       } | null;
     } | null;
   } | null;
+};
+
+export type UpdateDoceboTiersByMarketMutationVariables = SchemaTypes.Exact<{
+  input: SchemaTypes.UpdateDoceboTiersByMarketInput;
+}>;
+
+export type UpdateDoceboTiersByMarketMutation = {
+  __typename?: "Mutation";
+  updateDoceboTiersByMarket?: Array<{
+    __typename?: "UpdateDoceboTiersByMarketResult";
+    id?: number | null;
+    docebo_catalogue_id?: number | null;
+    market_id?: number | null;
+    tier_code?: SchemaTypes.Tier | null;
+  } | null> | null;
 };
 
 export type BulkImportMutationVariables = SchemaTypes.Exact<{
@@ -1724,6 +1735,22 @@ export type GetEvidenceItemsReportQuery = {
   } | null;
 };
 
+export type GetTierBenefitQueryVariables = SchemaTypes.Exact<{
+  [key: string]: never;
+}>;
+
+export type GetTierBenefitQuery = {
+  __typename?: "Query";
+  tierBenefitCollection?: {
+    __typename?: "TierBenefitCollection";
+    items: Array<{
+      __typename?: "TierBenefit";
+      tier?: string | null;
+      name?: string | null;
+    } | null>;
+  } | null;
+};
+
 export type CreateGuaranteeMutationVariables = SchemaTypes.Exact<{
   input: SchemaTypes.CreateGuaranteeInput;
 }>;
@@ -2617,15 +2644,21 @@ export type MarketsQuery = {
       sendMailbox?: string | null;
       doceboInstallersBranchId?: string | null;
       doceboCompanyAdminBranchId?: string | null;
-      doceboCatalogueId?: number | null;
-      doceboCatalogueIdT2?: number | null;
-      doceboCatalogueIdT3?: number | null;
-      doceboCatalogueIdT4?: number | null;
       merchandisingUrl?: string | null;
       projectsEnabled?: boolean | null;
       gtag?: string | null;
       gtagMarketMedia?: string | null;
       locationBiasRadiusKm?: number | null;
+    }>;
+  } | null;
+  doceboTiers?: {
+    __typename?: "DoceboTiersConnection";
+    nodes: Array<{
+      __typename?: "DoceboTier";
+      id: number;
+      marketId: number;
+      tierCode: SchemaTypes.Tier;
+      doceboCatalogueId?: number | null;
     }>;
   } | null;
 };
@@ -3347,20 +3380,5 @@ export type TrainingQuery = {
         };
       } | null;
     }>;
-  } | null;
-};
-
-export type DoceboCatalogIdByMarketDomainQueryVariables = SchemaTypes.Exact<{
-  domain: SchemaTypes.Scalars["String"];
-}>;
-
-export type DoceboCatalogIdByMarketDomainQuery = {
-  __typename?: "Query";
-  marketByDomain?: {
-    __typename?: "Market";
-    doceboCatalogueId?: number | null;
-    doceboCatalogueIdT2?: number | null;
-    doceboCatalogueIdT3?: number | null;
-    doceboCatalogueIdT4?: number | null;
   } | null;
 };

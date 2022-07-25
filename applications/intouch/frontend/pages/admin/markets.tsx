@@ -17,15 +17,20 @@ import {
 
 type MarketsPageProps = GlobalPageProps & {
   markets: MarketsQuery["markets"];
+  doceboTiers: MarketsQuery["doceboTiers"];
   globalPageData: any;
 };
 
-const MarketsPage = ({ globalPageData, markets }: MarketsPageProps) => {
+const MarketsPage = ({
+  globalPageData,
+  markets,
+  doceboTiers
+}: MarketsPageProps) => {
   const { t } = useTranslation();
 
   return (
     <Layout pageData={globalPageData} title={t("Markets")}>
-      <MarketsView markets={markets} />
+      <MarketsView markets={markets} doceboTiers={doceboTiers} />
     </Layout>
   );
 };
@@ -58,7 +63,8 @@ export const getServerSideProps = withPage(
       props: {
         ...translations,
         account,
-        markets: data.markets
+        markets: data.markets,
+        doceboTiers: data.doceboTiers
       }
     };
   }
@@ -77,15 +83,19 @@ export const markets = gql`
         sendMailbox
         doceboInstallersBranchId
         doceboCompanyAdminBranchId
-        doceboCatalogueId
-        doceboCatalogueIdT2
-        doceboCatalogueIdT3
-        doceboCatalogueIdT4
         merchandisingUrl
         projectsEnabled
         gtag
         gtagMarketMedia
         locationBiasRadiusKm
+      }
+    }
+    doceboTiers {
+      nodes {
+        id
+        marketId
+        tierCode
+        doceboCatalogueId
       }
     }
   }

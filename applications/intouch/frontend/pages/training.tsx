@@ -169,7 +169,6 @@ export const getServerSideProps = withPage(
 );
 export default withPageAuthRequired(TrainingPage);
 
-// export doesn't matter for codegen
 export const pageQuery = gql`
   query training($catalogueId: Int, $userId: Int) {
     trainingContentCollection {
@@ -214,15 +213,6 @@ export const pageQuery = gql`
           }
         }
       }
-    }
-  }
-
-  query DoceboCatalogIdByMarketDomain($domain: String!) {
-    marketByDomain(domain: $domain) {
-      doceboCatalogueId
-      doceboCatalogueIdT2
-      doceboCatalogueIdT3
-      doceboCatalogueIdT4
     }
   }
 `;
