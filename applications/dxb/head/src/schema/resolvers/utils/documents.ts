@@ -146,21 +146,21 @@ export const resolveDocumentsFromProducts = async (
             return {
               ...doc,
               productFilters: [
-                ...(doc.productFilters as ProductFilter[]).reduce(
-                  (filters, filter) => {
-                    if (
-                      filters.find(
-                        (fil) =>
-                          fil.filterCode === filter.filterCode &&
-                          fil.value === filter.value
-                      )
-                    ) {
-                      return filters;
-                    }
-                    return [...filters, filter];
-                  },
-                  []
-                )
+                ...[
+                  ...(doc.productFilters as ProductFilter[]),
+                  ...(document.productFilters as ProductFilter[])
+                ].reduce((filters, filter) => {
+                  if (
+                    filters.find(
+                      (fil) =>
+                        fil.filterCode === filter.filterCode &&
+                        fil.value === filter.value
+                    )
+                  ) {
+                    return filters;
+                  }
+                  return [...filters, filter];
+                }, [])
               ]
             };
           }
