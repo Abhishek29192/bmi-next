@@ -85,8 +85,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -142,8 +141,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -203,8 +201,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -259,8 +256,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -303,8 +299,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -345,8 +340,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -378,8 +372,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -408,8 +401,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -442,8 +434,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -495,8 +486,7 @@ describe("Search Page Template", () => {
             variantCodeToPathMap: null,
             siteId: "siteId",
             countryCode: "en",
-            categoryCode: "categoryCode",
-            marketTagName: "market__norway"
+            categoryCode: "categoryCode"
           }}
         />
       </ConfigProvider>
@@ -531,8 +521,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -564,8 +553,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -596,8 +584,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -638,8 +625,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
@@ -670,8 +656,7 @@ describe("Search Page Template", () => {
           variantCodeToPathMap: null,
           siteId: "siteId",
           countryCode: "en",
-          categoryCode: "categoryCode",
-          marketTagName: "market__norway"
+          categoryCode: "categoryCode"
         }}
       />
     );
