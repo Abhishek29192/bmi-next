@@ -54,13 +54,21 @@ describe("product-details-transforms tests", () => {
                     label: "blue",
                     isSelected: false,
                     availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null,
                     action: {
                       linkComponent: Link,
                       model: "routerLink",
                       to: "/no/path-to-related-blue/"
                     }
                   },
-                  { label: "red", isSelected: true, availability: false }
+                  {
+                    label: "red",
+                    isSelected: true,
+                    availability: false,
+                    thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                    media: null
+                  }
                 ]
               },
               {
@@ -273,6 +281,7 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null,
                       availability: false
                     }
                   ]
@@ -366,6 +375,7 @@ describe("product-details-transforms tests", () => {
                       label: "colour",
                       isSelected: true,
                       thumbnail: "http://localhost:8000/image-thumbnail.jpg",
+                      media: null,
                       availability: false
                     }
                   ]

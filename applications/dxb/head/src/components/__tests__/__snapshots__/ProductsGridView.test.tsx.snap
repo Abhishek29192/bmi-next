@@ -18,15 +18,15 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
     <a
       aria-disabled="false"
       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/?pathname=%2F\\"}"
-      href="/undefined/test1/?pathname=%2F"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?pathname=%2F\\"}"
+      href="/no/name-code/?pathname=%2F"
       role="button"
       tabindex="0"
     >
       <img
-        alt=" imaproduct"
+        alt=" name"
         class="header-picture Media Media--contain"
-        src="http://somewhere.com/imag1.png"
+        src="http://localhost:8000"
       />
       <div
         class="body"
@@ -34,12 +34,14 @@ exports[`ProductsGridView component renders correctly when not empty 1`] = `
         <h5
           class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
         >
-          imaproduct
+          name
         </h5>
         
         <div
           class="children text"
-        />
+        >
+          short-description
+        </div>
         <div
           class="footer"
         >
@@ -75,15 +77,15 @@ exports[`ProductsGridView component renders correctly when not empty with filter
     <a
       aria-disabled="false"
       class="MuiButtonBase-root OverviewCard OverviewCard--clickable"
-      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/undefined/test1/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
-      href="/undefined/test1/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
+      data-gtm="{\\"id\\":\\"cta-click1\\",\\"label\\":\\"MC: plp.product.viewDetails\\",\\"action\\":\\"/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query\\"}"
+      href="/no/name-code/?filters=%5B%7B%22name%22%3A%22brand%22%2C%22value%22%3A%5B%22BMI_Components%22%5D%7D%5D&pathname=search&q=query"
       role="button"
       tabindex="0"
     >
       <img
-        alt=" imaproduct"
+        alt=" name"
         class="header-picture Media Media--contain"
-        src="http://somewhere.com/imag1.png"
+        src="http://localhost:8000"
       />
       <div
         class="body"
@@ -91,12 +93,14 @@ exports[`ProductsGridView component renders correctly when not empty with filter
         <h5
           class="MuiTypography-root title title--no-brand-logo Typography MuiTypography-h5"
         >
-          imaproduct
+          name
         </h5>
         
         <div
           class="children text"
-        />
+        >
+          short-description
+        </div>
         <div
           class="footer"
         >

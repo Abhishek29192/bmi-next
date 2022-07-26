@@ -26,7 +26,7 @@ const createProduct = (product?: Partial<Product>): Product => ({
   variantScoringWeightInt: 0,
   totalVariantCount: 1,
   mainImage: createImage().url,
-  path: "",
+  path: "name-code",
   subTitle: "",
   ...product
 });

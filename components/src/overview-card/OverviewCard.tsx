@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import classnames from "classnames";
 import { SVGImport } from "@bmi-digital/svg-import";
 import { ButtonBase, ButtonBaseProps } from "@material-ui/core";
+import classnames from "classnames";
+import React, { Fragment } from "react";
 import { withClickable } from "../clickable/Clickable";
 import Media, { AcceptedNode } from "../media/Media";
 import Typography from "../typography/Typography";

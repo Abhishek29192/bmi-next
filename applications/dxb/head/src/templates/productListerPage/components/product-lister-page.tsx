@@ -9,6 +9,7 @@ import {
   Section,
   Typography
 } from "@bmi/components";
+import type { Product as ESProduct } from "@bmi/elasticsearch-types";
 import CheckIcon from "@material-ui/icons/Check";
 import { useLocation } from "@reach/router";
 import { graphql } from "gatsby";
@@ -93,13 +94,13 @@ export type PageContextType = {
   variantCodeToPathMap?: Record<string, string>;
 };
 
-type Props = {
+export type Props = {
   pageContext: PageContextType;
   data: {
     contentfulProductListerPage: Data;
     contentfulSite: SiteData;
     plpFilters: PLPFilterResponse;
-    initialProducts?: any[];
+    initialProducts?: ESProduct[];
   };
 };
 
