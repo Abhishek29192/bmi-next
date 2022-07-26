@@ -20,7 +20,10 @@ export type ContentfulAssetType = Node & {
   pimCode: string | null;
 };
 
+export type Source = "PIM" | "CMS" | "ALL";
+
 export type ContentfulDocumentLibraryPage = Node & {
+  source: Source;
   assetTypes___NODE: string[] | null;
 };
 

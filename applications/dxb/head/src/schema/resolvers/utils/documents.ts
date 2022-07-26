@@ -197,12 +197,12 @@ export const resolveDocumentsFromContentful = async (
     return { documents: [], filters: [] };
   }
 
-  let brandFilter = undefined;
+  let brandFilter: ProductFilter = undefined;
   if (allowedFilters.some((filterName) => filterName === "Brand")) {
     brandFilter = await generateBrandFilterFromDocuments(documents, context);
   }
 
-  let assetTypeFilter = undefined;
+  let assetTypeFilter: ProductFilter = undefined;
   if (allowedFilters.some((filterName) => filterName === "AssetType")) {
     assetTypeFilter = await generateAssetTypeFilterFromDocuments(
       assetTypes,
