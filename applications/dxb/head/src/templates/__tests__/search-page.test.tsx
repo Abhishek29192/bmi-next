@@ -29,7 +29,7 @@ describe("Search Page Template", () => {
   const data: SearchPageData["data"] = {
     contentfulSite: createMockSiteData(),
     allContentfulAssetType: { nodes: [contentfulAsset] },
-    plpFilters: { filters: [filter], allowFilterBy: [] }
+    searchFilters: { filters: [filter], allowFilterBy: [] }
   };
   const locationSpy = jest.spyOn(window, "location", "get");
 
