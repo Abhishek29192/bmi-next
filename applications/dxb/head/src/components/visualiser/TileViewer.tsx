@@ -210,6 +210,7 @@ export default class TileViewer extends Viewer<Props, State> {
       controls.maxDistance = maxDistanceTile;
       this.controls = controls;
       controls.minPolarAngle = 0.01;
+      controls.maxPolarAngle = 3.14;
 
       controls.target.set(0, 0, 0);
       controls.update();

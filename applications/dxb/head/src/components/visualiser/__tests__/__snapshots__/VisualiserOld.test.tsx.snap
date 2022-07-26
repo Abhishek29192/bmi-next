@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Visualiser component renders correctly 1`] = `<div />`;
+
+exports[`Visualiser component renders correctly when non-test asset url provided 1`] = `<div />`;
+
+exports[`Visualiser component renders correctly when open 1`] = `
+<div
+  aria-hidden="true"
+/>
+`;
+
+exports[`Visualiser component renders correctly when test asset url provided 1`] = `<div />`;
