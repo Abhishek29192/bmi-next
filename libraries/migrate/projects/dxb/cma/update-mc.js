@@ -2,7 +2,7 @@
 
 /* 
   This script compares Micro Copies @bmi/head <---> Contentful. In case
-  new Micro Copies are found - creates new for every local that is used
+  new Micro Copies are found - creates new for every locale that is used
   in a specific environment. By default, creates draft Micro Copies with 
   an empty value
   
