@@ -38,7 +38,6 @@ export type Props = {
     countryCode: string;
     categoryCode: string; // this is optional?
     variantCodeToPathMap?: Record<string, string>;
-    marketTagName: string;
   };
   data: {
     contentfulSite: SiteData;
@@ -352,17 +351,14 @@ const SearchPage = ({ pageContext, data }: Props) => {
 export default SearchPage;
 
 export const pageQuery = graphql`
-  query SearchPageBySiteId($siteId: String!, $marketTagName: String!) {
+  query SearchPageBySiteId(
+    $siteId: String!
+    $assetTypeFilter: ContentfulAssetTypeFilterInput
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
-    allContentfulAssetType(
-      filter: {
-        metadata: {
-          tags: { elemMatch: { contentful_id: { eq: $marketTagName } } }
-        }
-      }
-    ) {
+    allContentfulAssetType(filter: $assetTypeFilter) {
       nodes {
         name
         pimCode
