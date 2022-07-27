@@ -3273,6 +3273,7 @@ export type GetProjectsQuery = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      hidden?: boolean | null;
       siteAddress?: {
         __typename?: "Address";
         town?: string | null;

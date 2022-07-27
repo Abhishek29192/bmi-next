@@ -118,7 +118,8 @@
       "MY_QUEUE": "Min kø",
       "NOT_STARTED": "Ikke startet",
       "PITCHED": "Skråt Tag",
-      "UNASSIGNED": "Ikke tildelt"
+      "UNASSIGNED": "Ikke tildelt",
+      "ARCHIVED": "Arkiveret"
     }
   },
   "guarantee": {

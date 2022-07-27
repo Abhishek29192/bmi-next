@@ -109,7 +109,8 @@
       "MY_QUEUE": "My Queue",
       "NOT_STARTED": "Not started",
       "PITCHED": "Pitched",
-      "UNASSIGNED": "UnAssigned"
+      "UNASSIGNED": "UnAssigned",
+      "ARCHIVED": "Archived"
     }
   },
   "guarantee": {

@@ -118,7 +118,8 @@
       "MY_QUEUE": "minha Fila",
       "NOT_STARTED": "Não foi iniciado",
       "PITCHED": "Inclinado",
-      "UNASSIGNED": "Não atribuído"
+      "UNASSIGNED": "Não atribuído",
+      "ARCHIVED": "Arquivado"
     }
   },
   "guarantee": {
