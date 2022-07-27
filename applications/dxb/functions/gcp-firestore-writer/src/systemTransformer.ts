@@ -67,7 +67,7 @@ export const transformSystem = (system: PimSystem): System[] => {
       ),
       bim: getBim(system.assets),
       brand: getBrand(system.categories),
-      categories: getCategories(system.categories),
+      categories: getCategories(system.categories || []),
       classifications: mapClassifications(system),
       code,
       description: system.longDescription,

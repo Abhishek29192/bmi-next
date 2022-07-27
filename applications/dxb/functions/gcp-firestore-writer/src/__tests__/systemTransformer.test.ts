@@ -21,7 +21,7 @@ describe("transformSystem", () => {
       type: undefined,
       approvalStatus: "approved",
       assets: undefined,
-      categories: [],
+      categories: undefined,
       classifications: undefined,
       code: "code",
       images: [],

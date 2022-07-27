@@ -37,7 +37,7 @@ export type System = {
   type?: string;
   approvalStatus: ApprovalStatus;
   assets?: readonly Asset[];
-  categories: readonly Category[];
+  categories?: readonly Category[];
   classifications?: readonly Classification[];
   code: string;
   images?: readonly Image[];
