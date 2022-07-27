@@ -70,6 +70,10 @@ deploy_intouch_frontend_to_cloudrun_bmi:
   needs:
     - package_intouch_frontend_dev
     - test_intouch_frontend
+    - job: deploy_intouch_companies_to_cloudrun_bmi
+      optional: true
+    - job: deploy_intouch_training_to_cloudrun_bmi
+      optional: true
   image: google/cloud-sdk
   rules:
     - if: "$CI_PIPELINE_SOURCE == 'push' && $CI_COMMIT_BRANCH == 'master'"
@@ -91,6 +95,11 @@ release_intouch_frontend_to_cloudrun_bmi:
   stage: deploy
   cache: {}
   image: google/cloud-sdk
+  needs:
+    - job: release_intouch_companies_to_cloudrun_bmi
+      optional: true
+    - job: release_intouch_training_to_cloudrun_bmi
+      optional: true
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
