@@ -1,5 +1,6 @@
-import { createAsset } from "@bmi/pim-types";
+import { createAsset, createCategory } from "@bmi/pim-types";
 import {
+  getCategories,
   getVideoUrl,
   isImageAsset,
   isLinkAsset,
@@ -7,6 +8,36 @@ import {
 } from "../transformerUtils";
 
 describe("transformUtils tests", () => {
+  describe("getCategories", () => {
+    it("should return an empty array if an empty list array", () => {
+      expect(getCategories([])).toEqual([]);
+    });
+
+    it("should filter categories of type Channel out", () => {
+      const brandCategory = createCategory({ categoryType: "Brand" });
+      const categoryCategory = createCategory({ categoryType: "Category" });
+      const channelCategory = createCategory({ categoryType: "Channel" });
+      const productFamilyCategory = createCategory({
+        categoryType: "ProductFamily"
+      });
+      const productLine = createCategory({ categoryType: "ProductLine" });
+      const categories = [
+        brandCategory,
+        categoryCategory,
+        channelCategory,
+        productFamilyCategory,
+        productLine
+      ];
+      const expectedCategories = [
+        brandCategory,
+        categoryCategory,
+        productFamilyCategory,
+        productLine
+      ];
+      expect(getCategories(categories)).toEqual(expectedCategories);
+    });
+  });
+
   describe("isImageAsset tests", () => {
     it("handles empty realFileName", () => {
       const asset = createAsset({
@@ -17,6 +48,7 @@ describe("transformUtils tests", () => {
       expect(result).toBeFalsy();
     });
   });
+
   describe("isLinkAsset tests", () => {
     it("handles empty realFileName and url", () => {
       const asset = createAsset({
@@ -27,6 +59,7 @@ describe("transformUtils tests", () => {
       expect(result).toBeFalsy();
     });
   });
+
   describe("mapDocuments tests", () => {
     it("handles non image assets", () => {
       const asset = createAsset({
