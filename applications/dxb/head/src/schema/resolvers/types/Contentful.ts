@@ -20,8 +20,15 @@ export type ContentfulAssetType = Node & {
   pimCode: string | null;
 };
 
+export type Source = "PIM" | "CMS" | "ALL";
+
+export type ResultsType = "Simple" | "Card Collection" | "Technical";
+
 export type ContentfulDocumentLibraryPage = Node & {
-  assetTypes___NODE: string[] | null;
+  source: Source;
+  resultsType: ResultsType;
+  allowFilterBy: readonly string[] | null;
+  assetTypes___NODE: readonly string[] | null;
 };
 
 export type ContentfulDocument = Node & {

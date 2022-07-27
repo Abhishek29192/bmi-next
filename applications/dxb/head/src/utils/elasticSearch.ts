@@ -9,9 +9,9 @@ import {
 const ES_AGGREGATION_NAMES = {
   "appearanceAttributes.colourFamily": "colourfamily",
   "appearanceAttributes.colourfamily": "colourfamily",
-  "appearanceAttributes.materials": "materials",
   "appearanceAttributes.textureFamily": "texturefamily",
   "appearanceAttributes.texturefamily": "texturefamily",
+  "generalInformation.materials": "materials",
   ProductFamily: "allCategories",
   ProductLine: "allCategories",
   Brand: "allCategories",
@@ -86,9 +86,9 @@ const searchTerms = {
   // TODO: DXB-3449 - remove uppercasing when PIM has completed BPN-1055
   "appearanceAttributes.colourfamily":
     "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-  "appearanceAttributes.materials": "GENERALINFORMATION.MATERIALS.code.keyword",
   "appearanceAttributes.texturefamily":
     "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+  "generalInformation.materials": "GENERALINFORMATION.MATERIALS.code.keyword",
   allCategories: "allCategories.code.keyword"
 };
 
@@ -112,8 +112,8 @@ export const compileElasticSearchQuery = (
     // Handle these specific filters or fallback to "category".
     const searchTerm = [
       "appearanceAttributes.colourfamily",
-      "appearanceAttributes.materials",
       "appearanceAttributes.texturefamily",
+      "generalInformation.materials",
       "productFamily",
       "productLine",
       "brand"
