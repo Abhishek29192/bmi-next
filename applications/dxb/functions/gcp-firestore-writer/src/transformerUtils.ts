@@ -4,6 +4,7 @@ import {
   AwardAndCertificateAssetType,
   BIM,
   Brand,
+  Category,
   Classification,
   Document,
   FeatureCode,
@@ -124,6 +125,9 @@ export const getBrand = (
     logo: brand.image?.url
   };
 };
+
+export const getCategories = (categories: readonly PimCategory[]): Category[] =>
+  categories.filter((category) => category.categoryType !== "Channel");
 
 export const mapClassification = (
   classification: PimClassification

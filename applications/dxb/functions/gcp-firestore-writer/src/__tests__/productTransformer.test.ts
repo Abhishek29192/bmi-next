@@ -3883,6 +3883,22 @@ describe("transformProduct", () => {
     expect(transformedProducts[0].baseScoringWeight).toEqual(100);
   });
 
+  it("ignores Channel categories", async () => {
+    const brandCategory = createCategory({
+      categoryType: "Brand"
+    });
+    const product = createProduct({
+      categories: [
+        brandCategory,
+        createCategory({
+          categoryType: "Channel"
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].categories).toEqual([brandCategory]);
+  });
+
   it("overwrites base classification features with variant classification features of the same feature code", async () => {
     const product = createProduct({
       classifications: [

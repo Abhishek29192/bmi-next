@@ -101,6 +101,7 @@ export type CategoryImage = {
 export type CategoryType =
   | "Brand"
   | "Category"
+  | "Channel"
   | "ProductFamily"
   | "ProductLine";
 
