@@ -1,4 +1,3 @@
-import React, { useMemo, useState } from "react";
 import {
   AnchorLink,
   Button,
@@ -8,18 +7,20 @@ import {
   Section,
   Tabs
 } from "@bmi/components";
-import { graphql, Link } from "gatsby";
 import Tab, { TabProps } from "@material-ui/core/Tab";
 import AddIcon from "@material-ui/icons/Add";
+import { graphql, Link } from "gatsby";
+import React, { useMemo, useState } from "react";
+import { microCopy } from "../constants/microCopies";
+import DefaultImage from "../images/DefaultImage.svg";
 import { RelatedProduct } from "../types/pim";
 import withGTM from "../utils/google-tag-manager";
-import { microCopy } from "../constants/microCopies";
+import { getPathWithCountryCode } from "../utils/path";
 import { mapClassificationValues } from "../utils/product-details-transforms";
 import { renderMedia } from "../utils/renderMedia";
-import { getPathWithCountryCode } from "../utils/path";
-import styles from "./styles/RelatedProducts.module.scss";
 import { iconMap } from "./Icon";
 import { useSiteContext } from "./Site";
+import styles from "./styles/RelatedProducts.module.scss";
 
 /**
  * Groups resolved product category paths by the 2nd last category in the path
@@ -89,10 +90,11 @@ const ProductListing = ({
                 subtitle={uniqueClassifications}
                 subtitleVariant="h6"
                 imageSize="contain"
-                media={renderMedia(
-                  product.masterImages[0]?.mainSource,
-                  altText
-                )}
+                media={
+                  renderMedia(product.masterImages[0]?.mainSource, altText) || (
+                    <DefaultImage />
+                  )
+                }
                 brandImageSource={brandLogo}
                 action={{
                   model: "routerLink",
