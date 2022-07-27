@@ -24,6 +24,7 @@ type HomepageData = {
   slides: (SlideData | PageInfoData)[];
   overlapCards: OverlapCardData;
   brands: BrandData[];
+  spaBrands: BrandData[];
   sections: SectionsData | null;
 } & PageData;
 
@@ -78,6 +79,7 @@ const HomePage = ({ data, pageContext }: Props) => {
     brands,
     sections,
     signupBlock,
+    spaBrands,
     seo
   } = data.contentfulHomePage;
   const pageData: PageData = {
@@ -122,7 +124,12 @@ const HomePage = ({ data, pageContext }: Props) => {
               />
             </Hero>
             {overlapCards && <OverlapCards data={overlapCards} />}
-            {brands?.length ? <Brands data={brands} /> : null}
+            {spaBrands?.length ? (
+              <Brands data={spaBrands} spaBrand />
+            ) : brands?.length ? (
+              <Brands data={brands} />
+            ) : null}
+
             {sections && <Sections data={sections} pageTypename={__typename} />}
             <WelcomeDialog
               data={{
@@ -158,6 +165,9 @@ export const pageQuery = graphql`
       }
       brands {
         ...BrandFragment
+      }
+      spaBrands {
+        ...SPABrandFragment
       }
       sections {
         ...SectionsFragment

@@ -1,27 +1,32 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
 import {
-  logoIconMap,
-  Section,
+  BrandIntroCard,
   Button,
   ButtonProps,
-  BrandIntroCard,
-  Grid
+  Grid,
+  logoIconMap,
+  Section
 } from "@bmi/components";
+import { graphql, Link } from "gatsby";
+import React from "react";
 import { microCopy } from "../constants/microCopies";
 import withGTM from "../utils/google-tag-manager";
-import styles from "./styles/Brands.module.scss";
-
 import { useSiteContext } from "./Site";
+import styles from "./styles/Brands.module.scss";
 
 export type Data = {
   title: string;
-  path: string;
-  subtitle: string;
   brandLogo: string;
+  path?: string;
+  subtitle?: string;
 };
 
-const Brands = ({ data }: { data: Data[] }) => {
+const Brands = ({
+  data,
+  spaBrand = false
+}: {
+  data: Data[];
+  spaBrand?: boolean;
+}) => {
   const { getMicroCopy } = useSiteContext();
 
   const GTMButton = withGTM<ButtonProps>(Button);
@@ -36,26 +41,44 @@ const Brands = ({ data }: { data: Data[] }) => {
           });
           return (
             <Grid item xs={12} md={6} xl={3} key={`${brand.path}-${index}`}>
-              <BrandIntroCard
-                buttonComponent={(props: ButtonProps) => (
-                  <GTMButton
-                    gtm={{
-                      id: "cta-click1",
-                      label: `${brand.title} - ${buttonLabel}`,
-                      action: props["action"]?.to
-                    }}
-                    {...props}
-                  />
-                )}
-                logoIcon={logoIconMap[brand.brandLogo]}
-                description={brand.subtitle}
-                buttonLabel={buttonLabel}
-                action={{
-                  model: "routerLink",
-                  to: brand.path,
-                  linkComponent: Link
-                }}
-              />
+              {brand.path ? (
+                <BrandIntroCard
+                  buttonComponent={(props: ButtonProps) => (
+                    <GTMButton
+                      gtm={{
+                        id: "cta-click1",
+                        label: `${brand.title} - ${buttonLabel}`,
+                        action: spaBrand
+                          ? props["action"].href
+                          : props["action"].to
+                      }}
+                      {...props}
+                    />
+                  )}
+                  logoIcon={logoIconMap[brand.brandLogo]}
+                  description={brand.subtitle ? brand.subtitle : undefined}
+                  buttonLabel={buttonLabel}
+                  action={
+                    spaBrand
+                      ? {
+                          model: "htmlLink",
+                          href: brand.path,
+                          target: "_blank",
+                          rel: "noopener noreferrer"
+                        }
+                      : {
+                          model: "routerLink",
+                          to: brand.path,
+                          linkComponent: Link
+                        }
+                  }
+                />
+              ) : (
+                <BrandIntroCard
+                  logoIcon={logoIconMap[brand.brandLogo]}
+                  description={brand.subtitle ? brand.subtitle : undefined}
+                />
+              )}
             </Grid>
           );
         })}
@@ -68,6 +91,12 @@ export default Brands;
 
 export const query = graphql`
   fragment BrandFragment on ContentfulBrandLandingPage {
+    title
+    path
+    subtitle
+    brandLogo
+  }
+  fragment SPABrandFragment on ContentfulBrand {
     title
     path
     subtitle
