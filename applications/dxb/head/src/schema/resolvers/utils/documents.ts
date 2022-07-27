@@ -85,6 +85,19 @@ export const resolveDocumentsFromProducts = async (
     microCopies: filterMicroCopies
   });
 
+  const assetTypeFilter: ProductFilter = {
+    filterCode: "AssetType",
+    label:
+      filterMicroCopies.get(`filterLabels.AssetType`) ||
+      "MC:filterLabels.AssetType",
+    name: "contentfulassettype", // Force it to work with the same filter group as the Contentful documents for ALL source tables
+    options: []
+  };
+  const createAssetTypeFilter = allowedFilters.includes("AssetType");
+  if (createAssetTypeFilter) {
+    productFilters.push(assetTypeFilter);
+  }
+
   let result = products.flatMap((product: Product) =>
     (product.documents || [])
       .filter(
@@ -95,6 +108,18 @@ export const resolveDocumentsFromProducts = async (
         const assetType = assetTypes.find(
           (assetType) => assetType.pimCode === document.assetType
         );
+        if (createAssetTypeFilter) {
+          if (
+            !assetTypeFilter.options.find(
+              (option) => option.value === assetType.code
+            )
+          ) {
+            assetTypeFilter.options.push({
+              label: assetType.name,
+              value: assetType.code
+            });
+          }
+        }
 
         const updatedTitle = {
           "Product name + asset type": `${product.name} ${assetType.name}`,

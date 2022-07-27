@@ -29,6 +29,7 @@ const getProductDocuments = async (
     switch (source.resultsType) {
       case "Simple":
         allowFilterBy = [
+          "AssetType",
           "Brand",
           "ProductFamily",
           "appearanceAttributes.texturefamily",
@@ -39,7 +40,7 @@ const getProductDocuments = async (
         allowFilterBy = ["Brand", "ProductFamily", ...allowFilterBy];
         break;
       default:
-        allowFilterBy = [];
+        allowFilterBy = ["Brand"];
     }
 
     const pimDocuments = await resolveDocumentsFromProducts(
@@ -69,14 +70,11 @@ const getContentfulDocuments = async (
   if (source.source === "CMS" || source.source === "ALL") {
     let allowFilterBy: string[];
     switch (source.resultsType) {
-      case "Card Collection":
-        allowFilterBy = ["Brand"];
-        break;
       case "Simple":
-        allowFilterBy = ["Brand", "AssetType"];
+        allowFilterBy = ["AssetType", "Brand"];
         break;
       default:
-        allowFilterBy = [];
+        allowFilterBy = ["Brand"];
     }
     const cmsDocuments = await resolveDocumentsFromContentful(
       assetTypes,

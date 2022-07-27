@@ -37,7 +37,7 @@ export interface Node extends GatsbyNode {
   links___NODE?: string[];
   link___NODE?: string;
   linkedPage___NODE?: string;
-  assetTypes___NODE?: string[];
+  assetTypes___NODE?: readonly string[];
   image___NODE?: string;
   focalPoint___NODE?: string;
   parameters___NODE?: string;

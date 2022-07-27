@@ -22,9 +22,13 @@ export type ContentfulAssetType = Node & {
 
 export type Source = "PIM" | "CMS" | "ALL";
 
+export type ResultsType = "Simple" | "Card Collection" | "Technical";
+
 export type ContentfulDocumentLibraryPage = Node & {
   source: Source;
-  assetTypes___NODE: string[] | null;
+  resultsType: ResultsType;
+  allowFilterBy: readonly string[] | null;
+  assetTypes___NODE: readonly string[] | null;
 };
 
 export type ContentfulDocument = Node & {
