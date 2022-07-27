@@ -38,7 +38,6 @@ type Props = {
     productCode: string;
     siteId: string;
     countryCode: string;
-    relatedProductCodes: readonly string[];
     variantCodeToPathMap?: Record<string, string>;
   };
   data: {
