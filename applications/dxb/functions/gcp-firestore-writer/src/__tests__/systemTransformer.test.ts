@@ -1,5 +1,6 @@
 import {
   createAsset,
+  createCategory,
   createClassification,
   createFeature,
   createFeatureValue,
@@ -20,7 +21,7 @@ describe("transformSystem", () => {
       type: undefined,
       approvalStatus: "approved",
       assets: undefined,
-      categories: [],
+      categories: undefined,
       classifications: undefined,
       code: "code",
       images: [],
@@ -638,6 +639,22 @@ describe("transformSystem", () => {
     });
     const transformedSystems = transformSystem(system);
     expect(transformedSystems[0].images).toEqual([]);
+  });
+
+  it("ignores Channel categories", () => {
+    const brandCategory = createCategory({
+      categoryType: "Brand"
+    });
+    const system = createSystem({
+      categories: [
+        brandCategory,
+        createCategory({
+          categoryType: "Channel"
+        })
+      ]
+    });
+    const transformedSystems = transformSystem(system);
+    expect(transformedSystems[0].categories).toEqual([brandCategory]);
   });
 
   it("ignores key features classification without features", () => {

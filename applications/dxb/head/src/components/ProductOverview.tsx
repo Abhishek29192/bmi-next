@@ -9,6 +9,7 @@ import {
 } from "@bmi/components";
 import React, { useContext } from "react";
 import { microCopy } from "../constants/microCopies";
+import DefaultImage from "../images/DefaultImage.svg";
 import withGTM from "../utils/google-tag-manager";
 import { iconMap } from "./Icon";
 import RecaptchaPrivacyLinks from "./RecaptchaPrivacyLinks";
@@ -82,13 +83,17 @@ const ProductOverview = ({
   };
 
   const visualiserMedia = getVisualiserMedia();
-  const media = [...images, ...videos];
+  const media: MediaData[] = [...images, ...videos];
 
   if (visualiserMedia) {
     media.push({
       ...visualiserMedia,
       ...images[0]
     });
+  }
+
+  if (media.length === 0) {
+    media.push({ media: <DefaultImage /> });
   }
 
   return (

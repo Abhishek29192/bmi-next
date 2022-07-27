@@ -3,6 +3,7 @@ import classnames from "classnames";
 import React from "react";
 import PureChip from "../chip/Chip";
 import { ClickableAction, withClickable } from "../clickable/Clickable";
+import { AcceptedNode } from "../media/Media";
 import DefaultThumbnail from "../thumbnail/Thumbnail";
 import ToolTip from "../tooltip/Tooltip";
 import Typography from "../typography/Typography";
@@ -17,6 +18,7 @@ type Variant = {
   isSelected?: boolean;
   action?: ClickableAction;
   thumbnail?: string;
+  media?: React.ReactElement<AcceptedNode>;
 };
 
 type Attribute = {
@@ -67,7 +69,10 @@ const renderThumbnailAttribute = (
       )}
       <div className={styles["variants"]}>
         {variants.map(
-          ({ label, isSelected, thumbnail, action, availability }, index) => (
+          (
+            { label, isSelected, thumbnail, action, availability, media },
+            index
+          ) => (
             <div className={styles["variant"]} key={`${key}-variant-${index}`}>
               <ToolTip
                 title={<div>{unavailableMicroCopy}</div>}
@@ -90,6 +95,7 @@ const renderThumbnailAttribute = (
                   <Thumbnail
                     action={action}
                     imageSource={thumbnail}
+                    media={media}
                     altText={label}
                     color="#ffffff"
                     state={isSelected ? "selected" : "enabled"}

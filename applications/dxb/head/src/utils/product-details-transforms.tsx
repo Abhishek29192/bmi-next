@@ -2,6 +2,7 @@ import { MediaData, ProductOverviewPaneProps } from "@bmi/components";
 import { Link } from "gatsby";
 import React from "react";
 import { getYoutubeId, isDefined } from "../../../libraries/utils/src";
+import DefaultImage from "../images/DefaultImage.svg";
 import { Image, Measurements, Product, RelatedVariant } from "../types/pim";
 import { getPathWithCountryCode } from "./path";
 
@@ -327,11 +328,12 @@ export const getProductAttributes = (
         return {
           label: colour,
           isSelected,
-          thumbnail: variant
-            ? variant.thumbnail
-            : product.masterImages && product.masterImages.length > 0
-            ? product.masterImages[0].thumbnail
-            : null,
+          thumbnail:
+            variant?.thumbnail || product?.masterImages?.[0]?.thumbnail || null,
+          media:
+            !variant?.thumbnail && !product?.masterImages?.[0]?.thumbnail ? (
+              <DefaultImage />
+            ) : null,
           availability: checkColourAvailability(colour),
           ...(!isSelected &&
             allColours.length > 1 &&

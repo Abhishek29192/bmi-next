@@ -47,7 +47,7 @@ export type Props = {
         pimCode: string;
       }>;
     };
-    plpFilters: PLPFilterResponse;
+    searchFilters: PLPFilterResponse;
   };
 };
 
@@ -58,7 +58,7 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 };
 
 const SearchPage = ({ pageContext, data }: Props) => {
-  const { contentfulSite, allContentfulAssetType, plpFilters } = data;
+  const { contentfulSite, allContentfulAssetType, searchFilters } = data;
   const params = new URLSearchParams(
     typeof window !== `undefined` ? window.location.search : ""
   );
@@ -258,7 +258,7 @@ const SearchPage = ({ pageContext, data }: Props) => {
                   onLoadingChange={(isLoading) =>
                     handleTabIsLoading(tabKey, isLoading)
                   }
-                  initialFilters={plpFilters?.filters}
+                  initialFilters={searchFilters.filters}
                   extraData={{
                     allContentfulAssetType: allContentfulAssetType.nodes
                   }}
@@ -361,17 +361,7 @@ export const pageQuery = graphql`
         pimCode
       }
     }
-    plpFilters(
-      allowFilterBy: [
-        "ProductFamily"
-        "Category"
-        "ProductLine"
-        "Brand"
-        "appearanceAttributes.colourFamily"
-        "generalInformation.materials"
-        "appearanceAttributes.textureFamily"
-      ]
-    ) {
+    searchFilters {
       filters {
         filterCode
         label

@@ -174,5 +174,74 @@ export default {
         allowFilterBy: allowFilterByLocal
       };
     }
+  },
+  // Creates static set of filters regardless of market. When we move to having
+  // customisable filters for search, this should be inline with how PLPs are
+  // handled, and therefore use the plpFilters resolver.
+  searchFilters: {
+    type: "PLPFilterResponse",
+    args: {
+      categoryCodes: "[String!]",
+      allowFilterBy: "[String!]"
+    },
+    async resolve(
+      source: Node,
+      args: ResolveArgs,
+      context: Context
+    ): Promise<PLPFilterResponse> {
+      const { categoryCodes } = args;
+
+      const { entries } = await context.nodeModel.findAll<Product>({
+        query: categoryCodes
+          ? {
+              filter: {
+                categories: { elemMatch: { code: { in: categoryCodes } } }
+              }
+            }
+          : {},
+        type: "Product"
+      });
+
+      const resolvedProducts = [...entries];
+
+      const allowFilterBy = [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ];
+
+      if (resolvedProducts.length === 0) {
+        return { filters: [], allowFilterBy: allowFilterBy };
+      }
+
+      const { entries: resourceEntries } =
+        await context.nodeModel.findAll<MicroCopy>(
+          {
+            query: {},
+            type: "ContentfulMicroCopy"
+          },
+          { connectionType: "ContentfulMicroCopy" }
+        );
+      const filterMicroCopies: Map<string, string> = [
+        ...resourceEntries
+      ].reduce((map, microCopy) => {
+        return map.set(microCopy.key, microCopy.value);
+      }, new Map());
+
+      const productFilters = getPlpFilters({
+        products: resolvedProducts,
+        allowedFilters: allowFilterBy,
+        microCopies: filterMicroCopies
+      });
+
+      return {
+        filters: productFilters,
+        allowFilterBy: allowFilterBy
+      };
+    }
   }
 };

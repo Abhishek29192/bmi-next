@@ -10,6 +10,7 @@ import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import { iconMap } from "../../../components/Icon";
 import type { Context as SiteContext } from "../../../components/Site";
+import DefaultImage from "../../../images/DefaultImage.svg";
 import { getSearchParams } from "../../../utils/filters";
 import { enhanceColourFilterWithSwatches } from "../../../utils/filtersUI";
 import withGTM from "../../../utils/google-tag-manager";
@@ -68,8 +69,10 @@ export const renderProducts = (
           subtitle={subTitle}
           subtitleVariant="h6"
           media={
-            mainImage && (
+            mainImage ? (
               <img src={mainImage} alt={`${subTitle} ${product.name}`} />
+            ) : (
+              <DefaultImage />
             )
           }
           imageSize="contain"
