@@ -221,6 +221,7 @@ export const GET_PROJECTS = gql`
         buildingOwnerLastname
         buildingOwnerCompany
         buildingOwnerMail
+        hidden
         siteAddress {
           town
           postcode
