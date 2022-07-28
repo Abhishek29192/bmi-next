@@ -93,7 +93,7 @@ export const resolveDocumentsFromProducts = async (
     name: "contentfulassettype", // Force it to work with the same filter group as the Contentful documents for ALL source tables
     options: []
   };
-  const createAssetTypeFilter = allowedFilters.includes("AssetType");
+  const createAssetTypeFilter = !!allowedFilters?.includes("AssetType");
   if (createAssetTypeFilter) {
     productFilters.push(assetTypeFilter);
   }
