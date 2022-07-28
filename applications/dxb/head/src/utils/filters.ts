@@ -209,7 +209,7 @@ export const filterDocuments = (
               productFilter.filterCode.toLowerCase() ===
               filterName.toLowerCase()
           )
-          .map((filter) => filter.code);
+          .map((filter) => filter.code || filter.value);
 
         if (productFilterWithName) {
           if (
