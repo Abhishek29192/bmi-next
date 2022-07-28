@@ -196,7 +196,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: {
         siteId: site.id,
         countryCode: site.countryCode,
-        variantCodeToPathMap
+        variantCodeToPathMap,
+        assetTypeFilter: process.env.MARKET_TAG_NAME
+          ? {
+              metadata: {
+                tags: {
+                  elemMatch: {
+                    contentful_id: { eq: process.env.MARKET_TAG_NAME }
+                  }
+                }
+              }
+            }
+          : null
       }
     });
 

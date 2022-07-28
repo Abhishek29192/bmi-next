@@ -405,7 +405,8 @@ const config = {
           spaceId,
           accessToken,
           environment,
-          host: process.env.CONTENT_API_HOST || "cdn.contentful.com"
+          host: process.env.CONTENT_API_HOST || "cdn.contentful.com",
+          enableTags: true
         }
       })
     ),

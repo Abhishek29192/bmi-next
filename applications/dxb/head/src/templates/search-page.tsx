@@ -351,11 +351,14 @@ const SearchPage = ({ pageContext, data }: Props) => {
 export default SearchPage;
 
 export const pageQuery = graphql`
-  query SearchPageBySiteId($siteId: String!) {
+  query SearchPageBySiteId(
+    $siteId: String!
+    $assetTypeFilter: ContentfulAssetTypeFilterInput
+  ) {
     contentfulSite(id: { eq: $siteId }) {
       ...SiteFragment
     }
-    allContentfulAssetType {
+    allContentfulAssetType(filter: $assetTypeFilter) {
       nodes {
         name
         pimCode
