@@ -2,7 +2,7 @@ import logger from "@bmi-digital/functions-logger";
 import {
   copyDefaultValues,
   findIrrelevantLocales
-} from "@bmi/contentful-tag-utility";
+} from "@bmi/cms-consolidation-utility";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import { Asset, createClient, Entry, Environment } from "contentful-management";
 import { findLocalesFromTag } from "./locale";

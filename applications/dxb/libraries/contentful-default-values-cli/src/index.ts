@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { fillDefaultValues } from "@bmi/contentful-tag-utility";
+import { fillDefaultValues } from "@bmi/cms-consolidation-utility";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 

@@ -1,5 +1,5 @@
 import logger from "@bmi-digital/functions-logger";
-import { tagEntity } from "@bmi/contentful-tag-utility";
+import { tagEntity } from "@bmi/cms-consolidation-utility";
 import type { HttpFunction } from "@google-cloud/functions-framework/build/src/functions";
 import {
   Asset,

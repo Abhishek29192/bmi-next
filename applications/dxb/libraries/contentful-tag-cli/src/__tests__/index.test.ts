@@ -27,7 +27,7 @@ const tagAndUpdate = jest.fn();
 const publishAll = jest.fn();
 const createTag = jest.fn();
 const sleep = jest.fn();
-jest.mock("@bmi/contentful-tag-utility", () => {
+jest.mock("@bmi/cms-consolidation-utility", () => {
   return { tagAndUpdate, publishAll, createTag, sleep };
 });
 
