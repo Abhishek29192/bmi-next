@@ -18,7 +18,7 @@ export const getUniqueBaseProductCount = (groupByVariant: boolean) => {
   return {
     unique_base_products_count: {
       cardinality: {
-        field: groupByVariant ? "code.keyword" : "baseProduct.code.variant"
+        field: groupByVariant ? "code.keyword" : "baseProduct.code.keyword"
       }
     }
   };
