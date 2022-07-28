@@ -1,5 +1,10 @@
 import { sub, format } from "date-fns";
-import { updateProject, archiveProjects } from "../mutations";
+import {
+  updateProject,
+  archiveProjects,
+  annualProjectsInspection
+} from "../mutations";
+import * as emailsFactory from "../../guarantee";
 
 describe("Project", () => {
   const resolve = jest.fn();
@@ -10,6 +15,13 @@ describe("Project", () => {
   const query = jest.fn();
   const loggerInfo = jest.fn();
   const loggerError = jest.fn();
+
+  const mockGetDbPoolQuery = jest.fn();
+  jest.mock("../../../db", () => ({
+    getDbPool: () => ({
+      query: (...params) => mockGetDbPoolQuery(...params)
+    })
+  }));
 
   beforeEach(() => {
     context = {
@@ -229,6 +241,79 @@ describe("Project", () => {
         expect(loggerError).toHaveBeenCalledWith("Failed to archive projects");
         expect(query).toHaveBeenCalledWith(
           "ROLLBACK TO SAVEPOINT graphql_archive_projects_mutation"
+        );
+      });
+    });
+
+    describe("annualProjectsInspection", () => {
+      const resultMessage = "Projects with id(s) 1 has been inspected.";
+      it("normal case", async () => {
+        const mockMail = jest.fn();
+        jest
+          .spyOn(emailsFactory, "sendMailToMarketAdmins")
+          .mockImplementationOnce(() => mockMail);
+
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }))
+          .mockImplementationOnce(() => ({ rows: [{ id: 1 }] }));
+
+        const result = await annualProjectsInspection(
+          resolve,
+          source,
+          args,
+          context,
+          resolveInfo
+        );
+
+        expect(result).toBe(resultMessage);
+
+        expect(query).toHaveBeenNthCalledWith(
+          1,
+          "SAVEPOINT graphql_annual_inspection_mutation"
+        );
+        expect(query).toHaveBeenNthCalledWith(
+          4,
+          "RELEASE SAVEPOINT graphql_annual_inspection_mutation"
+        );
+        expect(loggerInfo).toHaveBeenCalledWith(resultMessage);
+      });
+      it("show logger info when no project to be inspected", async () => {
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockImplementationOnce(() => ({ rows: [] }))
+          .mockImplementationOnce(() => ({ rows: [] }));
+        await annualProjectsInspection(
+          resolve,
+          source,
+          args,
+          context,
+          resolveInfo
+        );
+
+        expect(loggerInfo).toHaveBeenCalledWith("No projects to be inspected.");
+      });
+      it("throw error when failed to update DB", async () => {
+        const errorObject = new Error("error");
+        query
+          .mockImplementationOnce(() => jest.fn())
+          .mockRejectedValueOnce(errorObject);
+        try {
+          await annualProjectsInspection(
+            resolve,
+            source,
+            args,
+            context,
+            resolveInfo
+          );
+        } catch (err) {
+          expect(err).toBe(errorObject);
+        }
+        expect(loggerError).toHaveBeenCalledWith(
+          "Failed to perform annual inspection"
+        );
+        expect(query).toHaveBeenCalledWith(
+          "ROLLBACK TO SAVEPOINT graphql_annual_inspection_mutation"
         );
       });
     });

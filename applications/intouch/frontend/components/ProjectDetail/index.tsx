@@ -296,6 +296,7 @@ const ProjectDetail = ({
                 account.id
               ) && guaranteeUpdateHandler
             }
+            project={project}
           />
         ) : null}
       </Grid>
@@ -330,6 +331,8 @@ export const GET_PROJECT = gql`
     buildingOwnerAddress {
       ...AddressLinesFragment
     }
+    inspection
+    inspectedAt
     guarantees {
       nodes {
         id

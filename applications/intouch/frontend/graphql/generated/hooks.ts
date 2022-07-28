@@ -76,6 +76,8 @@ export const ProjectDetailsFragmentFragmentDoc = gql`
     buildingOwnerAddress {
       ...AddressLinesFragment
     }
+    inspection
+    inspectedAt
     guarantees {
       nodes {
         id
@@ -401,6 +403,62 @@ export type UpdateProjectHiddenMutationResult =
 export type UpdateProjectHiddenMutationOptions = Apollo.BaseMutationOptions<
   OperationTypes.UpdateProjectHiddenMutation,
   OperationTypes.UpdateProjectHiddenMutationVariables
+>;
+export const UpdateProjectInspectionDocument = gql`
+  mutation UpdateProjectInspection($projectId: Int!, $inspection: Boolean!) {
+    updateProject(
+      input: { id: $projectId, patch: { inspection: $inspection } }
+    ) {
+      project {
+        id
+        inspection
+      }
+    }
+  }
+`;
+export type UpdateProjectInspectionMutationFn = Apollo.MutationFunction<
+  OperationTypes.UpdateProjectInspectionMutation,
+  OperationTypes.UpdateProjectInspectionMutationVariables
+>;
+
+/**
+ * __useUpdateProjectInspectionMutation__
+ *
+ * To run a mutation, you first call `useUpdateProjectInspectionMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProjectInspectionMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProjectInspectionMutation, { data, loading, error }] = useUpdateProjectInspectionMutation({
+ *   variables: {
+ *      projectId: // value for 'projectId'
+ *      inspection: // value for 'inspection'
+ *   },
+ * });
+ */
+export function useUpdateProjectInspectionMutation(
+  baseOptions?: Apollo.MutationHookOptions<
+    OperationTypes.UpdateProjectInspectionMutation,
+    OperationTypes.UpdateProjectInspectionMutationVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<
+    OperationTypes.UpdateProjectInspectionMutation,
+    OperationTypes.UpdateProjectInspectionMutationVariables
+  >(UpdateProjectInspectionDocument, options);
+}
+export type UpdateProjectInspectionMutationHookResult = ReturnType<
+  typeof useUpdateProjectInspectionMutation
+>;
+export type UpdateProjectInspectionMutationResult =
+  Apollo.MutationResult<OperationTypes.UpdateProjectInspectionMutation>;
+export type UpdateProjectInspectionMutationOptions = Apollo.BaseMutationOptions<
+  OperationTypes.UpdateProjectInspectionMutation,
+  OperationTypes.UpdateProjectInspectionMutationVariables
 >;
 export const RestartGuaranteeDocument = gql`
   mutation RestartGuarantee($projectId: Int!) {
@@ -1768,6 +1826,7 @@ export const GetGuaranteesReportDocument = gql`
             name
           }
           hidden
+          inspection
         }
         requestorAccountId
         requestorAccount {

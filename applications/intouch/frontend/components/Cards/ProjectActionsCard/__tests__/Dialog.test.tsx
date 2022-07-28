@@ -1,10 +1,14 @@
 import React from "react";
 import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import Dialog from "../Dialog";
+import { renderWithUserProvider } from "../../../../lib/tests/utils";
+import AccountProvider from "../../../../lib/tests/fixtures/account";
+import { generateAccount } from "../../../../lib/tests/factories/account";
 
 describe("Dialog", () => {
   const onCancelSpy = jest.fn();
   const onConfirmSpy = jest.fn();
+  const onCheckBoxSpy = jest.fn();
   const generateInitialProp = (dialogState = {}) => ({
     dialogState: {
       title: "title",
@@ -13,7 +17,8 @@ describe("Dialog", () => {
       onConfirm: onConfirmSpy,
       ...dialogState
     },
-    onCancel: onCancelSpy
+    onCancel: onCancelSpy,
+    setInspectionState: onCheckBoxSpy
   });
 
   it("render correctly", async () => {
@@ -52,5 +57,20 @@ describe("Dialog", () => {
     fireEvent.click(cancelButton);
 
     expect(onCancelSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("run setInspectionState when click on inspection checkbox", async () => {
+    renderWithUserProvider(
+      <AccountProvider account={generateAccount({ role: "SUPER_ADMIN" })}>
+        <Dialog
+          {...generateInitialProp({ open: true, inspectionFlag: true })}
+        />
+      </AccountProvider>
+    );
+    const inspection = screen.getByText(
+      "addProject.dialog.form.fields.inspection"
+    );
+    fireEvent.click(inspection);
+    expect(onCheckBoxSpy).toHaveBeenCalledTimes(1);
   });
 });

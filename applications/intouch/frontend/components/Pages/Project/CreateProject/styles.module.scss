@@ -39,8 +39,21 @@
 .requiredInformation{
   color: gray;
   font-size: medium;
+
+  @media (max-width: $breakpoint-lg) {
+    margin-bottom: 10px;
+  }
 }
 
 .sectionRequiredInformation{
   text-align: right;
+}
+
+.inspectionCheckbox{
+  @media (max-width: $breakpoint-sm) {
+    margin-bottom: 20px;
+  }
+}
+.inspectionWrapper{
+  padding: 0 30px 30px 30px;
 }

@@ -347,6 +347,7 @@ export default gql`
     sendReminderToIncompleteCompanyProfile: String
     restartGuarantee(projectId: Int!): String
     archiveProjects: String
+    annualProjectsInspection: String
     truncateAndInsertCertification(
       input: TruncateAndInsertCertificationInput
     ): String

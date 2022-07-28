@@ -34,6 +34,23 @@ export type UpdateProjectHiddenMutation = {
   } | null;
 };
 
+export type UpdateProjectInspectionMutationVariables = SchemaTypes.Exact<{
+  projectId: SchemaTypes.Scalars["Int"];
+  inspection: SchemaTypes.Scalars["Boolean"];
+}>;
+
+export type UpdateProjectInspectionMutation = {
+  __typename?: "Mutation";
+  updateProject?: {
+    __typename?: "UpdateProjectPayload";
+    project?: {
+      __typename?: "Project";
+      id: number;
+      inspection?: boolean | null;
+    } | null;
+  } | null;
+};
+
 export type RestartGuaranteeMutationVariables = SchemaTypes.Exact<{
   projectId: SchemaTypes.Scalars["Int"];
 }>;
@@ -610,6 +627,8 @@ export type CreateProjectMutation = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      inspection?: boolean | null;
+      inspectedAt?: any | null;
       siteAddress?: {
         __typename?: "Address";
         id: number;
@@ -781,6 +800,8 @@ export type UpdateProjectMutation = {
       buildingOwnerLastname?: string | null;
       buildingOwnerCompany?: string | null;
       buildingOwnerMail?: string | null;
+      inspection?: boolean | null;
+      inspectedAt?: any | null;
       siteAddress?: {
         __typename?: "Address";
         id: number;
@@ -1106,6 +1127,8 @@ export type ProjectDetailsFragmentFragment = {
   buildingOwnerLastname?: string | null;
   buildingOwnerCompany?: string | null;
   buildingOwnerMail?: string | null;
+  inspection?: boolean | null;
+  inspectedAt?: any | null;
   siteAddress?: {
     __typename?: "Address";
     id: number;
@@ -1273,6 +1296,8 @@ export type GetProjectQuery = {
     buildingOwnerLastname?: string | null;
     buildingOwnerCompany?: string | null;
     buildingOwnerMail?: string | null;
+    inspection?: boolean | null;
+    inspectedAt?: any | null;
     siteAddress?: {
       __typename?: "Address";
       id: number;
@@ -1518,6 +1543,7 @@ export type GetGuaranteesReportQuery = {
         technology: SchemaTypes.Technology;
         roofArea: number;
         hidden?: boolean | null;
+        inspection?: boolean | null;
         company?: { __typename?: "Company"; name?: string | null } | null;
       } | null;
       requestorAccount?: {

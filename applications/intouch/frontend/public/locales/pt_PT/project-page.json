@@ -24,7 +24,8 @@
             "town": "Localização"
           },
           "startDate": "Data de início do projeto",
-          "technology": "Tipo de projeto"
+          "technology": "Tipo de projeto",
+          "inspection": "Inspeção"
         },
         "hints": {
           "technology": {

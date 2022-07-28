@@ -154,6 +154,7 @@ export const updateGuarantee = async (
 
       patch.startDate = new Date();
       patch.expiryDate = new Date();
+      patch.approvedAt = new Date();
 
       const projectCompanyDetail = await getProjectCompanyDetail(
         projectId,
@@ -294,7 +295,7 @@ const sendMailToCompanyAdmin = async (
   }
 };
 
-const sendMailToMarketAdmins = async (
+export const sendMailToMarketAdmins = async (
   context: PostGraphileContext,
   projectId: number,
   event: EventMessage

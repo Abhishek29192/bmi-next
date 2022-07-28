@@ -12750,6 +12750,7 @@ The `guarantee` to be created by this mutation.
 input EvidenceItemGuaranteeIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -13322,6 +13323,8 @@ input EvidenceItemProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -13743,6 +13746,8 @@ enum FindRoofersOrderBy {
 Starts life as request for a gurantee and becomes an actual issued guarantee
 """
 type Guarantee implements Node {
+  approvedAt: Datetime
+
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
   """
@@ -14053,6 +14058,7 @@ An input for mutations affecting `Guarantee`
 input GuaranteeInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14428,6 +14434,7 @@ Represents an update to a `Guarantee`. Fields that are set will be updated.
 input GuaranteePatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14513,6 +14520,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeProductBmiRefFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -14768,6 +14776,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeProjectIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -15002,6 +15011,8 @@ input GuaranteeProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -15048,6 +15059,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeRequestorAccountIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -15253,6 +15265,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeReviewerAccountIdFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -15458,6 +15471,7 @@ The `guarantee` to be created by this mutation.
 input GuaranteeSystemBmiRefFkeyGuaranteeCreateInput {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -18879,6 +18893,7 @@ enum MigrationOrder {
 The root mutation type which contains root level fields which mutate data.
 """
 type Mutation {
+  annualProjectsInspection: String
   archiveProjects: String
   bulkImport(
     """
@@ -21191,6 +21206,8 @@ input NoteProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -22874,6 +22891,8 @@ type Project implements Node {
   Primary key
   """
   id: Int!
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23202,6 +23221,8 @@ input ProjectBuildingOwnerAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23398,6 +23419,8 @@ input ProjectCompanyIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -23554,6 +23577,8 @@ input ProjectInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -24111,6 +24136,8 @@ input ProjectMemberProjectIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -24562,6 +24589,8 @@ input ProjectPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -24815,6 +24844,8 @@ input ProjectSiteAddressIdFkeyProjectCreateInput {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -34644,6 +34675,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnEvidenceItemForEvidenceItemGuaranteeIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34729,6 +34761,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeProductBmiRefFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34809,6 +34842,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34889,6 +34923,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeRequestorAccountIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -34969,6 +35004,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeReviewerAccountIdFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -35049,6 +35085,7 @@ An object where the defined keys will be set on the `guarantee` being updated.
 input updateGuaranteeOnGuaranteeForGuaranteeSystemBmiRefFkeyPatch {
   accountToRequestorAccountId: GuaranteeRequestorAccountIdFkeyInput
   accountToReviewerAccountId: GuaranteeReviewerAccountIdFkeyInput
+  approvedAt: Datetime
 
   """
   This will be presented on the Guarantee pdf itself, if approved and is the primary reference for the Guarantees report. It is unique in the In the legacy system, the number is 3 sets of 4 digit numbers concatenated into one long number from the Company Id, Project Id and Guarantee Id
@@ -36114,6 +36151,8 @@ input updateProjectOnEvidenceItemForEvidenceItemProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36205,6 +36244,8 @@ input updateProjectOnGuaranteeForGuaranteeProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36296,6 +36337,8 @@ input updateProjectOnNoteForNoteProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36382,6 +36425,8 @@ input updateProjectOnProjectForProjectBuildingOwnerAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36468,6 +36513,8 @@ input updateProjectOnProjectForProjectCompanyIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36559,6 +36606,8 @@ input updateProjectOnProjectForProjectSiteAddressIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
@@ -36645,6 +36694,8 @@ input updateProjectOnProjectMemberForProjectMemberProjectIdFkeyPatch {
   Primary key
   """
   id: Int
+  inspectedAt: Datetime
+  inspection: Boolean
   migrationId: String
 
   """
