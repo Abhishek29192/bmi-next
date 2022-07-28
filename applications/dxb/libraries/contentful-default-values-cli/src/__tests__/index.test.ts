@@ -26,7 +26,7 @@ jest.mock("contentful-management", () => {
 });
 
 const fillDefaultValues = jest.fn();
-jest.mock("@bmi/contentful-tag-utility", () => {
+jest.mock("@bmi/cms-consolidation-utility", () => {
   return { fillDefaultValues };
 });
 

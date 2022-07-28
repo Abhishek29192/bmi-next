@@ -74,7 +74,7 @@ jest.mock("contentful-management", () => {
 });
 
 const tagEntity = jest.fn().mockReturnValue(true);
-jest.mock("@bmi/contentful-tag-utility", () => {
+jest.mock("@bmi/cms-consolidation-utility", () => {
   return {
     tagEntity
   };

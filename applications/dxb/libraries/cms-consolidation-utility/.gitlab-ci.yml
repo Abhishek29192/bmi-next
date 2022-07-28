@@ -1,4 +1,4 @@
-test_contentful-tag-utility:
+test_cms-consolidation-utility:
   extends: .test_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
@@ -13,14 +13,14 @@ test_contentful-tag-utility:
         - jest/**/*
         - yarn.lock
   variables:
-    WORKSPACE: "@bmi/contentful-tag-utility"
-    ROOT_DIR: "applications/dxb/libraries/contentful-tag-utility"
+    WORKSPACE: "@bmi/cms-consolidation-utility"
+    ROOT_DIR: "applications/dxb/libraries/cms-consolidation-utility"
 
-build_contentful-tag-utility:
+build_cms-consolidation-utility:
   extends: .build_yarn_workspace
   rules:
     - !reference [.ingore_release_mrs, rules]
     - !reference [.run_for_changes_on_main, rules]
   variables:
-    WORKSPACE: "@bmi/contentful-tag-utility"
-    ROOT_DIR: "applications/dxb/libraries/contentful-tag-utility"
+    WORKSPACE: "@bmi/cms-consolidation-utility"
+    ROOT_DIR: "applications/dxb/libraries/cms-consolidation-utility"

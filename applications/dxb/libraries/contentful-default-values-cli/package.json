@@ -12,7 +12,7 @@
     "start": "yarn build && env-cmd node ./dist/index.js"
   },
   "dependencies": {
-    "@bmi/contentful-tag-utility": "0.0.0",
+    "@bmi/cms-consolidation-utility": "0.0.0",
     "contentful-management": "^10.0.0",
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0"

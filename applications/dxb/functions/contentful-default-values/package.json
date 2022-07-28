@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@bmi-digital/functions-logger": "1.2.0",
-    "@bmi/contentful-tag-utility": "0.0.0",
+    "@bmi/cms-consolidation-utility": "0.0.0",
     "@google-cloud/functions-framework": "^3.0.0",
     "contentful-management": "^10.0.0"
   },
