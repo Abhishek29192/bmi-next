@@ -4,7 +4,7 @@ import {
   publishAll,
   sleep,
   tagAndUpdate
-} from "@bmi/contentful-tag-utility";
+} from "@bmi/cms-consolidation-utility";
 import { createClient } from "contentful-management";
 import { config } from "dotenv";
 
