@@ -245,7 +245,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
           height,
           thickness,
           volume,
-          label: getSizeLabel(length, width, height)
+          label: getSizeLabel(length, width, height || thickness)
         },
         name,
         path: `/p/${generateProductUrl(
