@@ -34,7 +34,22 @@ type Props = {
 
 export const getCount = async (searchQuery: string): Promise<number> => {
   // See how much this function doesn't actually need this, RETHINK compile query
-  const esQueryObject = compileElasticSearchQuery([], null, 0, 0, searchQuery);
+  const esQueryObject = compileElasticSearchQuery({
+    allowFilterBy: [
+      "ProductFamily",
+      "ProductLine",
+      "Brand",
+      "appearanceAttributes.colourFamily",
+      "generalInformation.materials",
+      "appearanceAttributes.textureFamily",
+      "Category"
+    ],
+    filters: [],
+    groupByVariant: true,
+    page: 0,
+    pageSize: 0,
+    searchQuery
+  });
 
   const countResult = await queryElasticSearch(
     getCountQuery(esQueryObject),
@@ -96,9 +111,8 @@ const SearchTabPanelProducts = (props: Props) => {
 
   const queryES = async (
     filters: Filter[],
-    categoryCode,
-    page,
-    pageSize,
+    page: number,
+    pageSize: number,
     searchQuery?: string
   ) => {
     if (isLoading) {
@@ -108,13 +122,22 @@ const SearchTabPanelProducts = (props: Props) => {
 
     updateLoadingStatus(true);
 
-    const esQueryObject = compileElasticSearchQuery(
+    const esQueryObject = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
       filters,
-      categoryCode,
+      groupByVariant: true,
       page,
       pageSize,
       searchQuery
-    );
+    });
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -143,7 +166,7 @@ const SearchTabPanelProducts = (props: Props) => {
   // =======================================
 
   const onFiltersChange = async (newFilters: Filter[]) => {
-    let result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+    let result = await queryES(newFilters, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
       if (isInitialLoad.current) {
@@ -152,7 +175,7 @@ const SearchTabPanelProducts = (props: Props) => {
 
         newFilters = getUpdatedFilters(newFilters);
         if (getURLFilterValues().length > 0) {
-          result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+          result = await queryES(newFilters, 0, PAGE_SIZE, queryString);
         }
       }
 
@@ -196,7 +219,7 @@ const SearchTabPanelProducts = (props: Props) => {
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    queryES(filters, null, page - 1, PAGE_SIZE, queryString);
+    queryES(filters, page - 1, PAGE_SIZE, queryString);
   };
 
   // =======================================

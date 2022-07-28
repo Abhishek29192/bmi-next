@@ -35,12 +35,12 @@ import { useConfig } from "../../../contexts/ConfigProvider";
 import { ProductFilter } from "../../../types/pim";
 import { updateBreadcrumbTitleFromContentful } from "../../../utils/breadcrumbUtils";
 import { devLog } from "../../../utils/devLog";
-import { queryElasticSearch } from "../../../utils/elasticSearch";
 import {
-  compileESQueryPLP,
-  disableFiltersFromAggregationsPLP,
-  xferFilterValue
-} from "../../../utils/elasticSearchPLP";
+  compileElasticSearchQuery,
+  disableFiltersFromAggregations,
+  queryElasticSearch
+} from "../../../utils/elasticSearch";
+import { xferFilterValue } from "../../../utils/elasticSearchPLP";
 import {
   clearFilterValues,
   convertToURLFilters,
@@ -201,7 +201,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
       setFilters(
         xferFilterValue(
           newFilters,
-          disableFiltersFromAggregationsPLP(filters, result.aggregations)
+          disableFiltersFromAggregations(filters, result.aggregations)
         )
       );
 
@@ -251,10 +251,11 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
 
     setIsLoading(true);
 
-    const query = compileESQueryPLP({
-      filters, //these are updated filters with user's selection from UI!
+    const query = compileElasticSearchQuery({
       allowFilterBy: data.plpFilters.allowFilterBy,
       categoryCodes,
+      filters, //these are updated filters with user's selection from UI!
+      groupByVariant: process.env.GATSBY_GROUP_BY_VARIANT === "true",
       page,
       pageSize
     });
@@ -288,7 +289,7 @@ const ProductListerPage = ({ pageContext, data }: Props) => {
     if (results && results.aggregations) {
       // TODO: Remove 'GATSBY_USE_LEGACY_FILTERS' branch of code
       // JIRA : https://bmigroup.atlassian.net/browse/DXB-2789
-      const newFilters = disableFiltersFromAggregationsPLP(
+      const newFilters = disableFiltersFromAggregations(
         filters,
         results.aggregations
       );

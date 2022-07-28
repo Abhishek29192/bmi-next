@@ -127,7 +127,7 @@ describe("Search Page Template", () => {
         },
         aggregations: {
           unique_base_products_count: { value: 2 },
-          allCategories: {
+          filterName: {
             buckets: [{ key: "filterValue", doc_count: 2 }]
           }
         }
@@ -240,7 +240,7 @@ describe("Search Page Template", () => {
         },
         aggregations: {
           unique_base_products_count: { value: 2 },
-          allCategories: {
+          filterName: {
             buckets: [{ key: "filterValue", doc_count: 2 }]
           },
           tags: {

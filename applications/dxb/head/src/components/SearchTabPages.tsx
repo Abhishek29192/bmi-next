@@ -1,11 +1,13 @@
-import { Grid } from "@bmi/components";
+import { Filter, Grid } from "@bmi/components";
 import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
 import { microCopy } from "../constants/microCopies";
 import { devLog } from "../utils/devLog";
 import {
+  Aggregations,
   disableFiltersFromAggregations,
   getCountQuery,
+  getPageQueryObject,
   queryElasticSearch
 } from "../utils/elasticSearch";
 import {
@@ -27,12 +29,16 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_PAGES;
 // Creates filters from aggregations
 // It works here because the tags on pages effectively only have
 // one field, "title", which is both the key and the label
-const getPagesFilters = (aggregations: any, getMicroCopy) => {
+const getPagesFilters = (
+  aggregations: Aggregations,
+  getMicroCopy
+): Filter[] => {
   // TODO: At the moment the tags seem to only be "group" tags
   return [
     {
       label: getMicroCopy(microCopy.SEARCH_FILTERS_PAGES_PAGE_TYPE_TAG),
-      name: "page-type-tag",
+      filterCode: "tags",
+      name: "tags",
       value: [],
       options: aggregations.tags.buckets
         .sort(sortAlphabeticallyBy("key"))
@@ -51,67 +57,8 @@ type Props = {
   pageContext: any; // TODO
 };
 
-const getQueryObject = (queryString, page = 0, filters = []) => {
-  // Filters in the query
-  // TODO: this acts like it handles many filters but actually handles one. refactor
-  const filtersQuery = filters
-    .filter(({ value }) => value.length)
-    .map((filter) => {
-      const termQuery = (value) => ({
-        term: {
-          ["tags.title.keyword"]: value
-        }
-      });
-      const query =
-        filter.value.length === 1
-          ? termQuery(filter.value[0])
-          : {
-              bool: {
-                should: filter.value.map(termQuery)
-              }
-            };
-
-      return query;
-    });
-
-  const queryElements = [
-    {
-      query_string: {
-        query: `*${queryString}*`,
-        type: "cross_fields",
-        fields: ["pageData"]
-      }
-    },
-    ...filtersQuery
-  ];
-
-  return {
-    size: PAGE_SIZE,
-    from: page * PAGE_SIZE,
-    _source: {
-      excludes: ["pageData"]
-    },
-    aggs: {
-      tags: {
-        terms: {
-          size: "100",
-          field: "tags.title.keyword"
-        }
-      }
-    },
-    query:
-      queryElements.length === 1
-        ? queryElements[0]
-        : {
-            bool: {
-              must: queryElements
-            }
-          }
-  };
-};
-
-export const getCount = async (queryString) => {
-  const esQueryObject = getQueryObject(queryString);
+export const getCount = async (queryString: string) => {
+  const esQueryObject = getPageQueryObject([], 0, PAGE_SIZE, queryString);
 
   const countResult = await queryElasticSearch(
     getCountQuery(esQueryObject),
@@ -152,11 +99,10 @@ const SearchTabPanelPages = (props: Props) => {
   // =======================================
 
   const queryES = async (
-    filters,
-    categoryCode,
-    page,
-    pageSize,
-    searchQuery?: string
+    filters: Filter[],
+    page: number,
+    pageSize: number,
+    searchQuery: string
   ) => {
     if (isLoading) {
       devLog("Already loading...");
@@ -165,7 +111,12 @@ const SearchTabPanelPages = (props: Props) => {
 
     updateLoadingStatus(true);
 
-    const esQueryObject = getQueryObject(queryString, page, filters);
+    const esQueryObject = getPageQueryObject(
+      filters,
+      page,
+      pageSize,
+      searchQuery
+    );
 
     // TODO: If no query returned, empty query, show default results?
     // TODO: Handle if no response
@@ -173,7 +124,7 @@ const SearchTabPanelPages = (props: Props) => {
 
     if (results && results.hits) {
       const { hits } = results;
-      const newPageCount = Math.ceil(hits.total.value / PAGE_SIZE);
+      const newPageCount = Math.ceil(hits.total.value / pageSize);
 
       setPageCount(newPageCount);
       setPage(newPageCount < page ? 0 : page);
@@ -192,7 +143,7 @@ const SearchTabPanelPages = (props: Props) => {
   // =======================================
 
   const onFiltersChange = async (newFilters) => {
-    let result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+    let result = await queryES(newFilters, 0, PAGE_SIZE, queryString);
 
     if (result && result.aggregations) {
       // On first request we need to evaluate the results to get the filters
@@ -202,7 +153,7 @@ const SearchTabPanelPages = (props: Props) => {
 
         newFilters = getUpdatedFilters(newFilters);
         if (getURLFilterValues().length > 0) {
-          result = await queryES(newFilters, null, 0, PAGE_SIZE, queryString);
+          result = await queryES(newFilters, 0, PAGE_SIZE, queryString);
         }
       }
 
@@ -242,7 +193,7 @@ const SearchTabPanelPages = (props: Props) => {
       ? resultsElement.current.offsetTop - 200
       : 0;
     window.scrollTo(0, scrollY);
-    queryES(filters, null, page - 1, PAGE_SIZE, queryString);
+    queryES(filters, page - 1, PAGE_SIZE, queryString);
   };
 
   // =======================================
