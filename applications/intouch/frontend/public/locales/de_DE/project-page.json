@@ -25,7 +25,7 @@
           },
           "startDate": "Project start date",
           "technology": "Project type",
-          "inspection": "Inspection"
+          "inspection": "Inspektion"
         },
         "hints": {
           "technology": {
