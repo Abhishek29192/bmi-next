@@ -16,17 +16,6 @@ export const truncateAndInsertCertification = async (
   try {
     await pgClient.query(`SAVEPOINT ${savepointName}`);
     if (certificates.length) {
-      console.log(
-        format(
-          `TRUNCATE TABLE certification; INSERT INTO certification (docebo_user_id,technology,name,expiry_date) VALUES %L RETURNING *;`,
-          certificates.map(({ userId, code, title, toNewIn }) => [
-            userId,
-            code,
-            title,
-            toNewIn
-          ])
-        )
-      );
       const result = await pgClient.query(
         format(
           `TRUNCATE TABLE certification; INSERT INTO certification (docebo_user_id,technology,name,expiry_date) VALUES %L RETURNING *;`,

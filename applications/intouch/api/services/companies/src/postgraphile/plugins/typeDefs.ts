@@ -62,6 +62,9 @@ export default gql`
     T2
     T3
     T4
+    T5
+    T6
+    T7
   }
 
   type ContentfulEvidenceCategory {
@@ -308,6 +311,24 @@ export default gql`
     certificates: [DoceboCertification]
   }
 
+  type UpdateDoceboTiersByMarketResult {
+    id: Int
+    docebo_catalogue_id: Int
+    market_id: Int
+    tier_code: Tier
+  }
+
+  input UpdateDoceboTiersByMarketInput {
+    marketId: Int
+    T1: Int
+    T2: Int
+    T3: Int
+    T4: Int
+    T5: Int
+    T6: Int
+    T7: Int
+  }
+
   extend type Mutation {
     resetPassword: String
     publishMessage(input: PublishInput!): Publish
@@ -329,5 +350,8 @@ export default gql`
     truncateAndInsertCertification(
       input: TruncateAndInsertCertificationInput
     ): String
+    updateDoceboTiersByMarket(
+      input: UpdateDoceboTiersByMarketInput
+    ): [UpdateDoceboTiersByMarketResult]
   }
 `;

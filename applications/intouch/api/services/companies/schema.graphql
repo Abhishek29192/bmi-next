@@ -263,6 +263,40 @@ type Query implements Node {
     filter: CompanyOperationFilter
   ): CompanyOperationsConnection
 
+  """Reads and enables pagination through a set of `DoceboTier`."""
+  doceboTiers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `DoceboTier`."""
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DoceboTierCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DoceboTierFilter
+  ): DoceboTiersConnection
+
   """Reads and enables pagination through a set of `EvidenceItem`."""
   evidenceItems(
     """Only read the first `n` values of the set."""
@@ -698,6 +732,8 @@ type Query implements Node {
   companyMember(id: Int!): CompanyMember
   companyMemberByMarketIdAndAccountIdAndCompanyId(marketId: Int!, accountId: Int!, companyId: Int!): CompanyMember
   companyOperation(id: Int!): CompanyOperation
+  doceboTier(id: Int!): DoceboTier
+  doceboTierByMarketIdAndTierCode(marketId: Int!, tierCode: Tier!): DoceboTier
   evidenceItem(id: Int!): EvidenceItem
   guarantee(id: Int!): Guarantee
   guaranteeByBmiReferenceId(bmiReferenceId: String!): Guarantee
@@ -961,6 +997,14 @@ type Query implements Node {
     """
     nodeId: ID!
   ): CompanyOperation
+
+  """Reads a single `DoceboTier` using its globally unique `ID`."""
+  doceboTierByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `DoceboTier`.
+    """
+    nodeId: ID!
+  ): DoceboTier
 
   """Reads a single `EvidenceItem` using its globally unique `ID`."""
   evidenceItemByNodeId(
@@ -2299,6 +2343,9 @@ enum Tier {
   T2
   T3
   T4
+  T5
+  T6
+  T7
 }
 
 enum CompanyStatus {
@@ -3580,6 +3627,9 @@ enum ContentfulTiers {
   T2
   T3
   T4
+  T5
+  T6
+  T7
 }
 
 type ContentfulEvidenceCategoryCollection {
@@ -5019,6 +5069,86 @@ input AddressFilter {
   not: AddressFilter
 }
 
+"""A connection to a list of `DoceboTier` values."""
+type DoceboTiersConnection {
+  """A list of `DoceboTier` objects."""
+  nodes: [DoceboTier!]!
+
+  """
+  A list of edges which contains the `DoceboTier` and cursor to aid in pagination.
+  """
+  edges: [DoceboTiersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `DoceboTier` you could get from the connection."""
+  totalCount: Int!
+}
+
+type DoceboTier implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  marketId: Int!
+  tierCode: Tier!
+  doceboCatalogueId: Int
+}
+
+"""A `DoceboTier` edge in the connection."""
+type DoceboTiersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `DoceboTier` at the end of the edge."""
+  node: DoceboTier!
+}
+
+"""Methods to use when ordering `DoceboTier`."""
+enum DoceboTiersOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  MARKET_ID_ASC
+  MARKET_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `DoceboTier` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input DoceboTierCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `marketId` field."""
+  marketId: Int
+}
+
+"""
+A filter to be used against `DoceboTier` object types. All fields are combined with a logical ‘and.’
+"""
+input DoceboTierFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `marketId` field."""
+  marketId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [DoceboTierFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [DoceboTierFilter!]
+
+  """Negates the expression."""
+  not: DoceboTierFilter
+}
+
 """A connection to a list of `FindIncompleteCompanyProfile` values."""
 type FindIncompleteCompanyProfilesConnection {
   """A list of `FindIncompleteCompanyProfile` objects."""
@@ -5255,7 +5385,7 @@ type IsPartOfProjectEdge {
 }
 
 """A union of all federated types (those that use the @key directive)."""
-union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification
+union _Entity = Account | Market | Company | Address | Project | EvidenceItem | Guarantee | System | SystemMember | Product | Note | ProjectMember | CompanyDocument | CompanyMember | CompanyOperation | Invitation | Certification | Notification | DoceboTier
 
 scalar _Any
 
@@ -5312,6 +5442,14 @@ type Mutation {
     """
     input: CreateCompanyOperationInput!
   ): CreateCompanyOperationPayload
+
+  """Creates a single `DoceboTier`."""
+  createDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDoceboTierInput!
+  ): CreateDoceboTierPayload
 
   """Creates a single `EvidenceItem`."""
   createEvidenceItem(
@@ -5552,6 +5690,32 @@ type Mutation {
     """
     input: UpdateCompanyOperationInput!
   ): UpdateCompanyOperationPayload
+
+  """
+  Updates a single `DoceboTier` using its globally unique id and a patch.
+  """
+  updateDoceboTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierByNodeIdInput!
+  ): UpdateDoceboTierPayload
+
+  """Updates a single `DoceboTier` using a unique key and a patch."""
+  updateDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierInput!
+  ): UpdateDoceboTierPayload
+
+  """Updates a single `DoceboTier` using a unique key and a patch."""
+  updateDoceboTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTierByMarketIdAndTierCodeInput!
+  ): UpdateDoceboTierPayload
 
   """
   Updates a single `EvidenceItem` using its globally unique id and a patch.
@@ -5939,6 +6103,30 @@ type Mutation {
     input: DeleteCompanyOperationInput!
   ): DeleteCompanyOperationPayload
 
+  """Deletes a single `DoceboTier` using its globally unique id."""
+  deleteDoceboTierByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierByNodeIdInput!
+  ): DeleteDoceboTierPayload
+
+  """Deletes a single `DoceboTier` using a unique key."""
+  deleteDoceboTier(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierInput!
+  ): DeleteDoceboTierPayload
+
+  """Deletes a single `DoceboTier` using a unique key."""
+  deleteDoceboTierByMarketIdAndTierCode(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDoceboTierByMarketIdAndTierCodeInput!
+  ): DeleteDoceboTierPayload
+
   """Deletes a single `EvidenceItem` using its globally unique id."""
   deleteEvidenceItemByNodeId(
     """
@@ -6248,6 +6436,12 @@ type Mutation {
     """
     input: TruncateAndInsertCertificationInput
   ): String
+  updateDoceboTiersByMarket(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDoceboTiersByMarketInput
+  ): [UpdateDoceboTiersByMarketResult]
 }
 
 """The output of our create `Address` mutation."""
@@ -18968,6 +19162,49 @@ input CompanyOperationInput {
   companyToCompany: CompanyOperationCompanyFkeyInput
 }
 
+"""The output of our create `DoceboTier` mutation."""
+type CreateDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DoceboTier` that was created by this mutation."""
+  doceboTier: DoceboTier
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DoceboTier`. May be used by Relay 1."""
+  doceboTierEdge(
+    """The method to use when ordering `DoceboTier`."""
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+}
+
+"""All input for the create `DoceboTier` mutation."""
+input CreateDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `DoceboTier` to be created by this mutation."""
+  doceboTier: DoceboTierInput!
+}
+
+"""An input for mutations affecting `DoceboTier`"""
+input DoceboTierInput {
+  id: Int
+  marketId: Int!
+  tierCode: Tier!
+  doceboCatalogueId: Int
+}
+
 """The output of our create `EvidenceItem` mutation."""
 type CreateEvidenceItemPayload {
   """
@@ -20312,6 +20549,89 @@ input UpdateCompanyOperationInput {
   id: Int!
 }
 
+"""The output of our update `DoceboTier` mutation."""
+type UpdateDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DoceboTier` that was updated by this mutation."""
+  doceboTier: DoceboTier
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DoceboTier`. May be used by Relay 1."""
+  doceboTierEdge(
+    """The method to use when ordering `DoceboTier`."""
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+}
+
+"""All input for the `updateDoceboTierByNodeId` mutation."""
+input UpdateDoceboTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoceboTier` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+}
+
+"""
+Represents an update to a `DoceboTier`. Fields that are set will be updated.
+"""
+input DoceboTierPatch {
+  id: Int
+  marketId: Int
+  tierCode: Tier
+  doceboCatalogueId: Int
+}
+
+"""All input for the `updateDoceboTier` mutation."""
+input UpdateDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+  id: Int!
+}
+
+"""All input for the `updateDoceboTierByMarketIdAndTierCode` mutation."""
+input UpdateDoceboTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `DoceboTier` being updated.
+  """
+  patch: DoceboTierPatch!
+  marketId: Int!
+  tierCode: Tier!
+}
+
 """The output of our update `EvidenceItem` mutation."""
 type UpdateEvidenceItemPayload {
   """
@@ -21607,6 +21927,65 @@ input DeleteCompanyOperationInput {
   id: Int!
 }
 
+"""The output of our delete `DoceboTier` mutation."""
+type DeleteDoceboTierPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DoceboTier` that was deleted by this mutation."""
+  doceboTier: DoceboTier
+  deletedDoceboTierNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DoceboTier`. May be used by Relay 1."""
+  doceboTierEdge(
+    """The method to use when ordering `DoceboTier`."""
+    orderBy: [DoceboTiersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DoceboTiersEdge
+}
+
+"""All input for the `deleteDoceboTierByNodeId` mutation."""
+input DeleteDoceboTierByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DoceboTier` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteDoceboTier` mutation."""
+input DeleteDoceboTierInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""All input for the `deleteDoceboTierByMarketIdAndTierCode` mutation."""
+input DeleteDoceboTierByMarketIdAndTierCodeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  marketId: Int!
+  tierCode: Tier!
+}
+
 """The output of our delete `EvidenceItem` mutation."""
 type DeleteEvidenceItemPayload {
   """
@@ -22686,6 +23065,24 @@ input DoceboCertification {
   code: String
   title: String
   toNewIn: String
+}
+
+type UpdateDoceboTiersByMarketResult {
+  id: Int
+  docebo_catalogue_id: Int
+  market_id: Int
+  tier_code: Tier
+}
+
+input UpdateDoceboTiersByMarketInput {
+  marketId: Int
+  T1: Int
+  T2: Int
+  T3: Int
+  T4: Int
+  T5: Int
+  T6: Int
+  T7: Int
 }
 
 """
