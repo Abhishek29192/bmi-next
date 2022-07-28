@@ -6,7 +6,7 @@ import { generateHashFromString, generateUrl } from "@bmi/utils";
 const getBrandCode = (
   categories: PimSystem["categories"]
 ): string | undefined => {
-  return categories.find(({ categoryType }) => {
+  return categories?.find(({ categoryType }) => {
     return categoryType === "Brand";
   })?.code;
 };
