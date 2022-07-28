@@ -22,7 +22,7 @@ describe("removeIrrelevantFilters function", () => {
       }
     ];
     const aggregations: Aggregations = {
-      colourfamily: {
+      "appearanceAttributes.colourfamily": {
         buckets: [
           { key: "colour1", doc_count: 1 },
           { key: "bar", doc_count: 1 }
@@ -63,22 +63,30 @@ describe("removeIrrelevantFilters function", () => {
     expect(updatedFilters).toEqual(result);
   });
 
-  it("should filter with the default category filter name", () => {
+  //TODO: DXB-3449 - remove when case agnostic to be reverted!
+  it("should filter ignoring case of filter name", () => {
     const filters: Filter[] = [
       {
+        name: "appearanceAttributes.colour",
+        filterCode: "colour",
         label: "Colour",
         options: [{ label: "1", value: "colour1" }]
-      } as unknown as Filter
+      }
     ];
     const aggregations: Aggregations = {
-      allCategories: {
+      "APPEARANCEATTRIBUTES.COLOUR": {
         buckets: [{ key: "colour1", doc_count: 1 }]
       }
     };
 
     const updatedFilters = removeIrrelevantFilters(filters, aggregations);
     const result = [
-      { label: "Colour", options: [{ label: "1", value: "colour1" }] }
+      {
+        name: "appearanceAttributes.colour",
+        filterCode: "colour",
+        label: "Colour",
+        options: [{ label: "1", value: "colour1" }]
+      }
     ];
 
     expect(updatedFilters).toEqual(result);
@@ -156,33 +164,74 @@ describe("compileElasticSearchQuery function", () => {
   ];
 
   it("should ignore filters with no value", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -230,96 +279,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
-                },
-              },
-              Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
-                },
-              },
-            ],
-          },
-        },
-        "size": 10,
-        "sort": Array [
-          "_score",
-          Object {
-            "productScoringWeightInt": "desc",
-          },
-          Object {
-            "variantScoringWeightInt": "desc",
-          },
-          Object {
-            "name.keyword": "asc",
-          },
-        ],
-      }
-    `);
-  });
-
-  it("should ignore filters with no searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10);
-
-    expect(query).toMatchInlineSnapshot(`
-      Object {
-        "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
-            "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
-            },
-          },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
-            "terms": Object {
-              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
-            },
-          },
-          "unique_base_products_count": Object {
-            "cardinality": Object {
-              "field": "code.keyword",
-            },
-          },
-        },
-        "collapse": Object {
-          "field": "code.keyword",
-          "inner_hits": Object {
-            "name": "all_variants",
-          },
-        },
-        "from": 0,
-        "query": Object {
-          "bool": Object {
-            "must": Array [
-              Object {
                 "terms": Object {
-                  "allCategories.code.keyword": Array [
-                    "foo",
+                  "BAR.code.keyword": Array [
+                    "BAR",
                   ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
-                },
-              },
-              Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -343,33 +313,214 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should ignore filters with no categoryCode", () => {
-    const query = compileElasticSearchQuery(filters, [], 0, 10);
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "unique_base_products_count": Object {
+            "cardinality": Object {
+              "field": "code.keyword",
+            },
+          },
+        },
+        "collapse": Object {
+          "field": "code.keyword",
+          "inner_hits": Object {
+            "name": "all_variants",
+          },
+        },
+        "from": 0,
+        "query": Object {
+          "bool": Object {
+            "must": Array [
+              Object {
+                "query_string": Object {
+                  "escape": true,
+                  "fields": Array [
+                    "externalProductCode",
+                    "name^5",
+                    "summary",
+                    "description",
+                    "longDescription",
+                    "shortDescription",
+                    "APPEARANCEATTRIBUTES.COLOURFAMILY.name.keyword",
+                    "GENERALINFORMATION.MATERIALS.name.keyword",
+                    "APPEARANCEATTRIBUTES.TEXTUREFAMILY.name.keyword",
+                    "measurementValue.keyword",
+                    "allCategories.value.keyword",
+                    "classifications.features.featureValues.value^6",
+                  ],
+                  "query": "*bar*",
+                  "type": "cross_fields",
+                },
+              },
+              Object {
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
+                },
+              },
+              Object {
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        "size": 10,
+        "sort": Array [
+          "_score",
+          Object {
+            "productScoringWeightInt": "desc",
+          },
+          Object {
+            "variantScoringWeightInt": "desc",
+          },
+          Object {
+            "name.keyword": "asc",
+          },
+        ],
+      }
+    `);
+  });
+
+  it("should ignore filters with no searchQuery", () => {
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10
+    });
+
+    expect(query).toMatchInlineSnapshot(`
+      Object {
+        "aggs": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
+            "terms": Object {
+              "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
+            "terms": Object {
+              "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -390,17 +541,23 @@ describe("compileElasticSearchQuery function", () => {
             "must": Array [
               Object {
                 "terms": Object {
-                  "allCategories.code.keyword": Array [],
+                  "allCategories.code.keyword": Array [
+                    "foo",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -424,33 +581,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform slash in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar/");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar/"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -498,13 +696,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -528,33 +730,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform @ in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar@");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar@"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -602,13 +845,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -632,33 +879,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform ampersand in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar&");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar&"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -706,13 +994,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -736,33 +1028,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform degree symbol in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar°");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar°"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -810,13 +1143,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -840,33 +1177,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform plus in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar+");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar+"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -914,13 +1292,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -944,33 +1326,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform superscript characters in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar²");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar²"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -1018,13 +1441,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -1048,33 +1475,74 @@ describe("compileElasticSearchQuery function", () => {
   });
 
   it("should transform smaller characters in searchQuery", () => {
-    const query = compileElasticSearchQuery(filters, ["foo"], 0, 10, "bar<");
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      categoryCodes: ["foo"],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar<"
+    });
 
     expect(query).toMatchInlineSnapshot(`
       Object {
         "aggs": Object {
-          "allCategories": Object {
-            "terms": Object {
-              "field": "allCategories.code.keyword",
-              "size": "100",
-            },
-          },
-          "colourfamily": Object {
+          "APPEARANCEATTRIBUTES.COLOURFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.COLOURFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
             },
           },
-          "materials": Object {
-            "terms": Object {
-              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
-              "size": "100",
-            },
-          },
-          "texturefamily": Object {
+          "APPEARANCEATTRIBUTES.TEXTUREFAMILY": Object {
             "terms": Object {
               "field": "APPEARANCEATTRIBUTES.TEXTUREFAMILY.code.keyword",
-              "size": "100",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "BRAND": Object {
+            "terms": Object {
+              "field": "BRAND.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "CATEGORY": Object {
+            "terms": Object {
+              "field": "CATEGORY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "GENERALINFORMATION.MATERIALS": Object {
+            "terms": Object {
+              "field": "GENERALINFORMATION.MATERIALS.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTFAMILY": Object {
+            "terms": Object {
+              "field": "PRODUCTFAMILY.code.keyword",
+              "include": undefined,
+              "size": "300",
+            },
+          },
+          "PRODUCTLINE": Object {
+            "terms": Object {
+              "field": "PRODUCTLINE.code.keyword",
+              "include": undefined,
+              "size": "300",
             },
           },
           "unique_base_products_count": Object {
@@ -1122,13 +1590,17 @@ describe("compileElasticSearchQuery function", () => {
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "BAR",
+                "terms": Object {
+                  "BAR.code.keyword": Array [
+                    "BAR",
+                  ],
                 },
               },
               Object {
-                "term": Object {
-                  "allCategories.code.keyword": "Colour",
+                "terms": Object {
+                  "COLOUR.code.keyword": Array [
+                    "Colour",
+                  ],
                 },
               },
             ],
@@ -1147,6 +1619,62 @@ describe("compileElasticSearchQuery function", () => {
             "name.keyword": "asc",
           },
         ],
+      }
+    `);
+  });
+
+  it("should group by base product code if group by variant is false", () => {
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      filters,
+      groupByVariant: false,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar"
+    });
+
+    expect(query.collapse).toMatchInlineSnapshot(`
+      Object {
+        "field": "baseProduct.code.keyword",
+        "inner_hits": Object {
+          "name": "all_variants",
+        },
+      }
+    `);
+  });
+
+  it("should group by variant product code if group by variant is true", () => {
+    const query = compileElasticSearchQuery({
+      allowFilterBy: [
+        "ProductFamily",
+        "ProductLine",
+        "Brand",
+        "appearanceAttributes.colourFamily",
+        "generalInformation.materials",
+        "appearanceAttributes.textureFamily",
+        "Category"
+      ],
+      filters,
+      groupByVariant: true,
+      page: 0,
+      pageSize: 10,
+      searchQuery: "bar"
+    });
+
+    expect(query.collapse).toMatchInlineSnapshot(`
+      Object {
+        "field": "code.keyword",
+        "inner_hits": Object {
+          "name": "all_variants",
+        },
       }
     `);
   });

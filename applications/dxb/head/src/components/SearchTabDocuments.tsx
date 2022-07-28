@@ -1,24 +1,29 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Grid } from "@bmi/components";
-import { DownloadList, DownloadListContext } from "@bmi/components";
+import {
+  DownloadList,
+  DownloadListContext,
+  Filter,
+  Grid
+} from "@bmi/components";
+import React, { useEffect, useRef, useState } from "react";
 import FiltersSidebar from "../components/FiltersSidebar";
+import { microCopy } from "../constants/microCopies";
+import { useConfig } from "../contexts/ConfigProvider";
+import { devLog } from "../utils/devLog";
+import {
+  Aggregations,
+  disableFiltersFromAggregations,
+  getCountQuery,
+  getDocumentQueryObject,
+  queryElasticSearch
+} from "../utils/elasticSearch";
 import {
   clearFilterValues,
   sortAlphabeticallyBy,
   updateFilterValue
 } from "../utils/filters";
-import {
-  queryElasticSearch,
-  disableFiltersFromAggregations,
-  getCountQuery,
-  getDocumentQueryObject
-} from "../utils/elasticSearch";
-import { devLog } from "../utils/devLog";
-import { microCopy } from "../constants/microCopies";
-import { useConfig } from "../contexts/ConfigProvider";
+import DocumentResultsFooter from "./DocumentResultsFooter";
 import DocumentSimpleTableResults from "./DocumentSimpleTableResults";
 import { useSiteContext } from "./Site";
-import DocumentResultsFooter from "./DocumentResultsFooter";
 
 const PAGE_SIZE = 24;
 const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
@@ -26,10 +31,10 @@ const ES_INDEX_NAME = process.env.GATSBY_ES_INDEX_NAME_DOCUMENTS;
 // Creates filters from aggregations
 // Requires contentful asset types for the localised labels
 const getPagesFilters = (
-  aggregations: any,
+  aggregations: Aggregations,
   allContentfulAssetType: ReadonlyArray<{ name: string; pimCode: string }>,
   getMicroCopy
-) => {
+): Filter[] => {
   const findLabel = (key) =>
     (allContentfulAssetType || []).find(({ pimCode }) => pimCode === key)?.name;
 
@@ -38,7 +43,8 @@ const getPagesFilters = (
       label: getMicroCopy(
         microCopy.SEARCH_FILTERS_DOCUMENTS_DOCUMENT_ASSET_TYPE
       ),
-      name: "document-asset-type",
+      filterCode: "assetTypes",
+      name: "assetTypes",
       value: [],
       options: aggregations.assetTypes.buckets
         .sort(sortAlphabeticallyBy("key"))
