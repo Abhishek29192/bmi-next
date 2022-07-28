@@ -65,6 +65,12 @@ Array [
         "name": "10 mm",
       },
     ],
+    "MEASUREMENTS.THICKNESS": Array [
+      Object {
+        "code": "codemm",
+        "name": "40 mm",
+      },
+    ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
@@ -277,6 +283,21 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
+              },
+            ],
+            "name": "name",
+          },
+          Object {
+            "code": "bmiClassificationCatalog/1.0/measurements.thickness",
+            "featureUnit": Object {
+              "name": "millimeter",
+              "symbol": "mm",
+              "unitType": "space",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "40",
               },
             ],
             "name": "name",
@@ -630,6 +651,12 @@ Array [
         "name": "10 mm",
       },
     ],
+    "MEASUREMENTS.THICKNESS": Array [
+      Object {
+        "code": "codemm",
+        "name": "40 mm",
+      },
+    ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
@@ -787,6 +814,21 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
+              },
+            ],
+            "name": "name",
+          },
+          Object {
+            "code": "bmiClassificationCatalog/1.0/measurements.thickness",
+            "featureUnit": Object {
+              "name": "millimeter",
+              "symbol": "mm",
+              "unitType": "space",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "40",
               },
             ],
             "name": "name",
@@ -1024,6 +1066,12 @@ Array [
         "name": "10 mm",
       },
     ],
+    "MEASUREMENTS.THICKNESS": Array [
+      Object {
+        "code": "codemm",
+        "name": "40 mm",
+      },
+    ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
@@ -1228,6 +1276,21 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
+              },
+            ],
+            "name": "name",
+          },
+          Object {
+            "code": "bmiClassificationCatalog/1.0/measurements.thickness",
+            "featureUnit": Object {
+              "name": "millimeter",
+              "symbol": "mm",
+              "unitType": "space",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "40",
               },
             ],
             "name": "name",
@@ -1320,6 +1383,12 @@ Array [
         "name": "10 mm",
       },
     ],
+    "MEASUREMENTS.THICKNESS": Array [
+      Object {
+        "code": "codemm",
+        "name": "40 mm",
+      },
+    ],
     "MEASUREMENTS.WIDTH": Array [
       Object {
         "code": "codemm",
@@ -1524,6 +1593,21 @@ Array [
               Object {
                 "code": "code",
                 "value": "30",
+              },
+            ],
+            "name": "name",
+          },
+          Object {
+            "code": "bmiClassificationCatalog/1.0/measurements.thickness",
+            "featureUnit": Object {
+              "name": "millimeter",
+              "symbol": "mm",
+              "unitType": "space",
+            },
+            "featureValues": Array [
+              Object {
+                "code": "code",
+                "value": "40",
               },
             ],
             "name": "name",

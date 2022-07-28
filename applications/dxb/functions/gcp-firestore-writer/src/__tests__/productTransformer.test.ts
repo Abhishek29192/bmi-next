@@ -906,7 +906,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8symbol",
+            "label": "6x7x8x9symbol",
             "length": Object {
               "unit": "symbol",
               "value": "6",
@@ -1895,7 +1895,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8symbol",
+            "label": "6x7x8x9symbol",
             "length": Object {
               "unit": "symbol",
               "value": "6",
@@ -2778,7 +2778,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8symbol",
+            "label": "6x7x8x9symbol",
             "length": Object {
               "unit": "symbol",
               "value": "6",
@@ -2813,7 +2813,7 @@ describe("transformProduct", () => {
                   "unit": "symbol",
                   "value": "8",
                 },
-                "label": "6x7x8symbol",
+                "label": "6x7x8x9symbol",
                 "length": Object {
                   "unit": "symbol",
                   "value": "6",
@@ -3683,7 +3683,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8symbol",
+            "label": "6x7x8x9symbol",
             "length": Object {
               "unit": "symbol",
               "value": "6",
@@ -3718,7 +3718,7 @@ describe("transformProduct", () => {
                   "unit": "symbol",
                   "value": "8",
                 },
-                "label": "6x7x8symbol",
+                "label": "6x7x8x9symbol",
                 "length": Object {
                   "unit": "symbol",
                   "value": "6",
@@ -5247,7 +5247,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("3x4x5");
+    expect(transformedProducts[0].measurements.label).toEqual("3x4x5x6");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
     expect(transformedProducts[0].measurements.height!.unit).toEqual("");
@@ -5342,7 +5342,7 @@ describe("transformProduct", () => {
       ]
     });
     const transformedProducts = await transformProduct(product);
-    expect(transformedProducts[0].measurements.label).toEqual("3x4x5");
+    expect(transformedProducts[0].measurements.label).toEqual("3x4x5x6");
     expect(transformedProducts[0].measurements.length!.unit).toEqual("");
     expect(transformedProducts[0].measurements.width!.unit).toEqual("");
     expect(transformedProducts[0].measurements.height!.unit).toEqual("");
@@ -5568,7 +5568,7 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
-    ).toEqual("13x14x15");
+    ).toEqual("13x14x15x16");
     expect(
       transformedProducts[0].relatedVariants[0].measurements.length!.unit
     ).toEqual("");
@@ -5731,7 +5731,7 @@ describe("transformProduct", () => {
     const transformedProducts = await transformProduct(product);
     expect(
       transformedProducts[0].relatedVariants[0].measurements.label
-    ).toEqual("13x14x15");
+    ).toEqual("13x14x15x16");
     expect(
       transformedProducts[0].relatedVariants[0].measurements.length!.unit
     ).toEqual("");
@@ -5747,6 +5747,122 @@ describe("transformProduct", () => {
     expect(
       transformedProducts[0].relatedVariants[0].measurements.volume!.unit
     ).toEqual("");
+  });
+
+  it("creates measurements label without length", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.height",
+              featureValues: [createFeatureValue({ value: "3" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.thickness",
+              featureValues: [createFeatureValue({ value: "4" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].measurements.label).toEqual("2x3x4cm");
+  });
+
+  it("creates measurements label without width", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.height",
+              featureValues: [createFeatureValue({ value: "3" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.thickness",
+              featureValues: [createFeatureValue({ value: "4" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].measurements.label).toEqual("1x3x4cm");
+  });
+
+  it("creates measurements label without height", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.thickness",
+              featureValues: [createFeatureValue({ value: "4" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].measurements.label).toEqual("1x2x4cm");
+  });
+
+  it("creates measurements label without thickness", async () => {
+    const product = createProduct({
+      classifications: [
+        createClassification({
+          code: "measurements",
+          features: [
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.length",
+              featureValues: [createFeatureValue({ value: "1" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.width",
+              featureValues: [createFeatureValue({ value: "2" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            }),
+            createFeature({
+              code: "bmiClassificationCatalog/1.0/measurements.height",
+              featureValues: [createFeatureValue({ value: "3" })],
+              featureUnit: createFeatureUnit({ symbol: "cm" })
+            })
+          ]
+        })
+      ]
+    });
+    const transformedProducts = await transformProduct(product);
+    expect(transformedProducts[0].measurements.label).toEqual("1x2x3cm");
   });
 
   it("creates path from variant attribute if variant attrubite present and ENABLE_PDP_VARIANT_ATTRIBUTE_URL is true", async () => {
@@ -7038,7 +7154,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "3",
             },
-            "label": "1x2x3symbol",
+            "label": "1x2x3x4symbol",
             "length": Object {
               "unit": "symbol",
               "value": "1",
@@ -8032,7 +8148,7 @@ describe("transformProduct", () => {
               "unit": "symbol",
               "value": "8",
             },
-            "label": "6x7x8symbol",
+            "label": "6x7x8x9symbol",
             "length": Object {
               "unit": "symbol",
               "value": "6",

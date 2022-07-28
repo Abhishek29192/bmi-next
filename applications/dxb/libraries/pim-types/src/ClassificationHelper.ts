@@ -101,6 +101,15 @@ export const createMeasurementsClassification = (
           symbol: "mm",
           unitType: "space"
         })
+      }),
+      createFeature({
+        code: `${PIM_CLASSIFICATION_CATALOGUE_NAMESPACE}/measurements.thickness`,
+        featureValues: [createFeatureValue({ value: "40" })],
+        featureUnit: createFeatureUnit({
+          name: "millimeter",
+          symbol: "mm",
+          unitType: "space"
+        })
       })
     ],
     ...classification,
