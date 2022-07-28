@@ -66,7 +66,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: ["asset-type-1"]
+      assetTypes___NODE: ["asset-type-1"],
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -97,7 +98,12 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "ProductFamily", "appearanceAttributes.texturefamily"]
+      [
+        "AssetType",
+        "Brand",
+        "ProductFamily",
+        "appearanceAttributes.texturefamily"
+      ]
     );
     expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockFindAll).not.toHaveBeenCalled();
@@ -162,6 +168,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         context
       },
       [
+        "AssetType",
         "Brand",
         "ProductFamily",
         "appearanceAttributes.texturefamily",
@@ -198,7 +205,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -325,7 +333,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -356,7 +365,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -420,7 +429,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortPimDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -452,7 +461,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: ["asset-type-1"]
+      assetTypes___NODE: ["asset-type-1"],
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -483,7 +493,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["AssetType", "Brand"]
     );
     expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockFindAll).not.toHaveBeenCalled();
@@ -547,7 +557,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["AssetType", "Brand"]
     );
     expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -579,7 +589,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -610,7 +621,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -674,7 +685,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortCmsDocuments).toHaveBeenCalledWith([document]);
     expect(mockGetNodeById).not.toHaveBeenCalled();
@@ -706,7 +717,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -847,7 +859,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: ["asset-type-1"]
+      assetTypes___NODE: ["asset-type-1"],
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -883,7 +896,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["AssetType", "Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -891,7 +904,12 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      [
+        "AssetType",
+        "Brand",
+        "ProductFamily",
+        "appearanceAttributes.texturefamily"
+      ]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -976,7 +994,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["AssetType", "Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -984,7 +1002,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["appearanceAttributes.colour"]
+      [
+        "AssetType",
+        "Brand",
+        "ProductFamily",
+        "appearanceAttributes.texturefamily",
+        "appearanceAttributes.colour"
+      ]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1088,7 +1112,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["AssetType", "Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1096,7 +1120,13 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["appearanceAttributes.colour"]
+      [
+        "AssetType",
+        "Brand",
+        "ProductFamily",
+        "appearanceAttributes.texturefamily",
+        "appearanceAttributes.colour"
+      ]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1144,7 +1174,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -1180,7 +1211,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1188,7 +1219,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand", "ProductFamily"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1273,7 +1304,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1281,7 +1312,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1385,7 +1416,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1393,7 +1424,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand", "ProductFamily", "appearanceAttributes.colour"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1441,7 +1472,8 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
       children: null,
       parent: null,
       internal: null,
-      assetTypes___NODE: null
+      assetTypes___NODE: null,
+      allowFilterBy: null
     };
 
     const documentsWithFilters =
@@ -1477,7 +1509,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1485,7 +1517,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1570,7 +1602,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1578,7 +1610,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1682,7 +1714,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      ["Brand", "AssetType"]
+      ["Brand"]
     );
     expect(mockResolveDocumentsFromProducts).toHaveBeenCalledWith(
       [assetType],
@@ -1690,7 +1722,7 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
         source,
         context
       },
-      []
+      ["Brand"]
     );
     expect(mockSortAllDocuments).toHaveBeenCalledWith(
       [contentfulDocument, productDocument],
@@ -1699,108 +1731,5 @@ describe("ContentfulDocumentLibraryPage resolver", () => {
     expect(mockGetNodeById).not.toHaveBeenCalled();
     expect(mockSortPimDocuments).not.toHaveBeenCalled();
     expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should return empty array for invalid source with asset types by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-
-    const source: ContentfulDocumentLibraryPageType = {
-      id: "source",
-      resultsType: "Card Collection",
-      source: "INVALID",
-      children: null,
-      parent: null,
-      internal: null,
-      assetTypes___NODE: ["asset-type-1"]
-    };
-
-    const documentWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
-        source,
-        null,
-        context
-      );
-
-    expect(documentWithFilters).toEqual({ documents: [], filters: [] });
-    expect(mockGetNodeById).toHaveBeenCalledWith({
-      id: "asset-type-1",
-      type: "ContentfulAssetType"
-    });
-    expect(mockFindAll).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should return empty array for invalid source without allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-
-    const source: ContentfulDocumentLibraryPageType = {
-      id: "source",
-      resultsType: "Card Collection",
-      source: "INVALID",
-      children: null,
-      parent: null,
-      internal: null,
-      assetTypes___NODE: null
-    };
-
-    const documentWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
-        source,
-        null,
-        context
-      );
-
-    expect(documentWithFilters).toEqual({ documents: [], filters: [] });
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
-  });
-
-  it("should return empty array for invalid source with allow filter by on the source provided", async () => {
-    const assetType = { id: "asset-type-1" };
-    mockFindAll.mockResolvedValueOnce({ entries: [assetType] });
-
-    const source: ContentfulDocumentLibraryPageType = {
-      id: "source",
-      resultsType: "Card Collection",
-      source: "INVALID",
-      children: null,
-      parent: null,
-      internal: null,
-      assetTypes___NODE: null,
-      allowFilterBy: ["appearanceAttributes.colour"]
-    };
-
-    const documentWithFilters =
-      await ContentfulDocumentLibraryPage.documentsWithFilters.resolve(
-        source,
-        null,
-        context
-      );
-
-    expect(documentWithFilters).toEqual({ documents: [], filters: [] });
-    expect(mockFindAll).toHaveBeenCalledWith(
-      { query: {}, type: "ContentfulAssetType" },
-      { connectionType: "ContentfulAssetType" }
-    );
-    expect(mockGetNodeById).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromProducts).not.toHaveBeenCalled();
-    expect(mockResolveDocumentsFromContentful).not.toHaveBeenCalled();
-    expect(mockSortPimDocuments).not.toHaveBeenCalled();
-    expect(mockSortCmsDocuments).not.toHaveBeenCalled();
-    expect(mockSortAllDocuments).not.toHaveBeenCalled();
   });
 });

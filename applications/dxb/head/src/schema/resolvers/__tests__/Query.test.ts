@@ -172,7 +172,10 @@ describe("Query resolver", () => {
     describe("when GATSBY_USE_LEGACY_FILTERS = false", () => {
       it("should resolve plp filters with product categories", async () => {
         process.env.GATSBY_USE_LEGACY_FILTERS = "false";
-        const filters = { allowFilterBy: ["PRODUCT_NO"], filters: [] };
+        const filters = {
+          allowFilterBy: ["Category | PRODUCT_NO"],
+          filters: []
+        };
         getPlpFilters = jest.fn().mockReturnValue([]);
         context.nodeModel.findAll = jest
           .fn()
@@ -195,7 +198,7 @@ describe("Query resolver", () => {
         );
 
         expect(getPlpFilters).toHaveBeenCalledWith({
-          allowedFilters: ["PRODUCT_NO"],
+          allowedFilters: ["Category | PRODUCT_NO"],
           products: [
             {
               categories: [],

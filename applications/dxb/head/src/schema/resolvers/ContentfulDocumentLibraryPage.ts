@@ -3,7 +3,11 @@ import {
   ContentfulAssetType,
   ContentfulDocumentLibraryPage
 } from "./types/Contentful";
-import { DocumentsWithFilters } from "./types/DocumentsWithFilters";
+import {
+  ContentfulDocumentsWithFilters,
+  DocumentsWithFilters,
+  ProductDocumentsWithFilters
+} from "./types/DocumentsWithFilters";
 import { Context, Node, ResolveArgs } from "./types/Gatsby";
 import {
   sortAllDocuments,
@@ -15,16 +19,17 @@ import {
   resolveDocumentsFromProducts
 } from "./utils/documents";
 
-const getDocumentsWithFilters = async (
+const getProductDocuments = async (
   source: ContentfulDocumentLibraryPage,
   context: Context,
   assetTypes: ContentfulAssetType[]
-): Promise<DocumentsWithFilters> => {
-  if (source.source === "PIM") {
+): Promise<ProductDocumentsWithFilters> => {
+  if (source.source === "PIM" || source.source === "ALL") {
     let allowFilterBy = (source.allowFilterBy || []) as string[];
     switch (source.resultsType) {
       case "Simple":
         allowFilterBy = [
+          "AssetType",
           "Brand",
           "ProductFamily",
           "appearanceAttributes.texturefamily",
@@ -35,7 +40,7 @@ const getDocumentsWithFilters = async (
         allowFilterBy = ["Brand", "ProductFamily", ...allowFilterBy];
         break;
       default:
-        allowFilterBy = [];
+        allowFilterBy = ["Brand"];
     }
 
     const pimDocuments = await resolveDocumentsFromProducts(
@@ -48,21 +53,28 @@ const getDocumentsWithFilters = async (
     );
     return {
       filters: pimDocuments.filters,
-      documents: sortPimDocuments(pimDocuments.documents)
+      documents: pimDocuments.documents
     };
   }
+  return {
+    filters: [],
+    documents: []
+  };
+};
 
-  if (source.source === "CMS") {
+const getContentfulDocuments = async (
+  source: ContentfulDocumentLibraryPage,
+  context: Context,
+  assetTypes: ContentfulAssetType[]
+): Promise<ContentfulDocumentsWithFilters> => {
+  if (source.source === "CMS" || source.source === "ALL") {
     let allowFilterBy: string[];
     switch (source.resultsType) {
-      case "Card Collection":
-        allowFilterBy = ["Brand"];
-        break;
       case "Simple":
-        allowFilterBy = ["Brand", "AssetType"];
+        allowFilterBy = ["AssetType", "Brand"];
         break;
       default:
-        allowFilterBy = [];
+        allowFilterBy = ["Brand"];
     }
     const cmsDocuments = await resolveDocumentsFromContentful(
       assetTypes,
@@ -72,69 +84,82 @@ const getDocumentsWithFilters = async (
 
     return {
       filters: cmsDocuments.filters,
-      documents: sortCmsDocuments(cmsDocuments.documents)
+      documents: cmsDocuments.documents
     };
   }
+  return {
+    filters: [],
+    documents: []
+  };
+};
 
-  if (source.source === "ALL") {
-    let allowFilterBy = (source.allowFilterBy || []) as string[];
+const getDocumentsWithFilters = async (
+  source: ContentfulDocumentLibraryPage,
+  context: Context,
+  assetTypes: ContentfulAssetType[]
+): Promise<DocumentsWithFilters> => {
+  const pimDocumentsWithFilters = await getProductDocuments(
+    source,
+    context,
+    assetTypes
+  );
 
-    if (source.resultsType !== "Simple") {
-      allowFilterBy = [];
-    }
-
-    const cmsDocuments = await resolveDocumentsFromContentful(
-      assetTypes,
-      {
-        source,
-        context
-      },
-      ["Brand", "AssetType"]
-    );
-    const pimDocuments = await resolveDocumentsFromProducts(
-      assetTypes,
-      {
-        source,
-        context
-      },
-      allowFilterBy
-    );
-
-    const allDocs = [...cmsDocuments.documents, ...pimDocuments.documents];
-
-    //TODO: merge "Brand" filter and de-duplicate its options
-    // currently in PROD no duplication is done for Brand filters
-    const allFilters = [...pimDocuments.filters, ...cmsDocuments.filters];
-    const mergedFilters = allFilters.reduce<ProductFilter[]>(
-      (allFilters, currFilter) => {
-        const existingFilter = allFilters.find(
-          (filter) => filter.filterCode === currFilter.filterCode
-        );
-        if (existingFilter) {
-          currFilter.options.forEach((currOption) => {
-            const matchingOption = existingFilter.options.find(
-              (option) =>
-                option.label === currOption.label &&
-                option.value === currOption.value
-            );
-            if (!matchingOption) {
-              existingFilter.options.push(currOption);
-            }
-          });
-        } else {
-          allFilters.push(currFilter);
-        }
-        return allFilters;
-      },
-      [] as ProductFilter[]
-    );
+  if (source.source === "PIM") {
     return {
-      filters: mergedFilters,
-      documents: sortAllDocuments(allDocs, assetTypes)
+      filters: pimDocumentsWithFilters.filters,
+      documents: sortPimDocuments(pimDocumentsWithFilters.documents)
     };
   }
 
-  return { filters: [], documents: [] };
+  const cmsDocumentsWithFilters = await getContentfulDocuments(
+    source,
+    context,
+    assetTypes
+  );
+
+  if (source.source === "CMS") {
+    return {
+      filters: cmsDocumentsWithFilters.filters,
+      documents: sortCmsDocuments(cmsDocumentsWithFilters.documents)
+    };
+  }
+
+  const allDocs = [
+    ...cmsDocumentsWithFilters.documents,
+    ...pimDocumentsWithFilters.documents
+  ];
+
+  const allFilters = [
+    ...pimDocumentsWithFilters.filters,
+    ...cmsDocumentsWithFilters.filters
+  ];
+  const mergedFilters = allFilters.reduce<ProductFilter[]>(
+    (allFilters, currFilter) => {
+      const existingFilter = allFilters.find(
+        (filter) => filter.filterCode === currFilter.filterCode
+      );
+      if (existingFilter) {
+        currFilter.options.forEach((currOption) => {
+          const matchingOption = existingFilter.options.find(
+            (option) =>
+              option.label === currOption.label &&
+              option.value === currOption.value
+          );
+          if (!matchingOption) {
+            existingFilter.options.push(currOption);
+          }
+        });
+      } else {
+        allFilters.push(currFilter);
+      }
+      return allFilters;
+    },
+    [] as ProductFilter[]
+  );
+  return {
+    filters: mergedFilters,
+    documents: sortAllDocuments(allDocs, assetTypes)
+  };
 };
 
 export default {

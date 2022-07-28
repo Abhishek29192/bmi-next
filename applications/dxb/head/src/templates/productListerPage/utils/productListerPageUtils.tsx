@@ -32,15 +32,16 @@ export const resolveFilters = (filters: readonly Filter[]) => {
     });
 };
 
+const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
+
 export const renderProducts = (
   products: EsProduct[],
   pageContext: PageContextType,
   countryCode: string,
   getMicroCopy: SiteContext["getMicroCopy"],
   filters: Filter[]
-) => {
-  const GTMOverviewCard = withGTM<OverviewCardProps>(OverviewCard);
-  return products.flatMap((variant) => {
+) =>
+  products.flatMap((variant) => {
     const brandLogoCode = variant.brandCode;
     // eslint-disable-next-line security/detect-object-injection
     const brandLogo = iconMap[brandLogoCode];
@@ -99,4 +100,3 @@ export const renderProducts = (
       </Grid>
     );
   });
-};

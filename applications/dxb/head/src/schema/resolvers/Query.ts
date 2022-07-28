@@ -143,7 +143,7 @@ export default {
           );
           if (categoryGroupCodes && categoryGroupCodes.length) {
             categoryGroupCodes.forEach((categoryCode) =>
-              allowFilterByLocal.push(`${categoryCode}`)
+              allowFilterByLocal.push(`Category | ${categoryCode}`)
             );
           }
         }

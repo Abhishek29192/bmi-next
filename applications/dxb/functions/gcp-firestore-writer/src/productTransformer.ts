@@ -245,7 +245,7 @@ export const transformProduct = (product: PimProduct): Product[] => {
           height,
           thickness,
           volume,
-          label: getSizeLabel(length, width, height)
+          label: getSizeLabel(length, width, height, thickness)
         },
         name,
         path: `/p/${generateProductUrl(
@@ -569,7 +569,7 @@ const mapRelatedVariants = (
           height,
           thickness,
           volume,
-          label: getSizeLabel(length, width, height)
+          label: getSizeLabel(length, width, height, thickness)
         },
         path: `/p/${generateProductUrl(
           name,
@@ -613,9 +613,12 @@ const mapProductDocuments = (product: PimProduct): ProductDocument[] =>
 const getSizeLabel = (
   length?: UnitValue,
   width?: UnitValue,
-  height?: UnitValue
+  height?: UnitValue,
+  thickness?: UnitValue
 ) => {
-  const measurementValues = [length, width, height].filter(isDefined);
+  const measurementValues = [length, width, height, thickness].filter(
+    isDefined
+  );
   if (measurementValues.length === 0) {
     return "";
   }
