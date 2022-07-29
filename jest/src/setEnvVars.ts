@@ -83,3 +83,4 @@ process.env.CONTENTFUL_ENVIRONMENT = "environment_1";
 
 process.env.DEFAULT_VALUES_REQUEST = "some secret";
 process.env.MARKET_LOCALES = JSON.stringify({ uk: ["en-GB"] });
+process.env.LOCALE = "en-US";

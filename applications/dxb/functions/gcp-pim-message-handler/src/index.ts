@@ -11,8 +11,12 @@ import type { HttpFunction } from "@google-cloud/functions-framework/build/src/f
 import { PubSub, Topic } from "@google-cloud/pubsub";
 import fetch from "node-fetch";
 
-const { TRANSITIONAL_TOPIC_NAME, GCP_PROJECT_ID, BUILD_TRIGGER_ENDPOINT } =
-  process.env;
+const {
+  TRANSITIONAL_TOPIC_NAME,
+  GCP_PROJECT_ID,
+  BUILD_TRIGGER_ENDPOINT,
+  LOCALE
+} = process.env;
 
 // TODO: NOPE HACK!
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
@@ -66,7 +70,8 @@ async function* getProductsFromMessage(
     const messageResponse = await getProductsByMessageId(
       messageId,
       token,
-      currentPage
+      currentPage,
+      LOCALE!
     );
 
     logger.info({
@@ -106,7 +111,8 @@ async function* getSystemsFromMessage(
     const messageResponse = await getSystemsByMessageId(
       messageId,
       token,
-      currentPage
+      currentPage,
+      LOCALE!
     );
 
     logger.info({
@@ -159,6 +165,11 @@ export const handleRequest: HttpFunction = async (req, res) => {
 
   if (!TRANSITIONAL_TOPIC_NAME) {
     logger.error({ message: "TRANSITIONAL_TOPIC_NAME has not been set." });
+    return res.sendStatus(500);
+  }
+
+  if (!LOCALE) {
+    logger.error({ message: "LOCALE has not been set." });
     return res.sendStatus(500);
   }
 
