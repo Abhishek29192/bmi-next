@@ -1,30 +1,32 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { useTranslation } from "next-i18next";
-import { Grid } from "@bmi/components";
-import { Form } from "@bmi/components";
-import { Dialog } from "@bmi/components";
-import { Typography } from "@bmi/components";
-import { TextField } from "@bmi/components";
-import { Select, SelectMenuItem } from "@bmi/components";
-import { AlertBanner } from "@bmi/components";
 import { gql } from "@apollo/client";
+import {
+  AlertBanner,
+  Dialog,
+  Form,
+  Grid,
+  Select,
+  SelectMenuItem,
+  TextField,
+  Typography
+} from "@bmi/components";
+import { useTranslation } from "next-i18next";
+import React, { useCallback, useMemo, useState } from "react";
 import { useMarketContext } from "../../context/MarketContext";
+import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
+import { GetCompanyQuery } from "../../graphql/generated/operations";
+import { BUSINESS_TYPES } from "../../lib/constants";
+import AccessControl from "../../lib/permissions/AccessControl";
+import { getNestedValue, spreadObjectKeys } from "../../lib/utils/object";
 import {
   validateEmailInput,
   validatePhoneNumberInput,
   validateUrlInput
 } from "../../lib/validations/utils";
-import AccessControl from "../../lib/permissions/AccessControl";
-import { GetCompanyQuery } from "../../graphql/generated/operations";
-import { BUSINESS_TYPES } from "../../lib/constants";
-import { spreadObjectKeys } from "../../lib/utils/object";
 import { InfoPair } from "../InfoPair";
 import { ProfilePictureUpload } from "../ProfilePictureUpload";
-import { getNestedValue } from "../../lib/utils/object";
-import { useGetTierBenefitQuery } from "../../graphql/generated/hooks";
+import { SetCompanyOperations } from "./SetCompanyOperations";
 import { SetTradingAddress } from "./SetTradingAddress";
 import styles from "./styles.module.scss";
-import { SetCompanyOperations } from "./SetCompanyOperations";
 
 export type OnCompanyUpdateSuccess = (
   company: GetCompanyQuery["company"]
@@ -40,6 +42,7 @@ export type SetCompanyDetailsDialogProps = {
   errorMessage?: string;
   mapsApiKey: string;
 };
+export const MAX_FILE_SIZE = 3;
 
 export const SetCompanyDetailsDialog = ({
   title,
@@ -61,7 +64,6 @@ export const SetCompanyDetailsDialog = ({
   const [fileValidationMessage, setFileValidationMessage] = useState("");
 
   // You cannot upload files larger than <MAX_FILE_SIZE> MB (It's megabyte)
-  const MAX_FILE_SIZE = 3;
 
   const onValidationException = (restriction: boolean, message: string) => {
     setFileSizeRestriction(restriction);
@@ -74,7 +76,7 @@ export const SetCompanyDetailsDialog = ({
 
     onValidationException(false, "");
 
-    if (file?.size > MAX_FILE_SIZE * (1024 * 1024)) {
+    if (file.size > MAX_FILE_SIZE * (1024 * 1024)) {
       onValidationException(
         true,
         `${t(
@@ -85,12 +87,21 @@ export const SetCompanyDetailsDialog = ({
   };
 
   const operations = useMemo(() => {
-    return company?.companyOperationsByCompany?.nodes || [];
+    return company?.companyOperationsByCompany.nodes || [];
   }, [company]);
 
   const tierBenefits = useMemo(() => {
     return getTierBenefit?.tierBenefitCollection.items || [];
   }, [getTierBenefit]);
+
+  const tierName = useMemo(() => {
+    const tierBenefit = getTierBenefit?.tierBenefitCollection.items.find(
+      ({ tier: tierBenefit }) => {
+        return tierBenefit === company?.tier;
+      }
+    );
+    return tierBenefit?.name || null;
+  }, [getTierBenefit, company?.tier]);
 
   const handleSubmit = useCallback(
     (event, values) => {
@@ -219,11 +230,11 @@ export const SetCompanyDetailsDialog = ({
                 action="editTier"
                 dataModel="company"
                 fallbackView={
-                  company?.tier ? (
+                  tierName ? (
                     <InfoPair
                       title={t("company-page:edit_dialog.form.fields.tier")}
                     >
-                      {t(`common:tier.${company.tier}`)}
+                      {tierName}
                     </InfoPair>
                   ) : null
                 }

@@ -1,12 +1,17 @@
 import React from "react";
 import { Header } from "../";
 import { renderAsDeep, screen, fireEvent, act } from "../../../lib/tests/utils";
+import { generateTierBenefitItem } from "../../../lib/tests/factories/contentful/tierBenefitCollection";
 
+const useGetTierBenefitQuerySpy = jest.fn();
 const updateNotificationsSpy = jest.fn();
 jest.mock("../../../graphql/generated/hooks", () => ({
   useMarkAllNotificationsAsReadMutation: ({ onCompleted, onError }) => [
     () => updateNotificationsSpy({ onCompleted, onError })
-  ]
+  ],
+  useGetTierBenefitQuery: () => ({
+    data: useGetTierBenefitQuerySpy()
+  })
 }));
 const logSpy = jest.fn();
 jest.mock("../../../lib/logger", () => {
@@ -50,6 +55,17 @@ describe("Header Component", () => {
       label: "global-external-link",
       isExternal: false
     }
+  });
+
+  beforeEach(() => {
+    useGetTierBenefitQuerySpy.mockImplementation(() => ({
+      tierBenefitCollection: {
+        items: [
+          generateTierBenefitItem({ tier: "T1" }),
+          generateTierBenefitItem({ name: "tier benefit T2", tier: "T2" })
+        ]
+      }
+    }));
   });
 
   it("normal case", () => {

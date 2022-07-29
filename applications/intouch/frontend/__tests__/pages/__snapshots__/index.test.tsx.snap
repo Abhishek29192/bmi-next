@@ -248,9 +248,7 @@ exports[`homepage render correctly 1`] = `
                 />
                 <h3
                   class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
-                >
-                  tier.T2
-                </h3>
+                />
               </div>
               <div
                 class="lowerHeaderNav"

@@ -187,9 +187,7 @@ exports[`ErrorView component renders correctly with title 1`] = `
                 />
                 <h3
                   class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
-                >
-                  tier.T1
-                </h3>
+                />
               </div>
               <div
                 class="lowerHeaderNav"
@@ -500,9 +498,7 @@ exports[`ErrorView component renders correctly with title and message 1`] = `
                 />
                 <h3
                   class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
-                >
-                  tier.T1
-                </h3>
+                />
               </div>
               <div
                 class="lowerHeaderNav"
@@ -819,9 +815,7 @@ exports[`ErrorView component renders correctly without title 1`] = `
                 />
                 <h3
                   class="MuiTypography-root lowerHeaderUserLevel Typography MuiTypography-h3"
-                >
-                  tier.T1
-                </h3>
+                />
               </div>
               <div
                 class="lowerHeaderNav"
