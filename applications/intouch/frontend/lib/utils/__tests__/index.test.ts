@@ -1,4 +1,4 @@
-import { sortArrayByField, getFileExtension } from "../";
+import { sortArrayByField, getFileExtension, getOneTrustToken } from "../";
 
 describe("sortArrayByField utility", () => {
   it("should return sorted array", () => {
@@ -48,5 +48,20 @@ describe("getFileExtension", () => {
 
     expect(name).toBe(filename);
     expect(extension).toBe(filename);
+  });
+});
+
+describe("getOneTrustToken", () => {
+  it("should return empty value", () => {
+    const res = getOneTrustToken('{"en": ""}', "en");
+    expect(res).toBeNull();
+  });
+  it("should return false. Object is empty", () => {
+    const res = getOneTrustToken("", "en");
+    expect(res).toBeFalsy();
+  });
+  it("should return false. Object is not defined", () => {
+    const res = getOneTrustToken(null, "en");
+    expect(res).toBeFalsy();
   });
 });
