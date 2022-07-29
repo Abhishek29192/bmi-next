@@ -54,10 +54,11 @@ export const canSeeTeam = (account) => {
 };
 
 export const canSeeMediaLibrary = (account) => {
-  return (
-    ["T2", "T3", "T4"].includes(findAccountTier(account)) ||
-    isSuperOrMarketAdmin(account)
-  );
+  return findAccountTier(account) !== "T1" || isSuperOrMarketAdmin(account);
+};
+
+export const canSeePartnerBrandsCarousel = (account) => {
+  return findAccountTier(account) !== "T1" || isSuperOrMarketAdmin(account);
 };
 
 // TODO: Is there any way to type this more specifically??? The extraData in particular.
@@ -331,7 +332,8 @@ export const gates = {
       COMPANY_ADMIN: true,
       INSTALLER: true,
       AUDITOR: false
-    }
+    },
+    partnerBrandsCarousel: canSeePartnerBrandsCarousel
   }
 };
 

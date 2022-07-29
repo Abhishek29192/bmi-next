@@ -101,8 +101,8 @@ exports[`SetCompanyDetailsDialog component render normally 1`] = `
                   class="MuiFormControl-root MuiTextField-root TextField input MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled Mui-required Mui-required"
+                    data-shrink="true"
                   >
                     edit_dialog.form.fields.name
                     <span
@@ -122,14 +122,14 @@ exports[`SetCompanyDetailsDialog component render normally 1`] = `
                       name="name"
                       required=""
                       type="text"
-                      value=""
+                      value="Company 1"
                     />
                     <fieldset
                       aria-hidden="true"
                       class="PrivateNotchedOutline-root-21 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-23"
+                        class="PrivateNotchedOutline-legendLabelled-23 PrivateNotchedOutline-legendNotched-24"
                       >
                         <span>
                           edit_dialog.form.fields.name
@@ -490,6 +490,20 @@ exports[`SetCompanyDetailsDialog component render normally 1`] = `
                   <p
                     class="MuiFormHelperText-root MuiFormHelperText-contained Mui-required"
                   />
+                </div>
+                <div
+                  style="margin-bottom: 1.5rem;"
+                >
+                  <h6
+                    class="MuiTypography-root Typography MuiTypography-h6"
+                  >
+                    edit_dialog.form.fields.tier
+                  </h6>
+                  <div
+                    class="MuiTypography-root Typography MuiTypography-body1"
+                  >
+                    tier benefit name
+                  </div>
                 </div>
               </div>
             </div>
@@ -1027,20 +1041,6 @@ exports[`SetCompanyDetailsDialog component render normally 1`] = `
             <div
               class="ButtonWrapper"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiButton-label buttonStyles-label-4"
-                >
-                  edit_dialog.form.actions.cancel
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
               <button
                 class="MuiButtonBase-root MuiButton-root buttonStyles-root-1 MuiButton-contained buttonStyles-contained-3 Button MuiButton-containedPrimary Mui-disabled Mui-disabled"
                 disabled=""

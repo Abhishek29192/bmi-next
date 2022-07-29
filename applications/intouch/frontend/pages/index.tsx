@@ -99,9 +99,6 @@ const Homepage = ({
   });
   const pageTitle = getPageTitle(account);
   const company = findAccountCompany(account);
-  const canSeePartnerBrandsCarousel = ["T2", "T3", "T4"].includes(
-    company?.tier
-  );
 
   const getCta = (
     ctaName: string,
@@ -153,9 +150,9 @@ const Homepage = ({
           heroes={heroItems}
         />
       )}
-      {canSeePartnerBrandsCarousel && (
+      <AccessControl dataModel="home" action="partnerBrandsCarousel">
         <PartnerBrand marketContent={marketContent} />
-      )}
+      </AccessControl>
       <FeedHolder marketContent={marketContent} tierBenefit={tierBenefit} />
       {company?.id && (
         <NewProjectDialog
