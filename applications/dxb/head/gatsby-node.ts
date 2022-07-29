@@ -84,7 +84,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions
 }) => {
-  const { createPage, createRedirect } = actions;
+  const { createRedirect, createPage } = actions;
 
   const componentMap = {
     ContentfulSimplePage: path.resolve(
@@ -143,7 +143,15 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   } = result;
 
-  for (const site of sites) {
+  const site = sites.find(
+    (s) => s.countryCode === process.env.SPACE_MARKET_CODE
+  );
+
+  if (!site) {
+    throw new Error(
+      `No site found with space market code : ${process.env.SPACE_MARKET_CODE}`
+    );
+  } else {
     // TODO: This is temporary until we'll have the path inside ES.
     const variantCodeToPathMap =
       process.env.GATSBY_USE_SIMPLE_PDP_URL_STRUCTURE === "false"
