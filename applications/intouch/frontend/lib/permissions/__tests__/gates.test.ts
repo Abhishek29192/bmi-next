@@ -2,7 +2,8 @@ import gates, {
   isCompanyMember,
   canSeeProjects,
   canSeeTeam,
-  canSeeMediaLibrary
+  canSeeMediaLibrary,
+  canSeePartnerBrandsCarousel
 } from "../gates";
 import { generateAccount } from "../../../lib/tests/factories/account";
 import { ROLES } from "../../../lib/constants";
@@ -210,6 +211,50 @@ describe("permissions/gates", () => {
       const account = generateAccount({ role: ROLES.INSTALLER });
 
       expect(canSeeMediaLibrary(account)).toBe(false);
+    });
+  });
+
+  describe("canSeePartnerBrandsCarousel", () => {
+    it("company tier T1", () => {
+      const account = generateAccount({ hasCompany: true, companyTier: "T1" });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(false);
+    });
+
+    it("company tier not = T1", () => {
+      const account = generateAccount({ hasCompany: true, companyTier: "T2" });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(true);
+    });
+
+    it("has no company", () => {
+      const account = generateAccount({ hasCompany: false });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(false);
+    });
+
+    it("role is SUPER_ADMIN", () => {
+      const account = generateAccount({ role: ROLES.SUPER_ADMIN });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(true);
+    });
+
+    it("role is MARKET_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.MARKET_ADMIN });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(true);
+    });
+
+    it("role is COMPANY_ADMIN ", () => {
+      const account = generateAccount({ role: ROLES.COMPANY_ADMIN });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(false);
+    });
+
+    it("role is INSTALLER ", () => {
+      const account = generateAccount({ role: ROLES.INSTALLER });
+
+      expect(canSeePartnerBrandsCarousel(account)).toBe(false);
     });
   });
 
@@ -1126,6 +1171,12 @@ describe("permissions/gates", () => {
       it("role is AUDITOR ", () => {
         expect(gates.home.CTA_CUSTOM[ROLES.AUDITOR]).toBe(false);
       });
+    });
+
+    it("partnerBrandsCarousel", () => {
+      expect(gates.home.partnerBrandsCarousel).toEqual(
+        canSeePartnerBrandsCarousel
+      );
     });
   });
 });
