@@ -324,3 +324,9 @@
     :why: Our own project
     :versions: []
     :when: 2022-07-12 15:28:38.269758000 Z
+- - :approve
+  - "@bmi/fetch-retry"
+  - :who: Benjamin Sproule
+    :why: Our own project
+    :versions: []
+    :when: 2022-07-19 14:27:28.820368000 Z
