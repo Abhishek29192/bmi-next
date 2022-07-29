@@ -99,21 +99,21 @@ const recaptchaContent_TR: RecaptchaPolicyContentType = {
 };
 
 const recaptchaContent_ES: RecaptchaPolicyContentType = {
-  startText: "Este sitio web está protegido por reCAPTCHA y Google ",
+  startText: "Este sitio está protegido por reCAPTCHA y se aplican la ",
   privacyPloicyText: "Política de privacidad",
-  andText: " y ",
-  termsOfServiceText: "Términos de servicio",
-  endText: " aplicar.",
+  andText: " y los",
+  termsOfServiceText: "Términos",
+  endText: " y condiciones de Google.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=es",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=es"
 };
 
 const recaptchaContent_PT: RecaptchaPolicyContentType = {
-  startText: "Este site é protegido pelo reCAPTCHA e a ",
+  startText: "Este site está protegido por reCAPTCHA e aplicada a ",
   privacyPloicyText: "Política de Privacidade",
   andText: " e os ",
-  termsOfServiceText: "Termos de Serviço",
-  endText: " do Google se aplicam.",
+  termsOfServiceText: "Termos",
+  endText: " e condições de Google.",
   privacyPolicyUrl: "https://policies.google.com/privacy?hl=pt",
   termsOfServiceUrl: "https://policies.google.com/terms?hl=pt"
 };
