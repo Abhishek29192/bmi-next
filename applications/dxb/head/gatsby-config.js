@@ -398,18 +398,27 @@ const config = {
         }
       }
     },
-    ...contentfulCredentialData.map(
-      ({ spaceId, accessToken, environment }) => ({
+    ...contentfulCredentialData.map(({ spaceId, accessToken, environment }) => {
+      let options = {
+        spaceId,
+        accessToken,
+        environment,
+        host: process.env.CONTENT_API_HOST || "cdn.contentful.com",
+        enableTags: true
+      };
+      if (process.env.GATSBY_MARKET_LOCALE_CODE) {
+        options = {
+          ...options,
+          localeFilter: (locale) =>
+            locale.code === process.env.GATSBY_MARKET_LOCALE_CODE,
+          pageLimit: process.env.GATSBY_SOURCE_CONTENTFUL_PAGE_LIMIT || 100
+        };
+      }
+      return {
         resolve: `gatsby-source-contentful`,
-        options: {
-          spaceId,
-          accessToken,
-          environment,
-          host: process.env.CONTENT_API_HOST || "cdn.contentful.com",
-          enableTags: true
-        }
-      })
-    ),
+        options
+      };
+    }),
     ...(process.env.DISABLE_PIM_DATA === "true"
       ? []
       : [
