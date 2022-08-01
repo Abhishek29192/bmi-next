@@ -4894,6 +4894,7 @@ export const GetProjectsDocument = gql`
         buildingOwnerLastname
         buildingOwnerCompany
         buildingOwnerMail
+        hidden
         siteAddress {
           town
           postcode

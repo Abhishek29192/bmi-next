@@ -118,7 +118,8 @@
       "MY_QUEUE": "Assegnato",
       "NOT_STARTED": "Non iniziato",
       "PITCHED": "Falda",
-      "UNASSIGNED": "Non assegna"
+      "UNASSIGNED": "Non assegna",
+      "ARCHIVED": "Archiviato"
     }
   },
   "guarantee": {

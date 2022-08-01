@@ -118,7 +118,8 @@
       "MY_QUEUE": "Mi cola",
       "NOT_STARTED": "No empezado",
       "PITCHED": "Inclinado",
-      "UNASSIGNED": "Sin asignar"
+      "UNASSIGNED": "Sin asignar",
+      "ARCHIVED": "¿Archivado"
     }
   },
   "guarantee": {
