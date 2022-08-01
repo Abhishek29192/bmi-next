@@ -66,10 +66,12 @@ const GTMButton = withGTM<
 const isLinkDocument = (document: Document): boolean =>
   "isLinkDocument" in document && document.isLinkDocument;
 
+const getUniqueId = (document: Document): string =>
+  `${document.id}-${document.title}`.replace(/ /g, "_");
+
 const getDocument = (document: Document, headers: AvailableHeader[]) => {
   const { getMicroCopy } = useSiteContext();
-  const { __typename, id, title } = document;
-  const uniqueId = `${id}-${title}`.replace(/ /g, "_");
+  const { __typename } = document;
   return headers.map((header) => {
     const key = `${__typename}-body-${header}`;
 
@@ -148,7 +150,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
           {!isLinkDocument(document) ? (
             <DownloadList.Checkbox
-              name={uniqueId}
+              name={getUniqueId(document)}
               maxLimitReachedLabel={getMicroCopy(
                 microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
               )}
@@ -165,7 +167,7 @@ const getDocument = (document: Document, headers: AvailableHeader[]) => {
       ) : (
         <Table.Cell className={styles["table-cell"]} align="center" key={key}>
           <DownloadList.Checkbox
-            name={uniqueId}
+            name={getUniqueId(document)}
             maxLimitReachedLabel={getMicroCopy(
               microCopy.DOCUMENTS_DOWNLOAD_MAX_REACHED
             )}
@@ -414,17 +416,17 @@ const DocumentSimpleTableResults = ({
             if (!document) {
               return;
             }
-            const { id, __typename } = document;
+            const { __typename } = document;
 
             return (
               <Table.Row
                 key={`${__typename}-${index}`}
                 className={classnames(styles["row"], {
                   // eslint-disable-next-line security/detect-object-injection
-                  [styles["row--checked"]]: !!list[id]
+                  [styles["row--checked"]]: !!list[getUniqueId(document)]
                 })}
                 // eslint-disable-next-line security/detect-object-injection
-                selected={!!list[id]}
+                selected={!!list[getUniqueId(document)]}
               >
                 {getDocument(document, headers)}
               </Table.Row>
