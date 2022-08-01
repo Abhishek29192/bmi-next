@@ -304,7 +304,32 @@ export const microCopy = {
     "results.alerts.quantities.reset.button",
 
   RESULTS_EDITED_PRODUCTS_TITLE: "results.edited.products.title",
-  PDF_REPORT_EXTRAS_SECTION_TITLE: "pdf.report.extras.section.title"
+  PDF_REPORT_EXTRAS_SECTION_TITLE: "pdf.report.extras.section.title",
+
+  FILTER_LABELS_ASSET_TYPE: "filterLabels.assetType",
+
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_TILE_ROOFS:
+    "findARoofer.filters.pitchedRoofTileRoofs",
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_ROOF_COASTERS:
+    "findARoofer.filters.pitchedRoofRoofCoaters",
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF_BITUMEN_ROOFS:
+    "findARoofer.filters.pitchedRoofBitumenRoofs",
+
+  SEARCH_TITLESUR: "search.titlesur",
+
+  FIND_A_ROOFER_FILTERS_PICHED_ROOF: "findARoofer.filters.pitchedRoof",
+  PDP_FILTER_LABELS_ASSET_TYPE: "pdp.filterLabels.assetType",
+  FILTER_LABELS_MATERIALS: "filterLabels.materials",
+  FILTER_LABELS_BRAND: "filterLabels.brand",
+  FILTER_LABELS_PRODUCT_LINE: "filterLabels.productLine",
+  FILTER_LABELS_TEXTURE_FAMILY: "filterLabels.textureFamily",
+  FILTER_LABELS_COLOUR: "filterLabels.colour",
+  FILTER_LABELS_PRODUCT_FAMILY: "filterLabels.productFamily",
+
+  FIND_A_ROOFER_FILTERS_FLAT_ROOF: "findARoofer.filters.flatRoof",
+  UPLOAD_SUPPORTED_FORMATS: "upload.supportedFormats",
+  SEARCH_PLACEHOLDER: "search.placeholder",
+  FILTER_LABELS_TEXTUREFAMILY: "filterLabels.textureFamily"
 } as const;
 
 export type MicroCopyObj = typeof microCopy;
